@@ -1,0 +1,39 @@
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" style="height: 30px;"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li class="active">选择申报事项</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="left-box">
+            <div class="inputBox inputDiv" style="top: 90px; padding-bottom: 5px;">
+                <input ng-model="matterVal" type="text" style="width:300px" placeholder="请输入事项名称" />
+                <a class="btn_radius_50" style="right:20px;top:18px;" ng-click="getSearchMatter()">
+                    <div class="greyLight" style="padding: 10px;">
+                        <img src="images/search.png" height="26" width="27"/>
+                    </div>
+                </a>
+                <div class="tips">中英文切换：请按 Ctrl+Shift(↑) 键</div>
+            </div>
+            <div class="left-menu left-matter" style="position: relative; width: 80%; margin-left: 9%;">
+                <div class="sub-index" style="height: 600px; overflow-x: auto; overflow-y: scroll; position: absolute;right: -17px; padding-right:5px; width: 100%;">
+            		<a class="blue-green" ng-class="{'active':active==null}" ng-click="getAllMtter()">全部事项</a>
+                    <a class="blue-green" ng-class="{'active':$index==active}" ng-click="getMatter(item.organCode,$index)" ng-repeat="item in organList">{{item.organName}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="panelList two">
+            <a class="left" ng-click="previousPage()"><img src="images/left.png" width="30" /></a>
+            <a class="right" ng-click="nextPage()"><img src="images/right.png" width="30" /></a>
+            <div ng-click="getMatterDetail(item.stItemName,item.placeCode,item.organName,item.stItemNo,item.stItemTenNo)" ng-repeat="item in itemList">
+            	<div class="menu-div">{{item.itemName}}</div>
+            </div>
+            <span>{{currentPage}}/{{totalPages}}</span>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,82 @@
+<style>
+    .layoutBank .item {
+        margin: 0 auto;
+        margin-top: 20px;
+        height: 100%;
+        width: 100%;
+    }
+
+    .layoutBank .item>img {
+        height: 700px;
+    }
+
+    .layoutBank .item.zxjf {
+        float: left;
+        text-align: center;
+        margin-top: 50px;
+        height: 200px;
+        width: 400px;
+    }
+
+    .layoutBank .item.zxjf>img {
+        height: 120px;
+    }
+
+    .large {
+        position: absolute;
+        text-align: center;
+        top: 50px;
+        z-index: 19;
+        height: 900px;
+        width: 100%;
+        left: 50%;
+        margin-left: -50%;
+    }
+
+    .large .close {
+        display: block;
+        position: absolute;
+        color: red;
+        font-size: 40px;
+        height: 50px;
+        width: 150px;
+        right: 310px;
+        top: 0px;
+    }
+
+    .large img {
+        user-select: none;
+        height: 100%;
+    }
+    .large p{
+    	font-size: 30px;
+    	color: #fff;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;">
+                <img src="../../../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">银行服务</a>
+        </li>
+        <li class="active">工商银行</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="layoutBank">
+        <div class="item" ng-click="imgShow(item.img,item.tips)" ng-class="detailCode" ng-repeat="item in detailData">
+            <img ng-src="{{item.img}}" alt="">
+            <p>{{item.tips}}</p>
+        </div>
+    </div>
+</div>
+<div class="large" ng-if="!closeFlag" ng-click="imgShow()">
+    <span class="close" ng-click="imgShow()">X</span>
+    <img ng-src="{{largeImg}}" alt="">
+    <p>{{largeTips}}</p>
+</div>
+<div class="mask" ng-click="imgShow()" ng-class="{'show':closeFlag===false}"></div>

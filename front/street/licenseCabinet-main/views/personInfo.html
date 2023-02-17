@@ -1,0 +1,41 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助放证</a>
+        </li>
+        <li>
+            <a href="javascript:;">办事人员操作</a>
+        </li>
+        <li class="active">确认个人信息</li>
+    </ol>
+</nav>
+<div class="shadowBox staffPutLicenseConfirm">
+    <p class="boldTips">个人信息</p>
+    <table class="licenseInfoTable" >
+        <tr>
+            <td>姓名</td>
+            <td>{{name||'空'}}</td>
+        </tr>
+        <tr>
+            <td>身份证号码</td>
+            <td>{{(idcard|hideTel:4)||''}}</td>
+        </tr>
+        <tr>
+            <td>手机号</td>
+            <td>{{(mobile|hideTel:4)||''}}</td>
+        </tr>
+    </table>
+    <div class="btn" ng-click="reScan()">
+        <img class="eventIcon" src="images/icon/back.png" alt="">
+        <span class="event">重新验证</span>
+    </div>
+    <div class="btn" ng-click="Continue()">
+        <img class="eventIcon" src="images/icon/ok.png" alt="">
+        <span class="event">&nbsp;&nbsp;&nbsp;&nbsp;继续</span>
+    </div>
+</div>

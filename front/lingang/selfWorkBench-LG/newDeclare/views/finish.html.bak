@@ -1,0 +1,152 @@
+ <style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		.camera{
+			width: 1000px;
+			height: 600px;
+			background: url(../libs/common/images/bg-content.png) no-repeat;
+			background-size: 100% 100%;
+			margin-top: 110px;
+		}
+		.camera div img {
+			margin-top: 250px;
+			float: right;
+			margin-right: 50px;
+		}
+		.info{
+			position: absolute;
+			top: 66px;
+			left: 1000px;
+		}
+		.info .title {
+			margin: 10px 15px 0;
+			text-align: left;
+			font-size: 30px;
+		}
+		.imgBox{
+			overflow: auto;
+			width: 700px;
+			height: 500px;
+		}
+		.img {
+			display: inline-block;
+			position: relative;
+			margin-bottom: 30px;
+			margin-right: 10px;
+		}
+		
+		.del {
+			position: absolute;
+			bottom: -16px;
+			left: 38%;
+			margin: 0;
+			padding: 5px 15px;
+			background: rgba(0, 0, 0, 0.6);
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.test {
+			position: fixed;
+			left: 90px;
+			top: 340px;
+			width: 700px;
+			height: 480px;
+			border: 1px solid red;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		.camera{
+			width: 800px;
+			height: 700px;
+			background: url(../libs/common/images/bg-content.png) no-repeat;
+			background-size: 100% 100%;
+			margin-top: 20px;
+			position: relative;
+		}
+		.camera div img {
+			position: absolute;
+			bottom: 50px;
+			left: 42%;
+		}
+		.info{
+			position: absolute;
+			top: 15px;
+			left: 800px;
+		}
+		.info .title {
+			margin: 10px 15px 0;
+			text-align: left;
+			font-size: 30px;
+		}
+		.imgBox{
+			overflow: auto;
+			width: 480px;
+			height: 640px;
+		}
+		.img {
+			display: inline-block;
+			position: relative;
+			margin-bottom: 30px;
+			margin-right: 10px;
+		}
+		
+		.del {
+			position: absolute;
+			bottom: -16px;
+			left: 38%;
+			margin: 0;
+			padding: 5px 15px;
+			background: rgba(0, 0, 0, 0.6);
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.test {
+			position: fixed;
+			left: 50px;
+			top: 250px;
+			width: 700px;
+			height: 480px;
+			border: 1px solid red;
+		}
+	}
+</style>
+ <div class="test"></div>
+ <div>
+	 <div class="headBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>人证核验</li>
+			<li class="act">在线填报</li>
+		</ul>
+	</div> 
+	<div class="main2">
+		<div class="camera">
+			<div>
+				<img ng-click="next()" src="../libs/common/images/icon/camera.png"/>
+			</div>
+		</div>
+		<div class="info">
+			<div class="title">已上传图片：</div>
+			<div class="imgBox">
+			</div>
+		</div>
+		
+	</div>
+	<!--<div class="btnBox1 clearfloat">
+		<a ng-click="last()" class="Prev">上一步</a>
+		<a class="next"  ng-click="finishUpload()" style="margin-left: 120px;" ng-show="isFinish">完成</a>
+	</div>-->
+
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="{{isFinish}}" 
+		prev="last()"
+		next="finishUpload()">
+	</apptb-footer>
+</div>

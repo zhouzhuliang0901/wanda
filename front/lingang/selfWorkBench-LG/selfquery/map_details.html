@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立式查询系统</title>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/map_detail.css"/>
+</head>
+<body>
+<div class="con-box">
+    <p id="timeMark"></p>
+    <header class="header">
+        <div class="hd-title"></div>
+    </header>
+    <section class="section">
+        <div class="map_title">
+            <span class="map-t map-t-change " id="firstFloorMsg">一楼大厅</span>
+            <!--<span class="map-t" id="secondFloorMsg">北区大厅</span>-->
+        </div>
+        <!--<div class="map_btn">
+            <span class="in_one" id="selectFloor">进入北区</span>
+            <span class="btn enlarge" ><img id="zoomInButton" src="images/map_btn2.png" alt=""/></span>
+            <span class="btn narrow" ><img id="zoomOutButton" src="images/map_btn3.png" alt=""/></span>
+        </div>-->
+        <div class="map_main">
+           <div class="map_main_f">
+                <img src="images/map_1f.png"  class="map" id="floorImg"/>
+           </div>
+            <ul class="map_list map_one" id="firstFloor">
+                 <script id="firstFloorWindowList" type="text/html">
+                    {{each firstFloor}}
+                       <li>{{$value.name}}</li>
+                     {{/each}}
+                </script>
+                 <script id="secondFloorWindowList" type="text/html">
+                    {{each secondFloor}}
+                       <li>{{$value.name}}</li>
+                     {{/each}}
+                </script>    
+            </ul>
+        </div>
+        <div class="map_inf">
+    		<div class="map_bg_fix"></div>
+        	<p class="box_tittle">上海临港企业行政服务中心简介</p>
+        	<div class="box_line"></div>
+
+            <p class="address">地址 : 环湖西二路811号</p>
+            <p class="time">
+                接待时间：周一至周五
+                <br/>&nbsp;&nbsp;&nbsp;（上午08:30 ——11:30）
+                <br/>&nbsp;&nbsp;&nbsp;（下午13:30 ——16:30）
+                <!--<br/>联系电话：69989554-->
+            </p>
+           <p class="traffic">
+                     接待时间（夏令时）：周一到周五
+                <br/>&nbsp;&nbsp;&nbsp;（上午08:30 ——11:30）
+                <br/>&nbsp;&nbsp;&nbsp;（下午14:00 ——16:30）
+                <!--<br/>联系电话：69989554-->
+            </p>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="btn-back" onclick="back()"><img src="images/back2_03.png" /></div>
+    </footer>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/e-smart-zoom-jquery.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/template.js"></script>
+<script>
+// 楼层标志
+var imgFlag = "1f";
+// 一楼信息
+var firstFloorData = "";
+// 二楼信息
+var secondFloorData = "";
+// 三楼信息
+$(function(){
+      // 页面倒计时
+      timeCount (70);
+      
+      // 初始化窗口信息
+      initWindowData();
+       
+      // 放大和缩小
+      $('.map').smartZoom({
+          'containerClass' : 'zoomableContainer'
+      }); 
+
+      // 放大缩小   
+      $('#zoomInButton,#zoomOutButton').bind("click", zoomButtonClickHandler);
+      function zoomButtonClickHandler(e) {
+          var scaleToAdd = 0.3;
+          if (e.target.id == 'zoomOutButton')
+              scaleToAdd = -scaleToAdd;
+          $('.map').smartZoom('zoom', scaleToAdd);
+      }
+    
+    // 选择楼层
+    $("#selectFloor").click(function(){
+        $(".map-t").removeClass('map-t-change');
+        if (imgFlag == "1f") {
+            imgFlag = "2f";
+            $("#selectFloor").html("进入南区");
+            $("#secondFloorMsg").addClass('map-t-change');
+            $("#floorImg").attr("src", "images/map_2f.png");
+            $("#firstFloor").html(secondFloorData);
+        } else if (imgFlag == "2f") {
+            imgFlag = "1f";
+            $("#firstFloorMsg").addClass('map-t-change');
+            $("#floorImg").attr("src", "images/map_1f.png");
+            $("#selectFloor").html("进入北区");
+            $("#firstFloor").html(firstFloorData);
+        } 
+    });
+});
+
+    // 初始化窗口信息
+    function initWindowData() {
+	    var dataroot="data/window_details.json"; 
+		$.getJSON(
+		  dataroot, 
+		  function(data){ 
+              // 显示窗口信息
+              firstFloorData = template('firstFloorWindowList',data);
+              secondFloorData = template('secondFloorWindowList',data);
+              $("#firstFloor").html(firstFloorData);
+		}); 
+    }
+
+      // 返回
+    function back(){
+        // 页面跳转
+        window.location.href="index.html";
+    }
+ </script>
+</body>
+</html>

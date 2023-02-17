@@ -1,0 +1,54 @@
+<div class="contain">
+	<div class="stable">
+		<div class="my-card">
+			<div class="head">
+				<h4>试算结果</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>公积金可贷款额度（元）：</th>
+						<td>{{queryList.accFund}}</td>
+						<th>补充公积金可用额度（元）：</th>
+						<td>{{queryList.accFundSupply}}</td>
+					</tr>
+					<tr>
+						<th>总贷款额度（元）：</th>
+						<td>{{queryList.accSum}}</td>
+						<th>可贷年限范围（年）：</th>
+						<td>{{queryList.accYear}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.close {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 845px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 20px;
+		left: 895px;
+	}
+	.table-sty1 th{
+		width: 30%;
+	}
+</style>

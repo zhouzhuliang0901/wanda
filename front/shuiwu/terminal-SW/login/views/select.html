@@ -1,0 +1,71 @@
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#list">自助申报</a></li>
+        <li><a href="#">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li class="">注意事项</li>
+        <li class="active">选择身份验证方式</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请选择选择身份验证方式</div>
+            <div class="sub-index">
+                <!--<a class="blue-green active" href="#materialUpload">返回材料列表</a>-->
+            </div>
+        </div>
+    </div>
+    <!--选择 个人/法人 登录-->
+    <div class="action" ng-show="identitySelect">
+        <div class="btn_radius_50 upload-btn" ng-click="Individual()" style="top:160px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>个人登录</label>
+            </div>
+        </div>
+        <div class="btn_radius_50 upload-btn" ng-click="legalPerson()" style="top:425px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>法人登录</label>
+            </div>
+        </div>
+    </div>
+    <div class="action" ng-show="identitySelect2">
+        <div class="btn_radius_50 upload-btn" ng-click="legalPerson()" style="top:255px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>法人登录</label>
+            </div>
+        </div>
+    </div>
+    <!--个人登录-->
+    <div class="action" ng-show="modeSelect">
+        <div class="btn_radius_50 upload-btn" ng-click="scanIdcard()" style="top:160px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>身份证扫描</label>
+            </div>
+        </div>
+        <div class="btn_radius_50 upload-btn" ng-click="citizen()" style="top:425px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>随申办二维码</label>
+            </div>
+        </div>
+    </div>
+    
+    <!--法人登录-->
+    <div class="action" ng-show="legalPersonSelect">
+        <div class="btn_radius_50 upload-btn" ng-click="key()" style="top:160px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>Ukey登录</label>
+            </div>
+        </div>
+        <div class="btn_radius_50 upload-btn" ng-click="goCitizen()" style="top:425px; left: 265px;">
+            <div class="greyLight" style="padding: 70px;">
+                <label>随申办亮证</label>
+            </div>
+        </div>
+        
+    </div>
+</div>

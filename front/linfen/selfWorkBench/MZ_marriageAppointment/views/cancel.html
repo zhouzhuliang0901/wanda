@@ -1,0 +1,109 @@
+<style type="text/css"> 
+    .caption {
+            margin-top: 80px;
+            margin-left: 200px;
+        }
+        #wrapper {
+            width: 1750px;
+            height: 650px;
+        }
+        
+        .main2 {
+            height: 650px;
+            margin-top: 20px;
+        }
+        
+        .input1::-webkit-input-placeholder {
+            color: #C5C5C5;
+        }
+        
+        .input1:-ms-input-placeholder {
+            color: #C5C5C5;
+        }
+        
+        @media screen and (max-width: 1600px) {
+            .caption {
+                margin-left: 150px;
+            }
+            .tabelBox1 .dl1 .lt1 {
+                width: 10%;
+            }
+            .tabelBox1 .dl1 .lt3 {
+                width: 12%;
+            }
+            .tabelBox1 .dl1 .rt2 {
+                width: 18%;
+            }
+            .tabelBox1 .dl1 .rt11 {
+                width: 16%;
+            }
+        }
+    
+    </style>
+    <p class="caption">{{funName}}</p>
+    <div class="main2" style="height: 675px;">
+        <div class="scrollBox2 clearfloat">
+            <div id="wrapper">
+                <div class="tabelBox1" style="width: 1705px;height: 635px;padding-top: 35px;">
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6" style="margin-left: 50px;">
+                            <span style="width: 200px;">男方证件号码：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" placeholder="请填写男方预约登记时证件号码" type="text" id="manNumber" ng-model="manNumber" style="width:145%;height: 80px; margin-left: 200px;">
+                        </dd>
+                    </dl>    
+                    <dl class="dl1 clearfloat" style="margin-top: 25px;">
+                        <dd class="lt1 lt6" style="margin-left: 50px;">
+                            <span style="width: 200px;">女方证件号码：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" placeholder="请填写女方预约登记时证件号码" type="text" id="ladyNumber" ng-model="ladyNumber" style="width:145%; height: 80px;margin-left: 200px;">
+                        </dd>                 
+                    </dl>
+                    <dl class="dl1 clearfloat" style="margin-top: 25px;">
+                        <dd class="lt1 lt6" style="margin-left: 50px;">
+                            <span style="width: 200px;">统一审批编码：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" placeholder="请填写统一审批编码" type="text" id="suCode" ng-model="suCode" style="width:145%; height: 80px;margin-left: 200px;">
+                        </dd>                 
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <div>
+                            <div class="linkt">
+                                <a class="select" ng-click="getMatterCon()" style="   
+                                float: left;
+                                width: 700px;
+                                height: 95px;
+                                overflow: hidden;
+                                background: url(../libs/common/images/bg-bigList.png) no-repeat;
+                                background-size: 700px 100px;
+                                margin-left: 480px;
+                                margin-top: 25px;
+                                margin-bottom: 40px;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                                text-align: center;
+                                font-size: 29px;
+                                line-height: 94px;">
+                                     取消预约
+                                </a>
+                            </div>
+                        </div>
+                    </dl>
+               
+                   
+                     
+               
+                </div>
+            </div>
+        </div>
+    </div>
+    <apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+    </apptb-footer>
+    <loading ng-if="isLoading"></loading>
+    <alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

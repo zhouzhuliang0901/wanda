@@ -1,0 +1,5 @@
+<div style="padding-top: 100px;">
+	<idcard read="getIdacrd(info,images)" ng-if="isRead"></idcard>
+	<recognition face-image="{{faceImg}}" result="recognition(img)" ng-if="!isRead"></recognition>
+	<print show="printWait"></print>
+</div>

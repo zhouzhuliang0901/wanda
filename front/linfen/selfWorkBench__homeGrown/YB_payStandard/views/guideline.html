@@ -1,0 +1,197 @@
+<style type="text/css">
+	.main2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-top: 80px!important;
+			margin-left: 136px!important;
+		}
+		.main2 {
+			width: 1116px;
+			height: 540px;
+		}
+		.scrollBox2 .dllist1 {
+			line-height: 60px;
+			font-size: 24px;
+		}
+		.scrollBox2 .dllist1 dt {
+			width: 180px;
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 870px;
+		}
+		#wrapper table {
+			margin-left: 17%;
+			width: 840px;
+			border: 1px solid #fff;
+			text-align: center;
+		}
+		#wrapper table tr th {
+			font-size: 30px;
+		}
+		#wrapper table tr,
+		th,
+		td {
+			font-size: 24px;
+			border: 1px solid #fff;
+		}
+		.contain {
+			width: 1530px;
+			height: 700px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#wrapper {
+			width: 1150px;
+			height: 240px;
+		}
+		.stuff td {
+			font-size: 24px;
+		}
+		.stuff th {
+			font-size: 24px;
+		}
+		.stuff table tr>td:nth-child(1) {
+			width: 950px;
+		}
+		.stuff table tr>td:nth-child(2) {
+			display: none;
+			text-align: center
+		}
+		.stuff table tr>th:nth-child(2) {
+			display: none;
+		}
+		.stuff table tr>td:nth-child(3) {
+			width: 170px;
+			margin-left: 20px;
+			text-align: center
+		}
+		.stuff table tr>td:nth-child(4) {
+			width: 130px;
+			margin-left: 20px;
+			text-align: center
+		}
+		.stuff table tr>td:nth-child(5) {
+			width: 150px;
+			margin-left: 20px;
+			text-align: center
+		}
+	}
+	
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		.main2 {
+			width: 1625px;
+			height: 645px;
+			margin-left: 118px;
+			margin-top: 30px;
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 1270px;
+		}
+		#wrapper table {
+			margin-left: 22%;
+			width: 1150px;
+			border: 1px solid #fff;
+			text-align: center;
+		}
+		#wrapper table tr th {
+			font-size: 34px;
+		}
+		#wrapper table tr,
+		th,
+		td {
+			font-size: 30px;
+			border: 1px solid #fff;
+		}
+		.contain {
+			width: 1530px;
+			height: 700px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#wrapper {
+			width: 1750px;
+			height: 300px;
+			/*position: relative;*/
+		}
+		.stuff td {
+			font-size: 24px;
+		}
+		.stuff th {
+			font-size: 24px;
+		}
+		.stuff table tr>td:nth-child(1) {
+			width: 950px;
+		}
+		.stuff table tr>td:nth-child(2) {
+			display: none;
+			text-align: center
+		}
+		.stuff table tr>th:nth-child(2) {
+			display: none;
+		}
+		.stuff table tr>td:nth-child(3) {
+			width: 170px;
+			margin-left: 20px;
+			text-align: center
+		}
+		.stuff table tr>td:nth-child(4) {
+			width: 130px;
+			margin-left: 20px;
+			text-align: center
+		}
+		.stuff table tr>td:nth-child(5) {
+			width: 150px;
+			margin-left: 20px;
+			text-align: center
+		}
+	}
+</style>
+
+<p class="caption">{{funName}}</p>
+<div class="main2">
+	<div>
+		<div class="scrollBox2 clearfloat">
+			<dl class="dllist1 clearfloat" style="margin-top: 30px;margin-bottom: 30px;">
+				<dt>普通病房：</dt>
+				<dd ng-bind-html="guideline | to_trusted">
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>本市概况：</dt>
+				<dd ng-bind-html="guideline1 | to_trusted">
+				</dd>
+			</dl>
+			<div id="wrapper">
+				<div>
+					<table>
+						<tbody>
+							<tr>
+								<th>类别</th>
+								<th>收费标准</th>
+								<th>医保支付标准</th>
+							</tr>
+							<tr ng-repeat="item in Item">
+								<td>{{item.name}}</td>
+								<td>{{item.charge}}</td>
+								<td>{{item.pay}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

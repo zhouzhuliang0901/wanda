@@ -1,0 +1,195 @@
+<style type="text/css">
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+	
+	#infoForm .inputBox {
+		width: 47%;
+		height: 70px
+	}
+	
+	.inputBox>label {
+		width: 270px;
+	}
+	
+	#infoForm .inputBox select,
+	#infoForm .inputBox input[type=textarea] {
+		width: 55%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=textarea] {
+		width: 50%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .content {
+		padding-bottom: 15px;
+		width: 95%;
+	}
+	
+	#infoForm .inputBox input[type=text] {
+		width: 50%;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#main">实名认证</a>
+		</li>
+		<li class="active">基本信息</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action right-info" style="background: none; width: 100%;left: 0;">
+		<div class="right-input" style="width: 97%; margin: 2% auto;">
+			<form id="infoForm" method="get">
+				<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+					{{fullItemName}}
+				</div>
+				<div id="wrapper">
+					<div class="infoContent" style="margin-left: 2.4%;margin-top: 1%;width: 1550px; display: flex; display: -ms-flexbox; flex-flow: wrap;-ms-flex-wrap: wrap;justify-content: space-between;-ms-flex-pack: justify;align-content: flex-start;">
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&emsp;基本信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">单位名称</label>
+							<input type="text" id="targetName" ng-model="targetName" />
+						</div>
+						<div class="inputBox">
+							<label class="true">单位类型</label>
+							<select ng-model="selected_org_type" ng-options="x.name for x in ST_ORG_TYPE"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件类型</label>
+							<select ng-model="selected_zzjglx" ng-options="x.name for x in ZZJGLX">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件号</label>
+							<input type="text" id="COMPANYCODE" ng-model="COMPANYCODE" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人姓名</label>
+							<input type="text" id="ST_LINK_NAME" ng-model="ST_LINK_NAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true">法定代表人姓名</label>
+							<input type="text" id="ARTIFICIALPERSON" ng-model="ARTIFICIALPERSON" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系地址</label>
+							<input type="text" id="ST_LINK_ADDRESS" ng-model="ST_LINK_ADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="true">单位地址</label>
+							<input type="text" id="APPADDRESS" ng-model="APPADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="true">单位邮编</label>
+							<input type="text" id="APPPOST" ng-model="APPPOST" />
+						</div>
+						<div class="inputBox">
+							<label class="true">固定电话</label>
+							<input type="text" id="DWTEL" ng-model="DWTEL" />
+						</div>
+						<div class="inputBox">
+							<label class="true">手机号码</label>
+							<input type="text" id="mobile" ng-model="mobile" />
+						</div>
+						<div class="inputBox">
+							<label class="">电子邮件</label>
+							<input type="text" id="DWEMAIL" ng-model="DWEMAIL" />
+						</div>
+						<div class="inputBox">
+							<label class="">法人电话</label>
+							<input type="text" id="ARTPHONE" ng-model="ARTPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="">法人手机</label>
+							<input type="text" id="ARTMPHONE" ng-model="ARTMPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="">法人传真</label>
+							<input type="text" id="ARTFAX" ng-model="ARTFAX" />
+						</div>
+						<div class="inputBox">
+							<label class="">联系人传真</label>
+							<input type="text" id="LINKFAX" ng-model="LINKFAX" />
+						</div>
+						<div class="inputBox">
+							<label class="true">行政区</label>
+							<select ng-model="selected_districts" ng-options="x.name for x in DISTRICTS">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="">申请内容</label>
+							<input type="textarea" id="ST_CONTENT" ng-model="ST_CONTENT" />
+						</div>
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&emsp;工程信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 26px;">排水（建设）项目名称</label>
+							<input type="text" id="PROJECTNAME" ng-model="PROJECTNAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 26px;">排水（建设）项目地址</label>
+							<input type="textarea" id="PROJECTADDRESS" ng-model="PROJECTADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="">项目性质</label>
+							<select ng-model="selected_ex2" ng-options="x.name for x in EX2">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="">地理位置</label>
+							<select ng-model="selected_ex3" ng-options="x.name for x in EX3">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="">备注</label>
+							<input type="textarea" id="WSCLGY" ng-model="WSCLGY" />
+						</div>
+						<div class="inputBox">
+							<label class="">排水活动类型</label>
+							<select ng-model="selected_pshtype" ng-options="x.name for x in PSHTYPE">
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,159 @@
+<style type="text/css">
+	.scrollBox2 {
+		height: 110px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 355px;
+		overflow: hidden;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		position: relative;
+	}
+	
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;
+		padding-left: 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.schoolName img {
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+		right: 5%;
+		width: 52px;
+		opacity: .6;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 77%;
+		display: flex;
+		flex-wrap: wrap;
+		margin-left: 250px;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 8%;
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 17px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.boxList {
+		width: 42%;
+		height: 120px;
+		float: left;
+		margin-right: 30px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 100% 100%;
+		display: flex;
+		padding: 30px 20px 50px 35px;
+	}
+	
+	.boxListHead b {
+		width: 130px;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+	
+	.boxListHead {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.boxListHead p {
+		font-size: 26px;
+		margin: 2px;
+	}
+	
+	.box-linkt {
+		width: 100%;
+		overflow: hidden;
+		margin-left: 40px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.singselect {
+			margin-left: 150px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="schoolName">
+		<input type="text" placeholder="请输入搜索内容" ng-model="content" />
+		<img ng-click="queryInfo(content)" src="../libs/common/images/icon-link9.png" />
+	</div>
+</div>
+<div class="singselect">
+	<a ng-class="{'in':current==index}" ng-repeat="(index,item) in areaList" ng-click="change(item.areaName,index,item.areaCode)">
+		{{item.areaName}}
+	</a>
+</div>
+<div id="wrapper" class="wrapper">
+	<div class="box-linkt">
+		<div repeat-finish class="boxList" ng-repeat="list in queryList" ng-click="detail(list)">
+			<div class="boxListHead">
+				<p>{{ list.policeStation }}</p>
+				<p><b>地址</b>：{{ list.address }}</p>
+				<p><b>所属区</b>：{{ list.policeDepartment|to_trusted}}</p>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

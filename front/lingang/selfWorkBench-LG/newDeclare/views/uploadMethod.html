@@ -1,0 +1,92 @@
+<style>
+	@media screen and (min-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		.scrollBox2 .linkBox1 {
+			padding: 0px;
+			display: flex;
+			justify-content: space-around;
+			padding-top: 100px;
+		}
+		.scrollBox2 .linkBox1 a {
+			margin: 0px;
+			border: none;
+			background: none;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		.scrollBox2 .linkBox1 {
+			padding: 0px;
+			display: flex;
+			justify-content: space-around;
+			padding-top: 100px;
+		}
+		.scrollBox2 .linkBox1 a {
+			margin: 0px;
+			border: none;
+			background: none;
+		}
+		.scrollBox2 .linkBox1 a img {
+			display: block;
+			width: 250px;
+			height: auto;
+			overflow: hidden;
+			margin: 0px auto;
+		}
+		.scrollBox2 .linkBox1 a::before {
+			left: 70px;
+		}
+	}
+</style>
+
+<div>
+    <div class="headBox1">
+        <ul class="navul1 clearfloat">
+            <li>选择事项</li>
+            <li>人证核验</li>
+            <li class="act">在线填报</li>
+        </ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{stItemName}}---{{statusName}}&nbsp;/&nbsp;上传方式</span></div>
+
+    <div class="main2">
+		<div style="text-align: center; margin-bottom: 10px; color: #FFFFFF ;width: 97%;    font-size: 35px;">
+		    {{stuffName}}
+		</div>
+        <div class="scrollBox2 clearfloat">
+            <div class="linkBox1 clearfloat">
+                <a ng-click="scanPhoto()">
+                    <img src="images/icon-link2.png"/>
+                    <p>扫描上传</p>
+                </a>
+                <a ng-click="takePhoto()">
+                    <img src="images/icon-link3.png"/>
+                    <p>U盘上传</p>
+                </a>
+				<a ng-click="materialPic()">
+				    <img src="images/icon-link1.png"/>
+				    <p>个人档案上传</p>
+				</a>
+            </div>
+        </div>
+    </div>
+    <!--<div class="btnBox1 clearfloat">
+        <a href="#materialList" class="Prev">上一步</a>
+    </div>-->
+
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="hidden" 
+		prev="prev()"
+		next="next()">
+	</apptb-footer>
+</div>

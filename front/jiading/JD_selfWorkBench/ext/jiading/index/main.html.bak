@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+
+	<body style="overflow: hidden;">
+
+		<div class="shell bg3">
+			<div class="TopTit1 clearfloat">
+				<h2 class="tit2" style="overflow:visible">
+		<a > <img style="border-radius: 10px;width:450px;float: left;" src="../../libs/common/images/11111.png" /></a></h2>
+				<div class="inputBox1 clearfloat">
+					<a ng-click="sound()"><img style="width:70px;float: left;" src="../../libs/common/images/sd.png" /></a>
+					<input ng-keyup="enterEvent($event)" class="input1" type="text" placeholder="请输入关键字">
+					<a ng-click="answer()" class="btn1">我要问</a>
+				</div>
+			</div>
+
+			<div class="main5">
+				<div class="lt1 fl">
+					<div class="titBox1">咨询服务</div>
+					<div class="navBox3 clearfloat">
+						<!--<a ng-click="goToApp('waiter/index.html')">
+			        <div class="imgbox1"><img src="../../libs/common/images/icon-nav5.png" class="mart3"/></div>
+                    <p class="p1">一网通办</p>
+                </a>-->
+						<a ng-click="goToApp('ywtb/index.html')">
+							<!--a href="http://zwdt.sh.gov.cn/govPortals/index.do" target="_blank"-->
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav5.png" class="mart3" /></div>
+							<p class="p1">一网通办</p>
+						</a>
+						<a ng-click="goToApp('../../guideline/index.html')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav7.png" class="mart1" /></div>
+							<p class="p1">政务公开</p>
+						</a>
+					</div>
+					<div class="titBox1">数据服务</div>
+					<div class="navBox3 clearfloat">
+						<a ng-click="goToApp('../../eLicense/index.html')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav3.png" class="mart1" /></div>
+							<p class="p1">我的证照</p>
+						</a>
+						<a ng-click="goToApp('../../printLicense/index.html')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav4.png" class="mart2" /></div>
+							<p class="p1">证明开具</p>
+						</a>
+					</div>
+				</div>
+				<div class="lt2 fl">
+					<div class="titBox1">办理服务</div>
+					<div class="navBox3 clearfloat">
+						<a ng-click="goToApp('http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/declare/index.html#/list?areaCode=SH00JD')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav1.png" /></div>
+							<p class="p1">线上办理</p>
+						</a>
+						<a ng-click="goToApp('../../sqfw/index.html')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav2.png" /></div>
+							<p class="p1">线下办理</p>
+						</a>
+						<!--<a ng-click="openExe()">
+                    <div class="imgbox1"><img src="../../libs/common/images/icon-nav6.png" class="mart4"/></div>
+                    <p class="p1">视频咨询</p>
+                </a>-->
+						<a href="http://issp.sheca.com/WdmIndex.html">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav6.png" class="mart4" /></div>
+							<p class="p1">CA数字证书</p>
+						</a>
+					</div>
+
+					<div class="titBox1">便捷服务</div>
+					<div class="navBox3 clearfloat">
+						<a ng-click="goToApp('../../reservation/index.html')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav8.png" class="mart1" /></div>
+							<p class="p1">自助预约</p>
+						</a>
+						<!-- <a ng-click="goToApp('autoForm/index.html')">
+                    <div class="imgbox1"><img src="../../libs/common/images/icon-nav9.png" class="mart5"/></div>
+                    <p class="p1">自助取表</p>
+                </a>-->
+						<a ng-click="goToApp('../../workSearch/index.html')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav9.png" class="mart5" /></div>
+							<p class="p1">进度查询</p>
+						</a>
+						<!--<a ng-click="goToApp('getTable/index.html#/innerH')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav10.png" class="mart5" /></div>
+							<p class="p1">自助取表</p>
+						</a>-->
+						<a ng-click="goToApp('http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/threeGoldQuery/index.html#/main')">
+							<div class="imgbox1"><img src="../../libs/common/images/icon-nav16.png" class="mart5" /></div>
+							<p class="p1">三金查询</p>
+						</a>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<script type="text/javascript">
+			//qwqw = function(){
+			//	    	alert(1);
+			//	//  	window.location.href ="http://183.194.241.117/smzy/shell_terminal/tourist/guide/qa?ask="+$('.input1').val();
+			//	// 		console.log($('.input1').val());
+			//	    }
+			//	})
+		</script>
+	</body>
+
+</html>

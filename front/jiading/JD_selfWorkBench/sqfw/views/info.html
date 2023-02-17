@@ -1,0 +1,264 @@
+<div class="shell bg2">
+	<apptb-header fun-name="在线填报"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>事项情形</li>
+			<li class="act">人证核验</li>
+			<li>材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{fullItemName}}</span></div>
+		<div class="main2" id="wrapper" style="height:530px">
+		<div class="scrollBox2 clearfloat">
+			<div class="right-input" style="width: 97%; left: 60px; top: 25px;">
+				<form id="infoForm" method="get">
+					<div ng-if="!isShowZNSB" class="inputBox" id="forst">
+						<label class="strong">办理信息</label>
+						<!--&nbsp;&nbsp;办&nbsp;&nbsp;理&nbsp;&nbsp;信&nbsp;&nbsp;息-->
+						  <!--<input type="radio" style="width: 25px; height: 25px;margin-top:30px;margin-left:30px;" value="个人" ng-model="targetTypeName" name="targetType" /><span style="font-size:32px;margin-right:15px;">&nbsp;&nbsp;办理</span>-->
+						 <!--<input type="radio" style="width: 25px; height: 25px;margin-top:30px;" value="法人" ng-model="targetTypeName" name="targetType" /><span style="font-size:32px;margin-right:15px;">&nbsp;&nbsp;法人</span>-->
+					</div>
+
+					<div class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">申请人姓名</label>
+						<input type="text" value="{{idCardName}}" id="username" name="username" />
+					</div>
+					
+					<div class="inputBox" ng-if="isShowZNSB">
+						<span class="must">*</span>
+						<label class="strong">性别</label>
+						<input type="text" id="sex" name="sex" />
+					</div>
+
+					<div class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">申请人身份证号</label>
+						<input type="text" id="targetNo" name="targetNo" />
+					</div>
+					
+					<div class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">申请人手机号</label>
+						<input type="text" id="mobile" name="mobile" />
+					</div>
+					
+					<div ng-if="isShowZNSB" class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">户籍地址</label>
+						<input type="text" id="address" name="address" />
+					</div>
+					
+					<div ng-if="isShowZNSB" class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">常住地址</label>
+						<input type="text" id="liveAddress" name="liveAddress" />
+					</div>
+					
+					<div ng-if="isShowZNSB" class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">准驾车型</label>
+						<input type="text" id="carType" name="carType" />
+					</div>
+					
+					<div ng-if="isShowZNSB" class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">驾驶证档案编号</label>
+						<input type="text" id="driveNo" name="driveNo" />
+					</div>
+
+					<div ng-if="isShowZNSB" class="inputBox">
+						<span class="must">*</span>
+						<label class="strong">驾驶证初领日期</label>
+						<input type="text" id="driveDate" name="driveDate" />
+					</div>
+					
+					<div ng-if="!isShowZNSB" class="inputBox">
+						<label class="strong">申请单位</label>
+						<input type="text" value="{{idCardName}}" id="targetName" name="targetName" />
+					</div>
+
+					<div ng-if="!isShowZNSB" class="inputBox">
+						<label class="strong">统一识别码</label>
+						<input type="text" id="licenseNo" name="licenseNo" />
+					</div>
+
+					<div ng-if="!isShowZNSB" class="inputBox" style="padding-bottom:15px;width: 93.5%;">
+						<label>备注</label>
+						<input type="text" id="content" name="content" style="width: 78%;" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="goNext()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<div id="refresh" ng-if="isShowZNSB" ng-click="refresh()">加载资料</div>
+
+<!-- 签名板 -->
+<div class="signBoard" ng-show="isShowSign">
+	<div class="signatureBoard">
+		<canvas id="signature" ng-click="isSignature()" height="530" width="880">
+					请在此签名
+		</canvas>
+		<div class="btn left clearRect rewrite" ng-click="notSignature()">
+			<a>重写</a>
+		</div>
+		<div class="btnSignConfirm left saveImg" ng-click="saveSignature()">
+			<a>确定</a>
+		</div>
+	</div>
+	<div class="text">
+		<p style="font-size: 33px;color: #FEE889;margin-bottom: 20px;font-weight: bold;">请在左侧签字区域签字确认:</p>
+		<div class="text-container wrapper1" id="wrapper1">
+			<div class="text-content">
+				<p class="text-sub-title">告知承诺：根据上海市网络预约出租汽车行业管理要求，在申请网络预约出租汽车驾驶员人员背景审查前，请仔细阅读以下内容：</p>
+				<p class="text-sub-title">一、您应当确认您具有相应的民事权利能力和民事行为能力。</p>
+				<p class="text-sub-title">二、请确保签署相关文件和网上办事提交信息是您的真实意思表示，并愿意承担由此带来的法律责任。</p>
+				<p class="text-sub-title">三、您应当确认本人完全符合本市网络预约出租汽车驾驶员管理的相关要求，具体指的是：</p>
+				<p class="text-word">1.本市户籍；</p>
+				<p class="text-word">2.取得相应准驾车型机动车驾驶证并具有3年以上驾驶经历；</p>
+				<p class="text-word">3.无交通肇事犯罪、危险驾驶犯罪记录，无吸毒记录，无饮酒后驾驶记录，最近连续3个记分周期内没有记满12分记录；</p>
+				<p class="text-word">4.无暴力犯罪记录；</p>
+				<p class="text-word">5.自申请之日前1年内无驾驶机动车发生5次以上道路交通安全违法行为；</p>
+				<p class="text-word">6.自申请之日前5年内无被吊销出租汽车从业资格证的记录；</p>
+				<p class="text-word">7.截至申请之日，无5起以上道路交通违法行为逾期尚未接受处理的情形；</p>
+				<p class="text-sub-title">四、嘉定区网约车办事专用章四、请您严格按照《网络预约出租汽车经营服务管理暂行办法》、《上海市网络预约出租汽车经营服务管理若干规定》和本市相关政策申请网络预约出租汽车相关资质。</p>
+				<p class="text-sub-title">五、如有虚假、不实申请等行为，交通管理部门自发现核实后，1年内不再受理网络预约出租汽车相关资质的申请。</p>
+			</div>	
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+	#forst {
+		width: 270px;
+		display: inline-block;
+		text-align-last: justify;
+		line-height: 78px;
+		font-size: 32px;
+		/*letter-spacing: 40px;*/
+	}
+	.navBox2{
+		margin-bottom: 0;
+	}
+	.inputBox{
+		position: relative;
+	}
+	.inputBox span.must{
+		position: absolute;
+		color: red;
+		top: 45px;
+		left: 270px;
+	}
+	#refresh{
+		position:fixed;
+		top:310px;
+		right:320px;
+		width:134px;
+		height:50px;
+		background:url(./images/print.png) no-repeat;
+		background-size:134px 50px;
+		text-align:center;
+		line-height:50px;
+		font-size:18px;
+	}
+	.signBoard{
+		position:fixed;
+		z-index:9999;
+		background:rgba(0,0,0,.8);
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		padding:250px 0 0 200px;
+	}
+	.signatureBoard{
+		width: 900px;
+		float: left;
+	}
+	#signature{
+		background: url(./images/bg-photo.png) no-repeat;
+		background-size: 882px 504px;
+	}
+	.btn {
+		position: absolute;
+		top: 283px;
+		left: 935px;
+		width: 139px;
+		height: 80px;
+		text-align: center;
+		line-height: 49px;
+		border-radius: 10px;
+		background: url(./images/print.png) no-repeat;
+	}
+	.btnSignConfirm{
+		position: absolute;
+		top: 683px;
+		left: 935px;
+		width: 139px;
+		height: 80px;
+		text-align: center;
+		line-height: 49px;
+		border-radius: 10px;
+		background: url(./images/print.png) no-repeat;
+	}
+	
+	.rewrite {
+		text-align: center;
+		border-radius: 10px;
+		overflow: hidden;
+		font-size: 30px;
+	}
+	
+	.text {
+		width: 650px;
+		float: left;
+		margin-top: 20px;
+	}
+	
+	.view {
+		float: right;
+		width: 170px;
+		height: 70px;
+		line-height: 70px;
+		overflow: hidden;
+		background: #B3A1FF;
+		text-align: center;
+		border-radius: 10px;
+		font-size: 30px;
+		position: absolute;
+		top: 103px;
+		left: 1473px;
+	}
+	.wrapper1{
+		height:420px;
+		width:650px;
+		overflow:hidden;
+		position:relative
+	}
+	.text-sub-title {
+		text-indent: -2em;
+		margin-left: 2em;
+		font-size:28px;
+	}
+	.text-word{
+		text-indent: -2em;
+		margin-left: 2em;
+		font-size:24px;
+	}
+</style>

@@ -1,0 +1,85 @@
+<app-header go-back="goAppHistoryBack()" fun-name="{{funName}}"></app-header>
+<p class="tips" ng-if="bankType==='pfbc'">{{consult_title}}<br> {{consult1}}
+	<br> {{consult2}}
+	<br> {{consult3}}
+</p>
+<ul class="container icbc"  ng-class="{'pfbc':bankType==='pfbc'}">
+	<li class="{{bankType}}" ng-click="choiceMatter(item)" ng-repeat="item in currentShow">
+		<img ng-src="{{item.img}}" />
+		<p>{{item.tips}}</p>
+	</li>
+</ul>
+<app-footer default-next="hidden"></app-footer>
+<style type="text/css">
+.tips {
+		margin-left: 80px;
+		font-size: 33px;
+		position: absolute;
+	}
+	.container.pfbc{
+		margin-left: 300px;
+	}
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 1600px;
+		height: 800px;
+		text-align: center;
+		align-items: center;
+		margin: 40px auto;
+	}
+	
+	.container li.pfbc {
+		width: 700px;
+	}
+	
+	.container li.pfbc img {
+		width: 260px;
+	}
+	
+	.container li.pfbc p {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	
+	.container li.xmbc {
+		width: 1200px;
+	}
+	
+	.container li.xmbc img {
+		width: 600px;
+	}
+	
+	.container li.xmbc p {
+		margin-top: 20px;
+		font-size: 50px;
+	}
+	
+	.container li.ccb {
+		width: 800px;
+	}
+	
+	.container li.ccb img {
+		width: 400px;
+	}
+	
+	.container li.ccb p {
+		margin-top: 20px;
+		font-size: 40px;
+	}
+	
+	.container li.icbc {
+		width: 500px;
+	}
+	
+	.container li.icbc img {
+		width: 130px;
+	}
+	
+	.container li.icbc p {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+</style>

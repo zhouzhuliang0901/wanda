@@ -1,0 +1,74 @@
+.vertical_gets{
+    width: 1080px;
+    height: 51px;
+    background: url("../images/4444.png") no-repeat;
+    background-size: 100%;
+    margin-top: 100px;
+}
+nav{
+    width: 1080px;
+    height: 253px;
+    background: url("../images/1111.png") no-repeat;
+    background-size: 22%;
+	margin-top:200px;
+	margin-left: 422px;
+	position:absolute;
+   
+}
+.img1{
+	 width: 1080px;
+    height: 253px;
+    background: url("../images/1111.png") no-repeat;
+    background-size: 22%;
+	margin-top:200px;
+	margin-left: 422px;
+	position:absolute;
+}
+.img2{
+	 width: 1080px;
+    height: 253px;
+    background: url("../images/2222.png") no-repeat;
+    background-size: 22%;
+	margin-top:653px;
+	margin-left: 422px;
+	position:absolute;
+}
+.img3{
+	 width: 1080px;
+    height: 253px;
+    background: url("../images/3333.png") no-repeat;
+    background-size: 22%;
+	margin-top:450px;
+	margin-left: px;
+	position:absolute;
+}
+.nav-item{
+    position: absolute;
+    top: 0px;
+    height: 253px;
+}
+.bsyd{
+    /*left: 150px;*/
+    width: 250px;
+}
+.bszn{
+    /*left: 444px;*/
+    width: 253px;
+}
+.bsjd{
+    /*left: 739px;*/
+    width: 253px;
+}
+.swiper-container{
+    width: 1080px;
+    height: 1280px;
+}
+.swiper-slide img{
+    width:800px;
+    height: 1260px;
+}
+.img{
+    width: 1080px;
+    height: 990px;
+    margin-top: 10px;
+}

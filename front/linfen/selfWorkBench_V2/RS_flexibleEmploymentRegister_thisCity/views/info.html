@@ -1,0 +1,242 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.input {
+		width: 100%;
+		height: 60px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+	
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 21%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	
+	.select {
+		font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+		width: 100%;
+		padding: 10px 10px;
+		line-height: 40px;
+		height: 60px;
+		overflow: hidden;
+		display: inline-block;
+		border: none;
+		background: url("../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+		font-size: 24px;
+		color: #FFF;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+	
+	.select option {
+		color: #333;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.getButton {
+		width: 200px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+		margin-left: 95px;
+	}
+	.checkBoxA a {
+		float: left;
+		width: 150px;
+		height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin: 5px;
+	}
+	
+	.checkBoxA a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.checkTable {
+		width: 97%;
+		margin-bottom: 20px;
+		margin-left: 50px;
+		font-size: 24px;
+	}
+	
+	.checkTable td {
+		height: 85px;
+	}
+	
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+	
+	.checkTable .checkBoxA {
+		float: left;
+		width: 35%;
+	}
+	.infoTable .checkBoxA a{
+		width: 35.5%;
+	}
+	@media screen and (max-width: 1600px) {
+		.infoTable{
+			margin:0;
+			width: 99%;
+			font-size: 19px;
+		}
+		.infoTable .checkBoxA a{
+			    width: 20.5%;
+		}
+		.checkBoxA a{
+			width: 120px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>灵活就业类型：</th>
+					<td>
+						<select class="select" id="lhjyType" ng-model="lhjyType" ng-options="x.name for x in lhjyTypeList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>身份证：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+					<th><b class="red">*</b>就业起始日期：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="jyqsrq" ng-model="jyqsrq" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th ng-show="ztsbjbz!=0"><b class="red">*</b>暂停失保金是否继续：</th>
+					<td ng-show="ztsbjbz!=0">
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':ztsbjbz==item.id}" ng-click="change('ztsbjbz',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+					<th ng-show="ztycsbjbz!=0"><b class="red">*</b>暂停延长失保金是否继续：</th>
+					<td ng-show="ztycsbjbz!=0">
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':ztycsbjbz==item.id}" ng-click="change('ztycsbjbz',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<table class="checkTable">
+				<tr ng-show="btnltsbz1!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>特殊工种协保就业补贴年龄段未到是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':btnltsbz1==item.id}" ng-click="change('btnltsbz1',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr ng-show="btnltsbz2!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>大龄协保就业补贴年龄段未到是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':btnltsbz2==item.id}" ng-click="change('btnltsbz2',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr ng-show="sydjtsbz1!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>先操作失业登记，才能符合大龄失业就业补贴条件是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':sydjtsbz1==item.id}" ng-click="change('sydjtsbz1',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+
+				</tr>
+				<tr ng-show="sydjtsbz2!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>先操作失业登记，才能符合大龄失业社保补贴条件是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':sydjtsbz2==item.id}" ng-click="change('sydjtsbz2',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

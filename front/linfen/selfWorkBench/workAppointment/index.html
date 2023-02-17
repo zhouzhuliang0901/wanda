@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>reservation</title>
+        <link rel="stylesheet" type="text/css" href="../libs/My97DatePicker/skin/WdatePicker.css" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" />
+		<link rel="stylesheet" type="text/css" href="../libs/My97DatePicker/skin/WdatePicker.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+	</head>
+	<body>
+		<div class="loadingBox" ng-if="!isLoading">
+			<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+			<p>正在加载数据，请稍后...</p>
+		</div>
+		<div id="img-roll">
+			<img src="images/1-0.png" />
+		</div>
+		<div class="zoober">
+			<div data-ui-view=""></div>
+		</div>
+	</body>
+	<script src="../libs/angularjs/1.5.8/angular.js"></script>
+	<script src="../libs/angularjs/1.5.8/angular-ui-router-min.js"></script>
+	<script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+	<script src="../libs/common/js/self-mac-tools.js"></script>
+	<script src="../libs/common/js/init-config-msg.js"></script>
+	<script src="app.js"></script>
+	<script src="../libs/directive/footer.js"></script>
+	<script src="router.js"></script>
+	<script src="../libs/directive/alert.js"></script>
+	<script src="../libs/directive/idcard.js"></script>
+	<script src="../libs/directive/citizenCloud.js"></script>
+	<script src="../libs/directive/loadingsg.js"></script>
+	<script src="../libs/directive/listBox.js"></script>
+	<script src="../libs/common/js/iscroll.js"></script>
+	<script src="controller.js"></script>
+</html>

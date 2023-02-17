@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>接口详细信息</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link href="css/markdown.css" type="text/css" media="all" rel="stylesheet">
+<link href="css/markdown-plus.css" type="text/css" media="all" rel="stylesheet">
+<link href="lib/skin/layer.css" type="text/css" media="all" rel="stylesheet">
+</head>
+<body style="text-align:center;">
+<div id="view" style="text-align:left; margin:auto;width: 1000px;">
+
+<script id="iList" type="text/html">
+{{# var item = d.interfaceInfo; }}
+<div class="rightIndex" style = "width:300px;height:500px;overflow:hidden;">
+<div style = "width:300px;height:500px;overflow:auto;">
+	<ul style="padding: 2px; font-size: 10px;">
+			<li><a href="#{{  item.stInterfaceName }}">
+			<div class="num">1</div>{{ item.stInterfaceName }}</a></li>
+	</ul>
+</div>
+</div>
+
+<div style="width: 800px;">
+<article class="markdown-body">
+
+<h2 id="{{ item.stInterfaceName }}" >
+	<a class="markdownIt-Anchor" href="#{{ item.stInterfaceName }}"></a>{{ item.stInterfaceName }}</h2>
+<ol >
+<li>接口请求url</li>
+</ol>
+<pre ><code class="hljs"><span class="hljs-regexp">{{ item.stUrl }}</span></code></pre>
+<ol start="2" >
+<li>接口请求方式</li>
+</ol>
+<pre ><code><span ><b>{{ item.stMethod }}</b></span></code></pre>
+<ol start="3" >
+<li>接口功能</li>
+</ol>
+<p>{{ item.clRemark }}</p>
+<ol start="4">
+<li>接口请求参数说明</li>
+</ol>
+
+{{# if(item.clRequestParam.length != 0){ }}
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>是否必填</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+
+{{# var requestParam = eval('(' + item.clRequestParam + ')'); }}
+{{# layui.each(requestParam,function(index, param){ }}
+<tr>
+<td>{{ param.name }}</td>
+<td>{{ param.necessary }}</td>
+<td>{{ param.state }}</td>
+</tr>
+{{# }); }}
+
+</tbody>
+</table>
+{{# }else{ }}
+{{# item.clRequestParam = '无'; }}
+<pre ><code class="hljs">
+<span class="hljs-string">{{ item.clRequestParam }}</span>
+</code></pre>
+{{# } }}
+&nbsp;&nbsp;&nbsp;&nbsp;<p>
+<span style ="font-weight:bolder;background-color:#11a5dd;color:#fff;padding:5px 15px; 
+	border-radius:30px;font-size:12px">接口请求参数示例</span>
+</p>
+
+{{# if(item.clRequestExam.length == 0 ){ }}
+{{# item.clRequestExam = '无'; }}
+{{# } }}
+<pre ><code class="hljs">
+<span class="hljs-string">{{ item.clRequestExam }}</span>
+</code></pre>
+
+<ol start="5">
+<li>接口返回参数说明</li>
+</ol>
+
+{{# if(item.clResponseParam.length != 0){ }}
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+
+{{# var responseParam = eval('(' + item.clResponseParam + ')'); }}
+{{# layui.each(responseParam,function(index, param){ }}
+<tr>
+<td>{{ param.name }}</td>
+<td>{{ param.state }}</td>
+</tr>
+{{# }); }}
+
+</tbody>
+</table>
+{{# }else{ }}
+{{# item.responseParam = '无'; }}
+<pre ><code class="hljs">
+<span class="hljs-string">{{ item.responseParam }}</span>
+</code></pre>
+{{# } }}
+&nbsp;&nbsp;&nbsp;&nbsp;<p>
+<span style ="font-weight:bolder;background-color:#11a5dd;color:#fff;padding:5px 15px; 
+	border-radius:30px;font-size:12px">接口返回参数示例</span>
+</p>
+{{# if(item.clResponseExam.length == 0 ){ }}
+{{# item.clResponseExam = '无'; }}
+{{# } }}
+<pre ><code class="hljs">
+<span class="hljs-string">{{ item.clResponseExam }}</span>
+</code></pre>
+</article>
+</script>
+</div>
+</div> 
+<script src="lib/jquery-1.11.1.min.js"></script>
+<script src="lib/layui.js"></script> 
+<script src="lib/lay/modules/laytpl.js"></script> 
+<script src="lib/layer.js"></script> 
+<script type="text/javascript">
+var webRoot = "";
+var stInterfaceId = "";
+$(function(){
+	webRoot = getRootPath_web();
+	var str = getRequest();
+	stInterfaceId = str[1];
+	getData();
+	
+});
+
+function getData(){
+	$.ajax({
+		type: 'post',
+		url : webRoot + '/apidoc/interface/queryOne.do',
+		dataType: 'json',
+		data:{'stInterfaceId':stInterfaceId},
+		success:function(data){
+			$.each(data.interfaceInfo, function (n, value) {
+				if(value.clRequestParam == "" || value.clResponseParam == ""){
+					alert("接口数据填入不规范,请求参数和返回参数说明不能为空！");
+				}else{
+					show(data);
+				}
+			}); 
+		},
+		error : function() {
+		}
+	});
+}
+
+//数据显示
+function show(data){
+	layui.use('laytpl', function(){
+		var laytpl = layui.laytpl;
+		var getTpl = document.getElementById('iList').innerHTML
+		,view = document.getElementById('view');
+		laytpl(getTpl).render(data, function(html){
+		  view.innerHTML = html;
+		}); 
+	});
+	
+}
+
+// 获取当前根目录
+function getRootPath_web() {
+     //获取当前网址
+     var curWwwPath = window.document.location.href;
+     //获取主机地址之后的目录
+     var pathName = window.document.location.pathname;
+     var pos = curWwwPath.indexOf(pathName);
+     //获取主机地址
+     var localhostPath = curWwwPath.substring(0, pos);
+     //获取带"/"的项目名
+     var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+     return (localhostPath + projectName);
+} 
+
+/*获取query string parameters stModuleId*/
+function getRequest() {
+	//获取url中"?"符后的字串
+	var url = location.search; 
+	//判断是否有参数
+	if (url.indexOf("?") != -1) {   
+	//从第一个字符开始 因为第0个是?号 获取所有除问号的所有符串
+	var str = url.substr(1);
+	//用等号进行分隔 （因为知道只有一个参数 所以直接用等号进分隔 如果有多个参数 要用&号分隔 再用等号进行分隔） 
+	strs = str.split(/[&=]/);
+	//直接返回第一个参数 （如果有多个参数 还要进行循环的）   
+	return strs;         
+  }
+  return null;
+}
+</script>
+</body>
+</html>

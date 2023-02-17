@@ -1,0 +1,95 @@
+<div class="contain">
+	<p class="caption">{{ funName }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="signatureBoard">
+			<canvas id="signature" ng-click="isSignature()" height="530" width="880">
+				请在此签名
+			</canvas>
+			<div class="btn left clearRect" ng-click="notSignature()">
+				<a class="rewrite">重写</a>
+			</div>
+		</div>
+		<div class="text">
+			<p style="font-size: 33px;color: #FEE889;margin-bottom: 50px;font-weight: bold;">请在左侧签字区域签字确认:</p>
+			<p style="font-size: 29px;line-height: 45px;">本人保证本表所填写婚姻生育等情况内容属实，如有不实，愿承担由此引起的相应法律后果。</p>
+			<!--	<a class="view">查看</a>-->
+		</div>
+	</div>
+</div>
+<div>
+	<a ng-click="saveSignature()" class="nextStep saveImg">继续</a>
+</div>
+<apptb-footer prev="prev()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+	go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.caption {
+		margin-left: 200px;
+		margin-top: 80px;
+	}
+
+	.scrollBox2 {
+		margin: 50px 0 0 200px;
+	}
+
+	.signatureBoard {
+		width: 900px;
+		float: left;
+	}
+
+	#signature {
+		background: url(./images/bg-photo.png) no-repeat;
+		background-size: 882px 530px;
+	}
+	.nextStep {
+		width: 154px;
+		height: 60px;
+		font-size: 24px;
+		line-height: 60px;
+		text-align: center;
+		background: url(../libs/common/images/next-step.png) no-repeat center center;
+		position: absolute;
+		right: 40px;
+		bottom: 62px;
+		z-index: 1;
+	}
+	.btn {
+		position: absolute;
+		left: 935px;
+		width: 139px;
+		height: 80px;
+		text-align: center;
+		line-height: 49px;
+		border-radius: 10px;
+		background: url(./images/print.png) no-repeat;
+	}
+
+	.rewrite {
+		text-align: center;
+		border-radius: 10px;
+		overflow: hidden;
+		font-size: 30px;
+	}
+
+	.text {
+		width: 650px;
+		float: left;
+		margin-top: 100px;
+	}
+
+	.view {
+		float: right;
+		width: 170px;
+		height: 70px;
+		line-height: 70px;
+		overflow: hidden;
+		background: #B3A1FF;
+		text-align: center;
+		border-radius: 10px;
+		font-size: 30px;
+		position: absolute;
+		top: 103px;
+		left: 1473px;
+	}
+</style>

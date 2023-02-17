@@ -1,0 +1,458 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		    margin-top: 86px;
+    margin-left: 220px;
+	}
+	.handleList {
+		margin-left: 80px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 210px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		margin-left: 112px;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 100% 84px;
+	}
+	.handleList li.in {
+		color: #fff;
+	}
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 9.4%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;	
+		padding-left: 4%;
+		border: none;
+		background: rgba(0,0,0,0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+	    right: 5%;
+	    width: 52px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+	
+	.sDetail{
+		float: left;
+		width: 1300px;
+    	height: 450px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 145px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail dd {
+		margin-top: 50px;
+		margin-left: 100px;
+	    height: 40px;
+	    width: 74%;
+	    /* margin: 0.9% auto; */
+	}
+	.sDetail dl {
+		white-space: normal;
+		width: 70%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+
+	.sDetail2{
+		float: left;
+		width: 1300px;
+    	height: 200px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 145px;
+		margin-bottom: 20px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail2 dd {
+		margin-top: 10px;
+		margin-left: 100px;
+	    height: 40px;
+	    width: 74%;
+	    /* margin: 0.9% auto; */
+	}	
+	.sDetail2 dl {
+		white-space: normal;
+		width: 70%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail2 b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+
+	.sDetail4{
+		float: left;
+		width: 1300px;
+    	height: 200px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 145px;
+		margin-bottom: 20px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail4 dd {
+		margin-top: 10px;
+		margin-left: 100px;
+	    height: 40px;
+	    width: 74%;
+	    /* margin: 0.9% auto; */
+	}	
+	.sDetail4 dl {
+		white-space: normal;
+		width: 70%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail4 b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+
+
+
+	.select {
+		float: left;
+		width: 600px;
+    	height: 230px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1%;
+	}
+	
+	.select dd {
+		margin-top: 30px;
+    height: 80px;
+    width: 74%;
+    margin: 2.6% auto;
+	}
+	
+	.select dl {
+		white-space: normal;
+		width: 100%;
+		height: 100%;
+		line-height: 150%;
+	}
+	
+	.select b {
+		width: 130px;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	
+	@media screen and (max-width: 1600px) {
+	.bg-middle {
+		background-size: 100% 80%;
+	}
+	.caption {
+		margin-left: 80px !important;
+		margin-top: 60px !important;
+	}
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: -11%;
+	}
+	.sDetail{
+		float: left;
+		width: 1000px;
+    	height: 450px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 260px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.handleList {
+		margin-left: 180px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 147px;
+		height: 77px;
+		line-height: 88px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 20px;
+		font-weight: bold;
+		margin-left: 112px;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 100% 84px;
+	}
+	.sDetail2{
+		float: left;
+		width: 800px;
+    	height: 200px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 345px;
+		margin-bottom: 20px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail2 dd {
+		margin-top: 10px;
+		margin-left: 100px;
+	    height: 40px;
+	    width: 74%;
+	    /* margin: 0.9% auto; */
+	}	
+	.sDetail2 dl {
+		white-space: normal;
+		width: 70%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail2 b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	.sDetail4{
+		float: left;
+		width: 800px;
+    	height: 200px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 345px;
+		margin-bottom: 20px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail4 dd {
+		margin-top: 10px;
+		margin-left: 100px;
+	    height: 40px;
+	    width: 74%;
+	    /* margin: 0.9% auto; */
+	}	
+	.sDetail4 dl {
+		white-space: normal;
+		width: 70%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail4 b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	.linkt {
+		left: 10px;
+	}
+	.select {
+		width: 900px;
+	}
+	.select dl {
+		width: 80%;
+	}
+	.select dd {
+		margin-top: 12px;
+	}
+	}
+</style>
+<p class="caption">物业企业信息查询</p>
+<div class="scrollBox2 clearfloat">
+	<ul class="handleList">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in areaList" ng-click="change(item.name,index,item.id)">
+			{{item.name}}
+		</li>
+	</ul>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="detailInfo" ng-if="isInfo1">
+				<a class="sDetail">
+					<dd>
+						<b>物业公司名称：</b>
+						<dl>{{ spaceInfoList.PROPERTYNAME || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>社会统一信用代码：</b>：
+						<dl>{{ spaceInfoList.ORGCODE || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>办公地址</b>：
+						<dl>{{ spaceInfoList.OFFICEADDRESS || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>企业电话</b>：
+						<dl>{{ spaceInfoList.BUSINESSTEL || "------"}}</dl>
+					</dd>
+				
+
+				
+				</a>
+			</div>
+			<div class="detailInfo" ng-if="isInfo2" ng-repeat="list in spaceInfoList2">
+				<a class="sDetail2" ng-repeat="list1 in list.list">
+					<dd>
+						<b>区名：</b>
+						<dl>{{ list.COUNTYNAME || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>在管小区名：</b>
+						<dl>{{ list1.COMMUNITYNAME || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>小区面积：</b>
+						<dl>{{ list1.COMMUNITYAREA || "------"}}平方米</dl>
+					</dd>				
+				</a>
+			</div>
+			<div class="detailInfo" ng-if="isInfo3">
+				<a class="sDetail">
+					<dd>
+						<b>物业公司名称：</b>
+						<dl>{{ spaceInfoList3.csp_info[0].CSP_NAME || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>失信计分：</b>
+						<dl>{{ spaceInfoList3.total_score[0].TOTAL_SCORE || "0"}}</dl>
+					</dd>				
+				</a>
+			</div>
+			<div class="detailInfo" ng-if="isInfo4" ng-repeat="list in spaceInfoList4.satisfactionForCsp">
+				<a class="sDetail4">
+					<dd>
+						<b>年度：</b>
+						<dl>{{ list.AWARD_YEAR || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>分值：</b>
+						<dl>{{ list.CREDIT_SCORE_VAL || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>排名：</b>
+						<dl>{{ list.RANK || "------"}}</dl>
+					</dd>		
+				</a>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

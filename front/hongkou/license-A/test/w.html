@@ -1,0 +1,46 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<title>大厅等候信息</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<!--<meta name="viewport" content="user-scalable=no, width=device-width" />-->
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- js导入 -->
+		<script type="text/javascript"
+			src="jquery-1.11.1.min.js"></script>
+		<style type="text/css">
+body {
+	background-color: #f5f9ff;
+}
+
+</style>
+		<script type="text/javascript">
+	//页面加载时
+	$(document)
+			.ready(
+					function() {
+						$
+								.ajax( {
+									type : "post",
+									url : "http://117.184.33.148:8080/ac-product/aci/window/getInfoByCodeForLogin.do",
+									dataType : "json",
+									data:{
+										"codeParam":"d5df6c03d3b21d10f22b0d5ad82d5ec5d25450de64d932618a9af74f45ddd28afb5013902a029641a41eec85754aed03fa97c5809b60920190bc34bc41346623%2CH4O1vX9sO8l%2FvpdUIGKz%2F09xd4e294qWYCTnzN8g1bGxwaCwaKaD6rxw0ZjpYWSjx0wOF0QXIvaGuadwDZcpuxzsSafrnAvvL0pmvjeHt1edngcrhe3Nq2QYLKswivITCIgzJeAmEsz6MsNvK88oMdAWHY1nxNXzPlw4f0fxEOw%3D%2C1557308566431%2C1557299478303"
+										},
+									error : function() {
+										alert("网络通信异常，请稍后重试！");
+									},
+									success : function(data) {
+										alert("----------");
+										alert(data.result.data.realname);
+									}
+								});
+					});
+</script>
+	</head>
+	<body>
+		876879877789778978787
+	</body>
+</html>

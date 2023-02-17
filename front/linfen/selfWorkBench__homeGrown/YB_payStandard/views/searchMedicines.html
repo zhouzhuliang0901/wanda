@@ -1,0 +1,234 @@
+<style type="text/css">
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1500px;
+			margin-top: 80px;
+			margin-left: 54px;
+		}
+		.caption {
+			margin-top: 80px!important;
+			margin-left: 136px!important;
+		}
+		.input1 {
+			width: 290px;
+			height: 60px;
+			line-height: 40px;
+			padding: 2%;
+		}
+		.red1 {
+			display: inline-block;
+			height: 60px;
+			line-height: 76px;
+		}
+		.dl1 {
+			width: 100%;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.dl1 dd {
+			position: absolute;
+			left: 1%;
+			font-size: 24px;
+		}
+		.dl1 .lt1 span {
+			display: block;
+			width: 170px;
+			text-align: right;
+			height: 60px;
+			line-height: 60px;
+			float: left;
+		}
+		.dl1 dd select {
+			width: 290px;
+		}
+		.dl1 dd:nth-child(1) {
+			left: 6%;
+		}
+		.dl1 dd:nth-child(2) {
+			left: 19%;
+		}
+		.dl1 dd:nth-child(3) {
+			left: 39%;
+		}
+		.dl1 dd:nth-child(4) {
+			left: 52%;
+		}
+		.dl1 dd:nth-child(5) {
+			left: 6%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(6) {
+			left: 19%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(7) {
+			left: 39%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(8) {
+			left: 52%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(9) {
+			left: 6%;
+			top: 40%;
+		}
+		.dl1 dd:nth-child(9) span {
+			width: 170px;
+		}
+		.dl1 dd:nth-child(10) {
+			left: 19%;
+			top: 40%;
+		}
+		.dl1 dd.rt11 {
+			margin-right: 10px;
+		}
+	}
+	
+	@media screen and (min-width: 1600px) {
+		.scrollBox2 {
+			width: 1500px;
+			margin-top: 80px;
+			margin-left: 210px;
+		}
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		.input1 {
+			width: 410px;
+			height: 60px;
+			line-height: 40px;
+			padding: 2%;
+		}
+		.dl1 {
+			width: 100%;
+			height: 500px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.dl1 dd {
+			position: absolute;
+			left: 1%;
+			font-size: 26px;
+		}
+		.red1 {
+			display: inline-block;
+			margin: 18px 0 0 0;
+		}
+		.dl1 .lt1 span {
+			display: block;
+			width: 200px;
+			text-align: right;
+			height: 60px;
+			line-height: 60px;
+			float: left;
+		}
+		.dl1 dd drop-down {
+			width: 410px;
+		}
+		.dl1 dd:nth-child(1) {
+			left: 6%;
+		}
+		.dl1 dd:nth-child(2) {
+			left: 21%;
+		}
+		.dl1 dd:nth-child(3) {
+			left: 49%;
+		}
+		.dl1 dd:nth-child(4) {
+			left: 64%;
+		}
+		.dl1 dd:nth-child(5) {
+			left: 6%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(6) {
+			left: 21%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(7) {
+			left: 49%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(8) {
+			left: 64%;
+			top: 20%;
+		}
+		.dl1 dd:nth-child(9) {
+			left: 6%;
+			top: 40%;
+		}
+		.dl1 dd:nth-child(9) span {
+			width: 200px;
+		}
+		.dl1 dd:nth-child(10) {
+			left: 21%;
+			top: 40%;
+		}
+		.dl1 dd.rt11 {
+			margin-right: 10px;
+		}
+	}
+</style>
+
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<!--选择分类信息-->
+	<div id="typeChoice">
+		<dl class="dl1 clearfloat">
+			<dd class="lt1 lt6">
+				<span>药品分类：</span>
+				<b class="red1">*</b>
+			</dd>
+			<dd class="rt11">
+				<drop-down selectval="" modelval='medicinetype' ng-model="medicinetype" dropdowndata="medicineType" valchange="medicinetypechange(info)">
+				</drop-down>
+				<!--<select-div clickcallback='medicinetypeClick(info)' datalist='medicineType'></select-div>-->
+				<!--<select onchange="this.blur()" class="select1" id="medicinetype" ng-model="medicinetype" ng-options="x.name for x in medicineType">
+					<option value="" selected ng-if="false"></option>
+				</select>-->
+			</dd>
+			<dd class="lt1 lt6">
+				<span>大分类：</span>
+			</dd>
+			<dd class="rt11">
+				<drop-down selectval="" modelval='bigtype' ng-model="bigtype" dropdowndata="bigType" valchange="bigTypechange(info)">
+				</drop-down>
+				<!--<select onchange="this.blur()" class="select1" id="bigtype" ng-model="bigtype" ng-options="x.value for x in bigType">
+					<option value="" selected ng-if="false"></option>
+				</select>-->
+			</dd>
+			<dd class="lt1 lt6">
+				<span>中分类：</span>
+			</dd>
+			<dd class="rt11">
+				<drop-down selectval="" modelval='middletype' ng-model="middletype" dropdowndata="middleType" valchange="middleTypechange(info)">
+				</drop-down>
+				<!--<select onchange="this.blur()" class="select1" id="middletype" ng-model="middletype" ng-options="x.value for x in middleType">
+					<option value="" selected ng-if="false"></option>
+				</select>-->
+			</dd>
+			<dd class="lt1 lt6">
+				<span>小分类：</span>
+			</dd>
+			<dd class="rt11">
+				<drop-down selectval="" modelval='smalltype' ng-model="smalltype" dropdowndata="smallType" valchange="smallTypechange(info)">
+				</drop-down>
+				<!--<select onchange="this.blur()" class="select1" id="smalltype" ng-model="smalltype" ng-options="x.value for x in smallType">
+					<option value="" selected ng-if="false"></option>
+				</select>-->
+			</dd>
+			<dd class="lt1 lt6" id="inputName">
+				<span>医疗保险药品：</span>
+			</dd>
+			<dd class="rt11">
+				<input class="input1" type="text" ng-model="drugName">
+			</dd>
+		</dl>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

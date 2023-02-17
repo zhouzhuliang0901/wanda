@@ -1,0 +1,32 @@
+<style>
+	.showInfo {
+		width: 100%;
+		height: 100%;
+	}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <!--<li><a href="#list">{{itemName}}</a></li>-->
+        <li><a href="#list">填堵河道的审批</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#materialUpload">材料清单</a></li>
+        <li><a href="#uploadMethod">上传方式</a></li>
+        <li class="active">完成申报</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="action" style="width: 100%; left: 0; height:700px;">
+       <iframe ng-src="{{trustSrc(applyUrl)}}" 
+       	width="100%" height="100%" frameborder="0"
+       	sandbox="allow-forms allow-scripts allow-same-origin allow-popups"></iframe>
+       	<!-- sandbox 限制 src 重定向-->
+		<a class="btn_radius_50" ng-click="print()" style="left: 43%; top: 704px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>打印凭证</label>
+			</div>
+		</a>
+    </div>
+</div>

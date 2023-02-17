@@ -1,0 +1,42 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="#">自助取表</a>
+		</li>
+		<li class="active">选择样表</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<div class="bg"></div>
+		<div class="vertical-middle horizontal-middle leftLump">
+			<img src="../libs/common/images/prototype.png">
+			<img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+			<div>请选择一张需要打印的样表</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="panelList three vertical-middle horizontal-middle absoluteLeftRightCenterClass" style="width:850px;height:710px; padding: 35px 105px;">
+			<a class="left control-group" ng-click="previousPage()">
+				<img class="vertical-middle horizontal-middle" src="../libs/common/images/left.png" width="30" />
+			</a>
+			<a class="right control-group" ng-click="nextPage()">
+				<img class="vertical-middle horizontal-middle" src="../libs/common/images/right.png" width="30" />
+			</a>
+			<a class="imgContainer" ng-repeat="item in listData" ng-click="takeTab($index)" style="height: 320px;"
+			 href="javascript:;">
+				<div class="vertical-middle horizontal-middle">
+					<img ng-if="item.imgUrl" ng-src="{{item.imgUrl}}" width="200" height="280" />
+					<label style="font-size:24px;display:block">{{item.formName}}</label>
+				</div>
+			</a>
+
+			<span class="horizontal-middle absoluteLeftRightCenterClass">{{currentPage}}/{{PagingList.pages}}</span>
+		</div>
+	</div>
+</div>

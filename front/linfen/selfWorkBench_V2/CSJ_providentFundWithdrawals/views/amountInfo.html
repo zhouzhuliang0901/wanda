@@ -1,0 +1,72 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.scrollBox2 .prompt {
+		margin: 10px 10px 10px 90px;
+		font-size: 28px;
+	}
+	
+	.table-sty1 th {
+		font-size: 25px;
+		text-align: center;
+		font-weight: bold;
+	}
+	
+	.table-sty1 td {
+		font-size: 24px;
+	}
+	
+	.amount {
+		width: 200px;
+		height: 40px;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-提取金额</p>
+	<div class="scrollBox2 clearfloat">
+		<p class="prompt">说明：提取金额应小于最高可提取金额，合计提取总额不能超过房屋总价。</p>
+		<table class="table-sty1" cellspacing="0">
+			<tr>
+				<th>序号</th>
+				<th>提取人姓名</th>
+				<th>账号</th>
+				<th>最高提取金额</th>
+				<th>提取金额</th>
+			</tr>
+			<tr>
+				<td>1</td>
+				<td>测试是</td>
+				<td>1234567890</td>
+				<td>123456.43</td>
+				<td><input class="input amount" type="number" step="1000" max="{{max}}"/></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

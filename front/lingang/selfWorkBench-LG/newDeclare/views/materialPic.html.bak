@@ -1,0 +1,43 @@
+
+<div>
+	 <div class="headBox1">
+			<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+           	 <li>人证核验</li>
+           	 <li class="act">在线填报</li>
+			</ul>
+	</div>
+	<div class="main2" style="height: 650px;">
+		<div class="action">
+			<div class="imageShow" style="height: 500px;position: absolute;top: 99px;left: 40px;font-size: 40px;">
+				 <img ng-click="select(index)" ng-class="{'imgStyle':current==index}" class="id" ng-src="{{'http://172.16.6.18:8080'+item.pictureUrlForBytes}}" ng-repeat="(index,item) in imgUrls">
+			</div>
+		</div>
+	</div>
+<!--	<div class="loadingBox" ng-if="!isLoding">
+  			<img style="margin-left: 909px;margin-top: 523px;" src="../libs/common/images/loadings.gif" alt=""/>
+  			<p>正在加载数据，请稍后...</p >
+		</div>-->
+
+	<!--<div class="btnBox1 clearfloat">
+	    <a href="#materialList" class="Prev" style="width: 195px;" >返回材料列表</a>
+		<a class="next" id="consureOnclick" ng-click="goNext()" >确认</a>
+	</div>-->
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="1" 
+		prev="prev()"
+		next="goNext()"
+		prev-btn-info="返回材料列表"
+		next-btn-info="确认">
+	</apptb-footer>
+</div>
+<style>
+	.id{
+		height: 185px;
+	}
+	.imgStyle{
+		border: #AA0000 2px solid;
+	}
+</style>

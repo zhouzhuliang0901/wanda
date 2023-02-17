@@ -1,0 +1,87 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		top: 65px;
+		left: 150px;
+	}
+	
+	#wrapper {
+		width: 1800px;
+		height: 655px;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 340px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 700px 340px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+	}
+	
+	.select dd {
+		margin-left: 50px;
+		margin-top: 10px;
+		height: 40px;
+	}
+	
+	.select dl {
+		white-space: normal
+	}
+	
+	.select b {
+		width: 180px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	}
+	
+	.select span {
+		display: block;
+		float: left;
+		width: 470px;
+	}
+}
+</style>
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">{{funName}}--查询结果（{{listLength}}条）</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in queryList">
+				<a class="select">
+					<dd style="margin-top: 50px;">
+						<dl><b>医疗机构名称：</b><span>{{ list.akb021 }}</span></dl>
+					</dd>
+					<dd>
+						<dl><b>医疗机构编号：</b>{{ list.akb020 }}</dl>
+					</dd>
+					<dd>
+						<dl><b>医院等级：</b>{{ list.aka101sm }}</dl>
+					</dd>
+					<dd>
+						<dl><b>医院分类：</b>{{ list.akb023sm }}</dl>
+					</dd>
+					<dd>
+						<dl><b>地址：</b><span>{{ list.aae006 }}</span></dl>
+					</dd>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

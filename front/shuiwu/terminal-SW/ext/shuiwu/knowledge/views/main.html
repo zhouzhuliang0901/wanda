@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="../../../libs/common/images/mainIndexBG_2.png">
+        <p>常见问题释疑</p>
+    </div>
+    <div class="question">
+    	<div class="panelList one">
+			<div class="right-box guide">
+				<div class="inner-box">
+					<div ng-show="haveList" class="document stuff" ng-repeat="(index,item) in questiones" ng-click="showAnswer(index)">
+						<div>{{ index+1 }}</div>
+						<div>{{ item.question }}</div>
+					</div>
+					<div ng-show="!haveList" class="document answer">{{ answer }}</div>
+				</div>
+				<div class="content-side" ng-show="haveList" style="display: none">
+					<a class="side-up" ng-click="moveUp()"><img src="images/btn_up.png" alt="" /></a>
+					<a class="side-down" ng-click="moveDown()"><img src="images/btn_down.png" alt="" /></a>
+				</div>
+			</div>
+		</div>
+    	<a class="btn_radius_50" ng-show="!haveList" ng-click="returnQ()" style="top: 660px; left: 166px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>返回问题列表</label>
+			</div>
+		</a>
+    </div>
+</div>

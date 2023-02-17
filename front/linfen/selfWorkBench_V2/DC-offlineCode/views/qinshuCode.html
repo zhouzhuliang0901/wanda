@@ -1,0 +1,52 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+	.qinshuCode img {
+		width: 1580px;
+		margin-top: 20px;
+	}
+	
+	.qinshuCode p {
+		height: 56px;
+		line-height: 56px;
+		overflow: hidden;
+		font-size: 36px;
+		text-align: center;
+	}
+	.qinshuCode{
+		text-align: center;
+	}
+	@media screen and (max-width: 1600px) {
+		.qinshuCode img {
+			margin-top: 80px;
+			width: 1000px !important;
+			height: 375px !important;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="qinshuCode">
+			<img ng-src="{{imgPath}}" alt="" />
+			<p>扫描亲属码</p>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

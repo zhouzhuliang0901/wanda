@@ -1,0 +1,153 @@
+<div class="TabBox1">
+	<!--进度条-->
+	<ul class="navul1 clearfloat">
+		<li class="act">选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<ul class="tabul1 clearfloat">
+		<div class="inputBox1 inputDiv">
+			<input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+			<a class="btn_radius_50" style="right:20px;top:18px;" ng-click="getSearchMatter()">
+				<div class="greyLight">
+					<img src="images/icon-link9.png" height="50" width="50" />
+				</div>
+			</a>
+		</div>
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">
+			{{item}}
+		</li>
+	</ul>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1" ng-class="{'laststep':prev == true}" style="width: 95%;">
+				<div id="wrapper" class="wrapper">
+					<div class="wrapperBox">
+						<div class="linkbox1 clearfloat">
+							<a ng-show="dept && !deptToItem" ng-class="{'active':$index==active}" repeat-finish
+								ng-repeat="item in itemName" ng-click="toItemByDept(item)">
+								<div>{{item.organName}}</div>
+							</a>
+							<a ng-show="!dept && !deptToItem" ng-class="{'active':$index==active}" repeat-finish
+								ng-repeat="itemType in itemType" ng-click="toItemTypeMaterials(itemType)">
+								<div>{{itemType.stSubItemName}}</div>
+							</a>
+							<a ng-show="deptToItem" ng-class="{'active':$index==active}" repeat-finish
+								ng-repeat="item in itemName" ng-click="toItemTypeMaterials2(item)">
+								<div>{{item.stSubItemName}}</div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer default-is-show-prev-btn="hidden" next="" default-is-show-next-btn="hidden" custom-home="true"
+	home="goHome()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	#wrapper {
+		width: 1300px;
+		height: 560px;
+	}
+
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 330px;
+		height: 115px;
+		float: left;
+		background: url(./images/bg-listCon.png) no-repeat;
+		background-size: 100% 100%;
+		margin-right: 20px;
+		font-size: 24px;
+		padding: 0 40px;
+		box-sizing: border-box;
+	}
+
+	.tabBotbox1inner .linkbox1 a div {
+		width: inherit;
+		text-align: center;
+		display: table-cell;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+
+	.tabBotbox1inner .linkbox1.matter a div {
+		text-overflow: -o-ellipsis-lastline;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+
+	.laststep {
+		height: 530px;
+	}
+
+	/*
+	 * 市绿化市容局
+	 */
+
+	.tabBotbox-top div {
+		width: 100%;
+		float: left;
+	}
+
+	.tabBotbox-top .tabBotbox-top-title {
+		width: 210px;
+		height: 75px;
+		float: left;
+		margin-right: 55px;
+		display: flex;
+		align-items: center;
+	}
+
+	.tabBotbox-top .tabBotbox-top-title b {
+		margin-left: 2px;
+		margin-top: 0px;
+		width: 20px;
+		height: 20px;
+		border-radius: 100%;
+		background: #3A91D1;
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .2);
+	}
+
+	.tabBotbox-top .tabBotbox-top-title span {
+		display: block;
+		margin-left: 50px;
+		color: #3A91D1;
+		font-size: 28px;
+	}
+
+	.tabBotbox-top a {
+		float: left;
+		width: 210px;
+		height: 77px;
+		text-align: center;
+		font-size: 24px;
+		background: url(images/bg-list.png) no-repeat;
+		background-size: 100% 100%;
+		margin-right: 55px;
+		display: flex;
+		box-sizing: border-box;
+		padding: 0 15px;
+		align-items: center;
+		justify-content: center;
+	}
+</style>

@@ -1,0 +1,180 @@
+<style>
+	.card {
+		height: 666px;
+		box-shadow: 0 0 10px 1px rgb(225 225 225 / 70%);
+		width: 554px;
+		margin: 0 20px 40px;
+		float: left;
+		border-radius: 8px;
+		border: 1px solid transparent;
+		position: relative;
+		text-align: center;
+		background: #ffffff;
+	}
+	
+	.card .jiaobiao {
+		position: absolute;
+		right: -2px;
+		top: -2px;
+		width: 47px;
+		height: 47px;
+		background: url(img/jiaobiao-light.png) no-repeat 0 0;
+	}
+	
+	.card .name {
+		font-size: 42px;
+		font-weight: bold;
+		margin-top: 10px;
+	}
+	
+	.barrierFreeA {
+		color: #000000;
+		text-decoration: none;
+	}
+	
+	.card .subcard {
+		width: 300px;
+		box-shadow: 0 0 10px 1px rgb(225 225 225 / 50%);
+		margin: 10px auto;
+		padding-bottom: 10px;
+	}
+	
+	.card .subcard .line {
+		width: 300px;
+		height: 30px;
+		background: url(img/line.png) no-repeat;
+		background-size: 100% 100%;
+		margin-top: 10px;
+		color: #fff;
+		font-size: 15px;
+	}
+	
+	.card .subcard .portrait {
+		display: inline-block;
+		width: 33px;
+		height: 33px;
+		background: url(img/touxiang.png) no-repeat 0 0;
+		margin-top: 22px;
+	}
+	
+	.subname {
+		margin: 10px 0;
+		font-size: 28px;
+	}
+	
+	.card .subcard .validity {
+		color: black;
+		font-size: 28px;
+	}
+	
+	.card .subcard .ssmimg {
+		margin: 50px auto;
+	}
+	
+	.card .subcard .ssmimg img {
+		width: 200px;
+		height: 200px;
+	}
+	
+	.card .subcard .fortime {
+		margin-top: 14px;
+		font-size: 10px;
+		height: 12px;
+	}
+	
+	.btnBox {
+		width: 90%;
+		margin: 0 auto;
+	}
+	
+	.btnBox .btn {
+		background: linear-gradient(to right, #e4c995, #b9916a);
+		color: #fff;
+		border: none;
+		width: 70%;
+		height: 40px;
+		font-size: 24px;
+	}
+	
+	.btnBox .btn1 {
+		background: linear-gradient(to right, #e4c995, #b9916a);
+		color: #fff;
+		border: none;
+		width: 35%;
+		height: 40px;
+		font-size: 24px;
+	}
+	/*修改layui样式*/
+	
+	.layui-layer-btn a {
+		height: 50px;
+		line-height: 50px;
+		margin: 0 30px;
+		padding: 0px 60px;
+		border-radius: 50px;
+		font-size: 28px;
+	}
+	
+	.layui-layer-hui .layui-layer-content {
+		height: 300px!important;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	
+	.layui-layer-btn {
+		text-align: center;
+	}
+	/**/
+</style>
+<div class="bg">
+	<div class="headBox">
+		<div class="headTop clearfloat">
+			<div class="headName">离线随申码</div>
+		</div>
+		<div class="minimize" ng-click="proMinimizes()">
+			<img src="img/minimize.png" alt="" />
+		</div>
+	</div>
+	<div class="bg-middle">
+		<div class="preview">
+			<div class="card lightCard onlyOne">
+				<div class="jiaobiao"></div>
+				<div class="name">
+					<a class="barrierFreeA">{{info.userName}}</a>
+				</div>
+				<div class="subcard">
+					<div class="line"></div>
+					<div class="portrait"></div>
+					<div class="subname">
+						<a class="barrierFreeA">{{info.userName}}</a>
+					</div>
+					<div class="validity">{{info.expireDate}}</div>
+					<div class="ssmimg">
+						<img ng-src="{{imgSrc}}" alt="">
+					</div>
+					<div class="fortime">{{info.applyTime}}</div>
+				</div>
+				<div class="btnBox" ng-show="isLxm == false">
+					<button class="btn" ng-click="applyOfflineCode()">申领</button>
+				</div>
+				<div class="btnBox" ng-show="isLxm == true">
+					<button class="btn1" ng-click="reportlossOfflineCode()">挂失</button>
+					<button class="btn1" ng-click="downloadOfflineCode()">下载</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="footBox">
+		<div class="prev-back-next">
+			<a></a>
+			<!--<a class="prev" ng-click=" prevStep()">上一步</a>-->
+			<a class="backindex1" ng-click="goHome()"></a>
+			<!--<a class="next" ng-click="nextStep()">下一步</a>-->
+			<!-- <a class="next" ng-click="downloadOfflineCode()" >下一步</a>-->
+			<a></a>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

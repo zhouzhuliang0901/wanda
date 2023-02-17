@@ -1,0 +1,35 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">扫描身份证</a>
+        </li>
+        <li class="active">验证手机号</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="../libs/common/images/mainIndexBG_0.png">
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+            <div>请输入手机号</div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="inputBox horizontal-middle" style="top:300px;left: 267.5px;position:absolute;font-size:42px;">
+            <label>手机号</label>
+            <input type="text" ng-model="phoneNumber" style="width:380px" />
+        </div>
+        <a class="btn_radius_50" ng-click="sendAppointment()" style="position:absolute;left:410px;top:500px;width: 300px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/search.png" height="80">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

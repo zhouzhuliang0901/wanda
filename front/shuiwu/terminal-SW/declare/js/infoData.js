@@ -1,0 +1,53 @@
+// 自主申报相关数据
+var itemList1 = [
+	{"itemName":"城镇污水排入排水管网许可","itemUrl":"SW_drainagePermit"},
+	{"itemName":"填堵河道的审批","itemUrl":"SW_riverChannel"},
+	{"itemName":"向国际组织、外国的组织或个人 提供海洋观测资料和成果的审批","itemUrl":"SW_marineObservation"},
+//	{"itemName":"临时用海项目备案","itemUrl":"SW_temporarySea_delete"},
+//	{"itemName":"临时停止供水或者降低水压的审批","itemUrl":"SW_temporaryWaterSupply"},
+	{"itemName":"防汛工程设施废除的审批","itemUrl":"SW_floodFacilitiesAbolish"},
+	{"itemName":"《长江河道采砂许可证》的审批","itemUrl":"SW_riverSandMining"},
+	{"itemName":"海域使用金减免的审批","itemUrl":"SW_marineGoldBreaks"},
+	{"itemName":"公用岸段海塘使用的审批","itemUrl":"SW_publicSeawall"},
+	{"itemName":"新建大堤纳入本市海塘统一管理的审批","itemUrl":"SW_newEmbankmentIncorporated"},
+	{"itemName":"滩涂开发利用许可证的审批","itemUrl":"SW_beachPermit"},
+	{"itemName":"在海塘堤防上破堤、开缺、凿洞施工的审批","itemUrl":"SW_approvalOfSeawall"},
+	{"itemName":"河道管理范围内建设项目的审核","itemUrl":"SW_approvalOfConstructionProjects"},
+	{"itemName":"滩涂圈围工程竣工验收","itemUrl":"SW_beachWorkAcceptance"},
+	{"itemName":"建设项目节水设施设计方案的审批","itemUrl":"SW_waterConservation"},
+]
+var itemList = [
+	{"itemName":"城镇污水排入排水管网许可","itemUrl":"SW_drainagePermit"},
+	{"itemName":"填堵河道的审批","itemUrl":"SW_riverChannel"},
+	{"itemName":"向国际组织、外国的组织或个人 提供海洋观测资料和成果的审批","itemUrl":"SW_marineObservation"},
+	{"itemName":"河道管理范围内有关活动（不含河道采砂）审批","itemUrl":"SW_approvalOfRiverManagement"}, // 缺少一个变更的xml文档
+//	{"itemName":"临时用海项目备案","itemUrl":"SW_temporarySea_delete"}, // 客户要求删掉
+//	{"itemName":"临时停止供水或者降低水压的审批","itemUrl":"SW_temporaryWaterSupply"}, // 客户要求删掉
+	{"itemName":"取水许可","itemUrl":"SW_waterIntakePermit"},
+	{"itemName":"临时封堵排水管道的审批","itemUrl":"SW_pluggingDrainagePipes"},
+	{"itemName":"防汛工程设施废除的审批","itemUrl":"SW_floodFacilitiesAbolish"},
+	{"itemName":"长江河道采砂许可（终审）","itemUrl":"SW_riverSandMining"},
+	{"itemName":"海域使用金减免的审批","itemUrl":"SW_marineGoldBreaks"},
+	{"itemName":"公用岸段海塘使用的审批","itemUrl":"SW_publicSeawall"},
+	{"itemName":"新建大堤纳入本市海塘统一管理的审批","itemUrl":"SW_newEmbankmentIncorporated"},
+	{"itemName":"滩涂开发利用许可证的审批","itemUrl":"SW_beachPermit"},
+	{"itemName":"在海塘堤防上破堤、开缺、凿洞施工的审批","itemUrl":"SW_approvalOfSeawall"},
+	{"itemName":"河道管理范围内建设项目施工方案的审核","itemUrl":"SW_riverConstruction"},
+	{"itemName":"滩涂圈围工程竣工验收","itemUrl":"SW_beachWorkAcceptance"},
+	{"itemName":"建设项目节水设施设计方案的审核","itemUrl":"SW_waterConservation"},
+//	{"itemName":"原水、公共供水设施改装、迁移或者拆除的审批","itemUrl":""}, // 客户后来发的表单里没有
+	{"itemName":"原水引水管渠保护范围内实施建设工程的审批","itemUrl":"SW_waterPipeProtect"},
+	{"itemName":"水利基建项目初步设计文件审批","itemUrl":"SW_approvalOfWaterInfrastructure"},
+	{"itemName":"专用水文测站的审批","itemUrl":"SW_seawallConstruction"},
+	{"itemName":"水利工程质量检测单位资格认定","itemUrl":"SW_waterDetectionQualification"},
+	{"itemName":"无居民海岛开发利用申请的审核","itemUrl":"SW_islandDevelopmentApproval"},
+	{"itemName":"深井报废事先备案","itemUrl":"SW_deepWellScrapRecord"},
+	{"itemName":"生产建设项目水土保持方案审批","itemUrl":"SW_approvalOfWaterConservation"},
+	{"itemName":"海域使用权审核","itemUrl":"SW_verificationOfSeaRight"},
+	{"itemName":"临时海域使用活动审批","itemUrl":"SW_marineUseActivities"},
+	{"itemName":"河道管理范围内树木迁移的审批","itemUrl":"SW_approvalOfTreeMigration"},
+	{"itemName":"国家基本水文测站迁移审批","itemUrl":"SW_hydrographicStationRelocation"},
+	{"itemName":"因教学、科学研究确需在无居民海岛采集生物和非生物标本的批准","itemUrl":"SW_islandSampling"},
+	{"itemName":"河道管理范围内建设项目工程建设方案审批","itemUrl":"SW_approvalOfConstructionProjects"},
+	{"itemName":"在一线河道堤防破堤施工或者开缺、凿洞的审核和审批","itemUrl":"SW_leveeConstruction"},
+]

@@ -1,0 +1,49 @@
+<style>
+	.main2{
+		margin: 0;
+	}
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	.aimleft450{
+		margin-left: 450px;
+	}
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin: 90px 150px 0px !important;
+		}
+		.main2{
+			width: 1280px ;
+		}
+		.scrollBox2 .linkBox1{
+			padding-left: 0px !important;
+		}
+		.aimleft450{
+			margin-left: 0px;
+		}
+		}
+</style>
+<!--<apptb-header fun-name="{{funName}}"></apptb-header>-->
+<p class="caption">{{funName}}---上传方式</p>
+	<div class="main2">
+		<div class="scrollBox2 clearfloat">
+			<div class="linkBox1 clearfloat" style="padding-left: 340px;margin-top: 50px;">
+				<a ng-click="scanPhoto()" class="aimleft450">
+					<img src="../sqfw/images/icon-link2.png" />
+					<p>扫描上传</p>
+				</a>
+				<!--<a ng-click="takePhoto()">
+					<img src="../sqfw/images/icon-link3.png" />
+					<p>U盘上传</p>
+				</a>
+				<a ng-click="materialPic()">
+					<img src="../sqfw/images/icon-link1.png" />
+					<p>电子证照上传</p>
+				</a>-->
+			</div>
+		</div>
+</div>
+<apptb-footer prev="prve()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

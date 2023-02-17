@@ -1,0 +1,118 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 65px;
+		margin-left: 210px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 575px;
+	}
+	
+	.handleList {
+		margin-left: 280px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 210px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		margin-left: 72px;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 100% 84px;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th:last-child {
+		width: 15%;
+	}
+	
+	.resultTr th:nth-child(2) {
+		width: 22%;
+	}
+	
+	.resultTr th:nth-child(3) {
+		width: 35%;
+	}
+	
+	.resultTr th:first-child {
+		width: 8%;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1080px;
+			margin-left: 100px;
+		}
+		.handleList {
+			margin-left: 100px;
+		}
+		#wrapper {
+			width: 863px;
+			height: 540px;
+		}
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<ul class="handleList">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in areaList" ng-click="change(item.name,index,item.id)">
+			{{item.name}}
+		</li>
+	</ul>
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table>
+				<tr class="resultTr">
+					<th>序号</th>
+					<th>考点</th>
+					<th>地址</th>
+					<th>工作时间</th>
+					<th>联系电话</th>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{index+1}}</td>
+					<td>{{list.ks}}</td>
+					<td>{{list.lxdz}}</td>
+					<td>{{list.gzsj}}</td>
+					<td>{{list.lxdf}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,95 @@
+<p class="caption">{{stuffName}}</p>
+<button ng-click="print2()">开始打印</button>
+<div id="print2" style="display: block;">
+	<!--<span class="toptop">第1联：审批部分存</span>-->
+	<div class="erweima">
+		<!--<img src="image/x1.jpg" style="float: left;"/>
+		<img src="image/x2.jpg" style="float: right;"/>-->
+	</div>
+	<div class="title2">
+		<p>（静安区文化和旅游局）</p>
+		<p style="">无人干预审批结果告知单</p>
+	</div>
+	<p>申请人:上海*****有限公司</p>
+	<p>申请审批事项： 核发出版物经营许可证（零售）-依申请注销</p>
+	<p>今收到以下材料：</p>
+	<div>
+		<table border="1" width="80%" height="300px">
+			<tr align="center" valign="center">
+				<td>序号</td>
+				<td>申请材料名称</td>
+				<td>份数</td>
+				<td>原/复印件</td>
+				<td>备注</td>
+			</tr>
+			<tr align="center" valign="center">
+				<td>1</td>
+				<td>《出版物经营许可证》正本</td>
+				<td>1</td>
+				<td>原</td>
+				<td></td>
+			</tr>
+			<tr align="center" valign="center">
+				<td>2</td>
+				<td>《出版物经营许可证》副本</td>
+				<td>1</td>
+				<td>原</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>合计</td>
+				<td colspan='4'></td>
+				<!--<td></td>
+				<td></td>
+				<td></td>-->
+			</tr>
+		</table>
+	</div>
+	<p>&emsp;&emsp;你提交的申请材料符合审批规范，本单位作出受理通过决定， 你的《出版物经营许可证》已注销。</p>
+	<div>
+		<p>&emsp; 材料提交人：</p>
+		<p>&emsp;  联系电话：</p>
+		<p>&emsp; 收件人：静安区文化和旅游局</p>
+		<p>&emsp; 联系电话：021）52137855</p>
+	</div>
+	 <div style="float: right;width: 200px;">20**年**月**日</div>
+	 <div class="print2End">（本凭证一式两份：第1联由接收单位存档,第2联由申请人自存）</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<style type="text/css" id="style1">
+	#print2 {
+		overflow: auto;
+		width: 800px;
+		height: 600px;
+		border: 3px solid red;
+		padding: 20px 200px 200px;
+	}
+	
+	.toptop {
+		width: 90%;
+		text-align: center;
+	}
+	
+	.erweima {
+		margin-top: 50px;
+		width: 90%;
+		height: 80px;
+	}
+	
+	.title2 {
+		margin-top: 20px;
+		clear:both;
+		width: 90%;
+		text-align: center;
+	}
+	
+	p{
+		margin: 20px 0px;
+	}
+	.print2End{
+		margin-top: 100px;
+		width: 90%;
+		text-align: center;
+	}
+</style>

@@ -1,0 +1,157 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 9%;
+	}
+
+	.caption {
+		margin-top: 86px!important;
+		margin-left: 220px!important;
+	}
+
+	.wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+
+	.schoolName {
+		width: 43%;
+		height: 90px;
+		margin: 1% 8.7%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;
+		padding-left: 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 94%;
+		height: 100%;
+	}
+
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+		right: 5%;
+		width: 52px;
+	}
+
+	.schoolName span {
+		color: #e1ba1c;
+	    font-weight: bold;
+	    position: relative;
+	    left: 830px;
+	    bottom: 25px;
+    	font-size: 24px;
+	}
+
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+
+	.select {
+		float: left;
+		width: 650px;
+		height: 300px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 30px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1.4%;
+	}
+
+	.select dd {
+		margin-top: 30px;
+		height: 40px;
+		width: 90%;
+		margin: 2.6% auto;
+	}
+
+	.select dl {
+		white-space: normal;
+		width: 78%;
+		height: 100%;
+		margin-left: 5%;
+		line-height: 150%;
+		display: inline-block;
+	}
+
+	.select b {
+		width: 20%;
+		display: block;
+		letter-spacing: 3px;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+		.schoolName span {
+			left: 400px;
+    		bottom: 170px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="schoolName">
+		<input type="text" placeholder="请输入机构名称关键字" ng-model="schoolName" />
+		<img ng-click="querySchoolsInfo(schoolName)" src="../libs/common/images/icon-link9.png" />
+		<span>温馨提示：列表内容可点击查看详情</span>
+	</div>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in queryList">
+				<a class="select" ng-click="currentSchoolInfo(list.JGMC)">
+					<dd>
+						<b>机构地址：</b>
+						<dl>{{list.FDBXZCDZ || '暂无'}}</dl>
+					</dd>
+					<dd>
+						<b>办学规模：</b>
+						<dl>{{list.BXGM || '暂无'}}</dl>
+					</dd>
+					<dd style="margin: 0 auto 17%;">
+						<b>机构名称：</b>
+						<dl>{{list.JGMC || '暂无'}}</dl>
+					</dd>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

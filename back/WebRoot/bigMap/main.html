@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>上海市"一网通办"自助终端运行情况</title>
+		<link rel="stylesheet" href="css/screen.css">
+		<script src="js/jquery-3.5.1.min.js"></script>
+		<script src="js/angular.js"></script>
+		<script type="text/javascript" src="js/resize.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				widthFull([".container"]); //fullscreen
+			});
+		</script>
+		<!-- 引入 echarts.js -->
+		<script src="js/echarts.min.js"></script>
+	</head>
+
+	<body ng-controller="devicesCtrl">
+		<div id="allmap"></div>
+		<div class="container">
+			<header>
+				<img src="img/title.png" alt="">
+				<p class="bling"><img src="img/bling.png" alt=""></p>
+			</header>
+			<div class="radian">
+				<!--箭头-->
+				<!-- 左边箭头 -->
+				<div class="arrowAllL">
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+				</div>
+				<!-- 右边箭头 -->
+				<div class="arrowAllR">
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+					<i></i>
+				</div>
+			</div>
+			<main>
+				<!--左边设备表格-->
+				<div class="lside">
+					<div class="jdt">
+					</div>
+					<div class="sblr">
+						<p class="subTit">各区终端设备数</p>
+						<p class="blingTit"><img src="img/bling.png" alt=""></p>
+						<table class="zhdsheb">
+							<thead>
+								<tr>
+									<th>&emsp;&emsp;&emsp;&emsp;</th>
+									<th>中心政务终端</th>
+									<th>延伸政务终端</th>
+									<th>社会化终端</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="item in AreaInfo" ng-click="openPopSb(item.stDistrict)">
+									<th>{{item.stDistrict}}</th>
+									<td>{{item.nmLat}}</td>
+									<td>{{item.stAddress}}</td>
+									<td>{{item.nmLng}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--中间地图-->
+				<div class="bcMap">
+					<!--圆柱体-->
+					<div class="ellipse click_pop" ng-repeat="item in AreaInfo">
+						<div class="eAfter" ng-style="{height: item.stStreet}" ng-click="openPop(item.stDistrict)">
+							<span id="bjNumber">
+								{{item.stLabel}}
+							</span>
+						</div>
+						<span class="bjDistrict">
+							{{item.stDistrict}}
+						</span>
+					</div>
+					<div class="ellipse click_pop" style="top: auto;left: auto;right: 20%;bottom: -106%;">
+						<div class="eAfter" style=" height: 70px; cursor: default;"></div>
+						<span class="bjDistrict" style="width: 120px;top: -84%; font-size: 18px;">30天办件情况</span>
+					</div>
+					<!--地图背景-->
+					<div class="bcMapDiv"><img src="img/smallMap.png" alt=""></div>
+				</div>
+				<!--中间顶部列表-->
+				<div class="map">
+					<ul class="totals">
+						<li>赋能终端总数<span>{{qbNum}}<span class="smallT">台</span></span>
+						</li>
+						<li>自助事项总数<span>{{zcNum}}<span class="smallT">项</span></span>
+						</li>
+						<li>30天办件情况<span>{{ycNum}}<span class="smallT">件</span></span>
+						</li>
+					</ul>
+				</div>
+				<!--右边办件量表格-->
+				<div class="rside">
+					<div class="time">
+						<p><img src="img/time.png" alt="">当前时间
+						</p>
+						<script type="text/javascript">
+							function currentTime() {
+								let d = new Date();
+								let str = '';
+								// 年月日
+								str += (d.getMonth() + 1) < 10 ? d.getFullYear() + '-0' : d.getFullYear() + '-';
+								str += d.getDate() < 10 ? d.getMonth() + 1 + '-0' : d.getMonth() + 1 + '-';
+								str += d.getDate() + ' ';
+								// 时分秒
+								str += d.getHours() < 10 ? '0' + d.getHours() + ':' : d.getHours() + ':'; //00-24
+								str += d.getMinutes() < 10 ? '0' + d.getMinutes() + ':' : d.getMinutes() + ':'; // 00-60
+								str += d.getSeconds() < 10 ? '0' + d.getSeconds() : d.getSeconds();
+								return str;
+							}
+							setInterval(function() {
+								$('#time').html(currentTime)
+							}, 1000);
+						</script>
+						<div id="time"></div>
+					</div>
+					<div class="sblr">
+						<p class="subTit">业务办件量TOP20</p>
+						<p class="blingTit"><img src="img/bling.png" alt=""></p>
+						<table class="top10">
+							<tbody>
+								<tr ng-repeat="item in InfoQuery">
+									<th>
+										<p>{{$index+1}}</p>
+									</th>
+									<th>{{item.stItemName}}</th>
+									<td>{{item.stExt1}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!--实时办件-->
+				<div class="timeNum">
+					<img src="img/ssbj.png" />
+				</div>
+				<!--底部轮播-->
+				<div id="scrollDiv">
+					<ul>
+						<li>
+							<h3>
+		                	<a href="#" class="linktit"></a></h3>
+							<div>{{raelTime[0].stItemName}}&emsp;|&emsp;{{firstName}}&emsp;|&emsp;{{raelTime[0].stDesc}}</div>
+						</li>
+						<li>
+							<h3>
+		                	<a href="#" class="linktit"></a></h3>
+							<div>{{raelTime[1].stItemName}}&emsp;|&emsp;{{secondName}}&emsp;|&emsp;{{raelTime[1].stDesc}}</div>
+						</li>
+					</ul>
+				</div>
+				<!--街道设备弹窗-->
+				<div class="pop_sb">
+					<!--顶部-->
+					<div class="popHead">{{areaName}}设备情况</div>
+					<img class="off" src="img/off.png" alt="" ng-click="closePop()" />
+					<!--内容左-->
+					<div class="popLeft">
+						<div class="popSblr">
+							<p class="subTit">各街道设备数</p>
+							<p class="blingTit"><img src="img/bling.png" alt=""></p>
+						</div>
+						<div id="main_sb"></div>
+					</div>
+					<!--内容右-->
+					<div class="popRight">
+						<div class="areaTitle">
+							<p class="subTit" style="margin-left: 3%;">街道设备详情</p>
+							<p class="blingTit"><img src="img/bling.png" alt=""></p>
+						</div>
+						<div class="sbpop">
+							<div class="pop-top">
+								<table class="total">
+									<tbody>
+										<tr>
+											<th rowspan="2"><img src="img/zongshu.png" alt=""></th>
+											<td>总数</td>
+											<th rowspan="2"><img src="img/zhengchang.png" alt=""></th>
+											<td>正常</td>
+											<th rowspan="2"><img src="img/yichang.png" alt=""></th>
+											<td>异常</td>
+											<th rowspan="2"><img src="img/banjian.png" alt=""></th>
+											<td>办件量</td>
+										</tr>
+										<tr>
+											<td><span class="zs">{{totalPage || 0}}</span>台</td>
+											<td><span class="zhch">{{zchang}}</span>台</td>
+											<td><span class="ych">{{yichang}}</span>台</td>
+											<td><span class="ych">{{yichang}}</span>件</td>
+										</tr>
+
+									</tbody>
+								</table>
+							</div>
+							<div class="pop-content">
+								<div id="slider">
+									<ul class="slider_list">
+										<li ng-repeat="item in Item">
+											<table class="shebei">
+												<div class="imgDiv1">
+													<img src="img/dzh.png" alt="">
+													<span style="letter-spacing:3px;">&nbsp;{{streetName}}</span>
+												</div>
+												<tbody>
+													<tr>
+														<th>设备编码：</th>
+														<td colspan="2">{{item.stDeviceCode || "暂无"}}
+															<p ng-if="item.nmNotification == '0'" class="zhchang">正常</p>
+															<p ng-if="item.nmNotification == '1'" class="exception">异常</p>
+														</td>
+													</tr>
+													<tr>
+														<th>设备名称：</th>
+														<td colspan="2">{{item.stDeviceName || "暂无"}}</td>
+													</tr>
+													<tr>
+														<th>可办理事项数：</th>
+														<td colspan="2">{{item.nmOrder || 0}}&nbsp;&nbsp;项</td>
+													</tr>
+													<tr>
+														<th>就医记录册：</th>
+														<td>
+															<div class="jindut">
+																<p ng-style="{width:item.medicaljindu}"></p>
+															</div>
+														</td>
+														<td>剩余<span>{{item.nmIsHost || 0}}</span>册</td>
+													</tr>
+													<tr>
+														<th>打印纸张：</th>
+														<td>
+															<div class="jindut">
+																<p ng-style="{width:item.printjindu}"></p>
+															</div>
+														</td>
+														<td>剩余<span>{{item.nmRecover || 0}}</span>册</td>
+													</tr>
+												</tbody>
+											</table>
+										</li>
+									</ul>
+									<div class="slider_icon">
+										<i class="currentPage">1</i>
+										<i> / </i>
+										<i class="totalPage">{{totalPage || 1}}</i>
+									</div>
+									<a href="javascript:;" class="arrow prve" id="prev" ng-click="prev()">
+										<span class="slider_left">
+									<img src="img/prev.png" alt="">
+								</span>
+									</a>
+									<a href="javascript:;" class="arrow next" id="next" ng-click="next()">
+										<span class="slider_right">
+									<img src="img/next.png" alt="">
+								</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--街道办件弹窗-->
+				<div class="pop">
+					<!--顶部-->
+					<div class="popHead">{{areaName}}30天办件情况</div>
+					<img class="off" src="img/off.png" alt="" ng-click="closePop()" />
+					<!--内容左-->
+					<div class="popLeft">
+						<div class="popSblr">
+							<p class="subTit">业务办件量TOP10</p>
+							<p class="blingTit"><img src="img/bling.png" alt=""></p>
+							<table class="top10">
+								<tbody>
+									<tr ng-repeat="item in topTen">
+										<th>
+											<p>{{$index+1}}</p>
+										</th>
+										<th>{{item.stItemName}}</th>
+										<td>{{item.stExt1}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!--内容右-->
+					<div class="popRight">
+						<div class="areaTitle">
+							<p class="subTit">各街道办件量</p>
+							<p class="blingTit"><img src="img/bling.png" alt=""></p>
+						</div>
+						<div id="main"></div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+	<script src="js/controller.js"></script>
+	<script src="js/scroll.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#scrollDiv").Scroll({
+				line: 1,
+				speed: 500,
+				timer: 4000
+			});
+		});
+	</script>
+
+</html>

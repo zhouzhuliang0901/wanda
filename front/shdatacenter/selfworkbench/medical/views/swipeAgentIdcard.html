@@ -1,0 +1,53 @@
+<app-header go-back="goAppHistoryBack()" fun-name="医保制册"></app-header>
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" ng-if="isShowChoiceLoginType">
+	<div id="choiceLoginType" class="linkBox1 clearfloat">
+		<a ng-click="choiceLoginType('idcard')">
+			<img src="../libs/common/images/icon-link14.png" />
+			<p>身份证登录</p>
+		</a>
+		<a ng-click="choiceLoginType('cloud')">
+			<img src="../libs/common/images/icon-link13.png" />
+			<p>随申办登录</p>
+		</a>
+	</div>
+</div>
+<div class="scrollBox2 clearfloat" ng-if="!isShowChoiceLoginType">
+	<idcard read="idcardLogin(info,images)" ng-if="loginType == 'idcard'"></idcard>
+	<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<app-footer prev="prevStep()" next="" default-next="hidden">
+	<a href="javascript:;" class="continue" ng-if="loginBtn" ng-click="caLogin()">登录</a>
+</app-footer>
+<style type="text/css">
+	ca {
+		display: block;
+		margin-top: 150px;
+	}
+	
+	.stamp {
+		margin-left: 60px;
+	}
+	
+	citizen-cloud {
+		margin-top: 84px;
+		display: block;
+	}
+	
+	citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		width: 1300px
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+	#choiceLoginType {
+		padding-left: 570px;
+		text-align: center;
+		margin-top: 134px;
+	}
+</style>

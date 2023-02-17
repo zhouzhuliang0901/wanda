@@ -1,0 +1,38 @@
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<sscard read="sscardLogin(info)"></sscard>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+	.scrollBox2 .cardreadingBox1 p {
+	    height: 56px;
+	    line-height: 56px;
+	    overflow: hidden;
+	    font-size: 36px;
+	}
+</style>

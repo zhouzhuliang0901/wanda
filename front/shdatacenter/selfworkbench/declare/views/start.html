@@ -1,0 +1,55 @@
+<div class="shell bg2">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="goHome()">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header><!--<span><b class="minute">{{maxCountDown}}</b>秒</span>-->后将返回首页</div>
+        </div>
+        <ul class="navul1 clearfloat">
+            <li class="act">选择事项</li>
+            <li>办事指南</li>
+            <li>人证核验</li>
+            <li>在线填报</li>
+        </ul>
+    </div>
+  <div class="TabBox1">
+  	<ul class="tabul1 clearfloat">
+  		<li style="color: #fefefe;opacity: .6;">主题事项</li>
+  	</ul>
+  	<div class="tabBotbox1">
+  		<div class="cont">
+  			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper">
+					<div class="linkbox1 clearfloat text" ng-class="{'matter':current==1}" style="width: 1800px;">
+						<a style="background: #8973b4;" ng-click="goToApp('../sqfw/index.html#/guidelineJybt')">就业补贴一件事</a>
+						<a style="background: #fc6392;" ng-click="goToApp('../sqfw/index.html#/guidelineSybx')">生育保险一件事</a>
+						<a style="background: #86A1FC;" ng-click="goToApp('../sqfw/index.html#/guidelineJygx')">异地就医一件事</a>
+						<a style="background: #10d367;" ng-click="goToApp('../sqfw/index.html#/guideline')">敬老卡申领、发放</a>
+						<!--<a style="background: #ffb347;" ng-click="goToApp('http://183.194.241.117/smzy/shell_terminal/tourist/guide/scene-01?sceneName=%E5%B7%A5%E7%A8%8B%E5%BB%BA%E8%AE%BE%E9%A1%B9%E7%9B%AE%E4%B8%BB%E9%A2%98%20&sceneId=76252&simple=1')">建设工程项目</a>-->
+					</div>
+					<li style="color: #fefefe;opacity: .6;font-size: 34px;margin-left: 120px; margin-top: 30px;margin-bottom: -44px;">其他事项</li>
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}" style="width: 1800px;margin-top: 80px;">
+						<a href="#citylist">市级</a>
+						<a href="#list">区级</a>
+						<a ng-click="goToApp('../sqfw/index.html')">街道</a>
+					</div>
+				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	#wrapper{
+		width:1800px;
+		height: 500px;
+	}
+	.tabBotbox1inner .text a{
+		width:266px;
+		margin-right: 44px;
+	}
+	
+	
+</style>

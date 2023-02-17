@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.7.4</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <groupId>com.wondersgroup</groupId>
+    <artifactId>ac-msg</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>ac-msg</name>
+    <description>ac-msg</description>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <!-- tag::jetty-version[] -->
+        <jetty-version>9.4.49.v20220914</jetty-version>
+        <!-- end::jetty-version[] -->
+        <!-- Last GraalVM version to support Java 8 -->
+        <graalvm-version>21.3.2.1</graalvm-version>
+        <tomcat.version>9.0.71</tomcat.version>
+        <slf4j-version>2.0.3</slf4j-version>
+        <log4j2-version>2.19.0</log4j2-version>
+        <commons-pool2-version>2.5.0</commons-pool2-version>
+        <cometd-version>5.0.14</cometd-version>
+        <jackson-version>2.14.2</jackson-version>
+        <fastjson-version>1.2.47</fastjson-version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>slf4j-api</artifactId>
+                    <groupId>org.slf4j</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-tomcat</artifactId>-->
+        <!--            <scope>provided</scope>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jetty</artifactId>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>jakarta.websocket</groupId>
+                    <artifactId>jakarta.websocket-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>jakarta.servlet</groupId>
+                    <artifactId>jakarta.servlet-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--使用 spring-boot-starter-activemq，将提供连接或嵌入activemq实例所需的依赖项-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
+        </dependency>
+        <!--ActiveMQ 服务器内嵌启动时，需要添加 activemq-kahadb-store,用于数据持久化-->
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-kahadb-store</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.activemq</groupId>
+            <artifactId>activemq-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.cometd.java</groupId>
+            <artifactId>cometd-java-examples-embedded</artifactId>
+            <version>${cometd-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.cometd.java</groupId>
+            <artifactId>cometd-java-server-websocket-javax</artifactId>
+            <version>${cometd-version}</version>
+        </dependency>
+        <!-- lettuce pool 缓存连接池 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+            <version>${commons-pool2-version}</version>
+        </dependency>
+        <!--quartz相关依赖 -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz-jobs</artifactId>
+        </dependency>
+        <!-- Apache公共类库 -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${fastjson-version}</version>
+        </dependency>
+        <!-- jackson json 优化缓存对象序列化 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jdk8</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>javax.websocket</groupId>-->
+        <!--            <artifactId>javax.websocket-client-api</artifactId>-->
+        <!--            <version>1.0</version>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>javax.websocket</groupId>
+            <artifactId>javax.websocket-api</artifactId>
+            <version>1.0</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.cometd.java</groupId>
+            <artifactId>cometd-java-server-websocket-common</artifactId>
+            <version>${cometd-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>jsr250-api</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.jetty.toolchain</groupId>
+            <artifactId>jetty-perf-helper</artifactId>
+            <version>1.0.7</version>
+        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>org.slf4j</groupId>-->
+        <!--            <artifactId>slf4j-api</artifactId>-->
+        <!--            <version>${slf4j-version}</version>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.google.javascript</groupId>-->
+        <!--            <artifactId>closure-compiler</artifactId>-->
+        <!--            &lt;!&ndash; Last version to support Java 8 &ndash;&gt;-->
+        <!--            <version>v20220502</version>-->
+        <!--        </dependency>-->
+
+        <!--        <dependency>-->
+        <!--            <groupId>org.junit.jupiter</groupId>-->
+        <!--            <artifactId>junit-jupiter</artifactId>-->
+        <!--            <version>5.9.1</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.google.inject</groupId>-->
+        <!--            <artifactId>guice</artifactId>-->
+        <!--            <version>5.1.0</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.logging.log4j</groupId>-->
+        <!--            <artifactId>log4j-core</artifactId>-->
+        <!--            <version>${log4j2-version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.apache.logging.log4j</groupId>-->
+        <!--            <artifactId>log4j-slf4j2-impl</artifactId>-->
+        <!--            <version>${log4j2-version}</version>-->
+        <!--            <scope>test</scope>-->
+        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.cometd.java</groupId>
+            <artifactId>cometd-java-client-websocket-javax</artifactId>
+            <version>${cometd-version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <!-- maven打包的时候告诉maven不需要web.xml,否刚会报找不到web.xml错误 -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <packagingExcludes>WEB-INF/lib/websocket-*.jar</packagingExcludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!--指定maven的编译器版本-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-war-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    &lt;!&ndash;<attachClasses>true</attachClasses>&ndash;&gt;-->
+            <!--                    <webResources>-->
+            <!--                        <resource>-->
+            <!--                            <directory>${project.basedir}/extlib</directory>-->
+            <!--                            <targetPath>WEB-INF/lib</targetPath>-->
+            <!--                            &lt;!&ndash;<filtering>true</filtering>&ndash;&gt;-->
+            <!--                            <includes>-->
+            <!--                                <include>**/*.jar</include>-->
+            <!--                            </includes>-->
+            <!--                        </resource>-->
+            <!--                    </webResources>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.tomcat.maven</groupId>-->
+            <!--                <artifactId>tomcat7-maven-plugin</artifactId>-->
+            <!--                <version>2.2</version>-->
+            <!--                <configuration>-->
+            <!--                    &lt;!&ndash; 注意此处的url &ndash;&gt;-->
+            <!--                    &lt;!&ndash;<url>http://xx.xxx.xxx.xxx:8080/manager/text</url>&lt;!&ndash;部署到本地tomcat7&ndash;&gt;&ndash;&gt;-->
+            <!--                    &lt;!&ndash;<path>/${project.name}</path>  &lt;!&ndash; 此处的名字是项目发布的工程名 &ndash;&gt;&ndash;&gt;-->
+            <!--                    <path>/</path>-->
+            <!--                    &lt;!&ndash;<username>xxxx</username>&lt;!&ndash;settings.xml文件已配置，此处可不配&ndash;&gt;&ndash;&gt;-->
+            <!--                    &lt;!&ndash;<password>xxxxx</password>&lt;!&ndash;settings.xml文件已配置，此处可不配&ndash;&gt;&ndash;&gt;-->
+            <!--                </configuration>-->
+            <!--                <dependencies>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat.embed</groupId>-->
+            <!--                        <artifactId>tomcat-embed-core</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-util</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-coyote</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-api</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-jdbc</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-dbcp</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-servlet-api</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-jsp-api</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-jasper</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-jasper-el</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-el-api</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-catalina</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-tribes</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-catalina-ha</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-annotations-api</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat</groupId>-->
+            <!--                        <artifactId>tomcat-juli</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat.embed</groupId>-->
+            <!--                        <artifactId>tomcat-embed-logging-juli</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                    <dependency>-->
+            <!--                        <groupId>org.apache.tomcat.embed</groupId>-->
+            <!--                        <artifactId>tomcat-embed-logging-log4j</artifactId>-->
+            <!--                        <version>${tomcat.version}</version>-->
+            <!--                    </dependency>-->
+            <!--                </dependencies>-->
+            <!--            </plugin>-->
+        </plugins>
+        <!--        <plugins>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.apache.maven.plugins</groupId>-->
+        <!--                <artifactId>maven-compiler-plugin</artifactId>-->
+        <!--                <version>3.8.1</version>-->
+        <!--                <configuration>-->
+        <!--                    <source>1.8</source>-->
+        <!--                    <target>1.8</target>-->
+        <!--                    <encoding>UTF-8</encoding>-->
+        <!--                </configuration>-->
+        <!--            </plugin>-->
+        <!--            <plugin>-->
+        <!--                <groupId>org.springframework.boot</groupId>-->
+        <!--                <artifactId>spring-boot-maven-plugin</artifactId>-->
+        <!--            </plugin>-->
+        <!--        </plugins>-->
+    </build>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alfresco-public</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>alfresco-public-snapshots</id>
+            <url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>beardedgeeks-releases</id>
+            <url>http://beardedgeeks.googlecode.com/svn/repository/releases</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>

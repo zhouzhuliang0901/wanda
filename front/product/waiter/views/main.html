@@ -1,0 +1,85 @@
+			<apptb-header fun-name="大综窗"></apptb-header>
+<div class="TabBox1">
+	<ul class="container">
+	<li ng-click="chooseOne()" class="animate">
+		<img src="../libs/common/images/icon/ggkz.png" />
+		<p>
+			食品药品监管局
+		</p>
+	</li>
+	
+	<li ng-click="chooseTwo()" class="animate">
+		<img src="../libs/common/images/icon/rszz.png" />
+		<p>
+			质量技术监督网办平台
+		</p>
+	</li>
+	
+</ul>
+</div>
+<apptb-footer 
+	prev="prevStepa()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 250px auto;
+		align-items: flex-start;
+		width: 800px;
+		height: 345px;
+	}
+	
+	.container li {
+		margin-left: 0px;
+		text-align: center;
+		height: 300px;
+		width: 300px;
+	}
+	
+	.container li>img {
+		margin-top: 40px;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 226px;
+		font-size: 32px;
+	}
+	
+	/*.container li:nth-of-type(1) {
+		background-color: #0078d7;
+	}
+	
+	.container li:nth-of-type(2) {
+		background-color: #50a299;
+	}
+	
+	.container li:nth-of-type(3) {
+		background-color: #8973b4;
+	}
+	
+	.container li:nth-of-type(4) {
+		background-color: #10d367;
+	}
+	
+	.container li:nth-of-type(5) {
+		background-color: #a17e68;
+	}
+	
+	.container li:nth-of-type(6) {
+		background-color: #fc6392;
+	}*/
+	.TabBox1{
+		background: url(./../libs/common/images/bg-content.png) no-repeat center center;
+		height: 850px;
+	}
+</style>

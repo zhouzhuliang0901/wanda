@@ -1,0 +1,37 @@
+<div class="contain">
+	<p class="caption">请选择登录方式</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="scanIdcard()">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>身份证登录</p>
+			</a>
+			<a ng-click="citizen()">
+				<img src="../libs/common/images/newIcon/qrCode.png" />
+				<p>随申办登录</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prev()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 152px;
+		padding-bottom: 200px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+		float: left;
+		width: 303px;
+		height: 273px;
+		margin: 0px 82px;
+		text-align: center;
+		border-radius: 15px;
+		position: relative;
+	}
+</style>

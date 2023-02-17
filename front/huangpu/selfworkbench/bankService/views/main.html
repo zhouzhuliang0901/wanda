@@ -1,0 +1,132 @@
+<app-header fun-name="{{funName}}"></app-header>
+<!--<div class="headBox1" style="    height: 170px;">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="goHome()">{{funName}}</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+        </div>
+    </div>-->
+<p class="tips" ng-if="bankType==='pfbc'">{{consult_title}}<br> {{consult1}}
+	<br> {{consult2}}
+	<br> {{consult3}}
+</p>
+<ul class="container icbc"  ng-class="{'pfbc':bankType==='pfbc'}" ng-if="bankType !== 'abc'">
+	<li ng-show="read" class="fdkd" ng-click="choiceMatter(item)" style="height: 335px;position: absolute;left:1020px">
+		<img style="width:260px;height:260px;" src="../libs/common/images/bankService/pfbc/fdkd.png" />
+		<p style="font-size: 30px;margin-top: 20px;">小微企业“房抵快贷”</p>
+	</li>
+	<li class="{{bankType}}" ng-click="choiceMatter(item)" ng-repeat="item in currentShow">
+		<img ng-src="{{item.img}}" />
+		<p>{{item.tips}}</p>
+	</li>
+</ul>
+<ul class="container abc" ng-if="bankType === 'abc'">
+	<li class="{{bankType}}" ng-click="choiceMatter(item)" ng-repeat="item in currentShow">
+		<img ng-src="{{item.img}}" />
+		<p>{{item.tips}}</p>
+	</li>
+</ul>
+<apptb-footer default-is-show-next-btn="hidden" prev="prevStep()"  go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+.tips {
+		margin-left: 180px;
+    margin-top: 80px;
+		font-size: 33px;
+		position: absolute;
+	}
+	.container.pfbc{
+		margin-left: 350px;
+	}
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 1600px;
+		height: 800px;
+		text-align: center;
+		align-items: center;
+		margin: 40px auto;
+	}
+
+	.container li.pfbc {
+		width: 800px;
+	}
+	.container li:nth-child(2){
+	}
+	.container li.pfbc img {
+		width: 260px;
+	}
+
+	.container li.pfbc p {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+
+	.container li.xmbc {
+		width: 1200px;
+	}
+
+	.container li.xmbc img {
+		width: 600px;
+	}
+
+	.container li.xmbc p {
+		margin-top: 20px;
+		font-size: 50px;
+	}
+
+	.container li.ccb {
+		width: 416px;
+	}
+
+	.container li.ccb img {
+		width: 400px;
+		height: 400px;
+	}
+
+	.container li.ccb p {
+		margin-top: 20px;
+		font-size: 40px;
+	}
+
+	.container li.icbc {
+		width: 500px;
+	}
+
+	.container li.icbc img,.container li.abc img {
+		width: 130px;
+	}
+
+	.container li.icbc p,.container li.abc p {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.container li.boc {
+		width: 550px;
+	}
+	.container li.boc img{
+		width: 130px;
+	}
+	.container li.boc p {
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.luwan {
+		width: 492px;
+    	height: 120px;
+    	margin-top: -70px;
+	}
+	.luwan p{
+		margin-top: 20px;
+		font-size: 30px;
+	}
+	.container.abc{
+		width: 1400px;
+		height: 770px;
+	}
+	.container li.abc{
+		width: 460px;
+	}
+</style>

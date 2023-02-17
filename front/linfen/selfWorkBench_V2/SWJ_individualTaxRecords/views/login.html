@@ -1,0 +1,46 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+
+	.code {
+
+		margin: 90px 560px;
+	}
+
+	.code img {
+		width: 400px;
+		height: 400px;
+	}
+
+	@media screen and (max-width: 1600px) {
+		.code {
+			margin: 90px 350px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="code">
+			<img ng-src="{{codeImg}}" alt="">
+		</div>
+	</div>
+</div>
+<token result="token()" ng-if="tokenType == 'token'"></token>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+	go-back="goAppHistoryBack()">
+</apptb-footer>

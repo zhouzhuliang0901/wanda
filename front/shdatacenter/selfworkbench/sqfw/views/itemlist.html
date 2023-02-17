@@ -1,0 +1,44 @@
+<div class="shell bg2">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" href="../declare/index.html">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+        <ul class="navul1 navul2 clearfloat">
+            <li class="act">选择事项</li>
+            <li>办事指南</li>
+            <li>人证核验</li>
+            <li>在线填报</li>
+        </ul>
+    </div>
+  <div class="TabBox1">
+  	<div class="tabBotbox1">
+  		<div class="cont">
+  			<div class="tabBotbox1inner tabBotbox1inner1" style="margin-top: 100px; height: 570px;">
+				<div id="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}">
+						<a ng-class="{'active':$index==active}" ng-repeat="item in itemName" ng-click="setItemCode(item.stItemNo)">{{item.stItemName}}</a>
+					</div>
+				</div>
+  			</div>
+  		</div>
+  	</div>
+  	
+  </div>
+  <div class="btnBox1 clearfloat">
+        <a style="margin-top: 30px;" ng-click="prev()" class="Prev">上一步</a>
+    </div>
+  <alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	
+	.tabBotbox1inner .linkbox1 a{
+		width: 734px;
+	}
+	#wrapper{
+		width: 1600px;
+		height: 500px;
+	}
+</style>

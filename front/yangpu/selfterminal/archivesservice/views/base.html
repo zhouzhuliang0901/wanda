@@ -1,0 +1,65 @@
+<style>
+.imageShow .imgContainer>.extShowContainer>img{
+	width: 100%;
+} 
+.extShowContainer.frontImg{
+	box-sizing:border-box;
+	margin-left:150px!important;
+}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#main">档案中心</a>
+        </li>
+        <li>
+            <a href="javascript:;">个人档案库</a>
+        </li>
+        <li class="active">基础数据</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="sub-index vertical-middle horizontal-middle leftLump">
+            <a class="blue-green active">基础数据</a>
+            <a href="#ext" class="blue-green">扩展数据</a>
+            <a href="#licenseLibrary" class="blue-green">电子证照库</a>
+        </div>
+    </div>
+    <div class="action">
+        <div class="imageShow vertical-middle" style="height: 700px; width: 700px; left: 50px; position: absolute; top: 48px;"
+            nowimage="3">
+            <div class="imageBox">
+                <img src="{{currentImg}}">
+            </div>
+            <a class="left">
+                <img class="vertical-middle horizontal-middle" src="../libs/common/images/left.png" width="30" style="position: absolute; top: 350px; left: 10px;">
+            </a>
+            <a class="right">
+                <img class="vertical-middle horizontal-middle" src="../libs/common/images/right.png" width="30" style="position: absolute; top: 350px; left: 10px;">
+            </a>
+            <div class="imageList">
+                <div class="imgContainer">
+					<div class="extShowContainer frontImg"  ng-click="tabImg('front')">
+						<img src="{{frontImg}}"  ng-class="{'active':type==='front'}">
+					</div>
+					<div class="extShowContainer" ng-click="tabImg('back')">
+						<img src="{{backImg}}"  ng-class="{'active':type==='back'}">
+					</div>
+				</div>
+            </div>
+        </div>
+        <a class="btn_radius_50" ng-click="printBasePhoto()" style="position:absolute;left:780px;top:660px; width: 300px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>打印</label>
+            </div>
+        </a>
+    </div>
+</div>

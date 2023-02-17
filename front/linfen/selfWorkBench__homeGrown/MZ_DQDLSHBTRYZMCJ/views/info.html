@@ -1,0 +1,181 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		.main2 {
+			height: 675px;
+			margin-top: 20px;
+		}
+		.tabelBox1 .dl1 .hjActive {
+			width: 40%;
+		}
+		.tabelBox1 .dl1 .jzActive {
+			width: 40%;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+		    background-size: 100% 80%;
+		}
+		.caption {
+			margin-top: 80px !important;
+			margin-left: 60px !important;
+		}
+		#wrapper {
+		    width: 100%;
+		    height: 630px;
+		}
+		.main2 {
+		    width: 100%;
+		    height: 630px;
+		    overflow: hidden;
+		    position: relative;
+		    margin: 0px;
+		}
+		.tabelBox1 .dl1 .hjActive {
+			width: 40%;
+		}
+		.tabelBox1 .dl1 .jzActive {
+			width: 40%;
+		}
+		.loadingBox {
+		    height: 910px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--个人信息填写</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>性别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stSex" ng-model="stSex" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>出生日期：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="dtBirth" ng-model="dtBirth" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>民族：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<drop-down width='476px' selectval="" modelval='nation' ng-model="nation" dropdowndata="nationList" valchange="">
+						</drop-down>
+						<!--<select class="select1" id="nation" ng-init="nation = nationList[0]" ng-model="nation" ng-options="x.shortname for x in nationList">
+						</select>-->
+					</dd>
+					<dd class="lt1 lt3">
+						<span>联系电话：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}">
+						<!--<select class="select1" id="hjProvince" ng-model="hjProvince" ng-options="x.value for x in hjProvinceList">
+						</select>-->
+						<drop-down width='18.7%' selectval="hjProvincecu" modelval='hjProvince' ng-model="hjProvince" dropdowndata="hjProvinceList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}">
+						<!--<select class="select1" id="hjCity" ng-model="hjCity" ng-options="x.value for x in hjCityList">
+						</select>-->
+						<drop-down width='18.7%' selectval="hjCitycu" modelval='hjCity' ng-model="hjCity" dropdowndata="hjCityList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}" ng-show="!hjActive">
+						<!--<select class="select1" id="hjCounty" ng-model="hjCounty" ng-options="x.value for x in hjCountyList">
+						</select>-->
+						<drop-down width='18.7%' selectval="" modelval='hjCounty' ng-model="hjCounty" dropdowndata="hjCountyList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}" ng-show="!hjActive">
+						<!--<select class="select1" id="hjStreet" ng-model="hjStreet" ng-options="x.value for x in hjStreetList">
+						</select>-->
+						<drop-down width='18.7%' selectval="hjStreetcu" modelval='hjStreet' ng-model="hjStreet" dropdowndata="hjStreetList" valchange="">
+						</drop-down>
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>居住地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}">
+						<!--<select class="select1" id="jzProvince" ng-model="jzProvince" ng-options="x.value for x in jzProvinceList">
+						</select>-->
+						<drop-down width='18.7%' selectval="jzProvincecu" modelval='jzProvince' ng-model="jzProvince" dropdowndata="jzProvinceList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}">
+						<!--<select class="select1" id="jzCity" ng-model="jzCity" ng-options="x.value for x in jzCityList">
+						</select>-->
+						<drop-down width='18.7%' selectval="jzCitycu" modelval='jzCity' ng-model="jzCity" dropdowndata="jzCityList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}" ng-show="!jzActive">
+						<!--<select class="select1" id="jzCounty" ng-model="jzCounty" ng-options="x.value for x in jzCountyList">
+						</select>-->
+						<drop-down width='18.7%' selectval="" modelval='jzCounty' ng-model="jzCounty" dropdowndata="jzCountyList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}" ng-show="!jzActive">
+						<!--<select class="select1" id="jzStreet" ng-model="jzStreet" ng-options="x.value for x in jzStreetList">
+						</select>-->
+						<drop-down width='18.7%' selectval="jzCountycu" modelval='jzStreet' ng-model="jzStreet" dropdowndata="jzStreetList" valchange="">
+						</drop-down>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

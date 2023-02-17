@@ -1,0 +1,189 @@
+<style type="text/css">
+    .contain {
+        width: 1530px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .pages {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .licenseContainer .control {
+        position: absolute;
+        display: block;
+        height: 100px;
+        width: 100px;
+        top: 50%;
+        margin-top: -50px;
+    }
+
+    .licenseContainer .control img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .control.prev {
+        left: -110px;
+    }
+
+    .control.next {
+        right: -110px;
+    }
+
+    .licenseContainer {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        align-items: center;
+        margin: 30px auto;
+        width: 1350px;
+        height: 440px;
+        background: url('../libs/common/images/bg-dzzz.png') no-repeat;
+        background-size: 100% 100%;
+    }
+
+    .licenseContainer img {
+        transition: all 300ms;
+        max-height: 90%;
+        width: 20%;
+    }
+
+	/*box-shadow: 0px 10px 12px #56ce97;*/
+    .licenseContainer img.active {
+        transition: all 300ms;
+        box-shadow: 0px 0px 30px 0px #0094FF;
+    }
+
+    .licenseContainer img.hidden {
+        visibility: hidden;
+    }
+
+    .licenseTab {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        position: relative;
+        margin: 10px auto;
+        width: 93%;
+        height: 90px;
+    }
+
+    .licenseTab li {
+        color: #3794e4;
+	    text-align: center;
+	    height: 90px;
+	    line-height: 90px;
+	    font-size: 30px;
+	    width: 29%;
+	    background: url(../libs/common/images/dzzzNo.png) no-repeat;
+	    background-position: 0px 0px;
+	    background-size: 98% 100%;
+    }
+
+    .licenseTab li.pitchOn {
+	    color: #fff;
+	    background: url(../libs/common/images/dzzz.png) no-repeat;
+	    background-position: -25px -17px;
+	    background-size: 106% 166%;
+    }
+
+    .contain .continue {
+        height: 52px;
+        line-height: 52px;
+        margin: 0 auto;
+        text-align: center;
+        font-size: 26px;
+    }
+
+    .contain .continue .print {
+    	display: inline-block;
+		padding: 10px 40px;
+		line-height: 52px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+    }
+    .loadingBox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+    @media screen and (max-width: 1600px) {
+    	.licenseContainer {
+		    position: relative;
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		    justify-content: space-around;
+		    align-items: center;
+		    margin: 30px auto;
+		    width: 98%;
+		    height: 380px;
+		    background: url(../libs/common/images/bg-dzzz.png) no-repeat;
+		    background-size: 100% 100%;
+		}
+		.licenseTab li {
+		    background-size: 100% 100%;
+		}
+		.licenseTab li.pitchOn {
+		    background-size: 111% 173%;
+		}
+		.licenseContainer .control img {
+		    height: 100%;
+		    width: 88%;
+		}
+		.control.prev {
+	        left: -100px;
+	    }
+	    .loadingBox img{
+	    	margin-left: 0 !important;
+	    	margin-top: 0 !important;
+	    }
+    }
+</style>
+<div class="contain">
+    <!--<p class="caption">{{ operation }}</p>-->
+    <ul class="licenseTab">
+        <li ng-class="{'pitchOn':currentLicense=='license'}" ng-click="choiceLicenseType('license')">本市证照</li>
+        <li ng-class="{'pitchOn':currentLicense=='csjLicense'}" ng-click="choiceLicenseType('csjLicense')">长三角证照</li>
+        <li ng-class="{'pitchOn':currentLicense=='queryeles'}" ng-click="choiceLicenseType('queryeles')">被授权证照</li>
+    </ul>
+    <div class="licenseContainer" ng-show="currentLicense == 'csjLicense'">
+        <img
+        	ng-repeat="(index,item) in showLicenseList track by $index"
+        	ng-src="{{item.length > 1 ? item: configUrl +(item.pictureUrlForBytes ? item.pictureUrlForBytes : item.imageUrl)}}"
+            ng-class="{'active':currentImgIndex == index,'hidden': !item }"
+            ng-click="pitchOnImg(index,item)" />
+    </div>
+     <div class="licenseContainer" ng-show="currentLicense == 'license' || currentLicense == 'queryeles'">
+        <img
+        	ng-repeat="(index,item) in showLicenseList track by $index"
+        	ng-src="{{item.imgBase64}}"
+            ng-class="{'active':currentImgIndex == index,'hidden': !item }"
+            ng-click="pitchOnImg(index,item)" />
+    </div>
+    <div class="continue">
+    	<a class="btn print" ng-click="queryAll()">查看全部</a>
+    </div>
+</div>
+<apptb-footer
+	prev="prevStep()"
+	next=""
+	default-is-show-next-btn="hidden"
+	custom-home="true"
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<print show="isShowPrint"></print>
+<div class="loadingBox" ng-if="!isLoding">
+	<img src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

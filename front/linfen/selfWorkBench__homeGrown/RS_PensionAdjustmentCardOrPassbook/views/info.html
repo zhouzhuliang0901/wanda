@@ -1,0 +1,144 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.input {
+		width: 90%;
+		height: 75%;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+	
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+	
+	.infoTable {
+		margin-top: 60px;
+		width: 100%;
+		font-size: 24px
+	}
+	
+	.infoTable th {
+		width: 17%;
+		text-align: right;
+	}
+	
+	.infoTable th,
+	.infoTable td {
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.checkTable a {
+		float: left;
+		width: 150px;
+		height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin: 5px;
+	}
+	
+	.checkTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.checkTable {
+		width: 97%;
+		margin-bottom: 20px;
+		margin-left: 50px;
+		font-size: 24px
+	}
+	
+	.checkTable td {
+		height: 85px;
+	}
+	
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+	
+	.checkTable .checkBoxA {
+		float: left;
+		width: 83%;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.scrollBox2 {
+			overflow: auto;
+			height: 600px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="name" ng-model="name" readonly></td>
+					<th><b class="red">*</b>身份证号码：</th>
+					<td><input class="input" type="text" id="idCard" ng-model="idCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>(原)养老金发放银行：</th>
+					<td><input class="input" type="text" id="oldBankName" ng-model="oldBankName" readonly></td>
+					<th><b class="red">*</b>(原)养老金卡(折)：</th>
+					<td><input class="input" type="text" id="ffzh" ng-model="ffzh" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>养老金卡(折)：</th>
+					<td><input class="input" type="text" id="newBankId" ng-model="newBankId" placeholder="请输入养老金卡（折）账号"></td>
+				</tr>
+			</table>
+			<table class="checkTable">
+				<tr>
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>养老金发放银行：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in bankList" ng-class="{'in':current==index}" ng-click="change(index,item)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

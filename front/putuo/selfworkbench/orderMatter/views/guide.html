@@ -1,0 +1,82 @@
+<div class="navBox2"><b>您正在办理：</b><span>领取年老一次性计划生育奖励费申请</span></div>
+<div id="wrapper">
+	<p style="margin-top: 0px;font-size: 30px;color: silver;">智能引导</p>
+	<div class="chooseOne" ng-show="guideNameS">{{guideName}}</div><br>
+	<div class="chooseTwo" ng-show="chooseT">
+		<span class="yes" ng-click="yesA()">是</span><span ng-click="no()" class="no">否</span>
+	</div>
+	<!--<p ng-show="yynext" style="margin-top: 150px;font-size: 50px;color: yellow;">请点击下一步继续操作</p>-->
+</div>
+<apptb-footer prev="prevStep()" next="next()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.navBox2 {
+		margin: 70px 0 0 130px;
+	}
+	#wrapper {
+		width: 1920px;
+		height: 600px;
+		text-align: center;
+	}
+	
+	#linkt {
+		position: absolute;
+		top: 100px;
+		left: 0px;
+	}
+	
+	.guide {
+		text-align: center;
+		color: #fefefe;
+		opacity: .6;
+		font-size: 34px;
+	}
+	
+	.chooseOne {
+		margin-top: 100px;
+		text-align: center;
+		margin-left: 660px;
+		font-size: 34px;
+		border-radius: 10px;
+		line-height: 70px;
+		border: 1px solid white;
+		width: 600px;
+		height: auto;
+		/*padding-top: 15px;*/
+		background-color: lightseagreen;
+	}
+	
+	.chooseTwo {
+		margin-top: 20px;
+		text-align: center;
+		font-size: 34px;
+		border-radius: 10px;
+		line-height: 50px;
+		/*	border:1px solid sandybrown;*/
+		/*	width:500px;*/
+		height: 80px;
+		padding-top: 25px;
+	}
+	
+	.yes {
+		float: left;
+		width: 168px;
+		height: 68px;
+		line-height: 68px;
+		margin-left: 780px;
+		border: 1px solid #fcfeff;
+		border-radius: 10px;
+		background-color: yellowgreen;
+	}
+	
+	.no {
+		float: right;
+		width: 168px;
+		height: 68px;
+		line-height: 68px;
+		margin-right: 780px;
+		border: 1px solid #fcfeff;
+		border-radius: 10px;
+	}
+</style>

@@ -1,0 +1,23 @@
+<app-header go-back="goAppHistoryBack()" fun-name="医保制册"></app-header>
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a ng-click="choiceLoginType('idcard')">
+			<img src="../libs/common/images/icon-link14.png" />
+			<p>身份证登录</p>
+		</a>
+		<a ng-click="choiceLoginType('citizen')">
+			<img src="../libs/common/images/icon-link13.png" />
+			<p>随申办登录</p>
+		</a>
+	</div>
+</div>
+<!--<app-footer prev="prevStep()" next="nextStep()" default-next="hidden" default-prev="hidden" ></app-footer>-->
+<app-footer prev="prevStep()" next="" default-next="hidden"></app-footer>
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 570px;
+		text-align: center;
+		margin-top: 134px;
+	}
+</style>

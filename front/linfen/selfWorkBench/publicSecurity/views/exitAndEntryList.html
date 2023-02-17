@@ -1,0 +1,100 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		top: 65px;
+		left: 150px;
+	}
+	
+	#wrapper {
+		width: 1800px;
+		height: 655px;
+	}
+	
+	.select {
+		float: left;
+		width: 740px;
+		height: 160px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 740px 160px;
+		/*margin-left: 40px;
+		margin-bottom: 40px;*/
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+	}
+	
+	.stuff {
+		padding: 30px 0 0 30px;
+		height: 20px;
+		font-size: 30px;
+	}
+	
+	.select dd {
+		padding-left: 60px;
+		padding-top: 20px;
+		height: 25px
+	}
+	
+	.select dl {
+		white-space: normal
+	}
+	
+	.select b {
+		width: 180px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	}
+	
+	.select span {
+		display: block;
+		float: left;
+		width: 446px;
+	}
+	
+	.print {
+		float: left;
+		width: 138px;
+		height: 50px;
+		line-height: 50px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		margin-left: 540px;
+		margin-top: -60px;
+		text-align: center;
+		right: 27%;
+		font-size: 26px;
+	}
+}
+</style>
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">申请记录</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in recordList">
+				<a class="select">
+					<dd style="padding-top: 45px;">
+						<dl><b>申请日期范围：</b>{{ list.startdate }}至{{ list.enddate }}</dl>
+					</dd>
+					<dd>
+						<dl><b>申请时间：</b><span>{{ list.nowdate | date:'yyyy-MM-dd HH:mm:ss'}}</span></dl>
+					</dd>
+					<!--<div class="stuff">申请日期范围{{ list.startdate }}至{{ list.enddate }}</div>
+					<div class="stuff">申请时间{{ list.nowdate | date:'yyyy-MM-dd HH:mm:ss'}}</div>-->
+					<div class="print" ng-click="toView(list.deriveuuid,list.queryId,list.applyno)">查看</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

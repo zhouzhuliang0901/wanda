@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="terminalApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../libs/common/css/swiper.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)" href="../libs/common/css/style.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1600px)" href="../libs/common/css/style_1280.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" href="../libs/common/css/layout.css" />
+		<link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+		<!--<link rel="stylesheet" href="css/style.css">-->
+		<link rel="stylesheet" type="text/css" href="../libs/My97DatePicker/skin/WdatePicker.css" />
+    <object ID="SafeEngineCtl" CLASSID="CLSID:B48B9648-E9F0-48A3-90A5-8C588CE0898F" width="0" height="0"></object>
+
+	<script src="../libs/common/exteriorJS/gh-tools-bag.js"></script>
+	</head>
+
+	<body>
+		<div class="loadingBox" ng-if="!isLoading">
+			<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+			<p>正在加载数据，请稍后...</p>
+		</div>
+		<div class="shell bg3">
+			<div class="bg-middle">
+				<apptb-header fun-name="同日出生人数"></apptb-header>
+				<div ng-view ui-view></div>
+			</div>
+		</div>
+		<script src="../libs/angularjs/1.5.8/angular.js"></script>
+		<script src="../libs/angularjs/1.5.8/angular-ui-router-min.js"></script>
+		<script src="../libs/angularjs/1.5.8/angular-animate.min.js"></script>
+		<script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+		<script src="../libs/common/exteriorJS/total-yh-tools.js"></script>
+		<script>
+			var curWwwPath = window.document.location.hostname;
+			if(curWwwPath == "183.194.250.112") {
+				//互联网地址
+				$("body").append("<script src='../libs/common/js/wonders-hlw.log.min.js'><\/script>");
+			} else if(curWwwPath == "10.81.16.56") {
+				//政务网地址
+				$("body").append("<script src='../libs/common/js/wonders-zww.log.min.js'><\/script>");
+			} else {
+				//互联网地址or测试地址
+				$("body").append("<script src='../libs/common/js/wonders-hlw.log.min.js'><\/script>");
+			}
+		</script>
+		<script src="../libs/common/js/scrollbar.min.js"></script>
+		<script src="../libs/common/js/swiper.min.js"></script>
+		<script src="../libs/common/js/promise.js"></script>
+		<script src="../libs/common/js/ac-bridge-mac.min.js"></script>
+		<script src="../libs/common/js/self-mac-tools.js"></script>
+		<script src="../libs/common/js/init-config-msg.js"></script>
+		<script src="../libs/layer/layer.js"></script>
+		<script src="../declare/js/jsencrypt.js"></script>
+		<script src="js/bear.js"></script>
+		<script src="js/ywtbUrl.js"></script>
+		<script src="../sqfw/js/iscroll.js"></script>
+		<script src="../sqfw/js/bear.js"></script>
+		<script src="../sqfw/js/option.js"></script>
+		<script src="../libs/common/js/EXTPagin.js"></script>
+		<script src="js/identity-validate.js"></script>
+		<script src="../libs/common/js/wonders.log.min.js"></script>
+		<script src="../libs/common/js/piwik.js"></script>
+		<script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+		<script src="../libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+		<!--全局 app-->
+		<script src="app.js"></script>
+		<!--组件 component-->
+		<script src="../libs/directive/header.js"></script>
+		<script src="../libs/directive/recognition.js"></script>
+		<script src="../libs/directive/idcard.js"></script>
+		<script src="../libs/directive/ca.js"></script>
+		<script src="../libs/directive/citizenCloud.js"></script>
+		<script src="../libs/directive/listBox.js"></script>
+		<script src="../libs/directive/footer.js"></script>
+		<script src="../libs/directive/searchBox.js"></script>
+		<script src="../libs/directive/takePhoto.js"></script>
+		<script src="../libs/directive/print.js"></script>
+		<script src="../libs/directive/alert.js"></script>
+		<script src="../libs/directive/loadingsg.js"></script>
+		<!--模块 controller-->
+		<script src="controller.js"></script>
+
+		<!--全局路由 global router-->
+		<script src="router.js"></script>
+		<script>
+			$(SafeEngineCtl).hide();
+		</script>
+		<script src="../libs/common/js/logSheet.js"></script>
+	</body>
+
+</html>

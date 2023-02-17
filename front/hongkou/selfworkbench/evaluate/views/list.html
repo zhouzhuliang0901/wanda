@@ -1,0 +1,82 @@
+	<li class="t" style="font-size:22px;">感谢您提出宝贵的建议，请您留下联络方式，您的建议一旦采用，我们将会给您邮寄礼品以示奖励</li>
+	<div class="text">
+		<div class="top1" style="width: 1200px;float: left;">
+			<img style="width: 75px;height: 75px;margin-left: 80px;margin-top: 40px;"src="images/合理建议.png" />
+			<li style="width: 100px;position: absolute;top: 305px;left: 511px;font-size: 32px;">建议：</li>
+		</div>
+		<form class="form">
+			<div class="input" style="margin-left: 130px;">
+				<label class="strong" style="font-size: 24px;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</label>
+				<input type="text" id="name" name="name"/>
+			</div>
+			<div class="input">
+				<label class="strong" style="font-size: 24px;">手机号&nbsp;</label>
+				<input type="text" id="mobile" name="mobile"/>
+			</div>
+			<div class="input1">
+				<label class="strong" style="font-size: 24px;">单位名称&nbsp;</label>
+				<input type="text" id="targetname" name="targetname"/>
+			</div>
+			<div class="input2">
+				<div class="strong" style="font-size: 24px;margin-right: 10px;width: 99px;height: 330px;float: left;line-height: 282px;">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容&nbsp;</div>
+				<textarea  type="text" id="tips" name="tips"></textarea>
+			</div>
+		</form>
+	</div>
+	<!--<div class="btnBox1 clearfloat">
+			   <a ng-click="save()" class="next">确认</a>
+	</div>-->
+	<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+	<apptb-footer prev="prevStep()" next="save()" next-btn-info="{{nextTxt}}" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.t{
+		margin-left:340px ;
+		margin-top: 105px;
+	}
+	.input>input{
+		height: 51px;
+		width: 332px;
+		border-radius: 10px;
+		    font-size: 24px;
+	}
+	
+	.input{
+		width: 530px;
+		float: left;
+		margin-top: 20px;
+	}
+	.input1{
+		width: 1000px;
+		float: left;
+		margin-left: 130px;
+		margin-top: 20px;
+	}
+	.input1>input{
+		height: 51px;
+		width: 837px;
+		border-radius: 10px;
+		    font-size: 24px;
+	}
+	.input2{
+		width: 1100px;
+		float: left;
+		margin-left: 130px;
+		margin-top: 20px;
+	}
+	.input2>textarea{
+		height: 279px;
+		width: 839px;
+		border-radius: 10px;
+		resize:none;
+		    font-size: 24px;
+	}
+	.text{
+		width: 1200px;
+		height: 650px;
+		margin-left: 340px;
+	}
+	.top1{
+		font-size: 25px;
+	}
+</style>

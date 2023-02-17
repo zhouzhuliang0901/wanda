@@ -1,0 +1,85 @@
+<style>
+	table {
+		border-collapse: collapse;
+		width: 98%;
+		margin: 0 auto;
+	}
+	
+	table th {
+		white-space: nowrap;
+	}
+	
+	table td,
+	table th {
+		padding: 10px;
+		text-align: center;
+		border: 1px solid #0078A5;
+	}
+	.guideText {
+		width: 94%;
+		margin: 0 auto;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#">自助申报</a>
+		</li>
+		<li>
+			<a href="#list">{{itemName}}</a>
+		</li>
+		<li class="active">办事指南</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action" style="background: none; width: 100%;left: 0;">
+		<div class="panelList one" style="width: 94%; padding:10px 35px;height: 630px;">
+			<div class="right-box guide" id="wrapper" style="height: 96%; height: 610px">
+				<div class="" style="padding: 30px;">
+					<div class="guideTitle" style="margin: 20px auto">{{guideTitle}}</div>
+					<div class="guideItemTitle">一、适用范围：</div>
+					<div class="guideText" ng-bind-html="clRange | to_trusted"></div>
+					<div class="guideItemTitle">二、事项名称和代码：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clNameCode | to_trusted"></div>
+					<div class="guideItemTitle">三、办理依据：</div>
+					<div class="guideText" ng-bind-html="clDealAccording | to_trusted"></div>
+					<div class="guideItemTitle">四、办理机构：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clDealOrgan | to_trusted"></div>
+					<div class="guideItemTitle">五、审批条件：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApprovalConds | to_trusted"></div>
+					<div class="guideItemTitle">六、审批数量：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApprovalCount | to_trusted"></div>
+					<div class="guideItemTitle">七、审批材料：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApprovalMater | to_trusted"></div>
+					<div class="guideItemTitle">八、审批期限：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApprovalLimit | to_trusted"></div>
+					<div class="guideItemTitle">九、审批证件：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApprovalCert | to_trusted"></div>
+					<div class="guideItemTitle">十、收费标准：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clChargeStd | to_trusted"></div>
+					<div class="guideItemTitle">十一、申请人权利及义务：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApplyRightsDuties | to_trusted"></div>
+					<div class="guideItemTitle">十二、申请接受：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clApplyReceive | to_trusted"></div>
+					<div class="guideItemTitle">十三、咨询途径：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clConsultWay | to_trusted"></div>
+					<div class="guideItemTitle">十四、投诉渠道：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clComplaintChannel | to_trusted"></div>
+					<div class="guideItemTitle">十五、办理方式：</div>
+					<div class="guideText" ng-bind-html="clDealType | to_trusted"></div>
+					<div class="guideItemTitle">十六、决定公开：</div>
+					<div class="guideText" ng-bind-html="guideInfo.clDecidedOpen | to_trusted"></div>
+				</div>
+			</div>
+		</div>
+		<a class="btn_radius_50" href="#precautions" style="left: 43%; top: 665px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

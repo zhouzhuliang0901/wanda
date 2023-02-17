@@ -1,0 +1,58 @@
+<!doctype html>
+<html ng-app="declareApp">
+
+	<head>
+		<meta charset="utf-8">
+		<title>自助办理</title>
+		<link rel="stylesheet" href="css/scrollbar.css" />
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/viewer.min.css">
+	</head>
+
+	<body>
+
+		<div class="loadingBox" ng-if="!isLoading">
+			<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+			<p>正在加载数据，请稍后...</p>
+		</div>
+
+		<div class="shell bg2">
+			<apptb-header fun-name="自助办理"></apptb-header>
+			<div ui-view ng-view>
+			</div>
+		</div>
+		<script src="../libs/angularjs/1.5.8/angular.js"></script>
+		<script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+		<script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+		<script src="../libs/common/js/init-config-msg.js"></script>
+		<script src="../libs/common/js/init-config-log.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/scrollbar.min.js"></script>
+		<script src="js/viewer-jquery.min.js"></script>
+		<script src="js/jsencrypt.js"></script>
+		<script src="js/qrcode.js"></script>
+		<script src="js/bear.js"></script>
+		<script src="js/declare.js"></script>
+		<script src="js/iscroll.js"></script>
+		<script src="../libs/common/js/bscroll.min.js"></script>
+		<script src="js/hotItem.js"></script>
+		<script src="../libs/common/js/self-mac-tools.js"></script>
+		<script src="app.js"></script>
+		<script src="../libs/layer/layer.js"></script>
+		<script src="controllers.js"></script>
+		<script src="routers.js"></script>
+		<script src="js/jQuery-webcam-master/jquery.webcam.min.js"></script>
+		<script src="../libs/common/js/jquery.keyboard.js"></script>
+		<script src="js/signatrueBoard.js"></script>
+		<script src="js/identity-validate.js"></script>
+		<script src="../libs/directive/zzsbrecognition.js"></script>
+		<script src="../libs/directive/idcard.js"></script>
+		<script src="../libs/directive/zizhuheader.js"></script>
+		<script src="../libs/directive/header.js"></script>
+		<script src="../libs/directive/footer.js"></script>
+		<script src="../libs/directive/alert.js"></script>
+		<script src="../libs/directive/queryFace.js"></script>
+		<script src="../libs/directive/loadingsg.js"></script>
+	</body>
+
+</html>

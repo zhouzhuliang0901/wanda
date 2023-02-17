@@ -1,0 +1,81 @@
+<!--/*app.controller("itemController", function($scope, $route, $http, $location, data, $timeout) {
+	var name = data.itemName;
+	$scope.pageSize = 8;
+	$scope.currentPage = 1;
+	$scope.totalPages = null;
+	if(name.length > 10) {
+		name = name.slice(0, 10) + '...'
+	}
+	$scope.itemName = name;
+	$scope.getItem = function() {
+		var oConfig = {
+			pageSize: $scope.pageSize,
+			currentPage: $scope.currentPage,
+			itemNo: data.itemNo, // 		'5452'
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		$http.jsonp(urlHost + '/aci/declare/getSubItemSetList.do', {
+			params: oConfig
+		}).success(function(dataJson) {
+			$scope.totalPages = dataJson.totalPageCount;
+			$scope.itemList = dataJson.itemSetList;
+		}).error(function() {
+			console.log('getSubItemSetList error')
+		})
+	};
+	$scope.previousPage = function() {
+		if($scope.currentPage > 1) {
+			--$scope.currentPage;
+			$scope.getItem();
+		}
+	};
+	$scope.nextPage = function() {
+		if($scope.currentPage < $scope.totalPages) {
+			++$scope.currentPage;
+			$scope.getItem();
+		}
+	};
+	$scope.getItem();
+	$scope.getGuideline = function(id, name, organCode, organName, itemTenNo) {
+		data.itemId = id;
+		data.itemName = name;
+		data.organCode = organCode;
+		data.organName = organName;
+		data.itemTenNo = itemTenNo;
+		$location.path("/matter");
+	}
+});*/-->
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" style="height: 30px;"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li class="active">选择子事项</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请选择一个子事项</div>
+            <div class="sub-index">
+                <a class="blue-green active" href="#list">重新选择事项</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="right-title">
+            {{itemName}}
+        </div>
+        <div class="panelList two" style="top:185px;height: 535px;">
+            <a class="left" ng-click="previousPage()"><img src="images/left.png" width="30" style="top: 249px;" /></a>
+            <a class="right" ng-click="nextPage()"><img src="images/right.png" width="30" style="top: 249px;" /></a>
+            <div class="right-menu" ng-click="getGuideline(item.stItemId,item.stItemName,item.organCode,item.organName,item.stItemTenNo)" ng-repeat="item in itemList">
+                <div class="menu-div">{{item.stItemName}}</div>
+            </div>
+            <span style="left: 498px;">{{currentPage}}/{{totalPages}}</span>
+        </div>
+    </div>
+</div>

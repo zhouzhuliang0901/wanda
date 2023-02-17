@@ -1,0 +1,76 @@
+<style type="text/css">
+	.scrollBox2 .cardreadingBox1 {
+		padding-top: 0px;
+	}
+
+	.scrollBox2 .cardreadingBox1 img {
+		width: 400px;
+		height: 120px;
+	}
+
+	.stamp {
+		position: absolute;
+		left: 50%;
+		top: 500px;
+		transform: translate(-50%);
+		overflow: hidden;
+		width: 250px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		font-size: 38px;
+		background: url('../libs/common/images/button.png') no-repeat left top;
+		background-size: 250px 70px;
+	}
+
+	.scrollBox2 .cardreadingBox1 .loading {
+		width: 300px;
+	}
+
+	.clearfloat {
+		position: relative;
+	}
+
+	.stamp.reR {
+		left: 510px;
+	}
+
+	.stamp.success {
+		left: 1000px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.stamp {
+			top: 470px
+		}
+		.stamp.reR {
+			left: 300px;
+		}
+		.stamp.success {
+			left: 600px;
+		}
+		citizen-cloud .scrollBox2 .cardreadingBox1 img {
+			width: 1000px !important;
+			height: 375px !important;
+		}
+		img {
+			object-fit: cover;
+		}
+		.scrollBox2 .cardreadingBox1 p{
+			font-size: 29px !important;
+		}
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img ng-if="cloud" class="tipsImg" ng-class="{'loading':loading}" ng-src="{{tipsImage}}" />
+			<img style="width:250px !important;height:250px !important;" ng-if="load" class="tipsImg" ng-class="{'loading':loading}" ng-src="{{tipsImage}}" />
+			<p>{{tipsText}}</p>
+		</a>
+	</div>
+	<a href="javascript:;" class="stamp reR" ng-click="reLogin()" ng-if="fetchError">重新登录</a>
+	<a href="javascript:;" class="stamp success" ng-click="success()" ng-if="fetchError">完&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</a>
+</div>
+<img ng-show="" src="../libs/common/images/tips/cloud.png" />
+<img ng-show="" src="../libs/common/images/loadings.gif" />

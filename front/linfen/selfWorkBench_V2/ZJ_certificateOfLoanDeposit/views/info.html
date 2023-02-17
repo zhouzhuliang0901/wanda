@@ -1,0 +1,124 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		/*margin-left: -48px;*/
+		font-size: 24px;
+	}
+
+	.infoTable th {
+		width: 14%;
+		text-align: right;
+		height: 85px;
+	}
+
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.tips {
+		width: 90%;
+		margin: 2% auto;
+		height: 50%;
+		font-size: 24px;
+		color: #e1ba1c;
+	}
+
+	select-search {
+		width: 100%;
+		font-size: 24px;
+		position: relative;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			width: 94%;
+			margin-left: 16px;
+			font-size: 22px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" name="userName" ng-model="stName"></td>
+					<th><b class="red">*</b>证件号码：</th>
+					<td><input class="input" type="text" id="stIdCard" name="licenseNo" ng-model="stIdCard"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>贷款地省份：</th>
+					<td>
+						<div>
+							<select id="personalAccount" class="select" ng-model="personalAccount" ng-options="item.shortname for item in province">
+								<option value="">选择省</option>
+							</select>
+						</div>
+					</td>
+					<th><b class="red">*</b>贷款地城市：</th>
+					<td>
+						<div>
+							<select id="companyAccount" class="select" ng-model="companyAccount" ng-options="item.shortname for item in city">
+								<option value="">选择市</option>
+							</select>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>贷款地公积金管理中心：</th>
+					<td>
+						<select-search datas="centerDatas" name="fundCenter"></select-search>
+					</td>
+					<th><b class="red">*</b>手机号码：</th>
+					<td><input class="input" type="text" id="stMobile" name="mobile" ng-model="stMobile"></td>
+				</tr>
+			</table>
+		</form>
+		<div class="tips">
+			<h2>提示 ：</h2>
+			<p>&emsp;&emsp;1.请正确选择外省市公积金中心名称，提交后，网上无法修改和撤销，也无法再次开局。若您需填写的外省市公积金中心不在下拉列表中，请至上海市公积金中心业务 网点柜面申请。外省市公积金中心名称不准确，将影响您异地贷款。
+			</p>
+			<p>&emsp;</p>
+			<p>&emsp;&emsp;2.疫情缓缴企业所属职工申请开具个人异贷证明，请至上海市公积金管理中心业务网点办理。以免因连续缴存时间问题，影响异地贷款。</p>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

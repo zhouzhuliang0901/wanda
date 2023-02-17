@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>立式查询系统</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/bsjd_details.css" />
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css" />
+		<style type="text/css">
+			#progressList {
+				height: 1185px;
+				width: 1080px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="con-box">
+			<p id="timeMark"></p>
+			<header class="header">
+				<div class="hd-title"></div>
+			</header>
+			<section class="section">
+				<h3>办理进度详情</h3>
+				<div id="progressList"></div>
+			</section>
+			<footer class="footer">
+				<div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt="" /></div>
+			</footer>
+		</div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/template.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/layer/layer.js"></script>
+		<script>
+			$(function() {
+				// 获取详细信息
+				getProgrssDetail();
+				//showProgressDetails ();
+				// 页面倒计时
+				timeCount(70);
+			});
+
+			// 获取详细信息
+			function getProgrssDetail() {
+				//$.log.debug("detail的方法为:"+requestData.type);
+				var requestData = getRequest();
+				console.log(requestData);
+				// 方法名
+				var fdo = "";
+				var type = "";
+				var applyTypeNumber = "";
+				// 办件编码,二维码的的场合
+				if(requestData.type == "applyNo" || requestData.type == "erweiCode") {
+					fdo = "getApplyInfoByStApplyNo";
+					type = "0";
+					applyTypeNumber = requestData.appplyNo;
+					// 身份证的场合
+				} else if(requestData.type == "IDCard") {
+					//$.log.debug("身份在信息后的身份证:"+requestData.idCard);
+					fdo = "getApplyInfoByStIdCard";
+					type = "1";
+					applyTypeNumber = requestData.idCard;
+				}
+
+				// 获取事项名称
+				/*  $.ajax({
+				     async : true,
+				     type : "post"
+				    // url : "http://172.16.6.18/aci/autoterminal/forward.do", //受办理系统项目IP
+				     url : "http://172.16.6.18/aci/autoterminal/forward.do", //受办理系统项目IP
+				     data :{fmd :"aci-eventquery",
+				            fdo : fdo,
+				            stApplyNo : requestData.appplyNo,
+				            stIdCard : requestData.idCard},
+				     dataType : "jsonp",
+				     jsonp : "jsonpCallback",
+				     success : function(dataJsonp) {
+				          // 解析数据
+				          var data=eval("("+JSON.stringify(dataJsonp)+")");
+				          // 显示详细信息
+				          showProgressDetails (data);
+				          
+				         // 滚动条               
+				         $("#progressList").mCustomScrollbar({
+				             theme:"rounded-dots",
+				             scrollInertia:400
+				        });
+				     },
+				     error : function() {
+				     }
+				  });*/
+
+				// $.log.debug("身份证信息:"+applyTypeNumber+"方式："+type);
+				console.log("身份证信息:" + applyTypeNumber + "方式：" + type);
+				$.ajax({
+					async: true,
+					type: "post",
+					url: "http://172.16.6.18:8080/aci/autoterminal/forward.do",
+					//url : "http://218.202.254.222/aci/autoterminal/forward.do",
+					data: {
+						fmd: "aci-eventquery",
+						fdo: "getWorkApplyInfo", // fdo : "getStringsByStApplyNo",getApplyInfoByStApplyNo
+						stApplyNo: applyTypeNumber,
+						type: type
+					},
+					dataType: "jsonp",
+					jsonp: "jsonpCallback",
+					success: function(dataJsonp) {
+						// 解析数据
+						var data = eval("(" + JSON.stringify(dataJsonp) + ")");
+						//alert(JSON.stringify(dataJsonp));
+						console.log(JSON.stringify(dataJsonp));
+						// 数据不存在的场合
+						if(data == 0) {
+							layer.msg('<span>根据您所输入的办件编号,查找的数据不存在,请核对办件编号。</span>', {
+								area: ['780px', '500px'],
+							});
+							// 对象名称
+							//$("#name").html("");
+							// 可供选择的项目
+							//$("#regex").html("");
+							// $("#chooseWord").css({display:"none"});
+						} else {
+							//showNameCheck(data);
+							// chooseName (data);
+							showProgressDetails(data);
+
+						}
+					},
+					error: function() {
+						alert("报错");
+					}
+				});
+			}
+
+			// 显示详细信息
+			function showProgressDetails(data) {
+				var requestData = getRequest();
+				// 数据不存在的场合
+				if(data == 0) {
+					layer.msg('<span>根据您的信息,未能查找到相关数据！</span>', {
+						area: ['780px', '500px'],
+					});
+					// 返回
+					return;
+				}
+				// 详细信息
+				var progressHtml = "";
+				// 办件编码,二维码的的场合
+				if(requestData.type == "applyNo" || requestData.type == "erweiCode") {
+					progressHtml = "<ul class=\"con-bd\">" +
+						"<li>对象名称：<span>" + data.stName + " </span></li>" +
+						"<li>办件编号：<span>" + data.stApplyNo + "</span></li>" +
+						"<li>事项名称：<span>" + data.stItemName + "</span></li>" +
+						"<li>申请时间：<span>" + data.stApplyStr + "</span></li>" +
+						"<li>事项状态：<span>" + data.stFinalState + "</span></li>";
+					if(requestData.appplyNo == '069563317098853') {
+						progressHtml += "<li>办理时限：<span>5个工作日</span></li>";
+					} else if(requestData.appplyNo == '069523917096223') {
+						progressHtml += "<li>办理时限：<span>自受理之日起20日内</span></li>";
+					} else {
+						progressHtml += "<li>办结时间：<span>" + setDateTime(data.stFinish) + "</span></li>";
+					}
+					progressHtml += "</ul>";
+
+					// 身份证的场合
+				} else if(requestData.type == "IDCard") {
+
+					progressHtml += "<ul class=\"con-bd\">" +
+						"<li>对象名称：<span>" + data.stName + " </span></li>" +
+						"<li>办件编号：<span>" + data.stApplyNo + "</span></li>" +
+						"<li style='height:auto;'>事项名称：<span>" + data.stItemName + "</span></li>" +
+						"<li>申请时间：<span>" + data.stApplyStr + "</span></li>" +
+						"<li>事项状态：<span>" + data.stFinalState + "</span></li>"
+					"<li>办结时间：<span>" + setDateTime(data.stFinish) + "</span></li>" +
+						"</ul>";
+				}
+				// 显示信息
+				$("#progressList").html(progressHtml);
+			}
+
+			// 返回
+			function back() {
+				var requestData = getRequest();
+				window.location.href = "progress_type.html?type=" + requestData.type;
+			}
+		</script>
+	</body>
+
+</html>

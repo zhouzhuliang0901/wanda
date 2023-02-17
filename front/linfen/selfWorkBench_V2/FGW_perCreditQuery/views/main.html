@@ -1,0 +1,59 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+	     padding-left: 0px; 
+	    text-align: center;
+	    margin-top: 80px;
+	    display: flex;
+	    justify-content: space-around;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+		margin-right: 0px;
+		height: auto;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin: 15px 50px;
+		}
+		.contain {
+			width: 1100px;
+			height: 700px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			margin-top: 0px;
+			display: flex;
+			justify-content: space-around;
+		}
+		.scrollBox2 .linkBox1 a {
+			margin-right: 0px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-repeat="stuff in stuffName" repeat-finish ng-click="choiceType(stuff.type,stuff.stuffName,stuff.ywlx)">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>个人信用报告查询</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

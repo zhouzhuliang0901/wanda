@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="css1/style.css" rel="stylesheet" type="text/css">
+    <link href="css1/scrollbar.css" rel="stylesheet" type="text/css">
+
+</head>
+<body style="overflow: hidden;">
+
+<div class="shell bg2">
+
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="#selectTwo" class="back1">参保个人城镇基本养老保险缴费情况</a>
+            <a href="javascript:;" class="message1">message</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+        </div>
+    </div>
+    
+   <div class="loadingBox" ng-if="!isLoding">
+  			<img style="margin-left: 909px;margin-top: 400px;" src="../libs/common/images/loadings.gif" alt=""/>
+  			<p class="p1" style="margin-left: 800px;">正在查询请稍后...</p>
+		</div>
+	<div class="stable"  ng-show="justOk">
+	    <div class="my-card">
+	    	<div class="head">
+	    		<h4>城镇保</h4>
+	    	</div>
+	    	<div class="body">
+	    		<div class="scroll-table">
+	    			<div class="fixbox">
+			    		<table cellspacing="0">
+			    			<thead>
+			    				<tr>
+				    				<th>姓名</th>
+				    				<td>{{stName}}</td>
+				    				<th>公民身份号码</th>
+				    				<td>{{stCard}}</td>
+			    				</tr>
+			    			</thead>
+			    			<tbody>
+			    				<tr>
+			    					<th>顺序号</th>
+			    					<th>年月</th>
+			    					<th>缴费情况</th>
+			    					<th>补缴起止年月</th>
+			    				</tr>
+			    			</tbody>
+			    		</table>
+	    			</div>
+		    		<div id="wrapper" class="scbox" style="height: 228px;" >
+			    		<table cellspacing="0">
+			    			<tbody id="tableOne">
+			    				<!--<tr>
+			    					<th>1</th>
+			    					<td>2017.08</td>
+			    					<td>未缴费</td>
+			    					<td>2017.09.15</td>
+			    				</tr>
+			    				<tr>
+			    					<th>2</th>
+			    					<td>201707</td>
+			    					<td>已缴费</td>
+			    					<td>-</td>
+			    				</tr>
+			    				<tr>
+			    					<th>3</th>
+			    					<td>201706</td>
+			    					<td>已缴费</td>
+			    					<td>-</td>
+			    				</tr>
+			    				<tr>
+			    					<th>4</th>
+			    					<td>201705</td>
+			    					<td>已缴费</td>
+			    					<td>-</td>
+			    				</tr>
+			    				<tr>
+			    					<th>5</th>
+			    					<td>201704</td>
+			    					<td>已缴费</td>
+			    					<td>-</td>
+			    				</tr>
+			    				<tr>
+			    					<th>6</th>
+			    					<td>201703</td>
+			    					<td>已缴费</td>
+			    					<td>-</td>
+			    				</tr>-->
+			    			</tbody>
+			    		</table>
+		    		</div>
+	    		</div>
+	    	</div>
+	    </div>
+	    <div class="my-card">
+	    	<div class="head">
+	    		<h4>近24个月缴费单位信息</h4>
+	    	</div>
+	    	<div class="body">
+	    		<div class="scroll-table">
+	    			<div class="fixbox">
+			    		<table cellspacing="0">
+			    			<thead>
+			    				<tr>
+				    				<th>缴费单位信息</th>
+				    				<th>缴费起止时间</th>
+				    				<th>缴费单位名称</th>
+				    				<th>缴费起止时间</th>
+			    				</tr>
+			    			</thead>
+			    		</table>
+		    		</div>
+		    		<div  id="wrapper2" class="scbox" >
+			    		<table cellspacing="0" >
+			    			<tbody id="tableTwo">
+			    				<!--<tr>
+			    					<th>中化资产管理（上海）有限公司</th>
+			    					<td>2017.08-至今</td>
+			    					<th>中化资产管理</th>
+			    					<td>2017.08-至今</td>
+			    				</tr>
+			    				<tr>
+			    					<th>中化公司</th>
+			    					<td>2017.08-至今</td>
+			    					<th>中化有限</th>
+			    					<td>2017.08-至今</td>
+			    				</tr>
+			    				<tr>
+			    					<th>上力有限公司</th>
+			    					<td>2017.08-至今</td>
+			    					<th>无限公司</th>
+			    					<td>2017.08-至今</td>
+			    				</tr>-->
+			    			</tbody>
+			    		</table>
+		    		</div>
+	    		</div>
+	    		<div class="mouthed">截止2019年07月，累计缴费月数<strong>{{times}}</strong>个月</div>
+	    	</div>
+	    </div>
+	</div>
+    
+    <div class="btnBox1 clearfloat">
+        <a href="javascript:;" ng-show="printOk" ng-click="print()" class="Prev">打印</a>
+        <a href="javascript:;" ng-show="nextOk" href="#selectTwo" class="next">返回</a>
+    </div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+
+<style type="text/css">
+	#wrapper{
+		width:100%;
+	}
+	#wrapper2{
+		width:100%;
+	}
+</style>
+</body>
+</html>

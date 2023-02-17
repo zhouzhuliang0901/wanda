@@ -1,0 +1,105 @@
+<style>
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 15%;
+		font-size: 36px;
+		color: #fff;
+		opacity: 1;
+	}
+	
+	#wrapper {
+		width: 100%;
+		height: 98%;
+		overflow: hidden;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.wrapper-content {
+		padding: 0px 10px;
+	}
+	
+	.guide-content .content-child-title {
+		font-weight: normal;
+		text-indent: 2em;
+		padding-left: 50px;
+		line-height: 45px;
+	}
+	
+	.guide-content .content-child-title span {
+		font-weight: bold;
+	}
+	.wrapper-content p {
+		background-color: transparent !important;;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.leaderInfo1 .rightInfo {
+			height: 86%;
+			margin-top: 4%;
+		}
+		.leaderInfo1 .leftInfo {
+			font-size: 28px;
+		}
+		.menuBox ul li {
+			font-size: 26px;
+		}
+	}
+</style>
+<p class="caption" ng-show="leaderInfo2">
+	{{firstName}}&emsp; |&emsp; <span class="captionMini">{{secondName}}</span></p>
+<div class="scrollBox2 clearfloat">
+	<div class="TabBox">
+		<div class="leaderInfo1" ng-show="leaderInfo1">
+			<div class="leftInfo">
+				<img ng-src="{{imageUrl}}" alt="" />
+				<p>{{leaderName}}</p>
+			</div>
+			<div class="rightInfo">
+				<!--上边阅签-->
+				<div class="menuBox">
+					<ul>
+						<li ng-repeat="(index,item) in work" ng-class="{in:current==index}" ng-click="choice(index,name)"><span>{{item.name}}</span></li>
+					</ul>
+				</div>
+				<div class="rightInfoContent">
+					<div id="wrapper">
+						<div ng-show="!workList" ng-bind-html='content' class="wrapper-content"></div>
+						<div ng-show="workList">
+							<div class="itemFile" ng-repeat="item in contentList" ng-click="choiceItemDetail(item)" repeat-finish>
+								<span class="itemName">{{item.title}}</span>
+								<span class="itemTime">{{item.displayDate | limitTo : 10}}</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="leaderInfo2" ng-show="leaderInfo2">
+			<!--办事指南-->
+			<div id="wrapper">
+				<div class="guide-content">
+					<p class="content-title">市政府秘书长、副秘书长工作分工：</p>
+					<p class="content-child-title"><span>陈　靖　秘书长</span>　　兼市政府办公厅主任，协助市长联系市政府办公厅、市政府研究室、市政府发展研究中心，协助联系财政、审计、政府法制、建议提案办理、政务公开、行政审批改革等工作，分管市机关事务管理局。</p>
+					<p class="content-child-title"><span>马春雷　副秘书长</span>　　兼市发展改革委主任，协助副市长联系发展和改革、国有资产监督管理、财政、审计、税务、统计、中国（上海）自由贸易试验区建设、人口综合管理等工作。</p>
+					<p class="content-child-title">虞丽娟　副秘书长</span>　协助副市长联系教育、民族和宗教事务、体育、知识产权、参事、侨务、文史等工作。</p>
+					<p class="content-child-title"><span>黄　融　副秘书长</span>　协助副市长联系住房和城乡建设管理、规划和自然资源、水务、交通、绿化和市容管理、生态环境、民防、气象等工作。</p>
+					<p class="content-child-title"><span>赵　奇　副秘书长</span>　协助副市长联系公安、司法行政、应急管理、信访、社会稳定、道路交通安全等工作，协助联系市高院、市检察院。</p>
+					<p class="content-child-title"><span>朱芝松　副秘书长</span>　兼中国（上海）自由贸易试验区临港新片区管理委员会常务副主任，洋山保税港区管理委员会主任，协助副市长联系中国（上海）自由贸易试验区临港新片区建设等工作。</p>
+					<p class="content-child-title"><span>陈鸣波　副秘书长</span>　协助副市长联系经济和信息化、科学技术、金融、科创中心建设等工作。</p>
+					<p class="content-child-title"><span>尚玉英　副秘书长</span>　协助副市长联系商务、外资外贸、市场监督管理、物价、外事等工作。</p>
+					<p class="content-child-title"><span>杭迎伟　副秘书长</span>　兼浦东新区区长、中国（上海）自由贸易试验区管委会常务副主任，协助副市长联系中国（上海）自由贸易试验区建设等工作。</p>
+					<p class="content-child-title"><span>赵祝平　副秘书长</span>　协助副市长联系农业农村、人力资源和社会保障、民政、退役军人事务、合作交流、区政、行政学院、人民武装等工作，协助联系市总工会、团市委、市妇联、市残联等群众团体和部队（武警部队）。</p>
+					<p class="content-child-title"><span>顾洪辉　副秘书长</span>　协助副市长联系卫生健康、医疗保障、文化旅游、涉台事务、妇儿委、孙宋文管委等工作。</p>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

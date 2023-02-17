@@ -1,0 +1,740 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>生育保险申请--个人信息</span></div>
+	<div class="main2">
+		<div id="wrapper">
+			<div class="scrollBox2 clearfloat">
+				<div class="tabelBox1" style="width: 1671px;">
+
+					<div class="navBox" style="margin-top:10px;margin-bottom:40px;"><b>--------------------------------------------------  申请人信息  -------------------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<b class="red1">*</b>
+							<dd class="rt2">
+								<input class="input1" type="text" id="stSex" ng-model="stSex" readonly>
+							</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>身份证号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>民&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="nations" vName="" vId="" onchange="selectNationById('nations')">
+								<option class="col1" value="">选择民族</option>
+							</select>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>出生日期：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<!--<div class="input-append date form_datetime">
+								<input class="input1" size="16" type="text" id="dtBirth" ng-model="dtBirth" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>-->
+							<input class="input1" type="text" id="dtBirth" ng-model="dtBirth" readonly>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>联系手机：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stMomile" ng-model="stMomile" placeholder="">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>户籍地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="province" vName="" vId="" ng-model="province" onchange="selectProvince('province','city','county','street','neighborhood')">
+								<option class="col1" value="">选择省份</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="city" vName="" vId="" ng-model="city" onchange="selectCity('city','county','street','neighborhood')">
+								<option class="col1" value="">选择城市</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="county" vName="" vId="" ng-model="county" onchange="selectCounty('county','street','neighborhood')">
+								<option class="col1" value="">选择区/县</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="street" vName="" vId="" ng-model="street" onchange="selectStreet('street','neighborhood')">
+								<option class="col1" value="">选择街/镇</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="neighborhood" vName="" vId="" ng-model="neighborhood" onchange="selectNeighborhood('neighborhood')">
+								<option class="col1" value="">选择居委</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt1">
+							<input class="input1" type="text" id="stAddress" ng-model="stAddress" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>居住地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="liveProvince" vName="" vId="" ng-model="liveProvince" onchange="selectProvince('liveProvince','liveCity','liveCounty','liveStreet')">
+								<option class="col1" value="">选择省份</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="liveCity" vName="" vId="" ng-model="liveCity" onchange="selectCity('liveCity','liveCounty','liveStreet','liveNeighborhood')">
+								<option class="col1" value="">选择城市</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="liveCounty" vName="" vId="" ng-model="liveCounty" onchange="selectCounty('liveCounty','liveStreet','liveNeighborhood')">
+								<option class="col1" value="">选择区/县</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="liveStreet" vName="" vId="" ng-model="liveStreet" onchange="selectStreet('liveStreet','liveNeighborhood')">
+								<option class="col1" value="">选择街/镇</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="liveNeighborhood" vName="" vId="" ng-model="liveNeighborhood" onchange="selectNeighborhood('liveNeighborhood')">
+								<option class="col1" value="">选择居委</option>
+							</select>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt1">
+							<input class="input1" type="text" id="liveStAddress" ng-model="liveStAddress" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>是否独生子女：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="isdszv" vName="" vId="" ng-model="isdszv">
+								<option class="col1">是</option>
+								<option class="col1">否</option>
+							</select>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>本次生育男孩数：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="boyn" ng-model="boyn" placeholder="" ng-change="changeChilds()">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>是否晚育：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="iswy" vName="" vId="" ng-model="iswy">
+								<option class="col1">是</option>
+								<option class="col1">否</option>
+							</select>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>本次生育女孩数：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="girln" ng-model="girln" placeholder="" ng-change="changeChilds()">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>邮政编码：</span><b class="red1">*</b>
+						</dd>
+						<dd class="rt3">
+							<input class="input1" type="text" id="stPostCode" ng-model="stPostCode" placeholder="">
+						</dd>
+						<dd class="lt1 lt5">
+							<span>邮寄地址：</span><b class="red1">*</b>
+						</dd>
+						<dd class="rt12">
+							<input class="input1" type="text" id="stPostAddress" ng-model="stPostAddress" placeholder="">
+						</dd>
+					</dl>
+					<div class="btnBox2 clearfloat">
+						<span style="color: #fff958;margin-left:270px;">注：请准确填写联系电话和邮寄地址，后续结果将以平信的形式寄送到该地址</span>
+						<a ng-click="synchronize()" class="sameAdd1">同居住地址</a>
+					</div>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>工作单位：</span><b class="red1">*</b>
+						</dd>
+						<dd class="rt1">
+							<input class="input1" type="text" id="stCompany" ng-model="stCompany" placeholder="工作单位">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>文化程度：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="stEducation" ng-model="stEducation">
+							<a href="javascript:;">未上过学</a>
+							<a href="javascript:;">小学</a>
+							<a href="javascript:;">初中</a>
+							<a href="javascript:;">高中</a>
+							<a href="javascript:;">大学专科</a>
+							<a href="javascript:;">大学本科</a>
+							<a href="javascript:;">研究生</a>
+						</dd>
+					</dl>
+
+					<div class="navBox" style="margin-bottom:40px;"><b>---------------------------------------------------&nbsp;&nbsp;婚姻情况&nbsp;&nbsp;---------------------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>婚姻登记号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stMarryId" ng-model="stMarryId" readonly>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>结婚日期：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="dtMarry" ng-model="dtMarry" readonly>
+						</dd>
+					</dl>
+
+					<div class="navBox" style="margin-bottom:40px;"><b>---------------------------------------------------&nbsp;&nbsp;配偶信息&nbsp;&nbsp;---------------------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stMaleName" ng-model="stMaleName" readonly>
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>民&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="maleNations" vName="" vId="" onchange="selectNationById('maleNations')">
+								<option class="col1" value="">选择民族</option>
+							</select>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>身份证号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" id="stMaleIdCard" ng-model="stMaleIdCard">
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>联系手机：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stMaleMomile" ng-model="stMaleMomile" placeholder="">
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>是否独生子女：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="mIsdszv" vName="" vId="" ng-model="mIsdszv">
+								<option class="col1">是</option>
+								<option class="col1">否</option>
+							</select>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>户籍地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="maleProvince" vName="" vId="" ng-model="maleProvince" onchange="selectProvince('maleProvince','maleCity','maleCounty','maleStreet','maleNeighborhood')">
+								<option class="col1" value="">选择省份</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="maleCity" vName="" vId="" ng-model="maleCity" onchange="selectCity('maleCity','maleCounty','maleStreet','maleNeighborhood')">
+								<option class="col1" value="">选择城市</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="maleCounty" vName="" vId="" ng-model="maleCounty" onchange="selectCounty('maleCounty','maleStreet','maleNeighborhood')">
+								<option class="col1" value="">选择区/县</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="maleStreet" vName="" vId="" ng-model="maleStreet" onchange="selectStreet('maleStreet','maleNeighborhood')">
+								<option class="col1" value="">选择街/镇</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="maleNeighborhood" vName="" vId="" ng-model="maleNeighborhood" onchange="selectNeighborhood('maleNeighborhood')">
+								<option class="col1" value="">选择居委</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<div class="btnBox2 clearfloat">
+								<a ng-click="synchronize1()" class="sameAdd2">同申请人</a>
+							</div>
+						</dd>
+						<dd class="rt1">
+							<input class="input1" type="text" id="mStAddress" ng-model="mStAddress" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>居住地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="mLiveProvince" vName="" vId="" ng-model="mLiveProvince" onchange="selectProvince('mLiveProvince','mLiveCity','mLiveCounty','mLiveStreet','mLiveNeighborhood')">
+								<option class="col1" value="">选择省份</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="mLiveCity" vName="" vId="" ng-model="mLiveCity" onchange="selectCity('mLiveCity','mLiveCounty','mLiveStreet','mLiveNeighborhood')">
+								<option class="col1" value="">选择城市</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="mLiveCounty" vName="" vId="" ng-model="mLiveCounty" onchange="selectCounty('mLiveCounty','mLiveStreet','mLiveNeighborhood')">
+								<option class="col1" value="">选择区/县</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="mLiveStreet" vName="" vId="" ng-model="mLiveStreet" onchange="selectStreet('mLiveStreet','mLiveNeighborhood')">
+								<option class="col1" value="">选择街/镇</option>
+							</select>
+						</dd>
+						<dd class="rt11">
+							<select class="select1" id="mLiveNeighborhood" vName="" vId="" ng-model="mLiveNeighborhood" onchange="selectNeighborhood('mLiveNeighborhood')">
+								<option class="col1" value="">选择居委</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<div class="btnBox2 clearfloat">
+								<a ng-click="synchronize2()" class="sameAdd2">同申请人</a>
+							</div>
+						</dd>
+						<dd class="rt1">
+							<input class="input1" type="text" id="mLiveStAddress" ng-model="mLiveStAddress" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>工作单位：</span><b class="red1">*</b>
+						</dd>
+						<dd class="rt1">
+							<input class="input1" type="text" id="stMaleCompany" ng-model="stMaleCompany" placeholder="工作单位">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>文化程度：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="stMaleEducation" ng-model="stMaleEducation">
+							<a href="javascript:;">未上过学</a>
+							<a href="javascript:;">小学</a>
+							<a href="javascript:;">初中</a>
+							<a href="javascript:;">高中</a>
+							<a href="javascript:;">大学专科</a>
+							<a href="javascript:;">大学本科</a>
+							<a href="javascript:;">研究生</a>
+						</dd>
+					</dl>
+
+					<div class="navBox" style="margin-top:10px;margin-bottom:40px;"><b>---------------------------------------------------&nbsp;&nbsp;子女情况&nbsp;&nbsp;---------------------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat" ng-repeat="childs in childsHtmlList">
+						<dd class="lt1 lt5">
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="{{childs.name}}">
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>性别：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="{{childs.sex}}" vName="" vId="" ng-model="{{childs.sex}}">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">男</option>
+								<option class="col1" value="2">女</option>
+							</select>
+							<!--<input class="input1" type="text" id="{{childs.sex}}">-->
+						</dd>
+						<dd class="lt1 lt5">
+							<span>出生日期：</span>
+							<b class="red1"></b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="{{childs.birth}}">
+						</dd>
+						<dd class="lt1 lt2">
+							<span>身份证号：</span>
+							<b class="red1"></b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="{{childs.idCard}}">
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>与母亲关系：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="mgx" vName="" vId="" ng-model="mgx">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">亲生</option>
+								<option class="col1" value="2">收养和过继</option>
+							</select>
+						</dd>
+						<dd class="lt1 lt2">
+							<span>与父亲关系：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="fgx" vName="" vId="" ng-model="fgx">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">亲生</option>
+								<option class="col1" value="2">收养和过继</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5" style="width: 14.2%;margin-left: -2px;">
+							<span>母是否婚前生育：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="ismhq" vName="" vId="" ng-model="ismhq">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">婚前</option>
+								<option class="col1" value="2">婚后</option>
+							</select>
+						</dd>
+						<dd class="lt1 lt2">
+							<span>父是否婚前生育 ：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="isfhq" vName="" vId="" ng-model="isfhq">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">婚前</option>
+								<option class="col1" value="2">婚后</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>是否本次生育：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="isbcs" vName="" vId="" ng-model="isbcs">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">是</option>
+								<option class="col1" value="0">否</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>申请审核类型：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="sqsh" vName="" vId="" ng-model="sqsh">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">符合政策生育第一个子女、第二个子女的</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6" style="width: 14%;">
+							<span>选择受理中心：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt14">
+							<select class="select1" id="stCenterCounty" vName="" vId="" ng-model="stCenterCounty" onchange="selectCenterCounty('stCenterCounty','stCenter')">
+								<option class="col1" value="">请选择</option>
+							</select>
+						</dd>
+						<dd class="rt14">
+							<select class="select1" id="stCenter" vName="" vId="" ng-model="stCenter" onchange="selectCenter('stCenter')">
+								<option class="col1" value="">请选择</option>
+							</select>
+						</dd>
+
+					</dl>
+
+					<div class="navBox" style="margin-top:10px;margin-bottom:40px;"><b>---------------------------------------------------&nbsp;&nbsp;待遇申领表&nbsp;&nbsp;-------------------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>生育日期：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<!--<div class="input-append date form_datetime">
+								<input class="input1" size="16" type="text" id="app_sydate" ng-model="app_sydate" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>-->
+							<input id="datepicker" class="input1" type="text" id="app_sydate" ng-model="app_sydate">
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>是否多胞胎：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="app_ifmulti" vName="" vId="" ng-model="app_ifmulti" ng-change="ifmulti()">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">是</option>
+								<option class="col1" value="2">否</option>
+							</select>
+						</dd>
+
+					</dl>
+
+					<dl class="dl1 clearfloat" ng-if="show">
+						<dd class="lt1 lt5">
+							<span>多胞胎男孩数：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="app_boys" ng-model="app_boys">
+						</dd>
+
+						<dd class="lt1 lt2">
+							<span>多胞胎女孩数：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="app_girls" ng-model="app_girls">
+						</dd>
+
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<!--<dd class="lt1 lt5">
+							<span>流产：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="app_abortion" vName="" vId="" ng-model="app_abortion">
+								<option style='display: none' value=''></option>
+								<option class="col1">否</option>
+								<option class="col1">自然流产</option>
+								<option class="col1">人工流产</option>
+							</select>
+						</dd>-->
+						<dd class="lt1 lt5">
+							<span>生产方式：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="app_type" vName="" vId="" ng-model="app_type">
+								<option style='display: none' value=''></option>
+								<option class="col1">顺产</option>
+								<option class="col1">难产</option>
+							</select>
+						</dd>
+						<dd class="lt1 lt2">
+							<span>申请人户口性质：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="nativepropc" vName="" vId="" ng-model="nativepropc">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="1">非农业户口</option>
+								<option class="col1" value="2">农业户口</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<!--<dd class="lt1 lt5">
+							<span>分娩男女：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2" ng-if="!show">
+							<select class="select1" id="app_borg" vName="" vId="" ng-model="app_borg">
+								<option style='display: none' value=''></option>
+								<option class="col1">男</option>
+								<option class="col1">女</option>
+							</select>
+						</dd>-->
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt5">
+							<span>配偶婚姻状况：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="spousemarristatusc" vName="" vId="" ng-model="spousemarristatusc">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="10">未婚</option>
+								<option class="col1" value="20">已婚</option>
+								<option class="col1" value="21">初婚</option>
+								<option class="col1" value="22">再婚</option>
+								<option class="col1" value="23">复婚</option>
+								<option class="col1" value="30">丧偶</option>
+								<option class="col1" value="40">离婚</option>
+								<option class="col1" value="90">未说明的婚姻状况</option>
+							</select>
+						</dd>
+						<dd class="lt1 lt2">
+							<span>申请人婚姻状况：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="marristatusc" vName="" vId="" ng-model="marristatusc">
+								<option style='display: none' value=''></option>
+								<option class="col1" value="10">未婚</option>
+								<option class="col1" value="20">已婚</option>
+								<option class="col1" value="21">初婚</option>
+								<option class="col1" value="22">再婚</option>
+								<option class="col1" value="23">复婚</option>
+								<option class="col1" value="30">丧偶</option>
+								<option class="col1" value="40">离婚</option>
+								<option class="col1" value="90">未说明的婚姻状况</option>
+							</select>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="next()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="Smsg" ng-if="SisAlert" confirm="SalertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	#wrapper {
+		width: 1600px;
+		height: 500px;
+	}
+	
+	.main2 {
+		margin-left: 40px;
+	}
+	
+	.btnBox2 .sameAdd1 {
+		float: right;
+		width: 170px;
+		height: 50px;
+		line-height: 50px;
+		overflow: hidden;
+		background: #B3A1FF;
+		margin-top: -10px;
+		margin-right: 135px;
+		margin-bottom: 20px;
+		text-align: center;
+		border-radius: 10px;
+		font-size: 20px;
+	}
+	
+	.btnBox2 a {
+		text-align: center;
+		border-radius: 10px;
+		overflow: hidden;
+		font-size: 20px;
+	}
+	
+	.btnBox2 .sameAdd2 {
+		float: right;
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		overflow: hidden;
+		background: #B3A1FF;
+		margin-top: 0px;
+		margin-right: 30px;
+		margin-bottom: 20px;
+	}
+</style>

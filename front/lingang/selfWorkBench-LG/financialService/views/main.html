@@ -1,0 +1,96 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 85px;
+			margin-left: 240px;
+		}
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			/*margin-top: 220px;*/
+			margin: 0 auto;
+			width: 1500px;
+			display: flex;
+			/*justify-content: space-around;*/
+			align-items: center;
+			flex-wrap: wrap;
+			box-sizing: border-box;
+			/*padding: 0px 230px;*/
+		}
+		.scrollBox2 .linkBox1 a {
+			float: none;
+			width: auto;
+			height: auto;
+			margin: 10px 95px;
+			overflow: hidden;
+			text-align: center;
+			border: none;
+			background: none;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0 auto;
+		}
+		.scrollBox2 .linkBox1 a::before {
+			/*left: 142px;*/
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			margin-top: 220px;
+			display: flex;
+			justify-content: space-around;
+			padding-top: 0;
+		}
+		.scrollBox2 .linkBox1 a {
+			float: left;
+			width: auto;
+			height: auto;
+			margin: 0px;
+			overflow: hidden;
+			text-align: center;
+			border: none;
+			background: none;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0;
+		}
+	}
+</style>
+
+<p class="caption">{{operation}}</p>
+
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceType('financialLoan')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>惠普金融贷款</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('internationalForeignExchange')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>国际外汇业务</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('personalFinance')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>个人金融服务</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('websiteService')" style="margin-left:345px;">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>银行网点服务</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('rentService')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>住房租赁服务</p>
+		</a>
+		<!--<a href="javascript:;" ng-click="choiceType('rentService')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>信用卡申请</p>
+		</a>-->
+	</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="'false'"></alert>
+
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>

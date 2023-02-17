@@ -1,0 +1,183 @@
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">申请人基本信息</p>
+<div class="main2" style="">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;">
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>申请种类：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="itemType" ng-model="itemType" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>手机号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>中文姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" placeholder="">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>中文姓：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stChSurname" ng-model="stChSurname">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>中文名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stChName" ng-model="stChName" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>拼音姓：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stBirth" ng-model="stBirth">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>拼音名：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stWomen" ng-model="stWomen" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>紧急联系人：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stUrgent" ng-model="stUrgent">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>紧急联系人手机号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stUrgentMobile" ng-model="stUrgentMobile" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="people=='我是外省市居民'">
+					<dd class="lt1 lt6">
+						<span>异地办证身份类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="differentPlaces">
+						<a ng-class="{'in':dp_index==index}" ng-repeat="(index,item) in differentPlaces" ng-click="changeDP(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>是否同时办理签注：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="endorsement">
+						<a ng-class="{'in':qz_index==index}" ng-repeat="(index,item) in endorsement" ng-click="changeQZ(item.name,index,item.id)" style="margin-bottom: 0px;" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="qz_index==0">
+					<dd class="lt1 lt6">
+						<span>往来台湾事由：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="TaiWan">
+						<a ng-class="{'in':tw_index==index}" ng-repeat="(index,item) in TaiWan" ng-click="changeTW(item.name,index,item.id)" value="{{item.value}}" style="margin-bottom: 0px;">{{item.name}}</a>
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat" ng-if="!(itemType=='首次申请')" style="width: 56%;margin-left: -15px;">
+					<dd class="lt1 lt6" style="    width: 41%;">
+						<span>所持证件是否由上海签发：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="shanghai" style="    width: 40%;">
+						<a ng-class="{'in':sh_index==index}" ng-repeat="(index,item) in shanghai" ng-click="changeSH(item.name,index,item.id)" style="margin-bottom: 0px;" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="sh_index==1">
+					<dd class="lt1 lt6">
+						<span>原大陆证号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPassNo" ng-model="stPassNo">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>原大陆证有效期：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPassDate" ng-model="stPassDate" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="sh_index==1">
+					<dd class="lt1 lt6">
+						<span>原大陆证签发地：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stPassAddress">
+						<a ng-class="{'in':pa_index==index}" ng-repeat="(index,item) in stPassAddress" ng-click="changePA(item.name,index,item.id)" style="margin-bottom: 0px;" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<!--<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>-->
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.select1 option {
+		color: #333;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+</style>

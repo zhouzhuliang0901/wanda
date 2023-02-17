@@ -1,0 +1,117 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 680px;
+		overflow: scroll;
+	}
+
+	.house_list {
+		width: 1500px;
+		margin: 0 auto;
+	}
+
+	.house_list table {
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.house_list table th,
+	.house_list table td {
+		border: #477cbe 1px solid;
+		font-size: 20px;
+		padding: 10px;
+		text-align: center;
+	}
+
+	.house_list .info-title {
+		font-size: 24px;
+		margin: 10px 0;
+		text-align: center;
+		font-weight: bold;
+	}
+	/**
+	 * layui
+	 */
+	.layui-tab{
+		text-align: center !important;
+	}
+	.layui-tab-title .layui-this{
+		color: #e1ba1c;
+	}
+	.layui-tab-title{
+		border-bottom:none;
+	}
+	.layui-tab-title li{
+		min-width: 160px;
+		font-size: 20px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.house_list {
+			width: 1000px;
+		}
+	}
+</style>
+<div class="contain">
+	<div class="scrollBox2 clearfloat">
+		<div class="house_list">
+			<p class="info-title">小区信息</p>
+			<table>
+				<tr>
+					<th>房屋地址</th>
+					<td>{{houAddress}}</td>
+				</tr>
+				<tr>
+					<th>账户余额</th>
+					<td>{{info.acctInfo}}</td>
+				</tr>
+			</table>
+			<p class="info-title">维修资金数据</p>
+			<div class="layui-tab">
+			  <ul class="layui-tab-title">
+			    <li class="layui-this">全部</li>
+			    <li>支出</li>
+			    <li>收入</li>
+			  </ul>
+			  <div class="layui-tab-content">
+			    <div class="layui-tab-item layui-show">
+			      <table>
+			      	<tr ng-repeat="item in allList">
+			      		<td>{{item.TYPE_NAME}}</td>
+			      		<td>{{item.TRAN_AMT}}</td>
+						<td>{{item.TRAN_DATE|to_date}}</td>
+			      	</tr>
+			      </table>
+			    </div>
+			    <div class="layui-tab-item">
+					<table>
+						<tr ng-repeat="item in zcList">
+							<td>{{item.TYPE_NAME}}</td>
+							<td>{{item.TRAN_AMT}}</td>
+							<td>{{item.TRAN_DATE|to_date}}</td>
+						</tr>
+					</table>
+				</div>
+			    <div class="layui-tab-item">
+					<table>
+						<tr ng-repeat="item in srList">
+							<td>{{item.TYPE_NAME}}</td>
+							<td>{{item.TRAN_AMT}}</td>
+							<td>{{item.TRAN_DATE|to_date}}</td>
+						</tr>
+					</table>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>

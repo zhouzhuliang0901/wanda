@@ -1,0 +1,92 @@
+<div class="contain">
+	<div class="stable">
+		<div class="my-card">
+			<div id="wrapper">
+				<div class="body">
+					<table class="infoTable" cellspacing="0">
+						<tr class="resultTr">
+							<th style="width: 7%">序号</th>
+							<th>办公时间</th>
+							<th>联系方式</th>
+							<th>区域</th>
+							<th>征收点名称</th>
+							<th>征收点地址</th>
+						</tr>
+						<tr ng-repeat="(index,info) in queryList">
+							<td>{{index}}</td>
+							<td>{{info.BGTIME}}</td>
+							<td>{{info.PHONE}}</td>
+							<td>{{info.UNITNAME}}</td>
+							<td>{{info.ZSD}}</td>
+							<td>{{info.ZSDADDRESS}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.infoTable th {
+		text-align: center;
+		width: 30%;
+	}
+
+	.infoTable tr,
+	.infoTable th,
+	.infoTable td {
+		padding: 15px 15px;
+		font-size: 22px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+
+	.resultTr {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.resultTr th {
+		font-weight: bold;
+	}
+
+	.gray {
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+
+	.infoTable {
+		table-layout: fixed;
+		width: 1400px;
+	}
+
+	#wrapper {
+		width: 1500px;
+		height: 650px;
+	}
+
+	@media only screen and (max-width: 1600px) {
+		.contain {
+			width: 1080px;
+		}
+		#wrapper {
+			width: 1320px;
+			height: 540px;
+		}
+	}
+</style>

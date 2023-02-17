@@ -1,0 +1,104 @@
+<div class="scrollBox2 clearfloat">
+	<ul class="top1">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">{{item}}</li>
+	</ul>
+	<div id="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="stuff in stuffName" style="width: 1800px;">
+				<div class="select">
+					<div>
+						<img class="img" ng-src="{{stuff.img}}" />
+					</div>
+					<div class="stuff">
+						{{stuff.stuffName}}
+					</div>
+					<div class="banli" ng-click="Handle(stuff.id,stuff.code,stuff.stuffName,stuff.guideline,stuff.API_ID_A,stuff.API_ID_B,stuff.API_ID_C,stuff.API_ID_D)">
+						立即办理
+					</div>
+					<div class="print" ng-click="toPrint(stuff.id,stuff.code,stuff.stuffName,stuff.guideline,stuff.API_ID_A,stuff.API_ID_B,stuff.API_ID_C,stuff.API_ID_D)">
+						打印
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	#wrapper {
+		width: 1800px;
+		height: 700px;
+	}
+	
+	.img {
+		width: 60px;
+		height: 60px;
+		float: left;
+		padding: 40px 0 0 35px;
+	}
+	/*#linkt{
+		position: relative;top: 100px;left: 0px;
+	}*/
+	
+	.select {
+		float: left;
+		width: 744px;
+		height: 140px;
+		overflow: hidden;
+		font-size: 30px;
+		background: #2864b0;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 79px;
+		margin-left: 70px;
+		margin-bottom: 47px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	
+	.top1 {
+		padding-bottom: 77px;
+		padding-left: 76px;
+	}
+	
+	.top1 li {
+		display: inline-block;
+		padding: 0 16px;
+		height: 57px;
+		line-height: 57px;
+		margin-right: 55px;
+		border-bottom: 4px solid transparent;
+		font-size: 34px;
+	}
+	
+	.top1 li.in {
+		color: #f2dd4a;
+		border-bottom: 4px solid #f2dd4a;
+	}
+	
+	.stuff {
+		padding: 10px 0 0 125px;
+		height: 70px;
+		line-height: 58px;
+	}
+	
+	.banli {
+		width: 138px;
+		height: 50px;
+		float: left;
+		line-height: 50px;
+		padding-left: 19px;
+		background: #3099DA;
+		margin-left: 30px;
+		border-radius: 9px;
+	}
+	
+	.print {
+		width: 160px;
+		height: 50px;
+		float: left;
+		line-height: 50px;
+		background: #3099DA;
+		margin-left: 30px;
+		border-radius: 9px;
+		text-align: center;
+	}
+</style>

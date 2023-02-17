@@ -1,0 +1,167 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.tabelBox1 {
+		width: 1700px;
+		padding-top: 0px;
+	}
+	
+	.wrapper {
+		width: 1750px;
+		height: 650px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--个人信息填写</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div class="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>姓名：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>身份证号：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>性别：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stSex" ng-model="stSex" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>出生日期：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="dtBirth" ng-model="dtBirth" readonly>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>联系电话：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>固定号码：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPhone" ng-model="stPhone">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>证件类型：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="certificatesType" ng-model="certificatesType" ng-options="x.name for x in certificatesTypeList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>证件号码：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="certificatesCode" ng-model="certificatesCode">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>拟执业机构：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="nzyjg" ng-model="nzyjg" list="nzyjgL">
+						<datalist id="nzyjgL">    <!--数据列表标签-->
+					        <option ng-repeat="item in nzyjgList">{{item.name}}</option>   <!--不写value属性-->
+					    </datalist>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>电子邮件：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="email" ng-model="email">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>住址：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="address" ng-model="address">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>联系地址：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="contactAddress" ng-model="contactAddress">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>选择办理点：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="bldCode" ng-model="bldCode" ng-options="x.name for x in bldList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>邮编：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="postCode" ng-model="postCode">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

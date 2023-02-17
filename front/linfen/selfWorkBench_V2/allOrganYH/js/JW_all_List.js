@@ -1,0 +1,46 @@
+var JWperjsonStr = [{
+	"stuffName": "上海市学生事务中心存档证明",
+	"url": "../JW_studentAffairsCenter/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "民办教育机构查询",
+	"url": "../JW_privateEducational/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "全市示范高中信息查询",
+	"url": "../JW_modelHighschool/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "中外合作办学信息查询",
+	"url": "../JW_cooperateEducationInfo/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "小升初报名信息查询(公办、民办)",
+	"url": "../JW_queryRegistrationInfo_XSC/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "幼升小报名信息查询(公办、民办)",
+	"url": "../JW_queryRegistrationInfo_YSX/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "上海市计算机等级考试成绩查询",
+	"url": "../JW_queryScoreOfNCRE/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "3岁以下幼儿托育服务机构查询",
+	"url": "../JW_queryNurseryService/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}, {
+	"stuffName": "民办非学历培训机构查询",
+	"url": "../JW_queryTrainingInstitutions/index.html",
+	"ywlx": "00",
+	"img": "../libs/common/images/newIcon/JY.png",
+}];

@@ -1,0 +1,37 @@
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" style="height: 30px;"></a></li>
+        <li><a href="#list">自助申报</a></li>
+        <li><a href="#">{{itemName}}</a></li>
+        <li class="active">选择事项情形</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请选择一个事项情形</div>
+            <div class="sub-index">
+                <a class="blue-green active" href="#list">重新选择事项</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="right-title" style="width: 92%;padding: 40px 4%;line-height: 50px; height: auto;">
+            {{allName}}
+        </div>
+        <div class="panelList two" style="top:185px;height: 535px;">
+            <a class="left" ng-click="previousPage()"><img src="images/left.png" width="30" style="top: 249px;" /></a>
+            <a class="right" ng-click="nextPage()"><img src="images/right.png" width="30" style="top: 249px;" /></a>
+            <div class="right-menu" ng-click="newOffice()" >
+                <div class="menu-div">新办</div>
+            </div>
+            <div class="right-menu" ng-click="change()" >
+                <div class="menu-div">变更</div>
+            </div>
+            <span style="left: 498px;">{{currentPage}}/{{totalPages}}</span>
+        </div>
+    </div>
+</div>

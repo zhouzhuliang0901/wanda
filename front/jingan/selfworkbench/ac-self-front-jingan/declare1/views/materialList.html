@@ -1,0 +1,113 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>人证核验</li>
+		<li>信息填写</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}{{statusName}}</span></div>
+
+	<div class="main2" style="position: relative;">
+		<div id="wrapper">
+			<div style="width:1800px">
+				<div class="linkt" ng-repeat="(index,stuff) in stuffList">
+					<div class="select">
+						<div class="stuff">
+							<font color='red' ng-show="{{stuff.isMust==1}}">*</font>
+							{{stuff.stuffName}}
+						</div>
+						<div ng-show="{{ listImg[index].upload2 }}" class="upload2" ng-click="toNewUploadMaterial(index,stuff.stuffId,stuff.stuffCode,stuff.stuffName,stuff.certs)">
+							重新上传
+						</div>
+						<div ng-show="{{ listImg[index].upload2 }}" class="view" ng-click="view(index,stuff.stuffId,stuff.stuffCode,stuff.stuffName,stuff.certs)">
+							查看
+						</div>
+						<div ng-show="{{ listImg[index].upload }}" class="upload" ng-click="toUploadMaterial(index,stuff.stuffId,stuff.stuffCode,stuff.stuffName,stuff.certs)">
+							上传
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="submit()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.main2 {
+		width: 1550px;
+		margin-left: 100px;
+	}
+
+	#wrapper {
+		width: 1800px;
+		height: 500px;
+	}
+
+	#linkt {
+		position: absolute;
+		top: 100px;
+		left: 0px;
+	}
+
+	.select {
+		float: left;
+		width: 1500px;
+		height: 123px;
+		overflow: hidden;
+		font-size: 30px;
+		background: #2864b0;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		position: relative;
+		background: url(./images/bg-xLlist.png) no-repeat;
+	}
+
+	.stuff {
+		line-height: 123px;
+		max-width: 1430px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-left: 20px;
+		padding-left: 50px;
+	}
+
+	.upload2 {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		position: absolute;
+		top: 37px;
+		left: 1100px;
+		font-size: 20px;
+		text-align: center;
+		background: url(./images/print.png) no-repeat;
+	}
+
+	.upload {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 37px;
+		background: url(./images/print.png) no-repeat;
+		font-size: 20px;
+		left: 1300px;
+	}
+
+	.view {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 37px;
+		background: url(./images/print.png) no-repeat;
+		font-size: 20px;
+		left: 1300px;
+	}
+</style>

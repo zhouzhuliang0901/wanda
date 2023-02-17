@@ -1,0 +1,108 @@
+<div class="centerMade">
+	<img class="largeImg" ng-src="images/出具流动人员人事档案证明申请表.png" />
+	<div class="tipsBox">
+		<p>出具流动人员人事档案证明申请表</p>
+		<div class="boxTop">
+			<p>编号：{{archivesNo}}</p>
+			<p>上海市普陀区宜川路街道社区事务受理服务中心</p><br />
+		</div>
+
+		<div class="scrollBox2 clearfloat">
+			<p>因办理</p>
+			<div class="singleselect3 clearfloat" id="liveType" ng-click="choose()">
+				<a>公正</a>
+				<a>单位查档</a>
+				<a>其他</a>
+			</div>
+		</div>
+		<div class="boxBody">
+			<p>事宜，特需要您单位开具档案存放证明,开具对象姓名：{{itemName}}，身份证号：{{itemNumber}}。</p>
+		</div>
+
+		<div class="boxBottom">
+			<p>申请人/单位经办人（签字）：（待签）</p>
+			<p>申请日期：{{dataTime}}</p>
+		</div>
+	</div>
+
+</div>
+<apptb-footer prev="prevStep()" next="next()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.centerMade {
+		margin-left: 100px;
+		margin-top: 65px;
+		display: block;
+		height: 775px;
+		width: 1660px;
+	}
+	
+	.largeImg {
+		margin-left: 60px;
+		width: 445px;
+		height: 700px;
+	}
+	
+	.boxTop {
+		height: 110px;
+	}
+	
+	.boxTop p:nth-of-type(1) {
+		float: left;
+		margin-left: 745px;
+		margin-top: 20px;
+	}
+	
+	.boxTop p:nth-of-type(2) {
+		float: left;
+		margin-top: 30px;
+	}
+	
+	.tipsBox>p {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 40px;
+		color: yellow;
+	}
+	
+	.tipsBox>div p {
+		font-size: 30px;
+		color: white;
+	}
+	
+	.tipsBox {
+		height: 700px;
+		width: 1125px;
+		float: right;
+		border: 1px solid gray;
+	}
+	
+	.tipsBox .scrollBox2 {
+		width: 100%;
+		height: 100px;
+		margin-top: 80px;
+	}
+	
+	.tipsBox .scrollBox2>p {
+		width: 100px;
+		float: left;
+		line-height: 86px;
+		margin-left: 100px;
+	}
+	
+	.boxBody {
+		margin-left: 40px;
+	}
+	
+	.boxBody>p {
+		margin-bottom: 10px;
+		line-height: 60px;
+	}
+	
+	.boxBottom {
+		margin-left: 600px;
+		margin-top: 50px;
+		line-height: 60px;
+	}
+</style>

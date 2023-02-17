@@ -1,0 +1,53 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="自助办理"></apptb-header>
+	
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li class="act">人证核验</li>
+			<li>在线填报</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span></div>
+
+		<div class="main2">
+			<div class="scrollBox2 clearfloat">
+				<div class="linkBox1 clearfloat">
+					<a ng-click="scanIdcard()">
+						<img src="./images/byIdcard.png" />
+						<p>刷身份证</p>
+					</a>
+					<a ng-click="citizen()">
+						<img src="./images/xsb.png" />
+						<p>随申办登录</p>
+					</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="footer">
+		<a href="#precautions" class="Prev">上一步</a>
+		<!--<a href="#precautions" class="next">下一步</a>-->
+		<a ng-click="goHome()" class="backindex1"></a>
+		<div class="backbox1">无操作
+			<zizhu-header></zizhu-header>
+			后将返回首页
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

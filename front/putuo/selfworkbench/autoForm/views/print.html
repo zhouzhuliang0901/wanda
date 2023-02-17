@@ -1,0 +1,23 @@
+<div class="chooseQuantity">
+	<p>请选择您要打印的份数</p>
+	<span class="control" ng-click="minus()">
+		-
+	</span>
+	<span>
+		{{printQuantity}}份
+	</span>
+	<span class="control" ng-click="plus()">+</span>
+</div>
+<print show="isPrint"></print>
+<apptb-footer prev="prevStep()" next="print()" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.largeImg {
+		height: 775px;
+		margin-left: 360px;
+	}
+	
+	.continue {
+		padding: 0 20px 0 20px;
+	}
+</style>

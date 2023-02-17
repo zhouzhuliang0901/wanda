@@ -1,0 +1,71 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a ng-if="person" href="javascript:;" ng-click="choiceLogin('idcard')">
+			<!--<img src="../libs/common/images/idcard-copy.png" />-->
+			<p class="idcard-login">身份证登录</p>
+		</a>
+		<a href="javascript:;" class="cloud-login" ng-click="choiceLogin('cloud')">
+			<!--<img src="../libs/common/images/icon/corporate.png" />-->
+			<p class="ssb-login">随申办登录</p>
+		</a>
+	</div>
+</div>
+<app-footer prev="prevStep()" next="nextStep()" default-next="hidden"></app-footer>
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 218px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+	    width: 303px;
+	    height: 390px;
+	    margin:0px 82px;
+	     margin-top: 0px; 
+	    overflow: hidden;
+	    text-align: center;
+	    border: none;
+	    background: url('../libs/common/images/idcard-copy.png') no-repeat;
+	    background-size: 100%;
+	    position: relative;
+	}
+	
+	.scrollBox2 .linkBox1 .cloud-login {
+		background: url('../libs/common/images/corporate.png') no-repeat;
+		background-size: 100%;
+	}
+	
+	.scrollBox2 .linkBox1 a p {
+		width: 100%;
+	}
+	
+	.idcard-login,
+	.ssb-login {
+		position: absolute;
+	    top: 78%;
+	    /* margin: 0px auto; */
+	    left: 50%;
+	    transform: translateX(-50%);
+	}
+	
+	.scrollBox2 .linkBox1 a::before {
+	    content: "";
+	    position: absolute;
+	    left: 50px;
+	    top: 34px;
+	    width: 396px;
+	    height: 35px;
+	    background: url(../libs/common/images/light.png) no-repeat;
+	    background-position: center center;
+	    background-size: 200% 35px;
+	    animation: lightAnimation 2s;
+	    animation-iteration-count: infinite;
+	    animation-direction: alternate;
+	    animation-timing-function: linear;
+	}
+	
+</style>

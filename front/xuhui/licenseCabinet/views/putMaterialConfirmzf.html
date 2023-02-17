@@ -1,0 +1,41 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助放证</a>
+        </li>
+        <li>
+            <a href="javascript:;">{{matterType}}人员操作</a>
+        </li>
+        <li class="active">确认{{_matterInfo}}信息</li>
+    </ol>
+</nav>
+<div class="shadowBox staffPutLicenseConfirm">
+    <div class="loadingBox" ng-if="isLoding">
+        <img src="images/loading.gif" alt="">
+        <p>正在加载数据，请稍后...</p>
+    </div>
+    <p class="boldTips" ng-if="!isLoding&&isShow===true">{{_matterInfo}}信息</p>
+    <table class="licenseInfoTable" ng-if="!isLoding&&isShow===true">
+        <tr>
+            <td>办件编号</td>
+            <td>{{qrCode||'空'}}</td>
+        </tr>
+    </table>
+    <div class="btn" ng-if="isShow !== undefined" ng-click="reScan()">
+        <img class="eventIcon" src="images/icon/back.png" alt="">
+        <span class="event">重新扫描</span>
+    </div>
+    <div class="btn" ng-if="isShow===true" ng-click="Continue()">
+        <img class="eventIcon" src="images/icon/ok.png" alt="">
+        <span class="event">&nbsp;&nbsp;&nbsp;&nbsp;继续</span>
+    </div>
+    <div class="btn" ng-if="isShow===false" ng-click="goHome()">
+        <img class="eventIcon" src="images/icon/back.png" alt="">
+        <span class="event">返回主页</span>
+    </div>
+</div>

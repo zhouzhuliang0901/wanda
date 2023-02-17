@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>自助服务终端-首页</title>
+    <link rel="stylesheet" href="../../libs/common/css/common.css">
+    <link rel="stylesheet" href="../../libs/common/css/index_new.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <!--灯光-->
+    <object classid='clsid:82EFB15A-DE7A-48D9-B175-5BECADDCBDF4' id='OCX_Light' style='width:0px;height:0px;'></object>
+
+    <script>
+        function goToApp(address) {
+            window.location.href = address;
+        };
+    </script>
+    <style>
+        .index_log img {
+            height: 130px;
+        }
+    </style>
+</head>
+
+<body ondragstart="return false;" onselectstart="return false">
+    <div class="index_log">
+        <img src="../../libs/common/images/index/logo.png" alt="">
+    </div>
+    <div class="declare common">
+        <div class="declare-top" data-entry="">
+            <img src="../../libs/common/images/index/declare.png" />
+            <p class="title">业务申报</p>
+        </div>
+        <div class="common-bottom">
+            <div class="db-left entry" onclick="goToApp('http://issp.sheca.com/WdmNew.html')" style="margin-left:50px;">
+                <img src="../../libs/common/images/index/icon/1-1.png" />
+                <p class="sub-title">法人一证通</p>
+            </div>
+              <!--  <div class="db-right entry" data-use="unused" data-entry="declare" style="margin-left:50px;">
+                <img src="../../libs/common/images/index/icon/1-2.png" />
+                <p class="sub-title">一网通办</p>
+            </div>
+            <div class="db-right entry" onclick="goToApp('http://issp.sheca.com/WdmIndex.html')" style="margin-left:50px;">
+                <img src="../../libs/common/images/index/icon/numberCert.png" />
+                <p class="sub-title">数字证书</p>
+            </div> -->
+        </div>
+    </div>
+    <div class="services common">
+        <div class="services-top">
+            <img src="../../libs/common/images/index/service.png" />
+            <p class="title">办事服务</p>
+        </div>
+        <div class="common-bottom">
+			<div class="sb-1 entry" onclick="goToApp('http://zwdtyp.sh.gov.cn:8088/ac/aci/selfWorkbench-YP/guideline3/index.html')">
+                <img src="../../libs/common/images/index/icon/1-3.png" />
+                <p class="sub-title">办事指南</p>
+            </div>
+            <div class="sb-1 entry" data-entry="reservation">
+                <img src="../../libs/common/images/index/icon/2-1.png" />
+                <p class="sub-title">办事预约</p>
+            </div>
+            <!-- <div class="sb-2 entry" data-entry="autoform">
+                <img src="../../libs/common/images/index/icon/2-2.png" />
+                <p class="sub-title">自助取表</p>
+            </div> -->
+            <div class="sb-3 entry" data-entry="eventquery">
+                <img src="../../libs/common/images/index/icon/2-3.png" />
+                <p class="sub-title">办件查询</p>
+            </div>
+            <div class="sb-4 entry" data-entry="archivesservice">
+                <img src="../../libs/common/images/index/icon/2-4.png" />
+                <p class="sub-title">办事档案</p>
+            </div>
+             <div class="sb-5 entry" data-entry="faceRecognition">
+                <img src="../../libs/common/images/index/icon/2-5.png" />
+                <p class="sub-title">人证核验</p>
+            </div>
+            <!-- <div class="sb-5 entry" data-entry="selfServicePrint" data-isCustomMade='y'>
+                    <img src="../../libs/common/images/index/icon/selfPrint.png" />
+                    <p class="sub-title">自助打印</p>
+            </div> -->
+        </div>
+    </div>
+    <div class="quicklyService common">
+        <div class="qs-top">
+            <img src="../../libs/common/images/index/quicklyService.png" />
+            <p class="title">便捷服务</p>
+        </div>
+        <div class="common-bottom">
+              <!--<div class="qb-3 entry" data-entry="eShimin">
+                <img src="../../libs/common/images/index/icon/eShimin.png" />
+                <p class="sub-title">市民云</p>
+            </div>
+           <div class="sb-6 entry" onclick="goToApp('http://12.120.27.251:8080/anychat/allInOnePC/visitor/validateID')">
+                <img src="../../libs/common/images/index/icon/2-6.png" />
+                <p class="sub-title">视频咨询</p>
+            </div> -->
+            <div class="qb-1 entry" data-entry="materialcopy">
+                <img src="../../libs/common/images/index/icon/3-1.png" />
+                <p class="sub-title">材料复印</p>
+            </div>
+            <div class="qb-2 entry" data-entry="materialPrint">
+                <img src="../../libs/common/images/index/icon/3-2.png" />
+                <p class="sub-title">材料打印</p>
+            </div>
+            <!--<div class="qb-2 entry" data-entry="licensePrint" data-use="unused">
+                <img src="../../libs/common/images/index/icon/licensePrint.png" />
+                <p class="sub-title">公积金</p>
+            </div>-->
+            <div class="qb-3 entry" data-entry="idcardcopy">
+                <img src="../../libs/common/images/index/icon/3-3.png" />
+                <p class="sub-title">身份证复印</p>
+            </div>
+			<div class="qb-3 entry" onclick="goToApp('./bankService/index.html#icbc')">
+                <img src="../../libs/common/images/index/icon/icbc.png" />
+                <p class="sub-title">工商银行</p>
+            </div>
+            <div class="qb-3 entry" onclick="goToApp('./bankService/index.html#ccb')">
+                <img src="../../libs/common/images/index/icon/ccb.png" />
+                <p class="sub-title">建设银行</p>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="common" >
+        <div class="qs-top" data-entry="">
+            <img src="../../libs/common/images/index/financialService.png" />
+            <p class="title">金融服务</p>
+        </div>
+        <div class="common-bottom">
+            <div class="qb-3 entry" onclick="goToApp('./bankService/index.html#icbc')">
+                <img src="../../libs/common/images/index/icon/icbc.png" />
+                <p class="sub-title">工商银行</p>
+            </div>
+            <div class="qb-3 entry" onclick="goToApp('./bankService/index.html#ccb')">
+                <img src="../../libs/common/images/index/icon/ccb.png" />
+                <p class="sub-title">建设银行</p>
+            </div>
+            <div class="qb-3 entry" onclick="goToApp('./bankService/index.html#xmbc')">
+                <img src="../../libs/common/images/index/icon/xmbc.png" />
+                <p class="sub-title">厦门银行</p>
+            </div>
+        </div>
+    </div> -->
+    <script src="../../libs/common/js/jquery-1.12.4.min.js"></script>
+    <script src="../../libs/angularjs/1.5.8/angular.js"></script>
+    <script src="../../libs/common/js/init-config-msg.js"></script>
+    <script src="../../libs/common/js/piwik.js"></script>
+    <script src="../../libs/common/js/hardware-api.js"></script>
+    <script>
+        /*  产品化
+                主页主要是入口
+                    给入口元素添加data-entry属性  属性值为对应模块名称 
+                            例如：自助取表   <div data-entry="autoform"></div>
+                    如果是定制的模块那就给入口元素添加 data-isCustomMade = "y" 
+                            例如：材料打印 <div data-entry = "materialPrint" data-isCustomMade = "y"></div>
+			*/
+        $(function () {
+            $(".entry").on("click", function (e) {
+                var isCustomMade = $(this).attr("data-isCustomMade");
+                var goHref = $(this).attr("data-entry");
+                var isUse = $(this).attr("data-use");
+                if (isUse === 'unused') {
+                    alert("该功能正在建设中！");
+                    return;
+                }
+                if (goHref == '' || goHref == undefined) {
+                    return;
+                }
+                if (isCustomMade === "y") {
+                    window.location.href = goHref + "/index.html";
+                } else {
+                    window.location.href = "../../" + goHref + "/index.html";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

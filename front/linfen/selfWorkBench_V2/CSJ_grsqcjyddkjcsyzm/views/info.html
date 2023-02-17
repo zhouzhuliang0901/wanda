@@ -1,0 +1,141 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	#ascceptanceArea a {
+		width: 256px;
+	}
+	
+	.select {
+		width: 32.9%;
+	}
+	
+	.isOutShangHai,
+	.isInShangHai {
+		width: 39%;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>申请人名称：</th>
+					<td><input class="input" type="text" id="stName" name="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>申请人证件号：</th>
+					<td><input class="input" type="text" id="stIdCard" name="licenseNo" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr class="transferOut">
+					<th><b class="red">*</b>缴存地信息：</th>
+					<td colspan="3">
+						<select class="select" id="jcdProvince" name="jcdProvince" ng-model="jcdProvince" ng-options="x for x in jcdprovinceList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="jcdCity" name="jcdCity" ng-model="jcdCity" ng-options="x for x in jcdCityList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="jcdCounty" name="jcdCounty" ng-model="jcdCounty" ng-options="x.orgName for x in jcdCountyList">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr class="transferIn">
+					<th><b class="red">*</b>贷款地信息：</th>
+					<td colspan="3">
+						<select class="select" id="dkdProvince" name="dkdProvince" ng-model="dkdProvince" ng-options="x for x in dkdprovinceList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="dkdCity" name="dkdCity" ng-model="dkdCity" ng-options="x for x in dkdCityList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="dkdCounty" name="dkdCounty" ng-model="dkdCounty" ng-options="x.orgName for x in dkdCountyList">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

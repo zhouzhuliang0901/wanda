@@ -1,0 +1,210 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 610px;
+	}
+	
+	.table-sty1 th {
+		font-weight: bold;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 190px;
+		top: 360px;
+		right: 0;
+		bottom: 0px;
+		z-index: 10;
+		height: 540px;
+		width: 1553px;
+	}
+	
+	.loadingBox p {
+		margin-left: 595px;
+		font-size: 38px;
+		color: #FFFFFF;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		/*overflow: hidden;*/
+		word-break: break-all;
+		word-wrap: break-word;
+		/* text-overflow: ellipsis; */
+	}
+	
+	.handleList {
+		margin-left: 155px;
+		margin-top: 25px;
+	}
+	
+	.handleList li:nth-child(2) {
+		width: 200px;
+		background-size: 200px 84px;
+	}
+	
+	.handleList li:last-child {
+		width: 226px;
+		background-size: 225px 84px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 166px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 20px;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 165px 84px;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+		/*background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-size: 165px 150px;
+		background-position: 32% 6%;*/
+	}
+	
+	.my-card .body {
+		overflow: auto;
+		height: 630px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.handleList {
+			width: 1100px;
+			margin-left: 120px;
+			overflow: hidden;
+			margin: 0px auto;
+			margin-top: 65px;
+			display: flex;
+			justify-content: center;
+		}
+		.handleList li {
+			float: left;
+			width: auto!important;
+			padding: 0px 20px;
+			height: 50px;
+			line-height: 56px;
+			box-sizing: border-box;
+			text-align: center;
+			font-size: 24px;
+			font-weight: bold;
+			margin-top: 0px;
+			margin-left: 0px;
+			margin: 0px 10px;
+			color: #3794e4;
+			background: url(../libs/common/images/handleList.png) no-repeat center;
+			background-size: 100% 100%!important;
+		}
+		#wrapper {
+			width: 1100px;
+			height: 590px;
+			margin-top: 10px!important;
+		}
+		.my-card .head h4 {
+			margin-left: 30px!important;
+			font-size: 24px;
+		}
+		.my-card .body {
+			padding-top: 0px;
+		}
+		.table-sty1 {
+			width: 1095px!important;
+			table-layout: fixed;
+			margin: 0 auto;
+		}
+		.table-sty1 th,
+		.table-sty1 td {
+			padding: 20px 10px;
+			font-size: 16px;
+			color: #fff;
+			line-height: 20px;
+			text-align: center;
+			border: #477cbe 1px solid;
+			/* overflow: hidden; */
+			word-break: break-all;
+			word-wrap: break-word;
+			/* text-overflow: ellipsis; */
+		}
+		.loadingBox {
+			position: fixed;
+			background-color: rgba(0, 0, 0, .5);
+			left: 90px;
+			top: 280px;
+			right: 0;
+			bottom: 0px;
+			z-index: 10;
+			height: 560px;
+			width: 1100px;
+			border-radius: 40px;
+		}
+		.loadingBox img {
+			margin-left: 490px!important;
+			margin-top: 200px!important;
+		}
+		.loadingBox p {
+			margin-left: 0px;
+		}
+	}
+</style>
+<!--个人, 法人-->
+<ul class="handleList">
+	<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">
+		{{ item }}
+	</li>
+</ul>
+<div id="wrapper" style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">参保人员基本信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0" style="width: 1540px;table-layout: auto;">
+					<tr>
+						<th style="    width: 23%;">时间</th>
+						<th style="    width: 26%;">医院</th>
+						<th style="    width: 12%;">类型</th>
+						<th style="    width: 11%;">费用</th>
+						<th>现金支付</th>
+						<th>统筹支付</th>
+						<th>附加支付</th>
+					</tr>
+					<tr ng-repeat="detail in medicalDetail" ng-if="show">
+						<td>{{detail.jyrq|limitTo:4}}-{{detail.jyrq|limitTo:2:4}}-{{detail.jyrq|limitTo:2:6}} {{detail.jyrq|limitTo:2:9}}:{{detail.jyrq|limitTo:2:11}}:{{detail.jyrq|limitTo:2:13}}</td>
+						<td>{{detail.yymc}}</td>
+						<td>{{detail.jylxsm}}</td>
+						<td>{{detail.ybjsfw_fyze|number:2}}</td>
+						<td>{{detail.xj_zfs|number:2}}</td>
+						<td>{{detail.tc_zfs|number:2}}</td>
+						<td>{{detail.fj_zfs|number:2}}</td>
+					</tr>
+					<tr ng-if="!show">
+						<td colspan="7">此就医类型暂无数据。。。</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="goHome()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 725px;margin-top: 245px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,57 @@
+<p class="caption">{{funName}}--办理须知</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<dl class="dllist1 clearfloat">
+			<dt>温馨提示：</dt>
+			<dd ng-bind-html="guideline | to_trusted">
+			</dd>
+		</dl>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.main2 {
+		width: 1625px;
+		height: 645px;
+		margin-left: 118px;
+		margin-top: 30px;
+	}
+	
+	.scrollBox2 .dllist1 {
+		margin-top: 30px;
+		margin-bottom: 30px;
+	}
+	
+	.scrollBox2 .dllist1 dd {
+		width: 1270px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.main2 {
+			width: 1080px;
+			margin-left: 100px;
+		}
+		.scrollBox2 .dllist1 dt {
+			width: 180px;
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 888px;
+			font-size: 24px;
+		}
+	}
+</style>

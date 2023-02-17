@@ -1,0 +1,158 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.input {
+		width: 100%;
+		height: 60px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+	
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+	}
+	
+	.infoTable th {
+		width: 21%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	td a {
+		float: left;
+		width: 37.6%;
+		height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		line-height: 66px;
+		padding: 0px 20px;
+	}
+	
+	td a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.getButton {
+		width: 200px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+		margin-left: 95px;
+	}
+	
+	.checkTable {
+		width: 97%;
+		margin-bottom: 20px;
+		margin-left: 50px;
+	}
+	
+	.checkTable td {
+		height: 85px;
+	}
+	
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+	
+	.checkTable .checkBoxA {
+		float: left;
+		width: 25%;
+	}
+	@media screen and (max-width: 1600px) {
+		.infoTable{
+			margin:0;
+			width: 99%;
+			font-size: 19px;
+		}
+		.infoTable .checkBoxA a{
+			    width: 20.5%;
+		}
+		.checkBoxA a{
+			width: 120px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>证件号码：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>登记状态：</th>
+					<td><input class="input" type="text" id="jyzt" ng-model="jyzt" readonly></td>
+					<th><b class="red">*</b>就业中止时间：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="stopDate" ng-model="stopDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

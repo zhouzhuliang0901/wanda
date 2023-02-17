@@ -1,0 +1,105 @@
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="text">
+		<form class="form" name="logininfo">
+			<div style="float: right;margin-right: 86px;margin-top: 125px;">
+				<label style="font-size: 40px;font-weight: 600;">用&nbsp;户&nbsp;名&nbsp;&nbsp;</label>
+				<input style="height: 100px;width: 840px;border-radius: 10px;font-size: 40px;" type="text" id="username" required="required" />
+			</div>
+			<div style="float: right;margin-right: 86px;margin-top: 65px;margin-bottom: 100px;">
+				<label style="font-size: 40px;font-weight: 600;">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;</label>
+				<input style="height: 100px;width: 840px;border-radius: 10px;font-size: 40px;" type="password" id="password" required="required" />
+			</div>
+			<div class="btnBox1 clearfloat">
+				<a ng-click="accountlogin()" class="next">登陆</a>
+			</div>
+		</form>
+	</div>
+	<div class="customAlert" ng-if="isAlert">
+		<div class="alertContent">
+			<p class="title">{{message}}</p>
+			</span>
+			<div class="controlAlert">
+				<a href="javascript:;" class="control confirm continue" ng-click="confirm()">确定</a>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.controlAlert {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		position: relative;
+		margin: 0 auto;
+		top: 180px;
+		width: 600px;
+		height: 80px;
+	}
+	
+	.confirm {
+		background-color: #56ce97;
+	}
+	
+	.control {
+		height: 68px;
+		line-height: 68px;
+		border: 1px solid #fcfeff;
+		padding: 0 40px 0 40px;
+		border-radius: 10px;
+		font-size: 30px;
+		text-align: center;
+	}
+	
+	.title {
+		text-align: center;
+		margin-top: 150px;
+		font-size: 50px;
+	}
+	
+	.customAlert {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.alertContent {
+		overflow: hidden;
+		position: relative;
+		background-color: rgba(39, 93, 161, .9);
+		text-align: center;
+		margin: 200px auto;
+		height: 570px;
+		width: 1044px;
+	}
+	
+	.text {
+		width: 1200px;
+		height: 650px;
+		margin: 0 auto;
+	}
+</style>

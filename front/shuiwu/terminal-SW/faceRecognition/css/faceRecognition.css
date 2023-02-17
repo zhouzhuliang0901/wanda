@@ -1,0 +1,122 @@
+.form_title{
+    z-index:2;
+    position:absolute;
+    background:url(../images/title_faceRecognition.png) no-repeat center 35px;
+    margin:0 auto;
+    height:80px;
+    text-align:center;
+    width:100%;
+}
+.main{
+    width: 100%;
+    margin-top: 100px;
+    position: relative;
+}
+.pOne{
+    width: 417px;
+    height: 244px;
+    background: url("../images/rilibg.png") no-repeat;
+    color: white;
+    line-height: 50px;
+    font-size: 30px;
+    padding: 10px;
+    position: absolute;
+    top: 30px;
+    right: 150px;
+}
+.pTwo{
+    width: 417px;
+    height: 244px;
+    background: url("../images/rilibg.png") no-repeat;
+    color: white;
+    line-height: 50px;
+    font-size: 30px;
+    padding: 10px;
+    position: absolute;
+    top: 350px;
+    right: 150px;
+}
+.capture_btn{
+	height: 50px;
+	width: 100%;
+	position: absolute;
+	top: 310px;
+	left: 390px;
+}
+.recognition_btn{
+	height: 50px;
+	width: 100%;
+	position: absolute;
+	top: 112px;
+	left: 415px;
+}
+.capture_img{
+	height: 50px;
+	width: 60%;
+	position: absolute;
+	margin-top: 300px;
+	padding-left: 200px;
+}
+.load_img{
+	height: 50px;
+	width: 100%;
+	position: absolute;
+	margin-top: 300px;
+}
+
+.image_recognition{
+	height: 50px;
+	width: 60%;
+	position: absolute;
+	margin-top: 400px;
+	padding-left: 200px;
+}
+.capture_img ul{
+	list-style: none;
+	width: auto;
+}
+.capture_img ul li{
+	float: left;
+}
+
+.play{
+	height:320px !important;
+	width:240px !important;
+	border-radius:18px;
+	position:absolute;	
+	left:480px;
+}
+.playTwo{
+	height:320px !important;
+	width:240px !important;
+	border-radius:18px;
+	position:absolute;	
+	top:-172px;
+	left:381px;
+}
+#imageIDCard{
+	width:153px;
+	height:189px;
+	top:-154px;
+	left:740px;
+	position:absolute;
+	border:3px solid #fff;
+}
+
+.loading{
+	text-align:center;
+	position:absolute;
+	width:100%;
+	top:-60px;
+}
+.loading p{
+	width: 417px;
+    height: 244px;
+    color: white;
+    line-height: 50px;
+    font-size: 40px;
+    padding: 10px;
+    position: absolute;
+    top: 188px;
+    right: 390px;
+}

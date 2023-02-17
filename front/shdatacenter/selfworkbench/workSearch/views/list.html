@@ -1,0 +1,69 @@
+<p class="caption">{{operation}}</p>
+<ul class="doList">
+	<li ng-repeat="(index,item) in incidentList" ng-class="{'active':current==index}" ng-click="choiceIncidentList(index,item)">
+		<span class="serial">
+			办件编码：{{item.stApplyNo}}
+		</span>
+		<span class="date">
+			申请时间：{{item.stApply|date:"yyyy-mm-dd"}}
+		</span>
+		<hr />
+		<span class="matterName">
+			{{item.stItemName}}
+		</span>
+	</li>
+</ul>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>
+<style type="text/css">
+	.doList {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 0 auto;
+		width: 1760px;
+		height: 100%;
+	}
+	
+	.serial {
+		display: inline-block;
+		width: 468px;
+	}
+	
+	span {
+		margin-top: 20px;
+	}
+	
+	.doList li {
+		position: relative;
+		background-color: #2864b0;
+		box-sizing: border-box;
+		padding: 20px;
+		height: 190px;
+		width: 850px;
+		padding-top: 10px;
+		margin-top: 40px;
+	}
+	.doList li.active{
+		border: 1px solid #56ce97;
+	}
+	.doList li.active:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.doList li>span {
+		font-size: 32px;
+	}
+	
+	hr {
+		border-style: dotted;
+		margin: 20px auto;
+	}
+</style>

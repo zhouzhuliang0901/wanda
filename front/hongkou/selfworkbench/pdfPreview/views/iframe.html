@@ -1,0 +1,30 @@
+<apptb-header ng-class="{'in':size==true}" fun-name="{{funName}}" go-back="goAppHistoryBack()"></apptb-header>
+<div class="load">
+	正在加载...
+</div>
+<iframe id="infoForm" ng-src="{{src}}" width="" height=""></iframe>
+<apptb-footer need-count-down="false" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" prev="prevStep()" go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<style type="text/css">
+	.in .headBox .headTop .headName {
+		font-size: 30px;
+	}
+
+	.load {
+		position: absolute;
+		margin: 300px 710px;
+		font-size: 100px;
+	}
+
+	iframe {
+		position: absolute;
+		top: 160px;
+		left: 200px;
+		width: 80%;
+		height: 67%;
+		margin: 0 auto;
+		display: block;
+		border: none;
+	}
+</style>

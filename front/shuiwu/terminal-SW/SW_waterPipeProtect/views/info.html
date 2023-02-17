@@ -1,0 +1,65 @@
+<style type="text/css">
+	#infoForm .inputBox {
+		width: 45%;
+		float: left;	
+	}
+	#infoForm .inputBox input[type=text] {
+		width: 55%;
+	}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+		<li><a href="#">自助申报</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#main">实名认证</a></li>
+        <li class="active">基本信息</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="action right-info" style="background: none; width: 100%;left: 0;">
+        <div class="right-input" style="position: absolute; width: 97%; left: 60px; top: 25px;">
+        	<form id="infoForm" method="get">
+        		<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+		            {{fullItemName}}
+		        </div>
+        		<div class="inputBox" style="margin-right: 30px;">
+		            <label class="strong">办理对象</label>
+		            <input type="radio" style="width: 25px; height: 25px;margin: 15px;" value="个人" ng-model="targetTypeName" name="targetType" /><span style="font-size: 0.8em;">&nbsp;&nbsp;个人</span>
+		            <input type="radio" style="width: 25px; height: 25px;margin: 15px;" value="法人" ng-model="targetTypeName" name="targetType" /><span style="font-size: 0.8em;">&nbsp;&nbsp;法人</span>
+		        </div>
+	        	<div class="inputBox">
+		            <label class="strong">{{targetName}}</label>
+		            <input type="text" id="targetName" name="targetName" />
+		        </div>
+	        	<div class="inputBox" style="margin-right: 30px;">
+		            <label class="strong">{{targetTips}}</label>	
+		            <input type="text" id="targetNo" name="targetNo" />
+		        </div>
+		        <div class="inputBox">
+		            <label class="strong">经办人姓名</label>
+		            <input type="text" id="username" name="username" />
+		        </div>
+		        <div class="inputBox" style="margin-right: 30px;">
+		            <label class="strong">经办人身份证号</label>
+		            <input type="text" id="licenseNo" name="licenseNo" />
+		        </div>
+		        <div class="inputBox">
+		            <label class="strong">经办人手机号</label>
+		            <input type="text" id="mobile" name="mobile" />
+		        </div>
+		        <div class="inputBox" style="padding-bottom:15px;width: 94%;">
+		            <label>申请内容</label>
+		            <input type="text" id="content" name="content" style="width: 78%;" />	
+		        </div>
+        	</form>
+        </div>
+        <a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+            <div class="greyLight">
+                <img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+                <label>继续</label>
+            </div>
+        </a>
+    </div>
+</div>

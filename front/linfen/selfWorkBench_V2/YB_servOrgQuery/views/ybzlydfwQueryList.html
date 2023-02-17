@@ -1,0 +1,113 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		top: 65px;
+		left: 150px;
+	}
+	
+	#wrapper {
+		width: 1800px;
+		height: 655px;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 280px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 700px 280px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+	}
+	
+	.select dd {
+		margin-left: 50px;
+		margin-top: 14px;
+		height: 40px
+	}
+	
+	.select dl {
+		white-space: normal
+	}
+	
+	.select b {
+		width: 180px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	}
+	
+	.select span {
+		display: block;
+		float: left;
+		width: 446px;
+	}
+	@media screen and (max-width: 1600px) {
+		#wrapper {
+		    width: 100%;
+		    height: 580px;
+		}
+		.scrollContain {
+			width: 100%;
+		}
+		.linkt {
+		    position: static;
+		    width: 100%; 
+		    float: left;
+		    padding: 0px 40px;
+    		box-sizing: border-box;
+		}
+		.select {
+		    float: left;
+		    width: 100%;
+		    height: 280px;
+		    overflow: hidden;
+		    background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		    background-size: 100% 100%;
+		    margin-left: 0px; 
+		    margin-bottom: 0px; 
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    font-size: 25px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}--查询结果（{{listLength}}条）</p>
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper" class="wrapper">
+			<div class="scrollContain">
+				<div class="linkt" ng-repeat="list in queryList">
+					<a class="select">
+						<dd style="margin-top: 40px;">
+							<dl><b>医院级别：</b>{{ list.yyjb }}</dl>
+						</dd>
+						<dd>
+							<dl><b>区名称：</b>{{ list.qxmc }}</dl>
+						</dd>
+						<dd>
+							<dl><b>医院名称：</b><span>{{ list.yymc }}</span></dl>
+						</dd>
+						<dd>
+							<dl><b>服务项目名称：</b>{{ list.fwxmmc }}</dl>
+						</dd>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<!--<loading ng-if="isLoading"></loading>-->
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,73 @@
+<style type="text/css">
+	.scrollBox2 .cardreadingBox1 {
+		padding-top: 0px;
+		margin-top: -100px;
+	}
+
+	.clearfloat {
+		position: relative;
+		/*text-align: center;*/
+	}
+
+	.scrollBox2 .cardreadingBox1 img {
+		width: 1000px;
+		height: auto;
+	}
+
+	.stamp {
+		position: absolute;
+		display: inline-block;
+		width: 140px;
+		top: 358px;
+		left: 1210px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		font-size: 26px;
+		background: url(../libs/common/images/reBtn.png) no-repeat;
+		background-position: -10px -62px;
+		background-size: 170px 130px;
+	}
+
+	.label {
+		font-size: 40px;
+	}
+
+	.password {
+		color: #fff;
+		width: 380px;
+		height: 74px;
+		border: none;
+		font-size: 26px;
+		background: url('../libs/common/images/passwordInput.png') no-repeat;
+		position: absolute;
+		left: 820px;
+		margin-top: 22px;
+		padding-left: 10px;
+	}
+
+	input::-webkit-input-placeholder {
+		color: #fff;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 .cardreadingBox1 img {
+			width: 80%;
+			height: auto;
+		}
+		.password {
+			left: 200px;
+		}
+	}
+</style>
+
+<div class="scrollBox2 clearfloat">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img ng-src="{{ tipsImage }}" />
+		</a>
+	</div>
+	<lable class="lable"></lable>
+	<input type="password" ng-model="password" class="password" value="" placeholder="请输入私钥保护密码" />
+	<!--<a href="javascript:;" class="stamp reR" ng-click="login()">登录</a>-->
+</div>

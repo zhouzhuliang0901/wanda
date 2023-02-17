@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="knowledgeApp">
+
+<head>
+	<meta charset="utf-8">
+	<title>知识库</title>
+	<link rel="stylesheet" href="css/knowledge.css">
+	<link rel="stylesheet" href="../../../libs/common/css/selfService-new.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<link rel="stylesheet" href="../../../libs/common/css/color.css">
+	<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+</head>
+<body>
+	<div class="content_box_form" ng-controller="fheadController">
+		<div ng-include="'../../../libs/common/views/head.html'"></div>
+		<ng-view></ng-view>
+	</div>
+	<script src="../../../libs/angularjs/1.5.8/angular.js"></script>
+	<script src="../../../libs/angularjs/1.5.8/angular-route.js"></script>
+	<script src="app.js"></script>
+	<script src="../../../libs/common/js/bundle.js"></script>
+	<script src="../../../libs/layer/layer.js"></script>
+	<script src="controllers.js"></script>
+	<script src="routers.js"></script>
+	<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,87 @@
+<style type="text/css">
+    .contain {
+        width: 1700px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        top: 43%;
+        transform: translate(-50%, -50%);
+    }
+    .uploadingAlert {
+    	position: fixed;
+    	left: 0;
+    	top: 0;
+    	right: 0;
+    	bottom: 0;
+    	background-color: rgba(0, 0, 0, .6);
+    	z-index: 1;
+    }
+    .uploadingAlert .uploadingTips {
+	    overflow: hidden;
+	    position: relative;
+	    background-color: rgba(39, 93, 161, .9);
+	    text-align: center;
+	    margin: 200px auto;
+	    height: 604px;
+	    width: 851px;
+	    background: url(../libs/common/images/bg-alert.png) no-repeat;
+	    background-position: center center;
+    }
+    .uploadingAlert .uploadingTips p {
+	    text-align: center;
+	    margin-top: 200px;
+	    font-size: 44px;
+	    color: #72cffb;
+    }
+    .uploadingAlert .uploadingTips .confirm {
+    	display: inline-block;
+    	height: 60px;
+	    width: 168px;
+	    border-radius: 30px;
+	    line-height: 60px;
+	    border: 1px solid #33cbfc;
+	    padding: 0 40px 0 40px;
+	    font-size: 30px;
+	    text-align: center;
+	    box-sizing: border-box;
+	    margin: 140px auto;
+    }
+    
+    .uploadingAlert .uploadingTips .confirm:hover {
+    	background-color: #72cffb;
+    }
+    @media screen and (max-width: 1600px) {
+    	take-photo .fun {
+		    width: 100%;
+		    height: 100%;
+		    background: url(../libs/common/images/bg-capture.png) no-repeat 49px 148px;
+		    background-size: 550px 450px;
+		    margin: 0 auto;
+		    text-align: center;
+		    position: relative;
+		}
+		take-photo div.fun>.idcardTips {
+		    position: absolute;
+		    right: 1%;
+		    top: 23%;
+		    width: 480px;
+		    height: 400px;
+		}
+    }
+</style>
+<div class="contain">
+    <take-photo result="getImg(img,url)" type="material" ng-if="isCapture"></take-photo>
+</div>
+<div class="uploadingAlert" ng-if="isUploading">
+	<div class="uploadingTips">
+		<p>正在上传,请稍后...</p>
+		<a class="confirm" ng-click="confirm()">确&nbsp;&nbsp;&nbsp;定</a>
+	</div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>

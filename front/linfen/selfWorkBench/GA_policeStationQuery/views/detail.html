@@ -1,0 +1,93 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1800px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 10%;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 560px;
+		overflow: hidden;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	.boxList {
+		width: 80%;
+		height: 570px;
+		overflow: hidden;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		padding: 40px;
+	}
+	
+	.boxListHead {
+		/*display: flex;
+		flex-direction: column;*/
+	}
+	
+	.boxListHead p {
+		font-size: 26px;
+		margin: 10px;
+	}
+	
+	.boxListHead p:first-child {
+		font-size: 40px;
+		font-weight: bold;
+	}
+	
+	.boxListHead b {
+		font-weight: bold;
+		/*text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;*/
+	}
+	
+	.boxListFoot {
+		display: flex;
+		align-items: center;
+	}
+	
+	.boxListFoot img {
+		width: 200px;
+		height: 200px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1180px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div class="boxList">
+			<div class="boxListHead">
+				<div>
+					<p>{{list[0].policeStation}}</p>
+					<p><b>所属区</b>：{{list[0].policeDepartment | to_trusted}}</p>
+					<p><b>所属分局</b>：{{list[0].policeDepartment}}</p>
+					<p><b>地址</b>：{{list[0].address}}</p>
+					<p><b>邮编</b>：{{list[0].postcode}}</p>
+				</div>
+				<div ng-if="list.length>0" ng-repeat="item in list">
+					<p>{{item.work}}</p>
+					<p><b>电话</b>：{{item.tel}}</p>
+					<p><b>时间</b>：{{item.time}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

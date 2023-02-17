@@ -1,0 +1,347 @@
+<style type="text/css">
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+	
+	#infoForm .inputBox {
+		width: 47%;
+		height: 70px
+	}
+	
+	#infoForm .inputBox select,
+	#infoForm .inputBox input[type=textarea] {
+		width: 56%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=textarea] {
+		width: 52%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .content {
+		padding-bottom: 15px;
+		width: 95%;
+	}
+	
+	#infoForm .inputBox input[type=text] {
+		width: 52%;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#main">实名认证</a>
+		</li>
+		<li class="active">基本信息</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action right-info" style="background: none; width: 100%;left: 0;">
+		<div class="right-input" style="width: 97%; margin: 2% auto;">
+			<form id="infoForm" method="get">
+				<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+					{{fullItemName}}
+				</div>
+				<div id="wrapper">
+					<div class="infoContent" style="margin-left: 2.4%;margin-top: 1%;width: 1550px; display: flex; flex-flow: wrap;justify-content: space-between;align-content: flex-start;">
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;基本信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">单位名称</label>
+							<input type="text" id="targetName" ng-model="targetName" />
+						</div>
+						<div class="inputBox">
+							<label class="true">单位类型</label>
+							<select ng-model="selected_st_org_type" ng-options="x.name for x in ST_ORG_TYPE"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 30px;">统一社会信用代码</label>
+							<input type="text" id="targetNo" ng-model="targetNo" />
+						</div>
+						<div class="inputBox">
+							<label class="true">法定代表人姓名</label>
+							<input type="text" id="LEGAL_PERS_NAME" ng-model="LEGAL_PERS_NAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true">法定代表人职务</label>
+							<input type="text" id="LEGAL_PERS_DUTY" ng-model="LEGAL_PERS_DUTY" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人名称</label>
+							<input type="text" id="CONTACT_NAME" ng-model="CONTACT_NAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系地址</label>
+							<input type="textarea" id="ADDRESS" ng-model="ADDRESS"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">固定电话</label>
+							<input type="text" id="DWTEL" ng-model="DWTEL" />
+						</div>
+						<div class="inputBox">
+							<label class="true">手机号码</label>
+							<input type="text" id="mobile" ng-model="mobile" />
+						</div>
+						<div class="inputBox">
+							<label class="true">电子邮件</label>
+							<input type="text" id="DWEMAIL" ng-model="DWEMAIL" />
+						</div>
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;工程信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">投资项目类型</label>
+							<select ng-model="selected_tzxmlx" ng-options="x.name for x in TZXMLX"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">排污口事项类型</label>
+							<select ng-model="selected_pwksxlx" ng-options="x.name for x in PWKSXLX"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">涉及类型</label>
+							<select ng-model="selected_sjlx" ng-options="x.name for x in SJLX"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">行政区</label>
+							<select ng-model="selected_districts" ng-options="x.name for x in DISTRICTS"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件类型</label>
+							<select ng-model="selected_zzjglx" ng-options="x.name for x in ZZJGLX"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件号</label>
+							<input type="text" id="COMPANYCODE" ng-model="COMPANYCODE" />
+						</div>
+						<div class="inputBox">
+							<label class="true">申请单位</label>
+							<input type="text" id="APPLIER" ng-model="APPLIER" />
+						</div>
+						<div class="inputBox">
+							<label class="">法定代表人</label>
+							<input type="text" id="ARTIFICIALPERSON" ng-model="ARTIFICIALPERSON" />
+						</div>
+						<div class="inputBox">
+							<label class="">申请人详细地址</label>
+							<input type="text" id="APPADDRESS" ng-model="APPADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="">申请人邮编</label>
+							<input type="text" id="APPPOST" ng-model="APPPOST" />
+						</div>
+						<div class="inputBox">
+							<label class="">单位性质</label>
+							<input type="text" id="DWXZ" ng-model="DWXZ" />
+						</div>
+						<div class="inputBox">
+							<label class="">主管机构</label>
+							<input type="text" id="ZGJG" ng-model="ZGJG" />
+						</div>
+						<div class="inputBox">
+							<label class="">联系人</label>
+							<input type="text" id="LINKMAN" ng-model="LINKMAN" />
+						</div>
+						<div class="inputBox">
+							<label class="">联系电话</label>
+							<input type="text" id="LINKPHONE" ng-model="LINKPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 27.5px;">取用水量（万吨/年）</label>
+							<input type="text" id="QYSL" ng-model="QYSL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 27.5px;">服务面积（km2）</label>
+							<input type="text" id="FWMJ" ng-model="FWMJ" />
+						</div>
+						<div class="inputBox">
+							<label class="">服务人口</label>
+							<input type="text" id="FWRK" ng-model="FWRK" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 26px;">排水（污）口设置类型</label>
+							<select ng-model="selected_pskszlx" ng-options="x.name for x in PSKSZLX"></select>
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 30px;">排水（污）口性质</label>
+							<select ng-model="selected_pskxz" ng-options="x.name for x in PSKXZ"></select>
+						</div>
+						<div class="inputBox">
+							<label class="">排放方式</label>
+							<select ng-model="selected_pffs" ng-options="x.name for x in PFFS"></select>
+						</div>
+						<div class="inputBox">
+							<label class="">入河方式</label>
+							<select ng-model="selected_rhfs" ng-options="x.name for x in RHFS"></select>
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排水（污）口位置<br />所在行政区</label>
+							<input type="text" id="SZXZQ" ng-model="SZXZQ" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排水（污）口位置<br />排入水体名称</label>
+							<input type="text" id="PRSTMC" ng-model="PRSTMC" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排水（污）口位置<br />排入的水功能区名称</label>
+							<input type="text" id="PRDSGNQMC" ng-model="PRDSGNQMC" />
+						</div>
+						<div class="inputBox" >
+							<label class="" style="font-size: 28px;vertical-align: middle;">排水（污）口位置<br/>经度（准确到″）</label>
+							<input type="text" id="JD" ng-model="JD" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排水（污）口位置<br />纬度（准确到″）</label>
+							<input type="text" id="WD" ng-model="WD" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">设计排水（污）能力<br/>（吨/日）</label>
+							<input type="text" id="SJPWNL" ng-model="SJPWNL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 30px;" >排水（污）口大小</label>
+							<input type="text" id="PSKDX" ng-model="PSKDX" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">工业废水排放量（吨/日）</label>
+							<input type="text" id="GYFSPFL" ng-model="GYFSPFL" />
+						</div>
+						<div class="inputBox">
+							<label class=""style="font-size: 28px;vertical-align: middle;">生活污水排放量（吨/日）</label>
+							<input type="text" id="SHWSPFZL" ng-model="SHWSPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">其他污水排放量（吨/日）</label>
+							<input type="text" id="QTWSPFZL" ng-model="QTWSPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">年排放污水总量<br/>（万吨）</label>
+							<input type="text" id="NPFWSZL" ng-model="NPFWSZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 30px;">污水是否经过处理</label>
+							<input type="text" id="WSSFJGCL" ng-model="WSSFJGCL" />
+						</div>
+						<div class="inputBox">
+							<label class="">处理方式</label>
+							<input type="text" id="CLFS" ng-model="CLFS" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">COD排放浓度（mg/l）</label>
+							<input type="text" id="CODPFND" ng-model="CODPFND" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">COD日排放总量（吨）</label>
+							<input type="text" id="CODRPFZL" ng-model="CODRPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">COD年排放总量（吨）</label>
+							<input type="text" id="CODNPFZL" ng-model="CODNPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">NH3-N排放浓度（mg/l）</label>
+							<input type="text" id="NH3NPFND" ng-model="NH3NPFND" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">NH3-N日排放总量（吨）</label>
+							<input type="text" id="NH3NRPFZL" ng-model="NH3NRPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">NH3-N年排放总量（吨）</label>
+							<input type="text" id="NH3NRPFZL" ng-model="NH3NRPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排放浓度（mg/l）</label>
+							<input type="text" id="P1PFND" ng-model="P1PFND" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">日排放总量（吨）</label>
+							<input type="text" id="ZLRPFZL" ng-model="ZLRPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">年排放总量（吨）</label>
+							<input type="text" id="P1NPFZL" ng-model="P1NPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排放浓度（mg/l）</label>
+							<input type="text" id="P2PFND" ng-model="P2PFND" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">日排放总量（吨）</label>
+							<input type="text" id="P2RPFZL" ng-model="P2RPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">年排放总量（吨）</label>
+							<input type="text" id="P2NPFZL" ng-model="P2NPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排放浓度（mg/l）</label>
+							<input type="text" id="P3PFND" ng-model="P3PFND" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">日排放总量（吨）</label>
+							<input type="text" id="P3RPFZL" ng-model="P3RPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">年排放总量（吨）</label>
+							<input type="text" id="P3NPFZL" ng-model="P3NPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">排放浓度（mg/l）</label>
+							<input type="text" id="P4PFND" ng-model="P4PFND" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">日排放总量（吨）</label>
+							<input type="text" id="P4RPFZL" ng-model="P4RPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;vertical-align: middle;">年排放总量（吨）</label>
+							<input type="text" id="P4NPFZL" ng-model="P4NPFZL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 23px;vertical-align: middle;">排水（污）河道、排水（污）口平面位置示意图</label>
+							<input type="textarea" id="PMWZ" ng-model="PMWZ"/>
+						</div>
+						<div class="inputBox">
+							<label class="">申请理由</label>
+							<input type="textarea" id="APPLICATIONCONTENT" ng-model="APPLICATIONCONTENT"/>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

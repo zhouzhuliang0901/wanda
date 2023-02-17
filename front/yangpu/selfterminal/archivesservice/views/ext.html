@@ -1,0 +1,82 @@
+<style>
+	.licenseName {
+		margin-top: -10px;
+		font-size: 18px;
+		color: #fff;
+	}
+	
+	.licenseName.strong {
+		color: #666;
+		font-size: 30px;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="#main">档案中心</a>
+		</li>
+		<li>
+			<a href="javascript:;">{{dataType=='0'?'个人档案库':'法人档案库'}}</a>
+		</li>
+		<li class="active">基础数据</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<div class="bg"></div>
+		<div class="sub-index vertical-middle horizontal-middle leftLump">
+			<a href="#base" class="blue-green" ng-if="dataType=='0'">基础数据</a>
+			<a class="blue-green active">扩展数据</a>
+			<a href="#licenseLibrary" class="blue-green">电子证照库</a>
+		</div>
+	</div>
+	<div class="action">
+		<div class="imageShow vertical-middle" style="height: 700px; width: 700px; left: 50px; position: absolute; top: 48px;" nowimage="3">
+			<div class="imageBox">
+				<img src="{{showImgAdress}}">
+				<p class="licenseName strong">{{licenseName}}</p>
+			</div>
+			<a class="left">
+				<img class="vertical-middle horizontal-middle" ng-click="prevPage()" src="../libs/common/images/left.png" width="30" style="position: absolute; top: 350px; left: 10px;">
+			</a>
+			<a class="right">
+				<img class="vertical-middle horizontal-middle" ng-click="nextPage()" src="../libs/common/images/right.png" width="30" style="position: absolute; top: 350px; left: 10px;">
+			</a>
+			<div class="imageList">
+				<p ng-if="isEmpty" class="emptyData">暂无数据！</p>
+				<div ng-if="!isEmpty" class="imgContainer" ng-style="imgContainerStyle">
+					<div class="extShowContainer" ng-repeat="i in personalData">
+						<img id="{{i.stLicenseId}}" ng-click="checkedIt(i,$index)" ng-class="{'active':imgActive===$index}" data-index="$index" src="{{configUrl + i.imageUrl}}">
+						<p class="licenseName">{{i.stLicenseName}}</p>
+					</div>
+
+				</div>
+			</div>
+			<span>{{currentPage}}/{{totalPages||1}}</span>
+
+		</div>
+		<a class="btn_radius_50" ng-click="printBasePhoto()" ng-if="btnDeleted" style="position:absolute;left:780px;top:660px; width: 300px;">
+			<div class="greyLight" style="padding: 0  25px;">
+				<img src="../libs/common/images/icon200/print.png" height="80">
+				<label>打印</label>
+			</div>
+		</a>
+		<a class="btn_radius_50" ng-click="deletedPhoto()" ng-if="btnDeleted" style="position:absolute;left:780px;top:550px; width: 300px;">
+			<div class="greyLight" style="padding: 0  25px;">
+				<img src="../libs/common/images/icon200/del.png" height="80">
+				<label>删除</label>
+			</div>
+		</a>
+		<a class="btn_radius_50" ng-click="uploadNewPhoto()" style="position:absolute;left:780px;top:440px; width: 300px;">
+			<div class="greyLight" style="padding: 0  25px;">
+				<img src="../libs/common/images/icon200/edit.png" height="80">
+				<label>上传</label>
+			</div>
+		</a>
+	</div>
+</div>

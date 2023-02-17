@@ -1,0 +1,175 @@
+<style>
+    .licenseName {
+        margin-top: -10px;
+        font-size: 18px;
+        color: #fff;
+    }
+
+    .licenseName.strong {
+        color: #666;
+        font-size: 30px;
+    }
+
+    .sudoku {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    .sudoku .licenseImg {
+        float: left;
+        margin: 10px 0px 20px 20px;
+        /* height: 321px; */
+        width: 252px;
+    }
+
+    .licenseImg.active {
+        outline: 1px solid red;
+    }
+
+    .viewLarge {}
+
+    .mask {
+        position: fixed;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, .7);
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+    }
+
+    .viewLarge {
+        position: fixed;
+        z-index: 111;
+        top: 0px;
+        height: 100%;
+        width: 40%;
+        left: 50%;
+        margin-left: -20%;
+    }
+
+    .viewLarge .view {
+        position: absolute;
+        left: 0px;
+        right: 0px;
+        top: 100px;
+        margin: auto;
+    }
+
+    .viewLarge .btn_radius_50 {
+        position: absolute;
+        width: 300px;
+        height: 80px;
+        left: 0px;
+        right: 0px;
+        margin: auto;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#">电子证照</a>
+        </li>
+        <li>
+            <a href="javascript:;">{{personType}}电子证照</a>
+        </li>
+        <li class="active">电子证照</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="sub-index vertical-middle horizontal-middle leftLump">
+            <a href="#base" class="blue-green" ng-if="dataSource == 'idcard'">身份证数据</a>
+            <a class="blue-green active">电子证照</a>
+            <a href="#{{dataType=='0'?'ext':'space'}}" class="blue-green">历史上传材料</a>
+        </div>
+    </div>
+    <div class="action">
+        <div ng-if='!isLoading' class="panelList three vertical-middle horizontal-middle absoluteLeftRightCenterClass"
+            style="width:850px;height:710px; padding: 35px 105px;">
+            <a class="left control-group" ng-if="imagesBase64Con.length>6" ng-click="prevPage()">
+                <img class="vertical-middle horizontal-middle" src="../libs/common/images/left.png" width="30" />
+            </a>
+            <a class="right control-group" ng-if="imagesBase64Con.length>6" ng-click="nextPage()">
+                <img class="vertical-middle horizontal-middle" src="../libs/common/images/right.png" width="30" />
+            </a>
+            <a class="imgContainer" ng-repeat="item in imagesBase64Con.slice((currentPage * 6)-6,currentPage * 6)" style="height: 320px;" ng-click="takeTab(item)">
+                <div class="vertical-middle horizontal-middle">
+                    <img ng-if="item" ng-src="{{item}}" width="200" height="280" />
+                </div>
+            </a>
+            <span ng-if="imagesBase64Con.length>6" class="horizontal-middle absoluteLeftRightCenterClass">{{currentPage}}/{{totalPages||'1'}}</span>
+        </div>
+        <div class="vertical-middle horizontal-middle" ng-if='isLoading' style="text-align:center;margin-top: 300px;">
+            <img class="" src="../libs/common/images/loading.gif" style="opacity:0.7">
+            <span style="font-size:40px;display:block;margin-top:30px;">{{loadFailed==true?'加载失败，请重新加载':'正在加载证照，请稍后'}}</span>
+            <a class="btn_radius_50" ng-if="loadFailed" ng-click="reloadData()" style="top:507px;height:80px;left: 403px;bottom:50px;width: 280px;line-height: 80px;">
+                <div class="greyLight" style="padding: 0  25px;height: 80px">
+                    <label>重新加载</label>
+                </div>
+            </a>
+        </div>
+        <!---九宫格-->
+
+        <!-- <div class="mask" ng-if="isLarge" ng-click="closeViewLarge()">
+
+        </div>
+        <div class="viewLarge" ng-if="isLarge">
+            <img class="view" ng-src="{{showImgAdress}}" alt="">
+            <span ng-click="closeViewLarge()">X</span>
+            <a class="btn_radius_50" ng-click="printBasePhoto()" style="top:auto;bottom:50px;">
+                <div class="greyLight" style="padding: 0  25px;">
+                    <img src="../libs/common/images/icon200/print.png" height="80">
+                    <label>打印</label>
+                </div>
+            </a>
+        </div>
+        <div class="sudoku">
+            <img class="licenseImg" ng-class="{'active':imgActive===$index}"  ng-repeat="item in imagesBase64Con" ng-click="viewImage(item,$index)" ng-src="{{item}}" alt="">
+        </div> -->
+        <!---九宫格-->
+
+        <div class="imageShow vertical-middle" style="display:none;height: 700px; width: 700px; left: 50px; position: absolute; top: 48px;"
+            nowimage="3">
+            <div class="imageBox">
+                <img ng-src="{{showImgAdress}}">
+                <p class="licenseName strong">{{licenseName}}</p>
+            </div>
+
+
+            <a class="left">
+                <img class="vertical-middle horizontal-middle" ng-click="prevPage()" src="../libs/common/images/left.png"
+                    width="30" style="position: absolute; top: 350px; left: 10px;">
+            </a>
+            <a class="right">
+                <img class="vertical-middle horizontal-middle" ng-click="nextPage()" src="../libs/common/images/right.png"
+                    width="30" style="position: absolute; top: 350px; left: 10px;">
+            </a>
+            <div class="imageList">
+                <p ng-if="isEmpty" style="color: #fff; line-height: 100px;">暂无数据！</p>
+                <div class="imgContainer" ng-style="imgContainerStyle">
+                    <div class="extShowContainer" ng-repeat="item in imagesBase64Con">
+                        <img ng-click="checkedIt(item,$index)" ng-img-error ng-class="{'active':imgActive===$index}"
+                            data-index="$index" ng-src="{{item}}">
+                        <p class="licenseName">{{'空'}}</p>
+                    </div>
+                </div>
+            </div>
+            <span>{{currentPage}}/{{totalPages||1}}</span>
+
+        </div>
+        <!-- <a class="btn_radius_50" ng-click="printBasePhoto()" ng-if="btnDeleted" style="position:absolute;left:460px;top:700px; width: 300px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>打印</label>
+            </div>
+        </a> -->
+    </div>
+</div>

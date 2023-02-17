@@ -1,0 +1,117 @@
+<apptb-header fun-name="办理门急诊就医记录册"></apptb-header>
+<div class="contain">
+<p class="caption">{{operation}}</p>
+<div class="stable">
+	<div class="container">
+		<div class="loginType">
+			<p class="selfLogin">本人登录</p>
+			<ul>
+				<li>
+					<a ng-click="chooseSwipeType('idCard', 'self')">
+						<img src="../libs/common/images/idCard-medical.png"/>
+						<p>身份证</p>
+					</a>
+					<a ng-click="chooseSwipeType('ybCard', 'self')">
+						<img class="ybCard" src="../libs/common/images/ybCard.png"/>
+						<p>医保卡</p>
+					</a>
+					<a ng-click="chooseSwipeType('sbCard', 'self')">
+						<img src="../libs/common/images/sbCard.png"/>
+						<p>社保卡</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		
+		<div class="loginType">
+			<p class="otherLogin">代办登录</p>
+			<ul>
+				<li>
+					<a ng-click="chooseSwipeType('idCard', 'agent')">
+						<img src="../libs/common/images/idCard-medical.png"/>
+						<p>身份证</p>
+					</a>
+					<a ng-click="chooseSwipeType('ybCard', 'agent')">
+						<img class="ybCard" src="../libs/common/images/ybCard.png"/>
+						<p>医保卡</p>
+					</a>
+					<a ng-click="chooseSwipeType('sbCard', 'agent')">
+						<img src="../libs/common/images/sbCard.png"/>
+						<p>社保卡</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.container {
+		width: 1580px;
+		height: 608px;
+		position: absolute;
+		left: 50%;
+		top : 54%;
+		transform: translate(-50%, -50%);
+		color: #1a5aad;
+		padding-top: 70px;
+		box-sizing: border-box;
+	}
+	
+	.container .loginType {
+		width: 50%;
+		height: 88%;
+		float: left;
+		box-sizing: border-box;
+	}
+	
+	.container .loginType:first-child {
+		border-right: 1px dashed #769bcc;
+	}
+	
+	.container .loginType>p {
+		height: 170px;
+		line-height: 100px;
+		color: #fff;
+		font-size: 36px;
+		text-align: center;
+	}
+	
+	.container .loginType>.selfLogin {
+		background: url(../libs/common/images/self.png) no-repeat;
+		    background-position: 274px 28px;
+	}
+	
+	.container .loginType>.otherLogin {
+		background: url(../libs/common/images/other.png) no-repeat;
+		    background-position: 272px 31px;
+	}
+	
+	.container .loginType ul li a {
+		display: inline-block;
+		overflow: hidden;
+		text-align: center;
+		padding-left: 18px;
+		width: 30%;
+	}
+	
+	.container .loginType ul li a p {
+		height: 100px;
+		line-height: 100px;
+		font-size: 30px;
+	}
+	
+	.container .loginType ul li a img {
+		width: 100%;
+	}
+</style>

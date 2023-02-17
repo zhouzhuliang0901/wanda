@@ -1,0 +1,212 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		.main2 {
+			height: 650px;
+			margin-top: 20px;
+		}
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		#stObjectTypeRt2 {
+			width: 72%;
+		}
+		#ndljmzzf span {
+			width: 78%;
+			line-height: 28px;
+			float: left;
+			margin-left: 6%;
+		}
+		#ndljmzzf b {
+			margin-top: 6%;
+		}
+		.tabelBox1 {
+			width: 1705px;
+			height: 635px;
+			padding-top: 35px;
+		}
+		.tabelBox1 .dl1 .rt5 {
+			width: auto;
+		}
+		#stObjectType {
+			width: 111%;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-top: 80px!important;
+			margin-left: 136px!important;
+		}
+		.main2 {
+		    width: 100%;
+		    height: 580px;
+		    overflow: hidden;
+		    position: relative;
+		    margin: 0px;
+		    padding: 0px 50px;
+		    box-sizing: border-box;
+		}
+		#wrapper {
+		    width: 100%;
+		    height: 580px;
+		}
+		
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		#stObjectTypeRt2 {
+			width: 65%;
+		}
+		#ndljmzzf span {
+			width: 78%;
+			line-height: 28px;
+			float: left;
+			margin-left: 6%;
+		}
+		#ndljmzzf b {
+			margin-top: 6%;
+		}
+		.tabelBox1 {
+			width: 100%;
+			padding-top: 0px;
+		}
+		.tabelBox1 .dl1 .rt5 {
+			width: auto;
+		}
+		.tabelBox1 .dl1 .lt1 {
+		    width: 25%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+		    width: 25%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+		    width: 65%;
+		}
+		.tabelBox1 .dl1 .rt5 {
+			width: auto;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--个人信息填写</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>就诊类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stVisitType" ng-model="stVisitType" ng-options="x.name for x in visitTypeList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>职退情况：</span>
+						<b class="red1">*</b>
+					</dd>
+					<!--<dd class="rt2">
+						<select class="select1" id="stZtqk" ng-model="stZtqk" ng-options="x.name for x in ztqkList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>-->
+					<dd class="rt5 singleselect3 clearfloat" id="stZtqk">
+						<a ng-class="{'in':current==index}" ng-repeat="(index,item) in ztqkList" ng-click="change(item.name,index,item.id)" style="margin-bottom: 0px;" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>对象类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2" id="stObjectTypeRt2">
+						<select class="select1" id="stObjectType" ng-model="stObjectType" ng-options="x.name for x in objectTypeList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>年龄分类：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stAgeType" ng-model="stAgeType" ng-options="x.name for x in ageTypeList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>当年账户余额：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="CURACCOUNTAMT" ng-model="CURACCOUNTAMT" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>历年账户余额：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="HISACCOUNTAMT" ng-model="HISACCOUNTAMT" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>本次医疗费用总额：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="TOTALEXPENSE" ng-model="TOTALEXPENSE" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6" id="ndljmzzf">
+						<span>住院起付端医</br>疗费用累计：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="ZY_QFLJTOTAL" ng-model="ZY_QFLJTOTAL" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3" id="ndljmzzf">
+						<span>年度累计门诊自负段已付医疗费用数额：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="MJZZFCASHTOTAL" ng-model="MJZZFCASHTOTAL" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6" id="ndljmzzf">
+						<span>年度起付线上封顶线下（住院/家床/大病）医疗费用数值累计：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="TCTOTALLJ" ng-model="TCTOTALLJ" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

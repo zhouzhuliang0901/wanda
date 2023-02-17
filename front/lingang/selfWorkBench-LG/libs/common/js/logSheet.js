@@ -1,0 +1,429 @@
+//依赖jQuery  
+let dataEvent = [{
+	"itemName": "残疾人交通补贴申请",
+	"itemCode": "312090152000"
+}, {
+	"itemName": "听力、言语残疾人信息卡套餐服务申请",
+	"itemCode": "312090154000"
+}, {
+	"itemName": "兵役档案查询",
+	"itemCode": "312090164000"
+}, {
+	"itemName": "承包地确权登记档案",
+	"itemCode": "3120W1109000"
+}, {
+	"itemName": "独生子女档案查询",
+	"itemCode": "312090157000"
+}, {
+	"itemName": "工伤认定档案查询",
+	"itemCode": "312090162000"
+}, {
+	"itemName": "婚姻登记档案查询",
+	"itemCode": "312090156000"
+}, {
+	"itemName": "农民建房审批档案",
+	"itemCode": "3120W1384000"
+}, {
+	"itemName": "人才引进审批档案查询",
+	"itemCode": "312090167000"
+}, {
+	"itemName": "三峡移民档案查询",
+	"itemCode": "312090166000"
+}, {
+	"itemName": "涉外婚姻登记档案查询",
+	"itemCode": "312090187000"
+}, {
+	"itemName": "市级人才引进审批档案查询",
+	"itemCode": "312090186000"
+}, {
+	"itemName": "上海市三八红旗手档案",
+	"itemCode": "3120W1110000"
+}, {
+	"itemName": "复员退伍军人档案查询",
+	"itemCode": "312090165000"
+}, {
+	"itemName": "学籍档案查询",
+	"itemCode": "312090163000"
+}, {
+	"itemName": "再生育子女审批档案查询",
+	"itemCode": "312090161000"
+}, {
+	"itemName": "知青返城档案查询",
+	"itemCode": "312090159000"
+}, {
+	"itemName": "知青上山下乡档案查询",
+	"itemCode": "312090158000"
+}, {
+	"itemName": "知青子女入户档案查询",
+	"itemCode": "312090160000"
+}, {
+	"itemName": "专业技术干部的农村家属迁往城镇审批档案",
+	"itemCode": "312090185000"
+}, {
+	"itemName": "个人信用报告查询",
+	"itemCode": ""
+}, {
+	"itemName": "出境入境记录",
+	"itemCode": ""
+}, {
+	"itemName": "非上海生源高校毕业生落户查询",
+	"itemCode": ""
+}, {
+	"itemName": "户籍人户分离人员居住登记受理",
+	"itemCode": "312090016000"
+}, {
+	"itemName": "户籍人户分离人员居住登记注销",
+	"itemCode": "312090017000"
+}, {
+	"itemName": "机动车违法信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "敬老卡申领",
+	"itemCode": ""
+}, {
+	"itemName": "居住证签注",
+	"itemCode": "312090002000"
+}, {
+	"itemName": "开具有无违法犯罪记录证明",
+	"itemCode": ""
+}, {
+	"itemName": "属地派出所查询",
+	"itemCode": ""
+}, {
+	"itemName": "同日出生查询",
+	"itemCode": ""
+}, {
+	"itemName": "新版社保卡开通",
+	"itemCode": "312090174000"
+}, {
+	"itemName": "新生儿重名查询",
+	"itemCode": ""
+}, {
+	"itemName": "户籍证明开具",
+	"itemCode": ""
+}, {
+	"itemName": "交管信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "公交卡余额查询",
+	"itemCode": ""
+}, {
+	"itemName": "驾照考点查询",
+	"itemCode": ""
+}, {
+	"itemName": "民办教育机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "全市示范高中信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "上海市学生事务中心存档证明",
+	"itemCode": ""
+}, {
+	"itemName": "上海市计算机等级考试成绩查询",
+	"itemCode": ""
+}, {
+	"itemName": "中外合作办学信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "幼升小报名信息查询(公办、民办)",
+	"itemCode": ""
+}, {
+	"itemName": "小升初报名信息查询(公办、民办)",
+	"itemCode": ""
+}, {
+	"itemName": "3岁以下幼儿托育服务机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "民办非学历培训机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "市民网上实名认证服务",
+	"itemCode": "312090168000"
+}, {
+	"itemName": "副食品价格补贴发放银行卡维护",
+	"itemCode": "312090133000"
+}, {
+	"itemName": "婚姻登记预约",
+	"itemCode": ""
+}, {
+	"itemName": "城乡居民最低生活保障家庭证明出具",
+	"itemCode": "312090023000"
+}, {
+	"itemName": "低收入困难家庭证明出具",
+	"itemCode": "312090023000"
+}, {
+	"itemName": "定期定量生活补贴人员证明出具",
+	"itemCode": "312090023000"
+}, {
+	"itemName": "特困人员证明出具",
+	"itemCode": "312090023000"
+}, {
+	"itemName": "因病支出型贫困家庭证明出具",
+	"itemCode": "312090023000"
+}, {
+	"itemName": "城乡居保缴费情况",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "上年度养老保险个人权益记录单(城乡居保)",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "享受城乡居保养老金情况",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "业务审核办结情况",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "参加个人城镇基本养老保险缴费情况",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "个人享受城镇基本养老金情况",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "灵活就业人员电子对账单",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "上年度养老保险个人权益记录单",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "转往外省市缴费凭证",
+	"itemCode": "312090078000"
+}, {
+	"itemName": "居住证积分查询",
+	"itemCode": ""
+}, {
+	"itemName": "社保卡个人信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "养老金卡(折)调整",
+	"itemCode": "312090092000"
+}, {
+	"itemName": "失业保险金申领",
+	"itemCode": "312090201000"
+}, {
+	"itemName": "本市户籍失业登记",
+	"itemCode": "310750019000"
+}, {
+	"itemName": "本市户籍失业登记续登",
+	"itemCode": "310750019000"
+}, {
+	"itemName": "来沪人员失业登记",
+	"itemCode": "310750019000"
+}, {
+	"itemName": "劳动者个人基本信息查询及维护",
+	"itemCode": "312090047000"
+}, {
+	"itemName": "本市户籍人员退出灵活就业登记",
+	"itemCode": "312090045000"
+}, {
+	"itemName": "来沪人员灵活就业登记录入",
+	"itemCode": "312090049000"
+}, {
+	"itemName": "本市户籍人员灵活就业登记",
+	"itemCode": "312090045000"
+}, {
+	"itemName": "来沪人员灵活就业登记中止",
+	"itemCode": "312090049000"
+}, {
+	"itemName": "申请大龄失业就业岗位补贴",
+	"itemCode": "312090054000"
+}, {
+	"itemName": "申请“就业困难人员”灵活就业社会保险费补贴",
+	"itemCode": "312090055000"
+}, {
+	"itemName": "餐饮脸谱",
+	"itemCode": ""
+}, {
+	"itemName": "社会公用计量标准查询",
+	"itemCode": ""
+}, {
+	"itemName": "法定计量检定机构考评员查询",
+	"itemCode": ""
+}, {
+	"itemName": "计量标准考评员查询",
+	"itemCode": ""
+}, {
+	"itemName": "二级注册计量师查询",
+	"itemCode": ""
+}, {
+	"itemName": "企业名称状态查询",
+	"itemCode": ""
+}, {
+	"itemName": "合同示范文本查询",
+	"itemCode": ""
+}, {
+	"itemName": "广告发布登记查询",
+	"itemCode": ""
+}, {
+	"itemName": "律师兼职执业变更专职执业",
+	"itemCode": "310100284000-06"
+}, {
+	"itemName": "律师执业机构变更",
+	"itemCode": "310100284000-02"
+}, {
+	"itemName": "律师执业证注销",
+	"itemCode": "310100284000-04"
+}, {
+	"itemName": "律师专职执业变更兼职执业",
+	"itemCode": "310100284000-05"
+}, {
+	"itemName": "首次申请律师兼职执业审核",
+	"itemCode": "310100284000-03"
+}, {
+	"itemName": "首次申请律师专职执业审核",
+	"itemCode": "310100284000-01"
+}, {
+	"itemName": "重新申请律师兼职执业审核",
+	"itemCode": "310100284000-07"
+}, {
+	"itemName": "重新申请律师专职执业审核",
+	"itemCode": "310100284000-08"
+}, {
+	"itemName": "办理结算服务项目的相关手续",
+	"itemCode": "312090035000"
+}, {
+	"itemName": "办理门急诊就医记录册",
+	"itemCode": "312090031000"
+}, {
+	"itemName": "办理居民医保受理登记",
+	"itemCode": "312090036000"
+}, {
+	"itemName": "办理医保网站密码申请及变更",
+	"itemCode": "312090032000"
+}, {
+	"itemName": "办理医疗卡书面挂失及撤销",
+	"itemCode": "312090034000"
+}, {
+	"itemName": "本市开展异地就医的医院查询",
+	"itemCode": ""
+}, {
+	"itemName": "商业保险机构网点信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "医保及相关服务机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "医保诊疗项目约定服务医院查询",
+	"itemCode": ""
+}, {
+	"itemName": "长期护理机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "长期评估机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "参保人员待遇查询",
+	"itemCode": ""
+}, {
+	"itemName": "年度累计医疗费用信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "医保就医明细查询",
+	"itemCode": ""
+}, {
+	"itemName": "帐户清算信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "床位费医保支付标准",
+	"itemCode": ""
+}, {
+	"itemName": "医保范围药品查询",
+	"itemCode": ""
+}, {
+	"itemName": "医保个人信息",
+	"itemCode": "312090040000"
+}, {
+	"itemName": "医疗费用分担模拟计算器",
+	"itemCode": ""
+}, {
+	"itemName": "医疗机构查询",
+	"itemCode": ""
+}, {
+	"itemName": "异地就医一件事",
+	"itemCode": "31LB00004000"
+}, {
+	"itemName": "医保综合减负试算",
+	"itemCode": ""
+}, {
+	"itemName": "纯公积金贷款受理网点查询",
+	"itemCode": ""
+}, {
+	"itemName": "个人住房公积金信息查询",
+	"itemCode": "312090169000"
+}, {
+	"itemName": "公积金贷款试算",
+	"itemCode": ""
+}, {
+	"itemName": "公积金还款计算",
+	"itemCode": ""
+}, {
+	"itemName": "公积金缴存表查询",
+	"itemCode": ""
+}, {
+	"itemName": "公积金缴存计算",
+	"itemCode": ""
+}, {
+	"itemName": "公积金缴存提取经办银行查询",
+	"itemCode": ""
+}, {
+	"itemName": "公积金区管理部查询",
+	"itemCode": ""
+}, {
+	"itemName": "组合贷款各受理银行查询",
+	"itemCode": ""
+}, {
+	"itemName": "上海市禁止、限制和控制危险化学品目录（第三批）查询",
+	"itemCode": ""
+}, {
+	"itemName": "危险化学品生产企业安全生产许可证查询",
+	"itemCode": ""
+}, {
+	"itemName": "危险化学品经营许可证核发查询",
+	"itemCode": ""
+}, {
+	"itemName": "危险化学品建设项目信息查询",
+	"itemCode": ""
+}, {
+	"itemName": "安全评价机构资质许可查询",
+	"itemCode": ""
+}, {
+	"itemName": "安全生产检测检验机构资质认可查询",
+	"itemCode": ""
+}, {
+	"itemName": "安全生产协会会员培训机构条件核实情况查询",
+	"itemCode": ""
+}, {
+	"itemName": "我的证照",
+	"itemCode": ""
+}, {
+	"itemName": "交通卡余额查询",
+	"itemCode": ""
+}, {
+	"itemName": "办事指南",
+	"itemCode": ""
+}];
+var returnCord = function(dataList, name) {
+	if(Array.isArray(dataList)) {
+		for(var i = 0; i < dataList.length; i++) {
+			if(dataList[i].itemName == name) {
+				return dataList[i].itemCode;
+			}
+		}
+	}
+};
+var logSheetAdd = function(n) {
+	setTimeout(function() {
+		var pageText = $(".headName").text();
+		if(n != undefined) {
+			pageText = n;
+		}
+		console.log(pageText);
+		var codeval = returnCord(dataEvent, pageText);
+		console.log(codeval);
+		if(codeval == undefined) {
+			return;
+		};
+		trackEvent(pageText, codeval);
+	}, 1000);
+};
+logSheetAdd();

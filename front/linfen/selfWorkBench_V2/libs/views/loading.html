@@ -1,0 +1,39 @@
+<style type="text/css">
+	.loadingBox-z {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: -150px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		height: 100%;
+		width: 100%;
+	}
+	
+	#box-z {
+		width: 460px;
+		height: 180px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		margin:-90px 0px 0px -230px;
+		text-align: center;
+	}
+	
+	#box-z img {
+		width: 100px;
+		height: 100px;
+	}
+	
+	#box-z p {
+		font-size: 38px;
+		color: #FFFFFF;
+	}
+</style>
+<div class="loadingBox-z">
+	<div id="box-z">
+		<img src="../libs/common/images/loadings.gif" alt="">
+		<p>正在加载数据，请稍后...</p>
+	</div>
+</div>

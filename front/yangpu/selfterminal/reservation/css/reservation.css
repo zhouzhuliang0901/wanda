@@ -1,0 +1,19 @@
+.make{
+	width: 432px;
+}
+/*by:zjj*/
+.panelList{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+.panelList>.view-block{
+	display: flex;
+	position: relative;
+	height: 150px;
+}
+.panelList>.view-block .itemInfo{
+	text-align: center;
+	float: left;
+	padding: 10px;
+}

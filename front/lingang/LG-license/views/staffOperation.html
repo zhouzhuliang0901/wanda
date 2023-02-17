@@ -1,0 +1,38 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">{{title}}</a>
+        </li>
+        <li class="active">刷身份证</li>
+    </ol>
+</nav>
+<div class="shadowBox staffOperation">
+    <div class="idCard-login" ng-if="loginType==='idCard'">
+        <div class="mainImg">
+            <img class="bgMain" src="images/cabinet.png" alt="">
+            <img class="idcard" src="images/card.gif" alt="">
+        </div>
+        <p class="boldTips">请将身份证置于扫描处</p>
+    </div>
+    <div class="citizenCloud-login" ng-if="loginType==='citizenCloud'">
+        <ul class="citizenCloudFlow">
+            <li><img src="images/citizenCloud-Code.png"><br> <span>1</span></li>
+            <li class="flow"><img src="images/citizenCloud1.jpg"><br> <span>2</span></li>
+            <li class="flow"><img src="images/citizenCloud2.jpg"><br> <span>3</span>
+                <p>将此处二维码<br />放在扫描口扫描</p>
+            </li>
+            <li class="flow"><img src="images/citizenCloud3.jpg"><br> <span>4</span></li>
+        </ul>
+    </div>
+    <div class="btn" ng-click="loginTypeTab(loginType)">
+        <span class="event">{{btnInfo}}</span>
+    </div>
+    <a href="javascript:;" class="staffLogin" ng-click="goHome()">
+        <img src="images/person-icon.png" alt="">办事人员操作
+    </a>
+</div>

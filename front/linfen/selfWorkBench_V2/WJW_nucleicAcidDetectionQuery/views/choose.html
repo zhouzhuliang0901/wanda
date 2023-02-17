@@ -1,0 +1,133 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 80px;
+		margin-left: 210px;
+	}
+
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	#wrapper {
+		width: 1500px;
+		height: 550px;
+	}
+
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-left: 8px;
+	}
+
+	.singselect a {
+		float: left;
+		width: 51px;
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin: 5px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 24px;
+		padding: 0px 15px;
+	}
+
+	.singselect a li {
+		box-sizing: border-box;
+	}
+
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	.singselect dl {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+
+	.linkt {
+		float: left;
+		width: 750px;
+		position: relative;
+	}
+
+	.select {
+		float: left;
+		width: 666px;
+		height: 220px;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+		padding: 35px;
+	}
+
+	.select div {
+		margin-bottom: 10px;
+	}
+
+	.select span {
+		width: 150px;
+		display: block;
+		font-weight: bold;
+		float: left;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+
+	.agency {
+		font-weight: bold;
+	}
+
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+		}
+		#wrapper {
+			width: 1000px;
+			height: 343px;
+		}
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<dd class="singselect">
+		<dl>请选择所属区：</dl>
+		<a ng-class="{'in':current==index}" ng-repeat="(index,item) in areaList" ng-click="change(item.areaName,index,item.areaCode)">
+			{{item.areaName}}
+		</a>
+	</dd>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="item in queryList">
+				<div class="select">
+					<div class="agency">{{item.agency}}</div>
+					<div><span>地址</span>：{{item.address}}</div>
+					<div><span>预约方式</span>：{{item.appointmentMethod}}</div>
+					<div><span>开放时间</span>：{{item.appointmentTime}}</div>
+					<div><span>联系电话</span>：{{item.telephone || '暂无'}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

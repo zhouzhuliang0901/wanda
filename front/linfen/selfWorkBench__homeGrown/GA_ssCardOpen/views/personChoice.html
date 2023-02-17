@@ -1,0 +1,134 @@
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		margin: 0 auto;
+		width: 65%;
+		padding-left: 0;
+		display: flex;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+		flex: 1;
+		margin-right: 0;
+		margin-left: 10%;
+	}
+	
+	.scrollBox2 .linkBox1 a p {
+		margin-left: -23%;
+	}
+	
+	.attention {
+		width: 80%;
+		margin: 7% auto;
+		color: #e1ba1c;
+		font-weight: bold;
+		font-size: 30px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.container {
+		width: 1580px;
+		height: 608px;
+		position: absolute;
+		left: 50%;
+		top: 44%;
+		transform: translate(-50%, -50%);
+		color: #1a5aad;
+		padding-top: 70px;
+		box-sizing: border-box;
+	}
+	
+	.container .loginType {
+		width: 50%;
+		height: 88%;
+		float: left;
+		box-sizing: border-box;
+	}
+	
+	.container .loginType:first-child {
+		border-right: 1px dashed #769bcc;
+	}
+	
+	.container .loginType>p {
+		height: 170px;
+		line-height: 100px;
+		color: #fff;
+		font-size: 36px;
+		text-align: center;
+	}
+	
+	.container .loginType>.selfLogin {
+		background: url(../libs/common/images/self.png) no-repeat;
+		background-position: 274px 28px;
+	}
+	
+	.container .loginType>.otherLogin {
+		background: url(../libs/common/images/other.png) no-repeat;
+		background-position: 272px 31px;
+	}
+	
+	.container .loginType ul li a {
+		display: block;
+		overflow: hidden;
+		margin: 0 auto;
+		text-align: center;
+		width: 46%;
+	}
+	
+	.container .loginType ul li a p {
+		height: 100px;
+		line-height: 100px;
+		font-size: 30px;
+	}
+	
+	.container .loginType ul li a img {
+		width: 100%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 276px;
+		}
+		.scrollBox2 .linkBox1 a::before {
+			left: 100px;
+		}
+		.attention {
+			width: 60%;
+			margin: 5% auto;
+			font-size: 24px;
+		}
+		.scrollBox2 .linkBox1 a p {
+			margin-left: -3%;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="chooseSwipeType('self')">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>本人办理</p>
+			</a>
+			<a ng-click="chooseSwipeType('agent')">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>监护人代办</p>
+			</a>
+		</div>
+		<div class="attention">
+			<span>特别说明：</span>
+			<p>1、监护人代办仅限于为本人子女办理</p>
+			<p>2、监护人代办条件为子女年龄不超过16周岁</p>
+		</div>
+	</div>
+
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

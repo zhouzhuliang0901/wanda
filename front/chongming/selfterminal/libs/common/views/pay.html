@@ -1,0 +1,42 @@
+<style>
+    .pay-icon {
+        position: absolute;
+        left: 30px;
+        top: 0px;
+        height: 100px;
+    }
+    .blue-green {
+        position: relative;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="{{basePath}}libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#">支付中心</a>
+        </li>
+        <li class="active">支付</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="sub-index vertical-middle horizontal-middle leftLump" style="top:240px;">
+            <a class="blue-green" ng-class="{'active':codeType=='weixin'}" ng-click="getPayCode('weixin')"><img class="pay-icon"
+                    src="{{basePath}}libs/common/images/icon200/weixin.png">微信支付</a>
+            <a class="blue-green" ng-class="{'active':codeType=='alipay'}" ng-click="getPayCode('alipay')"><img class="pay-icon"
+                    src="{{basePath}}libs/common/images/icon200/alipay.png">支付宝支付</a>
+        </div>
+    </div>
+    <div class="action">
+        <div class="vertical-middle horizontal-middle" style="text-align:center;margin-top:200px;">
+            <img class="" src="{{payCode}}" ng-if="!payStatus" ng-click="getPayCode(codeType)" style="height:300px;">
+            <p ng-if="payStatus">加载二维码中...</p>
+            <span style="font-size:40px;display:block;margin-top:30px;">{{codeType=='weixin'?'微信':'支付宝'}}扫描二维码支付</span>
+        </div>
+    </div>
+</div>

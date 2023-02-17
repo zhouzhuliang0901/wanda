@@ -1,0 +1,159 @@
+<div class="contain">
+	<!--<p class="caption">{{operation}}</p>-->
+	<ul class="licenseTab">
+		<li ng-click="choiceLicenseType('license')">电子证照信息获取预览</li>
+	</ul>
+	<div class="licenseContainer">
+		<img ng-src="{{item.length>1?item:configUrl+ (item.pictureUrlForBytes?item.pictureUrlForBytes:item.imageUrl)}}" ng-class="{'active':currentImgIndex == index,'hidden': !item }" ng-repeat="(index,item) in showLicenseList track by $index" ng-click="pitchOnImg(index,item)" />
+		<p ng-repeat="(index,item) in showLicenseList track by $index">{{item.certName}}</p>
+		<a href="javascript:;" ng-click="prevPage()" class="control prev" ng-if="currentPage>1"><img src="../libs/common/images/prevBtn.png" /></a>
+		<a href="javascript:;" ng-click="nextPage()" class="control next" ng-if="currentPage<totalPages"><img src="../libs/common/images/nextBtn.png" /></a>
+	</div>
+	<img ng-show="" ng-src="{{configUrl+ (hide.pictureUrlForBytes?hide.pictureUrlForBytes:hide.imageUrl)}}" ng-repeat="hide in historyData track by $index" />
+	<img ng-show="" ng-src="{{configUrl+ (hides.pictureUrlForBytes?hides.pictureUrlForBytes:hides.imageUrl)}}" ng-repeat="hides in elicenseData track by $index" />
+
+	<p class="pages">{{currentPage+"/"+totalPages}}</p>
+	<!--<div class="continue">-->
+    	<!--<a class="btn print" ng-click="preview()">预览</a>-->
+    	<!--<a class="del" ng-click="delStuff()" ng-if="currentLicense=='history'">删除</a>-->
+    <!--</div>-->
+</div>
+<!--<app-footer prev="prevStep()" default-next='hidden'>
+	<a href="javascript:;" class="del" ng-click="delStuff()" ng-if="currentLicense=='history'">删除</a>
+	<a href="javascript:;" class="continue" ng-click="preview()">确认打印</a>
+</app-footer>-->
+<apptb-footer 
+	prev="prevStep()" 
+	next="preview()" 
+	next-btn-info="{{nextText}}"
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 310px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>{{addmassage}}</p>
+</div>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.pages {
+		text-align: center;
+		font-size: 50px;
+	}
+	
+	.licenseContainer .control {
+		position: absolute;
+		display: block;
+		height: 100px;
+		width: 100px;
+		top: 50%;
+		margin-top: -50px;
+	}
+	
+	.licenseContainer .control img {
+		height: 100%;
+		width: 100%;
+	}
+	
+	.control.prev {
+		left: -110px;
+	}
+	
+	.control.next {
+		right: -110px;
+	}
+	
+	.licenseContainer {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		align-items: center;
+		margin: 30px auto;
+		width: 1350px;
+		height: 440px;
+		background: url('../libs/common/images/bg-dzzz.png') no-repeat;
+		background-size: 100% 100%;
+	}
+	
+	.licenseContainer img {
+		transition: all 300ms;
+		max-height: 90%;
+		width: 20%;
+	}
+	/*box-shadow: 0px 10px 12px #56ce97;*/
+	
+	.licenseContainer img.active {
+		transition: all 300ms;
+		box-shadow: 0px 0px 30px 0px #0094FF;
+	}
+	
+	.licenseContainer img.hidden {
+		visibility: hidden;
+	}
+	
+	.licenseTab {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		position: relative;
+		margin: 10px auto;
+		width: 100%;
+		height: 90px;
+	}
+	
+	.licenseTab li {
+		color: #3794e4;
+		text-align: center;
+		height: 90px;
+		line-height: 90px;
+		font-size: 30px;
+		width: 31%;
+		background: url(../libs/common/images/dzzzNo.png) no-repeat;
+		background-position: 0px 0px;
+	}
+	
+	.licenseTab li.pitchOn {
+		color: #fff;
+		background: url(../libs/common/images/dzzz.png) no-repeat;
+		background-position: -25px -17px;
+		background-size: 106% 166%;
+	}
+	
+	.contain .continue {
+		height: 52px;
+		line-height: 52px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 26px;
+	}
+	
+	.contain .continue .print {
+		display: inline-block;
+		width: 131px;
+		height: 52px;
+		line-height: 52px;
+		background: url('../libs/common/images/reBtn.png') no-repeat;
+		background-position: 28% 100%;
+	}
+	
+	.continue .del {
+		display: inline-block;
+		width: 131px;
+		height: 52px;
+		line-height: 52px;
+		background: url('../libs/common/images/reBtn.png') no-repeat;
+		background-position: 28% 100%;
+	}
+</style>

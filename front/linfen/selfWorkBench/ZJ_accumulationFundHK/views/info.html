@@ -1,0 +1,201 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.tabelBox1 {
+		width: 1705px;
+		padding-top: 0px;
+	}
+	
+	.caption1 {
+		display: inline-block;
+		margin-left: 6%;
+		color: #fefefe;
+		font-size: 29px;
+		margin-bottom: 3%;
+	}
+	
+	table {
+		width: 77%;
+		margin-left: 12%;
+		margin-bottom: 2%;
+	}
+	
+	.tabelBox1 table tr,
+	.tabelBox1 table th,
+	.tabelBox1 table td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.yellow {
+		color: #e1ba1c;
+	}
+	.textBold{
+		font-weight: bold;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<b class="red1">*</b>
+						<span>贷款方式：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stDkWay" ng-model="stDkWay" ng-options="x.name for x in dkWayList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<b class="red1">*</b>
+						<span>按揭年数（1年12期）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stYear" ng-model="stYear" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-show="isShow">
+					<dd class="lt1 lt6">
+						<b class="red1">*</b>
+						<span>房屋总价（万元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="houseSum" ng-model="houseSum" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3">
+						<b class="red1">*</b>
+						<span>按揭成数（成）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="ajch" ng-model="ajch" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6" ng-if="current=='2'||current == '12'">
+						<b class="red1">*</b>
+						<span>商业贷款（万元）：</span>
+					</dd>
+					<dd class="rt2" ng-if="current=='2'||current == '12'">
+						<input class="input1" type="text" id="sydk" ng-model="sydk" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3" ng-if="current=='1'||current == '12'">
+						<b class="red1">*</b>
+						<span>公积金贷款（万元）：</span>
+					</dd>
+					<dd class="rt2" ng-if="current=='1'||current == '12'">
+						<input class="input1" type="text" id="gjjdk" ng-model="gjjdk" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt6" ng-if="current=='1'||current=='2'">
+						<b class="red1">*</b>
+						<span>利率：</span>
+					</dd>
+					<dd class="rt2" ng-if="current=='1'||current=='2'">
+						<select class="select1" id="stInterestRate" ng-model="stInterestRate" ng-options="x.name for x in interestRateList" ng-change="changeRate(stInterestRate)">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="current=='12'">
+					<dd class="lt1 lt6">
+						<b class="red1">*</b>
+						<span>利率：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stInterestRate" ng-model="stInterestRate" ng-options="x.name for x in interestRateList" ng-change="changeRate(stInterestRate)">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+				</dl>
+				<p class="caption1"><span class="result">{{funName}}--结果</span>（<span ng-if="current == '1'||current == '12'" class="yellow">公积金贷款利率：{{stGJJDkLv}}；</span><span class="yellow" ng-if="current == '2'||current == '12'">商业贷款利率：{{stBusinessDkLv}}；</span>）</p>
+				<table ng-if="listShow">
+					<tr ng-if="!monthListShow">
+						<th>贷款总额（元）</th>
+						<th>还款总额（元）</th>
+						<th>支付利息款（元）</th>
+						<th>贷款月数（月）</th>
+						<th>月均还款</th>
+					</tr>
+					<tr ng-if="monthListShow">
+						<th>贷款总额（元）</th>
+						<th>还款总额（元）</th>
+						<th>支付利息款（元）</th>
+						<th>贷款月数（月）</th>
+						<th>首月还款</th>
+						<th>末月还款</th>
+					</tr>
+					<tr ng-if="monthListShow">
+						<td>{{queryList.sum}}</td>
+						<td>{{queryList.sumPay}}</td>
+						<td>{{queryList.payRate}}</td>
+						<td>{{queryList.month}}</td>
+						<td>{{queryList.firstMonth}}</td>
+						<td>{{queryList.lastMonth}}</td>
+					</tr>
+					<tr ng-if="!monthListShow">
+						<td>{{queryList.sum}}</td>
+						<td>{{queryList.sumPay}}</td>
+						<td>{{queryList.payRate}}</td>
+						<td>{{queryList.month}}</td>
+						<td>{{queryList.avgPayMonth}}</td>
+					</tr>
+				</table>
+				<table ng-if="monthListShow">
+					<tr>
+						<th colspan="3" class="textBold">每月还款明细（元）</th>
+					</tr>
+					<tbody id="mouthList">
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

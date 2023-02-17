@@ -1,0 +1,257 @@
+<apptb-header fun-name="证明开具"></apptb-header>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+
+	<div class="licenseContainer">
+		<img 
+			ng-src="{{ item.length >1?item:configUrl+(item.pictureUrlForBytes?item.pictureUrlForBytes:item.imageUrl)}}"
+			ng-class="{'active':currentImgIndex==index,'hidden':!item }" 
+			ng-repeat="(index,item) in showLicenseList track by $index"
+			ng-click="pitchOnImg(index,item)" />
+		<a href="javascript:;" ng-click="prevPage()" class="control prev" ng-if="currentPage>1">
+			<img src="../libs/common/images/prevBtn.png" />
+		</a>
+		<a href="javascript:;" ng-click="nextPage()" class="control next" ng-if="currentPage<totalPages">
+			<img src="../libs/common/images/nextBtn.png" />
+		</a>
+	</div>
+	<img ng-show="" ng-src="{{configUrl+ 		(hide.pictureUrlForBytes?hide.pictureUrlForBytes:hide.imageUrl)}}" ng-repeat="hide in historyData 		track by $index" />
+	<img ng-show="" ng-src="{{configUrl+ 		(hides.pictureUrlForBytes?hides.pictureUrlForBytes:hides.imageUrl)}}" ng-repeat="hides in 		elicenseData track by $index" />
+</div>
+
+<!--<p class="pages">{{ currentPage+"/"+totalPages }}</p>-->
+<!--<a href="javascript:;" class="continue" ng-click="preview()">预览打印</a>-->
+<a class="printBtn" ng-click="print()">打印</a>
+<print show="isShowPrint"></print>
+
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<!--图片预览-->
+<div class="view-container"  ng-if="isShowView">
+	<a class="view-close">
+		<span ng-click="viewClose()"></span>
+	</a>
+    <div class="img-container">
+    	<!--configUrl +--> 
+        <img ng-src="{{configUrl + electImg}}" alt="">
+    </div>
+
+    <ul class="view-func">
+        <li>
+        	<span class="zoom-in" ng-click="zoomIn()"></span>
+        </li>
+        <li>
+        	<span class="zoom-out" ng-click="zoomOut()"></span>
+        </li>
+        <li>
+        	<span class="rotate-left" ng-click="rotateLeft()"></span>
+        </li>
+        <li>
+        	<span class="rotate-right" ng-click="rotateRight()"></span>
+        </li>
+    </ul>
+</div>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.pages {
+		text-align: center;
+		font-size: 50px;
+	}
+	
+	.licenseContainer .control {
+		position: absolute;
+		display: block;
+		height: 100px;
+		width: 100px;
+		top: 50%;
+		margin-top: -50px;
+	}
+	
+	.licenseContainer .control img {
+		height: 100%;
+		width: 100%;
+	}
+	
+	.control.prev {
+		left: -110px;
+	}
+	
+	.control.next {
+		right: -110px;
+	}
+	
+	.licenseContainer {
+	    position: relative;
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	    justify-content: space-between;
+	    background: url(../libs/common/images/imgList.png) no-repeat;
+	    background-size: 100% 100%;
+	    align-items: center;
+	    margin: 0px auto;
+	    margin-top: 45px;
+	    width: 1378px;
+	    height: 518px;
+	    padding-top: 8px;
+	}
+	
+	.licenseContainer>img {
+		transition: all 300ms;
+		width: 28%;
+		height: 470px;
+		margin: 0px 20px;
+	}
+	
+	.licenseContainer img.active {
+		transition: all 300ms;
+		box-shadow: 0px 0px 20px #0094ff;
+	}
+	
+	.licenseContainer img.hidden {
+		visibility: hidden;
+	}
+	
+	.licenseTab {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		position: relative;
+		margin: 40px auto;
+		width: 1610px;
+		height: 90px;
+	}
+	
+	.licenseTab li {
+		text-align: center;
+		background-color: #2864b0;
+		height: 90px;
+		line-height: 90px;
+		font-size: 40px;
+		width: 45%;
+	}
+	
+	.printBtn {
+		position:absolute;
+		left: 50%;
+		bottom: 20%;
+		width: 132px;
+        height: 52px;
+		transform: translateX(-50%);
+		background: url('../libs/common/images/reBtn.png') no-repeat;
+		background-position: 28% 100%;
+		text-align: center;
+		line-height: 52px;
+		font-size: 26px;
+	}
+	
+	/*图片预览*/
+    .view-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+    
+    .view-container .view-close {
+    	position: fixed;
+    	right: -150px;
+    	top: -150px;
+    	width: 300px;
+    	height: 300px;
+    	border-radius: 50%;
+    	overflow: hidden;
+    	background-color: rgba(0, 0, 0, 0.8);
+    	z-index: 99;
+    }
+    
+    .view-container .view-close:hover {
+    	background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .view-container .view-close span {
+    	display: inline-block;
+    	width: 100%;
+    	height: 100%;
+    	background: url(../libs/common/images/guanbi.png) no-repeat;
+    	background-size: 100px 100px;
+    	background-position: 44px 155px;
+    }
+
+    .view-container .img-container {
+        width: 500px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all .3s;
+    }
+
+    .view-container .img-container img {
+        width: 100%;
+        transition: all .3s;
+    }
+    
+    .view-container .view-func {
+    	position: fixed;
+    	left: 50%;
+    	bottom: 100px;
+    	transform: translateX(-50%);
+    }
+    
+    .view-container .view-func li {
+    	float: left;
+    	width: 100px;
+    	height: 100px;
+    	border-radius: 50%;
+    	overflow: hidden;
+    	margin: 0 20px;
+    	background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .view-container .view-func li span {
+    	display: inline-block;
+    	width: 100%;
+    	height: 100%;
+    }
+    
+    .view-container .view-func .zoom-in {
+    	
+    	background: url(../libs/common/images/jiahao.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+    
+    .view-container .view-func .zoom-out {
+    	background: url(../libs/common/images/jianhao.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+    
+    .view-container .view-func .rotate-left {
+    	background: url(../libs/common/images/zuoxuanzhuan.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+    
+    .view-container .view-func .rotate-right {
+    	background: url(../libs/common/images/youxuanzhuan.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+	
+</style>

@@ -1,0 +1,130 @@
+<apptb-header fun-name="证明开具"></apptb-header>
+<div class="scrollBox2 clearfloat">
+	<!--个人, 法人-->
+	<ul class="handleList">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">
+			{{ item }}办事
+		</li>
+	</ul>
+
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<div class="linkt" repeat-finish ng-repeat="stuff in stuffName">
+				<div class="select">
+					<div>
+						<img class="img" ng-src="{{ stuff.img }}" />
+					</div>
+					<div class="stuff">{{ stuff.stuffName }}</div>
+					<div class="banli" ng-click="Handle(stuff.url,'banli',stuff.isSelf)">立即办理</div>
+					<div class="print" ng-click="toStuffName(stuff.code,stuff.stuffName)">打印</div>
+				</div>
+			</div>
+			<div class="linkt" repeat-finish ng-repeat="stuff in rsItem">
+				<a class="select" data-ng-click="choiceType(stuff.url)">
+					<div>
+						<img class="img" ng-src="{{ stuff.img }}" />
+					</div>
+					<div class="stuff" id="stuff">{{ stuff.stuffName }}</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 28px 0 0 22px;
+	}
+	
+	.linkt {
+		position: relative;
+		left: 140px;
+	}
+	
+	#wrapper {
+		width: 1800px;
+		height: 600px;
+		overflow: hidden;
+	}
+	.scrollContain{
+		padding-top: 65px;
+		overflow: hidden;
+	}
+	#stuff {
+		line-height: 130px;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 140px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 700px 145px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	
+	.handleList {
+		margin-left: 394px;
+		margin-top: 25px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 455px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 33px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 70px;
+		color: #3794e4;
+		background: url('../libs/common/images/handleList.png') no-repeat center;
+		background-size: 400px 84px;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+		background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-position: 32% 6%;
+	}
+	
+	.stuff {
+		padding: 10px 0 0 140px;
+		height: 70px;
+		line-height: 58px;
+		font-size: 30px;
+	}
+	
+	.banli {
+		width: 130px;
+		height: 50px;
+		float: left;
+		line-height: 50px;
+		text-align: center;
+		background: url('../libs/common/images/print.png') no-repeat;
+		margin-left: 30px;
+		font-size: 26px;
+	}
+	
+	.print {
+		width: 138px;
+		height: 50px;
+		float: left;
+		line-height: 50px;
+		background: url('../libs/common/images/print.png') no-repeat;
+		margin-left: 30px;
+		text-align: center;
+		font-size: 26px;
+	}
+</style>

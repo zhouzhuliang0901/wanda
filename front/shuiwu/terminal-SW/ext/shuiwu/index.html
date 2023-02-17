@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>自助服务终端-首页</title>
+	<link rel="stylesheet" href="../../libs/common/css/common.css">
+	<link rel="stylesheet" href="../../libs/common/css/index_new.css">
+	<meta http-equiv="X-UA-Compatible" content="IE=10" />
+	<!--灯光-->
+	<object classid='clsid:82EFB15A-DE7A-48D9-B175-5BECADDCBDF4' id='OCX_Light' style='width:0px;height:0px;'></object>
+
+	<script>
+		function goToApp(address) {
+			
+			window.location.href = address;
+		};
+	</script>
+	<style>
+		.common {
+			display: none;
+		}
+		
+		@font-face {
+			font-family: "stxinwei";
+			src: url("../../libs/common/stxinwei.ttf");
+		}
+
+		.selfModule {
+			position: relative;
+			float: left;
+			background: url(../../libs/common/images/index/index_common.png) no-repeat left top;
+			background-size: 1645px 800px;
+			margin-top: 220px;
+			margin-left: 136px;
+			width: 1700px;
+			height: 807px;
+		}
+
+		.selfModule .title,
+		.selfModule .body {
+			position: relative;
+			text-align: center;
+			width: 100%;
+		}
+
+		.selfModule .title {
+			font-weight: bold;
+			font-size: 70px;
+			height: 300px;
+			line-height: 276px;
+		}
+
+		.selfModule .title span {
+			margin-left: 180px;
+		}
+
+		.selfModule .title img {
+			position: absolute;
+			height: 140px;
+			left: 150px;
+			top: 77px;
+		}
+
+		.selfModule .body {
+			height: 500px;
+			padding-top: 108px;
+		}
+
+		.selfModule .body li {
+			float: left;
+			margin-left: 188px;
+			margin-bottom: 30px;
+			font-size: 32px;
+			width: 160px;
+		}
+
+		.selfModule .body li img {
+			/*height: 240px;*/
+			height: 160px;
+		}
+		.selfModule .body li p {
+			width: 160px;
+		}
+		.logo {
+    color: #1b4f7b;
+    position: absolute;
+    left: 364px;
+}
+
+    .logo img {
+        height: 153px;
+		width: 590px;
+        vertical-align: middle;
+    }
+
+    .logo > div {
+        vertical-align: middle;
+        display: inline-block;
+        margin-left: 10px;
+    }
+
+        .logo > div > div {
+            font-size: 72px;
+            text-align: center;
+        }
+
+	</style>
+</head>
+
+<body ondragstart="return false;" onselectstart="return false">
+	<div class="logo" style="text-align:center;">
+            <img src="../../libs/common/images/logo1.png">
+            <div>
+                <div style="font-family:stxinwei;">智能自助服务系统</div>
+<!--                <div style="text-transform: uppercase;">shanghai xuhui district administrative service center</div>
+ -->        </div>
+        </div>
+
+	<!--新首页-->
+	<div class="selfModule">
+		<!-- <div class="title">
+			<img src="../../libs/common/images/index/declare.png" alt=""><span>一网通办</span>
+		</div> -->
+		<ul class="body">
+
+			<li data-entry="declare">
+				<img src="../../libs/common/images/index/icon/1-2.png" />
+				<p>自助申报</p>
+			</li>
+			<li data-entry="archivesservice">
+				<img src="../../libs/common/images/index/icon/2-4.png" />
+				<p>电子证照</p>
+			</li>
+			<li data-entry="eventquery">
+				<img src="../../libs/common/images/index/icon/2-3.png" />
+				<p>办事查询</p>
+			</li>
+			<li data-entry="guideline">
+				<img src="../../libs/common/images/index/icon/2-2.png" />
+				<p>办事指南</p>
+			</li>
+			<li data-entry="knowledge" data-isCustomMade="y">
+				<img src="../../libs/common/images/index/icon/1-1.png" />
+				<p>知识库</p>
+			</li>
+			<li data-entry="reservation" data-isCustomMade="y">
+				<img src="../../libs/common/images/index/icon/2-1.png" />
+				<p>预约模块</p>
+			</li>
+			<li data-entry="idcardcopy">
+				<img src="../../libs/common/images/index/icon/3-3.png" />
+				<p>身份证复印</p>
+			</li>
+			<li data-entry="materialcopy">
+				<img src="../../libs/common/images/index/icon/3-1.png" />
+				<p>材料复印</p>
+			</li>
+			<li data-entry="knowledge" data-isCustomMade="s" >
+				<img src="../../libs/common/images/index/icon/4-4.png"  />
+				<p>信息公开</p>
+			</li>
+			<li data-entry="knowledge" data-isCustomMade="v" >
+				<img src="../../libs/common/images/index/icon/4-2.png"  />
+				<p>公共服务</p>
+			</li>
+		</ul>
+	</div>
+<!-- 	<div class="selfModule">
+		<div class="title">
+			<img src="../../libs/common/images/index/quicklyService.png" alt=""><span>便捷服务</span>
+		</div>
+		<ul class="body">
+			<li data-entry="faceRecognition">
+				<img src="../../libs/common/images/index/icon/2-5.png" />
+				<p>人证核验</p>
+			</li>
+			<li data-entry="eShimin">
+					<img src="../../libs/common/images/index/icon/eShimin.png" />
+					<p>随申办市民云</p>
+				</li>
+			
+			<li onclick="goToApp('http://issp.sheca.com/WdmNew.html')">
+				<img src="../../libs/common/images/index/icon/1-1.png" alt="">
+				<p>法人一证通</p>
+			</li> -->
+			<!-- <li data-entry="licensePrint" data-isCustomMade="y">
+				<img src="../../libs/common/images/index/icon/licensePrint.png" />
+				<p>自助亮证</p>
+			</li> -->
+<!-- 			<li data-entry="materialPrint" data-isCustomMade="y">
+					<img src="../../libs/common/images/index/icon/3-2.png" />
+					<p>材料打印</p>
+				</li>
+			<li data-entry="idcardcopy">
+				<img src="../../libs/common/images/index/icon/3-3.png" />
+				<p>身份证复印</p>
+			</li>
+			<li data-entry="materialcopy">
+				<img src="../../libs/common/images/index/icon/3-1.png" />
+				<p>材料复印</p>
+			</li>
+		</ul>
+	</div> -->
+	<!--新首页-->
+	<div class="declare common">
+		<div class="declare-top" data-entry="">
+			<img src="../../libs/common/images/index/declare.png" width="170" height="180" style="margin-left:128px;" />
+			<p class="title">业务申报</p>
+		</div>
+		<div class="common-bottom">
+			<div class="db-left entry" onclick="goToApp('http://wxzf.sheca.com')" style="margin-left:30px;">
+				<img src="../../libs/common/images/index/icon/1-1.png" width="100" />
+				<p class="sub-title">法人一证通</p>
+			</div>
+			<div class="db-right entry" data-entry="declare" style="margin-left:50px;">
+				<img src="../../libs/common/images/index/icon/1-2.png" width="100" />
+				<p class="sub-title">一网通办</p>
+			</div>
+		</div>
+	</div>
+	<div class="services common">
+		<div class="services-top" data-entry="">
+			<img src="../../libs/common/images/index/service.png" width="220" height="235" />
+			<p class="title">办事服务</p>
+		</div>
+		<div class="common-bottom">
+			<div class="sb-1 entry" data-entry="reservation">
+				<img src="../../libs/common/images/index/icon/2-1.png" />
+				<p class="sub-title">办事预约</p>
+			</div>
+			<div class="sb-2 entry" data-entry="autoform">
+				<img src="../../libs/common/images/index/icon/2-2.png" />
+				<p class="sub-title">自助取表</p>
+			</div>
+			<div class="sb-3 entry" data-entry="eventquery">
+				<img src="../../libs/common/images/index/icon/2-3.png" />
+				<p class="sub-title">办事查询</p>
+			</div>
+			<div class="sb-4 entry" data-entry="archivesservice">
+				<img src="../../libs/common/images/index/icon/2-4.png" />
+				<p class="sub-title">办事档案</p>
+			</div>
+			<div class="sb-5 entry" data-entry="faceRecognition">
+				<img src="../../libs/common/images/index/icon/2-5.png" />
+				<p class="sub-title">人证核验</p>
+			</div>
+			<div class="sb-6 entry" onclick="goToApp('http://192.168.1.110:8080/spzx/allInOnePC/visitor/validateID')">
+				<img src="../../libs/common/images/index/icon/2-6.png" />
+				<p class="sub-title">视频咨询</p>
+			</div>
+		</div>
+	</div>
+	<div class="quicklyService common">
+		<div class="qs-top" data-entry="">
+			<img src="../../libs/common/images/index/quicklyService.png" width="200" height="200" />
+			<p class="title">便捷服务</p>
+		</div>
+		<div class="common-bottom">
+			<div class="qb-1 entry" data-entry="materialcopy">
+				<img src="../../libs/common/images/index/icon/3-1.png" />
+				<p class="sub-title">材料复印</p>
+			</div>
+			<div class="qb-2 entry" data-entry="materialPrint" data-isCustomMade="y">
+				<img src="../../libs/common/images/index/icon/3-2.png" />
+				<p class="sub-title">材料打印</p>
+			</div>
+			<div class="qb-2 entry" data-entry="licensePrint" data-isCustomMade="y">
+				<img src="../../libs/common/images/index/icon/licensePrint.png" />
+				<p class="sub-title">自助亮证</p>
+			</div>
+			<div class="qb-3 entry clear" data-entry="idcardcopy">
+				<img src="../../libs/common/images/index/icon/3-3.png" />
+				<p class="sub-title">身份证复印</p>
+			</div>
+			<div class="qb-3 entry" data-entry="eShimin">
+				<img src="../../libs/common/images/index/icon/eShimin.png" />
+				<p class="sub-title">市民云</p>
+			</div>
+		</div>
+	</div>
+	<script src="../../libs/common/js/jquery-1.12.4.min.js"></script>
+	<script src="../../libs/angularjs/1.5.8/angular.js"></script>
+	<!-- <script src="../../libs/angularjs/1.5.8/angular-route.js"></script> -->
+	<script src="../../libs/common/js/init-config-msg.js"></script>
+	<script src="../../libs/common/js/piwik.js"></script>
+	<script src="../../libs/common/js/hardware-api.js"></script>
+	<script>
+		/*  产品化
+								 主页主要是入口
+										给入口元素添加data-entry属性  属性值为对应模块名称 
+												例如：自助取表   <div data-entry="autoform"></div>
+										如果是定制的模块那就给入口元素添加 data-isCustomMade = "y" 
+												例如：材料打印 <div data-entry = "materialPrint" data-isCustomMade = "y"></div>
+				*/
+		$(function () {
+
+			$(".selfModule .body>li").on("click", function (e) {
+				var isCustomMade = $(this).attr("data-isCustomMade");
+				var goHref = $(this).attr("data-entry");
+				if (goHref == '' || goHref == undefined) {
+					return;
+				}
+				if (isCustomMade === "y") {
+					window.location.href = goHref + "/index.html";
+				}
+				else if(isCustomMade === "s"){// 信息公开
+//					window.location.href = "http://swj.sh.gov.cn/xxgk/";
+					window.location.href = "Information/index.html";
+				}
+				else if(isCustomMade === "v"){// 信息公开
+									window.location.href = "Information/index.html#/main?type=v";
+								}
+				else {
+					window.location.href = "../../" + goHref + "/index.html";
+				}
+			});
+
+
+		})
+	</script>
+</body>
+
+</html>

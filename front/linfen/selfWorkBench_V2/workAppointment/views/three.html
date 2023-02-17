@@ -1,0 +1,190 @@
+<div class="three">
+	<div class="three-top">
+		<span>请选择您要预定的日期</span>
+		<!--<span>请选择您要预约的日期段</span>-->
+	</div>
+	<div class="three-whether-order">
+		<span><a style="background-color: #00CC00;"></a>&nbsp;&nbsp;可预约</span>
+		<span><a style="background-color: grey;"></a>&nbsp;&nbsp;不可预约</span>
+	</div>
+	<div class="plan_content_box" data-ng-init="showTime(day,select_year,select_month)">
+		<div class="field" style="width: 94%;">
+			<a id="a1" ng-click="sundata_(select_year)"></a>
+			<a id="a2" ng-click="monthdata_(select_month)"></a>
+			<span class="field_label" style="width: 100%;text-align: center;" ng-init='active_day.day=timej'>
+				&nbsp;&nbsp;<a ng-model="select_year">{{select_year}}</a>年
+				<a ng-model="select_month">{{select_month}}</a>月
+				<!-- {{active_day.day}} 日 -->
+			</span>
+			<a id="a3" ng-click="monthdata(select_month)"></a>
+			<a id="a4" ng-click="sundata(select_year)"></a>
+		</div>
+		<table class="table table-bordered hover_td" style="border: none;">
+			<tr id="float_td">
+				<td style="color: #ffffff;">日</td>
+				<td style="color: #ffffff;">一</td>
+				<td style="color: #ffffff;">二</td>
+				<td style="color: #ffffff;">三</td>
+				<td style="color: #ffffff;">四</td>
+				<td style="color: #ffffff;">五</td>
+				<td style="color: #ffffff;">六</td>
+				<!-- [day==active_day]  repeat-done="doSomething(select_year,select_month,days,day,b)-->
+				<td ng-repeat="(b,day) in days track by $index" ng-click="change_day(day,select_year,select_month,day.show)" ng-class="{true:'active',false:''}[day.show]" ng-model="day" id="achover">
+					<a ng-class="{true:'www',false:''}[active_day.day===day.day]">{{day.day}}</a>
+				</td>
+				<!-- <a ng-class="{true:'www',false:''}[active_day.day===day.day]">{{day.day}}</a> -->
+			</tr>
+		</table>
+	</div>
+	<div>
+		<!-- <h1 style="color: #10D367;">请先选择日期段</h1> -->
+		<div class="sidetoadd">
+			<div class="three-date">
+				<span>请选择您要预约的日期段</span>
+			</div>
+			<sidetoadd></sidetoadd>
+		</div>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style>
+	#achover a {
+		display: inline-block;
+		width: 70px;
+		height: 70px;
+	}
+
+	.three-date {
+		font-size: 30px;
+		color: #ffffff;
+		margin: 21px 0 156px 180px;
+	}
+
+	.three-whether-order a {
+		display: inline-block;
+		width: 20px;
+		height: 20px;
+		border-radius: 20px;
+		margin-left: 35px;
+	}
+
+	.three-whether-order {
+		color: gray;
+		margin-left: 372px;
+	}
+
+	.www {
+		background-color: #43E882;
+    	color: #fff;
+		border-radius: 50px;
+		width: 80px;
+		height: 80px;
+		display: inline-block;
+	}
+
+	.field {
+		/* border: solid 1px #ffffff; */
+		height: 80px;
+		width: 574px;
+		text-align: center;
+		line-height: 80px;
+		font-size: 24px;
+		color: #ffffff;
+	}
+
+	.plan_content_box {
+		/* border: solid 1px #ffffff; */
+		width: 578px;
+		height: 630px;
+		margin: 0px 50px 0px;
+	}
+
+	.field_label {
+		font-size: 24px;
+	}
+
+	#float_td {
+		display: flex;
+		width: 574px;
+		flex-wrap: wrap;
+		color: gray;
+	}
+
+	#float_td td {
+		font-size: 24px;
+		/* 			color: #00FFFF; */
+		width: 80px;
+		height: 80px;
+		line-height: 70px;
+		text-align: center;
+		display: inline-block;
+	}
+
+	.active {
+		color: #00CC00;
+	}
+
+	#a1 {
+		display: inline-block;
+		background: transparent url(images/left_sanjiao.png) no-repeat;
+		width: 41px;
+		height: 41px;
+	}
+
+	#a2 {
+		display: inline-block;
+		background: transparent url(images/left01_sanjiao.png) no-repeat;
+		width: 46px;
+		height: 41px;
+	}
+
+	#a3 {
+		display: inline-block;
+		background: transparent url(images/right01_sanjiao.png) no-repeat;
+		width: 46px;
+		height: 41px;
+	}
+
+	#a4 {
+		display: inline-block;
+		background: transparent url(images/right_sanjiao.png) no-repeat;
+		width: 41px;
+		height: 41px;
+	}
+
+	.bb {
+		background-color: #009F95;
+	}
+
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.three .sidetoadd {
+			margin-left: 640px;
+			width: 590px;
+		}
+		.three-date {
+			margin: 16px 0 154px 87px;
+		}
+		.three .sidetoadd .make-arrange-time1 {
+			height: 81px;
+			width: 498px;
+			background-size: 100% 100%;
+		}
+		.three .sidetoadd .make-arrange-time1 span {
+			margin-left: 10px;
+		}
+		.three .sidetoadd .make-arrange-time1 .time1-btn{
+			margin-top: 10px;
+			    width: 109px;
+			    margin-left: 376px;
+		}
+	}
+</style>

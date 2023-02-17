@@ -1,0 +1,360 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		.main2 {
+			margin-top: 20px;
+			margin-left: 130px;
+			height: 675px;
+		}
+		.singselect {
+			float: left;
+			min-height: 60px;
+			font-size: 24px;
+			color: #FFF;
+			/* width: 100%; */
+			padding: 0px 143px;
+			margin-top: 15px;
+			box-sizing: border-box;
+		}
+		.singselect dl {
+			font-size: 24px;
+			width: 231px;
+			float: left;
+			line-height: 77px;
+			margin-left: 11px;
+		}
+		.singselect dl .red1 {
+			margin-left: 12px;
+			color: #f33039;
+		}
+		.singselect a {
+			float: left;
+			width: 418px;
+			height: 75px;
+			overflow: hidden;
+			border: 1px solid rgba(233, 237, 240, .4);
+			margin-right: 58px;
+			margin-bottom: 25px;
+			position: relative;
+			text-align: center;
+			display: inline-block;
+			line-height: 75px;
+			font-size: 24px;
+			padding: 0px 15px;
+		}
+		.singselect a li {
+			box-sizing: border-box;
+		}
+		.singselect a.in:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 78px;
+			height: 68px;
+			overflow: hidden;
+			background: url(../libs/common/images/check1.png) no-repeat;
+		}
+		.tabelBox1 {
+			width: 1705px;
+			height: 635px;
+			padding-top: 10px;
+		}
+		.tabelBox1 .dl1 {
+			width: 91%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.tabelBox1 .dl1.reminder {
+			width: 80.5%;
+			color: #e1ba1c;
+			margin-left: 147px;
+		}
+		.reminder .reminderP1 {
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.reminder .reminderP2,
+		.reminder .reminderP3 {
+			margin-bottom: 5px;
+		}
+		.tabelBox1 .dl1 .lt6 {
+			width: 20%;
+			line-height: 60px;
+			margin-bottom: 0px;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 24%;
+		}
+		.tabelBox1 .dl1 .rt10 {
+			width: 22.67%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 20%;
+			line-height: 60px;
+		}
+		.tabelBox1 .dl1 .active {
+			width: 36%;
+		}
+		.tabelBox1 .dl1 .aceepCenter {
+			width: 100%;
+			text-align: left;
+		}
+		.tabelBox1 .dl1 .aceepCenter_area {
+			width: auto;
+		}
+		.tabelBox1 .dl1 .centerStreet {
+			width: 35%;
+		}
+		.tabelBox1 .dl1 .detailAddr {
+			width: 68%;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+			background-size: 100% 80%;
+		}
+		.caption {
+			margin-top: 80px !important;
+			margin-left: 60px !important;
+		}
+		#wrapper {
+			width: 100%;
+			height: 580px;
+		}
+		.main2 {
+			width: 100%;
+			height: 650px;
+			margin: 0px;
+		}
+		.singselect {
+			float: left;
+			min-height: 60px;
+			font-size: 24px;
+			color: #FFF;
+			padding: 0px 105px;
+			box-sizing: border-box;
+		}
+		.singselect dl {
+			font-size: 24px;
+			width: 231px;
+			float: left;
+			line-height: 77px;
+			margin-left: 11px;
+		}
+		.singselect dl .red1 {
+			margin-left: 12px;
+			color: #f33039;
+		}
+		.singselect a {
+			float: left;
+			/*width: 418px;*/
+			height: 75px;
+			overflow: hidden;
+			border: 1px solid rgba(233, 237, 240, .4);
+			margin-right: 58px;
+			margin-bottom: 25px;
+			position: relative;
+			text-align: center;
+			display: inline-block;
+			line-height: 75px;
+			font-size: 24px;
+			padding: 0px 15px;
+		}
+		.singselect a li {
+			box-sizing: border-box;
+		}
+		.singselect a.in:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 78px;
+			height: 68px;
+			overflow: hidden;
+			background: url(../libs/common/images/check1.png) no-repeat;
+		}
+		.tabelBox1 {
+			width: 100%;
+			padding-top: 10px;
+		}
+		.tabelBox1 .dl1 {
+			width: 91%;
+			margin: 0 auto;
+			overflow: hidden;
+		}
+		.tabelBox1 .dl1.reminder {
+			width: 80.5%;
+			color: #e1ba1c;
+			margin-left: 147px;
+		}
+		.reminder .reminderP1 {
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		.reminder .reminderP2,
+		.reminder .reminderP3 {
+			margin-bottom: 5px;
+		}
+		.tabelBox1 .dl1 .lt6 {
+			width: 25%;
+			line-height: 60px;
+			margin-bottom: 0px;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 24%;
+		}
+		.tabelBox1 .dl1 .rt2.aceepCenter_area_dd {
+			width: 15%
+		}
+		.tabelBox1 .dl1 .rt10 {
+			width: 23.67%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 23%;
+			line-height: 60px;
+		}
+		.tabelBox1 .dl1 .active {
+			width: 36%;
+		}
+		.tabelBox1 .dl1 .aceepCenter {
+			width: 100%;
+			text-align: left;
+		}
+		.tabelBox1 .dl1 .aceepCenter_area {
+			width: auto;
+		}
+		.tabelBox1 .dl1 .centerStreet {
+			width: 44%;
+		}
+		.tabelBox1 .dl1 .detailAddr {
+			width: 71%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--取件方式</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div>
+				<dd class="singselect">
+					<dl>请选择取件方式：<b class="red1">*</b></dl>
+					<a ng-class="{'in':current==index}" ng-repeat="(index,item) in methodList" ng-click="change(item.name,index,item.id)">
+						<li vId="2222">{{item.name}}</li>
+					</a>
+				</dd>
+			</div>
+			<div class="tabelBox1" ng-show="express">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						收件人姓名：
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stReceiptName" ng-model="stReceiptName">
+					</dd>
+
+					<dd class="lt1 lt3">
+						收件人联系电话：
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stReceiptMobile" ng-model="stReceiptMobile">
+						</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						快递方式（需到付）：
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<!--<select class="select1" id="expressMethod" ng-init="expressMethod = expressMethodList[0]" ng-model="expressMethod" ng-options="x.name for x in expressMethodList">
+						</select>-->
+						<drop-down width='373px' selectval="expressMethodList[0].name" modelval='expressMethod' ng-model="expressMethod" dropdowndata="expressMethodList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="lt1 lt3">
+						收件地址邮编：
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPostCode" ng-model="stPostCode" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6 receiveAddr">
+						收件地址：
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt10" ng-class="{'active':active==true}">
+						<!--<select class="select1" id="Province" ng-model="Province" ng-options="x.value for x in provinceList">
+						</select>-->
+						<drop-down width='352px' selectval="" modelval='Province' ng-model="Province" dropdowndata="provinceList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt10" ng-class="{'active':active==true}">
+						<!--<select class="select1" id="City" ng-model="City" ng-options="x.value for x in cityList">
+						</select>-->
+						<drop-down width='351px' selectval="citycu" modelval='City' ng-model="City" dropdowndata="cityList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="rt10" ng-class="{'active':active==true}" ng-show="!active">
+						<!--<select class="select1" id="County" ng-model="County" ng-options="x.value for x in countyList">
+						</select>-->
+						<drop-down width='352px' selectval="countycu" modelval='County' ng-model="County" dropdowndata="countyList" valchange="">
+						</drop-down>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						收件详细地址：
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2 detailAddr">
+						<input class="input1" type="text" id="stReceiptAddress" ng-model="stReceiptAddress" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat reminder">
+					<p class="reminderP1">快递服务：</p>
+					<p class="reminderP2">1、将办理结果通过邮政EMS快递至您指定的地址，配送范围限国内，由收件人付费，付费标准根据目的地不同有所差异：对于0.5千克以内的快件，上海市内10元/件，江苏浙江12元/件，安徽14元/件，国内其他地区20元/件。</p>
+					<p class="reminderP3">2、上海地区请选择到区并写清楚路名门牌详细地址信息，非上海区域请选择到市并写清楚包括区路名门牌详细地址信息。</p>
+				</dl>
+			</div>
+			<div class="tabelBox1" ng-show="center">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6 aceepCenter">请选择您要进行取件的受理中心（必选）：</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6 aceepCenter_area">受理中心（区）</dd>
+					<dd class="rt2 aceepCenter_area_dd">
+						<!--<select class="select1" id="centerProvince" ng-model="centerProvince" ng-options="x.value for x in centerProvinceList">
+						</select>-->
+						<drop-down width='373px' selectval="" modelval='centerProvince' ng-model="centerProvince" dropdowndata="centerProvinceList" valchange="">
+						</drop-down>
+					</dd>
+					<dd class="lt1 lt3">受理中心（街道社区）</dd>
+					<dd class="rt2 centerStreet">
+						<!--<select class="select1" id="centerStreet" ng-model="centerStreet" ng-options="x.value for x in centerStreetList">
+						</select>-->
+						<drop-down width='543px' selectval="centerStreetcu" modelval='centerStreet' ng-model="centerStreet" dropdowndata="centerStreetList" valchange="">
+						</drop-down>
+					</dd>
+				</dl>
+				<!--<dl class="dl1 clearfloat" style="width: 77%;color: red;margin-left: 240px;">
+					<p>*友情提示：请选择您要进行取件的受理中心。</p>
+				</dl>-->
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

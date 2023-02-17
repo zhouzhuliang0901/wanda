@@ -1,0 +1,90 @@
+<p class="caption">
+	垃圾分类点查询</p>
+<div class="select" ng-click="query(stuff.url,'banli')">查询</div>
+<div class="tabelBox1">
+	<dl class="dl1 clearfloat">
+		<dd class="rt2">
+			<input class="input1" type="text" id="stName" ng-model="stName">
+		</dd>
+		<dd class="rt2">
+			<input class="input1" type="text" id="stIdCard" ng-model="stIdCard">
+		</dd>
+		<dd class="rt2">
+			<input class="input1" type="text" id="stIdCard" ng-model="stIdCard">
+		</dd>
+		<dd class="rt2">
+			<input class="input1" type="text" id="stIdCard" ng-model="stIdCard">
+		</dd>
+		<dd class="rt2">
+			<input class="input1" type="text" id="stIdCard" ng-model="stIdCard">
+		</dd>
+	</dl>
+</div>
+<div id="wrapper" style="">
+	<div class="st">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">垃圾分类点信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>名称：</th>
+						<th>地址：</th>
+						<th>街道：</th>
+						<th>性别：</th>
+						<th>姓名：</th>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td>姓名：</td>
+						<td>姓名：</td>
+						<td>性别：</td>
+						<td>姓名：</td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td>姓名：</td>
+						<td>姓名：</td>
+						<td>性别：</td>
+						<td>姓名：</td>
+					</tr>
+					<tr>
+						<td>姓名：</td>
+						<td>姓名：</td>
+						<td>姓名：</td>
+						<td>性别：</td>
+						<td>姓名：</td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="print()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 515px;
+	}
+	
+	.select {
+		width: 130px;
+		height: 50px;
+		float: left;
+		left: 1575px;
+		top: 180px;
+		position: absolute;
+		line-height: 50px;
+		text-align: center;
+		background: url('../libs/common/images/print.png') no-repeat;
+		margin-left: 30px;
+		font-size: 26px;
+	}
+</style>

@@ -1,0 +1,219 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.searchInput {
+		display: flex;
+		width: 100%;
+	}
+	
+	.searchInput .button {
+		width: 15%;
+		margin: 2% 3%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 2.4%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding:0 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+		right: 5%;
+		width: 52px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+	
+	.sDetail {
+		float: left;
+		width: 1300px;
+		height: 390px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 80px;
+		margin-left: 105px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	
+	.sDetail dd {
+		margin-top: 30px;
+		height: 40px;
+		width: 74%;
+		margin: 0.9% auto;
+	}
+	
+	.sDetail dl {
+		white-space: normal;
+		width: 80%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	
+	.sDetail b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+	
+	.select {
+		float: left;
+		width: 600px;
+		height: 180px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1%;
+	}
+	
+	.select dd {
+		margin-top: 30px;
+		height: 40px;
+		width: 96%;
+		margin: 4.6% auto;
+	}
+	
+	.select dl {
+		white-space: normal;
+		width: 72%;
+		float: right;
+		margin-right: 4%;
+		line-height: 150%;
+		text-align: left;
+	}
+	
+	.select b {
+		width: 20%;
+		display: inline-block;
+		font-weight: bold;
+		margin-left: 2%;
+		float: left;
+		letter-spacing: 12px;
+	}
+	
+	a {
+		text-align: center;
+	}
+	
+	a.stamp {
+		background: url(./images/print.png) no-repeat;
+		background-size: cover;
+		margin-left: 8%;
+		width: 100%;
+		height: 100%;
+		line-height: 54px;
+		font-size: 30px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<!--顶部查询框-->
+	<div class="searchInput">
+		<div class="schoolName">
+			<input type="text" placeholder="请输入姓名" ng-model="assessorName" />
+			<!--<img ng-click="querySchoolsInfo(assessorName)" src="../libs/common/images/icon-link9.png" />-->
+		</div>
+		<div class="schoolName">
+			<input type="text" placeholder="请输入单位名称" ng-model="companyName" />
+			<!--<img ng-click="querySchoolsInfo(companyName)" src="../libs/common/images/icon-link9.png" />-->
+		</div>
+		<div class="button">
+			<a ng-click="queryAssessor(assessorName,companyName)" class="stamp">查询</a>
+		</div>
+		<div class="button">
+			<a ng-click="reset()" class="stamp">重置</a>
+		</div>
+	</div>
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-if="isShow">
+				<a class="select" ng-repeat="item in Item">
+					<dd>
+						<b>姓名：</b>
+						<dl>{{item.xm || '暂无'}}</dl>
+					</dd>
+					<dd>
+						<b>单位：</b>
+						<dl>{{item.dw || '暂无'}}</dl>
+					</dd>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,57 @@
+<style>
+	.layout {
+		height: 1920px;
+	}
+	.layout .politics-open-service, 
+	.layout .info-open-query, 
+	.layout .opinoin-collect, 
+	.layout .public-participate, 
+	.layout .service-center {
+		height: 20%;
+		text-align: center;
+		font-weight: bolder;
+		padding: 100px;
+	}
+	.layout .politics-open-service .one {
+		padding: 50px;
+		font-size: 110px;
+	}
+	.layout .info-open-query,
+	.layout .opinoin-collect,
+	.layout .public-participate{
+		padding-left: 100px;
+		padding-right: 150px;
+	}
+	.layout .info-open-query .two,
+	.layout .opinoin-collect .two,
+	.layout .public-participate .two {
+		font-size: 80px;
+		color: #fff;
+		background-color: red;
+		padding: 50px;
+		border-radius: 20px;
+		box-shadow: 30px -30px 0px rgba(255, 0, 0, 0.5);
+	}
+	.layout .service-center .three {
+		font-size: 60px;
+		padding: 100px;
+	}
+</style>
+
+<div class="layout">
+	<div class="politics-open-service">
+		<div class="one">政务公开服务</div>
+	</div>
+	<div class="info-open-query" ng-click="goToApp('externalLinks/index.html', 'info-open-query')">
+		<div class="two">信息公开查询</div>
+	</div>
+	<div class="opinoin-collect" ng-click="goToApp('externalLinks/index.html', 'opinoin-collect')">
+		<div class="two">意见收集反馈</div>
+	</div>
+	<div class="public-participate" ng-click="goToApp('externalLinks/index.html', 'public-participate')">
+		<div class="two">公众参与</div>
+	</div>
+	<div class="service-center">
+		<div class="three">静安区行政服务中心</div>
+	</div>
+</div>

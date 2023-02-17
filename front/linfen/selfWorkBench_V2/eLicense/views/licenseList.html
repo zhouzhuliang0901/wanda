@@ -1,0 +1,158 @@
+<style type="text/css">
+	.scrollBox2 {
+		margin-left: 200px;
+		margin-top: 50px;
+		width: 80%;
+	}
+
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	.linkt {
+		float: left;
+		width: 700px;
+		height: 170px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 700px 170px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	#scrollContain {
+		overflow: hidden;
+	}
+
+	#wrapper {
+		/*width: 1800px;*/
+		height: 615px;
+		overflow: auto;
+		-ms-overflow-style: none;
+	}
+
+	.linkt img {
+		width: 80px;
+		height: 80px;
+		float: left;
+		padding: 42px 0 0 38px;
+	}
+
+	.cert {
+		margin-left: 160px;
+		height: 100%;
+		line-height: 50px;
+		font-size: 30px;
+		text-align: left;
+		width: 75%;
+		overflow: hidden;
+	}
+
+	.certName {
+		margin-top: 40px;
+		font-size: 34px;
+	}
+
+	.certDate {
+		color: #fefefe;
+		opacity: .6;
+	}
+	.licenseTab {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        position: relative;
+        margin: 80px auto 10px;
+    	width: 83%;
+        height: 90px;
+    }
+
+    .licenseTab li {
+        color: #3794e4;
+	    text-align: center;
+	    height: 90px;
+	    line-height: 90px;
+	    font-size: 30px;
+	    width: 29%;
+	    background: url(../libs/common/images/dzzzNo.png) no-repeat;
+	    background-position: 0px 0px;
+	    background-size: 98% 100%;
+    }
+
+    .licenseTab li.pitchOn {
+	    color: #fff;
+	    background: url(../libs/common/images/dzzz.png) no-repeat;
+	    background-position: -25px -17px;
+	    background-size: 106% 166%;
+    }
+     .loadingBox {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+     @media screen and (max-width: 1600px) {
+     	#wrapper {
+			height: 480px;
+		}
+    	.licenseContainer {
+		    position: relative;
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		    justify-content: space-around;
+		    align-items: center;
+		    margin: 30px auto;
+		    width: 98%;
+		    height: 380px;
+		    background: url(../libs/common/images/bg-dzzz.png) no-repeat;
+		    background-size: 100% 100%;
+		}
+		.licenseTab li {
+		    background-size: 100% 100%;
+		}
+		.licenseTab li.pitchOn {
+		    background-size: 111% 173%;
+		}
+		.licenseContainer .control img {
+		    height: 100%;
+		    width: 88%;
+		}
+		.control.prev {
+	        left: -100px;
+	    }
+	    .loadingBox img{
+	    	margin-left: 0 !important;
+	    	margin-top: 0 !important;
+	    }
+    }
+</style>
+<!--<p class="caption">{{ operation }}</p>-->
+ <ul class="licenseTab">
+        <li ng-class="{'pitchOn':currentLicense=='license'}" ng-click="choiceLicenseType('license')">本市证照</li>
+        <li ng-class="{'pitchOn':currentLicense=='csjLicense'}" ng-click="choiceLicenseType('csjLicense')">长三角证照</li>
+        <li ng-class="{'pitchOn':currentLicense=='queryeles'}" ng-click="choiceLicenseType('queryeles')">被授权证照</li>
+    </ul>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div id="scrollContain">
+			<div class="linkt" repeat-finish ng-repeat="item in licenseList" ng-click="choice(item.certName,item.pictureUrlForBytes,item.derivePictureUrlForBytes,item.derivePictureUrl,item.certUuid)">
+				<img src="images/icon.png" alt="" />
+				<div class="cert">
+					<p class="certName">{{item.certName }}</p>
+					<p class="certDate">有效期：{{(item.validStartDay| to_date:'license' )|| (item.auth_start_time | to_date :'queryeles')}}&nbsp;至&nbsp;{{(item.validEndDay| to_date:'license' ) ||(item.auth_end_time| to_date)}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

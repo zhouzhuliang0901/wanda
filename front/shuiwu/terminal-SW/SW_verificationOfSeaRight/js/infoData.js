@@ -1,0 +1,120 @@
+// 单位类型
+var ST_ORG_TYPE = [{
+		name: '企业',
+		value: 'a'
+	},
+	{
+		name: '事业',
+		value: 'b'
+	},
+	{
+		name: '社会团体',
+		value: 'c'
+	},
+	{
+		name: '其他组织',
+		value: 'd'
+	}
+];
+// 行政区
+var DISTRICTS = [{
+		name: '黄浦区',
+		value: 'a'
+	},
+	{
+		name: '徐汇区',
+		value: 'b'
+	},
+	{
+		name: '长宁区',
+		value: 'c'
+	},
+	{
+		name: '静安区',
+		value: 'd'
+	},
+	{
+		name: '普陀区',
+		value: 'e'
+	},
+	{
+		name: '崇明区',
+		value: 'f'
+	},
+	{
+		name: '虹口区',
+		value: 'g'
+	},
+	{
+		name: '杨浦区',
+		value: 'h'
+	},
+	{
+		name: '闵行区',
+		value: 'i'
+	},
+	{
+		name: '宝山区',
+		value: 'j'
+	},
+	{
+		name: '嘉定区',
+		value: 'k'
+	},
+	{
+		name: '浦东新区',
+		value: 'l'
+	},
+	{
+		name: '金山区',
+		value: 'm'
+	},
+	{
+		name: '松江区',
+		value: 'n'
+	},
+	{
+		name: '青浦区',
+		value: 'o'
+	},
+	{
+		name: '奉贤区',
+		value: 'p'
+	}
+]
+// 项目性质
+var PROJECTPROPERTY = [{
+	name: '公益性',
+	value: 'a'
+}, {
+	name: '经营性',
+	value: 'b'
+}, ]
+// 用海类型
+var USETYPE = [{
+		name: '渔业用海',
+		value: 'a'
+	},
+	{
+		name: '交通运输用海',
+		value: 'b'
+	}, {
+		name: '工矿用海',
+		value: 'c'
+	}, {
+		name: '旅游娱乐用海',
+		value: 'd'
+	}, {
+		name: '海底工程用海',
+		value: 'a'
+	}, {
+		name: '排污倾废用海',
+		value: 'b'
+	}, {
+		name: '填海造地用海',
+		value: 'c'
+	}, {
+		name: '特殊用海',
+		value: 'd'
+	},
+]

@@ -1,0 +1,40 @@
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#materialUpload">材料清单</a></li>
+        <li><a href="#uploadMethod">上传方式</a></li>
+        <li class="active">材料上传</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/arrow.gif" width="80" class="click">
+            <div>请拍照上传<br />完成后点击“完成”按钮<br />点击“样张”按钮查看样张</div>
+            <div class="sub-index">
+                <a class="blue-green active" href="#materialUpload">返回材料选择</a>
+            </div>
+        </div>
+    </div>
+    <div class="action right-grey">
+    	<a class="btn_radius_50 vertical-middle" ng-click="back()" style="top: 20px;left: 980px;">
+			<div class="greyLight-dark">
+				<img src="images/back.png" height="60" style="margin: 5px 10px 10px;">
+			</div>
+		</a>
+        <div class="camera">
+        	<img id="showImg" width="740" height="525" />	
+        </div>
+        <a class="btn_radius_50" ng-click="highCapture()" style="left: 420px;" ng-show="photoFlag">
+            <div class="greyLight">
+                <img src="images/camera.png" height="80">
+                <label>上传</label>
+            </div>
+        </a>
+    </div>
+</div>

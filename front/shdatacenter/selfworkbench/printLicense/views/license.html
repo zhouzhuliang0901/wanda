@@ -1,0 +1,92 @@
+<p class="caption">{{operation}}</p>
+
+<div class="licenseContainer">
+	<img ng-src="{{item.length>1?item:configUrl+ (item.pictureUrlForBytes?item.pictureUrlForBytes:item.imageUrl)}}" ng-class="{'active':currentImgIndex == index,'hidden': !item }" ng-repeat="(index,item) in showLicenseList track by $index" ng-click="pitchOnImg(index,item)" />
+	<a href="javascript:;" ng-click="prevPage()" class="control prev" ng-if="currentPage>1"><img src="../libs/common/images/prevBtn.png" /></a>
+	<a href="javascript:;" ng-click="nextPage()" class="control next" ng-if="currentPage<totalPages"><img src="../libs/common/images/nextBtn.png" /></a>
+</div>
+<img  ng-show="" ng-src="{{configUrl+ (hide.pictureUrlForBytes?hide.pictureUrlForBytes:hide.imageUrl)}}" ng-repeat="hide in historyData track by $index"/>
+<img  ng-show="" ng-src="{{configUrl+ (hides.pictureUrlForBytes?hides.pictureUrlForBytes:hides.imageUrl)}}" ng-repeat="hides in elicenseData track by $index"/>
+
+<p class="pages">{{currentPage+"/"+totalPages}}</p>
+<app-footer prev="prevStep()" default-next='hidden'>
+	<a href="javascript:;" class="continue" ng-click="preview()">预览打印</a>
+</app-footer>
+<style type="text/css">
+	.pages {
+		text-align: center;
+		font-size: 50px;
+	}
+	
+	.licenseContainer .control {
+		position: absolute;
+		display: block;
+		height: 100px;
+		width: 100px;
+		top: 50%;
+		margin-top: -50px;
+	}
+	
+	.licenseContainer .control img {
+		height: 100%;
+		width: 100%;
+	}
+	
+	.control.prev {
+		left: -110px;
+	}
+	
+	.control.next {
+		right: -110px;
+	}
+	
+	.licenseContainer {
+		position: relative;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		background-color: #2864b0;
+		align-items: center;
+		margin: 30px auto;
+		width: 1610px;
+		height: 680px;
+	}
+	
+	.licenseContainer img {
+		transition: all 300ms;
+		width: 28%;
+		height: 600px;
+		margin-left: 41px;
+		
+	}
+	
+	.licenseContainer img.active {
+		transition: all 300ms;
+		box-shadow: 0px 10px 12px #56ce97;
+	}
+	
+	.licenseContainer img.hidden {
+		visibility: hidden;
+	}
+	
+	.licenseTab {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		position: relative;
+		margin: 40px auto;
+		width: 1610px;
+		height: 90px;
+	}
+	
+	.licenseTab li {
+		text-align: center;
+		background-color: #2864b0;
+		height: 90px;
+		line-height: 90px;
+		font-size: 40px;
+		width: 45%;
+	}
+</style>

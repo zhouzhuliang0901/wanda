@@ -1,0 +1,43 @@
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="choiceType('parent')">
+				<img src="../libs/common/images/person.png" />
+				<p>我是父母</p>
+			</a>
+			<a ng-click="choiceType('child')">
+				<img src="../libs/common/images/person.png" />
+				<p>我是子女</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 385px;
+		text-align: center;
+		margin-top: 85px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.contain {
+			width: 1200px;
+		}
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+		}
+	}
+</style>

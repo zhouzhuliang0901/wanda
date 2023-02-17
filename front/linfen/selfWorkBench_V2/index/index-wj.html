@@ -1,0 +1,125 @@
+<style type="text/css">
+	.uniqueId {
+		margin-left: 1600px;
+		color: #0296CF;
+		margin-top: -7px;
+	}
+	.TopTit1 {
+	    padding-top: 45px;
+	    padding-bottom: 30px;
+	    overflow: hidden;
+	    margin-bottom: 40px;
+	    width: 1800px;
+	    display: flex;
+	    justify-content: center;
+	}
+	.main5 .navBox3 a .p1 {
+		font-weight: bold;
+	}
+
+	.main5 .navBox3 a {
+		margin-left: 110px;
+		margin-bottom: 65px;
+	}
+
+	.main5 .lt4 {
+		width: 1860px;
+		margin-bottom: 50px;
+	}
+
+	.main5 #titleBox {
+		margin-bottom: 29px;
+	}
+
+	.nav5 {
+		display: flex;
+		width: 1800px;
+		justify-content: center;
+	}
+
+	#ptd {
+		margin-top: 15px;
+	}
+
+	#ptdImg1 img {
+		width: 70px;
+	}
+
+	#ptdImg img {
+		width: 85px;
+	}
+
+	.main5 .navBox3 a .imgbox1 {
+		height: 125px;
+	}
+
+	.moreImg {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 100px;
+		width: 140px;
+	}
+
+	.moreImg img {
+		width: 70px;
+		height: 32px;
+	}
+
+</style>
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<img src="libs/common/images/icon/ywtblogo.png" style="position: absolute;width: 73px;left: 648px;top: 68px;">
+		<h2 class="tit2" ng-click="goToApp('staffOperation/index.html')">“一网通办”综合自助终端</h2>
+	</div>
+	<div class="main5">
+		<div class="lt4 fl">
+			<div class="titBox1" id="titleBox">自助办理</div>
+			<div class="navBox3 clearfloat nav5">
+				<a id="thirteen-eight" onclick="click_point(this.id);" ng-click="goToApp('http://10.86.135.33:8090/ac-product/selfworkbench-WJW/declare1/index.html')">
+					<div class="imgbox1" id="ptdImg1"><img src="libs/common/images/icon-nav1.png" /></div>
+					<p id="ptd" class="p1">自助申报</p>
+				</a>
+				<a id="twenty-seven" onclick="click_point(this.id);"
+					ng-click="goToApp('WJW_medicalQualificationQuery/index.html')">
+					<div class="imgbox1" id="ptdImg"><img src="libs/common/images/icon-nav18.png" /></div>
+					<p class="p1">医师执业资格<br />信息查询</p>
+				</a>
+				<a id="twenty-seven" onclick="click_point(this.id);"
+					ng-click="goToApp('WJW_nurseQualificationQuery/index.html')">
+					<div class="imgbox1" id="ptdImg1"><img src="libs/common/images/icon-nav2.png" /></div>
+					<p class="p1">护士执业资格<br />信息查询</p>
+				</a>
+				<a id="three" onclick="click_point(this.id);" ng-click="goToApp('guideline/index.html')">
+					<div class="imgbox1" id="ptdImg"><img src="libs/common/images/icon-nav7.png" /></div>
+					<p id="ptd" class="p1">办事指南</p>
+				</a>
+			</div>
+
+			<div class="titBox1" id="titleBox">便捷服务</div>
+			<div class="navBox3 clearfloat nav5">
+				<a id="thirteen-eight" onclick="click_point(this.id);" ng-click="goToApp('eLicense/index.html')">
+					<div class="imgbox1" id="ptdImg"><img src="libs/common/images/icon-nav3.png" /></div>
+					<p id="ptd" class="p1">我的证照</p>
+				</a>
+				<a id="twenty-seven" onclick="click_point(this.id);"
+					ng-click="goToApp('eProve/index.html')">
+					<div class="imgbox1" id="ptdImg1"><img src="libs/common/images/icon-nav9.png" /></div>
+					<p id="ptd" class="p1">我的证明</p>
+				</a>
+				<a id="three" onclick="click_point(this.id);" ng-click="goToApp('http://10.86.135.33:8090/ac-product/selfworkbench-WJW/copy/index.html')">
+					<div class="imgbox1" id="ptdImg"><img src="libs/common/images/icon-nav13.png" /></div>
+					<p id="ptd" class="p1">材料复印</p>
+				</a>
+				<a id="twenty-nine" onclick="click_point(this.id);" ng-click="goToApp('research/index.html')">
+					<div class="imgbox1" id="ptdImg1"><img src="libs/common/images/icon-nav8.png" /></div>
+					<p id="ptd" class="p1">用户评价</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<p class="uniqueId">设备编码：{{id}}</p>
+
+</div>
+<script type="text/javascript">
+</script>

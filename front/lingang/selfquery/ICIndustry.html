@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>立式查询系统</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/sx-inform.css" />
+		<link rel="stylesheet" href="js/scrollbar/swiper.min.css" />
+		<style>
+			#page1 {
+				display: none;
+			}
+			
+			.swiper-container {
+				width: 900px;
+				height: 1400px;
+				margin-top: 100px;
+			}
+			
+			.swiper-container .swiper-wrapper a img {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-slide {
+				height: auto;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				/*padding: 30px;*/
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="con-box">
+			<header class="header">
+				<div class="hd-title"></div>
+			</header>
+			<!--自动轮播图片展示 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<a class="swiper-slide"><img src="./images/ICIndustry/0_1.jpg" /></a>
+					<a class="swiper-slide"><img src="./images/ICIndustry/0_2.jpg" /></a>
+					<a class="swiper-slide"><img src="./images/ICIndustry/0_3.jpg" /></a>
+					<a class="swiper-slide"><img src="./images/ICIndustry/0_4.jpg" /></a>
+					<a class="swiper-slide"><img src="./images/ICIndustry/0_5.jpg" /></a>
+					<a class="swiper-slide"><img src="./images/ICIndustry/0_6.jpg" /></a>
+					
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+
+				<!-- 如果需要滚动条 -->
+				<div class="swiper-scrollbar"></div>
+			</div>
+			<footer class="footer">
+				<div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt="" /></div>
+			</footer>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/scrollbar/swiper.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/LodopFuncs.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			pagination: '.swiper-pagination',
+			grabCursor: true,
+			effect: 'coverflow',
+			coverflow: {
+				rotate: 30,
+				stretch: 10,
+				depth: 60,
+				modifier: 2,
+				slideShadows: true
+			},
+		    // 如果需要前进后退按钮
+		    nextButton: '.swiper-button-next',
+		    prevButton: '.swiper-button-prev',
+		});
+		// 返回
+		function back() {
+			// 页面跳转
+			window.location.href = 'index.html';
+		}
+	</script>
+
+</html>

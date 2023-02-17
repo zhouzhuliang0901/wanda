@@ -1,0 +1,304 @@
+<p class="caption">
+	领取年老一次性计划生育奖励费申请审核表</p>
+<div class="clearfloat" style="margin-top: 35px;">
+	<div class="main2 main5">
+		<div id="wrapper">
+			<div class="scrollBox2 clearfloat">
+				<div class="tabelBox1">
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stName" id="stName" readonly>
+						</dd>
+						<dd class="lt1 lt3">
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<b class="red1">*</b>
+							<dd class="rt2">
+								<input class="input1" type="text" ng-model="stSex" id="stSex" readonly>
+							</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>身份证号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stIdCard" id="stIdCard" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>出生日期：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="birthday" id="birthday" readonly>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>婚姻状况：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<!--<input class="input1" ng-model="marryStatus" id="marryStatus" type="text" placeholder="">-->
+							<select class="select1" id="marryStatus" vName="" vId="" ng-model="marryStatus" ng-change="ifmulti()">
+								<option class="col1">已婚</option>
+								<option class="col1">离异</option>
+								<option class="col1">丧偶</option>
+							</select>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>婚姻证明编号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" ng-model="marryNumber" id="marryNumber" type="text">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>户口性质：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<!--<input class="input1" ng-model="itentify" type="text">-->
+							<select class="select1" id="itentify" vName="" vId="" ng-model="itentify" ng-change="ifmulti()">
+								<option class="col1">农业户口</option>
+								<option class="col1">非农业户口</option>
+							</select>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>户籍地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" id="stAddress" ng-model="stAddress" type="text" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" id="stAddress1" ng-model="stAddress1" type="text" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>联系手机：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" ng-model="mobile" id="mobile" type="text" placeholder="请填写手机号码">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>工作单位：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" ng-model="workAddress" id="workAddress" type="text" placeholder="">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>《光荣证》编号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" ng-model="honorConfirm" id="honorConfirm" type="text" placeholder="">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>发证机关：</span>
+							<b class="red1">&nbsp;</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" ng-model="honorFrom" id="honorFrom" type="text" placeholder="">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>子女情况：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="liveType" ng-click="choose()">
+							<a href="javascript:;">无子女</a>
+							<a href="javascript:;">生育（包括收养）并存活子女</a>
+						</dd>
+					</dl>
+					<div ng-show="childStatus">
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>子女姓名：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childName" id="childName" type="text" placeholder="">
+							</dd>
+
+							<dd class="lt1 lt3">
+								<span>性别：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childSex" id="childSex" type="text" placeholder="">
+							</dd>
+						</dl>
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>子女身份证号码：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childNumber" id="childNumber" type="text" placeholder="">
+							</dd>
+
+							<dd class="lt1 lt3">
+								<span>出生日期：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childBirthday" id="childBirthday" type="text" placeholder="">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>出生证证号：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="birthConfirm" id="birthConfirm" type="text" placeholder="">
+							</dd>
+
+							<dd class="lt1 lt3">
+								<span>收养文书编号：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="birthNumber" id="birthNumber" type="text" placeholder="">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>子女户籍地址：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt5">
+								<input class="input1" id="stAddress2" ng-model="stAddress2" type="text" placeholder="详细地址">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>子女居住地址：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt5">
+								<input class="input1" id="stAddres3" ng-model="stAddress3" type="text" placeholder="详细地址">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>子女父（母）姓名：</span>
+
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childFamilyName" id="childFamilyName" type="text" placeholder="">
+							</dd>
+
+							<dd class="lt1 lt3">
+								<span>性别：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childFamilySex" id="childFamilySex" type="text" placeholder="">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>出生日期：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childFamilyBirthday" id="childFamilyBirthday" type="text" placeholder="">
+							</dd>
+
+							<dd class="lt1 lt3">
+								<span>身份证号码：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" ng-model="childFamilyNumber" id="childFamilyNumber" type="text" placeholder="">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>户籍地址：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt5">
+								<input class="input1" id="childFamilyAddress" ng-model="childFamilyAddress" type="text" placeholder="详细地址">
+							</dd>
+						</dl>
+
+						<dl class="dl1 clearfloat">
+							<dd class="lt1 lt3">
+								<span>居住地址：</span>
+								<b class="red1">&nbsp;</b>
+							</dd>
+							<dd class="rt5">
+								<input class="input1" id="childFamilyAddress" ng-model="childFamilyAddress" type="text" placeholder="详细地址">
+							</dd>
+						</dl>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="mainrt1">
+		<h3 style="margin-bottom:15px;">样表</h3>
+		<div class="imgbox2">
+			<img src="images/1.png" />
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.scrollBox2 {
+		width: 100%;
+	}
+	
+	#wrapper {
+		width: 1328px;
+		height: 662px;
+	}
+	
+	.caption {
+		margin-top: 60px;
+		margin-left: 200px;
+	}
+</style>

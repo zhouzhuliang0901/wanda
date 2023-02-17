@@ -1,0 +1,53 @@
+<div class="scrollBox2 clearfloat" style="overflow:visible;">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img ng-class="{'loading':recognitionOver}" ng-src="{{showImage}}" />
+			<p>{{tipsText}}</p>
+		</a>
+	</div>
+	<a href="javascript:;" class="stamp" ng-click="capture()" ng-if="!recognitionOver">拍&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;照</a>
+	<a href="javascript:;" class="stamp reR" ng-click="reRecognition()" ng-if="recognitionOver">重新核验</a>
+	<a href="javascript:;" class="stamp success" ng-click="success()" ng-if="recognitionOver">完&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</a>
+</div>
+<style type="text/css">
+	.clearfloat {
+		position: relative;
+	}
+	
+	.stamp {
+		position: absolute;
+		display: inline-block;
+		overflow: hidden;
+		top: 460px;
+		left: 760px;
+		height: 68px;
+		line-height: 68px;
+		border: 1px solid #fcfeff;
+		padding: 0 60px;
+		background-color: hsla(193, 100%, 42%, 0.69);
+		border-radius: 10px;
+		font-size:38px;
+	}
+	
+	.stamp.reR {
+		left: 510px;
+		font-size:38px;
+	}
+	
+	.stamp.success {
+		left: 1000px;
+		background-color: #56ce97;
+		font-size:38px;
+	}
+	
+	.scrollBox2 .cardreadingBox1 img {
+		width: 200px;
+		height: auto;
+	}
+	
+	.scrollBox2 .cardreadingBox1 img.loading {
+		margin-top: 100px;
+		width: 400px;
+		height: auto;
+	}
+</style>

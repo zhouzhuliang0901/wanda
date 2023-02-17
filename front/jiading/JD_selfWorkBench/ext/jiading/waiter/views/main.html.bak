@@ -1,0 +1,84 @@
+<div class="tabBotbox1" id="tabBotbox1">
+<!--
+<ul class="container">
+	<li ng-click="chooseOne()" class="animate">
+		<img src="../../../libs/common/images/icon/ggkz.png" />
+		<p>药品器械网办平台</p>
+	</li>
+	
+	<li ng-click="chooseTwo()" class="animate">
+		<img src="../../../libs/common/images/icon/rszz.png" />
+		<p>特种设备网办平台</p>
+	</li>
+	<li ng-click="chooseThree()" class="animate">
+		<img src="../../../libs/common/images/icon/rszz.png" />
+		<p>工业产品网办平台</p>
+	</li>
+	<li ng-click="chooseFour()" class="animate">
+		<img src="../../../libs/common/images/icon/rszz.png" />
+		<p>开办企业一窗通</p>
+	</li>
+	<li ng-click="chooseFive()" class="animate">
+		<img src="../../../libs/common/images/icon/rszz.png" />
+		<p>门户网站</p>
+	</li>
+</ul>
+-->
+	<ul class="container">
+		<li ng-click="ywtbShow()" class="animate">
+			<img src="../../../libs/common/images/icon/ggkz.png" />
+			<p>一网通办</p>
+		</li>
+		<li ng-click="tzsbShow()" class="animate">
+			<img src="../../../libs/common/images/icon/rszz.png" />
+			<p>特种设备网办平台</p>
+		</li>
+	</ul>
+</div>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-evenly;
+		margin: 256px auto;
+		align-items: flex-start;
+		width: 1750px;
+		/*height: 800px;*/
+	}
+	
+	.container li {
+		margin-left: 0px;
+		text-align: center;
+		/*height: 300px;*/
+		width: 300px;
+		position:relative;
+	}
+	
+	.container li>img {
+		/*margin-top: 80px;*/
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 226px;
+		font-size: 28px;
+	}
+	
+	.animate::before {
+	    content: "";
+	    position: absolute;
+	    left: 50px;
+	    top: 20px;
+	    width: 396px;
+	    height: 35px;
+	    background-position: center center;
+	    background-size: 200% 35px;
+	    animation: lightAnimation 2s;
+	    animation-iteration-count: infinite;
+	    animation-direction: alternate;
+	    animation-timing-function: linear;
+	}
+	
+</style>

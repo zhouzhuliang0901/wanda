@@ -1,0 +1,151 @@
+<style type="text/css">
+	.caption {
+		margin-top: 85px;
+		margin-left: 235px;
+	}
+	
+	.tips {
+		position: absolute;
+		font-size: 28px;
+		color: #EBBB12;
+		top: 188px;
+		left: 400px;
+	}
+	
+	.select {
+		margin-top: 50px;
+		margin-left: 100px;
+		width: 1000px;
+		height: auto;
+		padding: 0;
+		border-collapse: collapse;
+	}
+	
+	.keybord {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 566px;
+		margin-left: 755px;
+		margin-top: 15px;
+	}
+	
+	.keybord a {
+		font-size: 35px;
+		color: #fff;
+		height: 90px;
+		width: 90px;
+		text-align: center;
+		line-height: 95px;
+		border-radius: 20px;
+		box-shadow: 0 0 10px #2779C6;
+		transition: all 0.5s;
+	}
+	
+	.keybord a.in {
+		font-size: 35px;
+		color: #fff;
+		height: 90px;
+		width: 90px;
+		text-align: center;
+		line-height: 95px;
+		border-radius: 20px;
+		box-shadow: 0 0 10px #2779C6;
+		background: url(../libs/common/images/check1.png) no-repeat;
+		background-size: 39px 39px;
+		background-position-x: 50px;
+		transition: all 0.5s;
+	}
+	
+	.tips1 {
+		font-size: 30px;
+		float: left;
+		text-align: center;
+		margin-left: 500px;
+		margin-top: 38px;
+	}
+	
+	.tips4 {
+		font-size: 30px;
+		float: left;
+		text-align: center;
+		margin-left: 440px;
+		margin-top: 38px;
+	}
+	
+	.tips5 {
+		font-size: 30px;
+		float: left;
+		text-align: center;
+		margin-left: 560px;
+		margin-top: 56px;
+	}
+	
+	.input {
+		background: rgba(255, 255, 255, .25);
+		border: none;
+		font-size: 32px;
+		height: 75px;
+		line-height: 50px;
+		width: 575px;
+		padding-left: 10px;
+		color: white;
+	}
+	
+	.search {
+		float: left;
+		margin-left: 40px;
+		margin-top: 40px;
+		width: 510px;
+		height: 97px;
+	}
+</style>
+<p class="caption">使用调研
+	<p class="tips">(请点击选择分数：1为非常不满意，5为非常满意)</p>
+</p>
+<table class="select">
+	<tr>
+		<th>
+			<div class="tips1">设备是否满意：</div>
+			<div id="keybord1" class="keybord">
+				<a ng-repeat="item in keybordArr">{{item}}</a>
+			</div>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<div class="tips2 tips1">外观是否好看：</div>
+			<div id="keybord2" class="keybord">
+				<a ng-repeat="item in keybordArr">{{item}}</a>
+			</div>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<div class="tips3 tips1">操作是否方便：</div>
+			<div id="keybord3" class="keybord">
+				<a ng-repeat="item in keybordArr">{{item}}</a>
+			</div>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<div class="tips4 tips1">屏幕角度是否合适：</div>
+			<div id="keybord4" class="keybord">
+				<a ng-repeat="item in keybordArr">{{item}}</a>
+			</div>
+		</th>
+	</tr>
+	<tr>
+		<th>
+			<div class="tips5 tips1">其他补充：</div>
+			<div id="search" class="search">
+				<input id="input" class="input" type="text" ng-model="count" />
+			</div>
+		</th>
+	</tr>
+</table>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" next-btn-info="提交" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

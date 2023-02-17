@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<!--<script src="js/self-mac-tools.js"></script>-->
+	<script src="js/devBak.js"></script>
+	<style>
+		body {
+			padding: 40px 0px 0px 40px;
+			overflow: auto;
+		}
+		
+		button {
+			display: block;
+			padding: 10px 20px;
+			margin: 20px 0px;
+		}
+		/*button:hover,
+		button:focus {
+			background: #f47c20;
+			outline: 0;
+		}*/
+		
+		.line button {
+			display: inline;
+			margin-top: 20px;
+		}
+	</style>
+
+	<body>
+		<button onclick="CHidCardOpen()">开始阅读身份证</button>
+		<button onclick="CHidCardClose()">关闭身份证阅读</button>
+		<p class="idCardtext"> </p>
+		<button onclick="CHqrCodeOpen()">开始扫描二维码</button>
+		<p class="qrCodetext"> </p>
+		<button onclick="CHssCard()">开始读取社保卡信息</button>
+		<p class="ssCardtext"> </p>
+		<div class="line">
+			<button onclick="CHcmCaptureOpen()">打开高拍仪</button>
+			<button onclick="CHcmCaptureCapture()">拍照</button>
+			<button onclick="CHcmCaptureHide()">关闭高拍仪</button>
+			<span class="cmCapturetext"></span>
+			<p class="CHBase64"></p>
+		</div>
+		<div class="line">
+			<button onclick="CHCameraOpen()">打开前置摄像头</button>
+			<button onclick="CHCameraCapture()">拍照</button>
+			<button onclick="CHCameraClose()">关闭前置摄像头</button>
+			<span class="Cameratext"></span>
+			<p class="CHCameraPath"></p>
+		</div>
+	</body>
+
+	<script>
+		var time = "读取中----";
+
+		function CHidCardOpen() {
+			$(".idCardtext").html(time);
+			$.device.idCardOpen(function(val) {
+				$(".idCardtext").html(val);
+				//$.device.idCardClose();
+			});
+		}
+
+		function CHidCardClose() {
+			$(".idCardtext").html("已关闭");
+			$.device.idCardClose();
+		}
+
+		function CHqrCodeOpen() {
+			$(".qrCodetext").html(time);
+			$.device.qrCodeOpen(function(val) {
+				$(".qrCodetext").html(val);
+			});
+		}
+
+		function CHssCard() {
+			$(".ssCardtext").html(time);
+			$.device.ssCardOpen(function(val) {
+				$(".ssCardtext").html(val);
+				$.device.ssCardClose();
+			});
+		}
+		//打开高拍仪
+		function CHcmCaptureOpen() {
+			$(".cmCapturetext").html("高拍仪打开成功");
+			// var open = 	$.device.cmCaptureShow(800,600, 340, 340);
+			var open = $.device.cmCaptureShow(800, 600, 340, 340);
+			var res = $.device.cmCaptureSelectRect(0, 0, 100, 100);
+		}
+		//拍照
+		function CHcmCaptureCapture() {
+			$.device.cmCaptureCaptureBase64(function(value) {
+				$(".CHBase64").html("data:image/png;base64," + value);
+			});
+		}
+		//关闭高拍仪
+		function CHcmCaptureHide() {
+			$.device.cmCaptureHide();
+			$(".cmCapturetext").html("高拍仪已关闭");
+		}
+
+		//打开前置摄像头
+		function CHCameraOpen() {
+			window.external.VideoCapture_Init(500, 500, 300, 400);
+			window.external.VideoCapture_Link("Techshion TCF261 Col", 0);
+			window.external.VideoCapture_Show();
+			$(".Cameratext").html("前置摄像头打开成功");
+		}
+		// 拍照
+		function CHCameraCapture() {
+			window.external.VideoCapture_Capture_Base64();
+			window.videoCaptureUrlCallback = function(data) {
+				$(".CHCameraPath").html(data);
+			}
+		}
+
+		function CHCameraClose() {
+			window.external.VideoCapture_Close();
+			window.external.VideoCapture_UnLink();
+			$(".Cameratext").html("前置摄像头已经关闭");
+		}
+	</script>
+
+</html>

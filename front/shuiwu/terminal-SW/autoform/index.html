@@ -1,0 +1,54 @@
+<!doctype html>
+<html ng-app="autoformApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>自助取表</title>
+    <link rel="stylesheet" href="../libs/common/css/color.css">
+    <link rel="stylesheet" href="../libs/common/css/selfService-new.css">
+    <!--身份证-->
+    <object classid='clsid:EC73C0BA-351E-45CE-BA08-979AE0E78A8C' id='OCX_idCard' style='width:0 px;height:0px;'></object>
+    <!--灯光-->
+    <object classid='clsid:82EFB15A-DE7A-48D9-B175-5BECADDCBDF4' id='OCX_Light' style='width:0px;height:0px;'></object>
+    <!--高拍仪-->
+    <object classid='clsid:52D1E686-D8D7-4DF2-9A74-8B8F4650BF73' id='OCX_Scan' style='width:0px;height:0px;'></object>
+    <!--激光打印机-->
+    <object classid='clsid:EC73C0BA-351E-45CE-BA08-979AE0E78A8C' id='OCX_LaserPrint' style='width:0px;height:0px;'></object>
+	<!--扫描-->	
+	<object classid='clsid:DE2FB33E-F5D0-44A9-A49C-FA62B9E77DBD' id='OCX_Barcode' style='width:0px;height:0px;'></object>
+</head>
+
+<body style="overflow:hidden;" ondragstart="return false;" onselectstart="return false">
+    <div class="content_box_form">
+        <div ng-include="'../libs/common/views/head.html'" ng-controller="headController"></div>
+
+        <ng-view></ng-view>
+    </div>
+    <!-- <script src="../libs/angularjs/1.5.8/angular.js"></script>
+    <script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="../libs/common/js/hardware-api.js"></script>
+    <script src="../libs/common/js/EXTPagin.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+    <script src="../libs/common/js/init-config-msg.js"></script>
+    <script src="../libs/common/js/init-config-log.js"></script>
+    <script src="../libs/common/js/self-mac-tools.js"></script>
+    <script src="../libs/common/js/isExt.js"></script>
+    <script src="app.js"></script>
+    <script src="../libs/common/js/customMethod.js"></script>
+    <script src="routers.js"></script>
+    <script src="controllers.js"></script>
+    <script src="../libs/common/controller/head.js"></script>
+    <script src="../libs/common/controller/public.js"></script>
+    <script src="../libs/layer/layer.js"></script>
+    <script src="../libs/common/js/self-mac-timeback.js"></script>
+    <script src="../libs/common/js/piwik.js"></script> -->
+    <script src="../libs/angularjs/1.5.8/angular.js"></script>
+    <script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="../libs/common/js/bundle.js"></script>
+    <script src="../libs/layer/layer.js"></script>
+    <script src="controllers.js"></script>
+    <script src="routers.js"></script>
+</body>
+
+</html>

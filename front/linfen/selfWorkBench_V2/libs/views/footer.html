@@ -1,0 +1,134 @@
+<div class="footBox">
+    <div class="foottop1 clearfloat">
+        <div class="prev-back-next">
+        	<!--删除a标签的href属性, 防止出现某些页面跳转需要双击才能跳转-->
+            <a class="prev" ng-if="isShowPrevBtn=='1'" ng-click=" prevStep()">{{prevBtnInfo}}</a>
+            <a class="backindex1" ng-click="goHome()"></a>
+            <a class="next" ng-if="isShowNextBtn=='1'" ng-click="nextStep()">{{nextBtnInfo}}</a>
+        </div>
+        <div class="backbox1">
+            无操作
+            <span>
+                <b class="minute">{{ maxCountDown }}</b>秒
+            </span>
+            后将返回首页
+            <alert-home msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert-home>
+        </div>
+    </div>
+</div>
+<div class="help" ng-click="getHelp()" ng-show="xsbb">
+	<img class="help1" src="../libs/common/images/xsbb/help1.gif" alt="" />
+	<img class="help2" src="../libs/common/images/xsbb/help2.png" alt="" />
+</div>
+<div class="teseClose" ng-click="closeUrlWindow()" ng-show="guanbi">
+		<img src="../libs/common/images/guanbi.png" alt="" style="width: 100px;"/>
+</div>
+<style type="text/css">
+	.teseClose {
+		position: absolute;
+		top: 80px;
+    	right: 84px;
+		width: 100px;
+		height: 100px;
+	}
+	.help {
+		position: absolute;
+		top: 700px;
+		right: 20px;
+		display: flex;
+		height: 100px;
+		flex-direction: column;
+	}
+
+	.help1 {
+		width: 117px;
+	}
+
+	.help2 {
+		margin-top: -15px;
+		width: 117px;
+	}
+    .footBox {
+        position: absolute;
+        left: 0px;
+        bottom: 12px;
+        height: 110px;
+        width: 100%;
+        background: url('../libs/common/images/bg-footer1.png') no-repeat center bottom;
+    }
+
+    .footBox .foottop1 {
+        height: 110px;
+        line-height: 110px;
+        padding: 0 40px;
+        font-size: 24px;
+    }
+
+    .footBox .foottop1 .prev-back-next {
+        height: 65%;
+        position: relative;
+    }
+
+    .footBox .foottop1 .header1 {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        font-size: 40px;
+        font-weight: bold;
+        background: url("../libs/common/images/header1.png") no-repeat center center;
+        /* background-size: 90% 100%; */
+    }
+
+    .footBox .foottop1 .message1 {
+        float: right;
+        display: inline-block;
+        width: 63px;
+        height: 130px;
+        overflow: hidden;
+        background: url("../libs/common/images/message.png") no-repeat right 50px;
+        text-indent: -9999em;
+    }
+
+    .footBox .foottop1 .prev-back-next .prev {
+        float: left;
+        width: 154px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        background: url('../libs/common/images/prev.png') no-repeat center center;
+    }
+
+    .footBox .foottop1 .prev-back-next .next {
+        float: right;
+        width: 154px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background: url('../libs/common/images/next-step.png') no-repeat center center;
+    }
+
+    .footBox .foottop1 .prev-back-next .backindex1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 154px;
+        height: 60px;
+        background: url('../libs/common/images/goHome.png') no-repeat center center;
+    }
+
+    .footBox .foottop1 .backbox1 {
+        height: 45%;
+        line-height: 60px;
+        text-align: center;
+
+    }
+
+    .footBox .foottop1 .backbox1 span {
+        color: #f1992e;
+        margin: 0 5px;
+    }
+    .alertContent{
+
+    }
+</style>

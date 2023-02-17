@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立式查询系统</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/bszn-con.css"/>
+    <link rel="stylesheet" href="js/scrollbar/swiper.min.css" />
+	<style>
+		.swiper-container {
+			width: 100%;
+			height: 100%;
+		}
+		
+		.swiper-slide {
+			height: auto;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+			padding: 30px;
+		}
+	</style>
+</head>
+<body>
+<div class="con-box">
+    <p id="timeMark"></p>
+    <header class="header">
+        <div class="hd-title"></div>
+    </header>
+    <!-- 立式查询机-->
+    <div class="con-title-box">
+        <div class="con-title">
+            <h3 id="itemName"></h3>
+            <p>事项总数：<span id="itemNu"></span></p>
+        </div>
+
+    </div>
+    <section class="section" id="showItemName">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide">
+			        <ul id="itemNameList">
+			         <script id="itemList" type="text/html">
+			            {{each itemList}}
+			                 <li>
+			                    <img src="images/list-r.png"><a onclick="getItemDetails('{{$value.stItemNo}}')">{{$value.stItemName}}</a>
+			                 </li>
+			            {{/each}}
+			        </script>
+			        </ul>
+				</div>
+			</div>
+			<!-- Add Scroll Bar -->
+			<div class="swiper-scrollbar"></div>
+		</div>
+    </section>
+    <footer class="footer">
+        <div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt=""/></div>
+    </footer>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/scrollbar/swiper.min.js" ></script>
+<script src="js/template.js"></script>
+<script src="js/common.js"></script>
+<script>
+   // 根目录
+   var webRoot = "";
+   // 链接参数
+   var requestData;
+   $(function () {
+       // 获取根目录
+       webRoot = getRootPath_web();
+       
+       // 获取事项名称
+       getItemName();
+       
+       // 页面倒计时
+       timeCount (70); 
+    });
+    
+    // 获取事项名称
+    function getItemName () {
+        // 链接参数
+        requestData = getRequest();
+        // 参数的方法
+        var fdo = "getItemByHallCode";
+        // 按部门的场合
+        if (requestData.type == "ogran") {
+           fdo = "getItemByOrganCode";
+        }
+        // 获取事项名称
+        $.ajax({
+           async : true,
+           type : "post",
+           url : "http://192.168.0.2:8080/ac/aci/autoterminal/forward.do", //受办理系统项目IP
+           data :{fmd :"aci-selfquery",
+                  fdo : fdo,
+                  hallCode : requestData.id,
+                  organCode : requestData.id},
+           dataType : "jsonp",
+           jsonp : "jsonpCallback",
+           success : function(dataJsonp) {
+                // 解析数据
+                var data=eval("("+JSON.stringify(dataJsonp)+")");
+                // 显示信息
+                showMsg (data) ;
+           },
+           error : function() {
+           }
+        });
+    }
+    
+    // 显示信息
+    function showMsg (data) {
+           // 显示事项名称
+           var itemList = template('itemList',data);
+           $("#itemNameList").html(itemList);
+           // 事项名称
+           $("#itemName").html(data.hallName);
+           // 按部门的场合
+           if (requestData.type == "ogran") {
+               $("#itemName").html(data.organName);
+           }
+           // 事项总数
+           $("#itemNu").html(data.number);
+                           
+   			var swiper = new Swiper('.swiper-container', {
+				scrollbar: '.swiper-scrollbar',
+				scrollbarHide: false,
+				direction: 'vertical',
+				slidesPerView: 'auto',
+				autoHeight: true,
+				mousewheelControl: true,
+				freeMode: true
+			});
+    }
+    
+    // 获取事项详细信息
+    function getItemDetails (itemNo) {
+        // 页面跳转
+        window.location.href="guide_details.html?itemNo="+itemNo+"&type="+requestData.type+"&id="+requestData.id;
+    }
+    
+	// 返回
+	function back(){
+	    window.location.href="guide_type.html";
+	}
+	
+	// 向上移动
+    $("#moveUp").click( function () {
+          // 移动办事指南
+         $("#showItemName").mCustomScrollbar("scrollTo","+=180");
+    });
+    
+    // 向下移动
+    $("#moveDown").click( function () {
+           // 移动办事指南
+          $("#showItemName").mCustomScrollbar("scrollTo","-=180");
+    })
+</script>
+</body>
+</html>

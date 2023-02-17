@@ -1,0 +1,38 @@
+<div class="load">
+	正在加载...
+</div>
+<iframe id="infoForm" ng-src="{{address}}" width="" height=""></iframe>
+<apptb-footer default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<style type="text/css">
+	.in .headBox .headTop .headName {
+		font-size: 30px;
+	}
+
+	.load {
+		position: absolute;
+		margin: 300px 710px;
+		font-size: 100px;
+	}
+
+	iframe {
+		position: absolute;
+		width: 1500px;
+		height: 750px;
+		margin: 50px 200px;
+		display: block;
+		border: none;
+	}
+
+	@media only screen and (max-width: 1600px) {
+		iframe {
+			width: 900px;
+			height: 600px;
+			margin-top: 90px;
+		}
+		.load {
+			margin: 300px 398px;
+		}
+	}
+</style>

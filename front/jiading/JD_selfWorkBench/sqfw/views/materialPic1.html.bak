@@ -1,0 +1,103 @@
+<div class="shell bg2">
+	<apptb-header fun-name="自助申报"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="main2 wrapper" style="position:relative;height: 600px;width:1550px;overflow:hidden;margin-top: 20px;margin-left:90px">
+				<div class="imageShow" style="height: 1500px;">
+					<span ng-click="select(index)" ng-repeat="(index,item) in imgUrls"  ng-class="{'imgStyle':current==index}">
+						<img class="id" ng-src="{{'http://10.237.16.72'+item.imageUrl}}">
+					</span>
+				</div>
+		</div>
+	</div>
+	<div class="loadingBox" ng-if="!isLoading">
+		<img style="margin-left: 909px;margin-top: 523px;" src="../libs/common/images/loadings.gif" alt="" />
+		<p>正在加载数据，请稍后...</p>
+	</div>
+
+	<div class="footer">
+		<div class="headtop1 clearfloat">
+			<a href="#materialList" class="Prev" style="width: 154px;">返回列表</a>
+			<a class="next" id="consureOnclick" ng-click="goNext()">确认</a>
+			<a ng-click="goHome()" class="backindex1"></a>
+			<div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+		</div>
+	</div>
+</div>
+<style>
+	.id {
+		height: 185px;
+		margin-left: 10px;
+		position: relative;
+	}
+	
+	.imgStyle::before{
+		content:'';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 70px;
+		height: 70px;
+		background: url(./images/check1.png) center;
+		background-size: 70px 70px;
+		z-index: 999;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	.uploaded::after{
+		content:'';
+		position: absolute;
+		width: 150px;
+		height: 150px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		background: url(./images/state_1.png) center;
+		background-size: 150px 150px;
+		z-index: 999;
+	}
+	.imageShow>span{
+		position: relative;
+		display: block;
+    	float: left;
+    	height: 200px;
+		margin:0px 20px 0 0;
+	}
+	.layui-layer{
+		color: #000;
+	}
+	.layui-layer-lan .layui-layer-btn a{
+		height: 28px;
+	    line-height: 28px;
+	    margin: 5px 5px 0;
+	    padding: 0 15px;
+	    border: 1px solid #E9E7E7;
+	    border-radius: 2px;
+	    font-weight: 400;
+	    cursor: pointer;
+	    text-decoration: none;
+	    background: #fff;
+	    color: #333;
+	}
+</style>

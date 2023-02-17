@@ -1,0 +1,22 @@
+#formWrap{
+    padding: 0 200px 0 0;
+}
+ #formWrap1{
+    width: 800px;
+    padding: 0 200px 0 0;
+    color: #000;
+    background: #fff;
+    box-sizing: border-box;
+ }
+#formWrap1>p{
+    text-align: left;
+}
+#formWrap1>p>span{
+    color: #000;
+}
+table{
+    width: 611px;
+}
+table tbody tr td{
+    color: #000;
+}

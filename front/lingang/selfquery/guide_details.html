@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>立式查询系统</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/sx-inform.css" />
+		<link rel="stylesheet" href="js/scrollbar/swiper.min.css" />
+		<style>
+			#page1 {
+				display: none;
+			}
+			
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-slide {
+				height: auto;
+				-webkit-box-sizing: border-box;
+				box-sizing: border-box;
+				padding: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="con-box">
+			<p id="timeMark"></p>
+			<header class="header">
+				<div class="hd-title"></div>
+			</header>
+			<!-- 立式查询机-->
+			<div class="con-title-box">
+				<div class="con-title">
+					<h3 id="itemTitle"></h3>
+					<div>
+						<a id="itemGuide" onclick="javascript:con_toggle(1)" class="con-tog tog_bgc">事项办事指南</a>
+						<a id="itemNotify" onclick="javascript:con_toggle(2)" class="con-tog" style="display: none">事项告知单</a>
+					</div>
+				</div>
+			</div>
+			<div class="two-code" id="appCode"></div>
+
+			<div class="print">
+				<img src="images/print_03.png" alt="" id="printDetails" />
+			</div>
+			<section class="section" id="con_one_1">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="msg" id="guideMsg">
+
+							</div>
+						</div>
+					</div>
+					<!-- Add Scroll Bar -->
+					<div class="swiper-scrollbar"></div>
+				</div>
+			</section>
+			<div id="page1"></div>
+			<section class="section" id="con_one_2" style="display: none">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide">
+							<div class="msg" id="itemMsg">
+
+							</div>
+						</div>
+					</div>
+					<!-- Add Scroll Bar -->
+					<div class="swiper-scrollbar"></div>
+				</div>
+			</section>
+			<footer class="footer">
+				<div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt="" /></div>
+			</footer>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="js/scrollbar/swiper.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script type="text/javascript" src="js/LodopFuncs.js"></script>
+	<script>
+		var guideDetails = '';
+		var guidePage = '';
+		var notify = '';
+		// 根目录
+		var webRoot = "";
+		// 展示页面
+		var numPage = "1";
+		$(function() {
+			// 获取根目录
+			webRoot = getRootPath_web();
+			// 获取事项详情
+			getItemDetails();
+
+			// 页面倒计时
+			timeCount(70);
+
+			// 打印
+			$("#printDetails").on('click', function() {
+				layer.confirm('为了节约用纸，您可以扫描二维码，手机查看和收藏该页面', {
+					title: "温馨提示",
+					btn: ['继续打印', '取消'] //按钮
+				}, function() {
+					layer.msg('打印机准备中...');
+					printDetails();
+				}, function() {
+					layer.tips('手机扫一扫，收藏当前页面', '#appCode');
+				});
+			});
+		});
+
+		// 获取事项详情
+		function getItemDetails() {
+			// 链接参数
+			var requestData = getRequest();
+			// 获取事项名称
+			$.ajax({
+				async: true,
+				type: "post",
+				url: "http://192.168.0.5:8010/ac-item/item/selfQuery/guide/getGuideAndNotify.do", //修改配置  样表查询机项目IP
+				data: { itemNo: requestData.itemNo },
+				dataType: "jsonp",
+				jsonp: "jsonpCallback",
+				success: function(dataJsonp) {
+					// 解析数据
+					var data = eval("(" + JSON.stringify(dataJsonp) + ")");
+					// 显示指南详细信息
+					showGuideDetails(data.guide);
+					// 二维码
+					var appHtml = "<img  src='http://192.168.0.5:8010/ac-item/qrcode/qrcode.do?content=" + data.url + "'/>";
+					$("#appCode").html(appHtml);
+					// 事项告知单存在的场合
+					if(data.notify != "") {
+						// 事项告知单信息
+						$("#itemMsg").html(data.notify);
+						notify = data.notify;
+						$("#itemNotify").css("display", "inline-block");
+					}
+				},
+				error: function() {}
+			});
+		}
+
+		// 显示指南详细信息
+		function showGuideDetails(data) {
+			guideDetails = "<h2>一、适用范围：</h2>" + data.clRange + "<h2>二、事项名称和代码：</h2>" + data.clNameCode +
+				"<h2>三、办理依据：</h2>" + data.clDealAccording + "<h2>四、办理机构：</h2>" + data.clDealOrgan + "<h2>五、审批条件：</h2>" +
+				data.clApprovalConds + "<h2>六、审批数量：</h2>" + data.clApprovalCount + "<h2>七、审批材料：</h2>" + data.clApprovalMater +
+				"<h2>八、审批期限：</h2>" + data.clApprovalLimit + "<h2>九、审批证件：</h2>" + data.clApprovalCert + "<h2>十、收费标准：</h2>" +
+				data.clChargeStd + "<h2>十一、申请人权利及义务：</h2>" + data.clApplyRightsDuties + "<h2>十二、申请接受：</h2>" + data.clApplyReceive +
+				"<h2>十三、咨询途径：</h2>" + data.clConsultWay + "<h2>十四、投诉渠道：</h2>" + data.clComplaintChannel + "<h2>十五、办理方式：</h2>" +
+				data.clDealType + "<h2>十六、决定公开：</h2>" + data.clDecidedOpen;
+
+			guidePage = "<div style=\"font-size: 15px; font-weight: bold;\">一、适用范围：</div>" + data.clRange + "<div style=\"font-size: 15px; font-weight: bold;\">二、事项名称和代码：</div>" + data.clNameCode +
+				"<div style=\"font-size: 15px; font-weight: bold;\">三、办理依据：</div>" + data.clDealAccording + "<div style=\"font-size: 15px; font-weight: bold;\">四、办理机构：</div>" + data.clDealOrgan + "<div style=\"font-size: 15px; font-weight: bold;\">五、审批条件：</div>" +
+				data.clApprovalConds + "<div style=\"font-size: 15px; font-weight: bold;\">六、审批数量：</div>" + data.clApprovalCount + "<div style=\"font-size: 15px; font-weight: bold;\">七、审批材料：</div>" + data.clApprovalMater +
+				"<div style=\"font-size: 15px; font-weight: bold;\">八、审批期限：</div>" + data.clApprovalLimit + "<div style=\"font-size: 15px; font-weight: bold;\">九、审批证件：</div>" + data.clApprovalCert + "<div style=\"font-size: 15px; font-weight: bold;\">十、收费标准：</div>" +
+				data.clChargeStd + "<div style=\"font-size: 15px; font-weight: bold;\">十一、申请人权利及义务：</div>" + data.clApplyRightsDuties + "<div style=\"font-size: 15px; font-weight: bold;\">十二、申请接受：</div>" + data.clApplyReceive +
+				"<div style=\"font-size: 15px; font-weight: bold;\">十三、咨询途径：</div>" + data.clConsultWay + "<div style=\"font-size: 15px; font-weight: bold;\">十四、投诉渠道：</div>" + data.clComplaintChannel + "<div style=\"font-size: 15px; font-weight: bold;\">十五、办理方式：</div>" +
+				data.clDealType + "<div style=\"font-size: 15px; font-weight: bold;\">十六、决定公开：</div>" + data.clDecidedOpen;
+
+			guidePage = guidePage.replace(/<p([^<>]*)>([^<>]*)<\/p>/gi, '<div$1>$2</div>');
+
+			$("#page1").html(guidePage);
+
+			// 事项指南
+			$("#guideMsg").html(guideDetails);
+			
+			var swiper = new Swiper('.swiper-container', {
+				scrollbar: '.swiper-scrollbar',
+				scrollbarHide: true,
+				direction: 'vertical',
+				slidesPerView: 'auto',
+				autoHeight: true,
+				mousewheelControl: true,
+				freeMode: true
+			});
+			
+			// 事项名称
+			$("#itemTitle").html((data.stZhallId).substr(0, 50));
+		}
+
+		// 打印详细信息
+		function printDetails() {
+			var html = "";
+			// 事项办事指南的场合
+			if(numPage == "1") {
+				//$("#page1").html(guidePage);
+				var LODOP;
+				LODOP = getLodop();
+				LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+				LODOP.ADD_PRINT_HTM(0, 0, 280, 3600, document.getElementById("page1").innerHTML);
+				LODOP.PRINT();
+				// 事项告知单的场合
+			} else if(numPage == "2") {
+				html = $("#itemMsg").html();
+				$("#page1").html(html);
+
+				var LODOP;
+				LODOP = getLodop();
+				LODOP.PRINT_INIT("打印控件功能演示_Lodop功能_表单一");
+				LODOP.SET_PRINT_STYLE("FontSize", 10);
+				LODOP.SET_PRINT_STYLE("Bold", 1);
+				LODOP.ADD_PRINT_HTM(0, 0, 280, 3600, document.getElementById("page1").innerHTML);
+				LODOP.PRINT();
+			}
+		}
+
+		// 显示切换
+		function con_toggle(num) {
+			numPage = num;
+			for(var id = 1; id < 3; id++) {
+				var ids = "con_one_" + id;
+				if(id == num) {
+					document.getElementById(ids).style.display = "block";
+				} else {
+					document.getElementById(ids).style.display = "none";
+				}
+			}
+		};
+
+		// 返回
+		function back() {
+			// 链接参数
+			var requestData = getRequest();
+			// 页面跳转
+			window.location.href = "guide_name.html?type=" + requestData.type + "&id=" + requestData.id;
+		}
+
+		// 显示切换
+		$(".con-tog").click(function() {
+			$(".con-tog").removeClass('tog_bgc');
+			$(this).toggleClass('tog_bgc');
+		});
+	</script>
+
+</html>

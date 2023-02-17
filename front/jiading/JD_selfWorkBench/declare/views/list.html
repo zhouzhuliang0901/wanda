@@ -1,0 +1,138 @@
+<div class="shell bg2">
+	<apptb-header fun-name="自助办理"></apptb-header>
+
+	<div class="TabBox1">
+		<!--进度条-->
+		<ul class="navul1 clearfloat">
+			<li class="act">选择事项</li>
+			<li>办事指南</li>
+			<li>人证核验</li>
+			<li>在线填报</li>
+		</ul>
+		<span class="line"></span>
+		<!--查询方式-->
+		<ul class="tabul1 clearfloat">
+			
+			<div ng-show="idRead" class="inputBox1 inputDiv">
+				<input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+				<a class="btn_radius_50" style="right:20px;top:18px;" ng-click="getSearchMatter()">
+					<div class="greyLight">
+						<img src="images/icon-link9.png" height="50" width="50" />
+					</div>
+				</a>
+			</div>
+			<li ng-class="{'in':current==index}" class="ellipsis" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">{{item+'办事'}}</li>
+		</ul>
+		<div class="tabBotbox1" id="tabBotbox1">
+			<div class="cont">
+				<div class="tabBotbox1inner tabBotbox1inner1" ng-class="{'laststep':prev == true}">
+					<div id="wrapper" class="wrapper">
+						<div class="linkbox1 clearfloat" ng-class="{'matter':deptindex==1}">
+							<a ng-show="dept" class="ellipsis" ng-class="{'active':$index==active}" repeat-finish ng-repeat="item in itemName" ng-click="toMaterials(item.stItemName,item.organCode,item.organName,item.stItemNo)">{{item.stItemName||item.organName}}</a>
+							<a ng-show="!dept" ng-class="{'active':$index==active}" repeat-finish ng-repeat="itemType in itemType" ng-click="toItemTypeMaterials(itemType.itemTypeName,itemType.itemTypeCode,itemType.type)">{{itemType.itemTypeCode}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div id="print" ng-click="printCard()">打印</div>
+	<div id="closeXPS" ng-click="closeXPS()">关闭串口</div>-->
+	
+	<apptb-footer prev="goHome()" next="" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+	</apptb-footer>
+
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	#wrapper {
+		width: 1600px;
+		height: 500px;
+	}
+	
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 518px;
+		height: 116px;
+		float: left;
+		background: url(./images/bg-biglist.png) no-repeat;
+		margin-right: 20px;
+		font-size: 24px;
+		padding: 0 40px;
+		box-sizing: border-box;
+		line-height: 116px;
+	}
+	
+	.laststep {
+		height: 530px;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		height: 1080px;
+		width: 1920px;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	
+	#print{
+		position: fixed;
+		left: 40%;
+		top:50%;
+		width: 200px;
+		height: 200px;
+		background-color: skyblue;
+		border-radius: 50%;
+		line-height: 200px;
+		text-align: center;
+		font-size: 30px;
+	}
+	#closeXPS{
+		position: fixed;
+		left: 60%;
+		top:50%;
+		width: 200px;
+		height: 200px;
+		line-height: 200px;
+		text-align: center;
+		background-color: red;
+		border-radius: 50%;
+		font-size: 30px;
+	}
+	.input1{
+		width:400px;
+		height:80px;
+		padding-left: 30px;
+		font-size: 26px;
+		background:rgba(0,0,0,0)
+	}
+	.inputBox1{
+		margin-left:50px;
+		width:400px;
+		padding:0;
+		float:none;
+		background:url(./images/input.png) no-repeat;
+		background-size: 400px 80px;
+	}
+	.TabBox1 .tabul1 li{
+		margin-top:60px
+	}
+	.greyLight {
+		right: 30px;
+		bottom:10px;
+	}
+</style>

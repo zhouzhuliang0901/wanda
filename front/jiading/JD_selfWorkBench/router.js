@@ -1,0 +1,42 @@
+app.config(function($urlRouterProvider, $stateProvider) {
+ $urlRouterProvider.otherwise("/main");
+ $stateProvider
+  .state("main", {
+   url: "/main",
+   templateUrl: "index/main.html",
+   controller: function($scope, $location, $rootScope, appData) {
+    appData = {};
+    $rootScope.isChild = false;
+    $scope.answer = function(){
+     window.location.href = "https://zwdt.sh.gov.cn/smzy/shell_terminal/tourist/guide/qa?region=SH00JD&ask="+encodeURI($('.input1').val());
+     $.log.debug('https://zwdt.sh.gov.cn/smzy/shell_terminal/tourist/guide/qa?region=SH00JD&ask='+encodeURI($('.input1').val()));
+    }
+    $scope.sound = function(){
+     //window.location.href = "http://183.194.241.117/smzy/shell_terminal/tourist/guide/qa?region=SH00JD&ask=";
+	 window.location.href = "https://zwdt.sh.gov.cn/smzy/shell_terminal/tourist/guide/qa?region=SH00JD&ask=";
+    }
+    $scope.enterEvent = function(e) {
+           var keycode = window.event?e.keyCode:e.which;
+           if(keycode==13){
+               $scope.answer();
+           }
+       }
+    $scope.goToApp = function(address) {
+     if(address.indexOf("http") != -1) {
+      window.location.href = address;
+     } else {
+      window.location.href = address;
+     }
+     /*$.urlRouter.load(address, true);*/
+    };
+    $(function() {
+     var swiper = new Swiper('.swiper-container1', {
+      pagination: '.swiper-pagination',
+      slidesPerView: 'auto',
+      paginationClickable: true,
+      spaceBetween: 270
+     });
+    });
+   }
+  })
+})

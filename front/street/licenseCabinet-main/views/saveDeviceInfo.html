@@ -1,0 +1,36 @@
+<style>
+	.view-main {
+		justify-content: space-around;
+		height: 1200px;
+	}
+
+	.view-main a {
+		text-align: center;
+	}
+
+	.input {
+		background-color: #eae7e3;
+		border: 1px solid #c0bfbf;
+		padding-left: 30px;
+		font-size: 80px;
+		border-radius: 10px;
+		width: 800px;
+		height: 130px;
+	}
+
+	.btn .event {
+		left: 90px;
+	}
+</style>
+
+<div class="view-main">
+	<input type="text" class="input" placeholder="请输入证照柜编号" ng-model="stCabinetNo" />
+	<input type="text" class="input" placeholder="请输入证照柜柜子数" ng-model="nmCabinet" />
+	<!--<input type="text" class="input" placeholder="请输入证照柜所在街道"/>-->
+	<!--<input type="text" class="input" placeholder="请输入街道详细地址"/>-->
+	<input type="text" class="input" placeholder="请输入工作人员姓名" ng-model="stContacts" />
+	<input type="text" class="input" placeholder="请输入工作人员电话" ng-model="stPhone" />
+	<div class="btn" ng-click="addCabinetInfo()">
+		<span class="event">&nbsp;&nbsp;&nbsp;&nbsp;保存</span>
+	</div>
+</div>

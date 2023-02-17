@@ -1,0 +1,24 @@
+<!--<div class="TabBox1">
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}&nbsp;/&nbsp;扫描身份证</span></div>
+
+	<div class="main2">
+		<idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>
+		<zzsbrecognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></zzsbrecognition>
+	</div>
+</div>-->
+<div class="contain">
+	<p class="caption"><b>扫描身份证</p>
+	<div class="scrollBox2 clearfloat">
+		<idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>
+		<zzsbrecognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></zzsbrecognition>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.navBox2{
+		margin-left: 100px;
+		margin-top: 60px;
+	}
+</style>

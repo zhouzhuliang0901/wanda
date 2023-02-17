@@ -1,0 +1,35 @@
+<div class="TabBox1">
+	<li style="color: #fefefe;opacity: .6;font-size: 34px;margin-left: 177px; margin-top: 46px;margin-bottom: -44px;">主题事项</li>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}" style="width: 1800px;margin-top: 80px;margin-left: 125px;">
+						<a href="#start">线上办理</a>
+						<a ng-click="goToApp('../OfflineHandle/index.html')">线下办理</a>
+						<a ng-click="goToApp('../OfflineHandle/index.html')">数字证书</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+</div>
+<no-rtn-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+	</no-rtn-footer>
+<style type="text/css">
+	#wrapper {
+		width: 1800px;
+		height: 500px;
+	}
+	
+	.tabBotbox1inner .text a {
+		width: 266px;
+		margin-right: 44px;
+	}
+	
+	.tabBotbox1 {
+		width: 1645px;
+    padding-top: 86px;
+	}
+</style>

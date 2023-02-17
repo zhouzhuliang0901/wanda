@@ -1,0 +1,110 @@
+<style type="text/css">
+	.clearfloat.clearfloat {
+		position: relative;
+	}
+	
+	a.stamp {
+		background-size: 200px 66px;
+		position: absolute;
+		top: 325px;
+		/* right: 20px; */
+		left: 100px;
+		width: 200px;
+		height: 70px;
+		/* background-size: contain; */
+		text-align: center;
+		font-size: 27px;
+	}
+	
+	.stamp {
+		position: absolute;
+		left: 50%;
+		top: 350px;
+		transform: translate(-50%);
+		overflow: hidden;
+		width: 250px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		font-size: 38px;
+		background: url('../libs/common/images/button.png') no-repeat left top;
+		background-size: 250px 70px;
+	}
+	
+	.takePhoto {
+		position: absolute;
+		left: 1150px;
+		top: 70px;
+		width: 140px;
+		height: 140px;
+		background: url('../libs/common/images/takePhoto.png') no-repeat;
+	}
+	
+	.stamp.reR {
+		left: 510px;
+	}
+	
+	.stamp.success {
+		left: 1020px;
+	}
+	
+	.cardreadingBox1 {
+		padding-top: 30px !important;
+	}
+	
+	.scrollBox2 .cardreadingBox1 img {
+		width: 200px;
+		height: 120px;
+	}
+	.scrollBox2 .cardreadingBox1 .show {
+		width: 400px;
+		height: auto;
+	}
+	.scrollBox2 .cardreadingBox1 img.loading {
+		width: 400px;
+		height: auto;
+	}
+	
+	.loadingAlert {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index: 10;
+		height: 1080px;
+		width: 1920px;
+	}
+	
+	.loadingAlert img {
+		display: block;
+		width: 200px;
+		height: 200px;
+		margin: 370px auto;
+		margin-bottom: 20px;
+	}
+	
+	.loadingAlert p {
+		margin-left: 800px;
+		font-size: 38px;
+	}
+</style>
+<div class="scrollBox2 clearfloat" style="overflow:visible;margin-top: 50px;">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img class="show" ng-class="{'loading':recognitionOver}" ng-src="{{ showImage }}" />
+			<!--<p>{{ tipsText }}</p>-->
+		</a>
+	</div>
+	<!-- 拍照按钮 -->
+	<a href="javascript:;" class="takePhoto" ng-click="capture()" ng-if="!recognitionOver"></a>
+	<a href="javascript:;" class="stamp reR" ng-click="reRecognition()" ng-if="recognitionOver">重新核验</a>
+	<a href="javascript:;" class="stamp success" ng-click="success()" ng-if="recognitionOver">完&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</a>
+</div>
+<!--加载框-->
+<div class="loadingAlert" ng-if="isShowLoadingAlert">
+	<img src="../libs/common/images/loadings.gif" alt="">
+	<p>正在核验，请稍后...</p>
+</div>
+<div class="test"></div>

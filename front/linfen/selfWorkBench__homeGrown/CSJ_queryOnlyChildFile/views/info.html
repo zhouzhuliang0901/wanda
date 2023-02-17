@@ -1,0 +1,182 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.select {
+		width: 49.6%;
+	}
+	
+	.datetimepicker {
+		padding: 30px;
+	}
+	
+	.datetimepicker th {
+		width: 40px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+			<form name="infoParams" id="form" accept-charset="UTF-8">
+				<table class="infoTable">
+					<tr>
+						<th><b class="red">*</b>申请人名称：</th>
+						<td><input class="input" name="stName" type="text" id="stName" ng-model="stName" readonly></td>
+						<th><b class="red">*</b>联系电话：</th>
+						<td><input class="input" name="stMobile" type="text" id="stMobile" ng-model="stMobile"></td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>证件类型：</th>
+						<td><input class="input" name="stIdCardType" type="text" id="stIdCardType" ng-model="stIdCardType" readonly></td>
+						<th><b class="red">*</b>申请人证件号：</th>
+						<td><input class="input" name="stIdCard" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>利用目的：</th>
+						<td colspan="3" id="useGoal">
+							<a ng-repeat="(index,item) in useGoalList" ng-class="{'in':current1==index}" ng-click="change1(index,item)">{{item.name}}</a>
+						</td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>受理地区：</th>
+						<td colspan="3" id="ascceptanceArea">
+							<a ng-repeat="(index,item) in ascceptanceAreaList" ng-class="{'in':current==index}" ng-click="change(index,item)">{{item.name}}</a>
+						</td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>受理地点：</th>
+						<td colspan="3">
+							<select class="select" name="province" id="province" ng-model="province" ng-options="x.cityName for x in provinceList track by x.cityName">
+								<option value="" selected ng-if="false"></option>
+							</select>
+							<select class="select" name="county" id="county" ng-model="county" ng-options="x.archivesName for x in countyList track by x.archivesName">
+								<option value="" selected ng-if="false"></option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>发证日期：</th>
+						<td>
+							<div class="input-append date form_datetime">
+								<input class="input" name="stSsxxDate" size="16" type="text" id="stSsxxDate" ng-model="stSsxxDate" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>父亲姓名：</th>
+						<td><input class="input" name="fatherName"  type="text" id="fatherName" ng-model="fatherName"></td>
+						<th>母亲姓名：</th>
+						<td><input class="input" name="motherName" type="text" id="motherName" ng-model="motherName"></td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>子女姓名：</th>
+						<td><input class="input" name="sonName"  type="text" id="sonName" ng-model="sonName"></td>
+						<th><b class="red">*</b>独生子女证编号：</th>
+						<td><input class="input" name="sonNum" type="text" id="sonNum" ng-model="sonNum"></td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>独生子女性别：</th>
+						<td colspan="3" id="sonSex">
+							<a ng-repeat="(index,item) in sexList" ng-class="{'in':current3==index}" ng-click="chooseSex(index,item)">{{item.name}}</a>
+						</td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>递送方式：</th>
+						<td colspan="3" id="expressMode">
+							<a ng-repeat="(index,item) in expressList" ng-class="{'in':current2==index}" ng-click="chooseExpress(index,item)">{{item.name}}</a>
+						</td>
+					</tr>
+					<tr ng-show="expressTrue">
+						<th><b class="red">*</b>收件人：</th>
+						<td><input class="input" name="addressee" type="text" id="addressee" ng-model="addressee"></td>
+						<th>邮件地址：</th>
+						<td><input class="input" name="mailAddress" type="text" id="mailAddress" ng-model="mailAddress"></td>
+					</tr>
+					<tr ng-show="expressTrue">
+						<th><b class="red">*</b>邮政编码：</th>
+						<td><input class="input" name="mailNum" type="text" id="mailNum" ng-model="mailNum"></td>
+					</tr>
+				</table>
+			</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

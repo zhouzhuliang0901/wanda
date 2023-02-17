@@ -1,0 +1,81 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 80px;
+		margin-left: 210px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	
+	.singselect a {
+		float: left;
+		/* width: 314px; */
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 28px;
+		padding: 0px 35px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.singselect a {
+			font-size: 20px;
+		}
+		.scrollBox2 {
+			width: 1080px;
+			margin-left: 110px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--填报信息</p>
+<div class="scrollBox2 clearfloat">
+	<dd class="singselect">
+		<dl style="font-size: 30px;  color: #c2cce3; line-height: 60px; float: left;">请选择办理类型（必选）：</dl>
+		<a ng-class="{'in':current==index}" ng-repeat="(index,item) in handleTypeList" ng-click="change(item.name,index,item.id)">
+			<li vId="2222">{{item.name}}</li>
+		</a>
+	</dd>
+	<dd class="singselect">
+		<dl style="font-size: 30px;  color: #c2cce3; line-height: 60px; float: left;">请选择居住原因（必选）：</dl>
+		<a ng-class="{'in':current1==index}" ng-repeat="(index,item) in liveReasonList" ng-click="change1(item.name,index,item.id)">
+			<li vId="2222">{{item.name}}</li>
+		</a>
+	</dd>
+</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

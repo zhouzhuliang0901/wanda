@@ -1,0 +1,199 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 240px;
+	}
+	
+	.caption1 {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		text-align: center;
+	}
+	
+	.line {
+		width: 84%;	
+		height: 9%;
+		position: relative;
+		margin: 0 auto;
+	}		
+	.line hr{
+		margin-top: 1.3%;
+    	width: 42%;
+		position: absolute;	
+	}
+	#wrapper {
+		width: 1750px;
+		height: 580px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	.tabelBox1 {
+		padding-top: 0%;
+	}
+	.tabelBox1 .dl1 {
+		margin: 15px auto;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.caption1 {
+			margin-left: 4%;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div>
+				<div class="tabelBox1" style="width: 1705px;height: 480px;padding-top: 35px;">
+					<!--<div style="border-top:1px dashed #cccccc;height: 1px;overflow:hidden"></div>-->
+					<div class="line" ng-if="isSon">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0;">
+						<p class="caption1">监护人信息</p>
+					</div>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>姓名：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="licenseName" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>性别：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="Sex" readonly>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>民族：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="People" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>出生日期：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="Birthday" readonly>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>身份证号：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="licenseNumber" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>证件起始日期：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="ValidtermOfStart" readonly>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>证件截止日期：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="ValidtermOfEnd" readonly>
+						</dd>
+					</dl>
+
+				</div>
+				<div class="tabelBox1" style="width: 1705px;height: 548px;" ng-if="isSon">
+					<div class="line" ng-if="isSon">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0;">
+						<p class="caption1">被监护人信息</p>
+					</div>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>姓名：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonlicenseName" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>性别：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonSex" readonly>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>民族：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonPeople" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>出生日期：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonBirthday" readonly>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>身份证号：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonlicenseNumber" readonly>
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>证件起始日期：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonValidtermOfStart" readonly>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>证件截止日期：</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="sonValidtermOfEnd" readonly>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

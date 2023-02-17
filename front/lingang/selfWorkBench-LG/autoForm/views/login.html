@@ -1,0 +1,85 @@
+<p class="caption1">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+    <idcard
+        read="idcardLogin(info,images)"
+        ng-if="loginType == 'idcard'"
+    ></idcard>
+    <recognition
+        result="getResult(img)"
+        face-image="{{ faceImage }}"
+        ng-if="loginType == 'recognition'"
+    ></recognition>
+    <citizen-cloud
+        result="citizenLogin(info)"
+        ng-if="loginType == 'cloud'"
+    ></citizen-cloud>
+    <!-- caLogin -->
+    <ca
+        result="caInfo(companyName,companyNo)"
+        ng-if="loginType == 'ukey'"
+        login="caLoginStatus"
+    ></ca>
+</div>
+<!--ng-if="loginBtn"-->
+<a href="javascript:;" class="continue" ng-if="loginBtn" ng-click="caLogin()">登录</a>
+
+<apptb-footer 
+	prev="prevStep()" 
+	next="nextStep()" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true"
+    home="customMain()" 
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+    .stamp {
+        margin-left: 60px;
+    }
+
+    .citizen-cloud {
+        margin-top: 84px;
+        display: block;
+    }
+
+    .citizen-cloud .scrollBox2 .cardreadingBox1 img {
+        width: 1300px;
+    }
+
+    .scrollBox2 .linkBox1 {
+        padding-left: 600px;
+        text-align: center;
+        margin-top: 134px;
+    }
+    .scrollBox2 .cardreadingBox1 {
+		padding-top: 0px;
+		margin-top: 30px;
+	}
+	.password {
+		color: #fff;
+	    width: 360px;
+	    height: 73px;
+	    border: none;
+	    font-size: 28px;
+	    background: url(../libs/common/images/passwordInput.png) no-repeat;
+	    position: absolute;
+	    left: 1000px;
+	    padding-left: 20px;
+	    padding-bottom: 10px;
+	}
+	
+	.continue {
+		position: absolute;
+	    display: inline-block;
+	    width: 140px;
+	    top: 684px;
+	    left: 1390px;
+	    height: 70px;
+	    line-height: 70px;
+	    text-align: center;
+	    font-size: 26px;
+	    background: url(../libs/common/images/reBtn.png) no-repeat;
+	    background-position: -10px -62px;
+	    background-size: 170px 130px;
+	}
+    
+</style>

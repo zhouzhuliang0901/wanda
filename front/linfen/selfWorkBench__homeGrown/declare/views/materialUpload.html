@@ -1,0 +1,68 @@
+<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>人证核验</li>
+			<li>信息填写</li>
+			<li class="act">在线填报</li>
+		</ul>
+		<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+	
+	<div class="main2">
+			<div class="stuff">
+				<div class="tit1">{{stuffName}}</div>
+				<div class="word" id="test" ng-click="test()">
+					<li ng-repeat="stuff in stuffImg"><img data-original="{{stuff.img}}" ng-src="{{stuff.img}}" /></li>
+				</div>
+				<div class="paragraph1">样表(点击放大查看)</div>
+				<div class="btn" ng-click="upload()">
+					<img style="width: 116px;padding: 33px 0 0 78px;" src="images/icon-link13.png" />
+					<div style="font-size: 40px;padding: 19px 0 0 76px;">待上传</div>
+				</div>
+			</div> 
+	</div>
+	<div class="btnBox1 clearfloat">
+	   <a href="#materialList" class="Prev">上一步</a>
+	   <a href="#uploadMethod" class="next">下一步</a>
+	</div>
+</div>
+<apptb-footer 
+		prev="prevStep()" 
+		next="nextStep()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.word{
+		width: 350px;
+		height: 417px;
+		position: absolute;
+		top: 69px;
+		left: 410px;
+	}
+	.tit1{
+		font-size: 37px;
+		text-align: center;
+	}
+	.paragraph1{
+		    font-size: 31px;
+    position: absolute;
+    top: 487px;
+    left: 450px;
+	}
+	.btn{
+		position: absolute;
+		top: 163px;
+		left: 1033px;
+		width: 275px;
+		height: 275px;
+		background: #2964B0;
+	}
+	.word li>img{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+</style>

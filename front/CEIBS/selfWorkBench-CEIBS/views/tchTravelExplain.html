@@ -1,0 +1,30 @@
+<style type="text/css">
+	section{
+		height: 750px;
+	}
+	.swearYes{
+		width: 525px;
+	}
+</style>
+<section ng-show="version =='Chinese'" class="chinese">
+	<!-- 在职证明
+        （旅游签证用） -->
+	<h2>在职证明（旅游签证用）</h2>
+	<blockquote class="swear">
+		<h3>旅游证明承诺书</h3> 旅游证明中涉及工作日休假的，请确保该休假已获学院批准。
+		<br> If the certification refers to weekday leave, please ensure that the leave has been approved by the School.
+	</blockquote>
+	<div class='swearYes'>已读并承诺</div>
+</section>
+<section ng-show="version =='English'" class="english">
+	<!-- 在职证明
+        （旅游签证用） -->
+	<h2>Incumbency Certificate(For Tourism)</h2>
+	<blockquote class="swear">
+		<h3>旅游证明承诺书</h3> 旅游证明中涉及工作日休假的，请确保该休假已获学院批准。
+		<br> If the certification refers to weekday leave, please ensure that the leave has been approved by the School.
+	</blockquote>
+	<div class='swearYes'>Read and agree to the commitment</div>
+</section>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

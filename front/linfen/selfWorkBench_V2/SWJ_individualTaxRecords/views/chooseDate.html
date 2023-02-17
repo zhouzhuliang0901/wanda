@@ -1,0 +1,90 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.input-append {
+		height: 100px;
+	}
+	
+	.scrollBox2 {
+		margin-left: 450px;
+		margin-top: 200px;
+	}
+	
+	.input1 {
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.input1 {
+		height: 70px;
+		width: 400px;
+		padding-left: 23px;
+		font-size: 34px;
+	}
+	
+	.scrollBox2 .dllist1 dd {
+		width: 1270px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.span {
+		float: left;
+	}
+	
+	.main2 {
+		width: 1625px;
+		height: 645px;
+		margin-left: 118px;
+		margin-top: 30px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			margin-left: 100px;
+			margin-top: 100px;
+		}
+		.caption{
+			margin: 80px 100px !important;
+		}
+	}
+</style>
+<p class="caption">请选择税款所属期起和税款所属期止</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<dl class="dllist1 clearfloat">
+			<dd class="lt1">
+				<span class="span">税款所属期起（必选）：</span>
+				<div class="input-append date form_datetime">
+					<input class="input1" size="16" type="text" id="dtStartDate" ng-model="dtStartDate" readonly>
+					<span class="add-on"><i class="icon-th"></i></span>
+				</div>
+			</dd>
+			<dd class="lt1">
+				<span class="span">税款所属期止（必选）：</span>
+				<div class="input-append date form_datetime">
+					<input class="input1" size="16" type="text" id="dtEndDate" ng-model="dtEndDate" readonly>
+					<span class="add-on"><i class="icon-th"></i></span>
+				</div>
+			</dd>
+		</dl>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

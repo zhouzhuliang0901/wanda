@@ -1,0 +1,133 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.input {
+		width: 100%;
+		height: 60px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+	
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 21%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	.select {
+		font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+		width: 32.9%;
+		padding: 10px 10px;
+		line-height: 40px;
+		height: 60px;
+		overflow: hidden;
+		display: inline-block;
+		border: none;
+		background: url("../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+		font-size: 24px;
+		color: #FFF;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-overflow-style: scrollbar;
+	}
+	.select::-ms-expand{
+		display: none;
+	}
+	
+	.select option {
+		color: #333;
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>身份证：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>查询年度：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="year" ng-model="year" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+					<th></th>
+					<td></td>
+				</tr>
+				<tr ng-show="show">
+					<th><b class="red">*</b>所属省市：</th>
+					<td colspan="3">
+						<select class="select" id="province" ng-model="province" ng-options="x.shortname for x in provinceList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select class="select" id="county" ng-model="county" ng-options="x.shortname for x in countyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select class="select" id="street" ng-model="street" ng-options="x.shortname for x in streetList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

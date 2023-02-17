@@ -1,0 +1,31 @@
+<style type="text/css">
+	section {
+		height: 750px;
+	}
+	.std img{
+		margin-left: 400px;
+	}
+	.std p{
+		color: #f2f4f7;
+	}
+</style>
+<section class="std" ng-show="version =='Chinese'">
+	<!--<div class="payResult">-->
+		<!--<div><img src="img/iconPrint.png" alt=""></div>
+		<p class="txtIllustrative">证明打印中……</p>-->
+		<img ng-src="img/print.png" alt="" />
+		<p>请等待约10秒后，至自助终端正下方打印出口取出证明</p>
+
+	<!--</div>-->
+</section>
+<section class="std" ng-show="version =='English'">
+	<!--<div class="payResult">-->
+		<!--<div><img src="img/iconPrint.png" alt=""></div>
+		<p class="txtIllustrative">证明打印中……</p>-->
+		<img ng-src="img/pingt_English.png" alt="" />
+		<p>请等待约10秒后，至自助终端正下方打印出口取出证明</p>
+
+	<!--</div>-->
+</section>
+<app-footer default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

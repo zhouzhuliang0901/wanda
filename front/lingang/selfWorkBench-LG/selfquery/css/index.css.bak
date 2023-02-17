@@ -1,0 +1,45 @@
+.vertical_gets{
+    width: 1080px;
+    height: 51px;
+    background: url("../images/vertical_gets.png") no-repeat;
+    background-size: 100%;
+    margin-top: 100px;
+}
+nav{
+    width: 1080px;
+    height: 253px;
+    background: url("../images/con-nav2.png") no-repeat;
+    background-size: 100%;
+	margin-top:280px;
+   
+}
+.nav-item{
+    position: absolute;
+    top: 0px;
+    height: 253px;
+}
+.bsyd{
+    left: 150px;
+    width: 200px;
+}
+.bszn{
+    left: 444px;
+    width: 192px;
+}
+.bsjd{
+    left: 739px;
+    width: 186px;
+}
+.swiper-container{
+    width: 1080px;
+    height: 1280px;
+}
+.swiper-slide img{
+    width:800px;
+    height: 1260px;
+}
+.img{
+    width: 1080px;
+    height: 990px;
+    margin-top: 10px;
+}

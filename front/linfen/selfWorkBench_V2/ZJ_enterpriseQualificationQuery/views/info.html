@@ -1,0 +1,107 @@
+<style type="text/css">
+	/* @media screen and (min-width: 1600px) {
+		
+	} */
+	.tabelBox1 .dl1{
+		width: 52%;
+		margin-top: 100px;
+	}
+	.tabelBox1 .dl1 .lt1{
+		width: 310px;
+	}
+	.tabelBox1 .dl1 .rt2 {
+	    width: 506px;
+	}
+	table {
+		width: 77%;
+		margin-left: 12%;
+	}
+	.main2{
+		height: 750px;
+	}
+	.tabelBox1 table tr,
+	.tabelBox1 table th,
+	.tabelBox1 table td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	@media screen and (max-width: 1600px) {
+		.main2{
+			width: 1280px;
+			margin-left: 0px;
+		    margin-bottom: 0px;
+		}
+		.caption {
+			margin-left: 50px;
+		}
+		.tabelBox1 .dl1{
+			width: 70%;
+			margin-top: 80px;
+		}
+	}
+</style>
+<p class="caption">请填写企业资质类查询所需要的信息</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>企业名称：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="count" ng-model="STcompanyName">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>统一社会信用代码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="count" ng-model="STcreditCode">
+					</dd>
+				</dl>
+				<table ng-if='showQueryQualificationData'>
+					<tr>
+						<th>企业名称</th>
+						<td>{{queryQualificationData.dwmc}}</td>
+						<th>统一社会信用代码</th>
+						<td>{{queryQualificationData.yyzzzch}}</td>
+					</tr>
+					<tr>
+						<th>证书编号</th>
+						<td>{{queryQualificationData.zzzsbh}}</td>
+						<th>资质大类</th>
+						<td>{{queryQualificationData.zzdl}}</td>
+					</tr>
+					<tr>
+						<th>资质内容</th>
+						<td>{{queryQualificationData.zzcontent}}</td>
+						<th>发证日期</th>
+						<td>{{queryQualificationData.fzrq}}</td>
+					</tr>
+					<tr>
+						<th>证照有效期</th>
+						<td>{{queryQualificationData.yxrq}}</td>
+						<th>发证机关</th>
+						<td>{{queryQualificationData.fzjgmc}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

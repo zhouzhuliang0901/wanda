@@ -1,0 +1,22 @@
+<div class="shell bg3">
+
+     <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="#" class="back1">办事指南</a>
+            <a href="javascript:;" class="message1">message</a>
+          <!--  <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>-->
+        </div>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span> - <span>请选择事项情形</span></div>
+
+    <div class="main2">
+        <div class="scrollBox1 clearfloat">
+            <a ng-repeat="item in itemList"  ng-click="getSubItem(item.stItemId,item.stStatusName,item.description,item.stItemTenNo,item.stItemNo)" >{{item.stStatusName}}</a>
+        </div>
+    </div>
+    <div class="btnBox1 clearfloat">
+        <a href="#list" class="Prev">上一步</a>
+    </div>
+</div>

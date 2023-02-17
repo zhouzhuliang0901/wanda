@@ -1,0 +1,97 @@
+﻿<pre><pre></pre></pre><nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:;" ui-sref="staffOperationChoice">
+				<img src="images/homeLogo.png">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">自助放证</a>
+		</li>
+		<li>
+			<a href="javascript:;" ng-click="back()">工作人员操作</a>
+		</li>
+		<li class="active">{{organ}}</li>
+	</ol>
+</nav>
+<div class="shadowBox staffPutLicenseConfirm">
+	<div class="loadingBox" ng-if="isLoding">
+		<img src="images/loading.gif" alt="">
+		<p>正在加载数据，请稍后...</p>
+	</div>
+	<div ng-if="show">
+		<p class="boldTips">请填写手机号码</p>
+		<div class="input serialInput">
+			<input type="text" id="mobile" class="inputBox" ng-model="numCode" maxlength="11" placeholder="请输入手机号" /><br>
+			<div class=" scanCode">
+				<!--<input type="text" class="inputBox" ng-model="numCode" maxlength="15" placeholder="请输入手机号">-->
+				<div class="keybord">
+					<a href="javascript:;" class="key" ng-click="inputCode(1)">1</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(2)">2</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(3)">3</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(4)">4</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(5)">5</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(6)">6</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(7)">7</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(8)">8</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(9)">9</a>
+					<a href="javascript:;" class="key txt" ng-click="deleteCode()">删除</a>
+					<a href="javascript:;" class="key" ng-click="inputCode(0)">0</a>
+					<a href="javascript:;" class="key txt" ng-click="serialSearch()">确认</a>
+				</div>
+			</div>
+			<!--<input type="button" id="" value="确认" ng-click="serialSearch()" />-->
+		</div>
+	</div>
+
+	<div ng-if="show" class="btn" ng-click="goBack()" style="margin-left: 270px;margin-top: 30px;text-align: center;float:none">
+		<img class="eventIcon" src="images/icon/back.png" alt="">
+		<span class="event">重新输入</span>
+	</div>
+</div>
+<style type="text/css">
+	.input label {
+		font-size: 35px;
+		margin-left: -186px;
+	}
+	
+	input {
+		color: #fff;
+	}
+	
+	.input input[type='text'] {
+		background-color: darkgray;
+		border: none;
+		padding-left: 20px;
+		margin-top: 40px;
+		font-size: 45px;
+		height: 115px;
+		width: 840px;
+	}
+	
+	.input input[type='button'] {
+		background-color: #56ce97;
+		line-height: 70px;
+		text-align: center;
+		border-radius: 10px;
+		margin-top: 100px;
+		border: none;
+		font-size: 30px;
+		height: 70px;
+		width: 200px;
+	}
+	
+	.staffPutLicenseConfirm .boldTips {
+    	margin-top: 70px;
+	}
+	
+	#mobile.inputBox {
+	    background-color: #eae7e3;
+	    border: 1px solid #c0bfbf;
+	    font-size: 80px;
+	    border-radius: 10px;
+	    height: 130px;
+	    text-align: center;
+	    padding-left: 0px;
+	}
+</style>

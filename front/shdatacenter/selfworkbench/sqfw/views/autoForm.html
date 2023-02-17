@@ -1,0 +1,123 @@
+
+<div class="shell bg2">
+
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="../declare/index.html" class="back1">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+        <ul class="navul1 navul2 clearfloat">
+            <li>选择事项</li>
+            <li>办事指南</li>
+            <li>人证核验</li>
+            <li class="act">在线填报</li>
+        </ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>自助填表--《个人税收居民身份声明》</span></div>
+    <div class="clearfloat">
+        <div class="main2 main4">
+            <div class="scrollBox2 clearfloat">
+				<div id="wrapper">
+                <div class="tabelBox1">
+
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt3">
+							<b class="red1">*</b>
+                            <span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span></b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" ng-model="name" id="name">
+                        </dd>
+                        <dd class="lt1 lt3">
+							<b class="red1">*</b>
+                            <span>出生日期：</span></b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text"  ng-model="date" id="date">
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt3">
+							<b class="red1">*</b>
+                            <span>本人声明：</span></b>
+                        </dd>
+                        <dd class="rt5">
+                            <select class="select1" ng-model="juming" id="juming">
+                                <option class="col1">仅为中国税收居民</option>
+                                <option class="col1">仅为非居民</option>
+                                <option class="col1">既是中国税收居民又是其他国家（地区）税收居民</option>
+                            </select>
+                        </dd>
+                    </dl>
+
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt3">
+                            <span><b style="color:red;">*</b>姓（英文或拼音）：</span></b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" placeholder="ZHANG" ng-model="xing" id="xing">
+                        </dd>
+                        <dd class="lt1 lt3">
+                            <span><b style="color:red;">*</b>名（英文或拼音）：</span></b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" placeholder="SHAN" ng-model="ming" id="ming">
+                        </dd>
+                    </dl>
+
+
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt3">
+                            <span>现居地址（中文）：</span></b>
+                        </dd>
+                        <dd class="rt5">
+                            <input class="input1" type="text" placeholder="国家           省             市" ng-model="newAddress" id="newAddress">
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt3">
+                            <span>（英文或拼音）：</span></b>
+                        </dd>
+                        <dd class="rt5">
+                            <input class="input1" type="text" placeholder="国家           省             市" ng-model="pNewAddress" id="pNewAddress">
+                        </dd>
+                    </dl>
+
+                    <div class="psbox1 pad1 pad2">*境外地址可不填此项</div>
+
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt3">
+                            <span class="span2"><b class="red1">*</b>税收居民国（地区）<br/>及纳税人识别号：</span>
+                        </dd>
+                        <dd class="rt5">
+                            <input class="input1" style="margin-bottom: 30px;" type="text"
+                                   placeholder="1.纳税人有中国公民身份号码的，以中国公民身份号码为纳税人识别号" ng-model="idCard" id="idCard" readonly>
+                        </dd>
+                    </dl>
+                </div>
+				</div>
+            </div>
+
+        </div>
+        <div class="mainrt1">
+            <h3>样表</h3>
+            <div class="imgbox1">
+                <img src="images/word2.jpg"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="btnBox1 clearfloat">
+        <a href="#materialList" class="Prev">上一步</a>
+        <a ng-click="next()" class="next">继续</a>
+    </div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	#wrapper{
+		width:1600px;
+		height: 500px;
+	}
+</style>

@@ -1,0 +1,47 @@
+<apptb-header fun-name="综合减负试算"></apptb-header>
+<div class="stable">
+	<div id="wrapper">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-top: 60px;margin-left: 110px;">综合减负提示信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer prev="prevStep()" default-next="hidden">
+</app-footer>
+<apptb-footer prev="prevStep()" next="nextStep()"next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<!--<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>-->
+<loading ng-if="!isLoding"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	#wrapper {
+		    width: 1850px;
+    height: 758px;
+	}
+	.loadingBox {
+		position: fixed;
+		width: 1920px;
+		height: 930px;
+		/* margin: auto; */
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+</style>

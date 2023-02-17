@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立式查询系统</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/bsjd_qrcode.css"/>
+    <link rel="stylesheet" href="css/bsjd_bjbh.css"/>
+</head>
+<body>
+
+<div class="con-box">
+    <header class="header">
+        <div class="hd-title"></div>
+    </header>
+    <section class="section applyNo">
+        <h3>输入办件编号查询</h3>
+        <div class="input_box">
+            <input  type="tel" id="applyNo" class="input" value="请输入办件编号"  onblur="if(!value)value=defaultValue" />
+            <button class="submit" id="searchByNo">确定</button>
+        </div>
+        <div class="num-list-box clearfix num">
+           <ul class="fll clearfix num-list">
+               <li>1</li>
+               <li>2</li>
+               <li>3</li>
+               <li>4</li>
+               <li>5</li>
+               <li>6</li>
+               <li>7</li>
+               <li>8</li>
+               <li>9</li>
+           </ul>
+            <ul class="fll clearfix num-list-r">
+                <li>0</li>
+                <li id="clear">清<br/>除</li>
+            </ul>
+        </div>
+        <div style="clear: both"></div>
+        <div class="choose-word" id="chooseWord" style="display: none">
+            <p>您要查询的办件对象名称为：</p>
+            <p id="name"></p>
+            <p>请从以下文字中勾选出缺少的汉字</p>
+            <ul class="word clearfix regex" id="regex">
+            </ul>
+            <div style="clear: both"></div>
+        </div>
+    </section>
+    
+    <section class="type">
+    </section>
+
+<div id="progressList" style="margin: 680px 50px 20px 80px; color:#F1F1F1;">
+	
+</div>
+
+    <footer class="footer">
+        <div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt=""/></div>
+    </footer>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/layer/layer.js"></script>
+<script src="js/self-mac-tools.js"></script>
+<script type="text/javascript">
+   var trueName = "";
+   var chooseTimes = 0;
+   $(function () {
+        // 链接参数
+        var requestData = getRequest();
+        
+       // 页面倒计时
+       timeCount (70);
+       
+        // 办件的场合
+        if (requestData.type == "applyNo") {
+            $(".type").css({display:"none"});
+        // 二维码的场合
+        } else if (requestData.type == "erweiCode") {
+            $(".applyNo").css({display:"none"});
+            $(".type").addClass("type_qrcode");
+            
+            // 获取二维码信息
+            getERcodeMsg ();
+        // 身份证的场合
+        } else if (requestData.type == "IDCard") {
+            $(".applyNo").css({display:"none"});
+            $(".type").addClass("type_IDcard");
+            
+            // 获取身份证信息
+            getIDCardMsg();
+        } else {
+            window.location.href="error.html";
+        }
+        // 办件编号
+        var applyNo = "";
+        // 输入框获取焦点
+        $(".input").on("focus", function() {
+            applyNo = "";
+            // 数字赋值
+            $("#applyNo").val(applyNo);
+        });
+        
+        // 获得办件编号
+        $(".num li").on("click", function() {
+            applyNo += $(this).html();
+            // 清除的场合
+            if (applyNo.indexOf("清") > 0) {
+                applyNo = "";
+            }  
+            // 数字赋值
+            $("#applyNo").val(applyNo);
+        });
+        
+        // 清除
+        $("#clear").on("click", function() {
+            applyNo = "";
+              // 数字赋值
+            $("#applyNo").val(applyNo);
+        });
+        
+        // 校验查询对象名
+        $("#searchByNo").on("click", chooseName);
+    });
+  
+   
+    // 校验查询对象名
+    function checkName() {
+        // 办件编号
+        var applyNo =  $("#applyNo").val();
+        // 办件编号是否是数字
+        if (isNaN(applyNo)) {
+            layer.msg('<span>请正确输入办件编号</span>', {area:['780px', '500px'] ,});
+            return;
+        } 
+         
+        // 获取事项名称
+        $.ajax({
+           async : true,
+           type : "post",
+           //url : "http://172.16.6.18/aci/autoterminal/forward.do", 
+           url : "http://218.202.254.222:8080/aci/autoterminal/forward.do",
+           data :{fmd :"aci-eventquery",
+              fdo : "getApplyInfoByStApplyNo", // fdo : "getStringsByStApplyNo",
+                  stApplyNo : applyNo},
+           dataType : "jsonp",
+           jsonp : "jsonpCallback",
+           success : function(dataJsonp) {
+                // 解析数据
+                var data=eval("("+JSON.stringify(dataJsonp)+")");
+                // 数据不存在的场合
+                if ( data == 0) {
+                    layer.msg('<span>根据您所输入的办件编号,查找的数据不存在,请核对办件编号。</span>', {area:['780px', '500px'] ,});
+                    // 对象名称
+	                $("#name").html("");
+	                // 可供选择的项目
+	                $("#regex").html("");
+	                $("#chooseWord").css({display:"none"});
+                }  else {
+                    //showNameCheck(data);
+                    chooseName (data);
+                //showProgressDetails (data);
+              
+                }
+           },
+           error : function() {
+           }
+        });            
+    }
+    
+    // 显示名称检查
+    function showNameCheck (data) {
+        // 对象名称
+        $("#name").html(data.name);
+        // 真实名字
+        trueName = data.prefix;
+        // 获取选择项
+        var chooseName = (data.regex).split('');
+        var wordHtml ="";
+        for (var i=0; i< chooseName.length; i++) {
+            wordHtml += "<li onclick=\"chooseName('"+chooseName[i]+"')\">"+chooseName[i]+"</li>"
+        }
+        // 可供选择的项目
+        $("#regex").html(wordHtml);
+        $("#chooseWord").css({display:"block"});
+    }
+    
+    
+    //直接跳转详细信息
+     function chooseName (data) {
+     	
+        // 链接参数
+        var requestData = getRequest();
+ 
+            // 办件编号
+            var applyNo =  $("#applyNo").val();
+            // 页面跳转
+            window.location.href="progress_details.html?type="+requestData.type+"&appplyNo="+applyNo;
+            //window.location.href="progress_details.html?data";
+         } 
+     
+    
+    
+    
+    // 选择缺少文字
+   /*function chooseName (name) {
+        // 链接参数
+        var requestData = getRequest();
+        if (trueName == name) {
+            // 办件编号
+            var applyNo =  $("#applyNo").val();
+            // 页面跳转
+            window.location.href="progress_details.html?type="+requestData.type+"&appplyNo="+applyNo;
+        } else {
+            // 错误选择3次
+            if (chooseTimes == 3) {
+                layer.msg('<span>对不起！您已经错误选择3次了</span>', {area:['780px', '500px'] ,});
+                 // 对象名称
+                $("#name").html("");
+                // 可供选择的项目
+                $("#regex").html("");
+                $("#chooseWord").css({display:"none"});
+                // 选择错误置零
+                chooseTimes = 0;
+            } else {
+	            layer.msg('<span>对不起！选择错误,请重新选择</span>', {area:['780px', '500px'] ,});
+	            chooseTimes++;
+            }
+        }
+    }*/
+    
+    
+    
+        // 显示详细信息
+        function showProgressDetails (data) {
+        var requestData = getRequest();
+        // 数据不存在的场合
+        if (data == 0) {
+             layer.msg('<span>根据您的信息,未能查找到相关数据！</span>', {area:['780px', '500px'] ,});
+             // 返回
+            return;
+        }
+        // 详细信息
+        var progressHtml = ""; 
+        // 办件编码,二维码的的场合
+        if (requestData.type == "applyNo" || requestData.type == "erweiCode") {
+		alert(data.stApplyStr);
+         progressHtml = "<ul class=\"con-bd\">" + 
+                        "<li>对象名称：<span>"+data.stName+" </span></li>" +
+                        "<li>办件编号：<span>"+data.stApplyNo+"</span></li>"+
+                        "<li>事项名称：<span>"+data.stItemName+"</span></li>"+
+                        "<li>申请时间：<span>"+data.stApplyStr+"</span></li>"+
+                        "<li>事项状态：<span>"+data.stFinalState+"</span></li>";
+                        if(requestData.appplyNo == '069563317098853'){
+                        	progressHtml +="<li>办理时限：<span>5个工作日</span></li>";
+                        } else if(requestData.appplyNo == '069523917096223'){
+                        	progressHtml +="<li>办理时限：<span>自受理之日起20日内</span></li>";
+                        } else {
+                        	progressHtml +="<li>办结时间：<span>"+setDateTime(data.stFinish)+"</span></li>";
+                        }
+                        progressHtml +="</ul>";
+                    
+        // 身份证的场合
+        } else if (requestData.type == "IDCard") {
+           for (var i=0; i < data.length; i++) {
+		   alert(data[i].stApplyStr);
+	          progressHtml += "<ul class=\"con-bd\">" + 
+	                        "<li>对象名称：<span>"+data[i].stName+" </span></li>" +
+	                        "<li>办件编号：<span>"+data[i].stApplyNo+"</span></li>"+
+	                        "<li>事项名称：<span>"+data[i].stItemName+"</span></li>"+
+	                        "<li>申请时间：<span>"+setDateTime(data[i].stApplyStr)+"</span></li>"+
+	                        "<li>事项状态：<span>"+data[i].stFinalState+"</span></li>"
+	                        "<li>办结时间：<span>"+setDateTime(data[i].stFinish)+"</span></li>"+
+	                    "</ul>";
+           }
+        }
+        // 显示信息
+         $("#progressList").html(progressHtml);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    // 获取身份证信息
+    function getIDCardMsg(idCard) {
+        // 链接参数
+        var requestData = getRequest();
+        // 获取数据
+        $.device.idCardOpen(function (value) {
+            var data = eval('(' + value + ')');
+            // 页面跳转
+            window.location.href="progress_details.html?type="+requestData.type+"&idCard="+data.IDCard;
+        });
+    } 
+    
+    // 获取二维码信息
+    function getERcodeMsg () {
+      $.device.qrCodeOpen(function (value){
+         // 链接参数
+         var requestData = getRequest();
+         var urlData = getParamter(value);
+         // 页面跳转
+         window.location.href="progress_details.html?type="+requestData.type+"&appplyNo="+urlData.bid;
+      });
+    }
+    
+    // 获取指定参数
+	function getParamter(url) {
+	   var theRequest = new Object();
+	   if (url.indexOf("?") != -1) {
+	      var str = url.substr(1);
+	      strs = str.split("&");
+	      for(var i = 0; i < strs.length; i ++) {
+	         theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+	      }
+	   }
+	   return theRequest;
+	}
+    
+    // 返回
+    function back () {
+         window.location.href="progress.html";
+    }
+</script>
+</body>
+</html>

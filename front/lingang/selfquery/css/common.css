@@ -1,0 +1,88 @@
+/* html 
+{ 
+overflow: hidden; 
+} 
+body 
+{ 
+overflow: hidden; 
+}  */
+
+body {
+	-moz-user-select: none;
+	/*���*/
+	-webkit-user-select: none;
+	/*webkit�����*/
+	-ms-user-select: none;
+	/*IE10*/
+	-khtml-user-select: none;
+	/*���������*/
+	user-select: none;
+}
+
+.con-box {
+	width: 1080px;
+	height: 1920px;
+	background: url("../images/con_bg.jpg") no-repeat;
+	background-size: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.header {
+	width: 1080px;
+	height: 223px;
+	position: relative;
+}
+
+.hd-title {
+	width: 1021px;
+	height: 132px;
+	background: url("../images/con-hd.png") no-repeat;
+	background-size: 100%;
+	position: absolute;
+	top: 91px;
+	left: 38px;
+}
+
+.footer {
+	width: 1080px;
+	height: 61px;
+	position: absolute;
+	top: 1736px;
+}
+
+.btn-back {
+	width: 155px;
+	height: 79px;
+	margin: 0 auto;
+}
+
+.btn-back:hover {
+	cursor: pointer;
+}
+
+.btn-back img {
+	width: 100%;
+}
+
+#timeMark {
+	color: white;
+	font-size: 30px;
+	left: 25px;
+	position: absolute;
+	top: 25px;
+	font-weight: bold;
+}
+
+.clearfix:after {
+	content: "";
+	height: 0;
+	line-height: 0;
+	display: block;
+	visibility: hidden;
+	clear: both;
+}
+
+.clearfix {
+	zoom: 1;
+}

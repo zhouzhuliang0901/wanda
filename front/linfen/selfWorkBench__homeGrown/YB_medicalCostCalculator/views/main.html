@@ -1,0 +1,106 @@
+<style type="text/css">
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			padding-top: 0px;
+			padding-left: 0px;
+		}
+		.caption {
+			margin-top: 80px!important;
+			margin-left: 136px!important;
+		}
+		.img {
+			width: 90px;
+			height: 90px;
+			float: left;
+			padding: 28px 0 0 22px;
+		}
+		.linkt {
+		    position: relative;
+		    width: 100%;
+		    top: 15px;
+		    left: 0px;
+		    overflow: hidden;
+		}
+		.select {
+		    float:none;
+		    width: 900px;
+		    height: 140px;
+		    overflow: hidden;
+		    background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		    background-size: 100% 100%;
+		    margin-left: 0px;
+		    white-space: nowrap;
+		    text-overflow: ellipsis;
+		    display: block;
+		    margin: 0px auto;
+		}
+		.stuff {
+			padding: 10px 0 0 140px;
+			height: 70px;
+			line-height: 130px;
+			font-size: 30px;
+		}
+	}
+	
+	@media screen and (min-width: 1600px) {
+		.scrollBox2 {
+			padding-top: 30px;
+			padding-left: 50px;
+		}
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		.img {
+			width: 90px;
+			height: 90px;
+			float: left;
+			padding: 28px 0 0 22px;
+		}
+		.linkt {
+			position: relative;
+			width: 1800px;
+			top: 15px;
+			left: 150px;
+		}
+		.select {
+			float: left;
+			width: 700px;
+			height: 140px;
+			overflow: hidden;
+			background: url('../libs/common/images/bg-bigList.png') no-repeat;
+			background-size: 700px 145px;
+			margin-left: 40px;
+			margin-bottom: 40px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+		.stuff {
+			padding: 10px 0 0 140px;
+			height: 70px;
+			line-height: 130px;
+			font-size: 30px;
+		}
+	}
+</style>
+
+<p class="caption">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkt" ng-repeat="stuff in stuffName">
+		<a class="select" ng-click="choiceType(stuff.type,stuff.stuffName,stuff.ywlx)">
+			<div>
+				<img class="img" ng-src="{{ stuff.img }}" />
+			</div>
+			<div class="stuff">{{ stuff.stuffName }}</div>
+		</a>
+	</div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	default-is-show-prev-btn="hidden" 
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</apptb-footer>

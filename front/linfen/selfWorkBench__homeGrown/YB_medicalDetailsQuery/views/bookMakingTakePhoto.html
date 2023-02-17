@@ -1,0 +1,150 @@
+<style type="text/css">
+	.test {
+	    position: fixed;
+	    width: 640px;
+	    height: 480px;
+	    left: 250px;
+	    top: 310px;
+	    border: 1px solid greenyellow;
+	}
+	
+	.Retakephoto-Or-Confirm {
+		width: 300px;
+		height: 300px;
+		/*background-color: red;*/
+		position: absolute;
+		right: 278px;
+		top: 140px;
+	}
+	
+	.contain {
+		padding: 100px 100px 0px 100px;
+	}
+	
+	.contain .caption {
+		margin-left: 100px;
+	}
+	
+	.photographBox {
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+		height: 800px;
+		width: 100%;
+	}
+	
+	.btn {
+		display: block;
+		margin: 70px 30px;
+		font-size: 30px;
+		padding: 15px 30px 15px 30px;
+		background: url('../libs/common/images/button.png') no-repeat;
+		background-size: 100% 100%;
+	}
+	
+	.btn.re {
+		/*left: 600px;*/
+		/*background-color: #f2dd4a;*/
+	}
+	
+	.btn.confirm {
+		/*left: 880px;*/
+		/*background-color: #56ce97;*/
+	}
+	
+	.photographBox>img {
+		margin-top: 20px;
+	}
+	
+	.fun>img {
+		margin: 250px 0px 0px 800px;
+	}
+	
+	.fun.review>img {
+		margin: 0px;
+		margin-top: 75px;
+		/*max-height: 500px;*/
+		margin-left: -85px;
+		width: 640px;
+		height: 480px;
+	}
+	
+	.fun {
+		background: url('../libs/common/images/bg-alert.png') no-repeat;
+		background-size: 100% 102%;
+		margin: 0 auto;
+		text-align: center;
+		height: 600px;
+		width: 1240px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.contain {
+			width: 1100px;
+			height: 700px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			padding: 0px;
+		}
+		.contain .caption {
+			margin: 15px 50px;
+		}
+		.photographBox {
+			position: relative;
+			margin: 0 auto;
+			text-align: center;
+			 height: auto; 
+			width: 100%;
+		}
+		.fun {
+		    background: url(../libs/common/images/bg-alert.png) no-repeat;
+		    background-size: 100% 102%;
+		    margin: 0 auto;
+		    text-align: center;
+		    height: 600px;
+		    width: 100%;
+		}
+		.fun>img {
+			margin: 250px 0px 0px 760px;
+		}
+		.fun.review>img {
+		    margin: 0px;
+		    margin-top: 75px;
+		    /* max-height: 500px; */
+		    margin-left: -138px;
+		    width: 640px;
+		    height: 480px;
+		}
+		.Retakephoto-Or-Confirm {
+		    width: 300px;
+		    height: 300px;
+		    /* background-color: red; */
+		    position: absolute;
+		    right: 20px;
+		    top: 140px;
+		}
+	}
+</style>
+<!--.text用于测试摄像头的宽高位置-->
+<!--<div class="test"></div>-->
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="photographBox">
+		<div class="fun" ng-if="camera">
+			<img ng-click="capture()" src="../libs/common/images/icon/camera.png" />
+		</div>
+		<div class="fun review" ng-if="!camera">
+			<img id="photoImg" ng-src="{{imageData}}" />
+			<div class="Retakephoto-Or-Confirm">
+				<a href="javascript:;" class="btn re" ng-click="reCapture()">重新拍照</a>
+				<a href="javascript:;" class="btn confirm" ng-click="confirm()">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+			</div>
+		</div>
+		<img ng-src="{{tipsPrint}}" />
+	</div>
+</div>
+<print show="isShowPrint"></print>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" default-prev="hidden"></apptb-footer>

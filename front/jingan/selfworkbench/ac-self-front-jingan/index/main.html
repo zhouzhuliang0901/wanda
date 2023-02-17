@@ -1,0 +1,155 @@
+<style>
+	.minimize {
+		position: absolute;
+		top: 36px;
+		right: 40px;
+	}
+
+	.minimize img {
+		width: 75px;
+	}
+
+	#four {
+		margin: 3px 0px 5px 20px;
+		height: 110px;
+		background: url(libs/common/images/bg-nav2.png) no-repeat;
+		background-size: 100% 97px;
+	}
+
+	#four p {
+		margin: 23px;
+	}
+
+	.double {
+		width: 266px;
+		float: left;
+	}
+</style>
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<img src="libs/common/images/icon/ywtblogo.png" style="position: absolute;width: 73px;left: 235px;">
+		<h2 class="tit2" ng-click="goToApp('clockin/index.html')" style="padding-left: 16.5%;">“一网通办”综合自助终端</h2>
+		<div class="askPart">
+			<button class="iWannaAsk" ng-click="answer()">我要问</button>
+			<div class="ask"><img ng-click="sound()" src="libs/common/images/speaker.png" alt="">
+				<input id="input1" ng-keyup="enterEvent($event)" type="text" placeholder="请输入关键字" class="askInput">
+			</div>
+		</div>
+		<div class="minimize" ng-click="proMinimizes()">
+			<img src="libs/common/images/minimize.png" alt="" />
+		</div>
+	</div>
+
+	<div class="main5">
+		<div class="lt3 fl">
+			<div class="titBox1">办理服务</div>
+			<div class="navBox3 clearfloat">
+				<a id="one" ng-click="goToApp('declare/index.html')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav1.png" />
+					</div>
+					<p class="p1">自助办理</p>
+				</a>
+				<a id="two"
+					ng-click="goToApp('http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/workAppointment/index.html#/?bldCode=330106-040')"
+					onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav5.png" class="mart1" />
+					</div>
+					<p class="p1">自助预约</p>
+				</a>
+				<a id="three" ng-click="goToApp('http://101.230.224.94:8088/ui/Unmanned_approver/index.html#/main')">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav14.png" class="mart1" />
+					</div>
+					<p class="p1">无人干预办理</p>
+				</a>
+			</div>
+			<div class="titBox1">咨询服务</div>
+			<div class="navBox3 clearfloat">
+				<div class="double">
+					<a id="four" ng-click="goToApp('eLicense/index.html')" onclick="click_point(this.id);">
+						<!-- <div class="imgbox1">
+							<img src="libs/common/images/icon-nav3.png" class="mart1" />
+						</div> -->
+						<p class="p1">我的证照</p>
+					</a>
+					<a id="four" ng-click="goToApp('http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/GovernmentPublicInformations/index.html#/firstMenu')" onclick="click_point(this.id);">
+						<!-- <div class="imgbox1">
+							<img src="libs/common/images/icon-nav1.png" class="mart4" />
+						</div> -->
+						<p class="p1">信息公开</p>
+					</a>
+				</div>
+				<a id="five" ng-click="goToApp('printLicense/index.html#/main')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav1.png" class="mart4" />
+					</div>
+					<p class="p1">证明开具</p>
+				</a>
+				<!--<a id="six" ng-click="goToApp('workSearch/index.html#/main')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav10.png" class="mart5" />
+					</div>
+					<p class="p1">进度查询</p>
+				</a>-->
+				<a id="six" ng-click="goToApp('taxationConsult/index.html#/main')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav10.png" class="mart5" />
+					</div>
+					<p class="p1">税务咨询</p>
+				</a>
+			</div>
+		</div>
+		<div class="lt4 fl">
+			<div class="titBox1">数据服务</div>
+			<div class="navBox3 clearfloat">
+				<a id="seven" ng-click="goToApp('guideline/index.html#/start')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav7.png" class="mart1" />
+					</div>
+					<p class="p1">办事指南</p>
+				</a>
+
+				<a id="eight" ng-click="goToApp('intelligentGuidance/index.html#/main')"
+					onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav13.png" class="mart2" />
+					</div>
+					<p class="p1">智能导引</p>
+				</a>
+			</div>
+
+			<div class="titBox1">便捷服务</div>
+			<div class="navBox3 clearfloat">
+				<!--ng-if="!isShowBankService"-->
+				<a id="ten" ng-if="!isShowBankService" ng-click="goToApp('autoForm/index.html')"
+					onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav12.png" class="mart1" />
+					</div>
+					<p class="p1">自助填表</p>
+				</a>
+				<a id="thirteen" ng-if="isShowBankService" ng-click="goToApp('bankService/index.html')"
+					onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav12.png" class="mart1" />
+					</div>
+					<p class="p1">银行服务</p>
+				</a>
+				<!--<a id="eleven" ng-click="goToApp('copy/index.html#/materialsCopy')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+                    	<img src="libs/common/images/icon-nav13.png" class="mart5"/>
+                    </div>
+                    <p class="p1">材料复印</p>
+				</a>-->
+				<a id="twelve" ng-click="goToApp('copy/index.html#/idcardCopy')" onclick="click_point(this.id);">
+					<div class="imgbox1">
+						<img src="libs/common/images/icon-nav3.png" class="mart5" />
+					</div>
+					<p class="p1">身份证复印</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

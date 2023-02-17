@@ -1,0 +1,211 @@
+<style type="text/css">
+	.btns {
+		position: relative;
+		z-index: 10000;
+		width: 700px;
+		margin: 0 auto;
+		text-align: center;
+	}
+
+	.btns a {
+		display: inline-block;
+		width: 170px;
+		height: 70px;
+		margin-top: 15px;
+		line-height: 67px;
+		font-size: 28px;
+		color: #fff;
+		background-color: #21b384;
+		text-decoration: none;
+		border-radius: 15px;
+	}
+
+	.btns a:hover {
+		background-color: #1fa67a;
+	}
+
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 0px 50px;
+	}
+
+	.contain {}
+
+	.previewContainer {
+		text-align: center;
+		margin-top: 130px;
+		z-index: 1
+	}
+
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+
+	.previewContainer img {
+		height: 560px;
+		margin-top: 20px;
+	}
+
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+	/*图片预览*/
+
+	.view-container {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+
+	.view-container .view-close {
+		position: fixed;
+		right: -150px;
+		top: -150px;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 99;
+	}
+
+	.view-container .view-close:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	.view-container .view-close span {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 44px 155px;
+	}
+
+	.view-container .img-container {
+		width: 500px;
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: all .3s;
+	}
+
+	.view-container .img-container img {
+		width: 100%;
+		transition: all .3s;
+	}
+
+	.view-container .view-func {
+		position: fixed;
+		left: 50%;
+		bottom: 100px;
+		transform: translateX(-50%);
+	}
+
+	.view-container .view-func li {
+		float: left;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin: 0 20px;
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+
+	.view-container .view-func li span {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+
+	.view-container .view-func .zoom-in {
+		background: url(../libs/common/images/jiahao.png) no-repeat;
+		background-size: 100px 100px;
+	}
+
+	.view-container .view-func .zoom-out {
+		background: url(../libs/common/images/jianhao.png) no-repeat;
+		background-size: 100px 100px;
+	}
+
+	.view-container .view-func .rotate-left {
+		background: url(../libs/common/images/zuoxuanzhuan.png) no-repeat;
+		background-size: 100px 100px;
+	}
+
+	.view-container .view-func .rotate-right {
+		background: url(../libs/common/images/youxuanzhuan.png) no-repeat;
+		background-size: 100px 100px;
+	}
+	@media only screen and (min-width: 100px) and (max-width: 640px) {
+		.caption{
+			top: 0!important;
+			left: 0!important;
+		}
+	}
+</style>
+<div id="jq22" class="previewContainer" ng-class="{'mask':isAllScreen}">
+	<li><img data-original="{{previewImg}}" ng-src="{{previewImg}}" /></li>
+</div>
+<div class="contain">
+	<p class="caption" style="position: absolute;top: 180px;left: 150px;">{{operation}}</p>
+	<!--<div class="previewContainer" ng-class="{'mask':isAllScreen}" ng-click="allScreen('con')">
+	<img ng-src="{{previewImg}}" ng-click="allScreen()"/>
+</div>-->
+	<div class="btnBox1 clearfloat">
+		<!--<a href="javascript:;" ng-show="backok" ng-click="back()" class="Prev" style="width: 160px;margin-left: 80px;">返回</a>-->
+		<!--<a href="javascript:;" ng-show="lookok" ng-click="look()" class="Prev" style="width: 160px;margin-left: 570px;margin-top: 20px;">查看</a>-->
+		<!--<a href="javascript:;" ng-show="printok"  ng-click="print()"  class="next">打印</a>-->
+	</div>
+</div>
+<apptb-footer ng-if="isLoding" prev="back()" next="print()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<apptb-footer ng-if="!isLoding" prev="back()" default-is-show-next-btn="hidden"  custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img id="loadingsGif" style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<!--图片预览-->
+<div class="view-container" ng-if="isShowView">
+	<a class="view-close">
+		<span ng-click="viewClose()"></span>
+	</a>
+	<div class="img-container">
+		<!--configUrl +-->
+		<img ng-src="{{previewImg}}">
+	</div>
+
+	<ul class="view-func">
+		<li>
+			<span class="zoom-in" ng-click="zoomIn()"></span>
+		</li>
+		<li>
+			<span class="zoom-out" ng-click="zoomOut()"></span>
+		</li>
+		<li>
+			<span class="rotate-left" ng-click="rotateLeft()"></span>
+		</li>
+		<li>
+			<span class="rotate-right" ng-click="rotateRight()"></span>
+		</li>
+	</ul>
+</div>

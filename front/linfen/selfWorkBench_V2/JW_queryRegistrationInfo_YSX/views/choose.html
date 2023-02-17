@@ -1,0 +1,149 @@
+<style type="text/css">
+	.caption {
+		margin-top: 90px;
+		margin-left: 240px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 580px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.tabelBox1 {
+		padding-top: 0%;
+	}
+	
+	.tabelBox1 .dl1 {
+		margin: 1% auto;
+	}
+	
+	.attention {
+		width: 80%;
+		margin: 7% auto;
+		color: #e1ba1c;
+		/*font-weight: bold;*/
+		font-size: 28px;
+	}
+	
+	.attention span {
+		display: block;
+		margin: 1% 0;
+	}
+	
+	.red {
+		color: #ff0000;
+	}
+	
+	.line {
+		width: 100%;
+		height: 9%;
+		position: relative;
+		margin: 0 auto 2%;
+	}
+	
+	.line hr {
+		margin-top: 1.6%;
+		width: 42%;
+		position: absolute;
+	}
+	
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		color: #fff;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+		.attention {
+			width: 62%;
+			margin: 7% 0;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div>
+				<!--查询信息-->
+				<div class="tabelBox1" style="width: 1705px;height: 600px;padding-top: 35px;">
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>统一编码：</span>
+							<span class="red">*</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1 idNumber" type="text">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>学生姓名：</span>
+							<span class="red">*</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1 studentName" type="text">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>证件类型：</span>
+							<span class="red">*</span>
+						</dd>
+						<dd class="rt2">
+							<select class="select1 licenseType" id="nations" ng-model="licenseType" ng-options="x for x in typeList" onclick="selectBlur()">
+								<option value="" selected hidden></option>
+							</select>
+						</dd>
+						<dd class="lt1 lt3">
+							<span>证件号码：</span>
+							<span class="red">*</span>
+						</dd>
+						<dd class="rt2">
+							<input class="input1 licenseNumber" type="text">
+						</dd>
+					</dl>
+					<!--提示信息-->
+					<div class="attention" ng-if="!isShow">
+						<span>查询须知：</span>
+						<p>1、凭报名学生的姓名、证件类型、证件号码、统一编码，查询招生入学信息</p>
+						<p>2、首次查询可登录上海市义务教育入学报名系统shrxbm.edu.sh.gov.cn，统一编码是由一网通办统一分发，贯穿政府各部门政务服务办理全过程</p>
+					</div>
+					<div class="attention" ng-if="isShow">
+						<div class="line">
+							<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;">
+							<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0;">
+							<p>查询结果</p>
+						</div>
+						<p>{{suggestion}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

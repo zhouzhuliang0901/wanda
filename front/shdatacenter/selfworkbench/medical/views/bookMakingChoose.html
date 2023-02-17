@@ -1,0 +1,29 @@
+<app-header go-back="goAppHistoryBack()" fun-name="医保制册"></app-header>
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	 <sscard read="sscardLogin(info)" ng-if="isShowSscard"></sscard>
+	<idcard read="idcardLogin(info,images)" ng-if="isShowIdcard"></idcard>
+</div>
+<!--input用于接收医保卡信息-->
+<input id="ybCardNumber" type="text" autofocus="autofocus" ng-model="ybCardNumber" placeholder="接收医保卡信息" />
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<app-footer prev="prevStep()" next="" default-next="hidden">
+	<a href="javascript:;" class="continue" ng-if="loginBtn" ng-click="caLogin()">登录</a>
+</app-footer>
+
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	#ybCardNumber {
+	    position: fixed;
+	    width: 550px;
+	    height: 60px;
+	    left: 35%;
+	    top: 1100px;
+	    font-size: 26px;
+	    border: none;
+	}
+</style>

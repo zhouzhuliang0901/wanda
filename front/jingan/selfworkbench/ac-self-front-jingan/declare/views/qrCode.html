@@ -1,0 +1,147 @@
+<style type="text/css">
+	.shell.bg2 {
+		width: auto;
+		height: auto;
+		background: none;
+	}
+	.headBox {
+		display: none;
+	}
+	
+	.back {
+		background-color: #FFFFFF;
+		color: #000000;
+	}
+	
+	#top {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.msg {
+		height: 100px;
+		font-size: 51px;
+		line-height: 100px;
+		font-weight: bold;
+	}
+	
+	.img {
+		width: 85px;
+		height: 100px;
+		margin-right: 24px;
+	}
+	
+	.queryResult {
+		font-size: 33px;
+		padding-top: 10px;
+		background-color: #F5F5F5;
+	}
+	
+	#num {
+		margin: 20px 0px 20px 100px;
+		clear: both;
+		height: 55px;
+	}
+	
+	#num p {
+		float: left;
+	}
+	
+	#item {
+		margin: 20px 0px 20px 100px;
+		clear: both;
+		height: 55px;
+	}
+	
+	#item p {
+		float: left;
+	}
+	
+	#people {
+		margin: 20px 0px 20px 100px;
+		clear: both;
+		height: 55px;
+	}
+	
+	#people p {
+		float: left;
+	}
+	
+	#status {
+		margin: 20px 0px 20px 100px;
+		clear: both;
+		height: 55px;
+	}
+	
+	#status p {
+		float: left;
+	}
+	
+	#date {
+		margin: 20px 0px 20px 100px;
+		clear: both;
+		height: 55px;
+	}
+	
+	#date p {
+		float: left;
+		height: 55px;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		width: auto;
+		height: auto;
+		text-align: center;
+	}
+	
+	.loadingBox img {
+		margin-left: auto !important;
+		margin-top: 200px !important;
+	}
+	
+	.loadingBox p {
+		margin-left: 0px;
+		text-align: center;
+		font-size: 38px;
+	}
+</style>
+<div class="back">
+	<div id="top">
+		<img class="img" src="images/信息.png" />
+		<div class="msg">申请信息</div>
+	</div>
+	<div class="queryResult" ng-if="isLoading">
+		<div id="num">
+			<p style="font-weight: bold;">统一审批编码：</p>
+			<p>{{applyNo}}</p>
+		</div>
+		<div id="item">
+			<p style="font-weight: bold;">申请事项：</p>
+			<p>{{itemName}}</p>
+		</div>
+		<div id="people">
+			<p style="font-weight: bold;">申请对象：</p>
+			<p>{{name}}</p>
+		</div>
+		<div id="status">
+			<p style="font-weight: bold;">审批状态：</p>
+			<p>{{FinalState}}</p>
+		</div>
+		<div id="date">
+			<p style="font-weight: bold;">提交日期：</p>
+			<p>{{date}}</p>
+		</div>
+	</div>
+	<div class="loadingBox" ng-if="!isLoading">
+		<img src="../libs/common/images/loadings.gif" alt="">
+		<p>正在加载数据，请稍后...</p>
+	</div>
+</div>

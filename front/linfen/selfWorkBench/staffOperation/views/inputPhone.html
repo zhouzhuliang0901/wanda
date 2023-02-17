@@ -1,0 +1,83 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 758px;
+}	
+	.view-input {
+		position: absolute;
+		background: url(../libs/common/images/big-input.png) no-repeat;
+		background-size: 641px 80px;
+		border: none;
+		font-size: 28px;
+		right: 0px;
+		height: 75px;
+		line-height: 50px;
+		width: 611px;
+		top: 28%;
+		padding-left: 30px;
+	}
+	
+	.view-search {
+		position: absolute;
+		top: 413px;
+		left: 369px;
+		width: 642px;
+		height: 70px;
+	}
+	
+	.keybord {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		height: 540px;
+		width: 500px;
+		margin-left: 1000px;
+		margin-top: 55px;
+	}
+	
+	.keybord a {
+		font-size: 35px;
+		color: #fff;
+		height: 110px;
+		width: 150px;
+		text-align: center;
+		line-height: 110px;
+		border-radius: 20px;
+		box-shadow: 0 0 10px #2779C6;
+		transition: all 0.5s;
+	}
+	
+	.keybord a:active {
+		transform: scale(0.8);
+		background-color: #BCD7EF;
+	}
+</style>
+<div class="stable">
+	<div id="wrapper">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-top: 60px;margin-left: 110px;">制册补证</h4>
+			</div>
+			<div class="body" style="margin-left: 90px;padding-top:80px">
+				<dl style="position: absolute;   font-size: 30px;  color: #c2cce3;   line-height: 60px; top: 414px;">请输入密码:</dl>
+				<!--<div id="view-stAddress" class="view-stAddress">
+					<input type="text" id="stAddress" ng-model="stAddress">
+				</div>-->
+				<div id="view-search" class="view-search">
+					<input id="input" class="view-input" ng-keyup="keyboardInput($event)" type="password" ng-model="count" ng-click="(count=='')?count='':''" />
+				</div>
+
+				<div id="keybord" class="keybord">
+					<a ng-repeat="item in keybordArr" ng-click="inputNumber(item)">{{item}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

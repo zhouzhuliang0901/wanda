@@ -1,0 +1,65 @@
+<style type="text/css">
+	.largeImg {
+		display: block;
+		width: 285px;
+		height: 400px;
+		margin: 0 auto;
+		margin-top: 90px;
+	}
+	
+	.btn_print {
+		width: 132px;
+		height: 53px;
+		line-height: 58px;
+		margin-left: 1220px;
+		background: url("./images/btn-print.png") no-repeat;
+	}
+	
+	.btn_print a {
+		font-size: 30px;
+		margin: 0 36px;
+	}
+	/*fairy 自主取表打印份数*/
+	
+	.chooseQuantity1 {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin-left: 980px;
+		height: 200px;
+		width: 600px;
+		text-align: center;
+		font-size: 40px;
+		/*margin-top: 320px;*/
+		padding-top: 320px;
+	}
+	
+	.chooseQuantity1 p {
+		width: 100%;
+	}
+	
+	.chooseQuantity1 .control {
+		display: inline-block;
+		border: 1px solid #82a3cb;
+		font-size: 57px;
+		height: 60px;
+		width: 100px;
+		line-height: 60px;
+		border-radius: 10px;
+	}
+</style>
+<!--<img class="largeImg" ng-src="{{ largeImg }}" />-->
+<div class="chooseQuantity1">
+	<p>请选择您要打印的份数</p>
+	<span class="control" ng-click="minus()">-</span>
+	<span> {{ printQuantity }}份 </span>
+	<span class="control" ng-click="plus()">+</span>
+</div>
+<div class="btn_print">
+	<a href="javascript:;" class="continue" ng-click="print()">打印</a>
+</div>
+<print show="isPrint"></print>
+
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

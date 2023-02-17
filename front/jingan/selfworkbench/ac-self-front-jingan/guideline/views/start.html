@@ -1,0 +1,44 @@
+<style type="text/css">
+	#wrapper {
+		width: 1800px;
+		height: 500px;
+	}
+	
+	.tabBotbox1inner .text a {
+		width: 266px;
+		margin-right: 44px;
+	}
+	
+	.comment {
+	    position: fixed;
+	    left: 200px;
+	    top: 176px;
+	    height: 50px;
+	    line-height: 50px;
+	    z-index: 1;
+	    font-size: 30px;
+	    background: url(../libs/common/images/icon-link8.png) no-repeat;
+	    padding-left: 56px;
+	    background-size: 28%;
+	}
+</style>
+<p class="comment"  ng-click="goToApp('../evaluate/index.html#/List')">我要留言</p>
+<div class="TabBox1">
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat" style="    margin-top: 150px;">
+			<!--#citylist-->
+			<a href="http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/guideline/index.html#/citylist">
+				<img src="../libs/common/images/materials-copy.png" />
+				<p>市级</p>
+			</a>
+			<!--#list-->
+			<a href="http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/guideline/index.html#/list?areaCode=SH00JA">
+				<img src="../libs/common/images/newIcon/bookMake.png" />
+				<p>区级</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="goHome()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

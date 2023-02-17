@@ -1,0 +1,43 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:;" ui-sref="main">
+				<img src="images/homeLogo.png">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">工作人员操作</a>
+		</li>
+		<li class="active">选择类型</li>
+	</ol>
+</nav>
+<div class="shadowBox staffOperationChoiceLayout">
+	<div class="view-main">
+		<a href="javascript:;" ui-sref="scanCode">
+			<img src="images/licensePut.png" alt="">
+		</a>
+		<a href="javascript:;" ui-sref="licenseInfoList">
+			<img src="images/licenseGet.png" alt="">
+		</a>
+		<a href="javascript:;" ui-sref="materialInfoList">
+			<img src="images/materialGet.png" alt="">
+		</a>
+	</div>
+</div>
+<div class="btn" ui-sref="cabinetController">
+	<span class="event">控制中心</span>
+</div>
+<style type="text/css">
+	.btn {
+		position: absolute;
+		z-index: 100;
+		top: 1287px;
+		opacity: 1;
+		left: 0;
+		right: 0;
+	}
+	
+	.btn .event {
+		left: 95px;
+	}
+</style>

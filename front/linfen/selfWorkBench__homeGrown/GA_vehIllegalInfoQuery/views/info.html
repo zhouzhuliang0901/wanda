@@ -1,0 +1,394 @@
+<style type="text/css">
+	#wrapper {
+		width: 1600px;
+		height: 600px;
+	}
+	
+	.my-card {
+		padding: 0px 80px;
+	}
+	
+	.my-card .body {
+		padding-top: 0px;
+	}
+	
+	.caption {
+		margin-top: 4%;
+		margin-left: 11%;
+	}
+	
+	.body {
+		width: 1440px;
+	}
+	
+	.table-sty1 {
+		width: 100%;
+		table-layout: auto;
+		margin: 0 auto;
+	}
+	
+	.table-sty1 th {
+		font-weight: bold;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+		/* text-overflow: ellipsis; */
+	}
+	
+	.tdOne {
+		width: 20%;
+	}
+	
+	.tdTwo {
+		width: 28%;
+	}
+	
+	.line {
+		width: 100%;
+		height: 9%;
+		position: relative;
+		margin: 2% auto;
+	}
+	
+	.line hr {
+		margin-top: 1.6%;
+		width: 42%;
+		position: absolute;
+	}
+	
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+	
+	.choice {
+		width: 100%;
+		height: 70px;
+	}
+	
+	.choice ul {
+		display: flex;
+		width: 70%;
+		margin: 0 auto;
+		height: 100%;
+	}
+	
+	.choice ul li {
+		width: 30%;
+		height: 80%;
+		line-height: 60px;
+		font-size: 28px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	.orange {
+		color: #F1992E;
+		border-bottom: 1px solid #F1992E;
+	}
+	
+	.gray {
+		background-color: rgba(255, 255, 255, 0.1);
+		font-weight: bold;
+	}
+	
+	.license {
+		background: hsla(0, 0%, 100%, .1);
+		height: 130px;
+		border: 1px solid hsla(0, 0%, 100%, .22);
+		border-left: 0;
+		width: 75%;
+		margin: 0 auto;
+		margin-top: 60px;
+	}
+	
+	.license>div {
+		width: 50%;
+		height: 130px;
+		border-left: 1px solid hsla(0, 0%, 100%, .22);
+		border-bottom: none;
+		box-sizing: border-box;
+		position: relative;
+		padding: 30px 0 0 100px;
+		line-height: 80px;
+		float: left;
+		cursor: pointer;
+	}
+	
+	.license>div.select {
+		background: #ffbb4c;
+		width: 50%;
+		height: 130px;
+	}
+	
+	.license-left {
+		width: 240px;
+		float: left;
+	}
+	
+	.license-right {
+		width: 335px;
+		margin-left: 40px;
+		float: left;
+	}
+	
+	.license-count {
+		color: #fff;
+		font-size: 26px;
+		line-height: 35px;
+	}
+	
+	.license-left>div,
+	.license-left>div.select {
+		background: none;
+		font-size: 35px;
+		font-weight: bold;
+		width: 56%;
+		line-height: 65px;
+		color: #fff;
+		text-align: center;
+		float: left;
+		padding-right: 15px;
+	}
+	
+	.license-icon {
+		width: 90px;
+		height: 64px;
+	}
+	
+	.license-img img {
+		width: 600px;
+	}
+	
+	.car-info {
+		border: 1px solid hsla(0, 0%, 100%, .22);
+		width: 100%;
+		height: 200px;
+		margin-top: 30px;
+	}
+	
+	.info-top {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.info-icon {
+		float: left;
+		margin: 47px 100px;
+		width: 150px;
+	}
+	
+	.info-count {
+		width: 25%;
+		float: left;
+		font-size: 27px;
+		padding-top: 25px;
+		line-height: 50px;
+	}
+	
+	.info-count a {
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		width: 56%;
+		height: 60px;
+		line-height: 61px;
+		font-size: 27px;
+		display: inline-block;
+		letter-spacing: 8px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+</style>
+<div class="license">
+	<div ng-class="{'select':current==0}" ng-click="change(0)">
+		<div class="license-left">
+			<div ng-class="{'select':current==index}">机动车</div>
+			<img ng-src="{{car}}" class="license-icon">
+		</div>
+		<div class="license-right">
+			<div class="license-count">备案车辆：{{vehicleInfo.length||0}}辆</div>
+			<div class="license-count">未处理违章：{{vehicleIllegalInfoList[0].length||0}}条</div>
+		</div>
+	</div>
+	<div ng-class="{'select':current==1}" ng-click="change(1)">
+		<div class="license-left"><img ng-src="{{license}}" class="license-icon">
+			<div ng-class="{'select':current==index}">驾驶证</div>
+		</div>
+		<div class="license-right">
+			<div class="license-count">累计记分：{{score||0}} 分</div>
+			<div class="license-count">清分日期：{{qfrq}}</div>
+		</div>
+	</div>
+</div>
+<div id="wrapper">
+	<div class="st">
+		<div class="my-card">
+			<div class="body">
+				<!--机动车信息-->
+				<div ng-if="current==0" ng-repeat="(index,info) in vehicleInfo">
+					<!-- 机动车信息 -->
+					<div class="car-info" ng-if="vehicleInfoShow">
+						<div class="info-top">
+							<img ng-src="{{car}}" class="info-icon">
+							<div class="info-count">
+								<div>{{info.hphm}}</div>
+								<div>{{licenseName}}</div>
+								<div>机动车状态：{{info.zt}}</div>
+							</div>
+							<div class="info-count">
+								<a ng-click="getDetail(index,info)">查看详情</a>
+								<div>检验有效期截止：{{info.yxqz|to_trusted}}</div>
+							</div>
+						</div>
+					</div>
+					<!-- 机动车详细信息 -->
+					<div class="line" ng-if="(showDetail === index)&&(current==0)">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 35%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 35%;">
+						<p style="width: 25%;">机动车备案信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0" ng-if="(showDetail === index)&&(current==0)">
+						<tbody>
+							<tr>
+								<td class="gray tdOne">号牌</td>
+								<td class="tdTwo">{{info.hphm || "暂无"}}</td>
+								<td class="gray tdOne">号牌种类</td>
+								<td class="tdTwo">{{info.hpzlstr || '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">登记手机号</td>
+								<td class="tdTwo">{{stMobile||'暂无'}}</td>
+								<td class="gray tdOne">机动车状态</td>
+								<td class="tdTwo">{{info.zt || '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">强制报废期止</td>
+								<td class="tdTwo">{{(info.yxqz|to_trusted)|| "暂无"}}</td>
+								<td class="gray tdOne">发动机号</td>
+								<td class="tdTwo">{{info.fdjh6 || '暂无'}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 违法信息 -->
+					<div class="line" ng-if="(showDetail === index)&&(current==0)">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 35%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 35%;">
+						<p style="width: 25%;">机动车违法信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0" ng-if="(showDetail === index)&&(current==0)">
+						<tbody ng-if="vehicleIllegalInfoShow">
+							<tr>
+								<td class="gray">决定书</td>
+								<td class="gray">号牌</td>
+								<td class="gray">违法地点</td>
+								<td class="gray">行为</td>
+								<td class="gray">罚款/滞纳金</td>
+								<td class="gray">违法时间</td>
+								<td class="gray">状态</td>
+							</tr>
+							<tr ng-repeat="item in vehicleIllegalInfo">
+								<td>{{item.Jdsbh || '暂无'}}</td>
+								<td>{{item.hphm || "暂无"}}</td>
+								<td>{{item.wfdz || '暂无'}}</td>
+								<td>{{item.wfms || "暂无"}}</td>
+								<td>{{item.fkje || '暂无'}}</td>
+								<td>{{item.wfsj || "暂无"}}</td>
+								<td>{{item.jkbj || '暂无'}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!--驾驶证信息-->
+				<div ng-if="current==1">
+					<div class="line">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 35%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 35%;">
+						<p style="width: 25%;">驾驶证详情信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody>
+							<tr>
+								<td class="gray tdOne">身份证号码</td>
+								<td class="tdTwo">{{licenseNumber || "暂无"}}</td>
+								<td class="gray tdOne">初次领证日期</td>
+								<td class="tdTwo">{{(driverLicenseInfo.MAKEDAY|limitTo:10) || '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">驾证期限</td>
+								<td class="tdTwo">{{driverLicenseInfo.SEXPIRE || "暂无"}}</td>
+								<td class="gray tdOne">档案编号</td>
+								<td class="tdTwo">{{driverLicenseInfo.CERTCODE || '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">证照状态</td>
+								<td class="tdTwo">{{(driverLicenseInfo.SSTATUS|to_split) || "暂无"}}</td>
+								<td class="gray tdOne">审验有效期止</td>
+								<td class="tdTwo">{{(driverLicenseInfo.VALIDENDDAY|limitTo:10)|| '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">下一清分周期</td>
+								<td class="tdTwo">{{qfrq || "暂无"}}</td>
+								<td class="gray tdOne">准驾车型</td>
+								<td class="tdTwo">{{driverLicenseInfo.SCLASS || '暂无'}}</td>
+							</tr>
+							<tr class="license-img">
+								<td colspan="2">
+									<div><img ng-src="{{oneImg}}"/></div>
+								</td>
+								<td colspan="2">
+									<div><img ng-src="{{twoImg}}" /></div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<!-- 违法信息 -->
+					<div class="line" ng-if="current==1">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 35%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 35%;">
+						<p style="width: 25%;">驾驶证违法信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0" ng-if="current==1">
+						<tbody ng-if="driverIllegalInfoShow">
+							<tr>
+								<td class="gray">号牌</td>
+								<td class="gray">违法地点</td>
+								<td class="gray">行为</td>
+								<td class="gray">罚款/滞纳金</td>
+								<td class="gray">违法时间</td>
+								<td class="gray">状态</td>
+								<td class="gray">违法计分数</td>
+							</tr>
+							<tr ng-repeat="item in driverIllegalInfo">
+								<td>{{item.hphm || "暂无"}}</td>
+								<td>{{item.wfdz || '暂无'}}</td>
+								<td>{{item.wfms || "暂无"}}</td>
+								<td>{{item.fkje || '暂无'}}</td>
+								<td>{{item.wfsj || "暂无"}}</td>
+								<td>{{item.jkbj || '暂无'}}</td>
+								<td>{{item.wfjfs || '暂无'}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true"></apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

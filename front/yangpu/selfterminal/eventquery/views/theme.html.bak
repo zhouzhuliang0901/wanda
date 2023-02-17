@@ -1,0 +1,86 @@
+<style type="text/css">
+	.radioButtons {
+		left: 50%;
+		bottom: 0px;
+		margin-left: -150px;
+	}
+	
+	.board .action {
+		width: 100%;
+		left: 0px;
+	}
+		
+	.panelList.one>div {
+		width: 98%;
+		height: 730px;
+		overflow: auto;
+	}
+	
+	.conDetails th,
+	.conDetails td {
+		text-align: center;
+	}
+	
+	.conDetails .matter {
+		background-color: #0097ff99;
+	}
+	
+	.conDetails .matter th {
+		width: 100%;
+		text-align: left;
+		padding-left: 20px;
+		color: #fffefe;
+	}
+	.board{
+		    height: 848px;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#main">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="#">办件查询</a>
+		</li>
+		<li class="active">主题办件</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action">
+		<div class="panelList one vertical-middle horizontal-middle absoluteLeftRightCenterClass">
+			<div>
+				<table class="conDetails" style="border-collapse:collapse;">
+					<tr>
+						<th>操作部门</th>
+						<th>操作环节</th>
+						<th>操作结果</th>
+						<th>操作时间</th>
+					</tr>
+					<tbody ng-repeat="i in list">
+						<tr class="matter">
+							<th colspan="5">事项名称:{{i.stItemName}}</th>
+						</tr>
+						<tr>
+							<td>{{i.stOrganName}}</td>
+							<td>{{i.stFinalState}}</td>
+							<td>{{i.stFinalStateResult}}</td>
+							<td>{{i.stApplyStr}}</td>
+						</tr>
+					</tbody>
+
+				</table>
+			</div>
+			<span class="horizontal-middle"></span>
+
+		</div>
+		<a class="btn_radius_50 radioButtons" ng-click="back()">
+			<div class="greyLight">
+				<img src="../libs/common/images/icon200/back.png">
+				<label>返回</label>
+			</div>
+		</a>
+	</div>
+</div>

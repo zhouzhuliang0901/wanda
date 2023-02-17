@@ -1,0 +1,49 @@
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#materialUpload">材料清单</a></li>
+        <li class="active">上传方式</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请选择证照上传方式</div>
+            <div class="sub-index">
+                <!--<a class="blue-green active" href="#materialUpload">返回材料列表</a>-->
+            </div>
+        </div>
+    </div>
+    <div class="action">
+    	<div class="guideTitle" ng-show="stuffNameShow" style="margin-top: 30px; text-align: center; width: 85%; margin-left: 3%;">{{stuffName}}</div>
+        <div class="btn_radius_50 upload-btn" ng-click="scanPhoto()" style="top:155px;">
+            <div class="greyLight">
+                <img src="images/scan_middle.png">
+                <label>扫描上传</label>
+            </div>
+        </div>
+        <div class="btn_radius_50 upload-btn" ng-click="takePhoto()" style="top:355px;">
+            <div class="greyLight">
+                <img src="images/U_middle.png">
+                <label>U盘上传</label>
+            </div>
+        </div>
+        <div class="btn_radius_50 upload-btn" ng-click="materialPic()" style="top:560px;">
+            <div class="greyLight">
+                <img src="images/dataBase_middle.png">
+                <label>个人档案上传</label>
+            </div>
+        </div>
+        <a class="btn_radius_50 vertical-middle" href="#materialUpload" style="top: 20px;left: 980px;">
+			<div class="greyLight-dark">
+				<img src="images/back.png" height="50" border="0" style="margin: 10px 15px 15px 15px;">
+			</div>
+		</a>
+    </div>
+</div>

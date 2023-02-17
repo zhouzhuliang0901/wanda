@@ -1,0 +1,97 @@
+ <div class="shell bg2">
+	<apptb-header fun-name="线下办理"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+				 <li>选择事项</li>
+				<li>办事指南</li>
+				<li>事项情形</li>
+				<li>人证核验</li>
+				<li   class="act">材料上传</li>
+			</ul>
+			<span class="line"></span>
+		<div class="main2" style="height: 650px;">
+		<div class="camera">
+			<div>
+				<img style="margin-top: 220px;float: right;margin-right: 20px;" ng-click="next()" src="./images/btn-photo.png"/>
+			</div>
+		</div>
+		<div class="info">
+			<div style="margin: 10px 15px 0; text-align: left;">已上传图片：</div>
+			<div class="imgBox">
+			</div>
+		</div>
+		<div class="loadingBox" ng-if="!isLoading">
+  			<img style="margin-left: 909px;margin-top: 523px;" src="../libs/common/images/loadings.gif" alt=""/>
+  			<p>正在加载数据，请稍后...</p >
+		</div>
+	</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="finishUpload()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<style type="text/css">
+	.camera {
+		width: 875px;
+		height: 590px;
+		background: url(./images/bg-photo.png) no-repeat;
+		background-size: 875px 590px;
+		margin-top: 30px;
+	}
+	
+	.info {
+		position: absolute;
+		top: 20px;
+		left: 870px;
+	}
+	
+	.imgBox {
+		overflow: auto;
+		width: 680px;
+		height: 540px;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+	
+	.img {
+		display: inline-block;
+		position: relative;
+		margin-bottom: 30px;
+		margin-right: 10px;
+	}
+	
+	.del {
+		position: absolute;
+		bottom: -16px;
+		left: 38%;
+		margin: 0;
+		padding: 5px 15px;
+		background: rgba(0, 0, 0, 0.6);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	
+	.main2 span.line {
+		top: 50px;
+	}
+	</style>

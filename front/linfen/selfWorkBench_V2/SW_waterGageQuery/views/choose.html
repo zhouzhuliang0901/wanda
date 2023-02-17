@@ -1,0 +1,178 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+
+	.input {
+		width: 90%;
+		height: 65px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+		text-align: center;
+	}
+
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+
+	#wrapper {
+		width: 90%;
+		height: 80%;
+	}
+
+	.tableContain {
+		width: 100%;
+	}
+
+	a {
+		text-align: center;
+	}
+
+	a.stamp {
+		background: url(./images/print.png) no-repeat;
+		background-size: 100% 96%;
+		margin-left: 8%;
+		width: 100%;
+		height: 100%;
+		line-height: 54px;
+		font-size: 30px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+
+	.infoTable {
+		width: 99%;
+	}
+
+	.scrollContain {
+		width: 100%;
+	}
+
+	.infoTable tr,
+	.infoTable th,
+	.infoTable td {
+		padding: 15px 15px;
+		font-size: 24px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+
+	.infoTable th,
+	.infoTable td {
+		width: 50%;
+	}
+
+	.resultTr {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	.resultTr th {
+		font-weight: bold;
+	}
+
+	.qrCode {
+		width: 200px;
+		padding-left: 45px;
+	}
+
+	.tips {
+		color: #e1ba1c;
+		font-weight: bold;
+		margin-left: 66px;
+		display: inline-block;
+		margin-bottom: 19px;
+		font-size: 24px;
+	}
+	.datetimepicker td, .datetimepicker th{
+		width: 80px;
+	}
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+		.scrollBox2 {
+			margin-left: 7%;
+			width: 1100px;
+		}
+	}
+	.tipWxtstext{
+		font-size: 20px;
+		color:#DEC70F;
+		font-weight:900;
+		display: inline-flex;
+		width: 86%;
+		justify-content: flex-end;
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="tipWxtstext">
+		温馨提示：信息查询仅供参考
+	</div>
+<div class="scrollBox2 clearfloat">
+	<span class="tips">注：根据《上海市供水调度管理细则》要求，管网压力应为>160kpa，管网压力合格率应为>97%</span>
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table class="infoTable">
+				<tr class="resultTr">
+					<th colspan="2">{{dateTime}}月份中心城区供水服务压力及合格表率</th>
+				</tr>
+				<tr>
+					<td>时间</td>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="dtTime" ng-model="dtTime" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>区域名称</td>
+					<td>中心城区</td>
+				</tr>
+				<tr>
+					<td>管网压力合格率（%）</td>
+					<td>{{result.YLHGL || ''}}</td>
+				</tr>
+				<tr>
+					<td>管网平均服务压力（kPa）</td>
+					<td>{{result.PJFWYL || ''}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

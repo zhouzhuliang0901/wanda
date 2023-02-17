@@ -1,0 +1,59 @@
+<app-header fun-name="工商银行" go-back="goAppHistoryBack()"></app-header>
+<ul class="container">
+	<li ng-click="huangpu()">
+		<p>
+			黄浦支行
+		</p>
+	</li>
+	<li ng-click="luwan()">
+		<p>
+			卢湾支行
+		</p>
+	</li>
+</ul>
+<apptb-footer default-is-show-next-btn="hidden" prev="prevStep()"  go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 80px auto;
+		align-items: flex-start;
+		width: 1750px;
+		height: 800px;
+	}
+	
+	.container li {
+		margin-left: 120px;
+		margin-top: 150px;
+		text-align: center;
+		height: 300px;
+		width: 300px;
+	}
+	
+	.container li>img {
+		margin-top: 80px;
+		width: 100PX;
+		height: 100PX;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+	    margin-top: 20px;
+	    width: 271px;
+	    font-size: 47px;
+	    line-height: 242px;
+	}
+	.container li:nth-of-type(1) {
+		margin-left: 455px;
+		    background: url(../libs/common/images/bg-alert.png) no-repeat center;
+    background-size: 100% 100%;
+	}
+	
+	.container li:nth-of-type(2) {
+		margin-left: 250px;
+		background: url(../libs/common/images/bg-alert.png) no-repeat center;
+		 background-size: 100% 100%;
+	}
+</style>

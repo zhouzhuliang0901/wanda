@@ -1,0 +1,142 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 90%;
+		height: 100%;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	.resultTr th:nth-of-type(1){
+		width: 18%;
+	}
+	.resultTr th:nth-of-type(2){
+		width: 26%;
+	}
+	.resultTr th:nth-of-type(3){
+		width: 18%;
+	}
+	.resultTr th:nth-of-type(5){
+		width: 10%;
+	}
+	table td>a {
+		text-decoration: underline;
+		color: #477cbe;
+	}
+	.detailTable tr td:nth-of-type(1),.detailTable tr td:nth-of-type(3){
+		width: 20%;
+	}
+	.detailTable tr td:nth-of-type(2),.detailTable tr td:nth-of-type(4){
+		width: 28%;
+	}
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			    height: 550px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table ng-if="basic">
+				<tr class="resultTr">
+					<th>耗材项目编码</th>
+					<th>品名</th>
+					<th>品牌</th>
+					<th>规格</th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{list.xmbm}}</td>
+					<td>{{list.pm}}</td>
+					<td>{{list.pp}}</td>
+					<td>{{list.gg}}</td>
+					<td>
+						<a ng-click="detailInfoQuery(list.xmbm)">查看详情</a>
+					</td>
+				</tr>
+			</table>
+			<table ng-if="detail" class="detailTable">
+				<tbody>
+					<tr>
+						<td class="gray">品名</td>
+						<td>{{queryDetailList.pm || "暂无"}}</td>
+						<td class="gray">品牌</td>
+						<td>{{queryDetailList.pp || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">规格</td>
+						<td>{{queryDetailList.gg || "暂无"}}</td>
+						<td class="gray">材质</td>
+						<td>{{queryDetailList.cz || '--'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">计价单位</td>
+						<td>{{queryDetailList.jjdw || "暂无"}}</td>
+						<td class="gray">有效期</td>
+						<td>{{queryDetailList.yxq || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">注册证号</td>
+						<td>{{queryDetailList.zczh || "暂无"}}</td>
+						<td class="gray">生产企业</td>
+						<td>{{queryDetailList.scqy || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">经销企业</td>
+						<td>{{queryDetailList.jxqy || "--"}}</td>
+						<td class="gray">一个月内使用过的医疗机构的机构代码</td>
+						<td>{{queryDetailList.yljg_1mon || '--'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">三个月内使用过的医疗机构的机构代码</td>
+						<td>{{queryDetailList.yljg_3mon || '--'}}</td>
+						<td class="gray">六个月内使用过的医疗机构的机构代码</td>
+						<td>{{queryDetailList.yljg_6mon || '--'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

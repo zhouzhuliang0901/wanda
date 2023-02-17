@@ -1,0 +1,70 @@
+<p class="caption">{{operation}}</p>
+<div class="input serialInput">
+	<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机号码:</label>
+	<input type="text" id="mobile" value="" /><br>
+	<input type="button" id="" value="查询" ng-click="serialSearch()" />
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 310px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	.loadingBox {
+		position: fixed;
+		width: 1920px;
+		height: 930px;
+		/* margin: auto; */
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 150px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	
+	.input {
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+		height: 600px;
+		width: 1760px;
+		margin-top: 160px;
+	}
+	
+	.input label {
+		font-size: 35px;
+		margin-left: -186px;
+	}
+	
+	input {
+		color: #fff;
+	}
+	
+	.input input[type='text'] {
+		background-color: #2864b0;
+		border: none;
+		padding-left: 20px;
+		margin-top: 40px;
+		font-size: 45px;
+		height: 115px;
+		width: 840px;
+	}
+	
+	.input input[type='button'] {
+		background-color: #56ce97;
+		line-height: 70px;
+		text-align: center;
+		border-radius: 10px;
+		margin-top: 40px;
+		border: none;
+		font-size: 30px;
+		height: 70px;
+		width: 200px;
+	}
+</style>

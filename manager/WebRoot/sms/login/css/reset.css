@@ -1,0 +1,63 @@
+/* 重置 */
+html{
+	font-size: 12px;
+	font-family: Helvetica, Arial, "Microsoft YaHei", "微软雅黑", sans-serif;
+}
+body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,button,textarea,p,img,th,td,pre{
+	margin: 0;
+	padding: 0;
+}
+h1,h2,h3,h4,h5,h6{
+	font-size: 100%;
+	font-weight: normal;
+}
+address,caption,cite,code,dfn,em,strong,th,var,i,b{
+	font-style: normal;
+	font-weight: normal;
+}
+a{
+	text-decoration: none;
+}
+img{
+	border: none;
+}
+ol,ul,li{
+	list-style: none;
+}
+table{
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+}
+button,a{
+	cursor: pointer;
+}
+button,input,select,a{
+	outline: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

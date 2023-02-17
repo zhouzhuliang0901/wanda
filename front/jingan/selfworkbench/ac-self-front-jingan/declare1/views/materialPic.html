@@ -1,0 +1,67 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>人证核验</li>
+		<li>信息填写</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="main2" style="height: 650px;">
+		<div id="jq22" class="previewContainer">
+			<img ng-src="{{previewImg}}" alt="">
+		</div>
+		<!-- <a ng-click="prevPage()" class="control prev" ng-if="currentPage>1">
+			<img src="../libs/common/images/prevBtn.png" />
+		</a>
+		<a ng-click="nextPage()" class="control next" ng-if="currentPage<totalPages">
+			<img src="../libs/common/images/nextBtn.png" />
+		</a> -->
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="goNext()" prev-btn-info="{{prevText}}" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()" concel='concel'></alert>
+<style>
+	.previewContainer {
+		width: 1425px;
+		height: 560px;
+		display: flex;
+		margin: 0 auto;
+	}
+
+	.previewContainer img {
+		width:380px;
+		margin: 35px;
+	}
+
+	.control.prev {
+		left: 10px;
+		top: 240px;
+		position: absolute;
+	}
+
+	.control.next {
+		left: 1480px;
+		top: 240px;
+		position: absolute;
+	}
+
+	.imgStyle {
+		border: #fab93f 6px solid;
+		padding: 10px;
+	}
+
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 0px 50px;
+	}
+</style>

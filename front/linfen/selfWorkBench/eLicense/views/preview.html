@@ -1,0 +1,91 @@
+<apptb-header fun-name="我的证照"></apptb-header>
+<div class="contain">
+	<p class="caption">{{ certName }}</p>
+<!--	<div class="previewContainer" ng-class="{'mask':isAllScreen}" ng-click="allScreen($event, 'con')">-->
+		 <!--ng-click="allScreen($event)"-->
+		<!--<img class="previewImg"  data-original="{{configUrl+previewImg}}" ng-src="{{configUrl+previewImg}}"/>
+	</div>-->
+</div>
+<a class="continue" ng-click="print()">打印</a>
+
+<print show="isPrint"></print>
+	<!--default-is-show-prev-btn="hidden"--> 
+<apptb-footer 
+	prev="prevStep()" 
+	prev-btn-info="返回列表"
+	next="" 
+
+	default-is-show-next-btn="hidden" 	
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<div id="jq22" class="previewContainer" ng-class="{'mask':isAllScreen}" >
+	<!--ng-click="allScreen($event)"-->
+	<img class="previewImg"  data-original="{{previewImg}}" ng-src="{{previewImg}}"/>
+</div>
+	
+<style type="text/css">
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+	
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 0px 50px;
+	}
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background: url('../libs/common/images/bg-dzzz.png') no-repeat center 50%;
+		background-size: 90% 75%;
+	}
+	
+	.previewContainer {
+		text-align: center;
+		padding-top: 200px;
+		position: relative;
+	}
+	
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+	
+	.previewContainer img {
+		width: 405px;
+		height: 500px;
+	}
+	
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+	
+	.continue {
+	    position: absolute;
+	    left: 892px;
+	    bottom: 190px;
+	    width: 140px;
+	    height: 60px;
+	    text-align: center;
+	    line-height: 60px;
+	    background: url(../libs/common/images/reBtn.png) no-repeat;
+	    background-position: -8px -44px;
+	    font-size: 26px;
+	}
+</style>

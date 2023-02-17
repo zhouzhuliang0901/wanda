@@ -1,0 +1,77 @@
+<apptb-header fun-name="居住证签注"></apptb-header>
+<div class="contain">
+<p class="caption">{{operation}}</p>
+<div class="stable">
+	<div class="container">
+		<div class="loginType">
+			<p></p>
+			<ul>
+				<li>
+					<a ng-click="choice()">
+						<img style="width: 695px;margin-left: 78px;" src="../libs/common/images/newTips/residence-into.png" />
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" 	home="customMain()"go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	.container {
+		width: 1000px;
+		height: 608px;
+		position: absolute;
+		left: 50%;
+		top: 54%;
+		transform: translate(-50%, -50%);
+		color: #1a5aad;
+		padding-top: 35px;
+		box-sizing: border-box;
+	}
+	
+	.container .loginType {}
+	
+	.container .loginType:first-child {}
+	
+	.container .loginType>p {
+		height: 75px;
+		line-height: 88px;
+		color: #fff;
+		font-size: 36px;
+		text-align: center;
+	}
+	
+	.container .loginType>.selfLogin {
+		background: url(../libs/common/images/self.png) no-repeat;
+		background-position: 316px 26px;
+	}
+	
+	.container .loginType>.otherLogin {
+		background: url(../libs/common/images/other.png) no-repeat;
+		background-position: 316px 28px;
+	}
+	
+	.container .loginType ul li a {
+		display: inline-block;
+		overflow: hidden;
+		text-align: center;
+		padding-left: 60px;
+	}
+	
+	.container .loginType ul li a p {
+		height: 100px;
+		line-height: 100px;
+		font-size: 30px;
+	}
+</style>

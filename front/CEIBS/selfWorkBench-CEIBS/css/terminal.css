@@ -1,0 +1,778 @@
+@font-face {
+	font-family: HYQiHei;
+	src: url(../font/HYQiHei-65S.ttf);
+}
+
+@font-face {
+	font-family: SourceHanSansCN;
+	src: url(../font/SourceHanSansCN-Regular.ttf);
+}
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	outline: none;
+}
+
+img {
+	vertical-align: middle;
+}
+
+table {
+	border-collapse: collapse;
+	width: 90%;
+	table-layout: fixed;
+}
+
+input {
+	font-family: SourceHanSansCN;
+}
+
+
+/* PUBLIC */
+
+body {
+	font-family: SourceHanSansCN;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 1080px;
+	width: 1920px;
+	background-color: #ececec;
+}
+
+header {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 165px;
+	font-family: HYQiHei;
+	background-color: #fff;
+	width: 100%;
+}
+
+header>.logo {
+	width: 339px;
+	height: 92px;
+}
+
+header>h1 {
+	font-size: 60px;
+	letter-spacing: 3px;
+	color: #201f1f;
+	padding-left: 35px;
+	font-weight: normal;
+	font-family: HYQiHei-FES;
+}
+
+section {
+	height: 980px;
+	/*display: flex;*/
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+section>h2 {
+	text-align: center;
+	font-size: 40px;
+	letter-spacing: 2px;
+	color: #201f1f;
+	font-weight: normal;
+	margin-bottom: 30px;
+}
+
+section>h2>img {
+	padding-right: 10px;
+}
+
+section>h2+div>img {
+	border: solid 1px #bf0008;
+}
+
+.btnHome,
+.btnNext,
+.btnPrv {
+	background-image: url(../img/bgBtn.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center center;
+	border: none;
+	width: 154px;
+	height: 58px;
+	cursor: pointer;
+	background-color: rgba(255, 255, 255, 0);
+	color: #fff;
+	font-size: 24px;
+	line-height: 58px;
+	letter-spacing: 0px;
+	color: #fff;
+}
+
+a.item {
+	width: 462px;
+	height: 252px;
+	border-radius: 10px;
+	display: block;
+	color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+p.sign {
+	width: 90px;
+	height: 90px;
+	border-radius: 50%;
+	background-color: rgba(255, 255, 255, 0.15);
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-right: 30px;
+}
+
+p.signTxt {
+	font-size: 42px;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.i1 {
+	border: none;
+	background-image: url(../img/bg1.png);
+}
+
+.i2 {
+	background-image: url(../img/bg2.png);
+}
+
+.i3 {
+	background-image: url(../img/bg3.png);
+}
+
+.i4 {
+	background-image: url(../img/bg4.png);
+}
+
+.i5 {
+	background-image: url(../img/bg5.png);
+}
+
+.i6 {
+	background-image: url(../img/bg6.png);
+}
+
+
+/* PUBLIC END */
+
+
+/* PUBLIC FOOTER */
+
+footer.ctrl {
+	background-image: url(../img/bgFooter.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: bottom center;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+}
+
+footer.ctrl>p {
+	width: 154px;
+}
+
+
+/* PUBLIC FOOTER END */
+
+
+/* INDEX */
+
+section.main {
+	background-image: url(../img/bgMain.png);
+	background-position: left center;
+	background-repeat: no-repeat;
+	background-size: 1920px 600px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+div.main {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+}
+
+body.main>header,
+body.main>footer {
+	height: calc(50% - 300px);
+}
+
+
+/* INDEX END */
+
+
+/* STUDENT */
+
+section.std {
+	height: 750px;
+	background-image: url(../img/bgStd.png);
+	background-size: 1818px 650px;
+	background-repeat: no-repeat;
+	background-position: center 99.875%;
+	background-color: #ececec;
+}
+
+div.std {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+
+/* STUDENT END */
+
+
+/* TEACHER　*/
+
+section.teacher {
+	height: 750px;
+	background-image: url(../img/bgTeacher.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center 99.875%;
+	background-color: #ececec;
+}
+
+
+/* TEACHER END */
+
+section.card,
+section.certificate {
+	height: 750px;
+	text-align: center;
+}
+
+.payResult {
+	text-align: center;
+	padding-top: 200px;
+}
+
+.payResult img {
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	margin-bottom: 40px;
+}
+
+.txtIllustrative {
+	font-size: 40px;
+	letter-spacing: 2px;
+	color: #201f1f;
+}
+
+.txtIllustrative+span {
+	font-size: 30px;
+	letter-spacing: 2px;
+	color: #333;
+}
+
+
+/* REPORT */
+
+section.report {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 750px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	flex-wrap: nowrap;
+}
+
+.sets {
+	position: relative;
+}
+
+form {
+	width: 100%;
+}
+
+.infoReport span {
+	color: #bf0008;
+}
+
+.infoReport tbody th {
+	font-size: 30px;
+	text-align: right;
+	letter-spacing: 2px;
+	color: #333;
+	font-weight: normal;
+	width: 24%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.infoReport tbody td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	width: 28%;
+}
+
+input[type=text],
+input[type=date] {
+	height: 50px;
+	background-color: #f2f4f7;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	line-height: 50px;
+	text-indent: 5px;
+	width: 97%;
+	font-size: 30px;
+	outline: none;
+	color: #000;
+}
+
+input[type=radio],
+input[type=checkbox] {
+	display: none;
+}
+
+input[type=radio]+label,
+input[type=checkbox]+label {
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	display: inline-block;
+	background-color: #f2f4f7;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	font-size: 30px;
+	text-align: center;
+	color: #666;
+}
+
+input[type=radio]:checked+label,
+input[type=checkbox]:checked+label {
+	display: inline-block;
+	width: 200px;
+	height: 50px;
+	line-height: 50px;
+	border-radius: 10px;
+	font-size: 30px;
+	text-align: center;
+	color: #fff;
+	background-color: #bf0008;
+}
+
+.sets {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	width: 100%;
+}
+
+.sets>label {
+	display: inline-block;
+	margin: 5px;
+}
+
+.set2 {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.set2 a {
+	background-color: #f2f4f7;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	width: 43%;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+}
+
+.set2 a.in {
+	background-color: #bf0008;
+	color: #FFFFFF;
+}
+
+.sets a {
+	background-color: #f2f4f7;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	width: 13.6%;
+	height: 50px;
+	font-size: 30px;
+	text-align: center;
+}
+
+.sets a.in {
+	background-color: #bf0008;
+	color: #FFFFFF;
+}
+
+
+/*.set2>input[type=radio]+label,
+.set2>input[type=checkbox]+label {
+    border-radius: unset;
+}
+
+.set2>input[type=radio]:checked+label:first-child,
+.set2>input[type=checkbox]:checked+label:first-child {
+    border-radius: unset;
+}*/
+
+table tbody td>span.unit {
+	font-size: 30px;
+	letter-spacing: 2px;
+	color: #666;
+	display: inline-block;
+	padding-left: 10px;
+}
+
+.infoReport2 {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 600px;
+}
+
+.infoReport2 tbody th,
+.infoReport2 tbody td {
+	padding: 20px;
+}
+
+.infoReport2 tbody th {
+	font-size: 30px;
+	text-align: right;
+	letter-spacing: 2px;
+	color: #333;
+	font-weight: normal;
+	width: 30%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.infoReport2 tbody tr>td:first-child {
+	width: 25%;
+}
+
+.infoReport2 tbody tr>td:last-child {
+	width: 45%;
+}
+
+.infoReport2 tbody td>span {
+	color: #bf0008;
+	font-size: 30px;
+}
+
+select.printReport {
+	height: 50px;
+	background-color: #f2f4f7;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	line-height: 50px;
+	text-indent: 5px;
+	width: 65%;
+	font-size: 30px;
+	outline: none;
+	color: #000;
+	text-align: center;
+	display: inline-block;
+}
+
+.infoReport4 {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1050px;
+}
+
+.infoReport4 tbody th,
+.infoReport4 tbody td {
+	padding: 20px;
+}
+
+.infoReport4 tbody th {
+	font-size: 30px;
+	text-align: right;
+	letter-spacing: 2px;
+	color: #333;
+	font-weight: normal;
+	width: 30%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.infoReport4 tfoot th {
+	font-size: 24px;
+	letter-spacing: 1px;
+	color: #999999;
+}
+
+.infoReport4 tfoot td {
+	font-size: 30px;
+	letter-spacing: 2px;
+	color: #bf0008;
+	text-align: center;
+}
+
+table.infoReportStudy {
+	width: 1150px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.infoReportStudy tbody th {
+	font-size: 30px;
+	text-align: right;
+	letter-spacing: 2px;
+	color: #333;
+	font-weight: normal;
+	width: 40%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.infoReportStudy th,
+.infoReportStudy td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.infoReportStudy .unit {
+	padding-right: 100px;
+}
+
+.infoReportStudy .printReport {
+	width: 140px;
+}
+
+table.insideReportStudy {
+	width: 850px;
+}
+
+table.inside {
+	width: 100%;
+}
+
+table.inside th,
+table.inside td {
+	font-weight: normal;
+	border: 1px solid #ccc;
+	font-size: 30px;
+	letter-spacing: 2px;
+	color: #333;
+	text-align: center;
+}
+
+table.inside thead tr>th:first-child {
+	width: 40%;
+}
+
+table.inside+.tips {
+	color: #999;
+	font-size: 24px;
+	padding-top: 20px;
+}
+
+.swear {
+	text-align: center;
+	width: 1050px;
+	height: 290px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+	border: solid 1px #ccc;
+	font-size: 30px;
+	line-height: 40px;
+	letter-spacing: 2px;
+	color: #333;
+	padding: 50px;
+}
+
+.swear>h3 {
+	font-size: 34px;
+	letter-spacing: 2px;
+	color: #333;
+	padding-bottom: 20px;
+}
+
+.swear+p {
+	text-align: center;
+}
+
+.swearCheck {
+	width: 90%;
+	position: relative;
+	margin: 0 auto;
+	top: 30%;
+	height: 40%;
+	background-color: white;
+}
+
+table.inputInfos {
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.inputInfos tbody th {
+	font-size: 30px;
+	text-align: right;
+	letter-spacing: 2px;
+	color: #333;
+	font-weight: normal;
+	width: 25%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+table.inputInfos tbody td {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+table.inputInfos span {
+	color: #bf0008;
+}
+
+.pay {
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.pay th {
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 30px;
+	letter-spacing: 2px;
+	font-weight: normal;
+}
+
+.pay td {
+	text-align: center;
+	font-size: 30px;
+	letter-spacing: 2px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.pay th>span.payCount {
+	color: #bf0008;
+	font-weight: bold;
+}
+
+.pay th>button {
+	display: inline-block;
+	margin: 40px;
+}
+
+.wechatpay {
+	width: 200px;
+	height: 200px;
+	background-color: rgba(124, 230, 48, 0.1);
+	border: 1px dashed #3fb02f;
+	text-align: center;
+	cursor: pointer;
+}
+
+.alipay {
+	width: 200px;
+	height: 200px;
+	background-color: rgba(0, 169, 235, 0.1);
+	border: 1px dashed #00a9eb;
+	text-align: center;
+	cursor: pointer;
+}
+
+.wechatpay>p,
+.alipay>p {
+	font-size: 24px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 1px;
+	color: #333;
+}
+
+.swearYes {
+	background-image: url(../img/unchecked.png);
+	background-size: 28px 28px;
+	background-repeat: no-repeat;
+	background-position: left center;
+	text-align: center;
+	text-indent: 30px;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 30px;
+	color: #333;
+}
+
+.checked {
+	background-image: url(../img/checked.png);
+	background-size: 28px 28px;
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+
+/*
+ * datetimepicker css样式
+ */
+
+.xdsoft_datetimepicker.xdsoft_inline {
+	width: 600px;
+	height: 400px;
+}
+
+.xdsoft_datepicker {
+	width: 600px !important;
+	height: 400px;
+}
+
+.xdsoft_calendar {
+	height: 90%;
+}
+
+.xdsoft_datetimepicker .xdsoft_calendar table {
+	height: 100%;
+}
+
+.xdsoft_datetimepicker .xdsoft_year,.xdsoft_datetimepicker .xdsoft_month{
+	width: 155px !important;
+	margin-left: 50px !important;
+	line-height: 30px !important;
+	font-size: 25px !important;
+}
+.xdsoft_datetimepicker .xdsoft_calendar td, .xdsoft_datetimepicker .xdsoft_calendar th{
+font-size: 25px !important;
+    text-align: center !important;
+}

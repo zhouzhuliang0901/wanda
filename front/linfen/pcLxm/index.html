@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="terminalApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>pc离线码</title>
+		<link rel="stylesheet" type="text/css" href="css/terminal.css" />
+		<link rel="stylesheet" type="text/css" href="css/viewer.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/viewer.min.css" />
+		<!-- 引入 layui.css -->
+		<!--<link rel="stylesheet" href="//unpkg.com/layui@2.6.8/dist/css/layui.css">-->
+	</head>
+
+	<body>
+		<div ng-view ui-view></div>
+	</body>
+	<script src="js/angularjs/1.5.8/angular.js"></script>
+	<script src="js/angularjs/1.5.8/angular-ui-router-min.js"></script>
+	<script src="js/angularjs/1.5.8/angular-animate.min.js"></script>
+	<script src="js/jquery/jquery-1.8.1.min.js"></script>
+	<script src="js/ac-bridge-mac.min.js"></script>
+	<script src="js/self-mac-tools.js"></script>
+	<script src="js/viewer.min.js"></script>
+	<script src="js/request.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script src="js/utils.js"></script>
+	
+	<!-- 引入 layui.js -->
+    <!--<script src="//unpkg.com/layui@2.6.8/dist/layui.js"></script>-->
+	<!--全局 app-->
+	<script src="app.js"></script>
+	<!--组件 component-->
+	<!--<script src="directive/loadingsg.js"></script>-->
+	<script src="directive/alert.js"></script>
+	<script src="controller.js"></script>
+	<!--全局路由 global router-->
+	<script src="router.js"></script>
+	<!--<script src='http://localhost:8000/CLodopfuncs.js?name=CLODOPA'></script>-->
+
+</html>

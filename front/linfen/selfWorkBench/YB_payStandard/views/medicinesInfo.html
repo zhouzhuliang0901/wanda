@@ -1,0 +1,147 @@
+<p class="caption">相关药品查询结果（{{listLength}}条）</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper">
+			<div>
+				<div class="linkt" ng-repeat="list in queryList">
+					<a class="select">
+						<dd>
+							<dl><b>通用名：</b>{{ list.name_cn || "暂无"}}</dl>
+						</dd>
+						<dd>
+							<dl><b>剂型：</b>暂无</dl>
+						</dd>
+						<dd>
+							<dl><b>甲乙类：</b>{{ list.ypdj ||"暂无" }}</dl>
+						</dd>
+						<dd>
+							<dl><b>支付：</b>{{ list.ypzf ||"暂无"}}</dl>
+						</dd>
+						<dd>
+							<dl><b>备注：</b>{{ list.bz=='null'?'暂无':list.bz}}</dl>
+						</dd>
+					</a>
+				</div>
+			</div>
+		</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style>
+@media screen and (max-width: 1600px) {
+	.caption {
+		margin-top: 84px;
+    margin-left: 150px;
+	}
+	#wrapper {
+		overflow: visible;
+		width: 1500px;
+		height: 500px;
+		margin-top: 2%;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+	}
+	.select {
+		float: left;
+	    width: 937px;
+	    height: 190px;
+	    overflow: hidden;
+	    background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+	    background-size: 100% 100%;
+	    margin-left: 160px;
+	    padding-top: 2.8%;
+	    padding-left: 1%;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	    font-size: 24px;
+	}
+	
+	.select dd {
+		float: left;
+	    margin-left: 50px;
+	    height: 40px;
+	    width: 300px;
+	}
+	
+	.select dl {
+		white-space: normal;
+	}
+	.select dd:last-child{
+		width: 90%;
+	}
+	.select b {
+		width: 110px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	}
+	
+	.select span {
+		display: block;
+	    float: left;
+	    width: 446px;
+	}
+}
+@media screen and (min-width: 1600px) {
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	#wrapper {
+		overflow: visible;
+		width: 1500px;
+		height: 500px;
+		margin-top: 2%;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+	}
+	.select {
+		float: left;
+	    width: 1400px;
+	    height: 234px;
+	    overflow: hidden;
+	    background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+	    background-size: 1404px 334px;
+	    margin-left: 40px;
+	    padding-top: 4%;
+	    padding-left: 1.2%;
+	    white-space: nowrap;
+	    text-overflow: ellipsis;
+	    font-size: 25px;
+	}
+	
+	.select dd {
+		float: left;
+	    margin-left: 50px;
+	    margin-top: 14px;
+	    height: 40px;
+	    width: 500px;
+	}
+	
+	.select dl {
+		white-space: normal;
+	}
+	.select dd:last-child{
+		width: 90%;
+	}
+	.select b {
+		width: 110px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	}
+	
+	.select span {
+		display: block;
+	    float: left;
+	    width: 446px;
+	}
+}
+</style>

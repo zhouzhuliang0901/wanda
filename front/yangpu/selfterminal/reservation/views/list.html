@@ -1,0 +1,60 @@
+<style>
+    .inputDiv {
+        text-align: left;
+        position: absolute;
+        font-size: 36px;
+        top: 20px;
+        width: 515px;
+        left: 5px;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#main">事项预约</a>
+        </li>
+        <li>
+            <a href="javascript:;">{{windowName}}</a>
+        </li>
+        <li class="active">选择事项</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="inputBox inputDiv">
+            <input ng-model="matterVal" type="text" style="width:480px" placeholder="请输入事项名称或字母" />
+        </div>
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+            <div>请选择一个需要预约的事项</div>
+            <div class="sub-index  horizontal-middle">
+                <a class="blue-green active" href="#main" style="padding:15px 0px;width:100%;font-size:30px;margin-top:50px;">重选预约大厅</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="panelList two vertical-middle horizontal-middle" style="width:850px;height:710px; padding: 35px 105px;">
+            <a class="left control-group" ng-click="previousPage()">
+                <img class="vertical-middle horizontal-middle" src="../libs/common/images/left.png" width="30" />
+            </a>
+            <a class="right control-group" ng-click="nextPage()">
+                <img class="vertical-middle horizontal-middle" src="../libs/common/images/right.png" width="30" />
+            </a>
+            <p class="emptyTips" ng-if="emptyTips">没有查询到可预约事项！</p>
+            <div class="view-block" ng-click="getMatterDetail(item.stItemNo,item.stPlaceId,item.stItemName)" ng-repeat="item in itemList">
+                <div class="itemInfo">
+                    {{item.stItemName.length>35 ? item.stItemName.split('').splice(0,34).join("") + "..." :
+                    item.stItemName}}
+                </div>
+            </div>
+            <span class="horizontal-middle">{{currentPage||1}}/{{totalPages||1}}</span>
+        </div>
+    </div>
+</div>

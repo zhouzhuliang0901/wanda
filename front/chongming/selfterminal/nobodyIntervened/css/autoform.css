@@ -1,0 +1,302 @@
+*{
+    box-sizing: border-box;
+    color: white;
+}
+.form_title {
+    width: 150px;
+    height: 45px;
+    background:url(../images/form_title.png) no-repeat;
+    position: absolute;
+    top: 25px;
+    left: 565px;
+}
+/*---------------------
+    chooseForm.html
+---------------------*/
+.chooseFormWrap{
+    width: 100%;
+    position: relative;
+}
+.chooseFormWrap>a{
+    position: absolute;
+    top: 40%;
+    display: block;
+    width: 10%;
+}
+.chooseFormWrap>a:first-child{
+    left: 45px;
+}
+.chooseFormWrap>a:nth-child(2){
+    right: 45px;
+}
+.chooseFormBox{
+    width: 100%;
+    height: 818px;
+    padding: 0 10%;
+    margin-top: 80px;
+    overflow: hidden;
+}
+.chooseFormBox li{
+    float: left;
+    width: 50%;
+    text-align: center;
+}
+.chooseFormBox li>a{
+    display: block;
+    width:270px;
+    height:335px;
+    border:15px solid #7484a8;
+    border-radius:10px;
+    margin: 0 auto;
+}
+.chooseFormBox li>a>img{
+    display: block;
+    width:240px;
+    height:305px;
+}
+.chooseFormBox li>p{
+    margin: 20px 0px 30px;
+    font-size: 24px;
+    color: white;
+}
+.choosePages{
+    width: 100%;
+    text-align: center;
+    font-size: 30px;
+    color: yellow;
+    font-weight: bold;
+}
+.choosePages>span{
+    color: yellow;
+}
+/*---------------------
+    note.html
+---------------------*/
+.noteWrap{
+    width: 100%;
+    height: 950px;
+}
+.noteMain{
+    width: 100%;
+    margin-top: 100px;
+    clear: both;
+    overflow: hidden;
+}
+.noteMain>div{
+    float: left;
+}
+.stepExplain{
+    width: 400px;
+    height: 500px;
+    background-color: #9dbbd7;
+    border-radius: 12px;
+    margin-left: 80px;
+    margin-top: 105px;
+    color: white;
+}
+.stepExplain>h3{
+    width: 100%;
+    height: 100px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 35px;
+}
+.stepExplain>p{
+    width: 100%;
+    height: 400px;
+    font-size: 30px;
+    padding: 0 10px;
+    line-height: 60px;
+}
+.stepExplain>p>span{
+    display: block;
+}
+.formFigure{
+    width: 500px;
+    height: 710px;
+    margin-left: 150px;
+}
+.formFigure>img{
+    width: 500px;
+    height: 710px;
+    display: block;
+}
+.noteFoot{
+    width: 100%;
+    height: 100px;
+    margin-top: 30px;
+}
+.noteFoot>a{
+    display: inline-block;
+    width: 250px;
+    height: 80px;
+}
+.noteFoot>a:first-child{
+    margin: 0 80px 0 350px;
+}
+.noteFoot>a>img{
+    width: 100%;
+}
+/*---------------------
+    idCard.html
+---------------------*/
+.idCardWrap{
+    width: inherit;
+    height: 900px;
+    margin-top: 50px;
+}
+.idCardWrap>p{
+    width: inherit;
+    height: 100px;
+    line-height: 50px;
+    font-size: 35px;
+    color: white;
+    text-align: center;
+}
+.idCardWrap>p>span{
+    display: block;
+}
+.idCardFigure{
+    width: inherit;
+    height: 600px;
+    text-align: center;
+    margin-top: 30px;
+}
+.idCardBtn{
+    display: block;
+    width: 250px;
+    height: 80px;
+    text-align: center;
+    margin: 50px auto;
+}
+/*---------------------
+    tphoto.html
+---------------------*/
+.copy_box{
+    position:absolute;
+    width:100%;
+    color:#fff;
+    font-size:30px;
+    text-align:center;
+    line-height:80px;
+    font-weight:bold;
+    margin-top:70px;
+}
+.copy_box p span{
+    color:#f2ff52;
+}
+.savedPhotoBox{
+
+}
+.savedPhoto{
+    width: 440px;
+    height: 280px;
+    margin: -220px 0  0 -80px;
+}
+/*---------------------
+    fillForm.html
+---------------------*/
+.fillFormWrap{
+    width: inherit;
+    height: 924px;
+    margin-top: 50px;
+}
+.fillFormWrap>div{
+    float: left;
+}
+.fillFormMain{
+    width: 800px;
+    height: 860px;
+    border: 3px solid #69a9c2;
+    margin-left: 80px;
+    margin-right: 20px;
+}
+.htmlType{
+    width: 100%;
+    height: inherit;
+}
+.wordType{
+    width: 100%;
+    height: inherit;
+}
+.fillFormSide{
+    width: 250px;
+    height: inherit;
+    position: relative;
+}
+.copybox{
+    position: absolute;
+    top:10%;
+}
+.copybox>p{
+    width: 250px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 60px;
+    font-size: 40px;
+}
+.copychoose{
+    width: 400px;
+    text-align: center;
+    padding-top: 50px;
+}
+.copychoose>a{
+    float: left;
+    width: 50px;
+}
+.copychoose>span{
+    float: left;
+    width: 105px;
+    height: 105px;
+    line-height: 80px;
+    font-size: 27px;
+    font-weight: 600;
+    background: url(../images/num1.png) center center no-repeat;
+    margin: -25px 30px;
+}
+.fillFormSide>a{
+    position: absolute;
+    display: block;
+    width: 250px;
+}
+.btn-print{
+    top: 40%;
+}
+.btn-back{
+    top: 60%;
+}
+/*---------------------
+    pwait.html
+---------------------*/
+.pwaitWrap{
+    width: 100%;
+}
+.pwaitWrap>img{
+    display: block;
+    margin: 10px auto;
+}
+#formWrap{
+    padding: 0 100px;
+ }
+ #formWrap1{
+    width: 800px;
+    padding: 0 100px;
+    color: #000;
+    background: #fff;
+    box-sizing: border-box;
+ }
+#formWrap1>p{
+    text-align: left;
+}
+#formWrap1>p>span{
+    color: #000;
+}
+table{
+    width: 611px;
+}
+table tbody tr td{
+    color: #000;
+}
+.show-img{
+    max-height: 100%;
+}

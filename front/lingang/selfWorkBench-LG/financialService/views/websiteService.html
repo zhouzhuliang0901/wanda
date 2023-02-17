@@ -1,0 +1,43 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+		}
+		.scrollBox2 .linkBox1 img {
+			width: 1200px;
+    margin-top: 50px;
+		}
+		.scrollBox2 .linkBox1 p {
+			font-size: 40px;
+			padding-top: 15px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			display: block;
+			padding-top: 60px;
+		}
+		.scrollBox2 .linkBox1 img {
+			width: 1080px;
+		}
+		.scrollBox2 .linkBox1 p {
+			font-size: 40px;
+			padding-top: 15px;
+		}
+	}
+</style>
+
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<img src="../libs/common/images/financialService/websiteService.jpg" alt="" />
+		<p>请扫描二维码在移动端操作</p>
+	</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="isShowCancelBtn"></alert>
+
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>

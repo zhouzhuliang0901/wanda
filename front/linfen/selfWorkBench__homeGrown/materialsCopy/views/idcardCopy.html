@@ -1,0 +1,79 @@
+<style>
+	.caption {
+		position: absolute;
+	    left: 130px!important;
+    	top: 164px!important;
+
+	}
+	
+	.operationTips {
+		width: 1690px;
+		height: 836px;
+		margin: 0 auto;
+		margin-top: 10px;
+		position: relative;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+		    position: absolute;
+		    left: auto!important;
+		    top: auto!important;
+		}
+		.operationTips {
+		    width: 100%;
+		    height: 100%;
+		    margin: 0 auto;
+		    margin-top: 0px; 
+		    position: relative;
+		}
+		take-photo .photographBox {
+		    position: relative;
+		    margin: 0 auto;
+		    text-align: center;
+		    height: 100%;
+		    width: 100%;
+		}
+		take-photo .fun {
+		    width: 100%;
+		    height: 100%;
+		    background: url(../libs/common/images/bg-capture.png) no-repeat 50px 80px;
+		    background-size: 550px 450px;
+		    margin: 0 auto;
+		    text-align: center;
+		    position: relative;
+		}
+		take-photo .fun>.camera {
+		    position: absolute;
+		    left: 22%;
+		    bottom: 4%;
+		    z-index: 100;
+		}
+		take-photo div.fun>.idcardTips {
+		    position: absolute;
+		    right: 2%;
+		    top: 23%;
+		    width: 455px;
+		    height: 350px;
+		}
+		take-photo .fun.review>.imageData {
+		    position: absolute;
+		    left: 50px;
+		    top: 122px;
+		    width: 550px;
+		    height: 372px;
+		}
+	}
+</style>
+<div class="test"></div>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="operationTips">
+		<!--下面的提示页面用不上, 所以注释掉了-->
+		<!--<div class="copyIdcard" ng-if="!over"></div>-->
+		<take-photo result="getImg(img,url)" ng-if="!over"></take-photo>
+	</div>
+</div>
+
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

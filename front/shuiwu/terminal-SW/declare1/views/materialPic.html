@@ -1,0 +1,72 @@
+<style type="text/css">
+	.loading {
+		height: 112px;
+		width: 112px;
+		left: 250px;
+		top: 250px;
+		position: absolute;
+		opacity: 0.7;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#">自助申报</a>
+		</li>
+		<li>
+			<a href="#list">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#materialUpload">材料清单</a>
+		</li>
+		<li>
+			<a href="#uploadMethod">上传方式</a>
+		</li>
+		<li class="active">材料列表</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<div class="bg"></div>
+		<div class="leftImg">
+			<img src="images/prototype.png">
+			<img src="images/click.gif" width="80" class="click">
+			<div>请选择需要上传的证照<br />点击“确认”以选择证照</div>
+			<div class="sub-index">
+				<a class="blue-green active" href="#materialUpload">返回材料列表</a>
+			</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="imageShow imageShow1" ng-show="imageShow1">
+			<img src="../libs/common/images/loading.gif" class="loading" />
+		</div>
+		<div class="imageShow imageShow2" ng-show="imageShow2">
+			<img src="../libs/common/images/loading.gif" class="loading" />
+		</div>
+		<a class="btn_radius_50 profile" ng-click="profile()" style="left:750px; top: 70px;">
+			<div class="greyLight">
+				<img src="images/profile.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label style="padding: 0 0.5em;">个人档案</label>
+			</div>
+		</a>
+		<a class="btn_radius_50 elecCert" ng-click="elecCert()" style="left:750px; top: 200px;">
+			<div class="greyLight">
+				<img src="images/elec.png" width="45" height="45" style="margin: 15px 0 15px 15px;">
+				<label style="padding: 0 0.5em;">电子证照</label>
+			</div>
+		</a>
+		<a class="btn_radius_50" ng-click="goNext()" style="left:780px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>确认</label>
+			</div>
+		</a>
+	</div>
+</div>

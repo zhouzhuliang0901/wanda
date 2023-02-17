@@ -1,0 +1,218 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+		margin: 1% auto;
+	}
+	
+	.searchInput {
+		display: flex;
+		width: 92%;
+		margin: 0 auto;
+	}
+	
+	.searchInput .button {
+		width: 14%;
+		margin: 1.4% 2%;
+	}
+	
+	.schoolName {
+		width: 74%;
+		height: 90px;
+		margin: 1% 0.6%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 86%;
+		height: 100%;
+	}
+	
+	.schoolName select {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 74%;
+		height: 100%;
+	}
+	
+	.schoolName span {
+		display: inline-block;
+		width: 23%;
+		font-size: 28px;
+		text-align: center;
+	}
+	
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+		right: 5%;
+		width: 52px;
+	}
+	
+	.table-sty1 {
+		width: 90%;
+		margin: 0 auto;
+	}
+	
+	.table-sty1 th {
+		padding: 22px 1px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		white-space: normal;
+		letter-spacing: 2px;
+		background-color: rgba(255, 255, 255, 0.1);
+		font-weight: bold;
+	}
+	
+	.table-sty1 td {
+		padding: 18px 0px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		white-space: normal;
+	}
+	
+	a {
+		text-align: center;
+	}
+	
+	a.stamp {
+		background: url(./images/print.png) no-repeat;
+		background-size: 100% 100%;
+		margin-left: 12%;
+		width: 93%;
+		height: 96%;
+		line-height: 70px;
+		font-size: 30px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-left: 3%;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 118px;
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 17px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect dl {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+		.scrollBox2 {
+			width: 1080px;
+			margin-left: 95px;
+		}
+		.caption {
+			margin-top: 86px!important;
+			margin-left: 220px!important;
+		}
+		.schoolName span {
+			font-size: 20px;
+		}
+		.table-sty1 {
+			width: 100%;
+			margin-left: 0
+		}
+		#wrapper {
+			width: 1080px;
+			margin: 0px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<!--顶部查询框-->
+	<div class="searchInput">
+		<div class="schoolName">
+			<input type="text" ng-model="projectName" placeholder="请输入单位名称"/>
+		</div>
+		<div class="button">
+			<a ng-click="queryInfo(projectName)" class="stamp">查询</a>
+		</div>
+	</div>
+	<dd class="singselect">
+		<dl>请选择区（必选）：</dl>
+		<a ng-class="{'in':current==index}" ng-repeat="(index,item) in areaList" ng-click="change(item.areaCode,index)">
+			{{item.areaName}}
+		</a>
+	</dd>
+	<!--信息展示-->
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

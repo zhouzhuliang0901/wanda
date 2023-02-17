@@ -1,0 +1,35 @@
+<div class="shell bg2">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="goHome()">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+        </div>
+        <ul class="navul1 navul2 clearfloat">
+           <li class="act">选择事项</li>
+			<li>办事指南</li>
+			<li>人证核验</li>
+			<li>在线填报</li>
+        </ul>
+    </div>
+  <div class="TabBox1">
+  	<div class="tabBotbox1">
+  		<div class="cont">
+  			<div class="tabBotbox1inner tabBotbox1inner1" style="margin-top: 100px;">
+				<div id="wrapper" class="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}">
+						<a ng-class="{'active':$index==active}" repeat-finish ng-repeat="item in itemName"  ng-click="toMaterials(item.itemName)">{{item.itemName}}</a>
+					</div>
+				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+<!-- </div> -->
+
+<style type="text/css">
+	
+	.tabBotbox1inner .linkbox1.matter a{
+		width: 734px;
+	}
+</style>

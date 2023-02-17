@@ -1,0 +1,42 @@
+<div class="main3" id="print1" style="height:690px;margin-top: 100px;">
+	<div class="successBox1">
+		<div class="shadow1"></div>
+		<div class="successBox2">
+			<div class="cont1">
+				<h3>操作成功！</h3>
+				<p class="p1">事项名称</p>
+				<p class="p2" ng-bind="itemName"></p>
+			</div>
+			<div class="line1"></div>
+			<div class="cont1">
+				<p class="p1">办件编码</p>
+				<p class="p2" ng-bind="applyNo"></p>
+				<p class="p3"></p>
+			</div>
+			<div class="line2"></div>
+		</div>
+	</div>
+	<div class="text">
+		<p style="color: #FEE889;font-size: 30px;margin-bottom: 20px;">温馨提示:</p>
+		<p style="font-size: 24px;line-height: 45px;margin-bottom: 20px;">1、 办事时效：2个工作日。公安派出所一般在收到申请之日起1个工作日内开具证明；如经公安派出所初步查询，申请人的违法犯罪记录登记不清、表述不全，需要进行调查核实的，公安派出所一般在收到申请之日起2个工作日内开具证明。</br> 2、 下载打印：您可至首页“公安”频道下找到“有无犯法犯罪记录证明开具”，点击 “打印”按钮查看并打印证明文件；您也可至“一网通办”总门户“我的证明”下载打印。</br> 3、 公安派出所在收到申请后将进行人工审核，申请人可联系派出所咨询办理进度及相关业务问题。 4、 因该业务与公安系统需进行数据交换，若申请人在承诺办结时限内（2个工作日）仍未下载到证明，可致电市公安局“一网通办”技术服务热线22021230进行咨询（服务时间为工作日9：00~17：30）。
+		</p>
+	</div>
+</div>
+
+<apptb-footer prev="prev()" next="goHome()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.text {
+		width: 670px;
+		float: left;
+		margin-left: 60px;
+		margin-top: 18px;
+	}
+
+	.successBox1 {
+		float: left;
+		margin-left: 130px;
+		margin-top: 80px;
+	}
+</style>

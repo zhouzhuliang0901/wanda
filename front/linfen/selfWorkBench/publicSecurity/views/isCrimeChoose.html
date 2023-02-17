@@ -1,0 +1,86 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.scrollBox2 .dllist1 dd {
+		width: 1270px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 600px;
+	}
+	
+	.span {
+		float: left;
+		width: 300px;
+		text-align: right;
+	}
+	
+	.select1 {
+		width: 70%;
+		height: 70px;
+		font-size: 30px;
+		padding-left: 30px;
+	}
+	
+	.select1 option {
+		color: #333;
+	}
+	
+	.input1 {
+		width: 70%;
+		height: 70px;
+		font-size: 30px;
+		padding-left: 30px;
+	}
+	
+	.lt1 {
+		margin-bottom: 30px;
+	}
+</style>
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">选择区及办理点</p>
+<div class="main2" style="width: 1625px;height: 645px;margin-left: 118px;    margin-top: 30px;">
+	<div id="wrapper">
+		<div class="scrollBox2">
+			<dl class="dllist1">
+				<dt>温馨提示:</dt>
+				<dd>
+					<p>1、本市户籍人员请选择向户籍所在地派出所申请开具。</p>
+					<p style="margin-bottom: 80px;">2、境内来沪人员请选择向居住地派出所申请开具。</p>
+				</dd>
+			</dl>
+			<dl class="dllist1">
+				<dd class="lt1">
+					<span class="span">选&nbsp;&nbsp;&nbsp;择&nbsp;&nbsp;&nbsp;区：</span>
+					<select class="select1" ng-init="area = areaList[0]" ng-model="area" ng-options="x.areaName for x in areaList" ng-change="getItemApplyPlace(area.areaCode)">
+					</select>
+				</dd>
+				<dd class="lt1">
+					<span class="span">选择办理地点：</span>
+					<select class="select1" ng-init="bldList = handleList[0]" ng-model="bldList" ng-options="x.bldName for x in handleList" ng-change="getAddress(bldList.address,bldList.bldName,bldList.bldCode)">
+					</select>
+				</dd>
+				<dd class="lt1">
+					<span class="span">地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;址：</span>
+					<input class="input1" id="address" ng-model="address" readonly>
+					</input>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

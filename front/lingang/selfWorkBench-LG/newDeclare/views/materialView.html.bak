@@ -1,0 +1,105 @@
+<style type="text/css">
+	.headBox1 .navul1 li {
+		width: 33.33%;
+	}
+	.main2{
+		height: 540px;
+	}
+	.tit1{
+		font-size: 37px;
+		text-align: center;
+	}
+	.paragraph2{
+		position: absolute;
+		font-size: 31px;
+		left: 50%;
+		-ms-transform: translateX(-50%);
+		top: 500px;
+	}
+	.paragraph3{
+		float: left;
+		line-height: 100px;
+		font-size: 40px;
+		margin-left: 40px;
+	}
+	.btn{
+		position: absolute;
+		top: 163px;
+		left: 1033px;
+		width: 275px;
+		height: 275px;
+		background: #2964B0;
+	}
+	.scan{
+	    position: absolute;
+		top: 65px;
+		left: 50%;
+		-ms-transform: translateX(-50%);
+		transform: translateX(-50%);
+		width: 350px;
+		height: 417px;
+		background: #2964B0;
+		font-size: 0;
+	}
+	.scan li>img{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+	.u-pan{
+		position: absolute;
+		width: 520px;
+		height: 100px;
+		top: 38%;
+		left: 29%;
+	}
+</style>
+
+
+<div>
+
+    <div class="headBox1">
+        <ul class="navul1 clearfloat">
+           <li>选择事项</li>
+           	 <li>人证核验</li>
+           	 <li class="act">在线填报</li>
+        </ul>
+    </div>
+	
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+	
+	<div class="main2">
+		<div class="stuff">
+			<div class="tit1">{{stuffList[0].stuffName}}</div>
+			<div class="scan" ng-show="picShow" ng-click="showScan()">
+				<li ng-repeat="stuff in stuffList">
+					<img data-original="{{stuff.img}}" ng-src="{{stuff.img}}"/>
+				</li>
+			</div>
+			<div class="paragraph2" ng-show="scanShow">已上传(点击放大查看)</div>
+			<div class="scan" ng-show="scanShow" ng-click="showScan()">
+				<li ng-repeat="stuff in stuffList">
+					<img data-original="{{stuff.img}}" ng-src="{{stuff.img}}"/>
+				</li>
+			</div>
+			<div class="paragraph2" ng-show="scanShow">已上传(点击放大查看)</div>
+			<div class="u-pan" ng-show="upanShow">
+				<img style="float: left;height: 100px;width: 100px;" src="images/icon-word.png" />
+				<div class="paragraph3" ng-click="open()">{{stuffList[0].fileName}}</div>
+			</div>
+		</div> 
+	</div>
+	<!--<div class="btnBox1 clearfloat">
+	   <a href="#materialList" class="next">返回</a>
+	</div>-->
+
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="hidden" 
+		prev="prev()"
+		next="next()"
+		prev-btn-info="返回">
+	</apptb-footer>
+</div>
+

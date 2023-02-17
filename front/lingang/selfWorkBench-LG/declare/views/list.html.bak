@@ -1,0 +1,96 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 25%;
+			box-sizing: border-box;
+			margin: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+		}
+		.TabBox1 .tabul1 {
+			margin-top: 0;
+			margin-bottom: 20px;
+			padding-left: 164px;
+		}
+		.input1 {
+			box-sizing:border-box;
+			height: 80px;
+			font-size: 30px;
+			padding: 0px 10px;
+		}
+		.btn_radius_50 {
+			display: inline-block;
+			vertical-align: middle;
+		}
+		.btn_radius_50 img {
+			width: 70px;
+			height: auto;
+		}
+		.TabBox1 .tabul1 li {
+			display: inline-block;
+			padding: 0px;
+			height: auto;
+			line-height: normal;
+			margin-right: 0px;
+			border-bottom: 4px solid transparent;
+			font-size: 34px;
+		}
+		.tabBotbox1inner .linkbox1 a {
+			width: 40%;
+			margin: 20px;
+			background: url(../libs/common/images/bg-input.png) no-repeat;
+			background-size: 100% 100%;
+			border: none;
+		}
+
+		#wrapper{
+			width:100%;
+			height: 500px;
+		}
+		.tabBotbox1inner .linkbox1 {
+			padding-left: 0px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		
+	}
+</style>
+<div class="headBox1">
+	<ul class="navul1 clearfloat">
+		<li class="act">选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+</div>
+<div class="TabBox1">
+	<ul class="tabul1 clearfloat">
+		<!--<li ng-class="{'in':current==index}"></li>-->
+		<li ng-show="idRead" class="inputBox1 inputDiv"> 
+			<input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+			<a class="btn_radius_50" ng-click="getSearchMatter()">
+				<img src="images/icon-link9.png" height="50" width="50"/>
+			</a>
+		</li>
+	</ul>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper" class="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}">
+						<a ng-class="{'active':$index==active}" repeat-finish ng-repeat="item in itemName"  ng-click="toMaterials(item.stItemName,item.organCode,item.organName,item.stItemNo)">{{item.stItemName||item.organName}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<apptb-footer 
+	need-count-down="true" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 
+	prev="prev()">
+</apptb-footer>

@@ -1,0 +1,43 @@
+<div class="shell bg3">
+     <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="goHome()">办事指南</a>
+            <a href="javascript:;" class="message1">message</a>
+           <!-- <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>-->
+        </div>
+    </div>
+  <div class="TabBox1">
+  	<ul class="tabul1 clearfloat">
+  		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">{{item}}</li>
+		<div ng-show="isRead" class="inputBox1 inputDiv">
+		    <input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+		    <a class="btn_radius_50" style="right:20px;top:18px;" ng-click="getSearchMatter()">
+		        <div class="greyLight">
+		            <img src="images/icon-link9.png" height="50" width="50"/>
+		        </div>
+		    </a>
+		</div>
+  	</ul>
+  	<div class="tabBotbox1">
+  		<div class="cont">
+  			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper">
+  				<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}">
+  					<a ng-class="{'active':$index==active}" ng-repeat="item in itemName"  ng-click="toMaterials(item.stItemName,item.organCode,item.organName,item.stItemNo)">{{item.stItemName||item.organName}}</a>
+  				</div>
+				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div>
+<style type="text/css">
+	#wrapper{
+		width:1600px;
+		height: 500px;
+	}
+	.tabBotbox1inner .linkbox1.matter a{
+		width: 300px;
+	}
+</style>

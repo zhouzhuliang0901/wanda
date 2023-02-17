@@ -1,0 +1,157 @@
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">申请人基本信息</p>
+<div class="main2" style="">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;">
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>申请种类：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="itemType" ng-model="itemType" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>手机号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>中文姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" placeholder="">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>中文姓：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stChSurname" ng-model="stChSurname" ng-change="changeStChSurname()">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>中文名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stChName" ng-model="stChName" placeholder="" ng-change="changeStChName()">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>拼音姓：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPySurname" ng-model="stPySurname">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>拼音名：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPyName" ng-model="stPyName" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>紧急联系人：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stUrgent" ng-model="stUrgent">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>紧急联系人手机号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stUrgentMobile" ng-model="stUrgentMobile" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>是否同时办理签注：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="endorsement">
+						<a ng-class="{'in':qz_index==index}" ng-repeat="(index,item) in endorsement" ng-click="changeQZ(item.name,index,item.id)" style="margin-bottom: 0px;" value="{{item.value}}">{{item.name}}</a>
+						<!--<a style="margin-bottom: 0px;">是</a>
+						<a style="margin-bottom: 0px;">否</a>-->
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="qz_index==0">
+					<dd class="lt1 lt6">
+						<span>前往地：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="destination">
+						<a ng-repeat="(index,item) in destination" ng-click="changeDes(item.name,index,item.id)" value="{{item.value}}" style="margin-bottom: 0px;">{{item.name}}</a>
+						<!--<a style="margin-bottom: 0px;">香港</a>
+						<a style="margin-bottom: 0px;">澳门</a>-->
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="isHongkong">
+					<dd class="lt1 lt6">
+						<span>往来香港事由：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="Hongkong">
+						<a ng-class="{'in':hk_index==index}" ng-repeat="(index,item) in Hongkong" ng-click="changeHK(item.name,index,item.id)" value="{{item.value}}" style="margin-bottom: 0px;">{{item.name}}</a>
+						<!--<a style="margin-bottom: 0px;">探亲</a>
+						<a style="margin-bottom: 0px;">团队旅游</a>
+						<a style="margin-bottom: 0px;">个人旅游</a>
+						<a style="margin-bottom: 0px;">逗留</a>
+						<a style="margin-bottom: 0px;">其他</a>-->
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<!--<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>-->
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.select1 option {
+		color: #333;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+</style>

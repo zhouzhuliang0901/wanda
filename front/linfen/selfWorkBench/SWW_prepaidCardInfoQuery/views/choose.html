@@ -1,0 +1,209 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-left: 210px;
+		height: 650px;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.searchInput {
+		display: flex;
+		width: 100%;
+	}
+	
+	.searchInput .button {
+		width: 15%;
+		margin: 2% 3%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 2.4%;
+		position: relative;
+	}
+	
+	.schoolName input {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	
+	a {
+		text-align: center;
+	}
+	
+	a.stamp {
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100%;
+		margin-left: 8%;
+		width: 100%;
+		height: 100%;
+		line-height: 54px;
+		font-size: 30px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+		margin-bottom: 30px;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	.scrollContain>p {
+		font-size: 20px;
+		color: #e1ba1c;
+		margin-left: 35px;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,
+	.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	table td>a {
+		text-decoration: underline;
+		color: #477cbe;
+	}
+	
+	.detailTable tr td:nth-of-type(1),
+	.detailTable tr td:nth-of-type(3) {
+		width: 20%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			margin-left: 140px;
+		}
+		#wrapper {
+			width: 1000px;
+			height: 70%;
+		}
+		.searchInput .button {
+			float: left;
+		}
+		.schoolName {
+			width: 31%;
+			float: left;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="searchInput">
+		<div class="schoolName">
+			<input type="text" placeholder="请输入经营者名称" ng-model="name" />
+		</div>
+		<div class="schoolName">
+			<input type="text" placeholder="请输入信息对接唯一标识" ng-model="sign" />
+		</div>
+		<div class="button">
+			<a ng-click="query(name,sign)" class="stamp">查询</a>
+		</div>
+		<div class="button">
+			<a ng-click="reset()" class="stamp">重置</a>
+		</div>
+	</div>
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table ng-if="basic">
+				<tr class="resultTr">
+					<th>序号</th>
+					<th>经营者名称</th>
+					<th>信息对接唯一标识</th>
+					<th>所属行业</th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{index+1}}</td>
+					<td>{{list.corpName}}</td>
+					<td>{{list.uniqueNo}}</td>
+					<td>{{list.industry}}</td>
+					<td>
+						<a ng-click="detailInfoQuery(list.uniqueNo)">查看详情</a>
+					</td>
+				</tr>
+			</table>
+			<table ng-if="detail" class="detailTable">
+				<tbody>
+					<tr>
+						<td class="gray">经营者名称</td>
+						<td>{{queryDetailList.corpName || "暂无"}}</td>
+						<td class="gray">信息对接唯一标识</td>
+						<td>{{queryDetailList.uniqueNo || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">所属行业</td>
+						<td>{{queryDetailList.industry || "暂无"}}</td>
+						<td class="gray">联网时间</td>
+						<td>{{queryDetailList.endDate || '--'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">企业网址</td>
+						<td>{{queryDetailList.corpWebSite || "暂无"}}</td>
+						<td class="gray">受理场所地址</td>
+						<td>{{queryDetailList.acceptplace || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">售卡场所地址</td>
+						<td>{{queryDetailList.issueplace || "暂无"}}</td>
+						<td class="gray">企业地址</td>
+						<td>{{queryDetailList.corpAddress || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">信用星级</td>
+						<td>{{queryDetailList.stars || "--"}}</td>
+						<td></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
+			<p>查询须知:</p>
+			<p> 1、可查询卡范围：在本市注册的发卡经营者发放的单用途预付消费卡。 2、发卡经营者未与协同监管服务平台做信息对接，或发卡经营者未及时向协同监管服务平台报送卡信息，可能导致无法查询到卡信息。如有此类情况发生，请登录上海市单用途预付消费卡协同监管服务平台“咨询举报”处进行举报，或拨打12345市民服务热线进行举报。
+			</p>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer ng-if="basic" prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<apptb-footer ng-if="detail" prev="return()" prev-btn-info="{{prevText}}" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

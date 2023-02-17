@@ -1,0 +1,74 @@
+<div class="headBox">
+	<div class="headtop1 clearfloat">
+		<a href="#" class="back1" ng-click="goBack()">{{moduleName}}</a>
+		<a href="#" class="message1">message</a>
+		<a href="#" class="backindex1" ng-click="goHome()">返回首页</a>
+		<div class="backbox1">
+			无操作
+			<span>
+				<b class="minute">{{maxCountDown}}</b>秒
+			</span>
+			后将返回首页
+			<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.headBox {
+width: 1760px;
+    height: 170px;
+    overflow: hidden;
+    margin: 0 auto;
+	}
+	
+	.headBox .headtop1 {
+		height: 130px;
+		line-height: 130px;
+		overflow: hidden;
+		margin: 25px 0 37px 0;
+	}
+	
+	.headBox .headtop1 .back1 {
+		float: left;
+		display: inline-block;
+		padding-left: 99px;
+		overflow: hidden;
+		font-size: 44px;
+		background: url("../libs/common/images/back1.png") no-repeat left center;
+	}
+	
+	.headBox .headtop1 .message1 {
+		float: right;
+		display: inline-block;
+		width: 63px;
+		height: 130px;
+		overflow: hidden;
+		background: url("../libs/common/images/message.png") no-repeat right 50px;
+		text-indent: -9999em;
+	}
+	
+	.headBox .headtop1 .backindex1 {
+		float: right;
+		display: inline-block;
+		padding-left: 53px;
+		height: 130px;
+		margin-right: 54px;
+		font-size: 30px;
+		overflow: hidden;
+		background: url("../libs/common/images/home.png") no-repeat left center;
+	}
+	
+	.headBox .headtop1 .backbox1 {
+		float: right;
+		display: inline-block;
+		height: 130px;
+		margin-right: 63px;
+		font-size: 24px;
+		overflow: hidden;
+	}
+	
+	.headBox .headtop1 .backbox1 span {
+		color: #f2dd4a;
+		margin: 0 5px;
+	}
+</style>

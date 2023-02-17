@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			canvas {
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width="800" height="500" id="canvas"></canvas>
+		<input type="button" id="getSign" value="get" />
+		<input type="button" id="clear" value="clear" />
+		<img id="show" />
+		<script src="js/signatrueBoard.js"></script>
+		<script type="text/javascript">
+			var show = document.getElementById('show');
+			new SignatureBoardPlug({
+				canvas: '#canvas',
+				color: 'green',
+				getSigntrue: '#getSign',
+				clearBtn: '#clear',
+				penType: 'click'
+			});
+			// document.getElementById('getSign').addEventListener('click',function(){
+			// 	var src = sign.Signatrue();
+			// 	show.src = src;
+			// })
+		</script>
+	</body>
+</html>

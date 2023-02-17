@@ -1,0 +1,151 @@
+<p class="caption" style="margin-bottom: 30px;">{{stuffName}}</p>
+<div class="main2" style="height: 675px;">
+	<div id="wrapper">
+	<div class="scrollBox2 clearfloat">
+			<div class="tabelBox1" style="width: 1705px;">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>查档人姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>联系电话：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>联系地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stAddress" ng-model="stAddress" placeholder="">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>出生日期：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stBirth" ng-model="stBirth">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>上山下乡时间：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMCdate" ng-model="stMCdate" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>上山下乡地点：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMCaddress" ng-model="stMCaddress">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>补充查档线索：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stOther" ng-model="stOther" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>出发地：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stStartAddress" ng-model="stStartAddress" placeholder="">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>档案馆：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" ng-init="archivesAddress = archivesAddressList[16]" ng-model="archivesAddress" ng-options="x.address for x in archivesAddressList">
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>查档用途：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="archivesType" ng-model="archivesType">
+						<a style="margin-bottom: 0px;">补正办件</a>
+						<a style="margin-bottom: 0px;">申报户口</a>
+						<a style="margin-bottom: 0px;">办理退休手续</a>
+						<a style="margin-bottom: 0px;">公证</a>
+						<a style="margin-bottom: 0px;">申请廉租房</a>
+						<a style="margin-bottom: 0px;">经适房</a>
+						<a style="margin-bottom: 0px;">其他</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>利用方式：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="useType" ng-model="useType">
+						<!--<a style="margin-bottom: 0px;">利用全文和证明</a>-->
+						<a style="margin-bottom: 0px;" class="in">利用全文</a>
+						<!--<a style="margin-bottom: 0px;">利用证明</a>-->
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer prev="prevStep()" next="nextStep()" next-text="nextText"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 310px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	.loadingBox {
+		position: fixed;
+		width: 1920px;
+		height: 930px;
+		/* margin: auto; */
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 150px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	.select1 option{
+		color: #333;
+	}
+</style>

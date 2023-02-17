@@ -1,0 +1,51 @@
+<style type="text/css">
+	.caption {
+		margin-left: 20px;
+	}
+    .contain {
+        width: 1530px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .scrollBox2 .linkBox1 {
+        display: flex;
+        padding-left: 150px;
+        justify-content: space-around;
+        text-align: center;
+        margin-top: 80px;
+    }
+
+</style>
+<apptb-header fun-name="银行服务"></apptb-header>
+<div class="contain">
+    <p class="caption">{{ operation }}</p>
+    <div class="scrollBox2 clearfloat">
+        <div class="linkBox1 clearfloat">
+            <a href="javascript:;" ng-click="choiceType('huiDongNi')">
+                <img src="../libs/common/images/newIcon/huiDongNi.png" />
+                <p>惠懂你</p>
+            </a>
+            <a href="javascript:;" ng-click="choiceType('laborHarbor')">
+                <img src="../libs/common/images/newIcon/laborharbor.png" />
+                <p>劳动者港湾</p>
+            </a>
+            <a href="javascript:;" ng-click="choiceType('JABranchBankOperateNetwork')">
+                <img src="../libs/common/images/newIcon/bookMake.png" />
+                <p>静安支行营业网点</p>
+            </a>
+        </div>
+    </div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>

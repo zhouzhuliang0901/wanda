@@ -1,0 +1,205 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.tabelBox1 {
+		width: 1705px;
+	}
+	
+	.tabelBox1 .dl1 .lt1 .test {
+		line-height: 30px;
+	}
+	
+	#stSex a,#houseGenre a,#houseType a {
+		width: 41.7%;
+		margin-right: 10px;
+	}
+	#jtdk a {
+		width: 25%;
+		margin-right: 10px;
+	}
+	#tsrd a{
+		padding: 0 18px;
+	}
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span class="test"><b class="red1">*</b>主贷人公积金余额（元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="zdrgjj" ng-model="zdrgjj" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3">
+						<span class="test">主贷人补充公积金余额（元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="zdrbcgjj" ng-model="zdrbcgjj" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span class="test"><b class="red1">*</b>主贷人住房公积金缴存基数（元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="zdrzfgjj" ng-model="zdrzfgjj" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>主贷人年龄（岁）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stAge" ng-model="stAge" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>主贷人性别：</span>
+					</dd>
+					<!--<dd class="rt2">
+						<select class="select1" id="stSex" ng-model="stSex" ng-options="x.name for x in sexList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>-->
+					<dd class="rt5 singleselect3 clearfloat" id="stSex">
+						<a ng-class="{'in':currentSex==index}" ng-repeat="(index,item) in sexList" ng-click="changeSex(item.id,index)">{{item.name}}</a>
+					</dd>
+					<dd class="lt1 lt3">
+						<span class="test">参贷人公积金余额（元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="cdrgjj" ng-model="cdrgjj" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span class="test">参贷人补充公积金余额（元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="cdrbcgjj" ng-model="cdrbcgjj" oninput="value=value.replace(/[^\d]/g, '') ">
+					</dd>
+					<dd class="lt1 lt3">
+						<span class="test">参贷人住房公积金缴存基数（元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text " id="cdrzfgjj " ng-model="cdrzfgjj " oninput="value=value.replace(/[^\d]/g, '') ">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>家庭贷款次数：</span>
+					</dd>
+					<!--<dd class="rt2">
+						<select class="select1 " id="jtdk " ng-model="jtdk " ng-options="x.name for x in jtdkList ">
+							<option value=" " selected hidden></option>
+						</select>
+					</dd>-->
+					<dd class="rt5 singleselect3 clearfloat" id="jtdk">
+						<a ng-class="{'in':currentJtdk==index}" ng-repeat="(index,item) in jtdkList" ng-click="changeJtdk(item.id,index)">{{item.name}}</a>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>房屋类型：</span>
+					</dd>
+					<!--<dd class="rt2">
+						<select class="select1 " id="houseType " ng-model="houseType " ng-options="x.name for x in houseTypeList ">
+							<option value=" " selected hidden></option>
+						</select>
+					</dd>-->
+					<dd class="rt5 singleselect3 clearfloat" id="houseType">
+						<a ng-class="{'in':currentHouseType==index}" ng-repeat="(index,item) in houseTypeList" ng-click="changeHouseType(item.id,index)">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>房屋价格（万元）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1 " type="text " id="housePrice " ng-model="housePrice ">
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>房屋面积（平方米）：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1 " type="text " id="houseArea " ng-model="houseArea ">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="isShow">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>二手房竣工年份：</span>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime ">
+							<input class="input1 " size="16 " type="text " id="stYear " ng-model="stYear " readonly>
+							<span class="add-on "><i class="icon-th "></i></span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>套数认定：</span>
+					</dd>
+					<!--<dd class="rt2">
+						<select class="select1 " id="tsrd " ng-model="tsrd " ng-options="x.name for x in tsrdList ">
+							<option value=" " selected hidden></option>
+						</select>
+					</dd>-->
+					<dd class="rt5 singleselect3 clearfloat" id="tsrd">
+						<a ng-class="{'in':currentTsrd==index}" ng-repeat="(index,item) in tsrdList" ng-click="changeTsrd(item.id,index)">{{item.name}}</a>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>房屋类别：</span>
+					</dd>
+					<!--<dd class="rt2">
+						<select class="select1 " id="houseType2 " ng-model="houseType2 " ng-options="x.name for x in houseType2List ">
+							<option value=" " selected hidden></option>
+						</select>
+					</dd>-->
+					<dd class="rt5 singleselect3 clearfloat" id="houseGenre">
+						<a ng-class="{'in':currentHouseGenre==index}" ng-repeat="(index,item) in houseGenreList" ng-click="changeHouseGenre(item.id,index)">{{item.name}}</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep() " next="nextStep() " next-btn-info="{{nextText}}" custom-home="true " home="customMain() " go-back="goAppHistoryBack() ">
+</apptb-footer>
+<loading ng-if="isLoading "></loading>
+<alert msg="msg " ng-if="isAlert " confirm="alertConfirm() " concel="concel "></alert>

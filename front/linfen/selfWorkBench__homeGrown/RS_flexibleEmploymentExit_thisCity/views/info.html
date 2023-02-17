@@ -1,0 +1,178 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.input {
+		width: 100%;
+		height: 60px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+	
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 21%;
+		text-align: right;
+		height: 85px;
+		
+	}
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+		
+	}
+	
+	.checkBoxA a {
+		float: left;
+		width: 150px;
+		height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin: 5px;
+	}
+	
+	.checkBoxA a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	
+	.getButton {
+		width: 200px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+		margin-left: 95px;
+	}
+	
+	.checkTable {
+		width: 97%;
+		margin-bottom: 20px;
+		margin-left: 50px;
+		font-size: 24px;
+	}
+	
+	.checkTable td {
+		height: 85px;
+	}
+	
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+	
+	.checkTable .checkBoxA {
+		float: left;
+		width: 35%;
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>就业终止日期：</th>
+					<td><div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="jyzzrq" ng-model="jyzzrq" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>身份证：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+					<th></th>
+					<td></td>
+				</tr>
+			</table>
+			<table class="checkTable">
+				<tr ng-show="xbbttsbz!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>正在领取协保补贴，退工后停止发放，是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':xbbttsbz==item.id}" ng-click="change('xbbttsbz',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr ng-show="sbbttsbz!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>正在领取大失社保补贴，退工后停止发放，是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':sbbttsbz==item.id}" ng-click="change('sbbttsbz',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr ng-show="jybttsbz!=0">
+					<td>
+						<div class="checkBoxTip"><b class="red">*</b>正在领取大失就业补贴，退工后停止发放，是否继续：</div>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in checkList" ng-class="{'in':jybttsbz==item.id}" ng-click="change('jybttsbz',item.id)">{{item.name}}</a>
+						</div>
+					</td>
+
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

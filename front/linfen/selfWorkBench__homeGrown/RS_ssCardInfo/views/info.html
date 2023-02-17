@@ -1,0 +1,168 @@
+<div id="wrapper" style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">持卡人基本信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th rowspan="7" class="ssCardimg">
+							<img ng-src="{{picture}}" alt="" />
+						</th>
+						<th>姓名：</th>
+						<td>{{info.xm}}</td>
+						<th>性别：</th>
+						<td>{{sex}}</td>
+					</tr>
+					<tr>
+						<th>出生日期：</th>
+						<td>{{info.csrq | formDate}}</td>
+						<th>国籍：</th>
+						<td>{{country}}</td>
+
+					</tr>
+					<tr>
+						<th>民族：</th>
+						<td>{{nation}}</td>
+						<th>职业：</th>
+						<td>{{job}}</td>
+					</tr>
+					<tr>
+						<th>证件号码：</th>
+						<td>{{info.zjhm}}</td>
+						<th>证件类型：</th>
+						<td>{{cardType}}</td>
+					</tr>
+					<tr>
+						<th>证件起始日期：</th>
+						<td>{{info.zjqsrq | formDate}}</td>
+						<th>证件截止日期：</th>
+						<td>{{info.zjjzrq | formDate}}</td>
+					</tr>
+					<tr>
+						<th>手机号码：</th>
+						<td>{{info.sjhm}}</td>
+						<th>固定电话：</th>
+						<td>{{info.gddh || "暂无"}}</td>
+					</tr>
+					<tr>
+						<th>通讯地址：</th>
+						<td>{{info.txdz}}</td>
+						<th>通讯地址邮编：</th>
+						<td>{{info.txdz_yb}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">社保卡详细信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>社会保障号码：</th>
+						<td>{{info.shbzhm}}</td>
+						<th>社保卡号：</th>
+						<td>{{info.sbkh}}</td>
+					</tr>
+					<tr>
+						<th>服务银行：</th>
+						<td>{{bank}}</td>
+						<th>银行卡号：</th>
+						<td>{{info.yhkh}}</td>
+					</tr>
+					<tr>
+						<th>发卡日期：</th>
+						<td>{{info.fkrq}}</td>
+						<th>卡有效期：</th>
+						<td>{{info.kyxq}}</td>
+					</tr>
+					<tr>
+						<th>状态：</th>
+						<td>{{status}}</td>
+						<th>状态变更时间：</th>
+						<td>{{info.ztbgsj}}</td>
+					</tr>
+					<tr>
+						<th>申领区县：</th>
+						<td>{{area}}</td>
+						<th>申领网点编号：</th>
+						<td>{{info.slwdbh}}</td>
+					</tr>
+					<tr>
+						<th>申领网点名称：</th>
+						<td>{{info.slwdmc || "暂无"}}</td>
+						<th>申领/补换时间：</th>
+						<td>{{info.slsj}}</td>
+					</tr>
+					<tr>
+						<th>备注：</th>
+						<td colspan="3">{{info.bz}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<print show="isShowPrint"></print>
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 690px;
+	}
+	
+	.table-sty1 {
+		width: 86%;
+		margin: 0 auto;
+	}
+	
+	.table-sty1 .ssCardimg {
+		padding: 3.7%;
+	}
+	
+	.table-sty1 th {
+		width: 18%;
+	}
+	
+	.my-card .head {
+		margin-top: 2%;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 13px 30px;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		width: 1920px;
+		height: 930px;
+		/* margin: auto; */
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		#wrapper {
+			width: 1260px;
+			height: 660px;
+		}
+		.table-sty1 th, .table-sty1 td{
+			    padding: 13px 10px;
+		}
+	}
+</style>

@@ -1,0 +1,17 @@
+<p class="caption1">{{ operation }}</p>
+<idcard ng-if="!photograph" read="readIdcard(info)" has-img="no"></idcard>
+<fromtake-photo ng-if="photograph" result="getImg(img,url)"></fromtake-photo>
+
+<apptb-footer
+	prev="prevStep()" 
+	next="nextStep()" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true"
+    home="customMain()" 
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+    idcard {
+        display: block;
+    }
+</style>

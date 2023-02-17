@@ -1,0 +1,474 @@
+<div class="clearfloat">
+	<p class="caption">上海市居住证申请表</p>
+	<div class="main2 main5">
+		<div id="wrapper">
+			<div class="scrollBox2 clearfloat">
+
+				<div class="tabelBox1">
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stName" id="stName" readonly>
+						</dd>
+						<dd class="lt1 lt3">
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<b class="red1">*</b>
+							<dd class="rt2">
+								<input class="input1" type="text" ng-model="stSex" id="stSex" readonly>
+							</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>身份证号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stIdCard" id="stIdCard" readonly>
+						</dd>
+						<dd class="lt1 lt3">
+							<span>民&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" ng-model="nations" vName="" vId="" id="nations" onchange="selectNation('nations')">
+								<option class="col1" value="">选择民族</option>
+							</select>
+							<input type="hidden" id="stNation" value="" />
+							<input type="hidden" id="stNationId" value="" />
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>联系手机：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stPhone" id="stPhone" placeholder="手机和固定电话必须填写一项">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>固定电话：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stTel" id="stTel" placeholder="手机和固定电话必须填写一项">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>电子邮箱：</span>
+							<b class="red1">&nbsp;</b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" type="text" ng-model="stMail" id="stMail" placeholder="">
+						</dd>
+					</dl>
+
+					<!--<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="province" vName="" vId="" ng-model="province" onchange="selectProvince('province','city','county','street')">
+								<option class="col1" value="">选择省份</option>
+						</select>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="city" vName="" vId="" ng-model="city" onchange="selectCity('city','county','street')">
+								<option class="col1" value="">选择城市</option>
+						</select>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="county" vName="" vId="" ng-model="county" onchange="selectCounty('county','street')">
+								<option class="col1" value="">选择区/县</option>
+						</select>
+					</dd>
+				</dl>-->
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>户籍地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" id="stAddress" ng-model="stAddress" type="text" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>照片采集：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="takePhoto">
+							<a>已采集</a>
+							<a>未采集</a>
+						</dd>
+					</dl>
+
+					<div class="navBox"><b>----------------------------------------&nbsp;&nbsp;居住信息&nbsp;&nbsp;----------------------------------------</b></div>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt7">
+							<select class="select1" ng-model="shCounty" id="shCounty" onchange="selectShCounty('shCounty')">
+								<option class="col1" value="">选择区县</option>
+							</select>
+							<input type="hidden" id="stShCounty" value="" />
+							<input type="hidden" id="stShCountyId" value="" />
+						</dd>
+						<dd class="rt7">
+							<select class="select1" ng-model="shStreet" id="shStreet" onchange="selectShStreet('shStreet')">
+								<option class="col1" value="">选择街/镇</option>
+							</select>
+							<input type="hidden" id="stShStreet" value="" />
+							<input type="hidden" id="stShStreetId" value="" />
+						</dd>
+						<dd class="rt7">
+							<input class="input1" type="text" ng-model="stShRoad" id="stShRoad" placeholder="XX路">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt8">
+							<input class="input1" type="text" ng-model="stShLane" id="stShLane" placeholder="">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>弄</span></b>
+						</dd>
+						<dd class="rt8">
+							<input class="input1" type="text" ng-model="stShNo" id="stShNo" placeholder="">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>号</span></b>
+						</dd>
+						<dd class="rt8">
+							<input class="input1" type="text" ng-model="stShRoom" id="stShRoom" placeholder="">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>室</span></b>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住证明类别：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="liveType">
+							<a>本人房地产权证明</a>
+							<a>租赁合同登记备案</a>
+							<a>近亲属的相关居住证明</a>
+							<a style="margin-bottom: 0px;">集体宿舍证明</a>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住事由：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="liveReason">
+							<a>务工</a>
+							<a>经商</a>
+							<a>务农</a>
+							<a>服务</a>
+							<a>因公出差</a>
+							<a>借读培训</a>
+							<a>治病疗养</a>
+							<a>随迁亲属</a>
+							<a>拆迁搬家</a>
+							<a>寄挂户口</a>
+							<a>婚姻嫁娶</a>
+							<a>投靠亲友</a>
+							<a>保姆</a>
+							<a>探亲访友</a>
+							<a>旅游观光</a>
+							<a>人才引进</a>
+							<div class="clearfloat div1">
+								<a class="dda1" style="margin-bottom: 0px;">其他</a>
+								<input class="input1" type="text">
+							</div>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>同住亲属：</span></b>
+						</dd>
+						<dd class="lt1 lt4">
+							<span>1.</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stRelationship1" id="stRelationship1" placeholder="关系">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stName1" id="stName1" placeholder="姓名">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt10">
+							<input class="input1" type="text" ng-model="stIdCard1" id="stIdCard1" placeholder="身份号码">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="lt1 lt4">
+							<span>2.</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stRelationship2" id="stRelationship2" placeholder="关系">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stName2" id="stName2" placeholder="姓名">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt10">
+							<input class="input1" type="text" ng-model="stIdCard2" id="stIdCard2" placeholder="身份号码">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="lt1 lt4">
+							<span>3.</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stRelationship3" id="stRelationship3" placeholder="关系">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stName3" id="stName3" placeholder="姓名">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt10">
+							<input class="input1" type="text" ng-model="stIdCard3" id="stIdCard3" placeholder="身份号码">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="lt1 lt4">
+							<span>4.</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stRelationship4" id="stRelationship4" placeholder="关系">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt9">
+							<input class="input1" type="text" ng-model="stName4" id="stName4" placeholder="姓名">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt10">
+							<input class="input1" type="text" ng-model="stIdCard4" id="stIdCard4" placeholder="身份号码">
+						</dd>
+					</dl>
+
+					<div class="navBox" style="margin-top:35px;"><b>----------------------------------------&nbsp;&nbsp;教育状况&nbsp;&nbsp;----------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>文化程度：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="education">
+							<a>未上过学</a>
+							<a>小学</a>
+							<a>初中</a>
+							<a>高中</a>
+							<a>大学专科</a>
+							<a style="margin-bottom: 0px;">大学本科</a>
+							<a style="margin-bottom: 0px;">研究生</a>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>是否在读：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="ifStudy">
+							<a style="margin-bottom: 0px;">是</a>
+							<a style="margin-bottom: 0px;">否</a>
+						</dd>
+					</dl>
+
+					<div class="navBox" style="margin-top:35px;"><b>----------------------------------------&nbsp;&nbsp;就读状况&nbsp;&nbsp;----------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>学校名称：</span></b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" type="text" ng-model="stSchool" id="stSchool" placeholder="">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>学校地址：</span></b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" type="text" ng-model="stSchoolAddr" id="stSchoolAddr" placeholder="">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>入学时间：</span></b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="dtStart" id="dtStart" placeholder="">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>预计结业时间：</span></b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="dtEnd" id="dtEnd" placeholder="">
+						</dd>
+					</dl>
+
+					<div class="navBox" style="margin-top:35px;"><b>----------------------------------------&nbsp;&nbsp;就业状况&nbsp;&nbsp;----------------------------------------</b></div>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>就业状况：</span></b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="ifWorking">
+							<a style="margin-bottom: 0px;">就业</a>
+							<a style="margin-bottom: 0px;">未就业</a>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>职业：</span></b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stJob" id="stJob" placeholder="">
+						</dd>
+
+						<dd class="lt1 lt3">
+							<span>单位名称：</span></b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stCompany" id="stCompany" placeholder="">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>单位地址：</span></b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" type="text" ng-model="stCompanyAddr" id="stCompanyAddr" placeholder="">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>行业类别：</span></b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="industyType">
+							<a>党政机关</a>
+							<a>公用事业</a>
+							<a>国有企业</a>
+							<a>外资企业</a>
+							<a>私营企业</a>
+							<a style="margin-bottom: 0px;">个体工商户</a>
+							<a style="margin-bottom: 0px;">其他</a>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>未就业原因：</span></b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="unoccupied">
+							<a>在校学生</a>
+							<a>丧失工作能力</a>
+							<a>毕业后未找到工作</a>
+							<a>因单位原因失去工作</a>
+							<a>因个人原因失去工作</a>
+							<a>承包土地被征用</a>
+							<a style="margin-bottom: 0px;">离退休</a>
+							<a style="margin-bottom: 0px;">料理家务</a>
+							<a style="margin-bottom: 0px;">其他</a>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>生活来源：</span></b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="liveSource">
+							<a>劳动收入</a>
+							<a>离退休金养老金</a>
+							<a>失业保险金 </a>
+							<a>最低生活保障金</a>
+							<a>财产性收入</a>
+							<a>家庭其他成员供养</a>
+							<a>其他</a>
+						</dd>
+					</dl>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="mainrt1">
+		<h3 style="margin-bottom:15px;">样表</h3>
+		<div class="imgbox4">
+			<img src="../libs/common/images/autoForm/jzsq.jpg" />
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>
+<style type="text/css">
+	.caption {
+		margin-top: 60px;
+		margin-left: 200px;
+	}
+	#wrapper {
+		width: 1328px;
+		height: 662px;
+	}
+</style>

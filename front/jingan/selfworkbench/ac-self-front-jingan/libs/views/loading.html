@@ -1,0 +1,31 @@
+<style type="text/css">
+	.loadingBox-z {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		text-align: center;
+	}
+	
+	.loadingBox-z .loadingContent {
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.loadingBox-z p {
+		text-align: center;
+		font-size: 38px;
+		color: #FFFFFF;
+	}
+</style>
+<div class="loadingBox-z">
+	<div class="loadingContent">
+		<img src="../libs/common/images/loadings.gif" alt="">
+		<p>{{_loadingTitle}}</p>
+	</div>
+</div>

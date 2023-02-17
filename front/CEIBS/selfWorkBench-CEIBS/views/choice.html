@@ -1,0 +1,37 @@
+<style type="text/css">
+	section.main {
+		height: 750px;
+		padding: 0 200px;
+		display: inherit;
+		background-image: inherit;
+	}
+
+	section h2 {
+		font-weight: bold;
+		height: 230px;
+		padding-top: 50px;
+	}
+</style>
+<section class="main" ng-show="version =='Chinese'">
+	<h2>请选择收入证明年限</h2>
+	<div class="main">
+		<a ng-click="choiceType('tchBasicInfo','收入证明','monthSalary')" class="item i1">
+			<p class="signTxt">月薪</p>
+		</a>
+		<a ng-click="choiceType('tchBasicInfo','收入证明','yearSalary')" class="item i2">
+			<p class="signTxt">年薪</p>
+		</a>
+	</div>
+</section>
+<section class="main" ng-show="version =='English'">
+	<h2>Please select income certificate type</h2>
+	<div class="main">
+		<a ng-click="choiceType('tchBasicInfo','收入证明','monthSalary')" class="item i1">
+			<p class="signTxt">Monthly</p>
+		</a>
+		<a ng-click="choiceType('tchBasicInfo','收入证明','yearSalary')" class="item i2">
+			<p class="signTxt">Yearly</p>
+		</a>
+	</div>
+</section>
+<app-footer prev="prevStep()" default-is-show-next-btn="hidden"></app-footer>

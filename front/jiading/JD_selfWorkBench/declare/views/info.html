@@ -1,0 +1,69 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="在线填报"></apptb-header>
+	
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>人证核验</li>
+			<li class="act">在线填报</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{fullItemName}}</span></div>
+		<div class="main2" style="height:650px">
+			<div class="scrollBox2 clearfloat">
+				<div class="right-input" style="width: 97%; left: 60px; top: 25px;">
+					<form id="infoForm" method="get">
+						<div class="inputBox">
+							<label class="strong" style="line-height: 50px;">办理对象</label>
+							<input type="radio" style="width: 25px; height: 25px;margin-top:30px;margin-left:30px;" value="个人" ng-model="targetTypeName" name="targetTypeName" /><span style="font-size:32px;margin-right:15px;">&nbsp;&nbsp;个人</span>
+							<input type="radio" style="width: 25px; height: 25px;margin-top:30px;" value="法人" ng-model="targetTypeName" name="targetTypeName" /><span style="font-size:32px;margin-right:15px;">&nbsp;&nbsp;法人</span>
+						</div>
+						<div class="inputBox">
+							<label class="strong">{{targetName}}</label>
+							<input type="text" id="targetName" name="targetName" />
+						</div>
+						<div class="inputBox">
+							<label class="strong ellipsis">{{targetTips}}</label>
+							<input type="text " id="targetNo" name="targetNo " />
+						</div>
+						<div class="inputBox">
+							<label class="strong ">经办人姓名</label>
+							<input type="text " id="username" name="username " />
+						</div>
+						<div class="inputBox">
+							<label class="strong">经办人身份证号</label>
+							<input type="text" id="licenseNo" name="licenseNo" />
+						</div>
+						<div class="inputBox">
+							<label class="strong">经办人手机号</label>
+							<input type="text" id="mobile" name="mobile" />
+						</div>
+						<div class="inputBox" style="padding-bottom:15px;width: 93.5%;">
+							<label>申请内容</label>
+							<input type="text" id="content" name="content" style="width: 78%;" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="goNext()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	.navBox2 {
+		margin-bottom: 0;
+	}
+</style>

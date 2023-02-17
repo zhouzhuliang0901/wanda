@@ -1,0 +1,95 @@
+<style type="text/css">
+	.caption {
+		margin-left: 20px;
+	}
+	
+	.funcHightlights {
+		width: 1450px;
+		height: 600px;
+		margin: 0px auto;
+		text-align: center;
+	}
+	
+	.funcHightlights>div {
+		display: inline-block;
+		width: 45%;
+		height: 44%;
+		margin: 10px 10px;
+		background: url('../libs/common/images/bg-middle.png') no-repeat;
+		background-size: 100% 100%;
+		box-sizing: border-box;
+		padding: 30px;
+		vertical-align: top;
+	}
+	
+	.funcHightlights div .xiangQing {
+		width: 100%;
+		display: block;
+		background: url('../libs/common/images/newIcon/loan.png') no-repeat;
+		background-size: 55px;
+    	background-position: 10px;
+		padding: 0px;
+		padding-left: 80px;
+		box-sizing: border-box;
+	}
+	
+	.funcHightlights div .xiangQing p {
+		text-align: left;
+		font-size: 30px;
+		height: 80px;
+		line-height: 84px;
+	    font-weight: bold;
+	}
+	
+	.funcHightlights div .detail {
+		font-size: 24px;
+		color: rgba(255, 255, 255, .6);
+		text-align: left;
+		padding-left: 80px;
+	}
+	.funcHightlights div .detail span {
+		font-weight: bold;
+	}
+</style>
+<apptb-header fun-name="银行服务"></apptb-header>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="funcHightlights">
+			<div>
+				<div class="xiangQing">
+					<p>信用快贷</p>
+				</div>
+				<p class="detail">全流程线上自主信用贷款</p>
+				<p class="detail"><span>贷款额度：</span>1万元-300万元（含）</p>
+				<p class="detail"><span>贷款期限：</span>最长12个月</p>
+			</div>
+			<div>
+				<div class="xiangQing">
+					<p>抵押快贷</p>
+				</div>
+				<p class="detail">大额经营快贷，线上审批，线下签约</p>
+				<p class="detail"><span>贷款额度：</span>1万元-1000万元（含）</p>
+				<p class="detail"><span>贷款期限：</span>最长12个月</p>
+			</div>
+			<div>
+				<div class="xiangQing">
+					<p>质押快贷</p>
+				</div>
+				<p class="detail">全流程网上自助质押贷款</p>
+				<p class="detail"><span>贷款额度：</span>1万元-500万元（含）</p>
+				<p class="detail"><span>贷款期限：</span>最长12个月</p>
+			</div>
+			<div>
+				<div class="xiangQing">
+					<p>平台快贷</p>
+				</div>
+				<p class="detail">平台企业网上自助信用贷款</p>
+				<p class="detail"><span>贷款额度：</span>1万元-200万元（含）</p>
+				<p class="detail"><span>贷款期限：</span>最长12个月</p>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

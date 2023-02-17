@@ -1,0 +1,151 @@
+<style type="text/css">
+	.TopTit1 .tit2 {
+		padding-left: 13.5%;
+	}
+	
+	.main5 .navBox4 a {
+		/*float: left;*/
+		display: inline-block;
+		 width: 464px; 
+		padding: 0px 40px;
+		height: 100px;
+		margin-left: 10px;
+		margin-bottom: 16px;
+		text-align: center;
+		background: url(libs/common/images/bg-nav3.png) no-repeat;
+		background-size: 100% 100%;
+		line-height: 100px;
+		overflow: hidden;
+		font-size: 32px;
+		font-weight: bold;
+		color: #19aae2;
+	}
+	
+	.minimize {
+		position: absolute;
+		right: 10px;
+	}
+	
+	.minimize img {
+		width: 100px;
+	}
+	
+	.marginrightleft {
+		width: 88%;
+		margin: 0 6%;
+	}
+	
+	.navBox4 {
+		display: inline-flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+	}
+	
+	.wsrkClass {
+		border-radius: 50px;
+		font-size: 32px;
+		background-color: transparent;
+		color: #FFF;
+		border: solid 5px #FFF;
+		height: 66px;
+		padding: 0 50px;
+		display: inline-block;
+		position: absolute;
+		right: 200px;
+		top: 226px;
+	}
+	
+	.mainbottom {
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		bottom: 80px;
+	}
+	
+	.mainbottom button {
+		border: none;
+		width: 154px;
+		height: 60px;
+		background: url(libs/common/images/goHome.png) no-repeat center center;
+	}
+	
+	@media screen and (min-width:1200px) and (max-width:1400px){
+		.shell.bg3 {
+			width: 1280px;
+			height: 1024px;
+		}
+		.TopTit1 .tit2 {
+			font-size: 40px;
+			padding-left: 18.5%;
+		}
+	}
+</style>
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<!--<img src="libs/common/images/icon/ywtblogo.png" style="position: absolute;width: 73px;left: 148px;top: 68px;">-->
+		<h2 class="tit2" ng-click="goToApp('staffOperation/index.html')">长三角“一网通办”</h2>
+		<div class="weatherForecast" ng-show="dataWeatherList.length>0" ng-click="goToApp('weather/index.html')">
+			<div class="warning"><img ng-src="{{warningImg}}" /></div>
+			<div class="weather">
+
+			</div>
+		</div>
+		<div class="minimize" ng-click="proMinimizes()" ng-if='isShowYHhome'>
+			<img src="libs/common/images/minimize.png" alt="" />
+		</div>
+	</div>
+	<div class="main5">
+		<div class="marginrightleft">
+			<div class="titBox1">全部清单</div>
+
+			<button class="wsrkClass" ng-if='nhisShowWsrk' ng-click="goToApp('indexMainPageYH/index.html#/SSYSPage')">外省入口</button>
+
+			<div class="navBox4">
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_grsqcjyddkjcsyzm/index.html')">
+					<p class="p1">个人申请出具异地贷款缴存使用证明</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_householdRegisterALL/index.html')">
+					<p class="p1">户籍证明开具</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_isCrimeProveALL/index.html')">
+					<p class="p1">有无违法犯罪记录证明开具</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_queryMarriageRegistration/index.html')">
+					<p class="p1">婚姻登记档案查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_queryOnlyChildFile/index.html')">
+					<p class="p1">独生子女档案查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_educatedYouthArchives/index.html')">
+					<p class="p1">知青档案查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_regenerateChildrenArchives/index.html')">
+					<p class="p1">再生子女档案查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_veteranArchives/index.html')">
+					<p class="p1">退伍军人档案查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_basicMedicalInsurance/index.html')">
+					<p class="p1">基本医疗保险关系转移接续</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('CSJ_providentFundWithdrawals/index.html')">
+					<p class="p1">长三角购房提取住房公积金</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="mainbottom"><button ng-if='isShowYhBottomHome' ng-click="goToApphomeyh()"></button></div>
+	<!--alert弹框-->
+	<div style="z-index:321;" class="customAlert" ng-if="isAlert">
+		<div class="alertContent">
+			<p class="title" ng-bind-html="msg"></p>
+			<div class="controlAlert">
+				<a ng-if="confirm_show" class="control confirm continue" ng-click="alertConfirm()">确定</a>
+				<a ng-if="cancel_show" class="control cancel" ng-click="alertCancel()">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+</script>

@@ -1,0 +1,132 @@
+<style type="text/css">
+	.infoReport input {
+		width: 70%;
+	}
+
+	.codeButton {
+		width: 150px;
+		height: 45px;
+		font-size: 20px;
+		border: 1px solid;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 5px;
+		float: right;
+	}
+
+	.codeTime {}
+	.infoReport tbody td{
+		width: 35%;
+	}
+	table{
+		margin: 0 auto;
+	}
+</style>
+<section class="report" ng-show="version =='Chinese'" id="chinese">
+	<!-- 成绩单 -->
+	<h2>填写信息</h2>
+	<form action="">
+		<table class="infoReport">
+			<tbody>
+				<tr>
+					<th><span>*</span>姓名：</th>
+					<td><input type="text" name="cname" id="cname" ng-model="cname" readonly></td>
+					<th><span>*</span>工号：
+						<div>
+					</th>
+					<td><input type="text" name="eno" id="eno" ng-model="eno" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>手机号：</th>
+					<td><input type="text" name="mobile" id="mobile" ng-model="mobile" readonly></td>
+					<th ng-show='travleSign'><span>*</span>护照号：</th>
+					<td ng-show='travleSign'><input type="text" name="passportno" id="passportno" ng-model="passportno"></td>
+					<th ng-show='!travleSign'><span>*</span>身份证号：</th>
+					<td ng-show='!travleSign'><input type="text" name="idcardno" id="idcardno" ng-model="idcardno" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>短信验证码：</th>
+					<td><input type="text" name="messageCode" id="messageCode" ng-model="messageCode">
+						<div class="codeButton">
+							<a ng-click='getCode()' ng-if="code">获取验证码</a>
+							<a class="codeTime" ng-if="!code">{{time}}s</a>
+						</div>
+					</td>
+					<th ng-show='travleSign'><span>*</span>身份证号：</th>
+					<td ng-show='travleSign'><input type="text" name="idcardno" id="idcardno" ng-model="idcardno" readonly></td>
+				</tr>
+				<tr ng-show='travleSign'>
+					<th><span>*</span>休假起始日期：</th>
+					<td>
+						<input id="travelStartTime" type="text" name="travelStartTime" id="travelStartTime" ng-model="travelStartTime">
+					</td>
+					<th><span>*</span>旅游目的地（中文）：</th>
+					<td><input type="text" name="travelPlace" id="travelPlaceCN" ng-model="travelPlaceCN"></td>
+				</tr>
+				<tr ng-show='travleSign'>
+					<th><span>*</span>休假结束日期：</th>
+					<td>
+						<input id="travelEndTime" type="text" name="travelEndTime" id="travelEndTime" ng-model="travelEndTime">
+					</td>
+					<th><span>*</span>旅游目的地（英文）：</th>
+					<td><input type="text" name="travelPlace" id="travelPlaceEN" ng-model="travelPlaceEN"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</section>
+<section class="report" ng-show="version =='English'" id="english">
+	<!-- 成绩单 -->
+	<h2>fill in information</h2>
+	<form action="">
+		<table class="infoReport">
+			<tbody>
+				<tr>
+					<th><span>*</span>Name：</th>
+					<td><input type="text" name="cname" id="cname" ng-model="cname" readonly></td>
+					<th><span>*</span>Job Number：
+						<div>
+					</th>
+					<td><input type="text" name="eno" id="eno" ng-model="eno" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>Mobile Phone：</th>
+					<td><input type="text" name="mobile" id="mobile" ng-model="mobile" readonly></td>
+					<th ng-show='travleSign'><span>*</span>Passport Number：</th>
+					<td ng-show='travleSign'><input type="text" name="passportno" id="passportno" ng-model="passportno"></td>
+					<th ng-show='!travleSign'><span>*</span>ID card Number：</th>
+					<td ng-show='!travleSign'><input type="text" name="idcardno" id="idcardno" ng-model="idcardno" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>Verification Code：</th>
+					<td><input type="text" name="messageCode" id="messageCode" ng-model="messageCode">
+						<div class="codeButton">
+							<a ng-click='getCode()' ng-if="code">Get Code</a>
+							<a class="codeTime" ng-if="!code">{{time}}s</a>
+						</div>
+					</td>
+					<th ng-show='travleSign'><span>*</span>ID card Number：</th>
+					<td ng-show='travleSign'><input type="text" name="idcardno" id="idcardno" ng-model="idcardno" readonly></td>
+				</tr>
+				<tr ng-show='travleSign'>
+					<th><span>*</span>Leave start date：</th>
+					<td>
+						<input id="travelStartTime_en" type="text" name="travelStartTime" id="travelStartTime" ng-model="travelStartTime">
+					</td>
+					<th><span>*</span>Tourism Destination (Chinese)：</th>
+					<td><input type="text" name="travelPlace" id="travelPlaceCN" ng-model="travelPlaceCN"></td>
+				</tr>
+				<tr ng-show='travleSign'>
+					<th><span>*</span>Leave end date：</th>
+					<td>
+						<input id="travelEndTime_en" type="text" name="travelEndTime" id="travelEndTime" ng-model="travelEndTime">
+					</td>
+					<th><span>*</span>Tourism Destination (English)：</th>
+					<td><input type="text" name="travelPlace" id="travelPlaceEN" ng-model="travelPlaceEN"></td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</section>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

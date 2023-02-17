@@ -1,0 +1,365 @@
+/*main*/
+.view-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 832px;
+    width: 832px;
+}
+
+.staffLogin {
+    position: absolute;
+    bottom: -260px;
+    left: 40px;
+}
+
+.view-main.isHide {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    height: 832px;
+    width: 832px;
+}
+
+/*staffOperation*/
+.staffOperation .staffLogin {
+    bottom: 30px;
+}
+
+.staffOperation .btn {
+    position: absolute;
+    top: 982px;
+    left: 280px;
+}
+
+.staffOperation .eventIcon {
+    left: 20px;
+}
+
+.staffOperation .event {
+    left: 72px;
+}
+
+/*verificationComplete*/
+.verificationComplete .btn {
+    margin-top: 180px;
+}
+
+.verificationComplete .btn.abnormal {
+    float: left;
+    margin-left: 66px;
+}
+
+.verificationComplete .btn.abnormal .eventIcon {
+    left: 24px;
+}
+
+.verificationComplete .btn.abnormal .event {
+    left: 130px;
+}
+
+/*signature*/
+.signature .btn.left {
+    margin-left: 80px;
+}
+
+.signature .btn.right {
+    margin-top: -120px;
+    margin-left: 480px;
+}
+
+/*getLicenseConfirm*/
+.getLicenseConfirm .boldTips {
+    margin-top: 60px;
+}
+
+.getLicenseConfirm .btn {
+    margin-top: 20px;
+}
+
+/*openBox*/
+.openBox .boldTips {
+    margin-top: 480px;
+    font-size: 72px;
+}
+
+.openBox .normalTips {
+    font-size: 40px;
+}
+
+/*licenseInfoList*/
+.licenseInfoList .boldTips {
+    margin-top: 60px;
+}
+
+.licenseInfoList .infoConfirm {
+    height: 900px;
+}
+
+.licenseInfoList .btnIcon {
+    color: #0788f7;
+}
+
+.licenseInfoList .pageControl {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    font-size: 40px;
+    height: 74px;
+    line-height: 74px;
+    margin-top: 30px;
+    width: 500px;
+}
+
+.licenseInfoList .licenseName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: left;
+    width: 420px;
+}
+
+.licenseInfoList .btnIcon {
+    cursor: pointer;
+    text-align: center;
+}
+
+.isOverDue {}
+
+/*faceVerification*/
+.faceVerification .camera {}
+
+/*staffPutLicenseConfirm*/
+.staffPutLicenseConfirm .boldTips {
+    margin-top: 220px;
+}
+
+.staffPutLicenseConfirm .licenseInfoTable {
+    margin: 0 auto;
+    border: 1px solid #dbdada;
+    margin-top: 60px;
+    border-radius: 15px;
+    width: 86%;
+}
+
+.staffPutLicenseConfirm .btn {
+    float: left;
+    margin-left: 66px;
+}
+
+.staffPutLicenseConfirm .btn .eventIcon {
+    left: 30px;
+}
+
+.staffPutLicenseConfirm .btn .event {
+    left: 120px;
+}
+
+/*staffOperationChoice*/
+.staffOperationChoice {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    margin-top: 200px;
+    height: 720px;
+    width: 482px;
+}
+
+.staffOperationChoice .btn {
+    line-height: 100px;
+    height: 170px;
+    width: 480px;
+}
+
+.staffOperationChoice .btn .event {
+    font-size: 60px;
+}
+
+.staffOperationChoice .eventIcon {
+    left: 30px;
+    width: 150px;
+    height: 150px;
+}
+
+.staffOperationChoiceLayout .view-main {
+    margin: 35px auto;
+    height: 1150px;
+    width: 832px;
+}
+
+/*scanCode*/
+.scanCode .btn {
+    margin-top: 15px;
+}
+
+.scanCode .btn .event {
+    left: 146px;
+}
+
+.scanCode .btn .eventIcon {
+    left: 20px;
+}
+
+.scanCode .inputBox {
+    width: 800px;
+    margin-top: 120px;
+}
+
+/*openBox*/
+.openBox .btn {
+    position: absolute;
+    top: 850px;
+}
+
+.openBox .center {
+    left: 280px;
+}
+
+.openBox .btn.center .eventIcon {
+    width: 73px;
+    height: 78px;
+    top: 15px;
+    left: 48px;
+}
+
+.openBox .btn.left {
+    left: 70px;
+}
+
+.openBox .btn.right {
+    right: 70px;
+}
+
+.openBox .btn .eventIcon {
+    left: 38px;
+    top: 5px;
+}
+
+.openBox .btn .event {
+    top: 28px;
+    left: 146px;
+}
+
+/*licenseTake*/
+.licenseTake .btn {
+    position: absolute;
+    top: 1022px;
+    left: 280px;
+}
+
+.licenseTake .eventIcon {
+    left: 20px;
+}
+
+.licenseTake .event {
+    left: 72px;
+}
+
+/*animation*/
+.main-page {
+    position: absolute;
+    margin: auto;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+}
+
+/* page specific animations ------------------------ */
+/*.main-page.ng-leave {
+    animation: rotateFall 200ms both ease-in-out;
+}
+
+.main-page.ng-enter {
+    animation: scaleUp 200ms both ease-in-out;
+}*/
+
+
+/* rotate and fall */
+@keyframes rotateFall {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* scale up */
+@keyframes scaleUp {
+    0% {
+        opacity: .2;
+        /* transform: translateX(200px); */
+    }
+
+    100% {
+        /* transform: translateX(0); */
+        opacity: 1;
+    }
+}
+
+/**
+ * 控制中心
+ * */
+.cabinetController {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: absolute;
+    align-items: center;
+    justify-content: space-around;
+    height: 1300px;
+    width: 100%;
+}
+
+/*定制头部 start*/
+.main-page.cabinetControllerController {
+    top: 360px;
+}
+
+.main-page.cabinetControllerController>nav {
+    margin-left: 40px;
+}
+
+/*定制头部 end*/
+
+.cabinetController .matterInfo {
+    position: fixed;
+    width: 1080px;
+    height: 680px;
+    z-index: 10;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #fff;
+}
+
+.cabinetController .licenseInfoTable tr {
+    height: 100px;
+}
+
+.cabinetController .licenseInfoTable td {
+    text-align: center;
+}
+
+.controllerBtn {
+    text-align: center;
+    border: 1px solid transparent;
+    background-color: #ced0ce;
+    color: #fff;
+    width: 24%;
+    height: 81px;
+    line-height: 81px;
+    border-radius: 5px;
+}
+
+.controllerBtn.hasMatter {
+    background-color: rgba(21, 102, 170, .6);
+}

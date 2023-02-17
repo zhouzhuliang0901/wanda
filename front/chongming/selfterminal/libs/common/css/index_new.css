@@ -1,0 +1,83 @@
+body {
+	position: relative;
+	width: 1920px;
+	height: 1080px;
+	color: #FFFFFF;
+	background: url(../images/index/indexBackground.png) no-repeat top left;
+}
+.index_log{
+	position: absolute;
+	text-align: center;
+	width: 840px;
+	height: 130px;
+	top: 50px;
+	left: 50%;
+	margin-left: -420px;
+}
+.common {
+	width: 417px;
+	height: 750px;
+	margin-top: 250px;
+	margin-left: 170px;
+	position: relative;
+	float: left;
+	background: url(../images/index/index_icon.png) no-repeat left top;
+}
+.common .title {
+	font-size: 40px;
+	font-weight: bold;
+	width: 100%;
+	font-family: "微软雅黑";
+	text-align: center;
+}
+.common>div{
+	text-align: center;
+}
+.common .entry>img{
+	height: 125px;
+}
+.common>div>img{
+	height: 200px;
+	width: 200px;
+}
+
+.common .title {
+	margin-top: 15px;
+}
+
+
+.common>div:nth-child(1)>img {
+	vertical-align: middle;
+	margin: 80px 100px 30px;
+	margin-top: 25px;
+
+	opacity: 0.9;
+}
+
+.common .sub-title {
+	font-family: '黑体';
+	margin-top: 10px;
+}
+
+/*by:zjj*/
+.common-bottom {
+	text-align: center;
+	height: 50%;
+	margin-top: 36px;
+	width: 100%;
+}
+
+.common-bottom .entry {
+	float: left;
+	margin-top: 20px;
+	width: 33.3%;
+}
+
+.clear {
+	clear: both;
+}
+
+.common-bottom .sub-title {
+	text-align: center;
+	font-size: 25px;
+}

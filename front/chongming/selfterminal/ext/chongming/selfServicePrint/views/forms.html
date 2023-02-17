@@ -1,0 +1,58 @@
+<style>
+    .appBtn {
+        width: 80px;
+        height: 80px;
+        top: 340px;
+        background-color: transparent;
+        box-shadow: none;
+        z-index: 10;
+    }
+
+    .appBtn .desc {
+        color: #337ab7;
+        font-size: 90px;
+        line-height: 71px;
+    }
+
+    .appBtn.next {
+        left: 1593px;
+    }
+
+    .appBtn.prev {
+        left: 3px;
+    }
+
+    .appBtn.prev p {
+        padding-right: 10px;
+    }
+
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../../../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助打印</a>
+        </li>
+        <li class="active">选择表格</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="appBtn prev" ng-if="totalPages>1" ng-click="prev()">
+        <p class="desc">〈</p>
+    </div>
+    <div class="appBtn next" ng-if="totalPages>1" ng-click="next()">
+        <p class="desc">〉</p>
+    </div>
+    <div class="forms">
+        <div class="form" ng-click="previewForm(item.stFormName,fetchUrl+item.blFileImageUrl)" ng-repeat="item in matterForms">
+            <img class="preview" ng-src="{{fetchUrl+item.blSmallFileImageUrl}}" alt="">
+            <p class="formName">{{item.stFormName}}</p>
+        </div>
+    </div>
+    <p class="paging" ng-if="totalPages>1"><span>{{currentPage}}</span>/<span>{{totalPages}}</span></p>
+    <back-upper></back-upper>
+</div>                                                                                                                                                 

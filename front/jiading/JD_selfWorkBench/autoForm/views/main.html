@@ -1,0 +1,130 @@
+<p class="caption1">{{ operation }}</p>
+<ul class="fromList">
+	<li ng-click="choiceForm(item)" ng-repeat="item in takeFormList track by $index">
+		<img ng-src="{{ item.formImg }}" />
+		<p>{{ item.formName }}</p>
+	</li>
+	<a href="javascript:;" class="controlGroup prev" ng-click="prevPage()">
+		<img src="./images/prevBtn.png" />
+	</a>
+	<a href="javascript:;" class="controlGroup next" ng-click="nextPage()">
+		<img src="./images/nextBtn.png" />
+	</a>
+</ul>
+<img ng-show="" ng-src="{{ hide.formImg }}" ng-repeat="hide in takeFormList track by $index" />
+<!--下面的p标签为分页标签-->
+<!--<p class="pages">{{ currentPage + "/" + totalPages }}</p>-->
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.pages {
+		margin-top: -40px;
+		text-align: center;
+		font-size: 50px;
+	}
+	
+	.fromList {
+		position: relative;
+		margin: 50px auto;
+		width: 1610px;
+		height: 590px;
+	}
+	
+	.fromList li {
+		position: absolute;
+		padding-bottom: 0;
+		height: auto;
+		box-sizing: border-box;
+	}
+	
+	.fromList p {
+		text-align: center;
+		font-size: 24px;
+		margin: 10px 0;
+		height: 31px;
+		overflow: hidden;
+	}
+	
+	.fromList img {
+		transition: all 300ms;
+		width: 100%;
+		height: 84%;
+		text-align: center;
+	}
+	
+	.fromList img.active {
+		transition: all 300ms;
+		box-shadow: 0px 10px 12px #e2e6d7;
+	}
+	
+	.fromList img.hidden {
+		visibility: hidden;
+	}
+	
+	.fromList>li:nth-child(1) {
+		background: url(./images/bg-left.png) no-repeat;
+		background-size: contain;
+		padding: 2.2%;
+		width: 304px;
+		height: 417px;
+		left: 110px;
+		top: 66px;
+		z-index: 1;
+	}
+	
+	.fromList>li:nth-child(2) {
+		background: url(./images/bg-dcenter.png) no-repeat;
+		background-size: contain;
+		padding: 2.2%;
+		width: 331px;
+		height: 464px;
+		left: 340px;
+		top: 42px;
+		z-index: 2;
+	}
+	
+	.fromList>li:nth-child(3) {
+		background: url(./images/bg-form.png) no-repeat;
+		background-size: contain;
+		padding: 2.2%;
+		width: 391px;
+		height: 547px;
+		left: 600px;
+		top: 0;
+		z-index: 3;
+	}
+	
+	.fromList>li:nth-child(4) {
+		background: url(./images/bg-dcenter.png) no-repeat;
+		background-size: contain;
+		padding: 2.2%;
+		width: 331px;
+		height: 464px;
+		left: 930px;
+		top: 42px;
+		z-index: 2;
+	}
+	
+	.fromList>li:nth-child(5) {
+		background: url(./images/bg-right.png) no-repeat;
+		background-size: contain;
+		padding: 2.2%;
+		width: 304px;
+		height: 417px;
+		left: 1210px;
+		top: 66px;
+		z-index: 1;
+	}
+	
+	.fromList>li:nth-child(n+6) {
+		display: none;
+	}
+	
+	.controlGroup.prev {
+		left: 25px;
+	}
+	
+	.controlGroup.next {
+		right: 20px;
+	}
+</style>

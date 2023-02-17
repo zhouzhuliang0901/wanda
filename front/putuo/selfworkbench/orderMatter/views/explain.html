@@ -1,0 +1,41 @@
+<img class="largeImg" ng-src="{{largeImg}}" />
+<p style="position: absolute;
+    top: 17%;
+    left: 56%;
+    font-size: 35px;
+    width: 700px;
+    font-weight: bold;
+    color: #F8DB5E;">提示：1. 若为代办人，请前往窗口办理。<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{text}}</p>
+<div class="tipsBox">
+	<p class="title">步骤说明</p>
+	<p style="margin-top: 68px;">1.进行人证核验</p>
+	<p>2.信息填写</p>
+	<p>3.取表</p>
+</div>
+<app-footer next="nextStep()"></app-footer>
+<style type="text/css">
+	.largeImg {
+		height: 775px;
+		margin-left: 360px;
+	}
+	
+	.tipsBox .title {
+		margin-top: 50px;
+		font-size: 50px;
+	}
+	
+	.tipsBox p {
+		margin-left: 100px;
+		font-size: 35px;
+		margin-top: 28px;
+	}
+	
+	.tipsBox {
+	    height: 539px;
+	    width: 630px;
+	    float: right;
+	    margin-right: 230px;
+	    background-color: #2864b0;
+	    margin-top: 175px;
+	}
+</style>

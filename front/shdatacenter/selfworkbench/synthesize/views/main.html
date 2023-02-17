@@ -1,0 +1,93 @@
+<apptb-header custom-home="true" fun-name="综合通办" home="customMain()" go-back="goAppHistoryBack()"></apptb-header>
+<ul class="container">
+	<li ng-click="choice('http://180.168.211.56/YzWeb/')">
+		<img src="../libs/common/images/icon/ggkz.png" />
+		<p>
+			公章刻制
+		</p>
+	</li>
+	<li ng-click="choice('https://etax.shanghai.chinatax.gov.cn/wszx-web/bszm/apps/views/beforeLogin/indexBefore/pageIndex.html#/')">
+		<img src="../libs/common/images/icon/ddsw.png" />
+		<p>
+			电子税务局
+		</p>
+	</li>
+	<li ng-click="choice('https://zzjb.12333sh.gov.cn/zzjbdl/jsp/login.jsp')">
+		<img src="../libs/common/images/icon/rszz.png" />
+		<p>
+			社保自助经办
+		</p>
+	</li>
+	<li ng-click="goToApp('http://issp.sheca.com/WdmNew.html')">
+		<img src="../libs/common/images/icon-link3.png" />
+		<p>
+			CA事务专区
+		</p>
+	</li>
+	<li ng-click="choice('http://sh.gsxt.gov.cn/index.html')">
+		<img src="../libs/common/images/icon/jsgc.png" />
+		<p>
+			企业年报填报
+		</p>
+	</li>
+	<li ng-click="choice('http://www.shgjj.com/static/unit/web/')">
+		<img src="../libs/common/images/icon/shtz.png" />
+		<p>
+			公积金<br/>业务办理
+		</p>
+	</li>
+</ul>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 80px auto;
+		align-items: flex-start;
+		width: 1300px;
+		height: 800px;
+	}
+	
+	.container li {
+		margin-left: 120px;
+		text-align: center;
+		height: 300px;
+		width: 300px;
+	}
+	
+	.container li>img {
+		margin-top: 80px;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 226px;
+		font-size: 37px;
+	}
+	
+	.container li:nth-of-type(1) {
+		background-color: #0078d7;
+	}
+	
+	.container li:nth-of-type(2) {
+		background-color: #50a299;
+	}
+	
+	.container li:nth-of-type(3) {
+		background-color: #8973b4;
+	}
+	
+	.container li:nth-of-type(4) {
+		background-color: #10d367;
+	}
+	
+	.container li:nth-of-type(5) {
+		background-color: #a17e68;
+	}
+	
+	.container li:nth-of-type(6) {
+		background-color: #fc6392;
+	}
+</style>

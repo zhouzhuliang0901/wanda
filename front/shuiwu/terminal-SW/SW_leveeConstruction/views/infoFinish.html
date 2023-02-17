@@ -1,0 +1,59 @@
+<style>
+	#code {
+		width: 96%;
+		height: 220px;
+		margin-top: -8px;
+	}
+	#code p {
+		display: inline-block;
+	    float: left;
+	    width: 50%;
+	    margin-left: 3%;
+	    margin-right: 18%;
+	    text-align: center;
+	    font-size: 34px;
+	}
+	#code img {
+		margin-top: 10px;
+	}
+	.btn_radius_50.right-print {
+		top: 660px;
+	}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#list">自助申报</a></li>
+        <li><a href="#">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#materialUpload">材料清单</a></li>
+        <li><a href="#uploadMethod">上传方式</a></li>
+        <li class="active">完成申报</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="images/mainIndexBG_0.png">
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/arrow-down.gif" width="40" class="down">
+            <div>请打印并保存凭条<br /></div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="panelList one finish" style="top: 20px; height: auto;">
+	            <p>您的办件已成功申报,请打印并妥善保存凭条</p>
+	            <p>统一社会审批编码：<b style="color:#d83535">{{applyNo}}</b></p>
+	            <p>申请事项：<b style="color:#d83535">{{allName}}</b></p>
+	            <div id="code">
+	            	<p>您可至"一网通办"总门户“用户中心”查询办理进度，或通过扫描二维码查询</p>
+	            </div>
+        </div>
+        <div class="btn_radius_50 right-print" ng-click="print()">	<!-- href="#list" -->
+            <div class="greyLight">
+                <img src="images/print.png" height="80">
+                <label>{{statusText}}</label>
+            </div>
+        </div>
+    </div>
+</div>

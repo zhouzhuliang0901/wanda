@@ -1,0 +1,31 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="办事指南"></apptb-header>
+
+	<div class="TabBox1">
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span> - <span>请选择事项情形</span></div>
+		<div class="main2">
+			<div class="scrollBox1 clearfloat">
+				<a ng-repeat="item in itemList" ng-click="getSubItem(item.stItemId,item.stStatusName,item.description,item.stItemTenNo,item.stItemNo)">{{item.stStatusName}}</a>
+			</div>
+		</div>
+	</div>
+
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 
+		custom-home="true" home="goHome()" 
+		go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style>
+	.main2{
+		width: 1500px;
+		margin-left: 70px;
+	}
+</style>

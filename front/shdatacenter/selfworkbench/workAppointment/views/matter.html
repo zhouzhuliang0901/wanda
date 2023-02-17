@@ -1,0 +1,16 @@
+<p class="caption">{{operation}}</p>
+
+<list-box items="matterList" prop="{{itemProperty}}" rows='2' result="check(item)"></list-box>
+<app-search tips="请输入事项名称" search="search(val)"></app-search>
+<app-footer next="check()"></app-footer>
+<style type="text/css">
+	app-search {
+		position: absolute;
+		top: 149px;
+		left: 1056px;
+	}
+	list-box {
+		display: block;
+		margin-top: 50px;
+	}
+</style>

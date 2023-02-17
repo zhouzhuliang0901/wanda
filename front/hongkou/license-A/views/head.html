@@ -1,0 +1,40 @@
+<style>
+    .header .eventIcon {
+        position: absolute;
+        right: 50px;
+        top: 50px;
+        width: 50px;
+        height: 50px;
+    }
+	@font-face {
+		font-family:stxinwei;
+		src: url("stxinwei.ttf");
+	}
+    .cabinets {
+        position: absolute;
+        color: #1b4f7b;
+        font-family: "微软雅黑";
+        font-weight: bold;
+        font-size: 35px;
+        top: 210px;
+        left: 60px;
+
+    }
+    .quantity{
+        font-size: 50px;
+        color: #f9860b;
+    }
+</style>
+<div class="header" ng-class="{'isMain':isMain}">
+    <p class="cabinets">剩余空柜子数量: <span class="quantity">{{resideQuantity||'0'}}</span> </p>
+    <img class="appLogo" src="images/logo.png" alt="">
+<!-- 	<div class="appLogo">
+		<img src="images/logo2.png" height="60px" style="    float: left;">
+		<div style="color: #1B4F7B;">
+			<div style="font-family:stxinwei;font-size: 44px;">上海市虹口区行政服务中心</div>
+			<div style="text-transform: uppercase;font-size: 16px;">SHANGHAI HONGKOU DISTRICT ADMINISTRATIVE SERVICE CENTER</div>
+		</div>
+	</div> -->
+    <p class="appTitle">自助证照柜</p>
+    <img class="eventIcon" src="images/icon/homeLogo.png" alt="" ng-click="goHome()">
+</div>

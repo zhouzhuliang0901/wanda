@@ -1,0 +1,108 @@
+<!-- 个人事项预约 -->
+<div class="five" ng-if="isPersonal">
+	<span>第一步：请输入你的手机号</span>
+	<!-- 输入手机号 按键 -->
+	<div class="five-telephone">
+		<input type="text" placeholder="请输入手机号码" class="ipt" ng-model="$parent.name" autofocus>
+		<div class="five-telephone-number">
+			<a ng-repeat="(x,index) in phone" ng-click="phoneclick(x)">{{index}}</a>
+			<!-- ng-repeat="(x,index) in phone" ng-click="towclick(x)" -->
+			<button id="button" ng-click="empty()"></button>
+			<button id="button1" ng-click="phoneclick(-1)"></button>
+			<button id="button2" ng-click="clearzpp()"></button>
+		</div>
+	</div>
+	<button id="btnput" ng-click="confirm()">确定预约</button>
+	<!--<div class="sy-alert sy-alert-tips animated tabchuan" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+		<div class="sy-content">
+			<p>手机号格式不正确，请重新输入!</p>
+		</div>
+	</div>-->
+</div>
+<!-- 法人事项预约 -->
+<div class="five1" ng-if="!isPersonal">
+	<span>第一步：请输入你的手机号及企业信息</span>
+	<div class="five-input">
+		<input type="text" ng-bind='name' placeholder="请输入手机号码" class="ipt" id="name" ng-model="$parent.name" autofocus>
+		<input type="text" placeholder="请输入企业名称" class="ipt" ng-model="businessName">
+		<input type="text" placeholder="请输入企业社会统一信用代码" class="ipt" id="businessCode" ng-model="businessCode">
+
+	</div>
+	<!-- 输入手机号 按键 -->
+	<div class="five-telephone">
+		<div class="five-telephone-number" ng-if="isPhone">
+			<a ng-repeat="(x,index) in phone" ng-click="phoneclick(x)">{{index}}</a>
+			<!-- ng-repeat="(x,index) in phone" ng-click="towclick(x)" -->
+			<button id="button" ng-click="empty()"></button>
+			<button id="button1" ng-click="phoneclick(-1)"></button>
+			<button id="button2" ng-click="clearzpp()"></button>
+		</div>
+		<div class="five-telephone-number" ng-if="!isPhone">
+			<a ng-repeat="(x,index) in phone" ng-click="phoneclick(x)">{{index}}</a>
+			<!-- ng-repeat="(x,index) in phone" ng-click="towclick(x)" -->
+			<button id="button" ng-click="empty()"></button>
+			<button id="button1" ng-click="phoneclick(-1)"></button>
+			<button id="button2" ng-click="clearzpp()"></button>
+		</div>
+	</div>
+	<button id="btnput" ng-click="confirm()">确定预约</button>
+	<!--<div class="sy-alert sy-alert-tips animated tabchuan" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+		<div class="sy-content">
+			<p>手机号格式不正确，请重新输入!</p>
+		</div>
+	</div>-->
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" cancel="alertCancel()"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+	go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.base-under {
+		visibility: hidden;
+	}
+
+	.tabchuan {
+		width: 606px;
+		height: 90px;
+		position: absolute;
+		margin-top: -476px;
+		margin-left: 630px;
+	}
+
+	.sy-content p {
+		font-size: 20px;
+	}
+
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+
+		.five span,
+		.five1 span {
+			margin: 70px 80px 30px;
+		}
+
+		.five1 .five-input {
+			width: 38%;
+		}
+
+		.five1 .five-input .ipt {
+			width: 341px;
+		}
+
+		.five1 #btnput {
+			margin-left: -625px;
+		}
+
+		.five1 .five-telephone {
+			height: 452px;
+		}
+	}
+</style>
+<script>
+	function ok(id) {
+		syalert.syhide(id);
+	}
+</script>

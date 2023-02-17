@@ -1,0 +1,64 @@
+<div class="main3" id="print1" style="height:690px;margin-top: 100px;">
+	<div class="successBox1">
+		<div class="shadow1"></div>
+		<div class="successBox2">
+			<div class="cont1">
+				<h3>操作成功！</h3>
+				<p class="p1">事项名称</p>
+				<p class="p2" ng-bind="itemName"></p>
+			</div>
+			<div class="line1"></div>
+			<div class="cont1">
+				<p class="p1">办件编码</p>
+				<p class="p2" ng-bind="applyNo"></p>
+				<p class="p3"></p>
+			</div>
+			<div class="line2"></div>
+		</div>
+	</div>
+	<div class="text">
+		<p style="color: #FEE889;font-size: 30px;margin-bottom: 20px;">温馨提示:</p>
+		<p style="font-size: 29px;line-height: 63px;margin-bottom: 20px;">您办理的“上海市{{funName}}”于{{date}}提交成功，评定预约时间已确认！
+		</p>
+	</div>
+</div>
+
+<apptb-footer prev="prev()" next="nextStep()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.text {
+		width: 670px;
+		float: left;
+		margin-left: 60px;
+		margin-top: 170px;
+	}
+	
+	.successBox1 {
+		float: left;
+		margin-left: 130px;
+		margin-top: 80px;
+	}
+	@media screen and (max-width: 1600px) {
+		.successBox1 {
+			margin-left: 60px;
+			width: 550px;
+			background-size: 100%;
+		}
+		.successBox2 {
+			width: 500px;
+		}
+		.successBox2 .line1 {
+			background-size: 101% 100%;
+			height: 44px;
+		}
+		.shadow1 {
+			width: 500px;
+			left: 58.9%;
+		}
+		.text{
+			width: 426px;
+			margin-top: 100px;
+		}
+	}
+</style>

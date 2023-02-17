@@ -1,0 +1,23 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a  ng-click="choiceType('parent')">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>我是父母</p>
+		</a>
+		<a ng-click="choiceType('child')">
+			<img src="../libs/common/images/icon/person.png" />
+			<p>我是子女</p>
+		</a>
+	</div>
+</div>
+<app-footer prev="prevStep()" next="nextStep()" default-next="hidden"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 523px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+</style>

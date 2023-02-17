@@ -1,0 +1,70 @@
+<div class="TabBox1">
+	<!--进度条-->
+	<ul class="navul1 clearfloat">
+		<li class="act">选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<ul class="tabul1 clearfloat">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">{{item}}</li>
+		<div ng-show="idRead" class="inputBox1 inputDiv">
+			<input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+			<a class="btn_radius_50" style="right:20px;top:18px;" ng-click="getSearchMatter()">
+				<div class="greyLight">
+					<img src="images/icon-link9.png" height="50" width="50" />
+				</div>
+			</a>
+		</div>
+	</ul>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1" ng-class="{'laststep':prev == true}">
+				<div id="wrapper" class="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':deptindex==1}">
+						<a ng-show="dept" ng-class="{'active':$index==active}" repeat-finish ng-repeat="item in itemName" ng-click="toMaterials(item.stItemName,item.organCode,item.organName,item.stItemNo)">{{item.stItemName||item.organName}}</a>
+						<a ng-show="!dept" ng-class="{'active':$index==active}" repeat-finish ng-repeat="itemType in itemType" ng-click="toItemTypeMaterials(itemType.itemTypeName,itemType.itemTypeCode,itemType.type)">{{itemType.itemTypeCode}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	#wrapper {
+		width: 1300px;
+		height: 580px;
+	}
+	
+	.dept {
+		color: #fefefe;
+		opacity: .6;
+	}
+	
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 518px;
+		height: 116px;
+		float: left;
+		background: url(./images/bg-biglist.png) no-repeat;
+		margin-right: 20px;
+		font-size: 24px;
+		padding: 0 40px;
+		box-sizing: border-box;
+		line-height: 116px;
+	}
+	
+	.laststep {
+		height: 530px;
+	}
+</style>

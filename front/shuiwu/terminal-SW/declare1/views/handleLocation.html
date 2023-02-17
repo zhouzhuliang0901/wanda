@@ -1,0 +1,52 @@
+<!--
+	app.controller("handLocationController", function($scope, $route, $http, $location, data, $timeout) {
+	var name = data.itemName;
+	if(name.length > 10) {
+		name = name.slice(0, 10) + '...'
+	}
+	$scope.itemName = name;
+	$scope.next = function(l) {
+		if(l == 'xuhui')
+			$location.path("/info");
+		else
+			layer.msg('暂只支持徐汇区办理点');
+	};
+});
+-->
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li><a href="#main">实名认证</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li class="active">选择办理点</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请选择申报地点以继续<br />或重选事项</div>
+            <div class="sub-index">
+                <a class="blue-green active" href="#matter">重新选择事项</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="panelList two">
+            <!--<a class="left"><img src="images/left.png" width="30" /></a>
+            <a class="right"><img src="images/right.png" width="30" /></a>-->
+            <div class="l-h-150" ng-click="next('xuhui')"><a style="color: #337ab7;">徐汇区</a></div>
+            <div class="l-h-150" ng-click="next()">闵行区</div>
+            <div class="l-h-150" ng-click="next()">长宁区</div>
+            <div class="l-h-150" ng-click="next()">普陀区</div>
+            <div class="l-h-150" ng-click="next()">黄浦区</div>
+            <div class="l-h-150" ng-click="next()">静安区</div>
+            <div class="l-h-150" ng-click="next()">嘉定区</div>
+            <div class="l-h-150" ng-click="next()">宝山区</div>
+        </div>
+    </div>
+</div>

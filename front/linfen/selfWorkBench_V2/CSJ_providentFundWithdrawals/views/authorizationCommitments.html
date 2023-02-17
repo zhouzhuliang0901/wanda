@@ -1,0 +1,88 @@
+<p class="caption">{{funName}}--授权承诺</p>
+<div class="main2">
+	<div id="wrapper">
+		<div class="scrollBox2 clearfloat">
+			<p>1、申请人（及配偶）因申请提取住房公积金，现授权公积金管理中心向相关部门查询个人信息，并将查询结果告知公积金中心；同意公积金中心对此次提交的提取材料及相关信息进行现场核实。</p>
+			<p>2、申请人（及配偶）已认真阅读并同意遵守《住房公积金管理条例》等相关文件中关于提取住房公积金的相关规定。对于骗提、套取住房公积金行为，公积金中心有权追究提取人的法律责任。</p>
+			<p>3、申请人（及配偶）承诺将按照国家和本市的规定，以真实的行为和证明材料向公积金中心业务受理机构提出提取申请，并自愿接受公积金中心业务受理机构对此次提取申请的真实性进行核查。本次申请如有骗提、套取住房公积金行为的，申请人（及配偶）愿承担所有的法律责任后果。</p>
+		</div>
+		
+	</div>
+	<div class='swearYes' ng-click='readClick()'><p class="checkedNo" ng-if='ISchecked'></p><p class="checked" ng-if='!ISchecked'></p>我已认真阅读，同意授权并遵守上述承诺</div>
+</div>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.main2 {
+		width: 1625px;
+		height: 645px;
+		margin-left: 150px;
+		margin-top: 30px;
+	}
+	
+	.scrollBox2 p {
+		margin: 30px auto;
+		font-size: 28px;
+		width: 90%;
+	}
+	
+	.swearYes {
+		text-align: center;
+		/*text-indent: 30px;*/
+		width: 600px;
+		height: 40px;
+		line-height: 40px;
+		margin-left: auto;
+		margin-right: auto;
+		/*margin-top: 500px;*/
+		font-size: 30px;
+		/*color: #333;*/
+	}
+	.swearYes p{
+		display: inline-block;
+		width: 28px;
+		height: 28px;
+		background-size: 28px 28px;
+		background-repeat: no-repeat;
+		background-position: left center;
+		margin-right: 16px;
+	}
+	.checkedNo {
+		background-image: url(img/unchecked.png);
+	}
+	
+	.checked {
+		background-image: url(img/checked.png);
+	}
+	
+	#wrapper {
+		width: 1630px;
+		height: 530px;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.caption {
+			margin-left: 130px !important;
+			margin-top: 60px !important;
+		}
+		.main2 {
+			width: 1105px;
+			height: 645px;
+			margin-left: 95px;
+			margin-top: 30px;
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 1000px;
+		}
+		#wrapper {
+			width: 1000px;
+			height: 520px;
+		}
+	}
+</style>

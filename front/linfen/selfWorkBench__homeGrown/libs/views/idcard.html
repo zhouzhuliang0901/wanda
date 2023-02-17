@@ -1,0 +1,21 @@
+<style type="text/css">
+	.scrollBox2 .cardreadingBox1 img {
+		width: 950px;
+		height: auto;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 .cardreadingBox1 img {
+			width: 850px;
+			height: auto;
+		}
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img class="myimg" ng-class="{'loading':recognitionOver}" ng-src="{{showImage}}" />
+			<p>{{tipsText}}</p>
+		</a>
+	</div>
+</div>

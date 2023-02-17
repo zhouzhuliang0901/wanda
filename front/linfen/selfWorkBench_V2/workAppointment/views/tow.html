@@ -1,0 +1,39 @@
+<div class="tow">
+	<div class="tow-top">
+		<span>请选择办理事项</span>
+		<!--  -->
+		<input type="input" placeholder="请输入事项名称" class="ipt" ng-model="vall" ng-keyup="searchs(vall)">
+	</div>
+	<div class="tow-content">
+		<button class="tow-bttn" ng-repeat="(x,index) in list2" ng-click="towclick(x)">{{index.stTermName}}</button>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style>
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+	.tow .tow-content {
+			overflow: scroll;
+			-ms-overflow-style: none;
+			overflow-style: none;
+    		height: 625px;
+		}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.tow .tow-top span {
+			margin-left: 80px;
+		}
+		.tow .tow-top .ipt {
+			margin-right: 135px;
+		}
+		.tow .tow-content {
+			margin-left: 200px;
+			overflow: scroll;
+		}
+	}
+</style>

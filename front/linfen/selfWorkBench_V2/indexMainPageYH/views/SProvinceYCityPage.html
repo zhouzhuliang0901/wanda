@@ -1,0 +1,100 @@
+<style type="text/css">
+	.TopTit1 .tit2 {
+		padding-left: 13.5%;
+	}
+	
+	.main5 .navBox4 a {
+		/*float: left;*/
+		display: inline-block;
+		 width: 280px; 
+		padding: 0px 40px;
+		height: 100px;
+		margin-left: 10px;
+		margin-bottom: 16px;
+		text-align: center;
+		background: url(../libs/common/images/bg-nav3.png) no-repeat;
+		background-size: 100% 100%;
+		line-height: 100px;
+		overflow: hidden;
+		font-size: 32px;
+		font-weight: bold;
+		color: #19aae2;
+	}
+	
+	.minimize {
+		position: absolute;
+		right: 10px;
+	}
+	
+	.minimize img {
+		width: 100px;
+	}
+	
+	.main5 .lt3 {
+		width: 100%;
+		margin-left: 0;
+	}
+	.navBox4{
+		width: 80%;
+		display: inline-flex;
+		justify-content: space-around;
+		margin: 10% 10%;
+	}
+	@media screen and (max-device-width: 1600px) {
+		.shell.bg3 {
+			width: 1280px;
+			height: 1024px;
+		}
+		.TopTit1 .tit2 {
+			font-size: 40px;
+			padding-left: 18.5%;
+		}
+	}
+</style>
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<!--<img src="../libs/common/images/icon/ywtblogo.png" style="position: absolute;width: 73px;left: 148px;top: 68px;">-->
+		<h2 class="tit2">长三角"一网通办"</h2>
+		<div class="weatherForecast">
+			<div class="warning"><img ng-src="{{warningImg}}" /></div>
+			<div class="weather">
+
+			</div>
+		</div>
+		<div class="minimize" ng-click="proMinimizes()" ng-if='isShowYHhome'>
+			<img src="../libs/common/images/minimize.png" alt="" />
+		</div>
+	</div>
+	<div class="main5">
+		<div class="lt3 fl">
+			<!--<div class="titBox1">长三角"一网通办"</div>-->
+			<div class="navBox4">
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToAppSSYS('sh')">
+					<p class="p1">上海"一网通办"</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToAppSSYS('js')">
+					<p class="p1">江苏政务服务</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToAppSSYS('zj')">
+					<p class="p1">浙江政务服务</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToAppSSYS('ah')">
+					<p class="p1">安徽政务服务</p>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!--alert弹框-->
+	<div style="z-index:321;" class="customAlert" ng-if="isAlert">
+		<div class="alertContent">
+			<p class="title" ng-bind-html="msg"></p>
+			<div class="controlAlert">
+				<a ng-if="confirm_show" class="control confirm continue" ng-click="alertConfirm()">确定</a>
+				<a ng-if="cancel_show" class="control cancel" ng-click="alertCancel()">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+</script>

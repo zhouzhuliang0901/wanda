@@ -1,0 +1,100 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 100%;
+		margin: 1% auto;
+	}
+	
+	
+	.table-sty1 {
+		width: 90%;
+		margin: 0 auto;
+	}
+	
+	.table-sty1 th {
+		padding: 22px 1px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		white-space: normal;
+		letter-spacing: 2px;
+		background-color: rgba(255, 255, 255, 0.1);
+		font-weight: bold;
+	}
+	
+	.table-sty1 td {
+		padding: 18px 0px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		white-space: normal;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div>
+			<table class="table-sty1" cellspacing="0" ng-if="isShow">
+				<tbody>
+					<tr>
+						<th>公司名称</th>
+						<th>核实意见</th>
+						<th style="width: 27%;">从事安全培训项目</th>
+						<th>单位地址</th>
+						<th>邮政编码</th>
+						<th>联系人</th>
+						<th>联系电话</th>
+					</tr>
+					<tr ng-repeat="item in Item" ng-if="isResult">
+						<td>{{item.companyName || "--"}}</td>
+						<td>{{item.verificationOpinion || "--"}}</td>
+						<td>{{item.safetyTrainingProgram || "--"}}</td>
+						<td>{{item.companyAddress || "--"}}</td>
+						<td>{{item.zipCode || "--"}}</td>
+						<td>{{item.contacts || "--"}}</td>
+						<td>{{item.contactNumber || "--"}}</td>
+					</tr>
+					<tr ng-if="!isResult">
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

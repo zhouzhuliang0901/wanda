@@ -1,0 +1,43 @@
+<apptb-header fun-name="身份证复印"></apptb-header>
+<div class="operationTips">
+	<!--下面的提示页面用不上, 所以注释掉了-->
+	<!--<div class="copyIdcard" ng-if="!over"></div>-->
+	<take-photo result="getImg(img,url)" ng-if="!over"></take-photo>
+</div>
+<p class="caption">{{ operation }}</p>
+
+<apptb-footer 
+	prev="prevStep()" 
+	next="nextStep()" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 	
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<style>
+	.caption {
+	    position: absolute;
+	    left: 130px;
+	    top: 175px;
+	}
+	.operationTips {
+		width: 1690px;
+		height: 836px;
+		margin: 0 auto;
+		margin-top: 10px;
+		background: url('../libs/common/images/bg-middle.png') no-repeat;
+		background-size: 1690px 830px;
+		position: relative;
+	}
+	
+	/*.operationTips .copyIdcard {
+		width: 964px;
+		height: 505px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background: url('../libs/common/images/idcard.png') no-repeat;
+	}*/
+</style>

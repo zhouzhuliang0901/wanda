@@ -1,0 +1,43 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">办件查询</a>
+		</li>
+		<li class="active">选择查询方式</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<img class="bg" src="../libs/common/images/mainIndexBG_2.png">
+		<div class="vertical-middle horizontal-middle leftLump">
+			<img src="../libs/common/images/prototype.png">
+			<img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+			<div>请选择查询方式</div>
+		</div>
+	</div>
+	<div class="action">
+		<a class="btn_radius_50" ng-if="false" ng-click="searchType('身份证')" style="position:absolute;left:235px;top:65px; width: 680px;">
+			<div class="greyLight" style="padding: 0  20px 0  40px;">
+				<img src="../libs/common/images/icon200/idCard.png">
+				<label style="width:304px">刷身份证查询</label>
+			</div>
+		</a>
+		<a class="btn_radius_50" ng-click="searchType('办件编号')" style="position:absolute;left:235px;top:295px; width: 680px;">
+			<div class="greyLight" style="padding: 0  20px 0  40px;">
+				<img src="../libs/common/images/icon200/docCode.png">
+				<label style="width:304px">办件编号查询</label>
+			</div>
+		</a>
+		<a class="btn_radius_50" ng-if="false" ng-click="searchType('二维码')" style="position:absolute;left:235px;top:525px; width: 680px;">
+			<div class="greyLight" style="padding: 0  20px 0  40px;">
+				<img src="../libs/common/images/icon200/QRCode.png">
+				<label style="width:304px">二维码查询</label>
+			</div>
+		</a>
+	</div>
+</div>

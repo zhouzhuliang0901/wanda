@@ -1,0 +1,141 @@
+<div class="text">
+	<div class="top1" style="width: 1200px;float: left;">
+		<img style="width: 75px;height: 75px;margin-left: 80px;margin-top: 40px;" src="images/合理建议.png" />
+		<li style="width: 100px;position: absolute;top: 267px;left: 511px;font-size: 32px;">找茬：</li>
+	</div>
+	<form class="form">
+		<div class="input" style="margin-left: 130px;">
+			<label class="strong" style="font-size: 30px;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</label>
+			<input type="text" id="name" name="name" />
+		</div>
+		<div class="input">
+			<label class="strong" style="font-size: 30px;">手机号&nbsp;</label>
+			<input type="text" id="mobile" name="mobile" />
+		</div>
+		<div style="float: left;height: 130px;padding-top: 60px; font-size: 30px;   margin-left: 130px;">
+			<div class="rd" style="height: 100px;">
+				<label>
+					内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容&nbsp;&nbsp;
+			        <input type="checkbox" name="1" id="" class="a-radio">
+			        <span class="b-radio"></span>找不到办理事项
+			    </label>
+			    <label >
+			        <input type="checkbox" name="2" id="" class="a-radio">
+			        <span class="b-radio"></span>功能操作不方便
+			    </label>
+			    <br/>
+			    <label style="margin-left: 152px;width: 266px;">
+			        <input type="checkbox" name="3" id="" class="a-radio">
+			        <span class="b-radio"></span>设备难用太复杂
+			    </label>
+			    <label>
+			        <input type="checkbox" name="4" id="" class="a-radio">
+			        <span class="b-radio"></span>系统报错走不通
+			    </label>
+			</div>
+		</div>
+		<div class="input" style="margin-left: 130px;width: 1000px;">
+			<!--<label class="strong" style="font-size: 24px;">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容&nbsp;</label>-->
+			<input type="text" id="tips" name="tips" style="width: 842px;margin-left: 149px;"/>
+			<!--<div class="strong" style="font-size: 24px;margin-right: 16px;width: 101px;height: 131px;float: left;line-height: 136px;">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容&nbsp;</div>
+			<textarea type="text" id="tips" name="tips"></textarea>-->
+		</div>
+	</form>
+</div>
+<!--<div class="btnBox1 clearfloat">
+			   <a ng-click="save()" class="next">确认</a>
+	</div>-->
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<app-footer prev="prevStep()" default-prev="hidden" next="save()" next-text="nextTips">
+<style type="text/css">
+	.t {
+		margin-left: 340px;
+		margin-top: 30px;
+	}
+	
+	.input>input {
+		height: 51px;
+		width: 332px;
+		border-radius: 10px;
+		font-size: 24px;
+	}
+	
+	.input {
+		width: 530px;
+		float: left;
+		margin-top: 20px;
+	}
+	
+	/*.input2 {
+		width: 1100px;
+		float: left;
+		margin-left: 141px;
+		margin-top: 70px;
+	}
+	
+	.input2>textarea {
+		height: 140px;
+		width: 839px;
+		border-radius: 10px;
+		resize: none;
+		font-size: 24px;
+	}*/
+	
+	.text {
+		width: 1200px;
+		height: 650px;
+		background-color: #2964B0;
+		margin: 30px 0 50px 340px;
+	}
+	
+	.top1 {
+		font-size: 25px;
+	}
+	
+	  body{
+            font-size: 18px;
+            line-height: 20px;
+        }
+        label{
+            margin:10px;
+        }
+        .a-radio{
+            display: none;
+        }
+        .b-radio{
+            display: inline-block;
+            border:1px solid #ccc;
+               width: 20px;
+    height: 20px;
+            border-radius:2px;
+            vertical-align: middle;
+            margin-right: 5px;
+            position: relative;
+        }
+        .b-radio:before{
+            content: '';
+            font-size: 0;
+            width: 13px;
+            height: 13px;
+            background: #56ce97;
+            position: absolute;
+            left:50%;
+            top:50%;
+            margin-left: -7px;
+            margin-top: -7px;
+            border-radius: 2px;
+            display: none;
+        }
+        .a-radio:checked~.b-radio:before{
+            display: block;
+        }
+
+	.rd label{
+	 margin: 10px;
+    height: 50px;
+    display: block;
+    width: 406px;
+    float: left;
+    margin-right: 118px;
+	}
+</style>

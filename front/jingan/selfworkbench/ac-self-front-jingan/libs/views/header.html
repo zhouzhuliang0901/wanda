@@ -1,0 +1,90 @@
+<div class="headBox">
+    <div class="headTop clearfloat">
+        <!--<a href="javascript:void(0)" class="headName">{{ moduleName }}</a>-->
+        <div class="headName">{{ moduleName}}</div>
+       <!-- <div class="minimize" ng-click="proMinimizes()">
+			<img src="../libs/common/images/minimize.png" alt="" />
+        </div> -->
+    </div>
+</div>
+
+<style type="text/css">
+    .headBox {
+        height: 100px;
+        overflow: hidden;
+        position: relative;
+    }
+    .headBox .headTop {
+        height: 100px;
+        line-height: 100px;
+        overflow: hidden;
+    }
+	.headBox .headTop::after {
+		content:"";
+		position: absolute;
+		top: 67px;
+		left: 510px;
+		width: 350px;
+		height: 30px;
+		/*background-color: #fff;*/
+		background: url("../libs/common/images/bg-bling.png") no-repeat;
+		background-size: 350px 30px;
+		overflow: hidden;
+		animation: fairy 4s linear 0s infinite;
+	}
+	@-webkit-keyframes fairy{
+		0%{
+			left: 420px;
+			opacity: 0;
+		}
+		10%{
+			opacity: .2;
+		}
+		50%{
+			left: 40%;
+			opacity: 1;
+		}
+		90%{
+			opacity: .2;
+		}
+		100%{
+			left: 60%;
+			opacity: 0;
+		}
+	}
+	@keyframes fairy{
+		0%{
+			left: 420px;
+			opacity: 0;
+		}
+		10%{
+			opacity: .2;
+		}
+		50%{
+			left: 40%;
+			opacity: 1;
+		}
+		90%{
+			opacity: .2;
+		}
+		100%{
+			left: 60%;
+			opacity: 0;
+		}
+	}
+    .headBox .headTop .headName {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        font-size: 40px;
+        background: url("../libs/common/images/head-fairy.png") no-repeat center -20px;
+    }
+    .headBox .headTop .minimize{
+		position: absolute;
+        top: 12px;
+    right: 40px;
+    }
+    .minimize img{
+    	width: 70px;
+    }
+</style>

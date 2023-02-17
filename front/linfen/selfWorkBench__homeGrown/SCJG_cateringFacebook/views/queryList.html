@@ -1,0 +1,89 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 12%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	.box {
+		overflow: hidden;
+	}
+	
+	.boxList {
+		width: 620px;
+		height: 180px;
+		float: left;
+		margin-right: 40px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 100% 100%;
+		display: flex;
+		justify-content: space-around;
+		padding: 40px;
+	}
+	
+	.boxListHead {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.boxListHead p {
+		font-size: 26px;
+		margin: 2px;
+	}
+	
+	.boxListFoot {
+		display: flex;
+		align-items: center;
+	}
+	
+	.boxListFoot img {
+		width: 150px;
+		height: 150px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			height: 580px;
+		}
+		.boxList {
+			width: 92%;
+		}
+		#wrapper {
+			width: 1000px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div class="box">
+			<div class="boxList " repeat-finish ng-click="detail(item) " ng-repeat="item in queryList ">
+				<div class="boxListHead ">
+					<p>{{item.OrgName}}</p>
+					<p>{{item.Address}}</p>
+					<p>{{item.License}}</p>
+					<p>{{item.CheckDate | limitTo:10}}</p>
+				</div>
+				<div class="boxListFoot "><img ng-src="{{item.CheckResult|to_replace}}" /></div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading "></loading>
+<apptb-footer prev="prevStep() " next="nextStep() " default-is-show-next-btn="hidden " custom-home="true " home="customMain() " go-back="goAppHistoryBack() ">
+</apptb-footer>
+<alert msg="msg " ng-if="isAlert " confirm="alertConfirm() " concel="concel "></alert>

@@ -1,0 +1,111 @@
+<style type="text/css">
+	#linkt {
+		position: absolute;
+		top: 100px;
+		left: 0px;
+	}
+	
+	.main2 {
+		height: auto;
+	}
+	
+	.scrollBox2 {
+		margin-left: 120px;
+		margin-top: 15px;
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.linkt {
+		float: left;
+		width: 1500px;
+		height: 170px;
+		overflow: hidden;
+		font-size: 28px;
+		position: relative;
+		background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+		background-size: 100% 100%;
+	}
+	
+	.stuff {
+		display: table-cell;
+		height: 170px;
+		max-width: 1135px;
+		word-wrap: break-word;
+		word-break: break-all;
+		overflow: hidden;
+		margin-left: 20px;
+		padding-left: 50px;
+		vertical-align: middle;
+	}
+	
+	.upload2 {
+		width: 400px;
+		height: 50px;
+		line-height: 50px;
+		position: absolute;
+		top: 70px;
+		left: 885px;
+		font-size: 20px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 400px 50px;
+	}
+	
+	.upload {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 70px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 20px;
+		left: 1300px;
+	}
+	
+	.view {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 70px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 20px;
+		left: 1135px;
+	}
+</style>
+<p class="caption">{{funName}}---材料上传</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div class="linkt" ng-repeat="(index,stuff) in listImg">
+			<div class="stuff">
+				<font color='red' ng-show = "{{stuff.isMust}}">*</font>
+				{{stuff.stuffName}}
+			</div>
+			<div ng-click="view()" ng-show="{{stuff.upload2}}" ng-show="show" class="upload2">
+				由市电子证照库自动调出，点击预览
+			</div>
+			<div ng-click="view()" ng-show="{{stuff.upload3}}" class="view">
+				预览
+			</div>
+			<div ng-click="toUploadMaterial(stuff.stuffCode,stuff.stuffName,index)" class="upload">
+				上传
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="submit()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

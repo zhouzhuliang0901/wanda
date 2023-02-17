@@ -1,0 +1,5 @@
+<div style="padding-top: 100px;">
+<citizen-cloud read="getIdacrd(info,images)" ng-if="isRead"></citizen-cloud>
+<recognition face-image="{{faceImg}}" result="recognition(img)" ng-if="!isRead"></recognition>
+<print show="printWait"></print>
+</div>

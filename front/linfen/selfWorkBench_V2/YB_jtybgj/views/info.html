@@ -1,0 +1,234 @@
+<style type="text/css">
+	select {
+		/*去掉点击时的选区和阴影*/
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-ms-tap-highlight-color: transparent;
+		-ms-touch-callout: none;
+		-ms-user-select: none;
+		user-select: none;
+		/*去掉点击时的选区和阴影*/
+	}
+
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 600px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+
+	.input {
+		width: 100%;
+		height: 75%;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-bottom: 20px;
+	}
+
+	.infoTable th {
+		width: 17%;
+		text-align: right;
+	}
+
+	.infoTable th,
+	.infoTable td {
+		font-size: 23px;
+		height: 85px;
+	}
+
+	.infoTable td {}
+
+	.td_long {
+		width: 70%;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.line {
+		width: 97%;
+		height: 9%;
+		position: relative;
+		margin: 0 auto 2%;
+	}
+
+	.line hr {
+		margin-top: 1.6%;
+		width: 40%;
+		position: absolute;
+		border: 1px #cccccc dotted;
+	}
+
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 28%;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+
+	.tips {
+		display: flex;
+		margin-bottom: 40px;
+	}
+
+	.tips p {
+		font-size: 20px;
+		line-height: 45px;
+		margin-left: 100px;
+	}
+
+	.button,.bt-delete{
+		height: 45px;
+		line-height: 45px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 20px;
+		margin-left: 95px;
+		width: 150px;
+	}
+	.infoTitle{
+		display: flex;
+		padding-bottom: 14px;
+		border-bottom: 1px dashed #FFF;
+	}
+	.infoTitle p {
+		width: 1140px;
+		font-size: 20px;
+		line-height: 45px;
+		margin-left: 100px;
+	}
+	.select {
+		font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+		width: 24.5%;
+		padding: 10px 10px;
+		line-height: 40px;
+		height: 60px;
+		overflow: hidden;
+		display: inline-block;
+		border: none;
+		background: url("../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+		font-size: 24px;
+		color: #FFF;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-overflow-style: scrollbar;
+	}
+
+	.select::-ms-expand {
+		display: none;
+	}
+
+	.select1 {
+		width: 100%;
+	}
+
+	.select option {
+		color: #333;
+	}
+
+	.otherCity {
+		width: 49.7%;
+	}
+
+	#per_healthInfo,
+	#per_deformType {
+		width: 487px;
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div ng-show="sscardShow">
+			<sscard read="sscardLogin(info)"></sscard>
+		</div>
+		<div ng-show="!sscardShow">
+			<form name="infoParams">
+				<table class="infoTable">
+					<div class="line">
+						<hr size="1" noshade="noshade" style="left: 0;">
+						<hr size="1" noshade="noshade" style="right: 0;">
+						<p>组件人信息</p>
+					</div>
+					<tr>
+						<th><b class="red">*</b>姓名：</th>
+						<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+						<th><b class="red">*</b>身份证号码：</th>
+						<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+					</tr>
+					<tr>
+						<th><b class="red">*</b>证件类型：</th>
+						<td><input class="input" type="text" id="per_reltel" ng-model="per_reltel" readonly></td>
+					</tr>
+				</table>
+				<table class="infoTable">
+					<div class="line">
+						<hr size="1" noshade="noshade" style="left: 0;">
+						<hr size="1" noshade="noshade" style="right: 0;">
+						<p>共济关系成员信息</p>
+					</div>
+					<div class="tips">
+						<p>为减少您录入的信息内容，是否允许授权</p>
+						<!-- <div class="button" ng-click="getAuthorize()">确认授权</div> -->
+						<div class="button" ng-click="getAuthorize()">手动添加</div>
+						<div class="button" ng-click="getSsCardInfo()">社保卡刷卡添加</div>
+					</div>
+				
+				</table>
+				<!-- <table class="infoTable"><div class="infoTitle"><p>共济成员信息1</p><div class="button" ng-click="getAuthorize()">删除</div></div>
+					<tr><th><b class="red">*</b>姓名：</th>
+						<td><input class="input" type="text" id="stName" readonly></td>
+						<th><b class="red">*</b>与组件人关系：</th>
+						<td><input class="input" type="text" id="stIdCard" readonly></td></tr>
+					<tr><th><b class="red">*</b>证件类型：</th><td><input class="input" type="text" id="per_reltel"></td>
+						<th><b class="red">*</b>身份证号码：</th><td><input class="input" type="text" id="stIdCard" readonly></td></tr>
+					<tr><th><b class="red">*</b>社（医）保卡号：</th><td><input class="input" type="text" id="cardNo"></td><th></th></tr>
+				</table> -->
+			</form>
+		</div>
+		
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()"
+	go-back="goAppHistoryBack()">
+</apptb-footer>

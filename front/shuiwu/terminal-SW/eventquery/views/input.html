@@ -1,0 +1,60 @@
+<style>
+.layui-layer-loading .layui-layer-loading2{
+    width: 72px;
+    height: 72px;
+    left: 300px;
+    top: -100px;
+    background-size: 100%;
+}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li><a href="#"><img src="../libs/common/images/home.png" style="height: 30px;"></a></li>
+        <li><a href="#">办件查询</a></li>
+        <li class="active">{{searchType}}查询</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="../libs/common/images/mainIndexBG_2.png">
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+            <div>{{tips}}</div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="tab" ng-class="{'active':searchType=='身份证'}">
+            <img src="../libs/common/images/prototype-grey.png" style="position:absolute;height:650px;top:80px;left:150px;" />
+            <img src="../libs/common/images/card.gif" class='onBgImgIdCard'/>
+            <div style="text-align:center;position:absolute;left:600px;top:300px;font-size:40px;">
+                <b>请将身份证置于扫描处</b><br />
+                <span style="font-size:0.6em;">系统将在读取身份证信息后自动跳转<br />如有疑问请咨询工作人员获取帮助<br /></span>
+            </div>
+        </div>
+        <div class="tab" ng-class="{'active':searchType=='办件名称和编号'}">
+            <div class="inputBox" style="top:200px;left:180px;position:absolute;font-size:42px;">
+                <label>申请对象名称</label>
+                <input type="text" ng-model="name" style="width:500px" />
+            </div>
+            <div class="inputBox" style="top:350px;left:180px;position:absolute;font-size:42px;">
+                <label>&nbsp;&nbsp;办&nbsp;件&nbsp;编&nbsp;码&nbsp;</label>
+                <input type="text" ng-model="number" style="width:500px" />
+            </div>
+            <a class="btn_radius_50" ng-click="eventquerySearch()" style="position:absolute;left:410px;top:500px; width: 300px;">
+                <div class="greyLight" style="padding: 0  25px;">
+                    <img src="../libs/common/images/icon200/search.png" height="80">
+                    <label>查询</label>
+                </div>
+            </a>
+        </div>
+        <div class="tab" ng-class="{'active':searchType=='二维码'}">
+            <img src="../libs/common/images/prototype-grey.png" style="position:absolute;height:650px;top:80px;left:150px;" />
+            <img src="../libs/common/images/arrow.gif" style="position:absolute;height:60px;top:320px;left:200px;" />
+            <div style="text-align:center;position:absolute;left:600px;top:300px;font-size:40px;">
+                <b>请将二维码置于扫描处</b><br />
+                <span style="font-size:0.6em;">系统将在读取二维码信息后自动跳转<br />如有疑问请咨询工作人员获取帮助<br /></span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="photographBox">
+    <div class="fun" ng-if="camera">
+        <img class="idcardTips" ng-src="{{ tipsPrint }}" alt="">
+        <img class="camera" ng-click="capture()" src="../libs/common/images/camera.png" />
+    </div>
+    <div class="fun review" ng-if="!camera">
+        <img class="imageData" ng-src=" {{ imageData }}" /><br />
+        <img class="idcardTips" ng-src="{{ tipsPrint }}" alt="">
+        <a href="javascript:;" class="btn re" ng-click="reCapture()">重新拍照</a>
+        <a href="javascript:;" class="btn confirm" ng-click="confirm()">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+    </div>
+     <!--<img ng-src="{{ tipsPrint }}" />--> 
+</div>
+<style type="text/css">
+	.caption {
+		position: absolute;	
+		left: 18px;
+		top: 74px;
+	}
+	
+    .photographBox {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        height: 830px;
+        width: 100%;
+    }
+
+    .btn {
+        position: absolute;
+        width: 130px;
+        height: 50px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 50px;
+        bottom: 15%;
+    }
+
+    .btn.re {
+        left: 17%;
+        background: url('../libs/common/images/reBtn.png') no-repeat -11px -47px;
+    }
+
+    .btn.confirm {
+        left: 32%;
+        background: url('../libs/common/images/reBtn.png') no-repeat -11px -47px;
+    }
+
+    .photographBox>img {
+        margin-top: 20px;
+    }
+
+    .fun {
+        width: 100%;
+        height: 100%;
+        background: url('../libs/common/images/bg-capture.png') no-repeat 100px 130px;
+        background-size: 800px 450px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+    }
+
+    .fun>.camera {
+        position: absolute;
+        left: 24%;
+        bottom: 10%;
+        z-index: 100;
+    }
+
+    .fun.review>.imageData {
+        position: absolute;
+        left: 220px;
+        top: 185px;
+        width: 550px;
+        height: 350px;
+    }
+
+    div.fun>.idcardTips {
+        position: absolute;
+        right: 7%;
+        top: 14%;
+    }
+</style>

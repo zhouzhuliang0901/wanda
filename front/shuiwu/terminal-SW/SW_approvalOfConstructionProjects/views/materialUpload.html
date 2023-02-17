@@ -1,0 +1,85 @@
+<style>
+	#wrapper {
+		height: 600px;
+		position: relative;
+		overflow: hidden;
+	}
+	.allStuff{
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.stuff1 {
+		width: 6%;
+		font-size: 48px;
+		font-weight: bolder;
+		opacity: 0.5;
+		text-align: center;
+	}
+	.stuff2 {
+		width: 81%;
+	}
+	
+	.stuff3 {
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li class="active">材料清单</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<img class="bg" src="images/mainIndexBG_0.png">
+		<div class="leftImg">
+			<img src="images/prototype.png">
+			<img src="images/click.gif" width="80" class="click">
+			<div>请选择需要上传的材料<br />点击“提交”后无法更改</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="panelList one" style="height: 540px; width: 1060px; padding: 35px 0;">
+			<div class="right-box guide" id="wrapper" class="wrapper">
+				<!--<div style="padding: 30px; width: 100%;">-->
+					<div ng-if="!isLoading" style="width: 99%; overflow: hidden;" >
+						<div ng-show="haveList" repeat-finish class="document stuff" ng-repeat="(index,stuff) in stuffList" >
+							<a ng-click="uploadMaterial(index,stuff.stuffName,stuff.stuffCode,stuff.certs)">
+								<div class="stuff1 allStuff">{{$index+1}}</div>
+								<div class="stuff2 allStuff" ng-class="stuff.isMust == 0 ? '':'xing'">{{stuff.stuffName}}</div>
+								<div class="stuff3 allStuff"><img ng-src="{{ listImg[index].activeImg || 'images/state_0.png'}}" class="stuffImg" height="80" /></div>
+							</a>
+						</div>
+						<div class="nolist" ng-show="!haveList">暂无材料列表</div>
+					</div>
+					<div class="vertical-middle horizontal-middle" ng-if='isLoading' style="text-align:center;margin-left: 300px; margin-top: 200px;">
+			            <img class="" src="../libs/common/images/loading.gif" style="opacity:0.7">
+			            <span style="font-size:40px;display:block;margin-top:30px;">正在自动上传证照，请稍后</span>
+			        </div>
+				<!--</div>-->
+			</div>
+		</div>
+		<a class="btn_radius_50 submit" ng-click="submit()" ng-if="!isLoading" style="left: 380px; top: 680px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>提交办件</label>
+			</div>
+		</a>
+		<a class="btn_radius_50 submit" ng-click="returnList()" ng-if="isLoading" style="left: 380px; top: 680px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>返回列表</label>
+			</div>
+		</a>
+	</div>
+</div>

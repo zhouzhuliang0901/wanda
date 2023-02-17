@@ -1,0 +1,90 @@
+<apptb-header fun-name="材料扫描"></apptb-header>
+<div class="operationTips">
+	<div class="preview">
+		<img ng-src="{{ materialImg }}" />
+	</div>
+	<!--<div class="chooseQuantity material">
+		<p>请选择您要打印的份数</p>
+		<span class="control minus" ng-click="minus()">-</span>
+		<span> {{ printQuantity }}份 </span>
+		<span class="control" ng-click="plus()">+</span>
+	</div>-->
+	<!--<a href="javascript:;" class="print" ng-click="print()">打印</a>-->
+<input type="file" name="" id="" value="打开" />
+    <p class="file-tips">温馨提示：如需拍照的文件，请在XX文件夹中打开获取。文件获取后，请务必删除源文件</p>
+	<print show="printShow"></print>
+</div>
+
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.operationTips {
+		width: 1690px;
+		height: 836px;
+		margin: 0 auto;
+		margin-top: 10px;
+		background: url('../libs/common/images/bg-middle.png') no-repeat;
+		background-size: 1690px 830px;
+		position: relative;
+	}
+
+	.print {
+		display: block;
+		width: 131px;
+		height: 50px;
+		background: url('../libs/common/images/reBtn.png') no-repeat -11px -47px;
+		margin: 0 auto;
+		text-align: center;
+		line-height: 50px;
+		font-size: 26px;
+	}
+
+	.preview {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 1250px;
+		height: 380px;
+		margin: 0 auto;
+		padding-top: 80px;
+	}
+
+	.preview img {
+		width: auto;
+		max-height: 380px;
+	}
+
+	.chooseQuantity.material {
+		float: none;
+		margin: 0 auto;
+		margin-top: 30px;
+	}
+
+	.chooseQuantity.material .control {
+		display: inline-block;
+		border: 1px solid #82a3cb;
+		font-size: 57px;
+		height: 60px;
+		width: 100px;
+		border-radius: 10px;
+	}
+
+	.chooseQuantity.material .control.minus {
+		line-height: 55px;
+	}
+
+	input{
+    	width: 160px;
+    	font-size: 37px;
+    	margin-left: 769px;
+    	margin-top: 100px;
+    }
+    .file-tips{
+		color: #e1ba1c;
+	    font-weight: bold;
+	    font-size: 28px;
+	    text-align: center;
+	    margin: 30px;
+    }
+</style>

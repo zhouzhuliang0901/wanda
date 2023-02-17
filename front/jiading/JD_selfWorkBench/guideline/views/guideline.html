@@ -1,0 +1,184 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="办事指南"></apptb-header>
+
+	<div class="TabBox1">
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+		<div class="content">
+			<div class="main2">
+				<div id="wrapper">
+					<div class="scrollBox2 clearfloat widthLimit" id="scrollBox2">
+						<dl class="dllist1 clearfloat">
+							<dt>一、事项名称和代码：</dt>
+							<dd ng-bind-html="guideInfo.clNameCode | to_trusted">
+							</dd>
+						</dl>
+						<dl class="dllist1 clearfloat" style="padding-top: 25px;">
+							<dt>二、适用范围：</dt>
+							<dd>
+								<p>{{clRange|| to_trusted}}</p>
+							</dd>
+						</dl>
+
+						<!-- <dl class="dllist1 clearfloat">
+                <dt>三、办理依据：</dt>
+                <dd>
+                    <p>{{guideInfo.clDealAccording || to_trusted}}</p>
+                </dd>
+            </dl>-->
+						<dl class="dllist1 clearfloat">
+							<dt>三、办理机构：</dt>
+							<dd>
+								<p>{{guideInfo.clDealOrgan || to_trusted}}</p>
+							</dd>
+						</dl>
+						<dl class="dllist1 clearfloat">
+							<dt>四、审批条件：</dt>
+							<dd>
+								<p>{{guideInfo.clApprovalConds || to_trusted}}</p>
+							</dd>
+						</dl>
+						<dl class="dllist1 clearfloat">
+							<dt>五、数量限制：</dt>
+							<dd>
+								<p>{{guideInfo.clApprovalCount || to_trusted}}</p>
+							</dd>
+						</dl>
+						<dl class="dllist1 clearfloat">
+							<dt style="float:none">六、审批材料：</dt>
+							<dd class="stuff widthLimit" ng-bind-html="guideInfo.clApprovalMater | to_trusted">
+							</dd>
+						</dl>
+						<!--<dl class="dllist1 clearfloat">
+			    <dt>八、审批期限：</dt>
+			    <dd>
+			        <p>{{guideInfo.clApprovalLimit || to_trusted}}</p>
+			    </dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+			    <dt>九、审批证件：</dt>
+			    <dd>
+			        <p>{{guideInfo.clApprovalCert || to_trusted}}</p>
+			    </dd>
+			</dl>-->
+						<dl class="dllist1 clearfloat">
+							<dt>
+				七、收费标准(是否收费)：</dt>
+							<dd ng-bind-html="guideInfo.clChargeStd | to_trusted">
+							</dd>
+						</dl>
+						<!--<dl class="dllist1 clearfloat">
+			    <dt>九、申请人权利及义务：</dt>
+			    <dd>
+			        <p>{{guideInfo.clApplyRightsDuties || to_trusted}}</p>
+			    </dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+			    <dt>十二、申请接受：</dt>
+			    <dd>
+			        <p>{{guideInfo.clApplyReceive || to_trusted}}</p>
+			    </dd>
+			</dl>-->
+						<dl class="dllist1 clearfloat">
+							<dt>八、咨询途径：</dt>
+							<dd>
+								<p>{{guideInfo.clConsultWay || to_trusted}}</p>
+							</dd>
+						</dl>
+						<dl class="dllist1 clearfloat">
+							<dt>九、投诉渠道：</dt>
+							<dd>
+								<p>{{guideInfo.clComplaintChannel || to_trusted}}</p>
+							</dd>
+						</dl>
+						<dl class="dllist1 clearfloat">
+							<dt>十、办理方式：</dt>
+							<dd>
+								<p>{{guideInfo.clDealType || to_trusted}}</p>
+							</dd>
+						</dl>
+						<!--<dl class="dllist1 clearfloat">
+			    <dt>十六、决定公开：</dt>
+			    <dd>
+			        <p>{{guideInfo.clDecidedOpen || to_trusted}}</p>
+			    </dd>
+			</dl>-->
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="footer">
+		<div class="headtop1 clearfloat">
+			<a href="#matter" class="Prev">上一步</a>
+			<a ng-click="print()" class="next">打印指南</a>
+			<a ng-click="goHome()" class="backindex1"></a>
+			<div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+		</div>
+	</div>
+	<!--二维码 开始-->
+	<div class="CodeBox1" id="code">
+		<!-- <img src="images/code1.jpg" class="img1"/> -->
+		<p style="position: absolute;top: 230px;left:8px">使用政务APP<br/>或微信扫描<br/>即可使用手机查看 </p>
+	</div>
+	<!--二维码 结束-->
+</div>
+<style type="text/css">
+	.content {
+		background: url(./images/bg-subcontent.png) no-repeat;
+		background-size: 1253px 550px;
+		width: 1500px;
+		height: 550px;
+		margin-left: 100px;
+		overflow: hidden;
+	}
+	.main2{
+		width: 1200px;
+	}
+	
+	#wrapper {
+		width: 1600px;
+		height: 480px;
+	}
+	
+	.stuff {
+		width: 1500px;
+		margin-left: 35px;
+	}
+	
+	.stuff td {
+		font-size: 24px;
+	}
+	
+	.stuff th {
+		font-size: 24px;
+	}
+	
+	.stuff table tr>td:nth-child(1) {
+		width: 950px;
+	}
+	
+	.stuff table tr>td:nth-child(2) {
+		display: none;
+	}
+	
+	.stuff table tr>th:nth-child(2) {
+		display: none;
+	}
+	
+	.stuff table tr>td:nth-child(3) {
+		width: 170px;
+		margin-left: 20px;
+	}
+	
+	.stuff table tr>td:nth-child(4) {
+		width: 130px;
+		margin-left: 20px;
+	}
+	
+	.stuff table tr>td:nth-child(5) {
+		width: 150px;
+		margin-left: 20px;
+	}
+</style>

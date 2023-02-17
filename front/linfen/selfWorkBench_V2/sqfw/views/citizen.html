@@ -1,0 +1,38 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>办事指南</li>
+		<li class="act">人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}随申办亮证</span></div>
+
+	<div class="main2">
+		<div class="scrollBox2 clearfloat" ng-if="isLoding">
+			<div class="citizen clearfloat">
+				<img id="qrCodeSelfoP" style="height: 480px;" src="{{showImg}}"  />
+			</div>
+		</div>
+		<div class="loadingBox" ng-if="!isLoding">
+			<img src="images/loading.gif" alt="">
+			<p>正在加载数据，请稍后...</p>
+		</div>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="Smsg" ng-if="SisAlert" confirm="SalertConfirm()" concel="concel"></alert>
+<style type="text/css">
+     @media screen and (max-width: 1600px) {
+     	#qrCodeSelfoP{
+     		height: 366px !important;
+     		margin-left: 40px;
+     		margin-left: 20px;
+     	}
+     }
+</style>

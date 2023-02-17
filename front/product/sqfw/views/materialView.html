@@ -1,0 +1,103 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="线下办理"></apptb-header>
+
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+
+		<div class="main2">
+			<div class="stuff">
+				<div class="tit1">{{stuffList[0].stuffName}}</div>
+				<div class="scan" ng-show="picShow" ng-click="showScan()">
+					<li ng-repeat="stuff in stuffList"><img data-original="{{stuff.img}}" ng-src="{{stuff.img}}" /></li>
+				</div>
+				<div class="paragraph2" ng-show="scanShow">已上传(点击放大查看)</div>
+				<div class="scan" ng-show="scanShow" ng-click="showScan()">
+					<li ng-repeat="stuff in stuffList"><img data-original="{{stuff.img}}" ng-src="{{stuff.img}}" /></li>
+				</div>
+				<div class="paragraph2" ng-show="scanShow">已上传(点击放大查看)</div>
+				<div class="u-pan" ng-show="upanShow">
+					<img style="float: left;height: 100px;width: 100px;" src="images/icon-word.png" />
+					<div class="paragraph3" ng-click="open()" ng-repeat="stuff in stuffList">{{stuff.fileName}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 		
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+
+<style type="text/css">
+	.main2 {
+		height: 540px;
+	}
+	
+	.tit1 {
+		font-size: 37px;
+		text-align: center;
+	}
+	
+	.paragraph2 {
+		position: absolute;
+		font-size: 31px;
+		left: 650px;
+		top: 500px;
+	}
+	
+	.paragraph3 {
+		float: left;
+		line-height: 100px;
+		font-size: 40px;
+		/*margin-left: 40px;*/
+	}
+	
+	.btn {
+		position: absolute;
+		top: 163px;
+		left: 1033px;
+		width: 275px;
+		height: 275px;
+		background: #2964B0;
+	}
+	
+	.scan {
+		position: absolute;
+		top: 65px;
+		left: 625px;
+		width: 350px;
+		height: 417px;
+		background: #2964B0;
+		font-size: 0;
+	}
+	
+	.scan li>img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+	
+	.u-pan {
+		position: absolute;
+		width: 520px;
+		height: 100px;
+		top: 38%;
+		left: 23%;
+	}
+	.navBox2{
+		margin-bottom: 0;
+	}
+</style>

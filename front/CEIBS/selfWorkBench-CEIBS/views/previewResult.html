@@ -1,0 +1,52 @@
+<style type="text/css">
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(img/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 0px 50px;
+	}
+
+	#jq22 img {
+		height: 600px;
+	}
+
+	.prevPage {
+		position: absolute;
+		top: 550px;
+		left: 200px;
+	}
+
+	.nextPage {
+		position: absolute;
+		top: 550px;
+		right: 200px;
+	}
+
+	.prevPage img,
+	.nextPage img {
+		width: 100px;
+	}
+</style>
+<section class="certificate" >
+	<h2 ng-show="version =='Chinese'">证明预览</h2>
+	<h2 ng-show="version =='English'">Preview</h2>
+	<div id="jq22">
+
+	</div>
+	</div>
+	<a ng-click="prevPage()" class="prevPage">
+		<img src="img/prevPage.png" />
+	</a>
+	<a ng-click="nextPage()" class="nextPage">
+		<img src="img/nextPage.png" />
+	</a>
+</section>
+<loading ng-if="isLoading"></loading>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

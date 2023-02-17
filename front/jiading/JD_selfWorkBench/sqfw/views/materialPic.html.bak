@@ -1,0 +1,222 @@
+﻿<div class="shell bg2">
+	<apptb-header fun-name="自助申报"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="main2 wrapper" style="height: 600px;width:1500px;overflow:hidden;position:relative">
+				<div class="imageShow" style="height: 1500px;position: absolute;top: 30px;left: 40px;font-size: 40px;">
+					<span ng-click="select(index)" ng-repeat="(index,item) in imgUrls">
+						<img class="id-icon" src="./images/icon-nav3.png" ng-class="{'imgStyle':current==index}">
+						<p>{{item.certName}}</p>
+						<img class="id" ng-class="{'imgStyle':current==index}" ng-src="{{'http://180.169.7.194:8080/ac-product'+item.pictureUrlForBytes}}">
+					</span>
+				</div>
+		</div>
+	</div>
+	
+	<div class="loadingBox" ng-if="!isLoading">
+		<img style="margin-left: 909px;margin-top: 523px;" src="../libs/common/images/loadings.gif" alt="" />
+		<p>正在加载数据，请稍后...</p>
+	</div>
+	<div class="footer">
+		<div class="headtop1 clearfloat">
+			<a href="#materialList" class="Prev">返回列表</a>
+			<a class="next" id="consureOnclick" ng-click="goNext()">确认</a>
+			<a ng-click="goHome()" class="backindex1"></a>
+			<div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+		</div>
+	</div>
+</div>
+<!--图片预览-->
+<div class="view-container"  ng-if="isShowView">
+	<a class="view-close">
+		<span ng-click="viewClose()"></span>
+	</a>
+    <div class="img-container">
+    	<!--configUrl +--> 
+        <img ng-src="{{ configUrl + electImg }}" alt="">
+    </div>
+
+    <ul class="view-func">
+        <li>
+        	<span class="zoom-in" ng-click="zoomIn()"></span>
+        </li>
+        <li>
+        	<span class="zoom-out" ng-click="zoomOut()"></span>
+        </li>
+        <li>
+        	<span class="rotate-left" ng-click="rotateLeft()"></span>
+        </li>
+        <li>
+        	<span class="rotate-right" ng-click="rotateRight()"></span>
+        </li>
+    </ul>
+</div>
+<style>
+	.id {
+		height: 300px;
+		margin-left: 10px;
+		position: relative;
+		text-align:center;
+		box-sizing:border-box;
+		display:none;
+	}
+	.id-icon{
+		text-align:center;
+		box-sizing:border-box;
+		border:4px solid rgba(0,0,0,0);
+		width:140px;
+	}
+	.imgStyle{
+		border:4px solid red;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	.imageShow>span{
+		position: relative;
+		display: block;
+    	float: left;
+    	height: 200px;
+		margin-right:15px;
+		text-align:center;
+		width:300px
+	}
+	.imageShow p{
+		font-size: 26px;
+		margin-bottom: 15px;
+		padding:0px 20px;
+		/*overflow: hidden;
+		text-overflow:ellipsis;
+		white-space: nowrap;*/
+	}
+	.layui-layer{
+		color: #fff;
+	}
+	.layui-layer-lan .layui-layer-btn a{
+		height: 28px;
+	    line-height: 28px;
+	    margin: 5px 5px 0;
+	    padding: 0 15px;
+	    border: 1px solid #E9E7E7;
+	    border-radius: 2px;
+	    font-weight: 400;
+	    cursor: pointer;
+	    text-decoration: none;
+	    background: #fff;
+	    color: #333;
+	}
+
+	  /*图片预览*/
+    .view-container {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+	z-index:9999
+    }
+    
+    .view-container .view-close {
+    	position: fixed;
+    	right: -150px;
+    	top: -150px;
+    	width: 300px;
+    	height: 300px;
+    	border-radius: 50%;
+    	overflow: hidden;
+    	background-color: rgba(0, 0, 0, 0.8);
+    	z-index: 99;
+    }
+    
+    .view-container .view-close:hover {
+    	background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .view-container .view-close span {
+    	display: inline-block;
+    	width: 100%;
+    	height: 100%;
+    	background: url(../libs/common/images/guanbi.png) no-repeat;
+    	background-size: 100px 100px;
+    	background-position: 44px 155px;
+    }
+
+    .view-container .img-container {
+        width: 500px;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: all .3s;
+    }
+
+    .view-container .img-container img {
+        width: 100%;
+        transition: all .3s;
+    }
+    
+    .view-container .view-func {
+    	position: fixed;
+    	left: 50%;
+    	bottom: 100px;
+    	transform: translateX(-50%);
+    }
+    
+    .view-container .view-func li {
+    	float: left;
+    	width: 100px;
+    	height: 100px;
+    	border-radius: 50%;
+    	overflow: hidden;
+    	margin: 0 20px;
+    	background-color: rgba(0, 0, 0, 0.8);
+    }
+    
+    .view-container .view-func li span {
+    	display: inline-block;
+    	width: 100%;
+    	height: 100%;
+    }
+    
+    .view-container .view-func .zoom-in {
+    	
+    	background: url(../libs/common/images/jiahao.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+    
+    .view-container .view-func .zoom-out {
+    	background: url(../libs/common/images/jianhao.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+    
+    .view-container .view-func .rotate-left {
+    	background: url(../libs/common/images/zuoxuanzhuan.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+    
+    .view-container .view-func .rotate-right {
+    	background: url(../libs/common/images/youxuanzhuan.png) no-repeat;
+    	background-size: 100px 100px;
+    }
+</style>

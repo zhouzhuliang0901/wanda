@@ -1,0 +1,113 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	#wrapper {
+		width: 1500px;
+		height: 655px;
+	}
+	.table-sty1 {
+		width: 1500px;
+		table-layout: auto;
+		margin: 0 auto;
+	}
+	.table-sty1 th,.table-sty1 td {
+		width: 25%;
+	}
+	@media screen and (max-width: 1600px) {
+		.contain {
+			width: 1100px;
+			height: 700px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			/* background: url(../libs/common/images/bg-dzzz.png) no-repeat center 50%; */
+			background-size: 90% 75%;
+		}
+		.caption {
+			margin: 15px 50px;
+		}
+		#wrapper {
+		    width: 100%;
+		    height: 600px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">详情信息</p>
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper" class="wrapper">
+			<div>
+				<table class="table-sty1">
+					<tr>
+						<th>姓名</th>
+						<td>{{licenseName}}</td>
+						<th>证件号码</th>
+						<td>{{licenseNumber}}</td>
+					</tr>
+					<tr>
+						<th>贷款地</th>
+						<td>{{detailInfo.dkdsf}}{{detailInfo.dkdcs}}</td>
+						<th>贷款地中心名称</th>
+						<td>{{detailInfo.dkdzxmc}}</td>
+					</tr>
+					<tr>
+						<th>单位名称</th>
+						<td>{{detailInfo.dwmc}}</td>
+						<th>个人公积金账号</th>
+						<td>{{detailInfo.grzh}}</td>
+					</tr>
+					<tr>
+						<th>开户时间</th>
+						<td>{{detailInfo.khsj}}</td>
+						<th>账户状态</th>
+						<td>{{detailInfo.zhzt}}</td>
+					</tr>
+					<tr>
+						<th>个人缴存比例</th>
+						<td>{{detailInfo.grjcbl}}%</td>
+						<th>单位缴存比例</th>
+						<td>{{detailInfo.dwjcbl}}%</td>
+					</tr>
+					<tr>
+						<th>缴存基数</th>
+						<td>{{detailInfo.jcjs}}</td>
+						<th>月缴存额</th>
+						<td>{{detailInfo.yjce}}</td>
+					</tr>
+					<tr>
+						<th>连续缴存起始时间</th>
+						<td>{{detailInfo.lxjckssj}}</td>
+						<th>连续缴存结束时间</th>
+						<td>{{detailInfo.lxjcjssj}}</td>
+					</tr>
+					<tr>
+						<th>缴存余额</th>
+						<td>{{detailInfo.jcye}}</td>
+						<th>公积金贷款记录情况</th>
+						<td>{{detailInfo.gjjdkqk}}</td>
+					</tr>
+					<tr>
+						<th>缴存地贷款城市</th>
+						<td>{{detailInfo.jcddkcs}}</td>
+						<th>缴存地贷款金额</th>
+						<td>{{detailInfo.jcddkje}}</td>
+					</tr><tr>
+						<th>开证单位联系电话</th>
+						<td>{{detailInfo.lxdh}}</td>
+						<th>开证日期</th>
+						<td>{{detailInfo.kzrq}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="print()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<print show="isShowPrint"></print>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

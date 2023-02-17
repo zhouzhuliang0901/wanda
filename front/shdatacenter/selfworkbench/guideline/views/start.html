@@ -1,0 +1,45 @@
+<div class="shell bg2">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="goHome()">办事指南</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header><!--<span><b class="minute">{{maxCountDown}}</b>秒</span>-->后将返回首页</div>
+        </div>
+        <ul class="navul1 clearfloat">
+            <li class="act">选择事项</li>
+            <li>办事指南</li>
+            <li>人证核验</li>
+            <li>在线填报</li>
+        </ul>
+    </div>
+  <div class="TabBox1">
+  	<ul class="tabul1 clearfloat">
+  	</ul>
+  	<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat" style="    margin-top: 110px;">
+		<a href="#citylist">
+			<img src="../libs/common/images/icon-link2.png" />
+			<p>市级</p>
+		</a>
+		<a href="#list">
+			<img src="../libs/common/images/icon-link6.png" />
+			<p>区级</p>
+		</a>
+	</div>
+</div>
+  </div>
+  <alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	#wrapper{
+		width:1800px;
+		height: 500px;
+	}
+	.tabBotbox1inner .text a{
+		width:266px;
+		margin-right: 44px;
+	}
+	
+	
+</style>

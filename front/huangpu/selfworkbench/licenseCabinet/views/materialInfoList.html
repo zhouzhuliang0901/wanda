@@ -1,0 +1,56 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:;" ui-sref="main">
+				<img src="images/homeLogo.png">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;" ui-sref="staffOperationChoice">工作人员操作</a>
+		</li>
+		<li>
+			<a href="javascript:;">自助收件</a>
+		</li>
+		<li class="active">材料列表</li>
+	</ol>
+</nav>
+<div class="shadowBox licenseInfoList">
+	<p class="boldTips">材料列表</p>
+<div class="loadingBox" ng-if="isLoding">
+        <img src="images/loading.gif" alt="">
+        <p>正在加载数据，请稍后...</p>
+    </div>
+	<div class="fileInfoList" ng-if="!isLoding">
+		<p class="emptyTips" ng-if="hasData">暂无数据</p>
+		<a href="javacript:;" class="fileInfo" ng-repeat="item in licenseList">
+			<p class="order absoluteTopBottomCenter">{{item.ST_CABINET_NO}}</p>
+			<div class="infoBox custom absoluteTopBottomCenter">
+				<span class="staff pos leftTop">{{item.ST_SENDER_NAME}}&nbsp;&nbsp;({{item.ST_SENDER_PHONE}})</span>
+				<span class="date pos rightTop">{{item.DT_CREATE}}</span>
+				<br />
+				<hr>
+				<span class="licenseName pos leftBottom">{{item.itemName||'无'}}</span>
+			</div>
+			<button class="btnIcon custom absoluteTopBottomCenter" ng-click="openBox(item.ST_CABINET_NO,item.ST_SELF_APPLY_ID)">
+                开箱
+            </button>
+		</a>
+	</div>
+	<div class="pageControl" ng-if="!isLoding">	
+		<button class="btnIcon" ng-show="isPaging" ng-click="prev()">
+            上一页
+        </button>
+		<p class="pageNum"><span>{{currentPage||1}}</span>/<span>{{totalPages||1}}</span></p>
+		<button class="btnIcon" ng-show="isPaging" ng-click="next()">
+            下一页
+        </button>
+	</div>
+</div>
+<div class="btn" ng-click="back()" style="width: 300px;position: absolute;
+		z-index: 100;
+		top: 630px;
+		opacity: 1;
+		left: 0;
+		right: 0;">
+	<span class="event" style="top:24px;left:110px;">返回</span>
+</div>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<!--<script src="js/self-mac-tools.js"></script>-->
+	<script src="js/devBak.js"></script>
+	<style>
+		body {
+			padding: 40px 0px 0px 40px;
+			overflow: auto;
+		}
+		
+		button {
+			display: block;
+			padding: 10px 20px;
+			margin: 20px 0px;
+		}
+		/*button:hover,
+		button:focus {
+			background: #f47c20;
+			outline: 0;
+		}*/
+		
+		.line button {
+			display: inline;
+			margin-top: 20px;
+		}
+	</style>
+
+	<body>
+		<button onclick="CHidCardOpen()">开始阅读身份证</button>
+		<button onclick="CHidCardClose()">关闭身份证阅读</button>
+		<p class="idCardtext"> </p>
+		<button onclick="CHqrCodeOpen()">开始扫描二维码</button>
+		<p class="qrCodetext"> </p>
+		<button onclick="CHssCard()">开始读取社保卡信息</button>
+		<p class="ssCardtext"> </p>
+		<div class="line">
+			<button onclick="CHcmCaptureOpen()">打开高拍仪</button>
+			<button onclick="CHcmCaptureCapture()">拍照</button>
+			<button onclick="CHcmCaptureHide()">关闭高拍仪</button>
+			<span class="cmCapturetext"></span>
+			<p class="CHBase64"></p>
+		</div>
+		<div class="line">
+			<button onclick="CHCameraOpen()">打开前置摄像头</button>
+			<button onclick="CHCameraCapture()">拍照</button>
+			<button onclick="CHCameraClose()">关闭前置摄像头</button>
+			<span class="Cameratext"></span>
+			<p class="CHCameraPath"></p>
+		</div>
+		<button onclick="CHpdfPrint()">pdf打印</button>
+		<button onclick="CHhtmlPrint('china')">国产化HTML打印</button>
+		<button onclick="CHhtmlPrint('lodop')">lodopHTML打印</button>
+		<button onclick="PdfDownload()">下载pdf到本地</button>
+		<button onclick="pdfurlPrint()">打印pdf传输url</button>
+	</body>
+
+	<script>
+		var time = "读取中----";
+
+		function CHidCardOpen() {
+			$(".idCardtext").html(time);
+			$.device.idCardOpen(function(val) {
+				$(".idCardtext").html(val);
+				//$.device.idCardClose();
+			});
+		}
+
+		function CHidCardClose() {
+			$(".idCardtext").html("已关闭");
+			$.device.idCardClose();
+		}
+
+		function CHqrCodeOpen() {
+			$(".qrCodetext").html(time);
+			$.device.qrCodeOpen(function(val) {
+				$(".qrCodetext").html(val);
+			});
+		}
+
+		function CHssCard() {
+			$(".ssCardtext").html(time);
+			$.device.ssCardOpen(function(val) {
+				$(".ssCardtext").html(val);
+				$.device.ssCardClose();
+			});
+		}
+		//打开高拍仪
+		function CHcmCaptureOpen() {
+			$(".cmCapturetext").html("高拍仪打开成功");
+			// var open = 	$.device.cmCaptureShow(800,600, 340, 340);
+			var open = $.device.cmCaptureShow(800, 600, 340, 340);
+			var res = $.device.cmCaptureSelectRect(0, 0, 100, 100);
+		}
+		//拍照
+		function CHcmCaptureCapture() {
+			$.device.cmCaptureCaptureBase64(function(value) {
+				$(".CHBase64").html("data:image/png;base64," + value);
+			});
+		}
+		//关闭高拍仪
+		function CHcmCaptureHide() {
+			$.device.cmCaptureHide();
+			$(".cmCapturetext").html("高拍仪已关闭");
+		}
+
+		//打开前置摄像头
+		function CHCameraOpen() {
+			window.external.VideoCapture_Init(500, 500, 300, 400);
+			window.external.VideoCapture_Link("Techshion TCF261 Col", 0);
+			window.external.VideoCapture_Show();
+			$(".Cameratext").html("前置摄像头打开成功");
+		}
+		// 拍照
+		function CHCameraCapture() {
+			window.external.VideoCapture_Capture_Base64();
+			window.videoCaptureUrlCallback = function(data) {
+				$(".CHCameraPath").html(data);
+			}
+		}
+
+		function CHCameraClose() {
+			window.external.VideoCapture_Close();
+			window.external.VideoCapture_UnLink();
+			$(".Cameratext").html("前置摄像头已经关闭");
+		}
+
+		//pdf打印
+		function CHpdfPrint() {
+			var url = "/home/casic/1.pdf";
+			window.external.Office_Pdf_AdobeReader_Print(url);
+		}
+		//html打印
+		function CHhtmlPrint(id) {
+			var div = "<p>1、主管部门：市档案局</p>" +
+				"<p>2、申报条件：" + "</p>" +
+				"<p>3、申请材料：申请对象需提供以下材料的原件：1、本人有效居民身份证原件；</p>" +
+				"<p>4、办理流程：【本事项可“全市通办”】符合申请条件的人员，可通过自助服务设备等渠道提交申请。</p>" +
+				"<p>（1）提出申请：申请人填写申请表，提交申请材料。</p>" +
+				"<p>（2）审核出证：相关档案馆审核，对符合利用条件的制作档案复制件。</p>" +
+				"<p>（3）自助打印：约<span style='color:#e1ba1c;font-weight:bold;'>30分钟后</span>，申请人可在自助终端上打印带有档案馆电子印章的档案复制件。</p>" +
+				"<p>5、查档须知：</p>" +
+				"<p>（1）该服务仅限本人申请查询，不得查询其他公民的档案；</p>" +
+				"<p>（2）该服务只提供由市、区综合档案馆接收和保存的档案。对于档案馆尚未接收进馆的档案，则暂不能提供查询服务；</p>" +
+				"<p>（3）民生档案查询“一网通办”服务时间为<span style='color:#e1ba1c;font-weight:bold;'>周一至周五8:30-16:30，周六、周日及国定节假日8:30～11:30</span>。非工作时间提交的查档申请将顺延办理；</p>" +
+				"<p>（4）查询人获取的档案复制件及相关档案信息，未经保管档案的档案馆同意，不得擅自向社会公布，或用以从事法律法规禁止的行为。</p>" +
+				"<p>（5）目前，查档申请均由各档案馆人工审核。若等候时间过长，请致电相关档案馆（联系方式如下）：</p>" +
+				"<table cellspacing='0' style='border: #477cbe 1px solid;'><tr><th>序号</th><th>档案馆</th><th>咨询电话</th><th>地址</th></tr><tr><td>1</td><td>上海市档案馆</td><td>63336633-1515</td><td>中山东二路9号（200002）</td></tr>" +
+				"<tr><td rowspan='3'>2</td><td rowspan='3'>浦东新区档案馆</td><td>28949804</td><td>浦东新区迎春路520号（200135）</td></tr>" +
+				"<tr><td>58022248</td><td>惠南镇县东街15号（201300）</td></tr>" +
+				"<tr><td>58906859</td><td>新川路540号（201299）</td></tr>" +
+				"<tr><td rowspan='2'>3</td><td rowspan='2'>徐汇区档案馆</td><td>34768956</td><td rowspan='2'>徐汇区浦北路268号东门（200235）</td></tr>" +
+				"<tr><td>34768955</td></tr>" +
+				"<tr><td>4</td><td>长宁区档案馆</td><td>22050072</td><td>长宁区长宁路599号16号楼（200050）</td></tr>" +
+				"<tr><td rowspan='2'>5</td><td rowspan='2'>普陀区档案馆</td><td>52500010-6001</td><td rowspan='2'>普陀区同普路602号1号楼（200062）</td></tr>" +
+				"<tr><td>52500010-6072</td></tr>" +
+				"<tr><td>6</td><td>虹口区档案馆</td><td>25657253</td><td>虹口区三河路358号（200086）</td></tr>" +
+				"<tr><td>7</td><td>杨浦区档案馆</td><td>55217610</td><td>杨浦区靖宇东路269号（200093）</td></tr>" +
+				"<tr><td>8</td><td>黄浦区档案馆</td><td>63504445</td><td>黄浦区广西北路158号18楼（200001）</td></tr>" +
+				"<tr><td>9</td><td>静安区档案馆</td><td>33094324</td><td>静安区秣陵路46号政务大楼711室（200070）</td></tr>" +
+				"<tr><td>10</td><td>闵行区档案馆</td><td>64138937</td><td>闵行区名都路85号（201199）</td></tr>" +
+				"<tr><td>11</td><td>宝山区档案馆</td><td>56567419</td><td>宝山区淞宝路104号（200940）</td></tr>" +
+				"<tr><td>12</td><td>嘉定区档案馆</td><td>69989056</td><td>嘉定区墅沟路2003号（201822）</td></tr>" +
+				"<tr><td rowspan='2'>13</td><td rowspan='2'>金山区档案馆</td><td>33694596</td><td rowspan='2'>金山区浩源路299号（200540）</td></tr>" +
+				"<tr><td>33694595</td></tr>" +
+				"<tr><td rowspan='2'>14</td><td rowspan='2'>松江区档案馆</td><td>37736578</td><td>松江区中山中路38号4号楼（201600）</td></tr>" +
+				"<tr><td>57821000-8101</td><td>周六：松江区乐都西路867-871号行政服务中心2号楼2楼综合窗口</td></tr>" +
+				"<tr><td rowspan='2'>15</td><td rowspan='2'>青浦区档案馆</td><td>69717987</td><td rowspan='2'>青浦区秀泉路450号（201799）</td></tr>" +
+				"<tr><td>69717734</td></tr>" +
+				"<tr><td>16</td><td>奉贤区档案馆</td><td>57420639</td><td>奉贤区南桥镇远东路2670号（201499）</td></tr>" +
+				"<tr><td rowspan='2'>17</td><td rowspan='2'>崇明区档案馆</td><td>59610179</td><td>崇明区城桥镇新城定澜路1588号（202155）</td></tr>" +
+				"<tr><td>69696988-8242</td><td>周六日：翠竹路1501号行政服务中心4号窗</td></tr>" +
+				"</table>";
+			var html = '<html><head><meta charset="UTF-8"></head><body>' + div + '</body></html>';
+			if(id == "china") {
+				alert("国产化打印");
+				window.external.Printer_Html(html);
+			} else {
+				alert("lodop打印");
+				var html2 = '<body>' + div + '</body>'
+				lodophtml(html2);
+			}
+
+		}
+
+		function lodophtml(html) {
+			var lodop = window.external.Printer_Lodop();
+			lodop.ADD_PRINT_TEXT(50, 0, "100%", 100, "设置标题");
+			lodop.SET_PRINT_STYLEA(0, "Alignment", 2);
+			lodop.SET_PRINT_STYLEA(0, "FontSize", 20);
+			lodop.ADD_PRINT_HTM(150, 0, "100%", "100%", html);
+			lodop.PRINT();
+		}
+		var Pdfurl = "http://180.169.7.194:8080/ac-product/aci/testhtml/wenthtml/1.pdf";
+
+		function PdfDownload() {
+			var filePath = "2.pdf";
+			window.external.Http_Download(Pdfurl, filePath, "httpDownloadOnProgressChanged", "httpDownloadSuccessCallback", "httpDownloadErrorCallback");
+			window.httpDownloadOnProgressChanged = function(bytesCopied, totalBytes) {
+				alert(totalBytes + "01");
+				alert(totalBytes + "01");
+			};
+			window.httpDownloadSuccessCallback = function(headers) {
+				alert(headers + "02");
+			};
+			window.httpDownloadErrorCallback = function(webexception) {
+				alert(webexception);
+			};
+		}
+		function pdfurlPrint(){
+			window.external.Office_Url_Pdf_Print(Pdfurl);
+		}
+	</script>
+
+</html>

@@ -1,0 +1,76 @@
+<style type="text/css">
+	.radioButtons {
+		top: 620px;
+		left: 370px;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="#">办件查询</a>
+		</li>
+		<li class="active">办件详情</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<div class="bg"></div>
+		<div class="vertical-middle horizontal-middle leftLump">
+			<img src="../libs/common/images/prototype.png">
+			<img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+			<div>查看该办件详情
+				<br />或重选办件</div>
+			<div class="sub-index  horizontal-middle">
+				<a class="blue-green active" href="#list" style="padding:15px 0px;width:100%;font-size:30px;margin-top:50px;">重新选择办件</a>
+			</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="panelList one vertical-middle horizontal-middle absoluteLeftRightCenterClass" style="width:850px;height:710px; padding: 35px 105px;">
+			<div style="height: 680px;text-align:left">
+				<table class="conDetails">
+					<tr>
+						<th width="30%">申请人：</th>
+						<td width="70%">{{list.stName||list.appApplyInfo.stName}}</td>
+					</tr>
+					<tr>
+						<th>办件编号：</th>
+						<td>{{list.stApplyNo||list.appApplyInfo.stApplyNo}}</td>
+					</tr>
+					<tr>
+						<th>公司名称：</th>
+						<td>{{list.stUnit==1?'无':list.stUnit||list.appApplyInfo.stUnit}}</td>
+					</tr>
+					<tr>
+						<th>办理事项名称：</th>
+						<td>{{list.stItemName||list.appApplyInfo.stItemName}}</td>
+					</tr>
+					<tr>
+						<th>申请时间：</th>
+						<td>{{(list.stApply | date:'yyyy-MM-dd HH:mm') || (list.appApplyInfo.stApply | date:'yyyy-MM-dd HH:mm')}}</td>
+					</tr>
+					<tr>
+						<th>办件状态：</th>
+						<td>{{list.stFinalState||list.appApplyInfo.stFinalState}}</td>
+					</tr>
+					<tr>
+						<th>办结时间：</th>
+						<td>{{(list.stFinish | date:'yyyy-MM-dd HH:mm')||(list.appApplyInfo.stFinish | date:'yyyy-MM-dd HH:mm')}}</td>
+					</tr>
+				</table>
+			</div>
+			<span class="horizontal-middle"></span>
+			<a class="btn_radius_50 radioButtons" ng-click="back()">
+				<div class="greyLight">
+					<img src="../libs/common/images/icon200/back.png">
+					<label>返回</label>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,135 @@
+<div class="evaluate">
+	<p class="t">感谢您提出宝贵的建议，请您留下联络方式，您的建议一旦采用，我们将会给您邮寄礼品以示奖励</p>
+	<div class="text">
+		<div class="top1">
+			<!--<img style="width: 75px;height: 75px;margin-left: 80px;margin-top: 40px;" src="images/合理建议.png" />-->
+			<!--<p style="width: 100px;position: absolute;top: 335px;left: 511px;font-size: 32px;">建议：</p>-->
+		</div>
+		<div class="formInfo">
+			<form class="form">
+				<div class="input">
+					<label class="strong" style="font-size: 26px;">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;</label>
+					<input type="text" id="name" name="name" />
+				</div>
+				<div class="input">
+					<label class="strong" style="font-size: 26px;">手机号&nbsp;</label>
+					<input type="text" id="mobile" name="mobile" />
+				</div>
+				<div class="input1">
+					<label class="strong" style="font-size: 26px;">单位名称&nbsp;</label>
+					<input type="text" id="targetname" name="targetname" />
+				</div>
+				<div class="input2">
+					<div class="strong" style="font-size: 26px;margin-right: 30px;width: 99px;height: 330px;float: left;line-height: 282px;">内&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;容&nbsp;</div>
+					<textarea type="text" id="tips" name="tips"></textarea>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!--<div class="btnBox1 clearfloat">
+	   	<a ng-click="save()" class="next">确认</a>
+	</div>-->
+<apptb-footer prev="prevStep()" next="save()" next-btn-info="确认" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<!--<zalert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></zalert>-->
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+
+<style type="text/css">
+	.evaluate {
+		width: 1550px;
+		height: 710px;
+		position: absolute;
+		left: 50%;
+		top: 145px;
+		transform: translateX(-50%);
+	}
+	
+	.t {
+	    margin-left: 52px;
+	    margin-top: 58px;
+	    font-size: 26px;
+	    opacity: .6;
+	    text-align: center;
+	}
+	
+	input {
+		border: none;
+	    background: url(./images/bg-input.png) no-repeat;
+	    border-radius: 8px;
+	    box-shadow: 0px 0px 8px 4px #175191 inset;
+	    padding-left: 20px;
+	    color: #fff;
+	    height: 64px;
+	}
+	
+	.input>input {
+		height: 64px;
+		width: 332px;
+		border-radius: 10px;
+		font-size: 24px;
+	    margin-left: 10px;
+	}
+	
+	.input {
+		width: 530px;
+		float: left;
+		margin-top: 20px;
+	}
+	
+	.input1 {
+		width: 1000px;
+		float: left;
+		margin-top: 20px;
+	}
+	
+	.input1>input {
+	    height: 64px;
+	    width: 836px;
+	    border-radius: 10px;
+	    font-size: 24px;
+	    margin-left: 10px;
+	}
+	
+	.input2 {
+		width: 1100px;
+		float: left;
+		margin-top: 20px;
+	}
+	
+	.input2>textarea {
+		height: 279px;
+		width: 850px;
+		resize: none;
+		overflow: hidden;
+		font-size: 24px;
+	    border: none;
+	    background: url(./images/bg-input.png) no-repeat;
+	    border-radius: 12px;
+	    box-shadow: 0px 0px 8px 4px #175191 inset;
+	    color: white;
+	    box-sizing: border-box;	
+	    padding: 12px;
+	    outline: none;
+	}
+	
+	.text {
+		height: 655px;
+	}
+	
+	.text .top1 {
+		width: 100%;
+		font-size: 25px;
+	}
+	
+	.text .formInfo {
+	    overflow: hidden;
+	    position: absolute;
+	    width: 80%;
+	    left: 50%;
+	    top: 60%;
+	    transform: translate(-50%, -50%);
+	    padding-left: 130px;
+	    box-sizing: border-box;
+	}
+</style>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>办事指南详细信息</title>
+    <link rel="stylesheet" href="css/app_guide_details.css"/>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"/>
+</head>
+<body>
+    <header class="header" id="itemTitle"></header>
+    <section>
+        <div class="button">
+            <a id="guide" class="con-tog active" onclick="javascript:con_toggle(1)">事项办事指南</a>
+            <a id="notify" style="display: none" class="con-tog" onclick="javascript:con_toggle(2)">事项告知单</a>
+        </div>
+	    <section class="section" id="con_one_1">
+	
+	    </section>
+	    <section class="section" id="con_one_2" style="display: none">
+	
+	    </section>
+    </section>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript">
+
+    $(function () {
+       // 获取事项详情
+       getItemDetails();
+    });
+
+    // 获取事项详情
+    function getItemDetails () {
+        // 链接参数
+        var requestData = getRequest();
+        // 获取事项名称
+        $.ajax({
+           async : true,
+           type : "post",
+           url : "../item/selfQuery/guide/getGuideAndNotify.do",
+           data :{itemNo : requestData.itemNo},
+           dataType : "json",
+           success : function(data) {
+                // 显示指南详细信息
+                showGuideDetails (data.guide);
+                // 事项告知单存在的场合
+                if (data.notify != "" || data.notify != null) {
+                    // 事项告知单信息
+                    $("#con_one_2").html(data.notify);
+                    
+                    // 滚动条
+                    $("#con_one_2").mCustomScrollbar({
+                        theme:"rounded-dots",
+                        scrollInertia:400
+                    });
+                    
+                    $("#itemNotify").css("display","inline-block");
+                } 
+           },
+           error : function() {
+           }
+        });
+    }
+
+    // 显示指南详细信息
+    function showGuideDetails (data) {
+       var guideDetails = "<h2>一、适用范围：</h2>"+data.clRange+"<h2>二、事项名称和代码：</h2>"+ data.clNameCode
+       +"<h2>三、办理依据：</h2>"+data.clDealAccording+"<h2>四、办理机构：</h2>"+data.clDealOrgan+"<h2>五、审批条件：</h2>"
+       +data.clApprovalConds+"<h2>六、审批数量：</h2>"+data.clApprovalCount+"<h2>七、审批材料：</h2>"+data.clApprovalMater
+       +"<h2>八、审批期限：</h2>"+data.clApprovalLimit+"<h2>九、审批证件：</h2>"+data.clApprovalCert+"<h2>十、收费标准：</h2>"
+       +data.clChargeStd+"<h2>十一、申请人权利及义务：</h2>"+data.clApplyRightsDuties+"<h2>十二、申请接受：</h2>"+data.clApplyReceive
+       +"<h2>十三、咨询途径：</h2>"+data.clConsultWay+"<h2>十四、投诉渠道：</h2>"+data.clComplaintChannel+"<h2>十五、办理方式：</h2>"
+       +data.clDealType+"<h2>十六、决定公开：</h2>"+data.clDecidedOpen;
+       // 事项指南
+       $("#con_one_1").html(guideDetails);
+       // 事项名称
+       $("#itemTitle").html(data.stZhallId);
+
+       $("#con_one_1").mCustomScrollbar({
+            theme:"rounded-dots",
+            scrollInertia:400
+      });
+    }
+
+    // 显示切换
+    $(".con-tog").click(function(){
+        $(".con-tog").removeClass('active');
+        $(this).toggleClass('active');
+    });
+    
+    // 显示切换
+    function con_toggle(num){
+        numPage = num;
+        for(var id=1;id<3;id++){
+            var ids="con_one_"+id;
+            if(id==num){
+                document.getElementById(ids).style.display="block";
+            }else{
+                document.getElementById(ids).style.display="none";
+            }
+        }
+    };
+</script>
+</html>

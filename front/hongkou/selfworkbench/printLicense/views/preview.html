@@ -1,0 +1,83 @@
+<apptb-header fun-name="证明开具"></apptb-header>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	 <!--ng-click="allScreen('con')"-->
+	<div class="previewContainer" ng-class="{'mask':isAllScreen}" ng-click="allScreen($event, 'con')">
+		<img ng-src="{{configUrl+previewImg}}" ng-click="allScreen($event)" />
+	</div>
+</div>
+<a href="javacsript:viod(0);" class="continue" ng-click="print()">打印</a>
+
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 	
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</apptb-footer>
+<a href="javascript:;" class="Prev" ng-click="prev()">返回列表</a>
+<print show="isPrint"></print>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		background: url('../libs/common/images/bg-dzzz.png') no-repeat center 50%;
+		background-size: 90% 75%;
+	}
+	
+	.previewContainer {
+		text-align: center;
+		padding-top: 70px;
+	}
+	
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+	
+	.previewContainer img {
+		width: 405px;
+		height: 500px;
+	}
+	
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+	
+	.continue {
+	    position: absolute;
+	    left: 50%;
+	    bottom: 189px;
+	    transform: translateX(-48%);
+	    width: 140px;
+	    height: 60px;
+	    text-align: center;
+	    line-height: 60px;
+	    background: url(../libs/common/images/reBtn.png) no-repeat;
+	    background-position: -8px -44px;
+	    font-size: 26px;
+	}
+	
+	.Prev {
+		position: absolute;
+		left: 4%;
+		bottom: 5%;
+		width: 154px;
+		height: 60px;
+		text-align: center;
+		line-height: 60px;
+		font-size: 24px;
+		background: url(../libs/common/images/prev-step.png) no-repeat;
+	}
+</style>

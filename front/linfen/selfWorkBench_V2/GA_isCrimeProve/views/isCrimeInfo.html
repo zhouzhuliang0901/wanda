@@ -1,0 +1,157 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.select1 option {
+		color: #333;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.rt5 a:nth-of-type(1),
+	.rt5 a:nth-of-type(2) {
+		line-height: 40px;
+		padding-top: 10px;
+	}
+	
+	.rt5 a {
+		margin-bottom: 20px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin: 60px 150px 0px !important;
+		}
+		.tabelBox1 {
+			width: 1086px !important;
+			padding-top: 0;
+		}
+		.tabelBox1 .dl1 dd{
+			margin-bottom: 2px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 20%;
+			text-align: right;
+			letter-spacing: 0px;
+		}
+		#wrapper{
+			height: 556px !important;
+		}
+		.scrollBox2 .singleselect3 a{
+			height: 130px !important;
+		}
+		.scrollBox2 .tabelBox1 .singleselect3 a{
+			margin-right: 18px;
+		}
+		.scrollBox2 .singleselect3 a{
+			font-size: 17px;
+			height: 80px !important;
+			margin-bottom: 5px;
+		}
+		.rt5 a{
+			margin-bottom: 0;
+		}
+	}
+</style>
+<!--<apptb-header fun-name="{{funName}}"></apptb-header>-->
+<p class="caption">申请人基本信息</p>
+<div class="main2" style="">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;">
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>申请人：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>手机号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>证明开始时间：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="dtStartDate" ng-model="dtStartDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>证明结束时间：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="dtEndDate" ng-model="dtEndDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stHjAddress" ng-model="stHjAddress" placeholder="请输入x市x区x路x号等详细地址">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>居住地：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stLiveAddress" ng-model="stLiveAddress" placeholder="请输入x市x区x路x号等详细地址">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>证明类型：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="license_type">
+						<a value="1" id="1">曾被判处管制、拘役、有期徒刑、无期徒刑、死刑、罚金、剥夺政治权利、没收财产以及已构成犯罪，被人民法院判处免予刑事处罚的犯罪记录，包括缓刑、假释、暂予监外执行等执行方式</a>
+						<a value="2" id="2">曾被处以收容教育、劳动教养、强制隔离戒毒（强制戒毒）、责令社区戒毒（限期戒毒）的违法信息，包括不执行、暂缓执行、所外执行等执行方式</a>
+						<a value="3" id="3">曾被处以行政拘留、暂扣或吊销许可证的违法信息</a>
+						<a value="4" id="4">曾被处以警告、罚款、没收的违法信息，不包括交通类违法信息</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<loading ng-if="isLoading"></loading>

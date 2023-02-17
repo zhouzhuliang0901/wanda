@@ -1,0 +1,100 @@
+<div class="shell bg2">
+
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="../declare/index.html" class="back1">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+		<ul class="navul1 navul2 clearfloat">
+			<li>选择事项</li>
+			<li class="act">办事指南</li>
+			<li>人证核验</li>
+			<li>在线填报</li>
+		</ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span></div>
+
+    <div class="main2" style="width: 1750px;height: 530px;background-color: #2864B0;">
+		<div id="wrapper">
+		<div class="scrollBox2 clearfloat widthLimit" id="scrollBox2">
+            <dl class="dllist1 clearfloat" style="padding-top: 25px;">
+                <dt>一、事项名称：</dt>
+                <dd ng-bind-html="guideInfo.clName | to_trusted">
+                </dd>
+            </dl>
+            <dl class="dllist1 clearfloat">
+                <dt>二、主管部门：</dt>
+                <dd>
+                    <p>{{guideInfo.clDept || to_trusted}}</p>
+                </dd>
+            </dl>
+            <dl class="dllist1 clearfloat">
+                <dt>三、申报条件：</dt>
+                <dd ng-bind-html="guideInfo.clApplyConds | to_trusted">
+                </dd>
+            </dl>
+			<dl class="dllist1 clearfloat">
+			    <dt>四、申报材料：</dt>
+			    <dd id="lodop" ng-bind-html="guideInfo.clApprovalMater | to_trusted">
+			    </dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+			    <dt>五、办理流程：</dt>
+			    <dd ng-bind-html="guideInfo.clApprovalProcess | to_trusted">
+			    </dd>
+			</dl>
+        </div>
+		</div>
+    </div>
+    <div class="btnBox1 clearfloat">
+        <a href="../declare/index.html" class="Prev">上一步</a>
+        <a ng-click="print()" class="stamp">打印指南</a>
+        <a ng-click="next()" class="next">下一步</a>
+    </div>
+    <!--二维码 开始-->
+<!--    <div class="CodeBox1" id="code" style="height: 330px;top: 375px;";>-->
+        <!-- <img src="images/code1.jpg" class="img1"/> -->
+        <!--<p style="position: absolute;top: 210px;left: 15px;">扫描二维码查看 </p>
+    </div>-->
+    <!--二维码 结束-->
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	#wrapper{
+		width:1750px;
+		height: 500px;
+	}
+	.stuff td{
+		font-size: 24px;
+	}
+	.stuff th{
+		font-size: 24px;
+	}
+	.stuff table tr>td:nth-child(1){
+		width:950px;
+	}
+	.stuff table tr>td:nth-child(2){
+		display: none;
+		text-align:center
+	}
+	.stuff table tr>th:nth-child(2){
+		display: none;
+	}
+	.stuff table tr>td:nth-child(3){
+		width:170px;
+		margin-left: 20px;
+		text-align:center
+	}
+	.stuff table tr>td:nth-child(4){
+		width:130px;
+		margin-left: 20px;
+		text-align:center
+	}
+	.stuff table tr>td:nth-child(5){
+		width:150px;
+		margin-left: 20px;
+		text-align:center
+	}
+</style>

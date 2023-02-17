@@ -1,0 +1,173 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 46%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 730px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 68px;
+	}
+
+	.infoTable td {
+		width: 32%;
+		height: 68px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 50px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	#ascceptanceArea a {
+		width: 256px;
+	}
+	.select{
+		width: 49.6%;
+	}
+	.input {
+		height: 45px;
+	}
+
+	@media screen and (min-width:1270px) and (max-width:1290px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>申请人名称：</th>
+					<td><input class="input" type="text" id="stName" name="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>联系电话：</th>
+					<td><input class="input" type="text" id="stMobile" name="stMobile" ng-model="stMobile"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>证件类型：</th>
+					<td><input class="input" type="text" id="stIdCardType" ng-model="stIdCardType" readonly></td>
+					<th><b class="red">*</b>申请人证件号：</th>
+					<td><input class="input" type="text" id="stIdCard" name="stIdCard" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th>入伍部队：</th>
+					<td>
+						<input class="input" type="text" id="rwbd" name="rwbd" ng-model="rwbd"></td>
+					<th>入伍时间：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="stEnlistDate" name="stEnlistDate" ng-model="stEnlistDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>入伍前工作单位：</th>
+					<td>
+						<input class="input" type="text" id="rwqgzdw" name="rwqgzdw" ng-model="rwqgzdw">
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>利用目的：</th>
+					<td colspan="3" id="useGoal">
+						<a ng-repeat="(index,item) in useGoalList" ng-class="{'in':current1==index}" ng-click="change('useGoal',index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>受理地区：</th>
+					<td colspan="3" id="ascceptanceArea">
+						<a ng-repeat="(index,item) in ascceptanceAreaList" ng-class="{'in':current==index}" ng-click="change('ascceptanceArea',index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>受理地点：</th>
+					<td colspan="3">
+						<select class="select" id="province" name="province" ng-model="province" ng-options="x.cityName for x in provinceList track by x.cityName">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="county" name="county" ng-model="county" ng-options="x.archivesName for x in countyList track by x.archivesName">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>递送方式：</th>
+					<td colspan="3" id="expressMode">
+						<a ng-repeat="(index,item) in expressModeList" ng-class="{'in':current2==index}" ng-click="change('expressMode',index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr ng-show="current2==1 || current2==2">
+					<th><b class="red">*</b>收件人：</th>
+					<td><input class="input" type="text" id="stReceiptName" name="stReceiptName" ng-model="stReceiptName"></td>
+					<th><b class="red">*</b>邮政地址：</th>
+					<td><input class="input" type="text" id="stReceiptAddress" name="stReceiptAddress" ng-model="stReceiptAddress"></td>
+				</tr>
+				<tr ng-show="current2==1 || current2==2">
+					<th><b class="red">*</b>邮政编码：</th>
+					<td><input class="input" type="text" id="stPostCode" name="stPostCode" ng-model="stPostCode"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

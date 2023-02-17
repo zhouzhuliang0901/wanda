@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style></style>
+		<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	</head>
+
+	<body>
+		<img src="http://31.0.178.27:8080/bigscreen/aci/report/lockImageById.do?id=21719" />
+		<img id="img" src="http://31.0.178.27:8080/bigscreen/aci/report/lockImageById.do?id=21719" />
+		<script type="text/javascript">
+			function proDownImage(path, imgObj) { // 等比压缩图片工具 
+				var proMaxHeight = 300;
+				var proMaxWidth = 175;
+				var size = new Object();　
+				var image = new Image();　
+				image.src = path;　
+				if(image.complete) {
+					if(image.width > 0 && image.height > 0) {
+						var ww = proMaxWidth / image.width;
+						var hh = proMaxHeight / image.height;　
+						var rate = (ww < hh) ? ww : hh;
+						if(rate <= 1) {　
+							size.width = image.width * rate;
+							size.height = image.height * rate;
+						} else {
+							size.width = image.width;　　
+							size.height = image.height;　　　
+						}　
+					}
+					imgObj.height = size.height;
+					imgObj.width = size.width;
+				}
+			}
+			var i = document.getElementById("img");
+			proDownImage("http://31.0.178.27:8080/bigscreen/aci/report/lockImageById.do?id=21719", i);
+
+			function dealImage(path, obj, callback) {
+				var img = new Image();      
+				img.src = path;      
+				img.onload = function() {         
+					var that = this;          // 默认按比例压缩
+					var w = that.width,
+						         h = that.height,
+						         scale = w / h;         
+					w = obj.width || w;        
+					h = obj.height || (w / scale);         
+					var quality = 0.3;  // 默认图片质量为0.7 
+					//生成canvas
+					var canvas = document.createElement('canvas');         
+					var ctx = canvas.getContext('2d');          // 创建属性节点
+					         
+					var anw = document.createAttribute("width");         
+					anw.nodeValue = w;         
+					var anh = document.createAttribute("height");         
+					anh.nodeValue = h;         
+					canvas.setAttributeNode(anw);         
+					canvas.setAttributeNode(anh);         
+					ctx.drawImage(that, 0, 0, w, h);          // 图像质量
+					         
+					if(obj.quality && obj.quality <= 1 && obj.quality > 0) {            
+						quality = obj.quality;         
+					}          // quality值越小，所绘制出的图像越模糊
+					         
+					var base64 = canvas.toDataURL('image/jpeg', quality);          // 回调函数返回base64的值
+					         
+					callback(base64);      
+				}   
+			}
+		</script>
+	</body>
+
+</html>

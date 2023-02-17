@@ -1,0 +1,32 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>人证核验</li>
+		<li>信息填写</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="main2" style="height: 650px;">
+		<div class="action">
+			<div class="imageShow" style="height: 500px;position: absolute;top: 99px;left: 40px;font-size: 40px;">
+				<img ng-click="select(index)" ng-class="{'imgStyle':current==index}" class="id" ng-src="{{url+item.pictureUrlForBytes}}" ng-repeat="(index,item) in imgUrls">
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="goNext()" prev-btn-info="{{prevText}}" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style>
+	.id {
+		height: 185px;
+	}
+	
+	.imgStyle {
+		border: #AA0000 2px solid;
+	}
+</style>

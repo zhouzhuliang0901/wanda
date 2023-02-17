@@ -1,0 +1,172 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+	.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		
+		.main2 {
+			height: 650px;
+			margin-top: 20px;
+		}
+		
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		.tabelBox1 .dl1 .hjActive {
+				width: 40%;
+			}
+		.tabelBox1 .dl1 .jzActive {
+			width: 40%;
+		}
+	}
+		
+		@media screen and (max-width: 1600px) {
+			.bg-middle {
+				background-size: 100% 80%;
+			}
+			.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+			}
+			#wrapper {
+				width: 100%;
+				height: 630px;
+			}
+			.main2 {
+				width: 100%;
+				height: 630px;
+				overflow: hidden;
+				position: relative;
+				margin: 0px;
+			}
+			
+	
+			.tabelBox1 .dl1 .lt1 {
+				width: 12%;
+				font-size: 18px;
+			}
+			.tabelBox1 .dl1 .lt3 {
+				width: 12%;
+				font-size: 18px;
+			}
+			.tabelBox1 .dl1 .rt2 {
+				width: 22%;		
+			}
+			.tabelBox1 .dl1 .rt11 {
+				width: 16%;
+			}
+			
+		}
+	
+	</style>
+	<p class="caption">{{funName}}--登记个人信息</p>
+	<div class="main2">
+		<div class="scrollBox2 clearfloat">
+			<div id="wrapper">
+				<div class="tabelBox1" style="width: 1705px;padding-top: 35px;">
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>健康状况：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="healthList"  ng-model="healthListName" ng-options="x.val for x in healthList">
+								<option value="" selected disabled="disabled">请选择健康状况</option>
+							</select>
+						</dd>
+						<div ng-show="isShow1">
+							<dd class="lt1 lt3">
+								<span>残疾等级：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt2">
+								<select class="select1" id="disabilityList"  ng-model="disabilityListName" ng-options="x.val for x in disabilityList">
+									<option value="" selected disabled="disabled">请选择残疾等级</option>
+								</select>
+							</dd>
+						</div>
+					
+					</dl>
+	
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>失业原因：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="unemploymentList"  ng-model="unemploymentListName" ng-options="x.val for x in unemploymentList">
+								<option value="" selected disabled="disabled">请选择失业原因</option>
+							</select>
+						</dd>
+						<div ng-show="isShow2">
+							<dd class="lt1 lt3">
+								<span>其他原因：</span>
+								<b class="red1">*</b>
+							</dd>
+							<dd class="rt2">
+								<input class="input1" type="text" id="otherST" ng-model="otherST" placeholder="请填写其他原因">
+							</dd>
+						</div>
+					
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>失业保险金标志：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="unTagList"  ng-model="unTagListName" ng-options="x.val for x in unemployTagList">
+								<option value="" selected disabled="disabled">请选择失业保险金标志</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>目前意向：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="nowIntentionList"  ng-model="nowIntentionListName" ng-options="x.val for x in nowIntentionList">
+								<option value="" selected disabled="disabled">请选择目前意向</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>求职意向：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="intentionList"  ng-model="intentionListName" ng-options="x.val for x in intentionList">
+								<option value="" selected disabled="disabled">请选择求职意向</option>
+							</select>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>手机号码：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="填写联系电话">
+						</dd>
+					</dl>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer prev="prevStep()" next-btn-info="{{nextText}}" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+	</apptb-footer>
+	<loading ng-if="isLoading"></loading>
+	<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

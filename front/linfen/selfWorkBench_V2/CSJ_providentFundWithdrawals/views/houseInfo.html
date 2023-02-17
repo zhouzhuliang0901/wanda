@@ -1,0 +1,186 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	#ascceptanceArea a {
+		width: 256px;
+	}
+	
+	.isOutShangHai,
+	.isInShangHai {
+		width: 39%;
+	}
+	
+	.select1,
+	.input1 {
+		width: 21%;
+	}
+	
+	.getButton {
+		width: 140px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+		margin-left: 95px;
+		position: absolute;
+		right: 10px;
+		top: -5px;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+		.line p {
+			font-size: 24px;
+		}
+		.infoTable th {
+			width: 10%;
+		}
+		.select1,
+		.input1 {
+			width: 20%;
+		}
+		.input,.infoTable {
+			font-size: 18px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-房屋信息 </p>
+	<div class="getButton" ng-click="checkHouseInfo()">查询</div>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>不动产权证信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>产证编号：</th>
+					<td colspan="3" style="width: 58%;">
+						<input class="input input1" type="text" id="" value="" />
+						<select class="select select1" id="jcdProvince_mate" name="jcdProvince_mate" ng-model="jcdProvince_mate" ng-options="x for x in jcdprovinceList">
+							<option selected ng-if="false"></option>
+						</select>
+						<input class="input input1" type="text" name="" id="" value="" /> 不动产权第
+						<input class="input input1" type="text" name="" id="" value="" /> 号
+					</td>
+				</tr>
+			</table>
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>网签合同信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>网签合同编号：</th>
+					<td colspan="3" style="width: 58%;"><input class="input" type="text" id="stName" name="stName" ng-model="stName" readonly></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td colspan="3">
+						<p>注：1、合肥市网签合同查询，商品房请输入备案单号，存量房请输入网签合同编号。</p>
+						<p>2、浙江省二手房买卖合同编号请填写19位编号，示例：ZJ20330411MM0000010或2018330411MM0000151。</p>
+						<p>3、安徽省内尚未办理网签的，请输入不动产权证号码查询。</p>
+						<p>4、徐州市商品房合同需要输入13位合同流水号查询，如果合同首页无合同流水号信息请登录徐州房地产信息网（https://www.xzhouse.com.cn/）或者手机下载徐房信息网APP登录到个人中心查询；</p>
+						<p>5、购房地属于盐城的，盐城市大市区（包括盐都区、亭湖区、盐城经济技术开发区和盐南高新技术产业开发区）可查询房屋买卖合同信息。</p>
+						<p>6、购房地属于宿迁、南通地区的，请输入合同备案号，目前仅支持输入宿迁市区（含宿城、宿豫）、南通市所属全部地区合同备案号。</p>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>温馨提示：</th>
+					<td colspan="3">
+						<p>1.请认真检查，确保您输入的产证或交易合同信息无误。</p>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td colspan="3">
+						<p>2.若产证或交易合同信息已正确填写但仍未获取到相关信息，则不属于本平台受理范围。如您符合国家和住房公积金缴存地管理部门规定，请您携带业务材料前往公积金缴存地公积金中心线下窗口办理，或前往购房地公积金中心申请跨省通办</p>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,156 @@
+
+<div class="shell bg2">
+
+    <div class="headBox1">
+       <div class="headtop1 clearfloat">
+           <a class="back1" href="#start">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+        <ul class="navul1 clearfloat">
+            <li>选择事项</li>
+            <li>人证核验</li>
+			<li>信息填写</li>
+            <li class="act">在线填报</li>
+        </ul>
+    </div>
+	
+	<div class="navBox2" style="margin-bottom: 5px;"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+	
+	<div class="main2">
+			<div class="stuff" style="margin-left: 110px;">
+				<div class="scan" ng-show="scanShow">
+					<img ng-src="{{stuff.img}}" ng-repeat="(index,stuff) in showImgList track by $index" ng-click="imgShow(stuff.img)"/>
+					<a ng-click="prevPage()" class="control prev" ng-if="currentPage>1"><img src="../libs/common/images/prevBtn.png" /></a>
+					<a ng-click="nextPage()" class="control next" ng-if="currentPage<totalPages"><img src="../libs/common/images/nextBtn.png" /></a>
+				</div>
+				<div class="u-pan" ng-show="upanShow">
+					<img style="float: left;height: 100px;width: 100px;" src="images/icon-word.png" />
+					<div class="paragraph3" ng-click="open()">{{stuffList[0].fileName}}</div>
+				</div>
+			</div> 
+	</div>
+	<p ng-show="upanShow" class="pages" style="height: 55px"></p>
+	<p ng-show="!upanShow" class="pages">{{currentPage+"/"+totalPages}}</p>
+	<div class="btnBox1 clearfloat">
+	   <a href="#materialList" class="next">返回</a>
+	</div>
+</div>
+<div class="large" ng-if="!closeFlag" ng-click="imgShow()">
+    <img ng-src="{{largeImg}}" alt="">
+    <p>{{largeTips}}</p>
+</div>
+<div class="mask" ng-click="imgShow()" ng-class="{'show':closeFlag===false}"></div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.pages {
+		text-align: center;
+		font-size: 50px;
+	}
+	.main2{
+		height: 540px;
+		width: 1900px;
+		margin-left: 44px;
+		margin-bottom: 0px;
+	}
+	.paragraph3{
+		float: left;
+		line-height: 100px;
+		font-size: 40px;
+		margin-left: 40px;
+	}
+	.btn{
+		position: absolute;
+		top: 163px;
+		left: 1033px;
+		width: 275px;
+		height: 275px;
+		background: #2964B0;
+	}
+	.scan{
+	   position: relative;
+	   display: flex;
+	   flex-direction: row;
+	   flex-wrap: wrap;
+	   justify-content: space-between;
+	   background-color: #2864b0;
+	   align-items: center;
+	   width: 1610px;
+	   height: 560px;
+	}
+	.scan img {
+		transition: all 300ms;
+		max-height: 100%;
+		width: 30%;
+	}
+	.scan .control {
+		position: absolute;
+		display: block;
+		height: 100px;
+		width: 100px;
+		top: 50%;
+		margin-top: -50px;
+	}
+	
+	.scan .control img {
+		height: 100%;
+		width: 100%;
+	}
+	
+	.control.prev {
+		left: -110px;
+	}
+	
+	.control.next {
+		right: -110px;
+	}
+	.u-pan{
+		position: absolute;
+		width: 520px;
+		height: 100px;
+		top: 38%;
+		left: 29%;
+	}
+	.mask{
+		position: absolute;
+		margin: auto;
+		display: none;
+		background-color: rgba(0, 0, 0, 0.6);
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		bottom: 0px;
+		z-index: 9;
+	}
+	.mask.show {
+	    display: block;
+	}
+	.large {
+	    position: absolute;
+	    text-align: center;
+	    top: 50px;
+	    z-index: 19;
+	    height: 900px;
+	    width: 100%;
+	    left: 50%;
+	    margin-left: -50%;
+	}
+	.large .close {
+	    display: block;
+	    position: absolute;
+	    color: red;
+	    font-size: 40px;
+	    height: 50px;
+	    width: 150px;
+	    right: 310px;
+	    top: 0px;
+	}
+	.large img {
+	    user-select: none;
+	    height: 100%;
+	}
+	.large p{
+		font-size: 30px;
+		color: #fff;
+	}
+</style>

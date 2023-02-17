@@ -1,0 +1,86 @@
+<div class="TabBox1">
+	<!--进度条-->
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li class="act">办事指南</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span></div>
+	<div class="content">
+		<div class="main2">
+			<div id="wrapper">
+				<div class="scrollBox2 clearfloat widthLimit" id="scrollBox2">
+					<dl class="dllist1 clearfloat">
+						<dt>一、事项名称：</dt>
+						<dd ng-bind-html="guideInfo.clName | to_trusted">
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>二、主管部门：</dt>
+						<dd>
+							<p>{{guideInfo.clDept || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>三、申报条件：</dt>
+						<dd ng-bind-html="guideInfo.clApplyConds | to_trusted">
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>四、申报材料：</dt>
+						<dd id="lodop" ng-bind-html="guideInfo.clApprovalMater | to_trusted">
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>五、办理流程：</dt>
+						<dd ng-bind-html="guideInfo.clApprovalProcess | to_trusted">
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<a ng-click="print()" class="stamp">打印</a>
+<apptb-footer prev="prev()" next="next()" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" concel="concel" confirm="alertConfirm()"></alert>
+<style type="text/css">
+	#wrapper {
+		width: 1750px;
+		height: 410px;
+	}
+	
+	.main2 {
+		overflow: hidden;
+		width: 1185px;
+		height: 405px;
+		margin-left: 40px;
+		margin-top: 50px;
+	}
+	
+	.content {
+		background: url(./images/bg-subcontent.png) no-repeat;
+		width: 1500px;
+		height: 500px;
+		margin-left: 100px;
+		overflow: hidden;
+	}
+	
+	.scrollBox2 {
+		width: 1400px;
+		padding-left: 20px;
+	}
+	
+	a.stamp {
+		background: url(./images/print.png) no-repeat;
+		top: 780px;
+		left: 1545px;
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 24px;
+	}
+</style>

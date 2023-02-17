@@ -1,0 +1,89 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 758px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		margin-left: 295px;
+		margin-top: 160px;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 345px;
+		height: 90px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+		padding: 0 40px;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	
+	@media screen and (max-width: 1600px) {
+		#wrapper {
+		    width: 1100px;
+		    height: 700px;
+		    margin-top: 55px;
+		}
+		.caption {
+			margin: 0px!important;
+			padding: 15px 50px!important;
+		}
+		.singselect {
+		    float: left;
+		    min-height: 60px;
+		    font-size: 24px;
+		    color: #FFF;
+		     margin-left: 0px; 
+		    margin-top: 0px;
+		}
+		.my-card .body {
+			overflow: hidden;
+			padding-top: 60px!important;
+		}
+	}
+</style>
+<div class="stable">
+	<div id="wrapper">
+		<div class="my-card">
+			<div class="head">
+				<h4 class="caption" style="margin-top: 60px;margin-left: 110px;">上年度养老保险个人权益记录单</h4>
+			</div>
+			<div class="body" style="margin-left: 125px;padding-top: 81px;">
+				<dd id="year" class="singselect">
+					<dl style="font-size: 30px;  color: #c2cce3; line-height: 60px;">选择年限</dl>
+					<a>
+						<li vId="000003">{{year-1}}年</li>
+					</a>
+					<a>
+						<li vId="000001">{{year-2}}年</li>
+					</a>
+				</dd>
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

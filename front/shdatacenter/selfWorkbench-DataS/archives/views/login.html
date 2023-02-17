@@ -1,0 +1,89 @@
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+		<div class="scrollBox2 clearfloat" ng-if="isLoding">
+			<idcard read="idcardLogin(info,images)" ng-if="loginType == 'idcard'"></idcard>
+			 <!--ng-if="loginType == 'recognition'"-->
+			<recognition result="getResult(img)" face-image="{{faceImage}}" ng-if="loginType == 'recognition'"></recognition>
+			<ca result="caInfo(companyName,companyNo)" ng-if="loginType == 'ukey'" 				login="caLoginStatus"></ca>
+			<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>
+		</div>
+		<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+</div>
+
+<a href="javascript:;" class="loginBtn" ng-if="loginBtn" ng-click="caLogin()">登录</a>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" 	home="customMain()"go-back="goAppHistoryBack()">
+</apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	ca {
+		display: block;
+		margin-top: 150px;
+	}
+	
+	.loadingBox {
+		position:fixed;
+		left: 50%;
+		top: 40%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.loadingBox p {
+		font-size: 38px;
+	}
+	.loadingBox img {
+		display: block;
+		width: 200px;
+		height: 200px;
+		margin: 10px auto;
+	}
+	
+	citizen-cloud {
+		margin-top: 40px;
+		display: block;
+	}
+	
+	citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		width: 1500px;
+    	height: 555px;
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+	.loginBtn {
+		position: absolute;
+		display: inline-block;
+		width: 140px;
+		top: 742px;
+		left: 1405px;
+		height: 70px;
+		line-height: 70px;
+		text-align: center;
+		font-size: 26px;
+		background: url(../libs/common/images/reBtn.png) no-repeat;
+		background-position: -10px -62px;
+		background-size: 170px 130px;
+	}
+	
+	.scrollBox2 .cardreadingBox1 p {
+	    height: 80px;
+	    line-height: 80px;
+	    overflow: hidden;
+	    font-size: 36px;
+	}
+</style>

@@ -1,0 +1,111 @@
+<apptb-header custom-home="true" fun-name="我的信息" home="customMain()" go-back="goAppHistoryBack()"></apptb-header>
+
+<div class="TabBox1">
+	<p class="caption">请选择查询信息</p>
+	<ul class="container">
+		<!--<li ng-click="goToApp('https://zwdtuser.sh.gov.cn/uc/login/login.jsp?redirect_uri=http://183.194.241.117/smzy/shspace/loginsso/in?callback=http://183.194.241.117/smzy/shell_terminal/goveroment_ywtb/gsss_ywtb')">-->
+		<li ng-click="choice('gjj')" class="animate">
+			<img src="../libs/common/images/newIcon/publicFund.png" />
+			<p>
+				公积金
+			</p>
+		</li>
+		<!--<li ng-click="goToApp('https://zwdtuser.sh.gov.cn/uc/login/login.jsp?redirect_uri=http://183.194.241.117/smzy/shspace/loginsso/in?callback=http://183.194.241.117/smzy/shell_terminal/goveroment_ywtb/goldage_ywtb')">-->
+		<li ng-click="choice('ylj')" class="animate">
+			<img src="../libs/common/images/newIcon/pension.png" />
+			<p>
+				养老金
+			</p>
+		</li>
+		<!--<li ng-click="goToApp('https://zwdtuser.sh.gov.cn/uc/login/login.jsp?redirect_uri=http://183.194.241.117/smzy/shspace/loginsso/in?callback=http://183.194.241.117/smzy/shell_terminal/goveroment_ywtb/gmedicalInsurance_ywtb')">-->
+		<li ng-click="choice('ybj')" class="animate">
+			<img src="../libs/common/images/newIcon/medicalFund.png" />
+			<p>
+				医保金
+			</p>
+		</li>
+		<!--<li ng-click="choice('jjxx')" class="animate">
+			<img src="../libs/common/images/icon/gjj.png" />
+			<p>
+				交警信息
+			</p>
+		</li>
+		<li ng-click="goToApp('../workSearch/index.html')" class="animate">
+			<img src="../libs/common/images/icon/gjj.png" />
+			<p>
+				办事状态
+			</p>
+		</li>-->
+	</ul>
+</div>
+<apptb-footer prev="prevStepa()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.caption {
+		color: #fefefe;
+		margin-left: 195px;
+		font-size: 33px;
+		opacity: .6;
+		margin-top: 100px;
+	}
+	
+	.animate::before {
+		top: 97px;
+	}
+	
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 60px auto;
+		align-items: flex-start;
+		width: 1300px;
+		height: 800px;
+	}
+	
+	.container li {
+		text-align: center;
+		height: 300px;
+		width: 300px;
+	}
+	
+	.container li>img {
+		margin-top: 80px;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 226px;
+		font-size: 28px;
+	}
+	/*.container li:nth-of-type(1) {
+		background-color: #0078d7;
+	}
+	
+	.container li:nth-of-type(2) {
+		background-color: #50a299;
+	}
+	
+	.container li:nth-of-type(3) {
+		background-color: #8973b4;
+	}
+	
+	.container li:nth-of-type(6) {
+		background-color: #fc6392;
+	}*/
+	
+	.container li:nth-of-type(4) {
+		margin-left: 253px;
+	}
+	
+	.container li:nth-of-type(5) {
+		margin-right: 246px;
+	}
+	
+	.TabBox1 {
+		background: url(./../libs/common/images/bg-content.png) no-repeat center center;
+		height: 850px;
+	}
+</style>

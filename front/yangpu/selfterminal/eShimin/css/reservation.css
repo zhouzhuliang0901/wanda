@@ -1,0 +1,222 @@
+/* CSS Document */
+
+.content_box_form{background:url(../images/chooseform/form1280x1024.jpg) no-repeat; width:1280px; height:1024px; position:relative;}
+.form_title{ z-index:2; position:absolute; background:url(../images/reservation/title.png) no-repeat center 35px; margin:0 auto; height:70px; text-align:center; width:100%;}
+
+.reservation_box{ position:absolute; width:100%; color:#fff; font-size:30px; text-align:center; line-height:10px; font-weight:bold; margin-top:70px;}
+.reservation_box p{ text-align:center; line-height:60px;}
+.reservation_box p span{ color:#f2ff52;}
+
+.offices{
+	border-collapse:collapse;
+	width:70%;
+	margin:0 auto;
+}
+.offices td{
+	padding:1.25%;
+	
+	text-align:center;
+}
+
+.chooseOffices{
+	width:80%;
+	border-collapse:collapse;
+	margin:0 auto;
+}
+.chooseOffices a{
+	display:block;
+	background:url(../images/reservation/btnletter.png) center center no-repeat;
+	width:52px;
+	height:52px;
+	line-height:52px;
+	font-size:24px;
+	color:#fff;
+	text-align:center;
+	margin:0 auto;
+}
+.chooseOffices td{
+	padding:1.25% 0;
+}
+.chooseOffices a.all{
+	background:url(../images/reservation/all_btnletter.png) center center no-repeat;
+	width:65px;
+}
+.chooseOffices a:hover{
+	background:url(../images/reservation/btnletter_cur.png) center center no-repeat;
+}
+.chooseOffices a.all:hover{
+	background:url(../images/reservation/all_btnletter_cur.png) center center no-repeat;
+}
+
+.choosen{
+	background:url(../images/reservation/pnlbmItembg.png) center center no-repeat;
+	width:932px;
+	height:670px;
+	margin:0 auto;
+	margin-top:2.5%;
+}
+
+.chooseList{
+	width:892px;
+	height:550px;
+	margin:0 auto;
+	margin-top:1.25%;
+}
+.chooseList td{
+	height:35px;
+	line-height:35px;
+}
+.chooseList tr.even{
+	background-color:rgba(0,0,0,0.125);
+}
+.chooseList td{ padding:0px 10px;}
+.chooseList td a{
+	width:100%;
+	display:block;
+	color:#fff;
+	font-weight:normal;
+}
+
+.phoneBg{
+	background:url(../images/reservation/tbxmoblebg.png) top center no-repeat;
+	width:537px;
+	margin:1.875% auto;
+	height:54px;
+	line-height:54px;
+}
+.phoneinput{
+	height:100%;
+	width:460px;
+	color:#fff;
+	letter-spacing:27px;
+	background:none;
+	font-size:24px;
+	margin-left:55px;
+	margin-top:-10px;
+	padding-left:17.5px;
+	border:none;
+	font-family:"Microsoft YaHei", "微软雅黑",STXihei,"华文细黑",serif;	
+}
+
+
+.location{
+   width:1150px;
+   margin:0 auto;
+   margin-top:1.25%;
+}
+#slideNews{
+   width:1150px;
+   height:700px;
+    float: left;
+    border:none;
+    /*  width: 760px;height: 120px;
+    margin: 4px 2px; */
+}
+.productshow{
+   /*  height:120px;
+    width: 760px; */
+   width:1150px;
+   height:700px;
+    position:relative;
+    text-align:center;
+}
+.productshow .scrollcontainer{
+   /*  width:670px;
+    height:120px; */
+   width:932px;
+   height:700px;
+    overflow:hidden;
+    position:relative;
+    margin:0 auto;
+}
+.productshow .scrollcontainer ul{
+    width:20000px;
+    position:absolute;
+    left:0px;
+    top:0px;
+    padding: 0px;
+}
+.productshow .scrollcontainer li{
+    float:left;
+    width:932px;
+    height:670px;
+    text-align:center;
+    display: inline;
+}
+.productshow .scrollcontainer li.last{background:none;}
+.productshow .scrollcontainer li div{
+    height:670px;
+    width:932px;
+    overflow:hidden;
+    text-align:center;
+}
+.productshow .scrollcontainer li div a{text-align: left;}
+
+a.aleft{
+    width:98px;
+    height:98px;
+    top: 40%;
+    left: 0;
+    background:url(../images/reservation/rollLeft.png) no-repeat;
+}
+a.abtn{
+    position:absolute;
+    display:block;
+    overflow:hidden;
+    text-indent:-20000px;
+}
+a.aright{
+    top: 40%;
+    right:0;
+    background:url(../images/reservation/rollRight.png) no-repeat;
+    background-position:0px center;
+    width:98px;
+    height:98px;
+}
+
+.timeArea{
+	background:url(../images/reservation/t2.png) top center no-repeat;
+	width:1101px;
+	height:68px;
+	line-height:68px;
+	margin:2.5% 0;
+	margin-left:7.5%;
+}
+.reservationOffice{
+	background:url(../images/reservation/t1.png) top center no-repeat;
+	width:941px;
+	height:58px;
+	line-height:58px;
+	margin-left:7.5%;
+	margin-bottom:2.5%;
+}
+
+.reservationInput{
+	width:78%;
+	background:none;
+	margin-left:19%;
+	height:70%;
+	font-size:24px;
+	color:#04274d;
+	margin-top:-0.75%;
+	border:none;
+	font-family:"Microsoft YaHei", "微软雅黑",STXihei,"华文细黑",serif;	
+}
+
+.rIlong{
+	width:81.25%;
+	margin-left:16.25%;
+}
+
+.by{
+	float:left;
+	text-align:center;
+	width:410px;
+	margin-left:14.45%;
+}
+.ny{
+	float:right;
+	text-align:center;
+	width:410px;
+	margin-right:14.45%;
+}

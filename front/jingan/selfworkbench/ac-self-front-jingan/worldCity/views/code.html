@@ -1,0 +1,27 @@
+<app-header fun-name="{{funName}}" go-back="goAppHistoryBack()"></app-header>
+<div class="load">
+	<img src="views/code.jpg"/>
+</div>
+<!-- <iframe id="infoForm" ng-src="{{address}}" width="" height=""></iframe> -->
+<app-footer next="nextStep()" default-next="hidden"></app-footer>
+<style type="text/css">
+	.load {
+		position: absolute;
+		margin: 300px 710px;
+		font-size: 100px;
+	}
+	.load img{
+		position: absolute;
+	    width: 450px;
+	    top: -118px;
+	}
+	
+	iframe {
+		position: absolute;
+		width: 1915px;
+		height: 909px;
+		margin: 0 auto;
+		display: block;
+		border: none;
+	}
+</style>

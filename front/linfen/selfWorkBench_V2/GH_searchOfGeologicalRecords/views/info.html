@@ -1,0 +1,261 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		    margin-top: 86px;
+    margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 9.4%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;	
+		padding-left: 4%;
+		border: none;
+		background: rgba(0,0,0,0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+	    right: 5%;
+	    width: 52px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+	
+	.sDetail{
+		float: left;
+		width: 1300px;
+    	height: 1500px;
+		overflow: hidden;
+		/* background: url('../libs/common/images/bg-bigList.png') no-repeat; */
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: 145px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail dd {
+		margin-top: 30px;
+	    height: 60px;
+	    width: 74%;
+	    margin: 0.9% auto;
+	}
+	
+	.sDetail dl {
+		white-space: normal;
+		width: 80%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail b {
+		width: 16%;
+		display: block;
+		float: left;
+		margin-left: -20px;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	
+	.select {
+		float: left;
+		width: 600px;
+    	height: 230px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1%;
+	}
+	
+	.select dd {
+	margin-top: 30px;
+    height: 80px;
+    width: 74%;
+    margin: 2.6% auto;
+	}
+	
+	.select dl {
+		white-space: normal;
+		width: 100%;
+		height: 100%;
+		line-height: 150%;
+	}
+	
+	.select b {
+		width: 130px;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	
+	@media screen and (max-width: 1600px) {
+	.bg-middle {
+			background-size: 100% 80%;
+	}
+	.caption {
+			margin-left: 80px !important;
+			margin-top: 60px !important;
+	}
+	.linkt {
+			left: 10px;
+	}
+	.select {
+			width: 900px;
+	}
+	.select dl {
+			width: 80%;
+	}
+	.select dd {
+			margin-top: 12px;
+	}
+	.sDetail{
+		float: left;
+		width: 1300px;
+    	height: 1500px;
+		overflow: hidden;
+		/* background: url('../libs/common/images/bg-bigList.png') no-repeat; */
+		background-size: 100% 100%;
+		margin-top: 10px;
+		margin-left: -75px;
+		margin-bottom: 40px;		
+  		white-space: inherit;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	}
+</style>
+<p class="caption">地质档案详情</p>
+<div class="scrollBox2 clearfloat">
+	<!-- <div class="schoolName" ng-if="isDetial">
+		<input type="text" placeholder="请输入学校名称关键字" ng-model="schoolName"/>
+		<img ng-click="querySchoolsInfo(schoolName)" src="../libs/common/images/icon-link9.png"/>
+	</div> -->
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="detailInfo">
+				<a class="sDetail">
+					<dd>
+						<b>档案号</b>：
+						<dl>{{ spaceInfoList.codeV || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>标题名</b>：
+						<dl>{{ spaceInfoList.titleV || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>报告形成单位</b>：
+						<dl>{{ spaceInfoList.XCDW || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>编著者</b>：
+						<dl>{{ spaceInfoList.BZZ || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>语种</b>：
+						<dl>{{ spaceInfoList.YZ || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>密级</b>：
+						<dl>{{ spaceInfoList.MJ || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>保护期</b>：
+						<dl>{{ spaceInfoList.BHQ || "------"}}</dl>
+					</dd>
+					
+
+					<dd>
+						<b>保护形成日期</b>：
+						<dl>{{ spaceInfoList.dateV || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>报告类别</b>：
+						<dl>{{ spaceInfoList.BGLB || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>工作程度</b>：
+						<dl>{{ spaceInfoList.GZCD || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>矿产名称</b>：
+						<dl>{{ spaceInfoList.KCMC || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>档案馆名</b>：
+						<dl>{{ spaceInfoList.DAGM || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>行政区名</b>：
+						<dl>{{ spaceInfoList.XZQM || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>电子档号</b>：
+						<dl>{{ spaceInfoList.DZDH || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>关键词</b>：
+						<dl>{{ spaceInfoList.GJZ || "------"}}</dl>
+					</dd>
+					<dd>
+						<b>PDF文件</b>：
+						<dl>------</dl>
+					</dd>
+					<dd>
+						<b>内容提要</b>：
+						<dl>{{ spaceInfoList.NRZY || "------"}}</dl>
+					</dd>
+				
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

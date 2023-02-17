@@ -1,0 +1,14 @@
+<div class="scrollBox2 bg_photo clearfloat" style="overflow:visible;">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img ng-class="{'loading':recognitionOver}" ng-src="{{showImage}}" />
+			<p>{{tipsText}}</p>
+		</a>
+	</div>
+	<a href="javascript:;" class="stamp" id="takePhoto1" ng-click="capture()" ng-if="!recognitionOver"></a>
+	<a href="javascript:;" class="stamp reR" ng-click="reRecognition()" ng-if="recognitionOver">重新核验</a>
+	<a href="javascript:;" class="stamp success" ng-click="success()" ng-if="recognitionOver">完&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</a>
+</div>
+<style type="text/css">
+
+</style>

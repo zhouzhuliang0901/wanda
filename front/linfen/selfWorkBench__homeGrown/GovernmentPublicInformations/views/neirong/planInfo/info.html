@@ -1,0 +1,97 @@
+<style type="text/css">
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 15%;
+		color: #fff;
+		opacity: 1;
+	}
+
+	#wrapper {
+		width: 94%;
+		height: 100%;
+		overflow: hidden;
+	}
+	.menuInfoBox {
+		height: 74%;
+		margin: 6% 0 0 0;
+	}
+	.menuInfoBox .sonMenu a {
+		width: 30%;
+		height: 100px;
+	}
+
+	.menuBox ul li {
+		line-height: normal;
+		margin: 2% 0;
+		background: none;
+		background-color:#2F5597;
+		border-radius: 25px;
+	}
+	.menuBox ul .in{
+		background: none;
+		background-color:#0A50A8;
+
+	}
+	.menuBox ul li:after{
+		left: 6%;
+	}
+	.menuBox ul li.in:after{
+		left: 3.1%;
+	}
+	.menuBox ul li span{
+		display: flex;
+		align-items: center;
+		    width: 73%;
+		    margin-left: 17%;
+		height: 112px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.menuInfoBox {
+		    height: 74%;
+		    margin: 8% 0 0 0;
+		}
+		.menuInfoBox .menuBoxContent span {
+		    width: 93%;
+		}
+	}
+</style>
+<p class="caption">
+	{{firstName}}&emsp; |&emsp; <span class="captionMini">{{secondName}}</span></p>
+<div class="scrollBox2 clearfloat">
+
+	<div class="TabBox">
+		<!--左边菜单-->
+		<div class="menuBox">
+			<ul>
+				<li ng-class="{in:current==index}" ng-repeat="(index,item) in menuList" ng-click="choiceMenu(index,item)"><span>{{item.name}}</span></li>
+			</ul>
+		</div>
+		<!--右边内容-->
+		<div class="menuInfoBox">
+			<div id="wrapper" class="wrapper">
+				<div>
+					<div class="menuBoxContent" ng-show='current == 1 ||current ==2'>
+						<div class="contentList" ng-repeat="item in infoList" repeat-finish ng-click="getDetail(item.id,item.title)">
+							<img src="images/point.png" alt="" /><span>{{item.title}}</span>
+						</div>
+					</div>
+					<div class="menuBoxContent" ng-show='current == 0 ||current ==3'>
+						<div class="contentList contentTitle" ng-click="getDetail(contentTitle.id,contentTitle.title)">
+							<img src="images/point.png" alt="" /><span>{{contentTitle.title}}</span>
+						</div>
+						<p>纲要解读</p>
+						<div class="contentList" ng-repeat="item in infoList" repeat-finish ng-click="getDetail(item.id,item.title)">
+							<img src="images/point.png" alt="" /><span>{{item.title}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

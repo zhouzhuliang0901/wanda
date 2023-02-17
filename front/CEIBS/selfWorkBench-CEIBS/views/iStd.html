@@ -1,0 +1,67 @@
+<style type="text/css">
+	p.English {
+		font-size: 30px;
+	}
+
+	.gray {
+		background-color: rgba(0, 0, 0, .6);
+		background-image: inherit;
+	}
+
+	.tips {
+		font-size: 21px;
+		right: 20px;
+		bottom: 65px;
+		opacity: .6;
+		color: #A61316;
+		width: 600px;
+		position: absolute;
+	}
+</style>
+<section class="std" ng-show="version =='Chinese'">
+	<h2><img src="img/iconStdSubtit.png" alt="">学生校友证明打印</h2>
+	<div class="std">
+		<a ng-click="choiceType('stdCertificateInfo','成绩单')" class="item i1">
+			<p class="signTxt">成绩单</p>
+		</a>
+		<a ng-click="choiceType('stdCertificateInfo','学习进度表')" class="item i4" ng-class="{'gray':status!='0'}">
+			<p class=" signTxt">学习进度表</p>
+		</a>
+		<a ng-click="choiceType('stdCertificateInfo','学籍证明')" class="item i2" ng-class="{'gray':status=='0'}">
+			<p class="signTxt">学籍证明</p>
+		</a>
+		<a ng-click="choiceType('stdCertificateInfo','学位证书丢失证明')" class="item i4" ng-class="{'gray':status=='0'}">
+			<p class=" signTxt">学位证书<br>丢失证明</p>
+		</a>
+		<a ng-click="choiceType('stdCertificateInfo','在读证明')" class="item i6" ng-class="{'gray':status!='0'}">
+			<p class=" signTxt">在读证明</p>
+		</a>
+	</div>
+	<p class="tips">Tips:若对使用有疑问请联系邮件studentaffairs@ceibs.edu, 电话：+86 21 28905915</p>
+</section>
+<section class="std" ng-show="version =='English'">
+	<h2><img src="img/iconStdSubtit.png" alt="">Student and Alumni Certificate</h2>
+	<div class="std">
+		<a ng-click="choiceType('stdCertificateInfo','成绩单')" class="item i1">
+			<p class="signTxt English">Official transcript</p>
+		</a>
+		<a ng-click="choiceType('stdCertificateInfo','学习进度表')" class="item i4" ng-class="{'gray':status!='0'}">
+			<p class=" signTxt English">Learning Schedule</p>
+		</a>
+		<a ng-click="choiceType('stdCertificateInfo','学籍证明')" class="item i2" ng-class="{'gray':status=='0'}">
+			<p class="signTxt English">Student Status<br>Certificate Letter</p>
+		</a>
+
+		<a ng-click="choiceType('stdCertificateInfo','学位证书丢失证明')" class="item i4" ng-class="{'gray':status=='0'}">
+			<p class="signTxt English">Lost Degree<br>Certificate Letter</p>
+		</a>
+
+		<a ng-click="choiceType('stdCertificateInfo','在读证明')" class="item i6" ng-class="{'gray':status!='0'}">
+			<p class="signTxt English">In-school<br>Certificate Letter</p>
+		</a>
+	</div>
+	<p class="tips">Tips:If you have any questions, please contact the email studentaffairs@ceibs.edu, telephone: +86 21
+		28905915</p>
+</section>
+<app-footer prev="prevStep()" default-is-show-next-btn="hidden"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

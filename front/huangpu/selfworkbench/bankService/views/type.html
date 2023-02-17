@@ -1,0 +1,60 @@
+<app-header fun-name="金融服务" go-back="goAppHistoryBack()"></app-header>
+<div class="scrollBox2 clearfloat">
+	<div class="linkt">
+		<a id="eleven" onclick="click_point(this.id);" style="margin-left:40px;" ng-click="goToApp('index.html#/choice')">
+			<li class="select" style="background: #49b9f3;">
+				<img class="img" src="../libs/common/images/bankService/icbc.png" />
+			</li>
+		</a>
+		<a id="twelve" onclick="click_point(this.id);" ng-click="goToApp('index.html#/main?name=ccb')">
+			<li class="select" style="background: #ffb347;">
+				<img class="img" src="../libs/common/images/bankService/js.png" />
+			</li>
+		</a>
+		<a id="fourteen" onclick="click_point(this.id);" ng-click="goToApp('index.html#/main?name=xmbc')">
+			<li class="select" style="background: #f17878;">
+				<img class="img" src="../libs/common/images/bankService/xm.png" />
+			</li>
+		</a>
+		<a id="thirteen" onclick="click_point(this.id);" ng-click="goToApp('index.html#/main?name=pfbc')">
+			<li class="select" style="background: #f66725;">
+				<img class="img" src="../libs/common/images/bankService/pf.png" />
+			</li>
+		</a>
+		<a id="eighteen" onclick="click_point(this.id);" ng-click="goToApp('index.html#/main?name=boc')">
+			<li class="select" style="background: #fc6392;">
+				<img class="img" src="../libs/common/images/bankService/boc.png" />
+			</li>
+		</a>
+		<a id="eighteen-one" onclick="click_point(this.id);" ng-click="goToApp('index.html#/main?name=abc')">
+			<li class="select" style="background: #B4C7E7;">
+				<img class="img" src="../libs/common/images/bankService/abc.png" />
+			</li>
+		</a>
+	</div>
+</div>
+<apptb-footer default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.img {
+		margin-bottom: -16px;
+	}
+
+
+	.linkt {
+		width: 1350px;
+		margin-left: 295px;
+		margin-top: 184px;
+	}
+
+	.select {
+		float: left;
+		width: 400px;
+		height: 200px;
+		overflow: hidden;
+		margin-right: 17px;
+		margin-bottom: 21px;
+		    line-height: 200px;
+    text-align: center;
+	}
+</style>

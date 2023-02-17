@@ -1,0 +1,43 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" ui-sref="{{formPrevRouter}}">{{module}}</a>
+        </li>
+        <li>
+            <a href="javascript:;">{{whoOperation}}</a>
+        </li>
+        <li class="active">扫描{{operation}}</li>
+    </ol>
+</nav>
+<div class="shadowBox scanCode">
+    <div class="mainImg" ng-if="!isManual">
+        <img class="bgMain" src="images/cabinet.png" alt="">
+        <img class="arrow" src="images/arrow.gif" alt="">
+    </div>
+    <p ng-click="next()" class="boldTips" ng-if="!isManual">请扫描{{matterName}}上的{{operation}}</p>
+
+    <input type="text" class="inputBox" ng-if="isManual" ng-model="numCode" maxlength="15" placeholder="请输入统一审批编码">
+    <div class="keybord" ng-if="isManual">
+        <a href="javascript:;" class="key" ng-click="inputCode(1)">1</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(2)">2</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(3)">3</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(4)">4</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(5)">5</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(6)">6</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(7)">7</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(8)">8</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(9)">9</a>
+        <a href="javascript:;" class="key txt" ng-click="deleteCode()">删除</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(0)">0</a>
+        <a href="javascript:;" class="key txt" ng-click="confirmCode()">确认</a>
+    </div>
+    <div class="btn" ng-if="!isStaff" ng-click="changeInputModel()">
+        <img class="eventIcon" src="images/icon/edit.png" alt="">
+        <span class="event">{{btnInfo}}</span>
+    </div>
+</div>

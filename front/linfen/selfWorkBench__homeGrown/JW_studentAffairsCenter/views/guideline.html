@@ -1,0 +1,90 @@
+<p class="caption">{{funName}}办理须知</p>
+<div class="main2" style="width: 1625px;height: 645px;margin-left: 118px;    margin-top: 30px;">
+	<div id="wrapper">
+		<div class="scrollBox2 clearfloat">
+			<dl class="dllist1 clearfloat">
+				<dt>温馨提示:</dt>
+				<dd ng-bind-html="guideline | to_trusted">
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.scrollBox2 .dllist1 dd {
+		width: 1284px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 600px;
+	}
+	
+	.stuff td {
+		font-size: 24px;
+	}
+	
+	.stuff th {
+		font-size: 24px;
+	}
+	
+	.stuff table tr>td:nth-child(1) {
+		width: 950px;
+	}
+	
+	.stuff table tr>td:nth-child(2) {
+		display: none;
+		text-align: center
+	}
+	
+	.stuff table tr>th:nth-child(2) {
+		display: none;
+	}
+	
+	.stuff table tr>td:nth-child(3) {
+		width: 170px;
+		margin-left: 20px;
+		text-align: center
+	}
+	
+	.stuff table tr>td:nth-child(4) {
+		width: 130px;
+		margin-left: 20px;
+		text-align: center
+	}
+	
+	.stuff table tr>td:nth-child(5) {
+		width: 150px;
+		margin-left: 20px;
+		text-align: center
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.scrollBox2 .dllist1 dt {
+			width: 180px;
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 880px;
+		}
+		#wrapper {
+			height: 560px;
+			overflow: auto;
+		}
+	}
+</style>

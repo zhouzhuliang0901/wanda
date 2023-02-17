@@ -1,0 +1,127 @@
+<div class="contain">
+	<div class="stable">
+		<div class="my-card">
+			<div class="head">
+				<h4>{{operation}}</h4>
+				<p>注：灰色格表示补充公积金缴存比例和上下限</p>
+			</div>
+			<div id="wrapper">
+				<div class="body">
+
+					<table class="table-sty1" cellspacing="0">
+						<tr>
+							<th rowspan="2">年度</th>
+							<th rowspan="2">缴存基数</th>
+							<th colspan="2">缴存比例</th>
+							<th rowspan="2">上限</th>
+							<th rowspan="2">下限</th>
+						</tr>
+						<tr>
+							<th>个人</th>
+							<th>单位</th>
+							<th></th>
+							<th></th>
+							<th></th>
+							<th></th>
+						</tr>
+						<tr ng-repeat="item in Item">
+							<th>{{item.currentYear}}</th>
+							<th>上年月平均工资</th>
+							<th colspan="4" class="itemTh">
+								<table class="child-table">
+									<tr ng-repeat="payment in item.sameYear" ng-class="{'gray':payment.addzfjc != 'null'}">
+										<th>{{payment.zfjc || payment.addzfjc}}</th>
+										<th>{{payment.dwzfjc}}</th>
+										<th class="childTh">{{payment.uplimit == "无"? "无" : payment.uplimit+"元"}}</th>
+										<th class="childTh">{{payment.downlimit == "无"? "无" : payment.downlimit+"元"}}</th>
+									</tr>
+								</table>
+							</th>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.table-sty1 th {
+		text-align: center;
+		width: 30%;
+	}
+	
+	.head p {
+		display: block;
+		float: left;
+		width: 80%;
+		font-size: 24px;
+		color: #e1ba1c;
+		margin-bottom: 1%;
+		margin-left: 1%;
+	}
+	
+	.gray {
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+	
+	.table-sty1 {
+		margin-left: 0px;
+	}
+	
+	.child-table {
+		width: 100%;
+		border-bottom: none;
+		border-top: none;
+		height: 80px;
+	}
+	
+	.child-table tr {
+		border-bottom: none;
+		border-top: none;
+	}
+	
+	.child-table th {
+		border-bottom: none;
+		border-left: none;
+		padding: 0;
+		width: 16.6%;
+	}
+	
+	.child-table .childTh {
+		padding: 0;
+		width: 33.3%;
+	}
+	
+	.table-sty1 .itemTh {
+		padding: 0;
+		border-left: none;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 600px;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.contain {
+			width: 1080px;
+		}
+		#wrapper {
+			width: 1320px;
+			height: 540px;
+		}
+	}
+</style>

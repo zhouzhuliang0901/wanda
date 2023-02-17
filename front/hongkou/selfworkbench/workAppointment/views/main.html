@@ -1,0 +1,11 @@
+<p class="caption">{{operation}}</p>
+<list-box items="itemList" result="check(item)" prop="{{itemProperty}}" rows="5"></list-box>
+
+<app-footer prev="prevStep()" next="nextStep()" ng-if="next"></app-footer>
+
+<style type="text/css">
+	list-box{
+		display: block;
+		margin-top: 50px;
+	}
+</style>

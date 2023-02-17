@@ -1,0 +1,83 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	.input-append {
+		height: 100px;
+	}
+
+	.input1 {
+		height: 70px;
+		width: 400px;
+		padding-left: 23px;
+		font-size: 34px;
+		background: url(../libs/common/images/big-input.png) no-repeat;
+		background-size: 400px 70px;
+	}
+
+	.scrollBox2 {
+		width: 100%;
+		margin-top: 200px;
+		margin-left: 100px;
+	}
+
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.span {
+		float: left;
+		text-align: right;
+		width: 300px;
+	}
+
+	.scrollBox2 .dllist1 dd {
+		width: 100%;
+	}
+
+	.input1 {
+		width: 1100px;
+		background-size: 1100px 70px;
+		font-size: 24px;
+	}
+
+	@media only screen and (max-width: 1600px) {
+		.scrollBox2 {
+			margin-left: 0px;
+		}
+		.input1 {
+			width: 780px;
+			background-size: 780px 70px;
+			font-size: 17px;
+		}
+	}
+</style>
+<p class="caption">证书绑定</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<dl class="dllist1 clearfloat">
+			<dd class="lt1">
+				<span class="span">mac：</span>
+				<div class="">
+					<input class="input1" type="text" id="stsbMac" ng-model="stsbMac" readonly>
+				</div>
+			</dd>
+			<dd class="lt1">
+				<span class="span">设备唯一序列号：</span>
+				<div class="">
+					<input class="input1" type="text" id="stzsMac" ng-model="stzsMac" readonly>
+				</div>
+			</dd>
+		</dl>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="确定上传" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

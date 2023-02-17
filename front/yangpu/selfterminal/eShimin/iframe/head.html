@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- stop ie compatibility mode -->
+<title>身份证复印</title>
+<link rel="stylesheet" type="text/css" href="../css/common.css">
+<link rel="stylesheet" type="text/css" href="../css/all.css">
+<link rel="stylesheet" type="text/css" href="../css/copy.css">
+<script type="text/javascript" src="../js/jquery-1.8.1.min.js" ></script>
+</head>
+
+<body>
+  <!--首页、返回按钮 -->
+  <div class="button_box">
+    <div class="djs_button"  id="djs"></div>
+    <div class="back_button"><a onclick="goHome();" target="_parent"><img src="../images/home.png" width="80" height="74" alt=""  ondragstart="return false"/></a></div>
+  </div>
+</body>
+</html>
+<script type="text/javascript">
+function goHome(){
+	window.external.CmCapHide();
+    window.external.CardReadStop(); 
+    window.external.BarcodeScannerStop();
+    window.external.ShowHomeIndex();
+	window.external.GoHome();
+	window.localStorage.clear();
+}
+</script>

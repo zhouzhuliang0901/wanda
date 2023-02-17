@@ -1,0 +1,57 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="自助申报"></apptb-header>
+	
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>人证核验</li>
+			<li>信息填写</li>
+			<li class="act">在线填报</li>
+		</ul>
+		<span class="line"></span>
+		<div class="main2" style="height: 650px;">
+			<div class="action">
+				<div class="imageShow" style="height: 500px;position: absolute;top: 99px;left: 40px;font-size: 40px;">
+					<img ng-click="select(index)" ng-class="{'imgStyle':current==index}" class="id" ng-src="{{'http://218.202.254.222'+item.pictureUrlForBytes}}" ng-repeat="(index,item) in imgUrls">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="loadingBox" ng-show="!isLoading">
+		<img style="margin-left: 909px;margin-top: 310px;" src="../libs/common/images/loadings.gif" alt="">
+		<p>正在加载数据，请稍后...</p>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="goNext()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<style>
+	.id {
+		height: 185px;
+	}
+	
+	.imgStyle {
+		border: #AA0000 2px solid;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+</style>

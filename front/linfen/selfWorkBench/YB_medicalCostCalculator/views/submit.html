@@ -1,0 +1,60 @@
+<p class="caption">{{funName}}查询结果</p>
+<div class="st">
+	<div class="my-card">
+		<div class="body">
+			<table class="table-sty1" cellspacing="0" style="table-layout: auto;width:83%;margin-left: 155px;margin-top: 50px;">
+				<tr>
+					<th>个人现金支付数额：</th>
+					<td>{{resultList.cash|number:2}}</td>
+					<th>当年帐户划扣数：</th>
+					<td>{{resultList.curraccount|number:2}}</td>
+				</tr>
+				<tr>
+					<th>历年帐户划扣数额：</th>
+					<td>{{resultList.hisaccount|number:2}}</td>
+					<th>统筹基金支付数额：</th>
+					<td>{{resultList.tczf|number:2}}</td>
+				</tr>
+				<tr>
+					<th>地方附加基金支付数额：</th>
+					<td>{{resultList.dfzf|number:2}}</td>
+					<th></th>
+					<td></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.bd {
+		border-top: 0px;
+		border-left: 0px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.select1 option {
+		color: #333;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.table-sty1 th {
+		width: 26%;
+		font-weight: bold;
+	}
+</style>

@@ -1,0 +1,26 @@
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+</style>
+
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceLogin('idcard')" ng-if="licenseType=='person'">
+			<img src="../libs/common/images/icon/person.png" />
+			<p>身份证登录</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceLogin('ukey')" ng-if="licenseType=='corporate'">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>Ukey登录</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceLogin('cloud')">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>随申办登录</p>
+		</a>
+	</div>
+</div>
+<app-footer next="nextStep()" default-next="hidden"></app-footer>

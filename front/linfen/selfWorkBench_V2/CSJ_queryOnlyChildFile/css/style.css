@@ -1,0 +1,42 @@
+.input {
+	width: 100%;
+	height: 60px;
+	background: rgba(255, 255, 255, .25);
+	box-sizing: border-box;
+	display: inline-block;
+	border: none;
+	outline: none;
+	font-size: 24px;
+	color: #FFF;
+	padding-left: 15px;
+}
+
+.input::-webkit-input-placeholder {
+	color: #fff;
+}
+
+.input:-ms-input-placeholder {
+	color: #fff;
+}
+
+.select {
+	font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	width: 100%;
+	line-height: 40px;
+	padding-left: 15px;
+	height: 60px;
+	overflow: hidden;
+	display: inline-block;
+	border: none;
+	background: url("../../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+	font-size: 24px;
+	color: #FFF;
+	position: relative;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.select option {
+	color: #333;
+}

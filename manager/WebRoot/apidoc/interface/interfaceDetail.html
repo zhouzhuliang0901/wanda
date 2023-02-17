@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>接口文档</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link href="lib/skin/layer.css" type="text/css" media="all" rel="stylesheet">
+<link href="css/markdown.css" type="text/css" media="all" rel="stylesheet">
+<link href="css/markdown-plus.css" type="text/css" media="all" rel="stylesheet">
+<link href="css/ucenter.css" type="text/css" media="all" rel="stylesheet">
+</head>
+<body style="text-align:center;">
+<div id="view" style="text-align:left; margin:auto;width: 1000px;">
+
+<script id="interfaceList" type="text/html">
+{{# if (d.isShow != "N"){ }}
+<div class="mainIndex"> 
+    <div> 
+      <ul style="padding: 2px; font-size: 10px;"> 
+      </ul> 
+    </div> 
+   </div>
+{{# } }}
+<div id="name" style="width: 800px;">
+<article class="markdown-body">
+
+<h1 style="font-size:36px;text-align:center;font-family:Microsoft Yahei"> {{ d.allInfo.stModuleName }}</h1>
+<blockquote><p>{{ d.allInfo.stRemark }}</p></blockquote>
+{{# if(d.allInfo.apidocInterfaces != null && d.allInfo.apidocInterfaces.length != 0 ){ }}
+	{{# var i = 0; }}
+	{{# layui.each(d.allInfo.apidocInterfaces,function(index,item){ }}
+		{{#	i = i + 1; }}
+		<h2 id="{{ item.stInterfaceName }}" > {{ i }}、{{ item.stInterfaceName }}</h2>
+		<ol >
+			<li>接口请求url</li>
+		</ol>
+		<pre ><code class="hljs"><span class="hljs-regexp">{{ item.stUrl }}</span></code></pre>
+		<ol start="2" >
+		<li>接口请求方式</li>
+		</ol>
+		<pre ><code><span ><b>{{ item.stMethod }}</b></span></code></pre>
+		<ol start="3" >
+			<li>接口功能</li>
+		</ol>
+		<p>{{ item.clRemark }}</p>
+		<ol start="4">
+			<li>接口请求参数说明</li>
+		</ol>
+		{{# if(item.clRequestParam.length != 0){ }}
+		<table>
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>是否必填</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+		{{# var requestParam = eval('(' + item.clRequestParam + ')'); }}
+		{{# layui.each(requestParam,function(index, param){ }}
+		<tr>
+			<td>{{ param.name }}</td>
+			<td>{{ param.necessary }}</td>
+			<td>{{ param.state }}</td>
+		</tr>
+		{{# }); }}
+			</tbody>
+		</table>
+		{{# }else{ }}
+		{{# item.clRequestParam = '无'; }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item.clRequestParam }}</span>
+		</code></pre>
+		{{# } }}
+
+		&nbsp;&nbsp;&nbsp;&nbsp;<p>
+		<span style ="font-weight:bolder;background-color:#11a5dd;color:#fff;padding:5px 15px; 
+		border-radius:30px;font-size:12px">接口请求参数示例</span></p>
+		
+		{{# if(item.clRequestExam.length == 0 ){ }}
+		{{# item.clRequestExam = '无'; }}
+		{{# } }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item.clRequestExam }}</span>
+		</code></pre>
+		<ol start="5">
+		<li>接口返回参数说明</li>
+		</ol>
+		{{# if(item.clResponseParam.length != 0){ }}
+		<table>
+			<thead>
+				<tr>
+				<th>参数</th>
+				<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+			{{# var responseParam = eval('(' + item.clResponseParam + ')'); }}
+			{{# layui.each(responseParam,function(index, param){ }}
+			<tr>
+				<td>{{ param.name }}</td>
+				<td>{{ param.state }}</td>
+			</tr>
+			{{# }); }}
+			</tbody>
+		</table>
+		{{# }else{ }}
+		{{# item.responseParam = '无'; }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item.responseParam }}</span>
+		</code></pre>
+		{{# } }}
+		&nbsp;&nbsp;&nbsp;&nbsp;<p>
+		<span style ="font-weight:bolder;background-color:#11a5dd;color:#fff;padding:5px 15px; 
+		border-radius:30px;font-size:12px">接口返回参数示例</span></p>
+		{{# if(item.clResponseExam.length == 0 ){ }}
+		{{# item.clResponseExam = '无'; }}
+		{{# } }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item.clResponseExam }}</span>
+		</code></pre>
+	{{#  }); }}
+{{#  } }}
+
+{{# if(d.allInfo.sonApidocModuleView != null && d.allInfo.sonApidocModuleView.length != 0 ){ }}
+	{{# var j = 0; }}
+	{{# layui.each(d.allInfo.sonApidocModuleView,function(index,item1){ }}
+		{{# j = j + 1; }}
+		<h2 id="{{ item1.stModuleName }}" >{{ j }}、{{ item1.stModuleName }}</h2>
+		{{# if(item1.apidocInterfaces != null && item1.apidocInterfaces.length != 0 ){ }}	
+		{{# var k = 0; }}
+		{{# layui.each(item1.apidocInterfaces,function(index,item2){ }}
+		{{# k = k + 1; }}
+		<h3 id="{{ item2.stInterfaceName }}" >{{ j }}.{{ k }} {{ item2.stInterfaceName }}</h2>
+		<ol >
+			<li>接口请求url</li>
+		</ol>
+		<pre ><code class="hljs"><span class="hljs-regexp">{{ item2.stUrl }}</span></code></pre>
+		<ol start="2" >
+		<li>接口请求方式</li>
+		</ol>
+		<pre ><code><span ><b>{{ item2.stMethod }}</b></span></code></pre>
+		<ol start="3" >
+			<li>接口功能</li>
+		</ol>
+		<p>{{ item2.clRemark }}</p>
+		<ol start="4">
+			<li>接口请求参数说明</li>
+		</ol>
+		{{# if(item2.clRequestParam.length != 0){ }}
+		<table>
+			<thead>
+				<tr>
+					<th>参数</th>
+					<th>是否必填</th>
+					<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+		{{# var requestParam = eval('(' + item2.clRequestParam + ')'); }}
+		{{# layui.each(requestParam,function(index, param){ }}
+		<tr>
+			<td>{{ param.name }}</td>
+			<td>{{ param.necessary }}</td>
+			<td>{{ param.state }}</td>
+		</tr>
+		{{# }); }}
+			</tbody>
+		</table>
+		{{# }else{ }}
+		{{# item2.clRequestParam = '无'; }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item2.clRequestParam }}</span>
+		</code></pre>
+		{{# } }}
+		&nbsp;&nbsp;&nbsp;&nbsp;<p>
+		<span style ="font-weight:bolder;background-color:#11a5dd;color:#fff;padding:5px 15px; 
+		border-radius:30px;font-size:12px">接口请求参数示例</span></p>
+		{{# if(item2.clRequestExam.length == 0 ){ }}
+		{{# item2.clRequestExam = '无'; }}
+		{{# } }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item2.clRequestExam }}</span>
+		</code></pre>
+		<ol start="5">
+		<li>接口返回参数说明</li>
+		</ol>
+		{{# if(item2.clResponseParam.length != 0){ }}
+		<table>
+			<thead>
+				<tr>
+				<th>参数</th>
+				<th>说明</th>
+				</tr>
+			</thead>
+			<tbody>
+			{{# var responseParam = eval('(' + item2.clResponseParam + ')'); }}
+			{{# layui.each(responseParam,function(index, param){ }}
+			<tr>
+				<td>{{ param.name }}</td>
+				<td>{{ param.state }}</td>
+			</tr>
+			{{# }); }}
+			</tbody>
+		</table>
+		{{# }else{ }}
+		{{# item2.responseParam = '无'; }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item2.responseParam }}</span>
+		</code></pre>
+		{{# } }}
+		&nbsp;&nbsp;&nbsp;&nbsp;<p>
+		<span style ="font-weight:bolder;background-color:#11a5dd;color:#fff;padding:5px 15px; 
+		border-radius:30px;font-size:12px">接口返回参数示例</span></p>
+		{{# if(item2.clResponseExam.length == 0 ){ }}
+		{{# item2.clResponseExam = '无'; }}
+		{{# } }}
+		<pre ><code class="hljs">
+		<span class="hljs-string">{{ item2.clResponseExam }}</span>
+		</code></pre>
+		{{#  }); }}
+		{{#  } }}
+	{{#  }); }}
+{{#  } }}
+</script>
+</article>
+</div>
+</div> 
+<script src="lib/jquery-1.11.1.min.js"></script>
+<script src="lib/layui.js"></script> 
+<script src="lib/lay/modules/laytpl.js"></script> 
+<script src="lib/layer.js"></script> 
+<script src="js/detail.js"></script>
+</body>
+</html>

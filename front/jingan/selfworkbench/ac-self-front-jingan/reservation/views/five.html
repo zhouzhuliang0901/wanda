@@ -1,0 +1,49 @@
+<div class="five">
+	<span>第一步：请输入你的手机号</span>
+	<!-- 输入手机号 按键 -->
+	<div class="five-telephone">
+		<input type="text" placeholder="请输入手机号码" class="ipt" ng-model="name" autofocus>
+		<div class="five-telephone-number">
+			<a ng-repeat="(x,index) in phone" ng-click="phoneclick(x)">{{index}}</a>
+			<!-- ng-repeat="(x,index) in phone" ng-click="towclick(x)" -->
+			<button id="button" ng-click="empty()"></button>
+			<button id="button1" ng-click="phoneclick(-1)"></button>
+			<button id="button2" ng-click="clearzpp()"></button>
+		</div>
+	</div>
+	<button id="btnput" ng-click="confirm()">确定预约</button>
+	<!--<div class="sy-alert sy-alert-tips animated tabchuan" sy-enter="zoomIn" sy-leave="zoomOut" sy-type="tips" sy-mask="false" id="alert3">
+		<div class="sy-content">
+			<p>手机号格式不正确，请重新输入!</p>
+		</div>
+	</div>-->
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.base-under {
+		visibility: hidden;
+	}
+	
+	.tabchuan {
+		width: 606px;
+		height: 90px;
+		position: absolute;
+		margin-top: -476px;
+		margin-left: 630px;
+	}
+	
+	.sy-content p {
+		font-size: 20px;
+	}
+	
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+</style>
+<script>
+	function ok(id) {
+		syalert.syhide(id);
+	}
+</script>

@@ -1,0 +1,202 @@
+<style type="text/css">
+	.TopTit1 .tit2 {
+		padding-left: 13.5%;
+	}
+	
+	.main5 .navBox4 a {
+		/*float: left;*/
+		display: inline-block;
+		width: 384px;
+		padding: 0px 40px;
+		height: 100px;
+		margin-left: 10px;
+		margin-bottom: 16px;
+		text-align: center;
+		background: url(../libs/common/images/bg-nav3.png) no-repeat;
+		background-size: 100% 100%;
+		line-height: 100px;
+		overflow: hidden;
+		font-size: 32px;
+		font-weight: bold;
+		color: #19aae2;
+	}
+	
+	.minimize {
+		position: absolute;
+		right: 10px;
+	}
+	
+	.minimize img {
+		width: 100px;
+	}
+	
+	.main5 .lt3 {
+		width: 100%;
+		margin: 0;
+	}
+	
+	.navBox4 {
+		width: 80%;
+		display: inline-flex;
+		justify-content: space-around;
+		margin: 0 10%;
+		flex-wrap: wrap;
+	}
+	
+	.titBox1 {
+		margin: 0 120px;
+	}
+	
+	#chakangegnduo {
+		margin-left: 100px;
+		font-size: 34px;
+	}
+	
+	.line1x2 {
+		display: inline-flex;
+		width: 70%;
+		justify-content: space-between;
+		margin-left: 64px;
+		font-size: 34px;
+	}
+	
+	.line1x2 a {
+		border-radius: 50px;
+		/*width: 220px;*/
+		font-size: 32px;
+		background-color: transparent;
+		color: #FFF;
+		border: solid 5px #FFF;
+		height: 66px;
+		padding: 0 50px 0 0px;
+		display: inline-block;
+	}
+	
+	.line1x1 button {
+		border: none;
+		width: 154px;
+		height: 60px;
+		background: url(../libs/common/images/goHome.png) no-repeat center center;
+	}
+	
+	.line1x1 {
+		width: 100%;
+		display: inline-flex;
+		justify-content: center;
+		margin-top: 30px;
+	}
+	
+	#fontSizeXX {
+		font-size: 20px;
+	}
+	
+	@media screen and (max-device-width: 1600px) {
+		.shell.bg3 {
+			width: 1280px;
+			height: 1024px;
+		}
+		.TopTit1 .tit2 {
+			font-size: 40px;
+			padding-left: 18.5%;
+		}
+		.TopTit1 {
+			margin: 0;
+			padding: 0;
+		}
+		.main5 .navBox4 a {
+			width: 248px;
+			font-size: 24px;
+		}
+		.titBox1 {
+			margin: 0px 40px;
+		}
+		.line1x2 {
+			width: 64%;
+		}
+		#fontSizeXX {
+			font-size: 17px;
+		}
+	}
+</style>
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<!--<img src="../libs/common/images/icon/ywtblogo.png" style="position: absolute;width: 73px;left: 148px;top: 68px;">-->
+		<h2 class="tit2">长三角"一网通办"</h2>
+		<div class="weatherForecast">
+			<div class="warning"><img ng-src="{{warningImg}}" /></div>
+			<div class="weather">
+
+			</div>
+		</div>
+		<div class="minimize" ng-click="proMinimizes()" ng-if='isShowYHhome'>
+			<img src="../libs/common/images/minimize.png" alt="" />
+		</div>
+	</div>
+	<div class="main5">
+		<div class="lt3 fl">
+			<div class="titBox1">长三角通办事项
+				<span id="chakangegnduo" ng-click='toMore("csjindex")'>查看更多>></span>
+			</div>
+			<div class="navBox4">
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../CSJ_grsqcjyddkjcsyzm/index.html')">
+					<p class="p1" id="fontSizeXX">个人申请出具异地贷款缴存使用证明</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../CSJ_householdRegisterALL/index.html')">
+					<p class="p1">户籍证明开具</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../CSJ_queryMarriageRegistration/index.html')">
+					<p class="p1">婚姻登记档案查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../CSJ_isCrimeProveALL/index.html')">
+					<p class="p1">有无违法犯罪记录证明开具</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../CSJ_basicMedicalInsurance/index.html')">
+					<p class="p1">基本医疗保险关系转移接续</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../CSJ_providentFundWithdrawals/index.html')">
+					<p class="p1">长三角购房提取住房公积金</p>
+				</a>
+			</div>
+			<div class="titBox1">本地高频事项
+				<div class="line1x2">
+					<span ng-click='toMore("indexYH")'>查看更多>></span>
+					<a ng-if='isShowYhWSRK' ng-click='toMorenhWSRK()'>外省市入口</a>
+				</div>
+			</div>
+			<div class="navBox4">
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../RS_queryWorkerInfo/index.html')">
+					<p class="p1" id="fontSizeXX">劳动者基本信息查询及维护</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../GA_ssCardOpen/index.html')">
+					<p class="p1">新版社保卡开通</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../RS_endowInsurePay/index.html')">
+					<p class="p1" id="fontSizeXX">城镇-参加个人城镇基本养老保险缴费情况</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../RS_PensionAdjustmentCardOrPassbook/index.html')">
+					<p class="p1">养老金卡（折）调整</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../YB_medicalInsureInfo/index.html')">
+					<p class="p1">医保个人信息查询</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToApp('../YB_acceptRegister/index.html')">
+					<p class="p1">办理居民医保受理登记</p>
+				</a>
+			</div>
+			<div class="line1x1"><button ng-click='goHomeYh()' ng-if='isShowYHhome'></button></div>
+		</div>
+	</div>
+
+	<!--alert弹框-->
+	<div style="z-index:321;" class="customAlert" ng-if="isAlert">
+		<div class="alertContent">
+			<p class="title" ng-bind-html="msg"></p>
+			<div class="controlAlert">
+				<a ng-if="confirm_show" class="control confirm continue" ng-click="alertConfirm()">确定</a>
+				<a ng-if="cancel_show" class="control cancel" ng-click="alertCancel()">取消</a>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+</script>

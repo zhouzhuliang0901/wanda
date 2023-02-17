@@ -1,0 +1,23 @@
+<app-header fun-name="{{funName}}" go-back="goAppHistoryBack()"></app-header>
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a ng-click="italy()">
+			<img src="../libs/common/images/icon/person.png" />
+			<p>意大利IP节</p>
+		</a>
+		<a ng-click="intern()">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>实习生招募</p>
+		</a>
+	</div>
+</div>
+<app-footer prev="prevStep()" next="nextStep()" default-next="hidden"></app-footer>
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 523px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+</style>

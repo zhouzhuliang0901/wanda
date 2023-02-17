@@ -1,0 +1,66 @@
+<app-header  fun-name="{{funName}}" ></app-header>
+<ul class="container icbc">
+	<li class="{{matterType}}" ng-click="largeImg(index,item)" ng-repeat="(index,item) in showMatter">
+		<img ng-src="{{item.img}}" />
+		<p>{{item.tips}}</p>
+	</li>
+</ul>
+<div class="large" ng-click="close()" ng-if="isLarge">
+	<img ng-src="{{currentObj.img}}" ng-click="close()" />
+	<p>{{currentObj.tips}}</p>
+</div>
+<apptb-footer default-is-show-next-btn="hidden" prev="prevStep()">
+</apptb-footer>
+<style type="text/css">
+	.large {
+		position: fixed;
+		text-align: center;
+		background-color: rgba(0, 0, 0, .8);
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		z-index: 100;
+	}
+
+	.large img {
+		height: 700px;
+		margin-top: 100px;
+	}
+
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 1600px;
+		height: 800px;
+		text-align: center;
+		align-items: center;
+		margin: 10px auto;
+	}
+
+	.container li {
+		height: 700px;
+	}
+
+	.container li>img {
+		height: 675px;
+	}
+
+	.container li>p {
+		font-size: 40px;
+	}
+
+	.container li.zxjf {
+		height: 216px;
+		width: 500px;
+	}
+
+	.container li.zxjf>img {
+		height: 100%;
+	}
+
+	.container li.zxjf>p {
+		font-size: 20px;
+	}
+</style>

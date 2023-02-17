@@ -1,0 +1,162 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 650px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.input {
+		width: 90%;
+		height: 75%;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+
+	.infoTable {
+		margin-top: 60px;
+		width: 100%;
+		font-size: 24px
+	}
+
+	.infoTable th {
+		width: 17%;
+		text-align: right;
+	}
+
+	.infoTable th,
+	.infoTable td {
+		height: 85px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.checkTable a,
+	.checkBoxB a {
+		float: left;
+		width: 142px;
+		height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 5px;
+		margin: 5px;
+	}
+
+	.checkTable a.in:after,
+	.checkBoxB a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	.checkTable {
+		width: 97%;
+		margin-bottom: 20px;
+		margin-left: 50px;
+		font-size: 24px
+	}
+
+	.checkTable td {
+		height: 85px;
+	}
+
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+		width: 14%;
+		text-align: right;
+	}
+
+	.checkTable .checkBoxA {
+		float: left;
+		width: 83%;
+	}
+
+	@media only screen and (max-width: 1600px) {
+		.scrollBox2 {
+			overflow: auto;
+			height: 600px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>申请对象：</th>
+					<td style="width: 36%;">
+						<div class="checkBoxB">
+							<a ng-repeat="(index,item) in applyObjList" ng-class="{'in':current1==index}" ng-click="change(index,item,'1')">{{item.name}}</a>
+						</div>
+					</td>
+					<th><b class="red">*</b>申请人姓名：</th>
+					<td><input class="input" type="text" id="applyName" ng-model="applyName"></td>
+				</tr>
+				<tr ng-show="current1 == 0">
+					<th><b class="red">*</b>申请人证件类型：</th>
+					<td style="width: 36%;">
+						<div class="checkBoxB">
+							<a ng-repeat="(index,item) in documentTypeList" ng-class="{'in':current2==index}" ng-click="change(index,item,'2')">{{item.name}}</a>
+						</div>
+					</td>
+					<th><b class="red">*</b>申请人证件号码：</th>
+					<td><input class="input" type="text" id="applyCardNo" ng-model="applyCardNo"></td>
+				</tr>
+				<tr ng-show="current1 == 1">
+					<th><b class="red">*</b>单位名称：</th>
+					<td><input class="input" type="text" id="targetName" ng-model="targetName"></td>
+					<th><b class="red">*</b>统一社会信用代码：</th>
+					<td><input class="input" type="text" id="targetNo" ng-model="targetNo"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>手机号码：</th>
+					<td><input class="input" type="text" id="mobile" ng-model="mobile"></td>
+				</tr>
+				<tr>
+					<th>备注：</th>
+					<td colspan="3"><input style="width: 95.6%;" class="input" type="text" id="content" ng-model="content"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

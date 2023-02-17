@@ -1,0 +1,210 @@
+<apptb-header fun-name="综合减负试算"></apptb-header>
+<div class="stable">
+	<div id="wrapper">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-top: 60px;margin-left: 110px;">医保综合减负试算</h4>
+			</div>
+			<div class="body" style="margin-left: 125px;padding-top: 81px;">
+				<dd id="ztqk" class="singselect">
+					<dl style="font-size: 30px; margin-top: 82px;color: #c2cce3; line-height: 60px;width: 195px;float: left;">选择职退情况</dl>
+					<dl>
+						<a ng-click="change()">
+							<li vId="000003">退休</li>
+						</a>
+						<a ng-click="change()">
+							<li vId="000001">在职</li>
+						</a>
+					</dl>
+				</dd>
+				<dd id="year" class="singselect2">
+					<dl style="font-size: 30px; margin-top: 18px; color: #c2cce3; line-height: 60px;width: 195px;float: left;">选择年限</dl>
+					<a>
+						<li vId="000003">{{year}}年</li>
+					</a>
+					<a>
+						<li vId="000001">{{year-1}}年</li>
+					</a>
+					<a>
+						<li vId="000003">{{year-2}}年</li>
+					</a>
+					<a>
+						<li vId="000001">{{year-3}}年</li>
+					</a>
+				</dd>
+				<!--<dd class="singselect2" style="width: 920px;">
+					<dl style="font-size: 30px;color: #c2cce3; line-height: 45px;width: 195px;">输入手机号</dl>
+					<div id="view-search" class="phone-search">
+						<input id="input1" class="phoneInput" ng-keyup="phoneInput($event)" type="text" ng-model="phone" ng-click="(phone=='请输入')?phone='':''" />
+					</div>
+				</dd>-->
+				<dl ng-show="isZtqk" style="position: absolute;      margin-top: 60px; font-size: 30px;  color: #c2cce3; left: 172px;  line-height: 60px; top: 435px;">输入上一年收入</dl>
+				<div ng-show="isZtqk" id="view-search" class="view-search">
+					<input id="input" class="view-input" ng-keyup="keyboardInput($event)" type="text" ng-model="count" ng-click="(count=='请输入')?count='':''" />
+				</div>
+				<div id="keybord" class="keybord">
+					<a ng-repeat="item in keybordArr" ng-click="inputNumber(item)">{{item}}</a>
+				</div>
+				<p class="Tips">最终减负结果以柜面实际操作为准。</p>
+				<!--<div id="keybord" class="keybord">
+					<a ng-repeat="item in keybordArr" ng-click="inputPhone(item)">{{item}}</a>
+				</div>-->
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()"  custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 758px;
+	}
+	
+	.singselect {
+		width: 920px;
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 270px;
+		height: 90px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		margin-top: 65px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+		padding: 0 40px;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect2 {
+		float: left;
+		min-height: 60px;
+		margin-bottom: 30px;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.singselect2 a {
+		float: left;
+		width: 133px;
+		height: 90px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+		padding: 0 18px;
+	}
+	
+	.singselect2 a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.view-input {
+		background: rgba(255, 255, 255, .25);
+    position: absolute;
+    border: none;
+    font-size: 32px;
+    color: #fff;
+    right: -60px;
+    height: 90px;
+    line-height: 50px;
+    padding-left: 35px;
+    width: 677px;
+    top: 60%;
+	}
+	
+	.phoneInput {
+		background: rgba(255, 255, 255, .25);
+		position: absolute;
+		border: none;
+		font-size: 32px;
+		color: #fff;
+		right: -61px;
+		height: 90px;
+		line-height: 50px;
+		width: 678px;
+		padding-left: 35px;
+		top: 62%;
+	}
+	
+	.phone-search {
+		position: absolute;
+		top: 386px;
+		left: 343px;
+		width: 708px;
+		height: 97px;
+	}
+	
+	.view-search {
+		position: absolute;
+		top: 445px;
+		left: 343px;
+		width: 708px;
+		height: 97px;
+	}
+	
+	.keybord {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		height: 540px;
+		width: 500px;
+		margin-left: 970px;
+		margin-top: 55px;
+	}
+	
+	.keybord a {
+		font-size: 35px;
+		color: #fff;
+		height: 110px;
+		width: 150px;
+		text-align: center;
+		line-height: 110px;
+		border-radius: 20px;
+		box-shadow: 0 0 10px #2779C6;
+		transition: all 0.5s;
+	}
+	
+	.keybord a:active {
+		transform: scale(0.8);
+		background-color: #BCD7EF;
+	}
+	.Tips{
+		color:#e1ba1c;
+		font-size: 30px;
+	}
+</style>

@@ -1,0 +1,339 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 758px;
+	}
+	
+	#stNation {
+		background-color: #2864b0;
+		position: absolute;
+		border: none;
+		font-size: 32px;
+		color: #fff;
+		right: 36px;
+		height: 75px;
+		line-height: 50px;
+		width: 595px;
+		top: 31%;
+		margin-top: -25px;
+	}
+	
+	.view-stNation {
+		position: absolute;
+		top: 387px;
+		left: 345px;
+		width: 666px;
+		height: 75px;
+	}
+	
+	.view-stAddress {
+		position: absolute;
+		top: 484px;
+		left: 345px;
+		width: 666px;
+		height: 70px;
+	}
+	
+	#stAddress {
+		background: url(../libs/common/images/big-input.png) no-repeat;
+		background-size: 641px 80px;
+		padding-left: 30px;
+		position: absolute;
+		border: none;
+		font-size: 28px;
+		color: #fff;
+		right: 0px;
+		height: 77px;
+		line-height: 50px;
+		width: 611px;
+		top: 40%;
+		margin-top: -33px;
+	}
+	
+	.singselect {
+		margin-top: 105px;
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.singselect div {
+		float: left;
+		width: 666px;
+		overflow: hidden;
+		margin-right: 10px;
+		position: relative;
+		text-align: left;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect2 {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.singselect2 div {
+		float: left;
+		width: 666px;
+		overflow: hidden;
+		/*border: 1px solid rgba(233, 237, 240, .4);*/
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: left;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+	}
+	
+	.singselect2 a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.view-input {
+		position: absolute;
+		background: url(../libs/common/images/big-input.png) no-repeat;
+		background-size: 641px 80px;
+		border: none;
+		font-size: 28px;
+		right: 0px;
+		height: 75px;
+		line-height: 50px;
+		width: 611px;
+		top: 28%;
+		padding-left: 30px;
+	}
+	
+	.view-search {
+		position: absolute;
+		top: 513px;
+		left: 369px;
+		width: 642px;
+		height: 70px;
+	}
+	
+	.keybord {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		height: 540px;
+		width: 500px;
+		margin-left: 1000px;
+		margin-top: 55px;
+	}
+	
+	.keybord a {
+		font-size: 35px;
+		color: #fff;
+		height: 110px;
+		width: 150px;
+		text-align: center;
+		line-height: 110px;
+		border-radius: 20px;
+		box-shadow: 0 0 10px #2779C6;
+		transition: all 0.5s;
+	}
+	
+	.keybord a:active {
+		transform: scale(0.8);
+		background-color: #BCD7EF;
+	}
+	.writeCallNum2{
+		position: absolute;   font-size: 30px;  color: #c2cce3;   line-height: 60px; top: 640px;
+	}
+	.view-search2{
+		position: absolute;
+		top: 640px;
+		left: 369px;
+		width: 642px;
+		height: 70px;
+	}
+	@media screen and (max-width: 1600px) {
+		.stable {
+		    width: 1100px;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%!important;
+		    transform: translate(-50%, -50%)!important;
+		}
+		#wrapper {
+		    width: 100%;
+		    height: 700px;
+		}
+		.caption {
+		    margin: 37px 50px 0px 50px!important;
+		}
+		.caption h4 {
+		    margin-top: 0px!important; 
+		    margin-left: 0px!important; 
+		    font-size: 33px!important;
+		}
+		.my-card .body {
+		    margin-left: 0px!important;
+		    padding-top: 0px!important;
+		}
+		.contain_left {
+			width: 50%!important;
+			overflow: hidden;
+		}
+		dd {
+			width: 100%!important;
+		}
+		dl {
+			font-size: 24px!important;
+		}
+		.singselect2 {
+			width: 100%!important;
+		}
+		.view-stNation {
+		    position: absolute;
+		    top: 333px;
+		    left: 145px;
+		    width: 386px;
+		    height: 75px;
+		}
+		.writeCallNum {
+		    position: absolute;
+		    font-size: 30px;
+		    color: #c2cce3;
+		    line-height: 60px;
+		    top: 440px!important;
+		    padding-left: 20px;
+		}
+		.view-search {
+		    position: absolute;
+		    top: 438px;
+		    left: 169px;
+		    width: 374px;
+		    height: 70px;
+		}
+		.view-input {
+		    position: absolute;
+		    background: url(../libs/common/images/big-input.png) no-repeat left top;
+		    background-size: 100% 100%;
+		    font-size: 28px;
+		    right: auto;
+		    left: 0px;
+		    height: 75px;
+		    line-height: 50px;
+		    width: 100%;
+		    top: 28%;
+		    padding-left: 30px;
+		    box-sizing: border-box;
+		}
+		
+		#year {
+			padding-left: 15px;
+    		box-sizing: border-box;
+		}
+		.keybord {
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		    justify-content: space-between;
+		    height: 540px;
+		    width: 500px;
+		    margin-left: 580px;
+		    margin-top: -345px;
+		}
+		#ztqk dl b {
+			margin-left: 30px!important;
+		}
+		#year dl b {
+			margin-left: 26px!important;
+		}
+		.writeCallNum2{
+			top: 546px;
+		}
+		.view-search2 {
+		    top: 546px;
+		    left: 167px;
+		    width: 374px;
+		    height: 70px;
+		}
+	}
+</style>
+
+<div class="stable">
+	<div id="wrapper">
+		<div class="my-card">
+			<div class="head caption">
+				<h4 style="margin-top: 60px;margin-left: 110px;">市民网上实名认证服务填写手机号</h4>
+			</div>
+			<div class="body" style="margin-left: 90px;padding-top:80px">
+				<div class="contain_left">
+					<dd id="ztqk" class="singselect">
+					<dl style="font-size: 30px; margin-left: 85px; color: #c2cce3; line-height: 60px;">姓名:<b style="margin-left: 80px;color: #e1ba1c;">{{Name}}</b></dl>
+					<div>
+						<li vId="000003"></li>
+					</div>
+				</dd>
+				<dd id="year" class="singselect2">
+					<dl style="font-size: 30px;  color: #c2cce3; line-height: 60px;">身份证号码:<b style="margin-left: 70px;color: #e1ba1c;">{{idCard}}</b></dl>
+					<div>
+						<li vId="000003"></li>
+					</div>
+					<div style="width: 300px" ;>
+						<li vId="000003"></li>
+					</div>
+				</dd>
+				<dd class="singselect2">
+					<dl style="font-size: 30px;  color: #c2cce3;margin-left: 90px; line-height: 60px;">民族:<b style="margin-left: 50px;color: #e1ba1c;"></b></dl>
+					<div>
+						<li vId="000003"></li>
+					</div>
+					<div style="width: 300px" ;>
+						<li vId="000003"></li>
+					</div>
+				</dd>
+				<dl class="writeCallNum" style="position: absolute;   font-size: 30px;  color: #c2cce3;   line-height: 60px; top: 513px;">填写手机号:</dl>
+				<dl class="writeCallNum2">填写户籍地址:</dl>
+				<div id="view-stNation" class="view-stNation">
+					<select class="select1" style="height: 74px;margin-left: 26px;width: 96%;padding: 10px 25px;font-size: 28px;color: black;" id="nation" ng-init="selectedName = nation[0]" ng-model="selectedName" ng-options="x for x in nation">
+					</select>
+				</div>
+				<div id="view-search" class="view-search">
+					<input id="input" class="view-input" ng-keyup="keyboardInput($event)" type="text" ng-model="count" placeholder="请输入手机号" />
+				</div>
+				<div id="view-search2" class="view-search2">
+					<input id="input" class="view-input" ng-keyup="keyboardInput($event)" type="text" ng-model="mAddress" placeholder="填写户籍地址" />
+				</div>
+				</div>
+
+				<div id="keybord" class="keybord">
+					<a ng-repeat="item in keybordArr" ng-click="inputNumber(item)">{{item}}</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

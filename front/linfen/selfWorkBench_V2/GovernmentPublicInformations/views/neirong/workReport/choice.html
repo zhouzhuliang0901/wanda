@@ -1,0 +1,51 @@
+<style>
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 15%;
+		color: #fff;
+		opacity: 1;
+	}
+	
+	#wrapper {
+		width: 90%;
+		height: 75%;
+		margin-top: 8%;
+		overflow: hidden;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		#wrapper {
+			height: 71%;
+			margin-top: 11%
+		}
+		.itemFile {
+			font-size: 22px;
+		}
+		.itemFile .itemName {
+			width: 70%;
+		}
+		.itemFile .itemTime {
+			width: 24%;
+		}
+	}
+</style>
+<p class="caption">
+	{{firstName}}&emsp; |&emsp; <span class="captionMini">{{secondName}}</span></p>
+<div class="scrollBox2 clearfloat">
+	<div class="TabBox">
+		<div class="infoList wrapper" id="wrapper">
+			<div>
+				<div class="itemFile" ng-repeat="item in infoList" ng-click="choiceItemDetail(item)" repeat-finish>
+					<span class="itemName">{{item.title}}</span>
+					<span class="itemTime">{{item.displayDate | limitTo : 10}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

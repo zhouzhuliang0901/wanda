@@ -1,0 +1,92 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{fullItemName}}</span></div>
+	<div class="main2">
+		<div class="scrollBox2 clearfloat" style="    margin-top: 50px;">
+			<div class="right-input" style="width: 97%; left: 60px; top: 25px;">
+				<form id="infoForm" method="get">
+					<div class="inputBox" style="margin-right: 30px;">
+						<label class="strong" style="line-height: 50px;"><font color='red'>*</font>办理对象</label>
+						<select class="select" ng-model="targetTypeName">
+							<option ng-repeat="x in list" value="{{x.obj}}">{{x.obj}}</option>
+						</select>
+						<!-- <input type="button" style="width: 125px; height: 50px;margin-top:20px;margin-left:30px;" value="个人" ng-model="targetTypeName" name="targetType" ng-click="person()" /> <span style="font-size:32px;margin-right:15px;">&nbsp;&nbsp;个人</span> -->
+						<!--<input type="button" style="width: 125px; height: 50px;" value="法人" ng-model="targetTypeName" name="targetType" ng-click="faren()"/> <span style="font-size:32px;margin-right:15px;">&nbsp;&nbsp;法人</span> -->
+					</div>
+					<div class="inputBox">
+						<label class="strong"><font color='red'>*</font>{{targetName}}</label>
+						<input type="text" id="targetName" name="targetName" />
+					</div>
+					<div class="inputBox" style="margin-right: 30px;">
+						<label class="strong"><font color='red'>*</font>{{targetTips}}</label>
+						<input type="text" id="targetNo" name="targetNo" />
+					</div>
+					<div class="inputBox">
+						<label class="strong"><font color='red'>*</font>经办人姓名</label>
+						<input type="text" id="username" name="username" />
+					</div>
+					<div class="inputBox" style="margin-right: 30px;">
+						<label class="strong"><font color='red'>*</font>经办人身份证号</label>
+						<input type="text" id="licenseNo" name="licenseNo" />
+					</div>
+					<div class="inputBox">
+						<label class="strong"><font color='red'>*</font>经办人手机号</label>
+						<input type="text" id="mobile" name="mobile" />
+					</div>
+					<div class="inputBox" style="padding-bottom:15px;width: 100.5%;">
+						<label>申请内容</label>
+						<input type="text" id="content" name="content" style="width: 78%;" />
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="goNext()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>
+<style type="text/css">
+	.inputBox>label {
+		width: 230px;
+		text-align: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+		display: block;
+		float: left;
+	}
+	
+	.navBox2 {
+		margin-bottom: 0;
+	}
+	
+	.main2 {
+		width: 1650px;
+		margin-left: 96px;
+		style="height:650px"
+	}
+	
+	.select {
+		width: 60%;
+		height: 85%;
+		margin-top: 6px;
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		margin-left: 20px;
+		box-shadow: rgba(0, 0, 0, 1) 2px 2px 6px inset;
+		background-color: rgba(0, 0, 24, 39);
+		background: url(../images/input.png) no-repeat;
+		background: rgba(255, 255, 255, .25);
+		background-position: center center;
+		border-radius: 8px;
+		border: 0;
+		/* color: #fff; */
+		font-size: 30px;
+	}
+</style>

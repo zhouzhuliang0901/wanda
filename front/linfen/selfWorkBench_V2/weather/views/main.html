@@ -1,0 +1,120 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1600px;
+		height: 800px;
+		margin: 0 auto;
+	}
+	.weatherForecast {
+		margin-top: 70px;
+		        margin-left: 30px;
+		height: 140px;
+	}
+
+	.warning {
+		display: inline-block;
+		float: left;
+	}
+
+	.warning img {
+		height: 120px;
+	}
+
+	.weather {
+		display: inline-block;
+		width: 1000px;
+		float: left;
+		height: 120px;
+	}
+
+	.weather img {
+		width: 120px;
+		padding: 0 20px;
+		float: left;
+	}
+	.weather10Tips{
+		    font-size: 40px;
+		    font-weight: bold;
+		    opacity: .8;
+		        margin-left: 60px;
+    margin-bottom: 20px;
+	}
+	.weather p {
+		font-size: 24px;
+		margin-left: 13px;
+	}
+
+	.temperature {
+		display: inline-block;
+		font-size: 50px;
+		font-weight: bold;
+		width: 300px;
+		height: 120px;
+		float: left;
+		line-height: 120px;
+	}
+
+	.dayweather {
+		float: left;
+		width: 480px;
+		padding: 20px 0;
+		opacity: 0.7;
+		font-size: 28px;
+	}
+
+	.weather10Table {
+		width: 85%;
+		height: 60%;
+		margin: 0 auto;
+	}
+.weather10Table table{
+		width: 100%;
+    table-layout: fixed;
+	}
+	.weather10Table td {
+		font-size: 30px;
+		padding: 0 20px;
+		opacity: .8;
+		text-align: center;
+	}
+
+	.weather10Table tr td:nth-of-type(1){
+		font-weight: bold;
+		opacity: 1;
+	}
+	.weather10Table tr td:nth-of-type(4){
+		text-align: left;
+	}
+	.weather10Table tr td:nth-of-type(5){
+		opacity: 1;
+	}
+	.weather10Table img {
+		width: 65px;
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<div class="weatherForecast" ng-show="dataWeatherList.length>0">
+		<div class="weather">
+			<img ng-src="../{{weatherImg}}" />
+			<div class="temperature">{{todayWeather.lowtem}}°C~{{todayWeather.highttem}}°C &nbsp;| &nbsp;</div>
+			<div class="dayweather">
+				<span>{{todayWeather.dayweather}} </br>{{todayWeather.winddir}} {{todayWeather.windlev}}</span>
+			</div>
+		</div>
+		<div class="warning"><img ng-src="../{{warningImg}}" /></div>
+	</div>
+	<p class="weather10Tips" ng-show="dataWeatherList.length>0">未来7天天气</p>
+	<div class="weather10Table">
+				<table>
+					<tr ng-repeat="item in dataWeatherList2">
+						<td>{{item.week}}</td>
+						<td>{{item.today}}</td>
+						<td>{{item.lowtem}}°C~{{item.highttem}}°C</td>
+						<td style="width: 45%;">{{item.dayweather}}，{{item.winddir}} {{item.windlev}}</td>
+						<td><img src="../{{item.weatherImg}}" alt="" /></td>
+					</tr>
+				</table>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

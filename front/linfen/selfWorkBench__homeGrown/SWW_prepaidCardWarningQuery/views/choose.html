@@ -1,0 +1,205 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-left: 210px;
+		height: 650px;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.searchInput {
+		display: flex;
+		width: 100%;
+	}
+	
+	.searchInput .button {
+		width: 15%;
+		margin: 2% 3%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 2.4%;
+		position: relative;
+	}
+	
+	.schoolName input,
+	.schoolName select {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	
+	select::-ms-expand {
+		display: none;
+	}
+	
+	.schoolName select {
+		/*去掉点击时的选区和阴影*/
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-ms-tap-highlight-color: transparent;
+		-ms-touch-callout: none;
+		-ms-user-select: none;
+		user-select: none;
+		/*去掉点击时的选区和阴影*/
+		background: url("../libs/common/images/icon-square.png") no-repeat 95% 35px rgba(0, 0, 0, 0);
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		position: relative;
+	}
+	
+	a {
+		text-align: center;
+	}
+	
+	a.stamp {
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100%;
+		margin-left: 8%;
+		width: 100%;
+		height: 100%;
+		line-height: 54px;
+		font-size: 30px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	.scrollContain>p {
+		margin-top: 50px;
+		font-size: 18px;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,
+	.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	option {
+		color: black;
+	}
+	
+	.resultTr th:nth-of-type(1) {
+		width: 6%;
+	}
+	
+	.resultTr th:nth-of-type(3) {
+		width: 16%;
+	}
+	
+	.resultTr th:nth-of-type(4) {
+		width: 19%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			margin-left: 140px;
+		}
+		#wrapper {
+			width: 1000px;
+			height: 70%;
+		}
+		.searchInput .button {
+			float: left;
+		}
+		.schoolName {
+			width: 31%;
+			float: left;
+		}
+		.resultTr th:nth-of-type(1) {
+			width: 7%;
+		}
+		.resultTr th:nth-of-type(3) {
+			width: 18%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="searchInput">
+		<div class="schoolName">
+			<input type="text" placeholder="请输入经营者名称" ng-model="name" />
+		</div>
+		<div class="schoolName">
+			<select id="waringType" ng-init="waringType = waringTypeList[0]" ng-model="waringType" ng-options="x.value for x in waringTypeList">
+				<option value="" selected ng-if="false"></option>
+			</select>
+			<!--<input type="text" placeholder="请选择警示类型" ng-model="sign" />-->
+		</div>
+		<div class="button">
+			<a ng-click="query(name,waringType)" class="stamp">查询</a>
+		</div>
+		<div class="button">
+			<a ng-click="reset()" class="stamp">重置</a>
+		</div>
+	</div>
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table>
+				<tr class="resultTr">
+					<th>序号</th>
+					<th>经营者名称</th>
+					<th>信息对接唯一标识</th>
+					<th>列入日期</th>
+					<th>列入原因</th>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{index+1}}</td>
+					<td>{{list.corpName}}</td>
+					<td>{{list.uniqueNo}}</td>
+					<td>{{list.addDate}}</td>
+					<td>{{list.addReason|check:waringTypeId}}</td>
+				</tr>
+			</table>
+			<p>查询须知 1、可查询卡范围：在本市注册的发卡经营者发放的单用途预付消费卡。 2、发卡经营者未与协同监管服务平台做信息对接，或发卡经营者未及时向协同监管服务平台报送卡信息，可能导致无法查询到卡信息。如有此类情况发生，请登录上海市单用途预付消费卡协同监管服务平台“咨询举报”处进行举报，或拨打12345市民服务热线进行举报。
+			</p>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,34 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;" ui-sref="{{formPrevRouter}}">{{module}}</a>
+        </li>
+        <li>
+            <a href="javascript:;">{{whoOperation}}</a>
+        </li>
+        <li class="active">输入{{operation}}</li>
+    </ol>
+</nav>
+<div class="shadowBox scanCode">
+
+    <input type="text" class="inputBox" ng-model="numCode" maxlength="15" placeholder="请输入手机号">
+    <div class="keybord">
+        <a href="javascript:;" class="key" ng-click="inputCode(1)">1</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(2)">2</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(3)">3</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(4)">4</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(5)">5</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(6)">6</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(7)">7</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(8)">8</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(9)">9</a>
+        <a href="javascript:;" class="key txt" ng-click="deleteCode()">删除</a>
+        <a href="javascript:;" class="key" ng-click="inputCode(0)">0</a>
+        <a href="javascript:;" class="key txt" ng-click="confirmCode()">确认</a>
+    </div>
+</div>

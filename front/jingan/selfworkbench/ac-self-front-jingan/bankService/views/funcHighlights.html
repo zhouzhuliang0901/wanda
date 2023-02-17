@@ -1,0 +1,103 @@
+<style type="text/css">
+	.caption {
+		margin-left: 20px;
+	}
+	
+	.funcHightlights {
+		width: 1450px;
+		height: 600px;
+		margin: 0px auto;
+		text-align: center;
+	}
+	
+	.funcHightlights>div {
+		display: inline-block;
+		width: 45%;
+		height: 44%;
+		margin: 10px 10px;
+		background: url('../libs/common/images/bg-middle.png') no-repeat;
+		background-size: 100% 100%;
+		box-sizing: border-box;
+		padding: 30px;
+		vertical-align: top;
+	}
+	
+	.funcHightlights div .xiangQing {
+		width: 100%;
+		display: block;
+		background: url('../libs/common/images/newIcon/funcLinghHight.png') no-repeat;
+	    background-size: 90px;
+    	background-position: 0px -10px;
+		padding: 0px;
+		padding-left: 90px;
+		box-sizing: border-box;
+	}
+	.funcHightlights div .xiangQing p {
+	    text-align: left;
+	    font-size: 24px;
+	    height: 40px;
+	    line-height: 40px;
+	}
+	.funcHightlights div .xiangQing p.titles {
+		font-size: 28px;
+	    font-weight: bold;
+	}
+	.funcHightlights div .detail {
+		font-size: 18px;
+		color: rgba(255, 255, 255, .6);
+		text-align: left;
+		padding-left: 20px;
+	    line-height: 30px;
+	}
+	.funcHightlights div .detail.first,
+	.funcHightlights div .detail.second {
+		padding-top: 20px;
+	}
+	.funcHightlights div .detail span {
+		font-weight: bold;
+	}
+</style>
+<apptb-header fun-name="银行服务"></apptb-header>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="funcHightlights">
+			<div class="eDu">
+				<div class="xiangQing">
+					<p class="titles">测算贷款额度</p>
+					<p>--不测一测，你都不知道自己有多能“贷”！</p>
+				</div>
+				<p class="detail first">以大数据为支撑，无需注册，仅填写简要信息，实施测算贷款额度。</p>
+			</div>
+			<div class="kaiHu">
+				<div class="xiangQing">
+					<p class="titles">预约企业开户</p>
+					<p>--专属服务，尊享优待！</p>
+				</div>
+				<p class="detail second">用户可通过输入企业统一社会信用代码证，实现在线预约开户，缩短现场办理时间。</p>
+			</div>
+			<div class="fuWu">
+				<div class="xiangQing">
+					<p class="titles">一站式服务</p>
+					<p>--不论何时何地，都能照亮你“钱”行的路！</p>
+				</div>
+				<p  class="detail"><span>功能集成：</span>测额、开户、申贷、签约、支用、还款</p>
+				<p  class="detail"><span>操作简便：</span>界面友好，申贷快捷</p>
+				<p  class="detail"><span>一键到账：</span>信贷服务全线上，随借随还</p>
+				
+			</div>
+			<div class="fengKong">
+				<div class="xiangQing">
+					<p class="titles">智能风控系统</p>
+					<p>--线上授权，安全无忧！</p>
+				</div>
+				<p  class="detail"><span>人脸识别：</span>人脸特征比对</p>
+				<p  class="detail"><span>生物认证：</span>动态检验客户身份真实性</p>
+				<p  class="detail"><span>安全架构：</span>企业级安全保护</p>
+				<p  class="detail"><span>数控应用：</span>工商、税务、司法、公安、同盾等数据</p>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

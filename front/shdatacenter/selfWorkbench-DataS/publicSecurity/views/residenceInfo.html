@@ -1,0 +1,76 @@
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">居住证积分查询结果</p>
+<div class="st">
+	<div class="my-card">
+		<div class="body">
+			<table class="table-sty1" cellspacing="0" style="table-layout: auto;width:83%;margin-left: 155px;margin-top: 50px;">
+				<tr>
+					<th>达标状态：</th>
+					<td style="color: #e1ba1c;">{{baseScore}}</th>
+					<th></th>
+					<td></th>
+				</tr>
+				<tr>
+					<th>姓名：</th>
+					<td>{{licenseName}}</th>
+					<th>身份证号：</th>
+					<td>{{licenseNumber}}</th>
+				</tr>
+				<tr>
+					<th>居住证有效截止日期：</th>
+					<td>{{info.validitydayJf}}</th>
+					<th>居住证积分有效截止日期：</th>
+					<td>{{info.validitydayJzz}}</th>
+				</tr>
+				<tr>
+					<th>配偶姓名：</th>
+					<td>{{info.sponceName}}</th>
+					<th>配偶身份证号：</th>
+					<td>{{info.sponcePid}}</th>
+				</tr>
+				<tr>
+					<th>子女姓名：</th>
+					<td></th>
+					<th>子女身份证号码：</th>
+					<td></th>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	.bd{
+		border-top: 0px;
+    border-left: 0px;
+	}
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.select1 option {
+		color: #333;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.table-sty1 th {
+		width: 26%;
+		font-weight: bold;
+	}
+</style>

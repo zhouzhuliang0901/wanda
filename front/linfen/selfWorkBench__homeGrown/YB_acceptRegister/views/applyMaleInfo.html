@@ -1,0 +1,110 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+}
+</style>
+<p class="caption">{{funName}}--配偶或父母信息填写</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;height: 635px;padding-top: 35px;">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>姓名：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="qsxm" ng-model="qsxm">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="qssfzh" ng-model="qssfzh">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>居住证号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="djrjzzh" ng-model="djrjzzh">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>联系电话：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="qslxdh" ng-model="qslxdh">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>居住证有效期限：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="djryxqx" ng-model="djryxqx" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>居住证签发日期：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="djrqfrq" ng-model="djrqfrq" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,51 @@
+<p class="caption">{{stuffName}}</p>
+<div class="previewContainer" ng-class="{'mask':isAllScreen}" ng-click="allScreen('con')">
+	<img ng-src="{{previewImg}}" ng-click="allScreen()" />
+	<!--<iframe src="{{previewImg}}" width="100%" height="500px"></iframe>-->
+</div>
+<app-footer prev="prevStep()" next="print()" next-text="nextText">
+</app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 310px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	.previewContainer {
+		text-align: center;
+	}
+	.loadingBox {
+		position: fixed;
+		width: 1920px;
+		height: 930px;
+		/* margin: auto; */
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 150px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+	
+	.previewContainer img {
+		height: 700px;
+	}
+	
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+</style>

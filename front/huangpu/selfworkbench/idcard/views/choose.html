@@ -1,0 +1,48 @@
+<div class="preview">
+	<img ng-src="{{frontImg}}" />
+	<img ng-src="{{backImg}}" />
+</div>
+<div class="chooseQuantity idcard">
+	<p>请选择您要打印的份数</p>
+	<span class="control" ng-click="minus()">
+		-
+	</span>
+	<span>
+		{{printQuantity}}份
+	</span>
+	<span class="control" ng-click="plus()">+</span>
+</div>
+<a href="javascript:;" class="print" ng-click="print()">打印</a>
+<print show="isPrint"></print>
+<style type="text/css">
+	.print {
+		background-color: #56ce97;
+    padding: 20px 40px 20px 40px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 890px;
+    margin-top: 30px;
+	}
+	
+	.preview {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 1250px;
+		height: 340px;
+		margin: 0 auto;
+		margin-top: 80px;
+	}
+	
+	.preview img {
+		height: 340px;
+		width: 540px;
+	}
+	
+	.chooseQuantity.idcard {
+		float: none;
+		margin: 0 auto;
+		margin-top: 100px;
+	}
+</style>

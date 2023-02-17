@@ -1,0 +1,81 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.main3 {
+			height: 690px;
+			margin-top: 100px;
+		}
+		.text {
+			width: 670px;
+			float: left;
+			margin-left: 60px;
+			margin-top: 170px;
+		}
+		.text .reminder1 {
+			color: #FEE889;
+			font-size: 30px;
+			margin-bottom: 20px;
+		}
+		.text .reminder2 {
+			font-size: 29px;
+			line-height: 63px;
+			margin-bottom: 20px;
+		}
+		.successBox1 {
+			float: left;
+			margin-left: 130px;
+			margin-top: 80px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.main3 {
+			width: 100%;
+			height: 690px;
+			margin-top: 70px;
+			margin-left: 0px;
+		}
+		.text {
+			box-sizing: border-box;
+			padding: 0px 230px;
+		}
+		.text .reminder1 {
+			color: #FEE889;
+			font-size: 20px;
+		}
+		.text .reminder2 {
+			font-size: 20px;
+		}
+		.successBox1 {
+			float: none;
+			margin: 55px auto 0px;
+		}
+	}
+</style>
+<div class="main3" id="print1">
+	<div class="successBox1">
+		<div class="shadow1"></div>
+		<div class="successBox2">
+			<div class="cont1">
+				<h3>操作成功！</h3>
+				<p class="p1">事项名称</p>
+				<p class="p2" ng-bind="itemName"></p>
+			</div>
+			<div class="line1"></div>
+			<div class="cont1">
+				<p class="p1">办件编码</p>
+				<p class="p2" ng-bind="applyNo"></p>
+				<p class="p3"></p>
+			</div>
+			<div class="line2"></div>
+		</div>
+	</div>
+	<div class="text">
+		<p class="reminder1">温馨提示:</p>
+		<p class="reminder2">您办理的“上海市{{funName}}”于{{date}}提交成功，工作人员将于2个工作日内处理该申请件，请您耐心等候！
+		</p>
+	</div>
+</div>
+
+<apptb-footer prev="prev()" next="goHome()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

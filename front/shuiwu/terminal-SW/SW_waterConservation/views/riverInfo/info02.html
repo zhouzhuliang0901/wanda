@@ -1,0 +1,377 @@
+<style type="text/css">
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+	
+	#infoForm .inputBox {
+		width: 47%;
+		height: 70px
+	}
+	
+	.inputBox>label {
+		width: 270px;
+		vertical-align: middle;
+	}
+	
+	#infoForm .inputBox select,
+	#infoForm .inputBox input[type=textarea] {
+		width: 55%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=textarea] {
+		width: 50%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .inputBox input[type=datePicker] {
+		width: 55%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=datePicker] {
+		width: 50%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .content {
+		padding-bottom: 15px;
+		width: 95%;
+	}
+	
+	#infoForm .inputBox input[type=text] {
+		width: 50%;
+	}
+	/*关于日期控件*/
+	
+	.layui-laydate-main {
+		width: 440px !important;
+	}
+	
+	.laydate-set-ym span,
+	.layui-laydate-header i {
+		font-size: 30px;
+	}
+	
+	.layui-laydate-content td,
+	.layui-laydate-content th {
+		padding: 5px 15px !important;
+		font-size: 26px !important;
+	}
+	
+	.layui-laydate-header {
+		line-height: 50px !important;
+	}
+	
+	.layui-laydate-footer span {
+		font-size: 32px !important;
+		border: none;
+	}
+	
+	.layui-laydate-footer {
+		height: 50px !important;
+		line-height: 50px !important;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#main">实名认证</a>
+		</li>
+		<li class="active">基本信息</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action right-info" style="background: none; width: 100%;left: 0;">
+		<div class="right-input" style="width: 97%; margin: 2% auto;">
+			<form id="infoForm" method="get">
+				<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+					{{fullItemName}}
+				</div>
+				<div id="wrapper" style="overflow: hidden;">
+					<div class="infoContent" style="margin-left: 2.4%;margin-top: 1%;width: 1550px; display: flex; display: -ms-flexbox; flex-flow: wrap;-ms-flex-wrap: wrap;justify-content: space-between;-ms-flex-pack: justify;align-content: flex-start;">
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;基本信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">单位名称</label>
+							<input type="text" id="targetName" ng-model="targetName" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人姓名</label>
+							<input type="text" id="CONTACT_NAME" ng-model="CONTACT_NAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系地址</label>
+							<input type="text" id="CONTACT_ADDR" ng-model="CONTACT_ADDR" />
+						</div>
+						<div class="inputBox">
+							<label class="true">固定电话</label>
+							<input type="text" id="DWTEL" ng-model="DWTEL" />
+						</div>
+						<div class="inputBox">
+							<label class="true">手机号码</label>
+							<input type="text" id="mobile" ng-model="mobile" />
+						</div>
+						<div class="inputBox">
+							<label class="">电子邮件</label>
+							<input type="text" id="EMALL" ng-model="EMALL" />
+						</div>
+						<div class="inputBox">
+							<label class="true" style="float: left;margin-top: 11px;">申请时间</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="REG_DATE" ng-model="REG_DATE" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="inputBox">
+							<label class="true">工作流id</label>
+							<input type="text" id="PROCESSID" ng-model="PROCESSID" />
+						</div>
+						<div class="inputBox">
+							<label class="true">行政区</label>
+							<select ng-model="DISTRICTS" id="DISTRICTS">
+								<option value="">黄浦区</option>
+								<option value="">徐汇区</option>
+								<option value="">长宁区</option>
+								<option value="">静安区</option>
+								<option value="">普陀区</option>
+								<option value="">虹口区</option>
+								<option value="">杨浦区</option>
+								<option value="">闵行区</option>
+								<option value="">宝山区</option>
+								<option value="">嘉定区</option>
+								<option value="">浦东新区</option>
+								<option value="">金山区</option>
+								<option value="">松江区</option>
+								<option value="">青浦区</option>
+								<option value="">奉贤区</option>
+								<option value="">崇明区</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件类型</label>
+							<select ng-model="licenseType" id="licenseType">
+								<option value="">统一社会信用代码</option>
+								<option value="">注册号/事业单位证书号</option>
+								<option value="">组织机构代码</option>
+								<option value="">税务登记号</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件号</label>
+							<input type="text" id="licenseNo" ng-model="licenseNo" />
+						</div>
+						<div class="inputBox">
+							<label class="true">申请人</label>
+							<input type="text" id="username" ng-model="username" />
+						</div>
+						<div class="inputBox">
+							<label class="true">法定代表人</label>
+							<input type="text" id="ARTIFICIALPERSON" ng-model="ARTIFICIALPERSON" />
+						</div>
+						<div class="inputBox">
+							<label class="">申请人地址</label>
+							<input type="text" id="APPADDRESS" ng-model="APPADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="">申请人邮编</label>
+							<input type="text" id="APPPOST" ng-model="APPPOST" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人</label>
+							<input type="text" id="LINKMAN" ng-model="LINKMAN" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人电话</label>
+							<input type="text" id="LINKPHONE" ng-model="LINKPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="">联系人传真</label>
+							<input type="text" id="LINKFAX" ng-model="LINKFAX" />
+						</div>
+						<div class="inputBox">
+							<label class="">联系人手机</label>
+							<input type="text" id="LINKMPHONE" ng-model="LINKMPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="">联系人邮箱</label>
+							<input type="text" id="LINKEMAIL" ng-model="LINKEMAIL" />
+						</div>
+						<div class="inputBox">
+							<label class="true">项目名称</label>
+							<input type="text" id="PROJECTNAME" ng-model="PROJECTNAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true">类型</label>
+							<select ng-model="TYPE" id="TYPE">
+								<option value="">市管河道及中心城区内河道</option>
+								<option value="">其他河道</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">项目性质</label>
+							<select ng-model="PROJECTTYPE" id="PROJECTTYPE">
+								<option value="">新建</option>
+								<option value="">改建</option>
+								<option value="">扩建</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="">投资项目编号</label>
+							<input type="text" id="TZPROJECTCODE" ng-model="TZPROJECTCODE" />
+						</div>
+						<div class="inputBox">
+							<label class="true">项目地址</label>
+							<input type="text" id="PROJECTADDRESS" ng-model="PROJECTADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 28px;">项目范围<br/>所涉及的河道</label>
+							<input type="text" id="PROJECTSCOPE" ng-model="PROJECTSCOPE" />
+						</div>
+						<div class="inputBox">
+							<label class="">备注</label>
+							<input type="textarea" id="EX1" ng-model="EX1" />
+						</div>
+						<div class="inputBox">
+							<label class="true">上海项目代码</label>
+							<input type="text" id="SHCODE" ng-model="SHCODE" />
+						</div>
+						<div class="inputBox">
+							<label class="">国家代码</label>
+							<input type="text" id="GJCODE" ng-model="GJCODE" />
+						</div>
+						<div class="inputBox">
+							<label class="">地区代码</label>
+							<input type="text" id="DQCODE" ng-model="DQCODE" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位</label>
+							<input type="text" id="JSDW" ng-model="JSDW" />
+						</div>
+						<div class="inputBox">
+							<label class="true">建设性质</label>
+							<select ng-model="JSTYPE" id="JSTYPE">
+								<option value="">新建</option>
+								<option value="">迁建</option>
+								<option value="">扩建</option>
+								<option value="">改建</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 28px;">立项或批准文件文号 </label>
+							<input type="text" id="LXPZFILECODE" ng-model="LXPZFILECODE" />
+						</div>
+						<div class="inputBox">
+							<label class="true">立项或批准级别</label>
+							<select ng-model="LXPZLEVEL" id="LXPZLEVEL">
+								<option value="">市级</option>
+								<option value="">区级</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">立项或批准方式</label>
+							<select ng-model="LXPZWAY" id="LXPZWAY">
+								<option value="">审批</option>
+								<option value="">核准</option>
+								<option value="">备案</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;">立项或批准文件名称</label>
+							<input type="text" id="LXPZFILENAME" ng-model="LXPZFILENAME" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;">发文机关<br/>（备案机关）</label>
+							<input type="text" id="FWJG" ng-model="FWJG" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;float: left;">发文日期<br/>（备案日期）</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="FWDATE" ng-model="FWDATE" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="inputBox">
+							<label class="">所在区</label>
+							<select ng-model="LOCATION" id="LOCATION">
+								<option value="">跨省市</option>
+								<option value="">跨区</option>
+								<option value="">上海市</option>
+								<option value="">徐汇区</option>
+								<option value="">长宁区</option>
+								<option value="">静安区</option>
+								<option value="">普陀区</option>
+								<option value="">虹口区</option>
+								<option value="">杨浦区</option>
+								<option value="">闵行区</option>
+								<option value="">宝山区</option>
+								<option value="">浦东新区</option>
+								<option value="">嘉定区</option>
+								<option value="">奉贤区</option>
+								<option value="">松江区</option>
+								<option value="">金山区</option>
+								<option value="">青浦区</option>
+								<option value="">崇明区</option>
+								<option value="">黄浦区</option>
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="">总投资（万元）</label>
+							<input type="text" id="TZTOTAL" ng-model="TZTOTAL" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="font-size: 28px;">建筑面积（平方米）</label>
+							<input type="text" id="JZAREA" ng-model="JZAREA" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设内容</label>
+							<input type="textarea" id="JSCONTENT" ng-model="JSCONTENT" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设地点</label>
+							<input type="text" id="JSPLACE" ng-model="JSPLACE" />
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

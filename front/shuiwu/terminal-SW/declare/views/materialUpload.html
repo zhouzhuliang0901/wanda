@@ -1,0 +1,68 @@
+<style>
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#">自助申报</a>
+		</li>
+		<li>
+			<a href="#list">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li class="active">材料清单</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<img class="bg" src="images/mainIndexBG_0.png">
+		<div class="leftImg">
+			<img src="images/prototype.png">
+			<img src="images/click.gif" width="80" class="click">
+			<div>请选择需要上传的材料<br />点击“提交”后无法更改</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="panelList one" style="height: 540px; width: 1060px; padding: 35px 0;">
+			<div class="right-box guide" id="wrapper">
+				<div  style="height: 1000px;">
+					<div ng-show="haveList" class="document stuff" ng-repeat="(index,stuff) in stuffList" ng-click="uploadMaterial(index,stuff)">
+						<div>{{index+1}}</div>
+						<div ng-class="stuff.isMust == 0 ? '':'xing'">{{stuff}}</div>
+						<div><img ng-src="{{ listImg[index].activeImg || 'images/state_0.png'}}" class="stuffImg" height="80" /></div>
+					</div>
+					<div class="nolist" ng-show="!noList">暂无材料列表</div>
+					<div ng-show="noList" class="document stuff" ng-repeat="(index,stuff) in stuffList">
+						<div>{{index+1}}</div>
+						<div>{{stuff}}</div>
+						<div><img ng-src="images/state_1.png" class="stuffImg" height="80" /></div>
+					</div>
+				</div>
+				<!--<div class="content-side" style="display: none;">
+					<a class="side-up" ng-click="moveUp()"><img src="images/btn_up.png" alt="" /></a>
+					<a class="side-down" ng-click="moveDown()"><img src="images/btn_down.png" alt="" /></a>
+				</div>-->
+			</div>
+		</div>
+		<!--<a class="btn_radius_50" href="#uploadMethod" style="top: 660px; left: 166px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>上传</label>
+			</div>
+		</a>-->
+		<a class="btn_radius_50 submit" ng-click="submit()" style="left: 380px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>提交办件</label>
+			</div>
+		</a>
+	</div>
+</div>

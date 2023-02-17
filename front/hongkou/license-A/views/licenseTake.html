@@ -1,0 +1,51 @@
+<style>
+
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">{{title}}</a>
+        </li>
+        <li class="active">登录系统</li>
+    </ol>
+</nav>
+<div class="shadowBox licenseTake">
+    <div class="loginTips" ng-if="isReadOver">
+        <div class="idCardTips" ng-if="loginType==='idCard'">
+            身份信息读取成功<br/>
+			请收好您的身份证!
+        </div>
+        <div class="loadingBox" ng-if="loginType==='citizenCloud'">
+            <img src="images/loading.gif" alt="">
+            <p>正在进行市民云登录，请稍后...</p>
+        </div>
+    </div>
+    <div class="idCard-login" ng-if="loginType==='idCard'&&!isReadOver">
+        <div class="mainImg">
+            <img class="bgMain" src="images/cabinet.png" alt="">
+            <img class="idcard" src="images/card.gif" alt="">
+        </div>
+        <p class="boldTips">请将身份证置于扫描处</p>
+        <p class="normalTips">系统将在读取身份证信息后自动跳转
+            <br /> 如有疑问请咨询工作人员获取帮助
+        </p>
+    </div>
+    <div class="citizenCloud-login" ng-if="loginType==='citizenCloud'&&!isReadOver">
+        <ul class="citizenCloudFlow">
+            <li><img src="images/citizenCloud-Code.png"><br> <span>第1步</span></li>
+            <li class="flow"><img src="images/citizenCloud1.jpg"><br> <span>第2步</span></li>
+            <li class="flow"><img src="images/citizenCloud2.jpg"><br> <span>第3步</span>
+                <p>将此处二维码<br />放在扫描口扫描</p>
+            </li>
+            <li class="flow"><img src="images/citizenCloud3.jpg"><br> <span>第4步</span></li>
+        </ul>
+    </div>
+    <div class="btn" ng-click="loginTypeTab(loginType)" ng-if="!isReadOver">
+        <span class="event">{{btnInfo}}</span>
+    </div>
+</div>

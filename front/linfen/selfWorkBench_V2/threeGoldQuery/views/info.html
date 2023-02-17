@@ -1,0 +1,394 @@
+<style type="text/css">
+	#wrapper {
+		width: 1600px;
+		height: 530px;
+	}
+	
+	.caption {
+		margin-top: 4%;
+		margin-left: 11%;
+	}
+	
+	.body {
+		width: 1440px;
+	}
+	
+	.table-sty1 {
+		width: 100%;
+		table-layout: auto;
+		margin: 2% auto;
+	}
+	
+	.table-sty1 th {
+		font-weight: bold;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+		/* text-overflow: ellipsis; */
+	}
+	
+	.houseTable th,
+	.houseTable td {
+		white-space: normal;
+	}
+	
+	.detail th,
+	.detail td {
+		padding: 12px 15px;
+	}
+	
+	.tdOne {
+		width: 20%;
+	}
+	
+	.tdTwo {
+		width: 28%;
+	}
+	
+	.handleList {
+		width: 80%;
+		margin: 5% auto 0;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 28%;
+		height: 100px;
+		line-height: 106px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		margin-left: 3%;
+		margin-right: 2%;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 100% 100%;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+	}
+	
+	.attention {
+		width: 61%;
+		margin: -1% auto;
+		color: #e1ba1c;
+	}
+	
+	.line {
+		width: 100%;
+		height: 9%;
+		position: relative;
+		margin: 0 auto 2%;
+	}
+	
+	.line hr {
+		margin-top: 1.6%;
+		width: 42%;
+		position: absolute;
+	}
+	
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+	
+	.gray {
+		background-color: rgba(255, 255, 255, 0.1);
+		font-weight: bold;
+	}
+	
+	.choice {
+		width: 100%;
+		height: 80px;
+		margin-bottom: 2%;
+	}
+	
+	.choice ul {
+		display: flex;
+		width: 80%;
+		margin: 0 auto;
+		height: 100%;
+	}
+	
+	.choice ul li {
+		width: 30%;
+		height: 100%;
+		line-height: 80px;
+		font-size: 28px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	.orange {
+		color: #F1992E;
+		border-bottom: 1px solid #F1992E;
+	}
+	
+	.houseTable tr td:nth-child(1),
+	.houseTable tr td:nth-child(4) {
+		width: 72px;
+	}
+	
+	.houseTable tr td:nth-child(1) {
+		width: 11%
+	}
+	
+	.houseTable tr td:nth-child(2) {
+		width: 9%
+	}
+	
+	.houseTable tr td:nth-child(3) {
+		width: 13%
+	}
+	
+	.houseTable tr td:nth-child(4) {
+		width: 9%
+	}
+	
+	.houseTable tr td:nth-child(5) {
+		width: 10%
+	}
+	
+	.houseTable tr td:nth-child(6) {
+		width: 11%
+	}
+	
+	.houseTable tr td:nth-child(7) {
+		width: 9%
+	}
+	
+	.houseTable tr td:nth-child(8) {
+		width: 9%
+	}
+	
+	.houseTable tr td:nth-child(9) {
+		width: 21%
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.body {
+			margin-left: 110px;
+			width: 1060px;
+		}
+	}
+</style>
+<ul class="handleList">
+	<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">
+		{{ item }}
+	</li>
+</ul>
+<div id="wrapper" style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="body">
+				<!--养老金-->
+				<div ng-if="ylj">
+					<div class="line">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0;">
+						<p>基本信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody>
+							<tr class="gray">
+								<th>姓名</th>
+								<th>身份证</th>
+								<th>92年底前连续工龄</th>
+							</tr>
+							<tr class="detail">
+								<td>{{licenseName || "暂无"}}</td>
+								<td>{{licenseNumber || "暂无"}}</td>
+								<td>{{jobYear || "0"}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="line">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;width: 40%">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 40%">
+						<p>近期应缴情况</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody>
+							<tr class="gray">
+								<th>年月</th>
+								<th>缴费基数</th>
+								<th>养保个人缴费额</th>
+								<th>医保个人缴费额</th>
+								<th>失保个人缴费额</th>
+							</tr>
+							<tr class="detail" ng-repeat="item in RecentItem">
+								<td>{{item.year || "暂无"}}</td>
+								<td>{{item.baseNum || "暂无"}}</td>
+								<td>{{item.ylNum || "暂无"}}</td>
+								<td>{{item.ybNum || "暂无"}}</td>
+								<td>{{item.syNum || "暂无"}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="line">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;width: 37%">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 37%">
+						<p style="width: 23%;">养老保险实缴记录</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody>
+							<tr class="gray">
+								<th>年份</th>
+								<th>当年累计缴费月数</th>
+								<th>个人缴纳</th>
+							</tr>
+							<tr class="detail" ng-repeat="item in RealItem">
+								<td>{{item.year || "暂无"}}</td>
+								<td>{{item.baseNum || "暂无"}}</td>
+								<td>{{item.personal || "暂无"}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="line">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0;">
+						<p>累计缴费</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody>
+							<tr class="gray">
+								<th>截止年月</th>
+								<th>累计缴费月数</th>
+								<th>养老金本息总额</th>
+								<th>养老金总额个人部分</th>
+							</tr>
+							<tr class="detail">
+								<td>{{TotalItem.year || "暂无"}}</td>
+								<td>{{TotalItem.monthCount || "暂无"}}</td>
+								<td>{{TotalItem.sumNum || "0"}}</td>
+								<td>{{TotalItem.personal || "0"}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!--医保金-->
+				<table class="table-sty1" cellspacing="0" ng-if="ybj">
+					<tbody>
+						<tr ng-repeat="item in Item">
+							<td class="gray tdOne">{{item.firstName || "暂无"}}</td>
+							<td class="tdTwo">{{item.firstValue || "暂无"}}</td>
+							<td class="gray tdOne">{{item.secondName || "暂无"}}</td>
+							<td class="tdTwo">{{item.secondValue || '暂无'}}</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<!--公积金-->
+				<div ng-if="gjj">
+					<div class="choice">
+						<ul>
+							<li ng-class="{'orange':currentC==index}" ng-repeat="(index,item) in houseType" ng-click="getHouse(index,item)">
+								{{ item }}
+							</li>
+						</ul>
+					</div>
+					<div class="line" ng-if="showLine">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 35%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 35%;">
+						<p ng-if="baseInfo" style="width: 25%;">住房公积金信息</p>
+						<p ng-if="addInfo" style="width: 25%;">补充住房公积金信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody ng-if="baseInfo">
+							<tr ng-repeat="item in gjjItem">
+								<td class="gray tdOne">{{item.firstName || "暂无"}}</td>
+								<td class="tdTwo">{{item.firstValue || "暂无"}}</td>
+								<td class="gray tdOne">{{item.secondName || "暂无"}}</td>
+								<td class="tdTwo">{{item.secondValue || '暂无'}}</td>
+							</tr>
+						</tbody>
+						<tbody ng-if="addInfo">
+							<tr ng-repeat="item in gjjAddItem">
+								<td class="gray tdOne">{{item.firstName || "暂无"}}</td>
+								<td class="tdTwo">{{item.firstValue || "暂无"}}</td>
+								<td class="gray tdOne">{{item.secondName || "暂无"}}</td>
+								<td class="tdTwo">{{item.secondValue || '暂无'}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="line" ng-if="showLine">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 30%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 30%;">
+						<p ng-if="baseInfo" style="width: 36%;">住房公积金资金动态明细</p>
+						<p ng-if="addInfo" style="width: 36%;">补充住房公积金资金动态明细</p>
+					</div>
+					<table class="table-sty1 houseTable" cellspacing="0">
+						<tbody ng-if="baseInfo">
+							<tr class="gray">
+								<th>发生日期</th>
+								<th>汇缴月份</th>
+								<th>业务类型</th>
+								<th>业务发生原因</th>
+								<th>发生金额</th>
+								<th>当前余额</th>
+								<th>银行利息</th>
+								<th>单位账号</th>
+								<th>单位名称</th>
+							</tr>
+							<tr ng-repeat="item in gjjDetailItem">
+								<td>{{item.jtime || "暂无"}}</td>
+								<td>{{item.pay_month || "-"}}</td>
+								<td>{{item.jsummary || "暂无"}}</td>
+								<td>{{item.jreason_code || '-'}}</td>
+								<td>{{item.jsurplus_hp || '暂无'}}</td>
+								<td>{{item.jcur_surplus || '暂无'}}</td>
+								<td>{{item.jyhlx || '暂无'}}</td>
+								<td>{{item.junit_code || '暂无'}}</td>
+								<td>{{item.junit_name || '暂无'}}</td>
+							</tr>
+						</tbody>
+						<tbody ng-if="addInfo">
+							<tr class="gray">
+								<th>发生日期</th>
+								<th>汇缴月份</th>
+								<th>业务类型</th>
+								<th>业务发生原因</th>
+								<th>发生金额</th>
+								<th>当前余额</th>
+								<th>银行利息</th>
+								<th>单位账号</th>
+								<th>单位名称</th>
+							</tr>
+							<tr ng-repeat="item in gjjAddDetailItem">
+								<td>{{item.btime || "暂无"}}</td>
+								<td>{{item.pay_month || "-"}}</td>
+								<td>{{item.bsummary || "暂无"}}</td>
+								<td>{{item.breason_code || '-'}}</td>
+								<td>{{item.bsurplus_hp || '暂无'}}</td>
+								<td>{{item.bcur_surplus || '暂无'}}</td>
+								<td>{{item.byhlx || '暂无'}}</td>
+								<td>{{item.bunit_code || '暂无'}}</td>
+								<td>{{item.bunit_name || '暂无'}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer ng-if="!gjj" prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<apptb-footer ng-if="gjj" prev="prevStep()" next="print()" default-is-show-next-btn="{{nextShowname}}" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,87 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 90%;
+		height: 100%;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,.resultTr td.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	.resultTr th:nth-of-type(1){
+		width: 50%;
+	}
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			    height: 550px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table>
+				<tr class="resultTr">
+					<th colspan="3">应税住房地址：{{fwdz}}</th>
+					<th colspan="3">查询时间：{{date}}</th>
+				</tr>
+				<tr class="resultTr">
+					<td>编号</td>
+					<td>税款所属期</td>
+					<td>应缴税额（元）</td>
+					<td>已缴税额（元）</td>
+					<td>缴税地址</td>
+					<td>缴税时间</td>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{list.ROW_ID}}</td>
+					<td>{{list.qsrq}}-{{list.zzrq}}</td>
+					<td>{{list.commitse}}</td>
+					<td>{{list.yjse||"暂未缴费"}}</td>
+					<td>{{list.dzdw}}</td>
+					<td>{{list.dzrq||"--"}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden"  custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

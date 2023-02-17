@@ -1,0 +1,65 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.input-append {
+		height: 100px;
+	}
+	
+	.scrollBox2 {
+		margin-left: 450px;
+		margin-top: 200px;
+	}
+	
+	.input1 {
+		height: 70px;
+		width: 400px;
+		padding-left: 23px;
+		font-size: 34px;
+		background: url(../libs/common/images/big-input.png) no-repeat;
+		background-size: 400px 70px;
+	}
+	
+	.scrollBox2 .dllist1 dd {
+		width: 1270px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.span {
+		float: left;
+		text-align: right;
+		width: 300px;
+	}
+</style>
+<p class="caption">请输入更新纸张数</p>
+<div class="main2" style="width: 1625px;height: 645px;margin-left: 118px;    margin-top: 30px;">
+	<div class="scrollBox2 clearfloat">
+		<dl class="dllist1 clearfloat">
+			<dd class="lt1">
+				<span class="span">增加A4打印纸数量：</span>
+				<div class="">
+					<input class="input1" type="text" id="stPaperNum" ng-model="stPaperNum">
+				</div>
+			</dd>
+			<dd class="lt1">
+				<span class="span">增加医保记录册数量：</span>
+				<div class="">
+					<input class="input1" type="text" id="stBookNum" ng-model="stBookNum">
+				</div>
+			</dd>
+		</dl>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

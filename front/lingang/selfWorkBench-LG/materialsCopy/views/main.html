@@ -1,0 +1,40 @@
+<style type="text/css">
+	.preview {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		width: 1250px;
+		margin: 0 auto;
+	}
+	
+	.preview img {
+		max-height: 500px;
+	}
+	
+	.chooseQuantity.material {
+		float: none;
+		margin: 0 auto;
+		margin-top: 100px;
+	}
+</style>
+
+<take-photo result="getImg(img,url)" ng-if="!isPrint" type="material"></take-photo>
+<div ng-if="isPrint">
+	<div class="preview">
+		<img ng-src="{{materialData}}" />
+	</div>
+	<div class="chooseQuantity material">
+		<p>请选择您要打印的份数</p>
+		<span class="control" ng-click="minus()">-</span>
+		<span>{{printQuantity}}份</span>
+		<span class="control" ng-click="plus()">+</span>
+	</div>
+	<print show="printShow"></print>
+</div>
+<apptb-footer 
+	need-count-down="false" 
+	next="print()"
+	prev="prev()"
+	next-btn-info="打印">
+</apptb-footer>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立式查询系统</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/idangerous.swiper2.7.6.css"/>
+    <link rel="stylesheet" href="css/idangerous.swiper.3dflow.css"/>
+</head>
+<body>
+    <div class="con-box">
+        <header class="header">
+            <div class="hd-title"></div>
+        </header>
+        <!-- 立式查询机-->
+        <div class="vertical_gets"></div>
+        <!--自动轮播图片展示 -->
+        <div class="img1"> 
+        	<a class="nav-item bsyd" href="map_details.html"></a>
+        </div>
+        
+        <div class="img2"> 
+        	<a class="nav-item bszn" href="http://192.68.61.197:8080/govPortals/selfWorkbench-PD/guideline2/index_lg.html#/list"></a>
+        
+        <div class="img3"> 
+        	<a class="nav-item bsjd" href="progress.html"></a>
+        </div>
+        <!--<nav>
+            <a class="nav-item bsyd" href="map_details.html"></a>
+            <a class="nav-item bszn" href="http://192.68.61.197:8080/govPortals/selfWorkbench-PD/guideline2/index_lg.html#/list"></a>
+            <a class="nav-item bsjd" href="progress.html"></a>
+        </nav>-->
+    </div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/idangerous.swiper2.7.6.min.js"></script>
+    <script src="js/idangerous.swiper.3dflow.js"></script>
+    <script src="js/self-mac-tools.js"></script>
+    <script>
+        var mySwiper = new Swiper('.swiper-container',{
+            //其他设置
+            autoplay : 3000,
+            speed: 300,
+            loop : true,
+            slidesPerView : 3,
+            autoplayDisableOnInteraction : false,
+            centeredSlides : true,
+            tdFlow: {
+                rotate : 15,
+                stretch :50,
+                depth: 150,
+                modifier : 1,
+                shadows : false
+            }
+        });
+        
+        // 关闭二维码扫描
+        $.device.qrCodeClose();
+        // 关闭身份证阅读器
+        $.device.idCardClose();
+    </script>
+</body>
+</html>

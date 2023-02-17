@@ -1,0 +1,53 @@
+<div class="shell bg2">
+		<apptb-header fun-name="自助申报"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<!--<li>办事指南</li>-->
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="main2" style="height: 650px;">
+			<p style="position: absolute;left: 14%;top: 10%;">已选择的文件：</p>
+			<div class="action right-grey">
+				<div class="camera">
+					<div>{{UData}}</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<a class="ReUp" ng-click="takePhoto()">继续U盘上传</a>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="highCapture()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+    <alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" confirm-text="是" cancel-text="否"></alert>
+</div>
+<style type="text/css">
+	.camera {
+		width: 740px;
+		height: 500px;
+		position: absolute;
+		top: 130px;
+		left: 400px;
+		font-size: 40px;
+	}
+	
+	.ReUp {
+		position: absolute;
+		top: 800px;
+		width: 180px;
+		height: 70px;
+		left: 900px;
+		background: url(./images/print.png) no-repeat;
+		-webkit-background-size: 180px 70px;
+		background-size: 180px 70px;
+		text-align: center;
+		line-height: 70px;
+	}
+</style>

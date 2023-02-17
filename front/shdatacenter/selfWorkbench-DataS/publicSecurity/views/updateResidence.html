@@ -1,0 +1,51 @@
+<apptb-header fun-name="居住证签注"></apptb-header>
+<div class="contain">
+	<div class="stable">
+		<div class="my-card">
+			<div class="head">
+				<h4>居住证信息确认</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>姓名：</th>
+						<td>毛雅璐</td>
+						<th>性别：</th>
+						<td>女性</td>
+					</tr>
+					<tr>
+						<th>民族：</th>
+						<td>汉族</td>
+						<th>公民身份号码：</th>
+						<td>350722199011260084</td>
+					</tr>
+					<tr>
+						<th>常住户口所在地址：</th>
+						<td colspan="3">福建省石狮市嘉禄路555号13幢501室</td>
+					</tr>
+					<tr>
+						<th>居住地住址：</th>
+						<td colspan="3" style="color:#e1ba1c;font-weight:bold;">松江区沪松公路20弄1号102室</td>
+					</tr>
+					<tr>
+						<th>居住证有效期：</th>
+						<td colspan="3" style="color:#e1ba1c;font-weight:bold;">2015年06月09日--2020年09月16日</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}"  custom-home="true" 	home="customMain()"go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+</style>

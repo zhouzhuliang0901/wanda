@@ -1,0 +1,97 @@
+<p class="caption">{{funName}}查询</p>
+<div class="main2" style="width: 1625px;height: 645px;margin-left: 118px;    margin-top: 30px;">
+	<div id="wrapper">
+		<div class="scrollBox2 clearfloat">
+			<dl class="dllist1 clearfloat">
+				<dt>使用说明：</dt>
+				<dd>
+					<p>1、个人住房房产税纳税人在取得应税住房产权之日起10个工作日后，可以通过本终端查询个人住房房产税应税情况。</p>
+					<p>2、个人住房房产税纳税人在缴税之日起3个工作日后，可以通过本终端查询个人住房房产税已缴税情况。</p>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.caption {
+		margin-top: 80px!important;
+		margin-left: 200px !important;
+	}
+
+	.scrollBox2 .dllist1 dd {
+		width: 1270px;
+	}
+
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	#wrapper {
+		width: 1750px;
+		height: 600px;
+		overflow: scroll;
+		overflow-style: none;
+		-ms-overflow-style: none;
+		-webkit-overflow-style: none;
+	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	.stuff td {
+		font-size: 24px;
+	}
+
+	.stuff th {
+		font-size: 24px;
+	}
+
+	.stuff table tr>td:nth-child(1) {
+		width: 950px;
+	}
+
+	.stuff table tr>td:nth-child(2) {
+		display: none;
+		text-align: center
+	}
+
+	.stuff table tr>th:nth-child(2) {
+		display: none;
+	}
+
+	.stuff table tr>td:nth-child(3) {
+		width: 170px;
+		margin-left: 20px;
+		text-align: center
+	}
+
+	.stuff table tr>td:nth-child(4) {
+		width: 130px;
+		margin-left: 20px;
+		text-align: center
+	}
+
+	.stuff table tr>td:nth-child(5) {
+		width: 150px;
+		margin-left: 20px;
+		text-align: center
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		#wrapper {
+			margin: 0;
+			width: 1064px;
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 761px;
+		}
+	}
+</style>

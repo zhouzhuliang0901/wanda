@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>print</title>
+		<!--
+			A4 宽高：210mm * 297mm
+		-->
+		<script src="../libs/common/js/jquery-1.12.4.min.js"></script>
+		<script src="js/JsBarcode.all.js"></script>
+		<script src="js/qrcode.min.js"></script>
+	</head>
+
+	<body style="margin: 0; padding: 0; font-family: '宋体';font-size: 16px;">
+		<div style="width: 146.4mm; height: 246.2mm; padding: 25.4mm 31.8mm; position: relative;">
+			<div style="">
+				<img id="barCode" style="width: 58mm; height: 18mm;" />
+				<div style="font-size: 20px; margin: 5mm 0;">职能单位：<span style="font-weight: bold;">上海市徐汇区市场监督管理局</span></div>
+				<div id="qrcode" style="width: 28mm; height: 28mm; position: absolute; top: 25.4mm; right: 31.8mm;"></div>
+				<div style="font-weight: bold;font-size: 22px; text-align: center; margin: 10mm 0 0;">徐汇区政务服务申请材料   <span style="font-size: 24px;">收件凭证</span></div>
+				<ul style="width: 100%; list-style: none; padding: 0; margin: 10mm 0;">
+					<li style="margin: 1mm 0;">申请事项：各类企业及其分支机构营业许可</li>
+					<li style="margin: 1mm 0;">子事项：有限责任公司股东变更登记</li>
+					<li style="margin: 1mm 0;">事项情形：（系统） </li>
+					<li style="margin: 1mm 0;">项目信息：（选填）  </li>
+					<li style="margin: 1mm 0;">申请单位：上海腾飞物业管理有限公司 </li>
+					<li style="width: 49%; display: inline-block;">申请人：刘**（必填）</li>
+					<li style="width: 49%; display: inline-block;">联系电话：13902233445（必填）</li>
+				</ul>
+				<div style="text-indent: 8mm; padding-bottom: 2mm;">
+					经核查，您（单位）提交的申请材料齐全，符合法定形式，现予收件。
+				</div>
+				<div style="text-indent: 8mm; padding-bottom: 2mm;">
+					根据规定，承办部门将在出具本凭证之日起5个工作日内，作出受理或不予受理的决定，申请材料不齐全或者不符合法定形式的，将在5个工作日内一次告知需要补正的材料。如在5个工作日内未被告知需要补正材料的，则视为正式受理，本凭证即为受理凭证。
+				</div>
+				<div style="text-indent: 8mm; padding-bottom: 2mm;">
+					收件材料清单附后。
+				</div>
+				<div style="width: 52%; display: inline-block; vertical-align: middle;margin-top: 7mm;">
+					<div style="margin-bottom: 1mm;">申请人确认（签字）：<span style="display: inline-block; border-bottom: 1px solid #000000; width: 24mm;"></span></div>
+					<div style="margin-bottom: 1mm;"><input type="checkbox" />自行取件</div>
+					<div style="margin-bottom: 1mm;"><input type="checkbox"/>物流寄送地址（到付）：</div>
+					<div style="margin-bottom: 1mm; margin-left: 5mm;"><span style="display: inline-block; border-bottom: 1px solid #000000; width: 61mm;"></span></div>
+					<div style="margin-bottom: 1mm; margin-left: 5mm;">接收人姓名：<span style="display: inline-block; border-bottom: 1px solid #000000; width: 36mm;"></span></div>
+					<div style="margin-bottom: 1mm; margin-left: 5mm;">接收人手机号：<span style="display: inline-block; border-bottom: 1px solid #000000; width: 32mm;"></span></div>
+				</div>
+				<div style="width: 45%; display: inline-block; vertical-align: middle;">
+					<div style="margin-bottom: 2mm;">收件机构章</div>
+					<div style="margin-bottom: 2mm;">收件人：黄炜</div>
+					<div style="margin-bottom: 2mm;">收件日期：二零一八年九月十一日</div>
+					<div style="margin-bottom: 2mm;">联系电话：021-24092222</div>
+				</div>
+				<img src="images/chapter.png" style="position: absolute;right: 53mm; margin-top: 7mm;" />
+				<table border="1px solid #000" cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: 146.4mm; margin-top: 15mm;">
+					<tbody>
+						<tr>
+							<td style="padding: 1mm 2mm;">序号</td>
+							<td style="padding: 1mm 2mm;">申请材料</td>
+							<td style="padding: 1mm 2mm;">原件</td>
+							<td style="padding: 1mm 2mm;">复印件</td>
+						</tr>
+						<tr>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;">公司登记（备案）申请书</td>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;"></td>
+						</tr>
+						<tr>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;">公司登记（备案）申请书</td>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;"></td>
+						</tr>
+						<tr>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;">公司登记（备案）申请书</td>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;"></td>
+						</tr>
+						<tr>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;">公司登记（备案）申请书</td>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;"></td>
+						</tr>
+						<tr>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;">公司登记（备案）申请书</td>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;"></td>
+						</tr>
+						<tr>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;">公司登记（备案）申请书</td>
+							<td style="padding: 1mm 2mm;">1</td>
+							<td style="padding: 1mm 2mm;"></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+		<script type="text/javascript">
+			// 条形码生成
+			JsBarcode("#barCode", "0410123981203981092", {
+				displayValue: true, //是否在条形码下方显示文字
+				text: "0410123981203981092", //覆盖显示的文本
+				textAlign: "center", //设置文本的水平对齐方式
+				textPosition: "bottom", //设置文本的垂直位置
+				textMargin: 5, //设置条形码和文本之间的间距
+				fontSize: 34, //设置文本的大小
+				color: '#000',
+				margin: 10 //设置条形码周围的空白边距
+			});
+			// 二维码生成
+			var qrcode = new QRCode("qrcode", {
+			    text: "http://zwdt.sh.gov.cn/zwdtSW/spnetQuery/bjxqxg2.jsp?ST_WF_ID=751122018600008&IdOrCode=夏雷",
+			    width: 110,
+			    height: 110,
+			    colorDark : "#000000",
+			    colorLight : "#ffffff",
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="renderer" content="webkit"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css">
+    <script type="text/javascript" src="static/cometd/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="static/cometd/org/cometd.js"></script>
+    <script type="text/javascript" src="static/cometd/org/cometd/AckExtension.js"></script>
+    <script type="text/javascript" src="static/cometd/org/cometd/ReloadExtension.js"></script>
+    <script type="text/javascript" src="static/cometd/jquery.cookie.js"></script>
+    <script type="text/javascript" src="static/cometd/jquery.cometd.js"></script>
+    <script type="text/javascript" src="static/cometd/jquery.cometd-reload.js"></script>
+    <style type="text/css">
+        .demo {
+            margin: 50px auto 0 auto;
+            width: 600px
+        }
+
+        .demo span {
+            color: #666;
+            margin-left: 10px
+        }
+
+        textarea {
+            display: block;
+            width: 450px;
+            height: 100px;
+            border: 1px solid #ccc;
+        }
+
+        .post {
+            width: 230px;
+            border: 1px solid #ccc;
+            background: #ececec;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            border: 1px solid #ccc;
+            background: #ececec;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            margin-top: 10px;
+            padding: 5px 20px;
+            cursor: pointer
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <h2 class="top_title">CometD 测试用例</a></h2>
+    <div class="demo">
+        <div id="result"></div>
+        <textarea name="msg" id="msg" placeholder="输入内容" autofocus=""></textarea>
+        <input name="" id="testinput">
+        <button type="submit" onclick="sendMsg()">发送消息</button>
+        <span>可按“Ctrl+Enter”键提交</span>
+    </div>
+</div>
+<script th:inline="javascript">
+    var cometd = $.cometd;
+    cometd.unregisterTransport('websocket');
+    var isConnection = false;
+    var userToken = "";
+    var windowId = "";
+    var padinteractionId = "";
+    var url = "http://localhost:8080/cometd"
+
+    function init() {
+        cometd.configure({
+            url: url,
+            logLevel: "debug"
+        });
+        handshake();
+        cometd.addListener('/meta/connect', function (message) {
+            if (!message.successful) {
+                isConnection = false;
+            } else if (!isConnection) {
+                handshake();
+            }
+        });
+    }
+
+    function handshake() {
+        cometd.handshake(function (handshakeReply) {
+            if (handshakeReply.successful) {
+                var cid = '/selfterminal/DD-EE-01-CC';
+                cometd.subscribe(cid, function (message) {
+                    console.info(message);
+                });
+                isConnection = true;
+            }
+        });
+    }
+
+    init();
+
+    function sendMsg() {
+        var test = document.getElementById("testinput").value;
+        console.info(test)
+        cometd.publish("/selfterminal/DD-EE-01-CC", {
+            module: 'selfterminal', desc: '自助终端测试', source: 'selfterminal',
+            data: {
+                content: test
+            },
+            type: 'terminal', srcid: '/iac/window/test'
+        });
+    }
+
+    function sendEvaluate(data) {
+        cometd.publish('/iac/pad/' + padinteractionId, {
+            module: 'pad', desc: '窗口互动', source: '互动屏',
+            data: {
+                content: data,
+                cmd: 'interaction',
+                path: windowId,
+                opt: 'evaluate'
+            },
+            type: 'iac', srcid: '/iac/window/' + windowId
+        });
+    }
+
+</script>
+</body>
+</html>

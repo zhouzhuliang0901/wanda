@@ -1,0 +1,77 @@
+<apptb-header fun-name="我的证照"></apptb-header>
+<p class="caption">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div id="scrollContain">
+			<div class="linkt" repeat-finish ng-repeat="item in licenseList" ng-click="choice(item.certName,item.pictureUrlForBytes,item.derivePictureUrlForBytes)">
+				<img src="images/icon.png" alt="" />
+				<div class="cert">
+					<p class="certName">{{item.certName }}</p>
+					<p class="certDate">有效期：{{item.validStartDay}}&nbsp;至&nbsp;{{item.validEndDay}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.scrollBox2 {
+		margin-left: 200px;
+		margin-top: 50px;
+		width: 80%;
+	}
+
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	.linkt {
+		float: left;
+		width: 700px;
+		height: 170px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 700px 170px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+
+	#scrollContain {
+		overflow: hidden;
+	}
+
+	#wrapper {
+		width: 1800px;
+		height: 615px;
+		overflow: hidden;
+	}
+
+	.linkt img {
+		width: 80px;
+		height: 80px;
+		float: left;
+		padding: 42px 0 0 38px;
+	}
+
+	.cert {
+		margin-left: 160px;
+		height: 100%;
+		line-height: 50px;
+		font-size: 30px;
+		text-align: left;
+	}
+
+	.certName {
+		margin-top: 40px;
+		font-size: 34px;
+	}
+
+	.certDate {
+		color: #fefefe;
+		opacity: .6;
+	}
+</style>

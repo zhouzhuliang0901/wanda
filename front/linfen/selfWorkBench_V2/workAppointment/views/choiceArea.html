@@ -1,0 +1,94 @@
+<div class="reserve-one">
+	<p class="caption1">请选择办理点</p>
+	<p class="caption2">区域</p>
+	<div class="checkBoxA">
+		<a ng-repeat="(index,item) in areaList" ng-class="{'in':current==index}" ng-click="change(index,item)">{{item.areaName}}</a>
+	</div>
+	<p class="caption2">类型</p>
+	<div class="checkBoxA boxB">
+		<a ng-repeat="(index,item) in typeList" ng-class="{'in':current2==index}" ng-click="change2(index,item)">{{item}}</a>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style>
+	a {
+		color: #FFFFFF;
+	}
+
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+
+	.reserve-one .reserve {
+		margin-top: 0px;
+	}
+
+	.caption1 {
+		margin-left: 80px;
+		margin-top: 50px;
+	}
+
+	.caption2 {
+		margin-left: 160px;
+		margin-top: 50px;
+		margin-bottom: 30px;
+	}
+
+	.reserve-one p {
+		color: #fefefe;
+		font-size: 33px;
+		opacity: .6;
+	}
+
+	.checkBoxA {
+		width: 80%;
+		margin: 0px 155px;
+		color: #FFFFFF;
+		font-size: 24px;
+		display: inline-block;
+	}
+
+	.checkBoxA a {
+		float: left;
+		width: 121px;
+		height: 80px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 80px;
+		padding: 0px 20px;
+		margin: 5px;
+	}
+
+	.boxB a {
+		width: 200px;
+	}
+
+	.boxB a.in:after {}
+
+	/*.boxB a:nth-of-type(2),
+	.boxB a:nth-of-type(3) {
+		opacity: .6;
+	}*/
+
+	.checkBoxA a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.caption2 {
+			margin-top: 0px;
+		}
+	}
+</style>

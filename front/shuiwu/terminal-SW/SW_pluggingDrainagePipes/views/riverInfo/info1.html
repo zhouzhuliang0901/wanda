@@ -1,0 +1,333 @@
+<style type="text/css">
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+	
+	#infoForm .inputBox {
+		width: 47%;
+		height: 70px
+	}
+	
+	.inputBox>label {
+		width: 270px;
+	}
+	
+	#infoForm .inputBox select,
+	#infoForm .inputBox input[type=textarea] {
+		width: 55%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=textarea] {
+		width: 50%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .content {
+		padding-bottom: 15px;
+		width: 95%;
+	}
+	
+	#infoForm .inputBox input[type=text] {
+		width: 50%;
+	}	
+	.datetimepicker {
+		display: none;
+		position: absolute;
+		font-size: 24px;
+		background-color: white;
+		color: black;
+		padding: 5px 20px;
+		background: rgba(255, 255, 255, 0.95);
+	}
+	
+	/*.datetimepicker td,
+	.datetimepicker th {
+		padding: 2px 10px;
+	}*/
+	#font_24 {
+		font-size: 24px;
+	}
+	/*日期控件相关*/
+	.layui-laydate-main{
+		width: 440px !important;
+	}
+	.laydate-set-ym span, .layui-laydate-header i{
+		font-size: 30px;
+	}
+	.layui-laydate-content td, .layui-laydate-content th{
+		padding: 5px 15px !important;
+		font-size: 26px !important;
+	}
+	.layui-laydate-header{
+		line-height: 50px !important;
+	}
+	.layui-laydate-footer span{
+		font-size: 32px !important;
+		border: none;
+	}
+	.layui-laydate-footer{
+		height: 50px !important;
+		line-height: 50px !important;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#main">实名认证</a>
+		</li>
+		<li class="active">基本信息</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action right-info" style="background: none; width: 100%;left: 0;">
+		<div class="right-input" style="width: 97%; margin: 2% auto;">
+			<form id="infoForm" method="get">
+				<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+					{{fullItemName}}
+				</div>
+				<div id="wrapper">
+					<div class="infoContent" style="margin-left: 2.4%;margin-top: 1%;width: 1550px; display: flex; display: -ms-flexbox; flex-flow: wrap;-ms-flex-wrap: wrap;justify-content: space-between;-ms-flex-pack: justify;align-content: flex-start;">
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;基本信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">单位名称</label>
+							<input type="text" id="targetName" ng-model="targetName" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人姓名</label>
+							<input type="text" id="CONTACT_NAME" ng-model="CONTACT_NAME" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系地址</label>
+							<input type="text" id="CONTACT_ADDR" ng-model="CONTACT_ADDR" />
+						</div>
+						<div class="inputBox">
+							<label class="true">固定电话</label>
+							<input type="text" id="DWTEL" ng-model="DWTEL" />
+						</div>
+						<div class="inputBox">
+							<label class="true">手机号码</label>
+							<input type="text" id="mobile" ng-model="mobile" />
+						</div>
+						<div class="inputBox">
+							<label class="">电子邮件</label>
+							<input type="text" id="EMALL" ng-model="EMALL" />
+						</div>
+						<div class="inputBox">
+							<label class="true" style="float: left;margin-top: 11px;">申请时间</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="REG_DATE" ng-model="REG_DATE"  readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;工程信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">行政区</label>
+							<select ng-model="selected_districts" ng-options="x.name for x in DISTRICTS"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件类型</label>
+							<select ng-model="selected_license_type" ng-options="x.name for x in LICENSE_TYPE"></select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件号</label>
+							<input type="text" id="licenseNo" ng-model="licenseNo" />
+						</div>
+						<div class="inputBox">
+							<label class="true">申请人</label>
+							<input type="text" id="username" ng-model="username" />
+						</div>
+						<div class="inputBox">
+							<label class="">法定代表人</label>
+							<input type="text" id="ARTIFICIALPERSON" ng-model="ARTIFICIALPERSON" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位</label>
+							<input type="text" id="APPADDRESS" ng-model="APPADDRESS" />
+						</div>
+						<div class="inputBox">
+							<label class="">邮编</label>
+							<input type="text" id="APPPOST" ng-model="APPPOST" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位联系人</label>
+							<input type="text" id="LINKMAN" ng-model="LINKMAN" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位电话</label>
+							<input type="text" id="LINKPHONE" ng-model="LINKPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位传真</label>
+							<input type="text" id="LINKFAX" ng-model="LINKFAX" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位手机</label>
+							<input type="text" id="LINKMOBILEPHONE" ng-model="LINKMOBILEPHONE" />
+						</div>
+						<div class="inputBox">
+							<label class="">建设单位邮箱</label>
+							<input type="text" id="LINKEMAIL" ng-model="LINKEMAIL" />
+						</div>
+						<div class="inputBox">
+							<label class="">工程名称</label>
+							<input type="text" id="PROJECTNAME" ng-model="PROJECTNAME" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工单位名称</label>
+							<input type="text" id="SGDWMC" ng-model="SGDWMC" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工单位负责人</label>
+							<input type="text" id="SGDWFZR" ng-model="SGDWFZR" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工单位地址</label>
+							<input type="text" id="SGDWDZ" ng-model="SGDWDZ" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工单位邮编</label>
+							<input type="text" id="SGDWYB" ng-model="SGDWYB" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工建设单位联系人</label>
+							<input type="text" id="GDFDSGDWLXR" ng-model="GDFDSGDWLXR" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工建设单位电话</label>
+							<input type="text" id="GDFDSGDWDH" ng-model="GDFDSGDWDH" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工建设单位传真</label>
+							<input type="text" id="GDFDSGDWCZ" ng-model="GDFDSGDWCZ" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工建设单位手机</label>
+							<input type="text" id="GDFDSGDWSJ" ng-model="GDFDSGDWSJ" />
+						</div>
+						<div class="inputBox">
+							<label class="">施工建设单位邮箱</label>
+							<input type="text" id="GDFDSGDWYX" ng-model="GDFDSGDWYX" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位名称</label>
+							<input type="text" id="GDFDSGDWMC" ng-model="GDFDSGDWMC" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位负责人</label>
+							<input type="text" id="GDFDSGDWFZR" ng-model="GDFDSGDWFZR" />
+						</div>
+						<div class="inputBox" >
+							<label class="" id="font_24" style="width: 340px; vertical-align: middle;">上海市排水管道养护维修企业作业证书（潜水作业类）编号</label>
+							<input type="text" id="QYZYZSBH" style="width: 40%;" ng-model="QYZYZSBH" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位联系人</label>
+							<input type="text" id="GDFDSGDWLXR1" ng-model="GDFDSGDWLXR1" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位电话</label>
+							<input type="text" id="GDFDSGDWDH1" ng-model="GDFDSGDWDH1" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位传真</label>
+							<input type="text" id="GDFDSGDWCZ1" ng-model="GDFDSGDWCZ1" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位手机</label>
+							<input type="text" id="GDFDSGDWSJ1" ng-model="GDFDSGDWSJ1" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24">管道封堵施工单位邮箱</label>
+							<input type="text" id="GDFDSGDWYX1" ng-model="GDFDSGDWYX1" />
+						</div>
+						<div class="inputBox">
+							<label class="">临时封堵位置</label>
+							<input type="text" id="LSFDWZ" ng-model="LSFDWZ" />
+						</div>
+						<div class="inputBox">
+							<label class="">临时封堵管径</label>
+							<input type="text" id="LSFDGJ" ng-model="LSFDGJ" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="float: left;margin-top: 11px;">临时封堵日期</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="LSFDRQ" ng-model="LSFDRQ" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="inputBox">
+							<label class="" style="float: left;margin-top: 11px;">计划启封日期</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="JHQFRQ" ng-model="JHQFRQ" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="inputBox">
+							<label class="" style="float: left;margin-top: 11px;">实际启封日期</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="SJQFRQ" ng-model="SJQFRQ" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24" style="width: 340px; vertical-align: middle;">建设单位和施工单位签订临时封堵启封排水管道安全协议情况</label>
+							<input style="width: 40%;" type="text" id="XYQK" ng-model="XYQK" />
+						</div>
+						<div class="inputBox">
+							<label class="" id="font_24" style="width: 340px; vertical-align: middle">解决施工可能造成该地区积水、污水冒溢的方案或措施</label>
+							<input style="width: 40%;" type="text" id="FACS" ng-model="FACS" />
+						</div>
+						<div class="inputBox">
+							<label class="" style="float: left;margin-top: 11px;">申请日期</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="APPLIDATE" ng-model="APPLIDATE" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div class="inputBox">
+							<label class="">申请内容</label>
+							<input type="textarea" id="APPLICATIONCONTENT" ng-model="APPLICATIONCONTENT" />
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

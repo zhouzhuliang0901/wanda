@@ -1,0 +1,74 @@
+<div class="main3" id="print1" style="height:690px;margin-top: 100px;">
+	<div class="successBox1">
+		<div class="shadow1"></div>
+		<div class="successBox2">
+			<div class="cont1">
+				<h3>操作成功！</h3>
+				<p class="p1">事项名称</p>
+				<p class="p2" ng-bind="itemName"></p>
+			</div>
+			<div class="line1"></div>
+			<div class="cont1">
+				<p class="p1">办件编码</p>
+				<p class="p2" ng-bind="applyNo"></p>
+				<p class="p3"></p>
+			</div>
+			<div class="line2"></div>
+		</div>
+	</div>
+	<div class="tips">
+		<p>办理人：{{licenseName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;办理时间：{{date}}</p>
+		<p class="tips-title">温馨提示:</p>
+		<p class="tips-content">利用者<b>自提交申请资料起2个工作日内</b>，“一网通办”平台通过短信形式向利用者反馈查档结果，期间可实时查询办理情况。<b>在规定期限内不能作出答复的，经受查档案馆负责人批准，可以适当延长期限，但最长不超过2个工作日</b>。
+		</p>
+	</div>
+</div>
+
+<apptb-footer prev="prev()" next="goHome()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.successBox2 .cont1 h3 {
+		margin: 30px 0 20px 35px;
+	}
+
+	.tips {
+		width: 716px;
+		float: left;
+		margin-left: 60px;
+		margin-top: 150px;
+		font-size: 30px;
+	}
+
+	.tips b {
+		color: #e1ba1c;
+		font-weight: bold;
+	}
+
+	.tips-title {
+		color: #FEE889;
+		margin-top: 30px;
+		margin-bottom: 20px;
+	}
+
+	.tips-content {
+		line-height: 63px;
+		margin-bottom: 20px;
+	}
+
+	.successBox1 {
+		float: left;
+		margin-left: 130px;
+		margin-top: 80px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.successBox1,.successBox2{
+			width: 342px;
+		}
+		.tips{
+			width: 555px;
+			margin-top: 0px;
+		}
+	}
+</style>

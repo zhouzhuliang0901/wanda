@@ -1,0 +1,55 @@
+<style>
+    @media screen and (min-width: 1600px) {
+        .headBox1 .navul1 li {
+            width: 33.33%;
+        }
+        .citizen {
+            text-align: center;
+        }
+        .qrcode {
+            width: 90%;
+        }
+    }
+    @media screen and (max-width: 1600px) {
+        .headBox1 .navul1 li {
+            width: 33.33%;
+        }
+        .citizen {
+            text-align: center;
+            padding-top: 80px;
+        }
+        .qrcode {
+            width: 90%;
+        }
+    }
+</style>
+
+<div>
+    <div class="headBox1">
+        <ul class="navul1 clearfloat">
+            <li>选择事项</li>
+            <li class="act">人证核验</li>
+            <li>在线填报</li>
+        </ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{stItemName}}&nbsp;/&nbsp;市民云亮证</span></div>
+
+    <div class="main2">
+        <div class="scrollBox2 clearfloat">
+            <div class="citizen clearfloat">
+                <img class="qrcode" src="../libs/common/images/newTips/qrCode-self.png" />
+            </div>
+        </div>
+
+    </div>
+    <!-- <div class="btnBox1 clearfloat">
+        <a href="#select" class="Prev">上一步</a>
+    </div> -->
+    <apptb-footer 
+        need-count-down="true" 
+        default-is-show-prev-btn="1" 
+        default-is-show-next-btn="hidden" 
+        prev="prev()">
+    </apptb-footer>
+</div>

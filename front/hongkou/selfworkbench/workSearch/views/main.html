@@ -1,0 +1,62 @@
+<div class="contain">
+	<p class="caption1">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<!--<a href="javascript:;" ng-click="choiceType('idcard')">
+				<img src="../libs/common/images/icon-link14.png" />
+				<p>刷身份证</p>
+			</a>-->
+			<a href="javascript:;" ng-click="choiceType('serial')">
+				<img src="../libs/common/images/serial.png" />
+				<p>办件编号</p>
+			</a>
+			<a href="javascript:;" ng-click="choiceType('code')">
+				<img src="../libs/common/images/code.png" />
+				<p>二维码</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer
+	prev="prevStep()"
+	next="nextStep()"
+	default-is-show-prev-btn="hidden"
+	default-is-show-next-btn="hidden"
+	custom-home="true"
+	home="customMain()"
+	go-back="goAppHistoryBack()"
+	alert-time>
+</apptb-footer>
+<style type="text/css">
+	.contain {
+	    width: 1530px;
+	    height: 700px;
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 130px;
+		display: flex;
+		justify-content: center;
+	}
+
+	.scrollBox2 .linkBox1 a {
+	    float: left;
+	    width: 303px;
+	    height: 273px;
+		margin: 0px 82px;
+	    text-align: center;
+	    border-radius: 15px;
+	    position: relative;
+	}
+
+	.caption1 {
+		font-size: 30px;
+		margin-left: 20px;
+	}
+</style>

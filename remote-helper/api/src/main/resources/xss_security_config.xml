@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XSSConfig>
+	<!-- Check whether the header -->
+	<isCheckHeader>false</isCheckHeader>
+	<!-- Check whether the header parameter -->
+	<isCheckParameter>true</isCheckParameter>
+	<!-- Whether the log -->
+	<isLog>true</isLog>
+	<!-- Whether the interrupt request -->
+	<isChain>true</isChain>
+	<!-- Whether the special characters to replace -->
+	<isReplace>false</isReplace>
+	<!-- Check whether open special url -->
+	<isCheckUrl>true</isCheckUrl>
+	<!-- Interrupt return error pages -->
+	<errorUrl>/</errorUrl>
+	<!-- Need to replace the dangerous character, when the isReplace is true -->
+	<replaceRegex><![CDATA[[\r|\n|‘|”|'|\"]]]></replaceRegex>
+
+	<!-- Need to check the dangerous characters (regular expressions) -->
+	<regexList>
+		<!-- Matching contains characters: alert () -->
+		<regex><![CDATA[.*[A|a][L|l][E|e][R|r][T|t]\\s*\\(.*\\).*]]></regex>
+		<!--Matching contains characters: window.location = -->
+		<regex><![CDATA[.*[W|w][I|i][N|n][D|d][O|o][W|w]\\.[L|l][O|o][C|c][A|a][T|t][I|i][O|o][N|n]\\s*=.*]]></regex>
+		<!--Matching contains characters: style = x:ex pression ( ) -->
+		<regex><![CDATA[.*[S|s][T|t][Y|y][L|l][E|e]\\s*=.*[X|x]:[E|e][X|x].*[P|p][R|r][E|e][S|s]{1,2}[I|i][O|o][N|n]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: document.cookie -->
+		<regex><![CDATA[.*[D|d][O|o][C|c][U|u][M|m][E|e][N|n][T|t]\\.[C|c][O|o]{2}[K|k][I|i][E|e].*]]></regex>
+		<!--Matching contains characters: eval( ) -->
+		<regex><![CDATA[.*[E|e][V|v][A|a][L|l]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: unescape() -->
+		<regex><![CDATA[.*[U|u][N|n][E|e][S|s][C|c][A|a][P|p][E|e]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: execscript( ) -->
+		<regex><![CDATA[.*[E|e][X|x][E|e][C|c][S|s][C|c][R|r][I|i][P|p][T|t]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: msgbox( ) -->
+		<regex><![CDATA[.*[M|m][S|s][G|g][B|b][O|o][X|x]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: confirm( ) -->
+		<regex><![CDATA[.*[C|c][O|o][N|n][F|f][I|i][R|r][M|m]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: prompt( ) -->
+		<regex><![CDATA[.*[P|p][R|r][O|o][M|m][P|p][T|t]\\s*\\(.*\\).*]]></regex>
+		<!-- Matching contains characters: <script> </script> -->
+		<regex><![CDATA[.*<[S|s][C|c][R|r][I|i][P|p][T|t]>.*</[S|s][C|c][R|r][I|i][P|p][T|t]>.*]]></regex>
+		<!--Matching contains characters: Contains a symbol: " -->
+		<regex><![CDATA[[.&[^\"]]*\"[.&[^\"]]*]]></regex>
+		<!-- Matching contains characters: Contains a symbol: ' -->
+		<regex><![CDATA[[.&[^']]*'[.&[^']]*]]></regex>
+		<!-- Matching contains characters: Newline related \r \n \r\n -->
+		<regex><![CDATA[(.*)\r(.*)|(.*)\n(.*)|(.*)\r\n(.*)|(.*)%0a(.*)|(.*)%0d(.*)]]></regex>
+	</regexList>
+
+	<!-- Rule out the URL of the list -->
+	<excludeUrlList>
+		<url>/uapply/applicant/upload</url>
+	</excludeUrlList>
+</XSSConfig>

@@ -1,0 +1,141 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	#ascceptanceArea a {
+		width: 256px;
+	}
+	.select{
+		width: 32.9%;
+	}
+	.isOutShangHai,.isInShangHai{
+		width: 39%;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>申请人名称：</th>
+					<td><input class="input" type="text" id="stName" name="userName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>申请人证件号：</th>
+					<td><input class="input" type="text" id="stIdCard" name="licenseNo" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>联系电话：</th>
+					<td><input class="input" type="text" id="stMobile" name="mobile" ng-model="stMobile"></td>
+				</tr>
+				<tr class="transferOut">
+					<th><b class="red">*</b>转出地信息：</th>
+					<td colspan="3">
+						<select ng-class="{'isOutShangHai':isOutShangHai==true}" class="select" id="outProvince" name="outProvince" ng-model="outProvince" ng-options="x.name for x in provinceList track by x.name">
+							<option selected ng-if="false"></option>
+						</select>
+						<select ng-class="{'isOutShangHai':isOutShangHai==true}" ng-show="!isOutShangHai" class="select" id="outCity" name="outCity" ng-model="outCity" ng-options="x.name for x in outCityList track by x.name">
+							<option selected ng-if="false"></option>
+						</select>
+						<select ng-class="{'isOutShangHai':isOutShangHai==true}" ng-show="!isOutShangHai" class="select" id="outCounty" name="outCounty" ng-model="outCounty" ng-options="x.name for x in outCountyList track by x.name">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr class="transferIn">
+					<th><b class="red">*</b>转入地信息：</th>
+					<td colspan="3">
+						<select ng-class="{'isInShangHai':isInShangHai==true}" class="select" id="inProvince" name="inProvince" ng-model="inProvince" ng-options="x.name for x in provinceList track by x.name">
+							<option selected ng-if="false"></option>
+						</select>
+						<select ng-class="{'isInShangHai':isInShangHai==true}" ng-show="!isInShangHai" class="select" id="inCity" name="inCity" ng-model="inCity" ng-options="x.name for x in inCityList track by x.name">
+							<option selected ng-if="false"></option>
+						</select>
+						<select ng-class="{'isInShangHai':isInShangHai==true}" ng-show="!isInShangHai" class="select" id="inCounty" name="inCounty" ng-model="inCounty" ng-options="x.name for x in inCountyList track by x.name">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

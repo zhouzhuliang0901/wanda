@@ -1,0 +1,30 @@
+//var app = angular.module("declareApp", ["ng", "ngRoute"]);
+var app = angular.module("declareApp", ["ngAnimate", "ui.router"]);
+app.factory('data', function() {
+    return {};
+});
+app.factory('appData', function() {
+	return {};
+});
+app.filter('to_trusted', ['$sce', function ($sce) {
+    return function (text) {
+        return $sce.trustAsHtml(text);
+    };
+}]);
+app.directive('repeatFinish',function(){
+    return {
+        link: function(scope,element,attr){
+            if(scope.$last == true){
+             var scroll = new BScroll('.wrapper', {
+     scrollX:false,
+     scrollY: true,
+     scrollbar:true,
+     click: true,
+     tap:true
+    })
+    $('.wrapper').find("li").on('tap', function() {
+    });
+            }
+        }
+    }
+});

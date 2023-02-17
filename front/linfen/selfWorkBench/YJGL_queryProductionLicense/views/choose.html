@@ -1,0 +1,183 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+		margin: 1% auto;
+	}
+	
+	.searchInput {
+		display: flex;
+		width: 92%;
+		margin: 0 auto;
+	}
+	
+	.searchInput .button {
+		width: 14%;
+		margin: 1.4% 2%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 0.6%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 86%;
+		height: 100%;
+	}
+	
+	.schoolName select {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 74%;
+		height: 100%;
+	}
+	
+	.schoolName span {
+		display: inline-block;
+		width: 23%;
+		font-size: 28px;
+		text-align: right;
+	}
+	
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+		right: 5%;
+		width: 52px;
+	}
+	
+	.table-sty1 {
+		width: 90%;
+		margin: 0 auto;
+	}
+	
+	.table-sty1 th {
+		padding: 20px 1px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		white-space: normal;
+		background-color: rgba(255, 255, 255, 0.1);
+		font-weight: bold;
+	}
+	
+	.table-sty1 td {
+		padding: 18px 0px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		white-space: normal;
+	}
+	
+	a {
+		text-align: center;
+	}
+	
+	a.stamp {
+		background: url(./images/print.png) no-repeat;
+		background-size: 100% 100%;
+		margin-left: 12%;
+		width: 93%;
+		height: 96%;
+		line-height: 70px;
+		font-size: 30px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+	.content{
+		width: 50%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<!--顶部查询框-->
+	<div class="searchInput">
+		<div class="schoolName">
+			<input type="text" ng-model="medicalName" placeholder="请输入单位名称"/>
+		</div>
+		<div class="schoolName">
+			<input type="text" ng-model="qualiNumber" placeholder="请输入证书编号"/>
+		</div>
+		<div class="button">
+			<a ng-click="queryInfo(medicalName,qualiNumber)" class="stamp">查询</a>
+		</div>
+	</div>
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div>
+			<table class="table-sty1" cellspacing="0" ng-if="isShow">
+				<tbody>
+					<tr>
+						<th>单位名称</th>
+						<th>证书编号</th>
+						<th class="content">许可范围</th>
+						<th>颁发日期</th>
+						<th>有效期至</th>
+					</tr>
+					<tr ng-repeat="item in Item" ng-if="isResult">
+						<td>{{item.companyName || "--"}}</td>
+						<td>{{item.registrationNumber || "--"}}</td>
+						<td>{{item.content || "--"}}</td>
+						<td>{{item.startDate || "--"}}</td>
+						<td>{{item.endDate || "--"}}</td>
+					</tr>
+					<tr ng-if="!isResult">
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+						<td>暂无结果</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

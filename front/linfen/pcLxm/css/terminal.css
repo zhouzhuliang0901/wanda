@@ -1,0 +1,288 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Microsoft YaHei", "SimSun";
+	color: #FFFFFF;
+}
+
+a {
+	text-decoration: none;
+}
+
+input {
+	margin: 0;
+	padding: 0;
+	/*去掉点击时的选区和阴影*/
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-ms-tap-highlight-color: transparent;
+	-ms-touch-callout: none;
+	-ms-user-select: none;
+	user-select: none;
+	outline: none;
+	/*去掉点击时的选区和阴影*/
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+
+/*删除文本框中的叉号*/
+
+input::-ms-reveal {
+	display: none;
+}
+
+
+/*删除密码框中的小眼睛*/
+
+body {
+	overflow: hidden;
+}
+
+.bg {
+	/*width: 1920px;
+	height: 1080px;*/
+	width: 100%;
+	height: 100%;
+	min-width: 1280px;
+	/*min-height: 1024px;*/
+	background: url(../img/shell-bg3.jpg) no-repeat scroll;
+	position: absolute;
+	background-size: 100% 100%;
+}
+
+.Top {
+	width: 450px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 50px 0 0 50px;
+}
+
+.Top img {
+	width: 73px;
+	margin-left: 100px;
+}
+
+.Top h2 {
+	display: block;
+	font-size: 35px;
+}
+
+.cent-h {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	height: 86%;
+	align-items: center;
+}
+
+.cent-h a {
+	width: 400px;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	background: url(../img/bg-nav1.png);
+	background-size: 100% 100%;
+}
+
+.cent-h a p {
+	font-size: 30px;
+}
+
+.imgbox {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.imgbox img {
+	width: 140px;
+}
+
+
+/*password*/
+
+.bg-middle {
+	width: 90%;
+	height: calc(100% - 240px);
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	background: url(../img/bg-middle.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+.bg-middle input {
+	background: url(../img/big-input.png) no-repeat;
+	background-size: 611px 80px;
+	border: none;
+	font-size: 28px;
+	height: 75px;
+	line-height: 50px;
+	width: 611px;
+	padding-left: 34px;
+}
+
+.bg-middle #divCentInput {
+	/*width: 611px;*/
+	width: 836px;
+	display: inline-flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 360px;
+	flex-wrap: wrap;
+}
+
+#divCentInput button {
+	width: 270px;
+	height: 90px;
+	background: transparent;
+	margin: 0 270px;
+	font-size: 32px;
+	border: 1px solid #33cbfc;
+	background-color: #33cbfc;
+	border-radius: 50px;
+	opacity: 0.8;
+}
+
+
+/*headBox*/
+
+.headBox {
+	width: 100%;
+	height: 100px;
+	overflow: hidden;
+	position: relative;
+}
+
+.headBox .headTop {
+	height: 100px;
+	line-height: 100px;
+	overflow: hidden;
+}
+
+.headBox .headTop .headName {
+	color: #FFFFFF;
+	display: block;
+	text-align: center;
+	overflow: hidden;
+	font-size: 40px;
+	background: url(../img/head-fairy.png) no-repeat center -20px;
+}
+
+
+/*footBox   css*/
+
+.footBox {
+	width: 100%;
+	position: absolute;
+	bottom: 0px;
+	height: 120px;
+	background: url(../img/bg-footer1.png) no-repeat center bottom;
+	font-size: 22px;
+	background-size: 100% 60%;
+}
+
+.footBox .prev-back-next {
+	width: 94%;
+	display: inline-flex;
+	justify-content: space-between;
+	padding-bottom: 52px;
+	margin: 0 3%;
+}
+
+.footBox .prev-back-next .prev {
+	display: block;
+	width: 154px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: url('../img/prev.png') no-repeat center center;
+}
+
+.footBox .prev-back-next .backindex1 {
+	display: block;
+	/*transform: translate(-50%, -50%);*/
+	width: 154px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: url('../img/goHome.png') no-repeat center center;
+}
+
+.footBox .prev-back-next .next {
+	display: block;
+	width: 154px;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	background: url('../img/next-step.png') no-repeat center center;
+}
+
+
+/*footBox   css end*/
+
+
+/*
+ * loginType
+ */
+
+.box {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.box p {
+	font-size: 24px;
+	text-align: center;
+	margin-top: 20px;
+}
+
+
+/**
+ * preview
+ */
+
+.preview {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	width: 500px;
+}
+
+.div-But-cent {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.div-But-cent button {
+	width: 180px;
+	height: 80px;
+	background: transparent;
+	margin: 0 20px;
+	font-size: 32px;
+}
+
+
+/*minimize*/
+
+.minimize img {
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	right: 200px;
+	top: 16px;
+	right: 60px;
+}

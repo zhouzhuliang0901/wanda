@@ -1,0 +1,80 @@
+<style>
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 15%;
+		color: #fff;
+		opacity: 1;
+	}
+	
+	.wrapper {
+		width: 90%;
+		height: 56%;
+		overflow: hidden;
+	}
+	
+	.yearList {
+		justify-content: normal;
+	}
+	
+	.yearList span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 31px;
+		height: 38%;
+		margin: 0 0.6%;
+	}
+	
+	.yearList a.in:after {
+		width: 48px;
+		height: 46px;
+		background-size: 100%;
+	}
+	
+	.periodical {
+		padding-left: 100px;
+	}
+	
+	.TabBox .yearList a {
+		width: auto;
+		padding: 0px 25px;
+	}
+	
+	.select {
+		width: 24%;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.TabBox {
+			margin: 9.2% auto 0;
+		}
+	}
+</style>
+<p class="caption">
+	{{firstName}}&emsp; |&emsp; <span class="captionMini">{{secondName}}</span></p>
+<div class="scrollBox2 clearfloat">
+	<div class="TabBox">
+		<div class="yearList">
+			<span ng-show="yearsList.length>0">年份:</span>
+			<a ng-repeat="(index,item) in yearsList" ng-class="{'in':current==index}" ng-click="chooseYear(index,item)">{{item.name | limitTo :4}}</a>
+			<span class="periodical">期刊:</span>
+			<select class="select" id="" ng-model="periodicalTitle" ng-options="x.title for x in periodicalList">
+				<option value="" selected ng-if="false"></option>
+			</select>
+		</div>
+		<div class="infoList wrapper" id="wrapper">
+			<div>
+				<div class="itemFile" ng-repeat="item in infoList" ng-click="choiceItemDetail(item)" repeat-finish>
+					<span class="itemName">{{item.title}}</span>
+					<span class="itemTime">{{item.displayDate | limitTo : 10}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

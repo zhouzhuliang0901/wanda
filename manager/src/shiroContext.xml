@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 对应于web.xml中配置的那个shiroFilter -->
+	<bean id="shiroFilter" class="coral.base.app.SmsShiroFilterFactoryBean">
+		<!-- Shiro的核心安全接口，这个属性是必须的 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 要求登录时的链接(登录页面地址)，非必须的属性，默认会自动寻找Web工程根目录下的"/login.jsp"页面 -->
+		<property name="loginUrl" value="/sms/login/login.jsp" />
+		<!-- 登录成功后要跳转的连接(本例中此属性用不到，因为登录成功后的处理逻辑在LoginController里硬编码) -->
+		<!-- <property name="successUrl" value="/" ></property> -->
+		<!-- 用户访问未对其授权的资源时，所显示的连接 -->
+		<property name="unauthorizedUrl" value="/403.jsp" />
+		<property name="filterChainDefinitions">
+			<value>		
+				/statistics/**=sso_authc
+			    /area/**=sso_authc
+			    <!-- /infopub/**=sso_authc -->
+			    <!-- 放开/infopub/**=sso_authc时client项目访问infopub里面的接口会跳转登陆界面 -->
+			    /business/**=sso_authc
+			    /delivery/**=sso_authc
+			    /serverApply/**=sso_authc
+			    /app/**=sso_authc
+			    /selmAssist/**=sso_authc
+			    /apidoc/**=sso_authc
+			    /sms/frame/**=sso_authc
+			    /sms/group/**=sso_authc
+			    /sms/menu/**=sso_authc
+			    /sms/organ/**=sso_authc
+			    /sms/role/**=sso_authc
+			    /sms/user/**=sso_authc
+			    #/sms/login/** = anon
+			</value>
+		</property>
+	</bean>
+
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"></bean>
+	<!-- 缓存管理 -->
+	<bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:/ehcache.xml" />
+	</bean>
+	<!-- 使用Shiro自带的JdbcRealm类 指定密码匹配所需要用到的加密对象 指定存储用户、角色、权限许可的数据源及相关查询语句 -->
+	<bean id="jdbcRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm">
+		<property name="permissionsLookupEnabled" value="true"></property>
+		<property name="dataSource" ref="dataSource"></property>
+		<property name="authenticationQuery"
+			value="SELECT ST_PASSWORD FROM SMS_USER WHERE ST_LOGIN_NAME = ?"></property>
+		<property name="userRolesQuery"
+			value="SELECT sr.ST_ROLE_CODE FROM SMS_USER_ROLE sur left join SMS_ROLE sr on sur.ST_ROLE_ID=sr.ST_ROLE_ID left join SMS_USER su on su.ST_USER_ID=sur.ST_USER_ID WHERE su.ST_LOGIN_NAME = ?"></property>
+		<property name="permissionsQuery"
+			value="SELECT sm.ST_MENU_CODE FROM SMS_ROLE_MENU srm left join SMS_ROLE sr on srm.ST_ROLE_ID=sr.ST_ROLE_ID left join SMS_MENU sm on sm.ST_MENU_ID=srm.ST_MENU_ID WHERE sr.ST_ROLE_CODE = ?"></property>
+		<property name="credentialsMatcher" ref="retryLimitHashedCredentialsMatcher"></property>
+	</bean>
+	<bean id="retryLimitHashedCredentialsMatcher" class="coral.base.app.SmsHashedCredentialsMatcher">
+		<constructor-arg ref="shiroCacheManager" />
+		<property name="hashAlgorithmName" value="MD5" />
+		<property name="hashIterations" value="3" />
+		<property name="storedCredentialsHexEncoded" value="true" />
+	</bean>
+	<!-- Shiro安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="jdbcRealm"></property>
+		<property name="cacheManager" ref="shiroCacheManager"></property>
+	</bean>
+	<!-- 认证失败跳转 -->
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="org.apache.shiro.authz.UnauthorizedException">/403.jsp</prop>
+				<prop key="org.apache.shiro.authz.UnauthenticatedException">/403.jsp</prop>
+			</props>
+		</property>
+	</bean>
+	<!-- 开启shiro注解 -->
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+		depends-on="lifecycleBeanPostProcessor">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	<bean
+		class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor4Sms">
+		<property name="securityManager" ref="securityManager" />
+	</bean>
+</beans>

@@ -1,0 +1,100 @@
+<div class="mainPrint">
+	<!-- 预约查询显示 -->
+	<div class="printDiv">
+		<h2>残疾评定（初评）预约单</h2>
+		<h1>松江区</h1>
+		<div class="printDiv2">
+			<table border="1">
+				<tr>
+					<td>姓名:</td>
+					<td>{{ZLqueryForAssessionApointmentInfo.applicantName}}</td>
+					<td>性别:</td>
+					<td>{{xingbie}}</td>
+					<td>出生年月</td>
+					<td>{{chushengriqi}}</td>
+				</tr>
+				<tr>
+					<td>申请残疾类别 </td>
+					<td colspan="2">{{ZLqueryForAssessionApointmentInfo.applyDisabilityCategory||"视力"}}</td>
+					<td>申请表编号</td>
+					<td colspan="2">{{ZLqueryForAssessionApointmentInfo.appointment_no}}
+					</td>
+				</tr>
+				<tr>
+					<td>预约医院 </td>
+					<td colspan="2">{{ZLqueryForAssessionApointmentInfo.scheduledHospital}}</td>
+					<td>医院地址</td>
+					<td colspan="2">{{ZLqueryForAssessionApointmentInfo.hospitalAddress}}</td>
+				</tr>
+				<tr>
+					<td>预约日期</td>
+					<td colspan="2">{{ZLqueryForAssessionApointmentInfo.appointmentTime}}</td>
+					<td>预约时间段 </td>
+					<td colspan="2">{{ZLqueryForAssessionApointmentInfo.appointment_sjd}}</td>
+				</tr>
+				<tr>
+					<td>申请人手机号</td>
+					<td colspan="5">{{ZLqueryForAssessionApointmentInfo.applicationPhone}}</td>
+				</tr>
+			</table>
+			<div class="divzysx">
+				<div class="divzysxleft">
+					<p>注意事项：</p>
+				</div>
+				<div class="divzysxright">
+					<p>1.申请人携带本人身份证及残疾评定所需病史材料，按预约时间至预约医院进行残疾评定；</p>
+					<p>2.凭预约单挂号、交纳残疾评定所需费用；</p>
+					<p>3.以当日预约的申请人挂号先后顺序，按序进行残疾评定；</p>
+					<p>4. 申请人因故需变更残疾评定预约时间、预约医院 的，应于{{ZLqueryForAssessionApointmentInfo.appointmentTimeSYTtest}}0点前
+						通过原申请渠道申请办理变更手续，{{ZLqueryForAssessionApointmentInfo.appointmentTimeSYTtest}}0点后将关闭变更申请通道。</p>
+					<p>5.未按预约进行残疾评定的，视为自动放弃，将不予办理该次残疾人证申领业务。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden"
+	custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<print show="isShowPrint"></print>
+<style type="text/css">
+	.mainPrint {
+		margin: 80px auto 0;
+		width: 1600px;
+	}
+
+	table {
+		text-align: center;
+		width: 100%;
+		height: 400px;
+		font-size: 24px;
+	}
+
+	.printDiv h2 {
+		width: 374px;
+		margin: 10px auto;
+		font-size: 34px;
+	}
+
+	.printDiv h1 {
+		width: 374px;
+		margin: 10px 140px;
+		font-size: 34px;
+	}
+
+	.divzysx {
+		width: 100%;
+		display: inline-flex;
+		justify-content: flex-start;
+		font-size: 23px;
+		margin-top: 20px;
+	}
+
+	.divzysxleft {
+		width: 140px;
+	}
+
+	@media screen and (max-width: 1600px) {}
+</style>

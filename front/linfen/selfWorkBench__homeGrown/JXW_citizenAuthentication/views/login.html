@@ -1,0 +1,45 @@
+<style type="text/css">
+	ca {
+		display: block;
+		margin-top: 150px;
+	}
+	
+	.stamp {
+		margin-left: 60px;
+	}
+	
+	citizen-cloud {
+		margin-top: 40px;
+		display: block;
+	}
+	
+	citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		width: 1500px;
+		height: 555px;
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	@media screen and (max-width: 1600px) {
+		citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		    padding-top: 30px;
+		    width: 1050px;
+		    height: auto;
+		}
+	}
+</style>
+
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<idcard read="idcardLogin(info,images)" ng-if="loginType == 'idcard'"></idcard>
+		<recognition result="getResult(img)" face-image="{{faceImage}}" ng-if="loginType == 'recognition'"></recognition>
+		<ca result="caInfo(companyName,companyNo)" ng-if="loginType == 'ukey'" login="caLoginStatus"></ca>
+		<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

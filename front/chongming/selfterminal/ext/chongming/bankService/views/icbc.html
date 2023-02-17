@@ -1,0 +1,22 @@
+
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;">
+                <img src="../../../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">银行服务</a>
+        </li>
+        <li class="active">工商银行</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="layoutBank">
+        <div class="item" ng-repeat="item in bank_show_info.icbc" ng-click="goDetail(item.letter)"> 
+            <img src="{{item.img}}" alt="">
+            <p>{{item.tips}}</p>
+        </div>
+    </div>
+</div>

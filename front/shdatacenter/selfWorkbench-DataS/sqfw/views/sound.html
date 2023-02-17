@@ -1,0 +1,50 @@
+
+
+<div class="shell bg2">
+
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="../declare/index.html" class="back1">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+        <ul class="navul1 navul2 clearfloat">
+            <li>选择事项</li>
+            <li>办事指南</li>
+            <li>人证核验</li>
+            <li class="act">在线填报</li>
+        </ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---承诺书</span></div>
+
+    <div class="main2">
+		<div class="text">
+			<p style="font-size: 33px;color: #FEE889;margin-bottom: 50px;font-weight: bold;">请以清晰平稳的语速录制以下内容，点击左侧话筒图标开始录制:</p>
+			<p style="font-size: 29px;line-height: 45px;">本人保证本申请表所有内容属实，如有不实，愿意承担由此引起的相应法律后果。</p>
+		</div>
+		<div class="sound">
+			<a ng-click="sound()"><img src="images/sound.png" /></a>
+		</div>
+    </div>
+    <div class="btnBox1 clearfloat">
+        <a href="#materialSybxList" class="Prev">上一步</a>
+        <a ng-click="next()" class="next saveImg">继续</a>
+    </div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.text{
+		width: 764px;
+	    float: left;
+	    margin-top: 151px;
+	    margin-left: 180px;
+	}
+	.sound img{
+		top: 66px;
+	    position: absolute;
+	    left: 59%;
+	    width: 350px;
+	    height: 350px;
+	}
+</style>

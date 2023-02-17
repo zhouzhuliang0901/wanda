@@ -1,0 +1,81 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	ca {
+		display: block;
+		margin-top: 150px;
+	}
+	
+	.loadingBox {
+		margin-left: 830px;
+		margin-top: 170px;
+	}
+	
+	.loadingBox p {
+		margin-left: -138px;
+		font-size: 38px;
+	}
+	
+	.stamp {
+		margin-left: 60px;
+	}
+	
+	citizen-cloud {
+		margin-top: 40px;
+		display: block;
+	}
+	
+	citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		width: 1500px;
+    	height: 555px;
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.contain {
+		    width: 1100px;
+		    height: 700px;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+		    padding-top: 20px;
+		    box-sizing: border-box;
+		}
+		idcard .scrollBox2 .cardreadingBox1 img {
+		    width: 810px;
+		    height: auto;
+		}
+		citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		    width: 1000px;
+		    height: 450px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat" ng-if="isLoding">
+		<idcard read="idcardLogin(info,images)" ng-if="loginType == 'idcard'"></idcard>
+		<recognition result="getResult(img)" face-image="{{faceImage}}" ng-if="loginType == 'recognition'"></recognition>
+		<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>
+		<sscard read="sscardLogin(info)" ng-if="loginType == 'sscard'"></sscard>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoding">
+	<img src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<zalert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></zalert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

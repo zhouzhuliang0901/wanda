@@ -1,0 +1,199 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	textarea {
+		resize: none;
+		width: 98%;
+		height: 150px;
+		font-size: 24px;
+		padding: 10px;
+		color: #FFF;
+		background: rgba(255, 255, 255, .25);
+		margin-top: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 562px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	.infoTable a.choice:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	.checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+	
+	.checkBoxA {
+		float: left;
+		width: 83%;
+	}
+	
+	#expressMode a {
+		width: 358px;
+	}
+	
+	#sqly a {
+		width: 358px;
+	}
+	
+	#license_type a {
+		width: auto;
+		line-height: 40px;
+		padding: 10px;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>身份证：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>手机号：</th>
+					<td><input class="input" type="text" id="stMobile" ng-model="stMobile"></td>
+					<th ng-show="current1==1"><b class="red">*</b>收件人姓名：</th>
+					<td ng-show="current1==1"><input class="input" type="text" id="stReceiptName" ng-model="stReceiptName"></td>
+				</tr>
+				<tr ng-show="current1==1">
+					<th><b class="red">*</b>收件人联系地址：</th>
+					<td><input class="input" type="text" id="stReceiptAddress" ng-model="stReceiptAddress"></td>
+					<th><b class="red">*</b>收件人联系电话：</th>
+					<td><input class="input" type="text" id="stReceiptMobile" ng-model="stReceiptMobile"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>现居住地：</th>
+					<td><input class="input" type="text" id="liveAddress" ng-model="liveAddress"></td>
+					<th><b class="red">*</b>户籍所在地：</th>
+					<td><input class="input" type="text" id="hjAddress" ng-model="hjAddress"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>领取方式：</th>
+					<td colspan="3" id="expressMode">
+						<a ng-repeat="(index,item) in expressModeList" ng-class="{'in':current1==index}" ng-click="change1(index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>申请理由：</th>
+					<td colspan="3" id="sqly">
+						<a ng-repeat="(index,item) in sqlyTypeList" ng-class="{'in':current==index}" ng-click="change(index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>证明开始日期：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="dtStartDate" ng-model="dtStartDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+					<th><b class="red">*</b>证明结束日期：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="dtEndDate" ng-model="dtEndDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>违法记录种类：</th>
+					<td colspan="3" id="license_type">
+						<a value="1" id="1">曾被判处管制、拘役、有期徒刑、无期徒刑、死刑、罚金、剥夺政治权利、没收财产以及已构成犯罪，被人民法院判处免予刑事处罚的犯罪记录，包括缓刑、假释、暂予监外执行等执行方式</a>
+						<a value="2" id="2">曾被处以收容教育、劳动教养、强制隔离戒毒（强制戒毒）、责令社区戒毒（限期戒毒）的违法信息，包括不执行、暂缓执行、所外执行等执行方式</a>
+						<a value="3" id="3">曾被处以行政拘留、暂扣或吊销许可证的违法信息</a>
+						<a value="4" id="4">曾被处以警告、罚款、没收的违法信息，不包括交通类违法信息</a>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

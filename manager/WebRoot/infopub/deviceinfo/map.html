@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>fairy研究百度地图</title>
+		<style type="text/css">
+			body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			#allmap {
+				width:100%;
+				height:100%;
+			}
+			#info p {
+				font-size:13px;
+				margin-top: 2px;
+				width: 500px;
+			}
+			#info {
+				width: 250px;
+				height: 100px;
+				z-index: 99;
+			}
+		</style>
+		<script type="text/javascript" src="https://api.map.baidu.com/getscript?v=3.0&ak=9HcHj4OyHByYFKuc7gFlbnNj7OIpkGnU"></script>
+		<script type="text/javascript" src="../../sms/lib/common/jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<div id="allmap"></div>	
+	</body>
+	<script type="text/javascript">
+	$(function(){
+		map = new BMap.Map("allmap");
+		map.centerAndZoom(new BMap.Point(121.417428, 31.20923), 11); //创建地图中心和展示级别
+		map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+//		map.setMapStyleV2({     
+//		  styleId: '13f5606fa7e21e90e63f21be90ad37ac'
+//		}); // 设置自定义的样式
+		map.setMapStyle({ style: "grayscale" }); // 设置百度自带的样式
+		
+		var data_info =	''; // 设备信息	
+		// 请求后台数据
+		$.ajax({
+			url: "http://10.2.104.246:8080/ac-self-manager/infopub/deviceinfo/placeshow.do",
+			type: "get",
+			dataType: "jsonp",
+			jsonp: "jsonpCallback",
+			data: {
+				jsonpCallback: "JSON_CALLBACK"
+			},
+			success: function(json) {
+				data_info = json.data;
+				// 遍历数组将标注添加到地图中
+				for(var i=0;i<data_info.length;i++){
+					console.log(data_info[i].stDeviceName);
+					var marker = new BMap.Marker(new BMap.Point(data_info[i].nmLng,data_info[i].nmLat),{icon: myIcon});  // 创建标注			
+					map.addOverlay(marker);   
+				
+					// tips1.定义信息窗口展示的内容
+					var content = `<div id=${'info'}>
+										<h4>设备名称:&nbsp;&nbsp;${data_info[i].stDeviceName}</h4>
+										<p>地址:&nbsp;&nbsp;${data_info[i].stDeviceAddress}</p>
+										<p>ID:&nbsp;&nbsp;${data_info[i].stDeviceId}</p>
+										<p>IP:&nbsp;&nbsp;${data_info[i].stDeviceIp}</p>
+									</div>`;
+							
+					// tips2.给标注点添加点击事件
+					addClickHandler(content,marker);
+				}
+			},
+			error: function(err) {
+				console.log(err)
+			}
+		});
+		
+		var opts = {
+					width: 300,     // 信息窗口宽度
+					height: 80,     // 信息窗口高度
+					//title : "终端机详细信息" , // 信息窗口标题
+					enableMessage:true//设置允许信息窗发送短息
+				  };
+				  
+		// 自定义标注的样式
+	    var myIcon = new BMap.Icon('../../sms/lib/sms/image/pc.png', new BMap.Size(70, 85), {
+	        imageSize: new BMap.Size(55, 65), // 设置图标大小
+	    });
+	    
+		function addClickHandler(content,marker){
+			marker.addEventListener("click",function(e){
+				openInfo(content,e);
+			});
+		}
+		function openInfo(content,e){
+			var p = e.target;
+			var point = new BMap.Point(p.getPosition().lng, p.getPosition().lat); //根据经纬度
+			var infoWindow = new BMap.InfoWindow(content,opts);  // 创建信息窗口对象 
+			map.openInfoWindow(infoWindow,point); //开启信息窗口
+		}
+	});
+</script>
+</html>

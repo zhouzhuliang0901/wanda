@@ -1,0 +1,144 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		.main2 {
+			height: 650px;
+			margin-top: 20px;
+		}
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		#ndljmzzf span {
+			width: 78%;
+			line-height: 28px;
+			float: left;
+			margin-left: 6%;
+		}
+		#ndljmzzf b {
+			margin-top: 6%;
+		}
+		.tabelBox1 {
+			width: 1705px;
+			height: 635px;
+			padding-top: 35px;
+		}
+		.tabelBox1 .dl1 .rt5 {
+			width: 80%;
+		}
+		.scrollBox2 .tabelBox1 .singleselect3 a {
+			margin-right: 24px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.tabelBox1 {
+		    /*margin-top: 20px;*/
+		   	padding-top: 0px;
+		}
+		#wrapper {
+		    width: 100%;
+		    height: 590px;
+		}
+		.main2 {
+		    width: 100%;
+		    height: auto;
+		    overflow: auto;
+		    position: relative;
+		    margin: 0px;
+		    padding: 0px 70px;
+		    box-sizing: border-box;
+		}
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		#ndljmzzf span {
+			width: 78%;
+			line-height: 28px;
+			float: left;
+			margin-left: 6%;
+		}
+		#ndljmzzf b {
+			margin-top: 6%;
+		}
+		.tabelBox1 .dl1 .rt5 {
+		    width: 70%;
+		}
+		.scrollBox2 .tabelBox1 .singleselect3 a {
+			margin-right: 24px;
+		}
+		.caption {
+			margin-top: 80px!important;
+			margin-left: 136px!important;
+		}
+		.tabelBox1 .dl1 .lt1 {
+		    width: 30%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+		    width: 30%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+		    width: 64%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--个人信息填写</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>就诊类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stVisitType">
+						<a ng-class="{'in':current==index}" ng-repeat="(index,item) in visitTypeList" ng-click="change(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>对象类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stObjectType" ng-model="stObjectType" ng-options="x.name for x in objectTypeList">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>本次医疗费用总额：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="TOTALEXPENSE" ng-model="TOTALEXPENSE" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6" id="ndljmzzf">
+						<span>年度累计门诊自负段已付医疗费用数额：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="MJZZFCASHTOTAL" ng-model="MJZZFCASHTOTAL" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

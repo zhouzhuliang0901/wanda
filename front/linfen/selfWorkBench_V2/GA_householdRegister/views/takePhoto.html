@@ -1,0 +1,94 @@
+<p class="caption">{{funName}}</p>
+	<div class="main2" style="height: 650px;width: 1580px;margin-left: 170px;">
+		<div class="camera">
+			<div>
+				<img style="margin-top: 225px;float: right;margin-right: 20px;" ng-click="next()" src="../libs/common/images/btn-photo.png" />
+			</div>
+		</div>
+		<div class="info">
+			<div style="text-align: left;font-size: 24px;color: red;margin-top: 21px;margin-left: 17px;">注：请在红色聚焦框出现并对准材料后再点击拍照按钮</div>
+		<div style="margin: 10px 15px 0; text-align: left;">已上传图片：</div>
+		<div class="imgBox">
+		</div>
+	</div>
+</div>
+</div>
+<loading ng-if="!isLoading"></loading>
+<apptb-footer prev="last()" next="finishUpload()" prev-btn-info="{{prevText}}" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.camera {
+		width: 875px;
+		height: 590px;
+		background: url(../libs/common/images/bg-photo.png) no-repeat;
+		background-size: 875px 590px;
+		margin-top: 30px;
+	}
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	.info {
+		position: absolute;
+		top: 20px;
+		left: 870px;
+	}
+
+	.imgBox {
+		overflow: auto;
+		width: 680px;
+		height: 480px;
+		margin-top: 20px;
+		margin-left: 20px;
+	}
+
+	.img {
+		display: inline-block;
+		position: relative;
+		margin-bottom: 30px;
+		margin-right: 10px;
+	}
+
+	.del {
+		position: absolute;
+		bottom: -16px;
+		left: 38%;
+		margin: 0;
+		padding: 5px 15px;
+		background: rgba(0, 0, 0, 0.6);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+
+	.main2 span.line {
+		top: 50px;
+	}
+	.imgBox img{
+		width: 300px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.main2 {
+			margin-left: 100px;
+		}
+		.info {
+			width: 370px;
+			left: 650px;
+		}
+		.camera {
+			width: 659px;
+			background-size: 100% 100%;
+		}
+		.caption {
+		    margin-top: 52px !important;
+		    margin-left: 120px !important;
+		}
+		.imgBox img{
+			width: 150px;
+		}
+		.imgBox {
+			width: 100%;
+			margin: 0;
+		}
+	}
+</style>

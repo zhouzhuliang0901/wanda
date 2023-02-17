@@ -1,0 +1,40 @@
+<style type="text/css">
+	.yqbody {
+		margin: 130px 290px;
+	}
+	
+	.yqtips a img {
+		width: 1300px;
+		margin-bottom: 50px;
+	}
+	
+	button {
+		height: 70px;
+		width: 250px;
+		margin-top: 5px;
+		position: absolute;
+		background: url(images/3_13.png) no-repeat;
+		background-size: 100% 100%;
+		border: none;
+		color: #ffffff;
+		outline: none;
+		font-size: 24px;
+		font-weight: bold;
+		margin-left: 550px;
+	}
+</style>
+<div class="yqbody">
+	<div class="yqtips">
+		<a ng-click="choice('http://mp.weixin.qq.com/s?__biz=Mzg4OTI4ODQ2Ng==&mid=100001900&idx=1&sn=ac6ee514d359d66587160ab643c741bc&chksm=4fef6a117898e3073852729d5eb405be7393065d8d66e9944d71671a8ae16ced015312096f97#rd')">
+			<img src="images/tips2.png" />
+		</a>
+		<a ng-click="choice('http://mp.weixin.qq.com/s?__biz=Mzg4OTI4ODQ2Ng==&mid=100001900&idx=2&sn=52e17cba0e9b06fd2ee42994b3a8d34d&chksm=4fef6a117898e307eb077bc67ce90b7305fa9578b3826328dcc73f74dca9c9bbfd7e1102cdd0#rd')">
+			<img src="images/tips1.png" />
+		</a>
+	</div>
+	<div>
+		<button ng-click="advise()">留言区</button>
+	</div>
+</div>
+<apptb-footer default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" go-back="goAppHistoryBack()">
+</apptb-footer>

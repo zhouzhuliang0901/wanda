@@ -1,0 +1,185 @@
+body {
+	margin: 0;
+	padding: 0;
+	width: 320px;
+	height: 427px;
+}
+
+.body {
+	font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+	user-select: none;
+	/* 禁止用户鼠标在页面上选中文字/图片等 */
+	-webkit-tap-highlight-color: transparent;
+	/* webkit是苹果浏览器引擎，tap点击，highlight背景高亮，color颜色，颜色用数值调节 */
+	background: url(../img/bg.png) no-repeat;
+	background-size: 100%;
+	width: 320px;
+	height: 427px;
+}
+
+.head {
+	background: url(../img/header.png) no-repeat;
+	background-size: 100%;
+	width: 320px;
+	height: 45px;
+}
+
+@keyframes bling {
+	from {
+		left: 60px;
+	}
+	to {
+		left: 140px;
+	}
+}
+
+@-webkit-keyframes bling
+/*Safari and Chrome*/
+
+{
+	from {
+		left: 60px;
+	}
+	to {
+		left: 140px;
+	}
+}
+
+.head:after {
+	content: '';
+	position: absolute;
+	background: url(../img/bg-bling.png) no-repeat;
+	background-size: 100% 100%;
+	width: 130px;
+	height: 15px;
+	top: 35px;
+	animation: bling 3s infinite;
+	-webkit-animation: bling 3s infinite;
+}
+
+.main {
+	background: url(../img/frameL.png) no-repeat;
+	background-size: 100% 100%;
+	width: 260px;
+	height: 200px;
+	padding: 10px;
+	margin: 15px 20px;
+}
+
+.licenseInfo {
+	display: flex;
+	height: 20px;
+	color: #04b6fb;
+	font-size: 15px;
+	padding: 6px 20px 0;
+	justify-content: space-around;
+	line-height: 20px;
+}
+
+.lxmInfo {
+	display: flex;
+	height: 95px;
+	margin-top: 15px;
+}
+
+.lxmInfoLeft {
+	width: 150px;
+}
+
+.lxmInfoLeft img {
+	width: 85px;
+	height: 103px;
+	padding-left: 10px;
+}
+
+.lxmInfoRight {
+	width: 180px;
+}
+
+.lxmInfoRight img {
+	width: 80px;
+	padding: 8px 20px 0px;
+}
+
+.lxmInfoRight p {
+	width: 140px;
+	color: #a9f3ff;
+	font-size: 12px;
+	margin: 0px;
+	text-align: center;
+}
+
+.inoculationInfo {
+	display: flex;
+	height: 60px;
+	width: 290px;
+}
+
+.inoculationInfoLeft img {
+	width: 70px;
+	height: 25px;
+	padding: 20px 15px 0;
+}
+.inoculationInfo p{
+	margin-left: 20px;
+	color: #a9f3ff;
+}
+.inoculationInfoLeft {}
+
+.inoculationInfoRight {
+	display: flex;
+	flex-direction: column;
+	padding-top: 5px;
+	margin-top: 5px;
+}
+
+.inoculationInfoRight p {
+	color: #a9f3ff;
+	font-size: 12px;
+	margin: 0px;
+}
+
+.footer {
+	width: 291px;
+	height: 100px;
+	display: flex;
+	justify-content: space-around;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.footerLeft,
+.footerRight {
+	background: url(../img/frameS.png) no-repeat;
+	background-size: 100% 100%;
+	width: 131px;
+	height: 96px;
+}
+
+.footer p {
+	margin: 0;
+}
+
+.footer .footerTips {
+	color: #04b6fb;
+	font-size: 15px;
+	margin: 10px 0px 0px;
+	line-height: 30px;
+}
+
+.footer .footerResult {
+	color: #14d97f;
+	font-size: 22px;
+	line-height: 30px;
+}
+
+.tips {
+	color: #04b6fb;
+	font-size: 12px;
+	float: right;
+	margin: 0;
+	margin-right: 10px;
+}
+.footer .in{
+    color: #a9f3ff;
+}

@@ -1,0 +1,43 @@
+
+<style type="text/css">
+    .contain {
+        width: 1530px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .scrollBox2 .linkBox1 {
+        padding-left: 390px;
+        text-align: center;
+        margin-top: 130px;
+    }
+</style>
+
+<apptb-header fun-name="智能引导"></apptb-header>
+<div class="contain">
+    <p class="caption">{{ operation }}</p>
+    <div class="scrollBox2 clearfloat">
+        <div class="linkBox1 clearfloat">
+            <a href="javascript:;" ng-click="choiceType('companyStart')">
+                <img src="../libs/common/images/person.png" />
+                <p>企业开办</p>
+            </a>
+            <a href="javascript:;" ng-click="choiceType('projectConstruction')">
+                <img src="../libs/common/images/newIcon/corporate.png" />
+                <p>工程建设</p>
+            </a>
+        </div>
+    </div>
+</div>
+<no-rtn-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</no-rtn-footer>

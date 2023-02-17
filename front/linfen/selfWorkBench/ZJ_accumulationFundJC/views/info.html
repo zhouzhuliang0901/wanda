@@ -1,0 +1,190 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.caption1 {
+		display: inline-block;
+		margin-left: 6%;
+		color: #fefefe;
+		font-size: 33px;
+		opacity: .6;
+		margin-bottom: 3%;
+	}
+	
+	.tabelBox1 {
+		width: 1705px;
+		height: 715px;
+		padding-top: 35px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	#wrapper::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 33%;
+		margin-left: 12%;
+	}
+	
+	.singselect a {
+		float: left;
+		/* width: 314px; */
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 28px;
+		padding: 0px 25px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect dl {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+	.singselect .red1 {
+		color: red;
+	}
+	
+	dl p {
+		width: 86%;
+		margin: 1% auto;
+		color: #e1ba1c;
+	}
+	
+	table {
+		width: 77%;
+		margin-left: 12%;
+	}
+	
+	.tabelBox1 table tr,
+	.tabelBox1 table th,
+	.tabelBox1 table td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--个人信息填写</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>工资基数：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="count" ng-model="count" oninput="value=value.replace(/[^\d]/g,'')">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>缴存年度：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stYear" ng-model="stYear" ng-options="x.year for x in allYear">
+							<option value="" selected hidden></option>
+						</select>
+					</dd>
+				</dl>
+				<dd class="singselect">
+					<dl>请选择住房公积金缴存比例（%）<b class="red1">*</b></dl>
+					<a ng-class="{'in':current==index}" ng-repeat="(index,item) in zfjcList" ng-click="change(item.zfjc,index)">
+						{{item.zfjc}}
+					</a>
+				</dd>
+				<dd class="singselect" ng-if="addzfjcList.length>0">
+					<dl>请选择补充住房公积金缴存比例（%）<b class="red1"></b></dl>
+					<a ng-class="{'in':current1==index}" ng-repeat="(index,item) in addzfjcList" ng-click="change1(item.addzfjc,index)">
+						{{item.addzfjc}}
+					</a>
+				</dd>
+				<dl class="dl1 clearfloat">
+					<p>工资基数说明: 住房公积金缴存基数应按照职工本人上一年度月平均工资确定。新参加工作的职工，应以该职工参加工作第二个月的当月工资收入或以其新参加工作以来实际发放的月平均工资作为其住房公积金缴存基数;新调入的职 工，以调入后发放的当月工资收入或以其实际发放的月平均工资作为其住房公积金缴存基数。职工月平均工 资按国家统计局规定列入工资总额统计的项目计算，包括工资、奖金、津贴、补贴等收入。
+					</p>
+				</dl>
+				<p class="caption1">{{funName}}--结果</p>
+				<table>
+					<tr>
+						<th>住房公积金月缴存额（元）</th>
+						<td>{{sum}}</td>
+						<th>补充住房公积金月缴存额（元）</th>
+						<td>{{bcsum}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

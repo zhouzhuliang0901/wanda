@@ -1,0 +1,37 @@
+
+<div class="shell bg2">
+	 <div class="headBox1">
+			<div class="headtop1 clearfloat">
+				<a class="back1" href="../declare/index.html">自助办理</a>
+				<a ng-click="goHome()" class="backindex1">返回首页</a>
+				<div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+			</div>
+			<ul class="navul1 navul2 clearfloat">
+				<li>选择事项</li>
+				<li>人证核验</li>
+				<li>信息填写</li>
+				<li class="act">在线填报</li>
+			</ul>
+	</div>
+	<div class="main2" style="height: 650px;">
+		<div class="action">
+			<div class="imageShow" style="height: 500px;position: absolute;top: 99px;left: 40px;font-size: 40px;">
+				 <img ng-click="select(index)" ng-class="{'imgStyle':current==index}" class="id" ng-src="{{'http://117.184.33.148:8080/ac-product'+item.pictureUrlForBytes}}" ng-repeat="(index,item) in imgUrls">
+			</div>
+		</div>
+	</div>
+	<div class="btnBox1 clearfloat">
+	    <a href="#uploadMethod" class="Prev" style="width: 195px;" >返回</a>
+		<a class="next" ng-click="goNext()" >确认</a>
+	</div>
+	
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style>
+	.id{
+		height: 185px;
+	}
+	.imgStyle{
+		border: #AA0000 2px solid;
+	}
+</style>

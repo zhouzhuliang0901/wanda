@@ -1,0 +1,585 @@
+.select {
+	font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	width: 100%;
+	line-height: 40px;
+	padding-left: 15px;
+	height: 60px;
+	overflow: hidden;
+	display: inline-block;
+	border: none;
+	background: url("../../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+	font-size: 24px;
+	color: #FFF;
+	position: relative;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+select::-ms-expand {
+	display: none;
+}
+.select option {
+	color: #333;
+}
+.TabBox {
+	width: 86%;
+	margin: 2.2% auto 0;
+	height: 800px;
+}
+
+.menuBox {
+	height: 100%;
+	width: 40%;
+	float: left;
+}
+
+.menuBox ul {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	/*space-evenly;*/
+	align-items: center;
+}
+
+.menuBox ul li {
+	position: relative;
+	display: flex;
+	align-items: center;
+	height: 14%;
+	width: 84%;
+	margin: 5% 0 5%;
+	background: none;
+	background: url(../images/bg-menu.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.menuBox ul li span {
+	display: inline-block;
+	width: 70%;
+	float: left;
+	margin-left: 30%;
+	text-align: left;
+}
+
+.menuBox ul li:after,
+.menuBox ul li::after {
+	content: '';
+	width: 4%;
+	height: 24%;
+	position: absolute;
+	left: 18%;
+	top: 44%;
+	background: url(../images/circleEmpty.png) no-repeat;
+	background-size: 100%;
+}
+
+.menuBox ul li.in:after,
+.menuBox ul li.in::after {
+	width: 10%;
+	height: 50%;
+	left: 15%;
+	top: 28%;
+	background: url(../images/circle.png) no-repeat;
+	background-size: 100%;
+}
+
+.menuInfoBox {
+	 	width: 60%;
+    height: 92%;
+    float: right;
+    margin-top: 1%;
+}
+
+.menuInfoBox .guideInfo {
+	width: 96%;
+	height: 87%;
+	margin-top: 2%;
+	padding-top: 4%;
+	background: url(../images/bg-guideline.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 24px;
+}
+
+.menuInfoBox .guideInfo .guide-tips {
+	padding: 10px 42px 10px 42px;
+	text-indent: 2em;
+}
+
+.guide-content p {
+	padding: 0px 18px 10px 90px;
+}
+
+.guide-content .content-title {
+	font-weight: bold;
+	font-size: 28px;
+	padding-left: 48px;
+}
+
+.guide-content .content-child-title {
+	font-weight: bold;
+	font-size: 26px;
+}
+
+.menuInfoBox .sonMenu {
+	width: 96%;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: normal;
+	align-items: center;
+	align-content: center;
+	flex-wrap: wrap;
+}
+
+.menuInfoBox .sonMenu a {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 46%;
+	height: 13%;
+	margin: 0 2% 3% 0;
+	background: url(../images/bg-list.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 28px;
+}
+
+
+/*choice*/
+
+.captionMini {
+	opacity: .6;
+}
+
+.yearList {
+	width: 90%;
+	height: 22%;
+	margin: 8% auto 1%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.yearList a {
+	font-size: 23px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-grow: 1;
+	border: 1px solid rgba(233, 237, 240, .4);
+	width: 8%;
+	margin: 0 5px;
+	height: 40%;
+	position: relative;
+}
+
+.yearList a.in:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 78px;
+	height: 68px;
+	overflow: hidden;
+	background: url(../images/check.png) no-repeat;
+}
+
+.yearList a:nth-of-type(19),
+.yearList a:nth-of-type(20) {
+	width: 17.1%;
+}
+
+.infoList>div {
+	width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.itemFile {
+	width: 48%;
+	height: 120px;
+	margin: 1% 0;
+	background: url(../images/bg-listCon.png) no-repeat;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 24px;
+}
+
+.itemFile .itemName {
+	width: 71%;
+}
+
+.itemFile .itemTime {
+	width: 18%;
+	opacity: 0.6;
+}
+
+
+/*
+ * info
+ */
+
+.scrollBox2 .box {
+	width: 1525px;
+	height: 600px;
+	margin: 140px auto;
+	background: url(../images/bg-guideline.png) no-repeat;
+	background-size: 100% 100%;
+	font-size: 24px;
+	padding-top: 50px;
+}
+
+.scrollBox2 .box p {
+	padding: 0px 18px 10px 40px;
+}
+
+
+/* 市政府领导 */
+
+.leaderInfo {
+	display: flex;
+	position: relative;
+	width: 100%;
+	height: 80%;
+	margin-top: 8%;
+	text-align: center;
+	font-size: 22px;
+	color: rgba(255, 255, 255, .7);
+	justify-content: center;
+}
+
+.leftLeader {
+	width: 16%;
+	height: 80%;
+}
+
+.leftLeader,
+.itemPhoto {
+	display: flex;
+	flex-direction: column;
+	/*align-content: center;*/
+	align-items: center;
+	justify-content: center;
+}
+
+.leftLeader img {
+	display: block;
+	width: 62%;
+	height: 42%;
+	margin-bottom: 14px;
+}
+
+.rightLeader {
+	width: 66%;
+	height: 80%;
+	display: flex;
+	flex-wrap: wrap;
+	/*justify-content: space-between;*/
+}
+
+.itemPhoto {
+	width: 20%;
+	height: 50%;
+	margin-top: 1%;
+}
+
+.itemPhoto img {
+	display: block;
+	width: 75%;
+	height: 80%;
+	margin-bottom: 10px;
+}
+
+.bottomLeader {
+	width: 70%;
+	height: 20%;
+	display: flex;
+	flex-wrap: wrap;
+	position: absolute;
+	text-align: left;
+	right: 3.4%;
+	bottom: -2%;
+}
+
+.bottomLeader p {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 50%;
+}
+
+.bottomLeader p span {
+	font-weight: bol;
+	color: rgba(255, 255, 255, 1);
+}
+
+
+/* leader/info */
+
+.leaderInfo1,
+.leaderInfo2 {
+	display: flex;
+	width: 100%;
+	height: 94%;
+	margin-top: 2%;
+	text-align: center;
+	font-size: 24px;
+	justify-content: left;
+}
+
+.leaderInfo2 {
+	height: 83%;
+	margin-top: 8%;
+	text-align: left;
+	width: 96%;
+	margin-left: 2%;
+}
+
+.leaderInfo1 .leftInfo {
+	width: 24%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	font-size: 32px;
+	font-weight: bold;
+	color: rgba(255, 255, 255, 1);
+}
+
+.leaderInfo1 .rightInfo {
+	width: 70%;
+	height: 100%;
+}
+
+.leaderInfo1 .leftInfo img {
+	display: block;
+	width: 46%;
+	height: 31%;
+	margin-bottom: 14px;
+}
+
+.leaderInfo1 .rightInfo .menuBox {
+	width: 100%;
+	height: 20%;
+}
+
+.leaderInfo1 .rightInfo .menuBox ul {
+	width: 100%;
+	height: 100%;
+	flex-direction: row;
+}
+
+.leaderInfo1 .rightInfo .menuBox ul li {
+	height: 70%;
+	width: 34%;
+	background-size: 100% 100%;
+}
+
+.leaderInfo1 .rightInfo .menuBox ul li span {
+	margin-left: 40%;
+}
+
+.leaderInfo1 .rightInfo .menuBox ul li:after {
+	width: 5%;
+	left: 26%;
+}
+
+.leaderInfo1 .rightInfo .menuBox ul li.in:after {
+	width: 13%;
+	left: 22%;
+}
+
+.rightInfoContent {
+	width: 100%;
+	float: left;
+	font-size: 28px;
+	text-align: left;
+	margin-top: 30px;
+	margin-left: 30px;
+	height: 73%;
+}
+
+.rightInfoContent p {
+	line-height: 54px;
+}
+
+.rightInfoContent .itemFile {
+	width: 98%;
+	height: 120px;
+	margin: 1% 0;
+	background: url(../images/bg-listCon.png) no-repeat;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	font-size: 24px;
+}
+
+.rightInfoContent .itemFile .itemName {
+	width: 71%;
+}
+
+.rightInfoContent .itemFile .itemTime {
+	width: 18%;
+	opacity: 0.6;
+}
+
+
+/* 收费清单 */
+
+.tableInfo {
+	width: 90%;
+	margin: 0 auto;
+}
+
+
+/*
+ * planInfo/info
+ */
+
+.menuInfoBox .menuBoxContent {
+	font-size: 25px;
+	line-height: 45px;
+	color: #B6C9E9;
+	width: 94%;
+}
+
+.menuInfoBox .menuBoxContent .contentList img {
+	width: 40px;
+	float: left;
+}
+
+.menuInfoBox .menuBoxContent span {
+	display: inline-block;
+	width: 94%;
+}
+
+.menuBoxContent .contentTitle span {
+	font-weight: bold;
+}
+
+.contentTitle {
+	box-shadow: 0 3px 0 rgb(24, 76, 131);
+	padding-bottom: 20px;
+}
+
+.menuBoxContent p {
+	font-size: 40px;
+	font-weight: bold;
+	color: white;
+	margin: 35px;
+}
+
+
+/* buget */
+
+.bugetYear {
+	width: 96%;
+	height: 20%;
+	margin: 0 auto;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	font-size: 26px;
+}
+
+.bugetFile {
+	width: 96%;
+	height: 80%;
+	margin: 3% auto 0;
+}
+
+.year {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 44%;
+	height: 50%;
+}
+
+.year span,
+.year a {
+	width: 25%;
+	height: 100%;
+	margin: 0 0.6%;
+}
+
+.bugetYear a.in:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 60px;
+	height: 52px;
+	overflow: hidden;
+	background: url(../images/check.png) no-repeat;
+	background-size: cover;
+}
+
+.bugetYear a {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid rgb(28, 122, 169);
+}
+
+.bugetYear span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 31px;
+}
+
+#departText {
+	width: 10%;
+	height: 50%;
+}
+
+.bugetYear .departMent {
+	width: 17%;
+	height: 50%;
+	margin: 1% 0.5%;
+}
+
+.bugetFile .contentList {
+	font-size: 26px;
+	height: 10%;
+	padding: 7px 0;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.bugetFile .contentList img,
+.bugetFile .contentList span {
+	align-items: center;
+}
+
+.bugetFile .contentList img {
+	width: 4%;
+}
+
+.bugetFile .contentList span {
+	width: 74%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.bugetFile .contentList b {
+	width: 18%;
+	text-align: center;
+}

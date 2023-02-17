@@ -1,0 +1,58 @@
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<p class="caption" style="margin: 20px 100px 0px;">材料列表</p>
+	<div style="height: 140px;"></div>
+		<div class="select">
+			<span>《出版物经营许可证》正版原件</span>
+			<span class="upload" ng-click='UpScanFile("《出版物经营许可证》正本")'>{{upDataZ}}</span>
+		</div>
+		<div class="select">
+			<span>《出版物经营许可证》副版原件</span>
+			<span class="upload" ng-click='UpScanFile("《出版物经营许可证》副本")'>{{upDatafu}}</span>
+		</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<apptb-footer prev="prevStep()"  next="nextStep()" default-is-show-next-btn="{{nextBtn}}" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+    .select{
+    	width: 1500px;
+        height: 123px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+    	background: url(./image/bg-xLlist.png) no-repeat;
+    }
+    .select span{
+    	margin: 0 100px;
+    }
+	.upload{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 130px;
+        height: 49px;
+		background: url(./image/print.png) no-repeat;
+	}
+	@media screen and (max-width: 1600px) {
+		.contain {
+			width: 1280px;
+			height: 600px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.caption {
+			margin-left: 130px;
+		}
+	}
+</style>

@@ -1,0 +1,113 @@
+
+<div class="shell bg2">
+
+    <div class="headBox1">
+       <div class="headtop1 clearfloat">
+           <a class="back1" href="#start">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+        <ul class="navul1 clearfloat">
+            <li>选择事项</li>
+            <li>人证核验</li>
+			<li>信息填写</li>
+            <li class="act">在线填报</li>
+        </ul>
+    </div>
+	
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+	
+		<div class="main2" style="position: relative;">
+			<div id="wrapper">
+				<div style="width:1800px">
+			<div class="linkt" ng-repeat="(index,stuff) in stuffList">
+				<div class="select">
+					<div class="stuff">
+						<font color='red' ng-show="{{stuff.isMust==1}}">*</font>
+						{{stuff.stuffName}}
+					</div>
+					<div ng-show="{{ listImg[index].upload2 }}" class="upload2" ng-click="toNewUploadMaterial(index,stuff.stuffId,stuff.stuffCode,stuff.stuffName)">
+						重新上传
+					</div>
+					<div ng-show="{{ listImg[index].upload2 }}" class="view" ng-click="view(index,stuff.stuffId,stuff.stuffCode,stuff.stuffName)">
+						查看
+					</div>
+					<div ng-show="{{ listImg[index].upload }}" class="upload" ng-click="toUploadMaterial(index,stuff.stuffId,stuff.stuffCode,stuff.stuffName)">
+						上传
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btnBox1 clearfloat">
+	   <a href="#info" class="Prev">上一步</a>
+	   <a ng-click="submit()" class="next">提交办件</a>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	#wrapper{
+		width:1800px;
+		height:572px;
+	}
+	#linkt{
+		position: absolute;top: 100px;left: 0px;
+	}
+	.select{
+		float: left;
+		width: 1700px;
+		height: 100px;
+		overflow: hidden;
+		font-size: 30px;
+		background: #2864b0;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 40px;
+		margin-left: 18px;
+		margin-bottom: 47px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		position: relative;
+	}
+	.stuff{
+		line-height: 100px;
+		padding-left: 15px;
+		max-width: 1430px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	.upload2{
+	    width: 138px;
+		height: 50px;
+		line-height: 50px;
+		padding-left: 19px;
+		background: #3099DA;
+		border-radius: 9px;
+		position: absolute;
+		top: 27px;
+		left: 1310px;
+	}
+	.upload{
+		width: 160px;
+		height: 50px;
+		line-height: 50px;
+		background: #3099DA;
+		border-radius: 9px;
+		text-align: center;
+		position: absolute;
+		top: 27px;
+		left: 1510px;;
+	}
+	.view{
+		width: 160px;
+		height: 50px;
+		line-height: 50px;
+		background: #3099DA;
+		border-radius: 9px;
+		text-align: center;
+		position: absolute;
+		top: 27px;
+		left: 1510px;
+	}
+</style>

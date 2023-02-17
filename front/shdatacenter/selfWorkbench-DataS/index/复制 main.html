@@ -1,0 +1,117 @@
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<h2 class="tit2">“一网通办”智能终端</h2>
+		<div class="askPart">
+			<button class="iWannaAsk" ng-click="answer()">我要问</button>
+			<div class="ask"><img ng-click="sound()" src="libs/common/images/speaker.png" alt="">
+				<input ng-keyup="enterEvent($event)" type="text" placeholder="请输入关键字" class="askInput"></div>
+		</div>
+	</div>
+
+	<div class="main5">
+		<div class="lt1 fl">
+			<div class="titBox1">办理服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('declare/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav1.png" /></div>
+					<p class="p1">自助办理</p>
+				</a>
+				<a ng-click="goToApp('printLicense/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav2.png" /></div>
+					<p class="p1">证明开具</p>
+				</a>
+			</div>
+			<div class="titBox1">数据服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('eLicense/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav3.png" class="mart1" /></div>
+					<p class="p1">我的证照</p>
+				</a>
+				<a ng-click="goToApp('infoSearch/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav4.png" class="mart2" /></div>
+					<p class="p1">我的信息</p>
+				</a>
+			</div>
+		</div>
+		<div class="lt2 fl">
+			<div class="titBox1">咨询服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('https://zwdt.sh.gov.cn/smzy/shell_terminal/tourist/sceneList')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav5.png" class="mart3" /></div>
+					<p class="p1">智能引导</p>
+				</a>
+				<a ng-click="openExe()">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav6.png" class="mart1" /></div>
+					<p class="p1">视频咨询</p>
+				</a>
+				<a ng-click="goToApp('guideline/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav7.png" class="mart4" /></div>
+					<p class="p1">办事指南</p>
+				</a>
+			</div>
+
+			<div class="titBox1">便捷服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('recommend/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav8.png" class="mart1" /></div>
+					<p class="p1">为您推荐</p>
+				</a>
+				<a ng-click="goToApp('copy/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav9.png" class="mart5" /></div>
+					<p class="p1">材料复印</p>
+				</a>
+				<a ng-click="goToApp('evaluate/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav10.png" class="mart5" /></div>
+					<p class="p1">我要找茬</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<nav class="navigation">
+		<ul>
+			<li>
+				<a class="hover">常用功能</a>
+			</li>
+			<li>
+				<a href="authentication/index.html">市民网上实名认证</a>
+			</li>
+			<li style="width: 199px;background-size: 199px 58px;">
+				<a href="residenceVisa/index.html">居住证签注</a>
+			</li>
+			<!--<li>
+				<a href="medical/index.html#/bookMaking">医保制册</a>
+			</li>-->
+			<li style=" width: 210px;background-size: 210px 58px;">
+				<a href="medical/index.html">医保信息查询</a>
+			</li>
+			<li style=" width: 180px;background-size: 180px 58px;">
+				<a href="archives/index.html">档案查询</a>
+			</li>
+			<li style="width: 180px;    background-size: 180px 58px;">
+				<a href="aSocial/index.html">养老保险</a>
+			</li>
+			<li>
+				<a href="infoSearch/index.html">三金查询</a>
+			</li>
+			<!--<li>
+				<a href="#">菜单名称</a>
+			</li>-->
+		</ul>
+	</nav>
+	<p class="uniqueId">设备编码：test</p>
+</div>
+<script type="text/javascript">
+	//qwqw = function(){
+	//	    	alert(1);
+	//	//  	window.location.href ="http://183.194.241.117/smzy/shell_terminal/tourist/guide/qa?ask="+$('.input1').val();
+	//	// 		console.log($('.input1').val());
+	//	    }
+	//	})
+</script>
+<style type="text/css">
+	.uniqueId {
+		margin-left: 1700px;
+		color: #0296CF;
+		margin-top: -7px;
+	}
+</style>

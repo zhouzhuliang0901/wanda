@@ -1,0 +1,129 @@
+<apptb-header fun-name="医保个人信息查询"></apptb-header>
+<div id="wrapper" style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">参保人员基本信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>姓名：</th>
+						<td>{{xm}}</td>
+						<th>性别：</th>
+						<td>{{xb}}</td>
+					</tr>
+					<tr>
+						<!--<th>医保卡号：</th>
+						<td>{{zhh}}</td>-->
+						<th>公民身份号码：</th>
+						<td>{{sfzh}}</td>
+						<th>注入资金总额：</th>
+						<td>{{zrzhzjze}}</td>
+					</tr>
+					<tr>
+						
+						<th>当年账户余额：</th>
+						<td>{{dnzhye}}</td>
+						<th>单位码：</th>
+						<td></td>
+					</tr>
+					<tr>
+						<th>单位名称：</th>
+						<td></td>
+						<th></th>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">个人医保详细信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>卡状态：</th>
+						<td>{{zhzt}}</td>
+						<th>保健对象：</th>
+						<td>{{bjdx}}</td>
+					</tr>
+					<tr>
+						<th>封存情况：</th>
+						<td>{{fcqk}}</td>
+						<th>人员类别：</th>
+						<td>{{rylb}}</td>
+					</tr>
+					<tr>
+						<th>特殊人员：</th>
+						<td>{{tsry}}</td>
+						<th>公务员情况：</th>
+						<td>{{gwyqk}}</td>
+					</tr>
+					<tr>
+						<th>职退情况：</th>
+						<td>{{ztqk}}</td>
+						<th>医保办法：</th>
+						<td>{{ybbf}}</td>
+					</tr>
+					<tr>
+						<th>账户利息：</th>
+						<td>{{zhlx}}</td>
+						<th>历年账户余额：</th>
+						<td>{{lnzhye}}</td>
+					</tr>
+					<tr>
+						<th>当年账户累计：</th>
+						<td>{{dnzh_lj}}</td>
+						<th>历年账户累计：</th>
+						<td>{{lnzh_lj}}</td>
+					</tr>
+					<tr>
+						<th>现金支付累计：</th>
+						<td>{{xj_lj}}</td>
+						<th>地方附加支付累计：</th>
+						<td>{{fj_lj}}</td>
+					</tr>
+					<tr>
+						<th>统筹支付累计：</th>
+						<td>{{tc_lj}}</td>
+						<th>起付线上封顶线下医疗费用累计：</th>
+						<td>{{qfxs_fdxx_fy_lj}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="print()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<print show="isShowPrint"></print>
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 720px;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		width: 1920px;
+		height: 930px;
+		/* margin: auto; */
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+</style>

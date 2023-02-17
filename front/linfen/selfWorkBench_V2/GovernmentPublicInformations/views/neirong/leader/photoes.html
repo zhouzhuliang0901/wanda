@@ -1,0 +1,51 @@
+<style>
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 15%;
+		font-size: 36px;
+		color: #fff;
+		opacity: 1;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.TabBox {
+			height: 590px;
+			width: 100%;
+		}
+		.leaderInfo {
+			margin-top: 14%;
+			font-size: 20px;
+		}
+		.bottomLeader {
+			    right: 10%;
+		}
+	}
+</style>
+<p class="caption">
+	{{firstName}}&emsp; |&emsp; <span class="captionMini">{{secondName}}</span></p>
+<div class="scrollBox2 clearfloat">
+	<div class="TabBox">
+		<div class="leaderInfo">
+			<div class="leftLeader" ng-click="chooseLeader(mayor,'1')">
+				<img ng-src="{{mayor.url}}" alt="" />
+				<p>{{mayor.leaderName}}</p>
+			</div>
+			<div class="rightLeader">
+				<div class="itemPhoto" ng-repeat="item in other" ng-click="chooseLeader(item,1)">
+					<img ng-src="{{item.url}}" alt="" />
+					<p>{{item.leaderName}}</p>
+				</div>
+			</div>
+			<div class="bottomLeader" ng-click="chooseLeader('秘书长','','0001-44732','',0)">
+				<p><span>市政府秘书长：</span>　马春雷</p>
+				<p><span>市政府副秘书长：</span>陈鸣波&nbsp; 尚玉英&nbsp; 杭迎伟&nbsp; 王为人&nbsp; 赵祝平&nbsp; 黄永平&nbsp; 顾洪辉&nbsp; 华  源&nbsp; 周  亚&nbsp; 徐惠丽&nbsp;</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

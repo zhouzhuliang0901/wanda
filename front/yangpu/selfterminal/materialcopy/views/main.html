@@ -1,0 +1,47 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#">材料复印</a>
+        </li>
+        <li class="active">拍摄材料</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="../libs/common/images/mainIndexBG_2.png">
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/arrow.gif" style="position:absolute;width:40px; left:50%;margin-left:-20px;top:300px">
+            <div>请将材料放置在扫描区
+                <br />点击照相键</div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="camera" style="top:80px;left:180px;">
+            <img src="{{photograph}}" width="700" ng-show="savedPhoto" />
+        </div>
+        <a ng-show="!savedPhoto" class="btn_radius_50" style="position:absolute;left:420px;top:640px;width: 300px;">
+            <div class="greyLight" ng-click="photo()" style="padding: 0  10px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>拍照</label>
+            </div>
+        </a>
+        <a ng-show="savedPhoto" ng-click="reload()" class="btn_radius_50" style="position:absolute;left:200px;top:640px;width: 300px;">
+            <div class="greyLight" style="padding: 0  10px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>重拍</label>
+            </div>
+        </a>
+        <a ng-show="savedPhoto" ng-click="confirm()" class="btn_radius_50" style="position:absolute;left:540px;top:640px;width: 300px;">
+            <div class="greyLight" style="padding: 0  10px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

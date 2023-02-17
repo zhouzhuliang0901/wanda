@@ -1,0 +1,100 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	.scrollBox2 .dllist1 dd {
+		width: 1270px;
+	}
+
+	.tit {
+		margin-bottom: 25px;
+	}
+
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	#wrapper {
+		width: 1750px;
+		height: 600px;
+	}
+
+	.span {
+		float: left;
+		width: 300px;
+		text-align: right;
+	}
+
+	.select {
+		width: 70%;
+		height: 70px;
+		font-size: 30px;
+		padding-left: 30px;
+	}
+
+	.input1 {
+		width: 70%;
+		height: 70px;
+		font-size: 30px;
+		padding-left: 30px;
+	}
+
+	.lt1 {
+		margin-bottom: 25px;
+	}
+
+	.address {
+		margin-left: 300px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.caption {
+			margin-left: 130px !important;
+			margin-top: 60px !important;
+		}
+		#wrapper {
+			width: 1100px;
+			height: 600px;
+			margin: 0px
+		}
+		.scrollBox2 .dllist1 dd {
+			width: 1015px;
+		}
+	}
+</style>
+<p class="caption">选择区及办理点</p>
+<div class="main2" style="width: 1625px;height: 645px;margin-left: 118px;    margin-top: 30px;">
+	<div id="wrapper">
+		<div class="scrollBox2">
+			<dl class="dllist1">
+				<dt>温馨提示：</dt>
+				<dd>
+					<p>1、申请现实户籍证明信息的，请选择现户籍所在地派出所为办理点</p>
+					<p>2、申请历史户籍证明信息的，请选择当时户籍登记地派出所为办理点。</p>
+					<p class="tit">若对选择的办理地点仍存在疑问，建议致电咨询</p>
+				</dd>
+			</dl>
+			<dl class="dllist1">
+				<dd class="lt1">
+					<span class="span">选&nbsp;&nbsp;&nbsp;择&nbsp;&nbsp;&nbsp;区：</span>
+					<select class="select" ng-init="area = areaList[0]" ng-model="area" ng-options="x.areaName for x in areaList" ng-change="getItemApplyPlace(area.areaCode)">
+					</select>
+				</dd>
+				<dd class="lt1">
+					<span class="span">选择办理地点：</span>
+					<select class="select" ng-init="bldList = handleList[0]" ng-model="bldList" ng-options="x.bldName for x in handleList" ng-change="getAddress(bldList.address,bldList.bldName,bldList.bldCode)">
+					</select>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

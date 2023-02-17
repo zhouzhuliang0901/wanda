@@ -1,0 +1,366 @@
+select {
+	/*去掉点击时的选区和阴影*/
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-ms-tap-highlight-color: transparent;
+	-ms-touch-callout: none;
+	-ms-user-select: none;
+	user-select: none;
+	/*去掉点击时的选区和阴影*/
+}
+
+.headBox1 .navul2 li {
+	width: 24.3%;
+	margin-right: 0.7%;
+}
+
+.tabelBox1 {
+	/*border: 1px solid rgba(233, 237, 240, .22);
+    background: #2864b0;*/
+	overflow: hidden;
+	/*margin-right: 100px;*/
+	padding-top: 65px;
+}
+
+.tabelBox1 .dl1 {
+	width: 93.33%;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.tabelBox1 .dl1 dd {
+	float: left;
+	min-height: 60px;
+	margin-bottom: 30px;
+	font-size: 24px;
+	color: #FFF;
+}
+
+.tabelBox1 .dl1 dd .red1 {
+	display: inline-block;
+	color: #f33039;
+	margin-right: 5%;
+	vertical-align: -4px;
+}
+
+.tabelBox1 .dl1 dd .red1.vet1 {
+	vertical-align: 19px;
+}
+
+.tabelBox1 .dl1 .lt1 {
+	width: 15%;
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+.tabelBox1 .dl1 .lt1 span {
+	display: inline-block;
+	line-height: 60px;
+	margin-right: 2%;
+}
+
+.tabelBox1 .dl1 .lt1 span.span2 {
+	line-height: 30px;
+}
+
+.tabelBox1 .dl1 .lt1 span.span2 i {
+	display: block;
+	font-size: 16px;
+}
+
+.tabelBox1 .dl1 .lt2 {
+	width: 25%;
+}
+
+.tabelBox1 .dl1 .lt3 {
+	width: 20%;
+}
+
+.tabelBox1 .dl1 .rt1 {
+	width: 85%;
+}
+
+.input1 {
+	background: rgba(255, 255, 255, .25);
+	box-sizing: border-box;
+	display: inline-block;
+	border: none;
+	outline: none;
+	font-size: 24px;
+	color: #FFF;
+}
+
+* {
+	font-family: "Microsoft YaHei", "SimSun";
+}
+
+.tabelBox1 .dl1 dd .input1 {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 0 10px;
+	height: 60px;
+	line-height: 60px;
+	overflow: hidden;
+}
+
+.input1::-webkit-input-placeholder {
+	color: #fff;
+}
+
+.input1:-ms-input-placeholder {
+	color: #fff;
+}
+
+input[type="text"]:disabled {
+	color: #c5c5c5;
+}
+
+.tabelBox1 .dl1 .rt2 {
+	width: 30%;
+}
+
+.tabelBox1 .dl1 .rt3 {
+	width: 15%;
+}
+
+.tabelBox1 .dl1 .rt4 {
+	width: 45%;
+}
+
+.tabelBox1 .dl1 .rt6 {
+	width: 100%;
+}
+
+.tabelBox1 .dl1 .rt5 {
+	width: 80%;
+}
+
+select::-ms-expand {
+	display: none;
+}
+
+.select1 {
+	font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+	width: 100%;
+	padding: 10px 10px;
+	line-height: 40px;
+	height: 60px;
+	overflow: hidden;
+	display: inline-block;
+	border: none;
+	background: url("../../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+	font-size: 24px;
+	color: #FFF;
+	position: relative;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+.select1 .col1 {
+	color: #333;
+}
+
+.tabelBox1 .dl1 .contrt1 {
+	width: 55%;
+	float: left;
+	height: 60px;
+}
+
+.scrollBox2 .tabelBox1 .singleselect1 a {
+	float: left;
+	margin-right: 25px;
+}
+
+.scrollBox2 .singleselect1 a.dda1 {
+	box-sizing: border-box;
+	width: 25%;
+	padding: 0;
+	text-align: center;
+	margin-right: 2%;
+}
+
+.scrollBox2 .singleselect1 .input1 {
+	width: 73% !important;
+	margin-top: 8px;
+	float: left;
+	display: inline-block;
+}
+
+.scrollBox2 .tabelBox1 .div1 {
+	float: left;
+	width: 100%;
+}
+
+
+/*  PT 自助填表 */
+
+.tabelBox1 .dl1 .rt7 {
+	width: 26.65%;
+}
+
+.tabelBox1 .dl1 .rt8 {
+	width: 22.65%;
+}
+.tabelBox1 .dl1 .rt11 {
+	width: 26.6%;
+}
+
+.tabelBox1 .dl1 .lt4 {
+	width: 4%;
+	text-align: center;
+}
+
+.tabelBox1 .dl1 .rt9 {
+	width: 17.65%;
+}
+
+.tabelBox1 .dl1 .rt10 {
+	width: 26.65%;
+}
+
+.loadingBox {
+	position: fixed;
+	width: 1920px;
+	height: 930px;
+	/* margin: auto; */
+	background-color: rgba(0, 0, 0, .5);
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10;
+}
+
+.loadingBox p {
+	margin-left: 781px;
+	font-size: 38px;
+}
+option{
+	color: black;
+}
+.main3 {
+	width: 1800px;
+	height: 720px;
+	margin-top: 50px;
+	overflow: hidden;
+	position: relative;
+	margin-left: 79px;
+}
+
+.successBox1 {
+	float: left;
+	width: 710px;
+	margin-left: 90px;
+	margin-top: 50px;
+	position: relative;
+	margin-bottom: 45px;
+	background: url("../../sqfw/images/line3.png") no-repeat center top;
+	overflow: hidden;
+	min-height: 521px;
+}
+
+.shadow1 {
+	position: absolute;
+	z-index: 10;
+	height: 75px;
+	width: 598px;
+	left: 50%;
+	top: 0px;
+	overflow: hidden;
+	margin-left: -299px;
+	background: url("../../sqfw/images/bg-shadow1.png") no-repeat;
+}
+
+.successBox2 {
+	width: 598px;
+	margin: 0 auto;
+	margin-top: -300px;
+	overflow: hidden;
+	text-align: center;
+	animation: down1 0.6s ease-in-out forwards;
+	-webkit-animation: down1 0.6s ease-in-out forwards;
+}
+
+@keyframes down1 {
+	0% {
+		margin-top: -300px;
+	}
+	100% {
+		margin-top: 37px;
+	}
+}
+
+@-webkit-keyframes down1
+/*Safari and Chrome*/
+
+{
+	0% {
+		margin-top: -300px;
+	}
+	100% {
+		margin-top: 37px;
+	}
+}
+
+.successBox2 .cont1 {
+	background: #FFF;
+	overflow: hidden;
+}
+
+.successBox2 .cont1 h3 {
+	line-height: 56px;
+	font-size: 48px;
+	color: #eeba3a;
+	margin-top: 60px;
+	margin-bottom: 20px;
+	margin-left: 50px;
+}
+
+.successBox2 .cont1 .p1 {
+	line-height: 40px;
+	font-size: 30px;
+	color: #999;
+	margin-bottom: 5px;
+}
+
+.successBox2 .cont1 .p2 {
+	line-height: 40px;
+	font-size: 30px;
+	color: #333;
+	margin-bottom: 5px;
+}
+
+.successBox2 .line1 {
+	height: 60px;
+	background: url("../../sqfw/images/line1.png") no-repeat;
+}
+
+.successBox2 .line2 {
+	height: 17px;
+	background: url("../../sqfw/images/line2.png") no-repeat;
+}
+
+.successBox2 .code {
+	width: 257px;
+	height: 86px;
+	overflow: hidden;
+	margin: 0 auto 5px auto;
+}
+
+.successBox2 .cont1 .p3 {
+	line-height: 40px;
+	font-size: 42px;
+	color: #333;
+	font-family: "Microsoft YaHei";
+	margin-bottom: 24px;
+}
+
+.ps1 {
+	line-height: 47px;
+	font-size: 30px;
+	text-align: center;
+	width: 80%;
+	margin: 0 auto;
+}

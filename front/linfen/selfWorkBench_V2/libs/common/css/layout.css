@@ -1,0 +1,131 @@
+/*directive*/
+
+	#wrapper{
+		position: relative;
+		margin: 0 auto;
+		
+	}
+.caption {
+	color: #fefefe;
+	margin-left: 81px;
+	font-size: 33px;
+	opacity: .6;
+}
+
+.listBox {
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	margin: 0px auto;
+	width: 1600px;
+
+}
+
+.listBox .matter.check {
+	border: 1px solid #56ce97;
+}
+
+.listBox .matter {
+	flex-grow: 0;
+	position: relative;
+	box-sizing: border-box;
+	height: 85px;
+	width: 22%;
+	padding: 20px;
+	background-color: #2864b0;
+	line-height: 45px;
+	font-size: 30px;
+	margin: 15px 0px 40px 66px;
+	margin: 15px 0px 40px 0px;
+}
+
+.listBox .matter.check:after {
+	content: "";
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 78px;
+	height: 68px;
+	overflow: hidden;
+	background: url(../images/check1.png) no-repeat;
+}
+
+.listBox .controlGroup {
+	position: absolute;
+	display: inline-block;
+	height: 100px;
+	width: 100px;
+	top: 50%;
+	margin-top: -50px;
+}
+
+.listBox .controlGroup.prev {
+	background: url(../images/prevBtn.png) left top no-repeat/100% 100%;
+	left: -50px;
+}
+
+.listBox .controlGroup.next {
+	background: url(../images/nextBtn.png) left top no-repeat/100% 100%;
+	right: -50px;
+}
+
+.view-search {
+	position: absolute;
+	width: 676px;
+	height: 72px;
+}
+
+.view-icon {
+	position: absolute;
+	left: 20px;
+	top: 50%;
+	height: 40px;
+	margin-top: -20px;
+	/*width: 35px;*/
+}
+
+.view-input {
+	position: absolute;
+	border: none;
+	background-color: #0a4b9f;
+	font-size: 32px;
+	color: #fff;
+	right: 0px;
+	height: 50px;
+	line-height: 50px;
+	width: 600px;
+	top: 50%;
+	margin-top: -25px;
+}
+
+
+/*选择份数*/
+
+.chooseQuantity {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	float: right;
+	margin-right: 200px;
+	height: 200px;
+	width: 600px;
+	text-align: center;
+	font-size: 40px;
+	margin-top: 250px;
+}
+
+.chooseQuantity p {
+	width: 100%;
+}
+
+.chooseQuantity .control {
+	display: inline-block;
+	border: 1px solid #82a3cb;
+	font-size: 57px;
+	height: 60px;
+	width: 100px;
+	border-radius: 10px;
+}

@@ -1,0 +1,76 @@
+<div style="z-index:321;" class="customAlert" ng-if="isAlert" ng-click="__close()">
+	<div class="alertContent">
+		<p class="title">{{messge}}</p>
+		<span class="close" ng-click="__close()">
+<!--		x-->
+	</span>
+		<div class="controlAlert">
+			<a href="javascript:;" class="control confirm continue" ng-click="__confirm()">{{__confirmText}}</a>
+			<a href="javascript:;" ng-if="__concel" class="control cancel" ng-click="__cancel()">{{__cancelText}}</a>
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.controlAlert {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		position: relative;
+		margin: 0 auto;
+		top: 180px;
+		width: 600px;
+		height: 80px;
+	}
+	.confirm{
+		background-color: #56ce97;
+	}
+	.control {
+		height: 68px;
+		line-height: 68px;
+		border: 1px solid #fcfeff;
+		padding: 0 40px 0 40px;
+		border-radius: 10px;
+		font-size: 30px;
+		text-align: center;
+	}
+	
+	.title {
+		text-align: center;
+		margin-top: 150px;
+		font-size: 50px;
+	}
+	
+	.customAlert {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.close {
+		position: absolute;
+		display: block;
+		text-align: center;
+		line-height: 60px;
+		font-size: 50px;
+		height: 60px;
+		width: 60px;
+		right: 0px;
+		top: 0px;
+	}
+	
+	.alertContent {
+		overflow: hidden;
+		position: relative;
+		background-color: rgba(39, 93, 161, .9);
+		text-align: center;
+		margin: 200px auto;
+		height: 570px;
+		width: 1044px;
+	}
+</style>

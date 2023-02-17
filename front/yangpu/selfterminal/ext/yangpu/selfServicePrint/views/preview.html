@@ -1,0 +1,43 @@
+<style>
+    .appBtn {
+        width: 300px;
+        top: 660px;
+z-index: 99;
+    }
+
+    .appBtn.takeForm {
+        left: 850px;
+        background-color: rgb(28, 192, 36);
+    }
+
+    .appBtn.back {
+        left: 1250px;
+        background-color: rgb(226, 86, 43);
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../../../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助打印</a>
+        </li>
+        <li class="active">预览表格</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="previewForm">
+        <img class="previewImage" ng-src="{{formImage}}" alt="">
+        <p class="previewFormName">您正在预览的表格是:<br/><br/><span class="name">{{formName}}</span> </p>
+
+        <div class="appBtn takeForm" ng-click="confirmTake()">
+            <p class="desc">确认取表</p>
+        </div>
+        <div class="appBtn back" ng-click="back()">
+            <p class="desc">返回</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+<p class="caption">{{operation}}</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;height: 635px;">
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+				<dl class="dl1 clearfloat" ng-if="!isEqualPhone">
+					<dd class="lt1 lt6">
+						<span>密码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="password" id="stPassword" ng-model="stPassword">
+						<img style="position: absolute;    top: 170px;   left: 700px;    width: 62px;" src="js/hidden.png" ng-click="view()" ng-show="!show">
+						<img style="position: absolute;    top: 157px;   left: 700px;    width: 62px;" src="js/show.png" ng-click="hidden()" ng-show="show">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>再次确认密码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="password" id="stPassword1" ng-model="stPassword1" passwordchar="*">
+						<img style="position: absolute;    top: 170px;   left: 1500px;    width: 62px;" src="js/hidden.png" ng-click="view1()" ng-show="!show1">
+						<img style="position: absolute;    top: 157px;   left: 1500px;    width: 62px;" src="js/show.png" ng-click="hidden1()" ng-show="show1">
+					</dd>
+
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>手机号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+					<div class="btnBox2 clearfloat">
+						<a ng-click="getMesageCode()" class="sameAdd2" ng-if="code">获取短信验证码</a>
+						<a class="codeTime" ng-if="!code">{{time}}s</a>
+					</div>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>短信验证码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stCode" ng-model="stCode">
+					</dd>
+				</dl>
+				<!--<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>民族：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="nations" vName="" vId="" onchange="selectNationById('nations')" disabled>
+							<option class="col1" value="">选择民族</option>
+						</select>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stAddress" ng-model="stBirth">
+					</dd>
+
+				</dl>-->
+
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmText="text"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.btnBox2 .sameAdd2 {
+		float: left;
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		overflow: hidden;
+		background: #B3A1FF;
+		margin-top: 6px;
+		margin-left: 30px;
+		margin-bottom: 20px;
+	}
+	
+	.btnBox2 .codeTime {
+		float: left;
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		margin-top: 6px;
+		margin-left: 30px;
+		margin-bottom: 20px;
+		border: 1px solid;
+		pointer-events: none;
+	}
+	
+	.btnBox2 a {
+		text-align: center;
+		border-radius: 10px;
+		overflow: hidden;
+		font-size: 20px;
+	}
+</style>

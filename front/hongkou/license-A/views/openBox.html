@@ -1,0 +1,46 @@
+<style>
+    .countDown{
+        position: absolute;
+        font-size: 30px;
+        width: 400px;
+        left: 50%;
+        bottom: 50px;
+        margin-left: -200px;
+    }
+    .number{
+        color: #f3b60e;
+        font-weight: bold;
+        font-size: 40px;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">电子证照柜</a>
+        </li>
+
+        <li class="active">开柜</li>
+    </ol>
+</nav>
+<div class="shadowBox openBox">
+    <p class="boldTips"><span class="boxName">{{Number}}号</span>箱门已经打开</p>
+    <p class="normalTips">请在{{tipsInfo}}后关闭箱门</p>
+    <p class="countDown"><span class="number">{{countDown}}</span>秒后返回主页</p>
+    <div class="btn center" ng-if="!isStaff" ng-click="goHome()">
+        <img class="eventIcon" src="images/icon/homeLogo.png" alt="">
+        <span class="event">返回主页</span>
+    </div>
+    <div class="btn left" ng-if="isStaff" ng-click="Continue()">
+        <img class="eventIcon" src="images/icon/back.png" alt="">
+        <span class="event">继续操作</span>
+    </div>
+    <div class="btn right" ng-if="isStaff" ng-click="otherHandle()">
+        <img class="eventIcon" src="images/icon/document.png" alt="">
+        <span class="event">其他操作</span>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../../../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助打印</a>
+        </li>
+        <li class="active">选择事项</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="departments">
+        <p class="department" ng-click="matterForms(item.stFormCatId)" ng-repeat="item in matters">{{item.stFormCatName}}</p>
+    </div>
+    <back-upper></back-upper>
+</div>

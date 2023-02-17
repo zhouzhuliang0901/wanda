@@ -1,0 +1,126 @@
+<div class="shell bg3">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="back()">取表</a>
+        </div>
+    </div>
+  
+  <alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+<apptb-footer prev="goHome()" next="" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+			</apptb-footer>
+<style type="text/css">
+	#wrapper{
+		width:1800px;
+		height: 500px;
+	}
+	.tabBotbox1inner .text a{
+		width:266px;
+		margin-right: 44px;
+	}
+	
+	.TabBox1{
+		background: url(./../libs/common/images/bg-content.png) no-repeat center center;
+    	height: 850px;
+    	padding: 0 34px;
+    	overflow: hidden;
+    	margin-top: -30px;
+	}
+	#wrapper{
+		width:1800px;
+		height: 500px;
+	}
+	.tabBotbox1inner .linkbox1{
+		padding-top: 200px;
+		padding-left: 120px;
+		display: flex;
+		box-sizing: border-box;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+	}
+	.tabBotbox1inner .text a{
+		width:266px;
+		margin-right: 44px;
+		height: auto;
+		border: none;
+		background: none;
+		position: relative;
+	}
+	.tabBotbox1inner .text a p{
+		    margin: 0 auto;
+    margin-top: 20px;
+    width: 226px;
+    font-size: 32px;
+	}
+	.headBox1{
+		height: auto;
+	}
+	.headBox1 .headtop1{
+		margin: 0;
+		line-height: 100px;
+		text-align: center;
+		background: url("../libs/common/images/head-fairy.png") no-repeat center -20px;
+	}
+	.headBox1 .headtop1::after{
+		content: "";
+	    position: absolute;
+	    top: 67px;
+	    left: 510px;
+	    width: 350px;
+	    height: 30px;
+	    /* background-color: #fff; */
+	    background: url(../libs/common/images/bg-bling.png) no-repeat;
+	    background-size: 350px 30px;
+	    overflow: hidden;
+	    animation: fairy 4s linear 0s infinite;
+	}
+	.headBox1 .headtop1 .back1{
+		background: none;
+		font-weight: 300;
+		float: inherit;
+		font-size: 40px;
+		padding: 0;
+	}
+	@-webkit-keyframes fairy{
+		0%{ 
+			left: 420px; 
+			opacity: 0;
+		}
+		10%{
+			opacity: .2;
+		}
+		50%{ 
+			left: 40%; 
+			opacity: 1;
+		}
+		90%{
+			opacity: .2;
+		}
+		100%{
+			left: 60%;
+			opacity: 0;
+		}
+	}
+	@keyframes fairy{
+		0%{ 
+			left: 420px; 
+			opacity: 0;
+		}
+		10%{
+			opacity: .2;
+		}
+		50%{ 
+			left: 40%; 
+			opacity: 1;
+		}
+		90%{
+			opacity: .2;
+		}
+		100%{
+			left: 60%;
+			opacity: 0;
+		}
+	}
+	
+</style>

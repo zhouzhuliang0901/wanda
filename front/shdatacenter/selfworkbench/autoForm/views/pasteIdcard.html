@@ -1,0 +1,9 @@
+<p class="caption">{{operation}}</p>
+<idcard ng-if="!photograph" read="readIdcard(info)" has-img="no"></idcard>
+<fromtake-photo ng-if="photograph" result="getImg(img,url)"></fromtake-photo>
+<style type="text/css">
+	idcard {
+		display: block;
+		margin-top: 100px;
+	}
+</style>

@@ -1,0 +1,51 @@
+<style>
+    .countDown{
+        position: absolute;
+        font-size: 30px;
+        width: 400px;
+        left: 50%;
+        bottom: 50px;
+        margin-left: -200px;
+    }
+    .number{
+        color: #f3b60e;
+        font-weight: bold;
+        font-size: 40px;
+    }
+    .redText {
+    	display: block;
+    	color: red;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="{{goBack}}">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">电子证照柜</a>
+        </li>
+
+        <li class="active">开柜</li>
+    </ol>
+</nav>
+<div class="shadowBox openBox">
+    <p class="boldTips"><span class="boxName">{{Number}}号</span>箱门已经打开</p>
+    <p class="normalTips" ng-if="!isUserTake">请在{{tipsInfo}}后关闭箱门</p>
+    <p class="normalTips" ng-if="isUserTake">请在取出证照后<span class="redText">将申请材料收件凭证放回柜内</span>并关闭箱门</p>
+    <p class="countDown" ng-if="!clearInterval"><span class="number">{{countDown}}</span>秒后返回主页</p>
+    <div class="btn left"  ng-click="Continue()">
+        <img class="eventIcon" src="images/icon/back.png" alt="">
+        <span class="event">继续操作</span>
+    </div>
+    <div class="btn right" ng-if="!isStaff" ng-click="goHome()">
+        <img class="eventIcon" style="height: 60px; top: 26px; left: 50px;" src="images/icon/homeLogo.png" alt="">
+        <span class="event">返回主页</span>
+    </div>
+    <div class="btn right" ng-if="isStaff" ng-click="otherHandle()">
+        <img class="eventIcon" src="images/icon/document.png" alt="">
+        <span class="event">其他操作</span>
+    </div>
+</div>

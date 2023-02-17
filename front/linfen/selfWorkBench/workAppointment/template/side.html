@@ -1,0 +1,28 @@
+<!-- 预约arrange排号 -->
+<div class="make-arrange" ng-model="severalweeks">
+
+    <!--<div class="make-arrange-time1" ng-model="appointmentInfo">
+		<div ng-model="surplusCount">
+			<span ng-model="totalCount">周{{severalweeks}}&nbsp;&nbsp;&nbsp;&nbsp;上午&nbsp;&nbsp;&nbsp;&nbsp;{{appointmentInfo}}&nbsp;&nbsp;({{surplusCount}}/{{totalCount}})</span>
+			<button class="time1-btn" ng-click="timezbtn(appointmentInfo)">预约</button>
+		</div>
+    </div>
+    <div class="make-arrange-time1" ng-model="appointmentInfo1">
+		<div ng-model="surplusCount1">
+			<span ng-model="totalCount1">周{{severalweeks}}&nbsp;&nbsp;&nbsp;&nbsp;下午&nbsp;&nbsp;&nbsp;&nbsp;{{appointmentInfo1}}
+			&nbsp;&nbsp;({{surplusCount1}}/{{totalCount1}})</span>
+			<button class="time1-btn" ng-click="timezbtn(appointmentInfo1)">
+				预约
+			</button>
+		</div>
+    </div>-->
+    <div class="make-arrange-time1" ng-repeat="item in showDataMake track by $index">
+		<div ng-model="surplusCount">
+			<span ng-model="totalCount">周{{severalweeks}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.sxm}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.stPeriod}}&nbsp;&nbsp;({{item.nmReservationRemain}}/{{item.nmReservationRemain}})</span>
+			<button class="time1-btn" ng-click="timezbtn(item.stResourceId,item.stPeriod)">预约</button>
+		</div>
+    </div>
+</div>
+<script>
+	
+</script>

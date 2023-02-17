@@ -1,0 +1,116 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 100%;
+		height: 100%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	.caption1 {
+		color: #fefefe;
+		font-size: 33px;
+		opacity: .6;
+		margin-top: 5%;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.schoolName {
+		width: 55%;
+		height: 90px;
+		margin: 1% 21.4%;
+		position: relative;
+	}
+	
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;
+		padding-left: 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.schoolName img {
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+		right: 5%;
+		width: 52px;
+		opacity: .6;
+	}
+	
+	.titleP {
+		width: 55%;
+		color: #e1ba1c;
+		font-size: 25px;
+		margin-top: 3%;
+		margin-left: 21.5%;
+		line-height: 40px;
+	}
+	
+	.faceBook {
+		margin-top: 5%;
+		display: flex;
+		justify-content: space-around;
+		padding: 0 375px;
+		box-sizing: border-box;
+	}
+	
+	.faceBook img {
+		width: 150px;
+		height: 150px;
+	}
+	
+	.faceBook p {
+		text-align: center;
+		margin-top: 4%;
+		font-size: 30px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.faceBook {
+			margin: 0;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="schoolName">
+		<input type="text" placeholder="请输入餐饮店铺名称" ng-model="cardNo" />
+		<img ng-click="queryBalance(cardNo)" src="../libs/common/images/icon-link9.png" />
+	</div>
+	<p class="titleP">
+		1.支持模糊搜索，可输入餐饮店铺关键词搜索</br>
+		2.本服务提供信息仅可作为参考，因信息更新等原因可能导致实际情况不符，敬请见谅</br>
+		3.由于餐饮单位还在不断补充中，若部分餐饮单位尚未纳入查询系统，敬请见谅</br>
+		4.餐饮脸谱对照食品安全等级如下
+	</p>
+	<div class="faceBook">
+		<div>
+			<img src="image/good.png" />
+			<p>良好</p>
+		</div>
+		<div>
+			<img src="image/normal.png" />
+			<p>一般</p>
+		</div>
+		<div>
+			<img src="image/bad.png" />
+			<p>较差</p>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

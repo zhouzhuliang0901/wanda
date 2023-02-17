@@ -1,0 +1,82 @@
+<div class="tips">
+	<img class="largeImg" ng-src="{{ largeImg }}" />
+	<div class="tipsBox">
+		<p class="title">步骤说明</p>
+		<div class="tipsBox1"><span></span>1.刷身份证</div>
+		<div class="tipsBox1"><span></span>2.拍身份证</div>
+		<div class="tipsBox1"><span></span>3.取表&emsp;&emsp;</div>
+	</div>
+</div>
+
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.tips {
+		width: 1200px;
+		height: 620px;
+		margin: 0 auto;
+		margin-top: 110px;
+		background: url("./images/bg-tips.png") no-repeat;
+	}
+	
+	.largeImg {
+		height: 510px;
+		width: 370px;
+		margin-left: 90px;
+		margin-top: 62px;
+	}
+	
+	.tipsBox .title {
+		margin-top: 91px;
+		font-size: 40px;
+		margin-left: 25px;
+	}
+	
+	.tipsBox {
+		height: 600px;
+		width: 400px;
+		float: right;
+		margin-right: 300px;
+	}
+	
+	.tipsBox1 {
+		width: 560px;
+		height: 85px;
+		border: 1px solid #2efefb;
+		margin-top: 40px;
+		margin-left: 23px;
+		position: relative;
+		font-size: 35px;
+	}
+	.tipsBox1::before {
+		content: '';
+		position: absolute;
+		margin-top: 5px;
+		margin-left: 5px;
+		width: 18px;
+		height: 18px;
+		background: url("./images/tips-left.png") no-repeat;
+	}
+	.tipsBox1::after {
+		content: '';
+		position: absolute;
+		margin-top: 62px;
+		margin-left: 242px;
+		width: 18px;
+		height: 18px;
+		background: url("./images/tips-right.png") no-repeat;
+	}
+	.tipsBox1 span {
+		display: inline-block;
+		width: 25px;
+		height: 25px;
+		margin-top: 30px;
+		margin-left: 50px;
+		margin-right: 50px;
+		border: 1px solid #2efefb;
+		border-radius: 50%;
+		background-color: #2efefb;
+		box-shadow: 0 0 10px 5px #2efefb;/*模糊的距离   阴影的大小*/
+	}
+	
+</style>

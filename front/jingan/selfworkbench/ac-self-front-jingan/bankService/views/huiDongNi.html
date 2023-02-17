@@ -1,0 +1,90 @@
+<style type="text/css">
+	.caption {
+		margin-left: 20px;
+	}
+    .contain {
+        width: 1530px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .scrollBox2 .linkBox1 {
+    	display: flex;
+    	justify-content: space-around;
+        padding-left: 0px;
+        text-align: center;
+        margin-top: 80px;
+    }
+    .scrollBox2 .linkBox1 a {
+    	margin-right: 0px;
+    }
+    
+    .scrollBox2 .linkBox1 .suiShenBan {
+	    width: 309px;
+	    height: 281px;
+	    margin-top: -4px;
+	    margin-left: -4px;
+    }
+    
+    .scrollBox2 .linkBox1 .jhAppQrcode {
+    	width: 303px;
+    	height: 273px;
+	    margin-top: 74px;
+    }
+    
+    .scrollBox2 .linkBox1 .jhAppQrcode .jhAppQrcodePng {
+    	width: 200px;
+    	/*padding-top: 10px;*/
+    	padding: 16px;
+    }
+    
+    .scrollBox2 .linkBox1 .jhAppQrcode p:nth-child(1),
+    .scrollBox2 .linkBox1 .jhAppQrcode p:nth-child(2) {
+    	font-size: 26px;
+    	color:rgb(101, 142, 180);
+    }
+    
+    .scrollBox2 .linkBox1 .jhAppQrcode p:nth-child(4),
+    .scrollBox2 .linkBox1 .jhAppQrcode p:nth-child(5) {
+    	font-size: 22px;
+    	/*color:rgb(101, 142, 180);*/
+    }
+</style>
+<apptb-header fun-name="银行服务"></apptb-header>
+<div class="contain">
+    <p class="caption">{{ operation }}</p>
+    <div class="scrollBox2 clearfloat">
+        <div class="linkBox1 clearfloat">
+            <a href="javascript:;" ng-click="choiceType('productDescription')">
+                <img src="../libs/common/images/newIcon/bookMake.png" />
+                <p>产品介绍</p>
+            </a>
+            <a href="javascript:;" ng-click="choiceType('funcHighlights')">
+                <img src="../libs/common/images/newIcon/gnld.png" />
+                <p>功能亮点</p>
+            </a>
+            <a href="javascript:;" ng-click="choiceType('loanService')">
+                <img class="suiShenBan" src="../libs/common/images/newIcon/xwqykdfw.png" />
+                <p>建行小微快贷业务</p>
+            </a>
+            <div class="jhAppQrcode">
+            	<p>小微企业</p>
+            	<p>一站式金融服务APP</p>
+                <img class="jhAppQrcodePng" src="../libs/common/images/newIcon/jhAppQrcode.png" />
+                <p>扫描上方二维码</p>
+                <p>即可下载建行惠懂你APP</p>
+            </div>
+        </div>
+    </div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>

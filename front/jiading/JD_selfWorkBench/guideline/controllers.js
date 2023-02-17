@@ -1,0 +1,326 @@
+var urlHost = 'http://10.237.16.72';
+var t;
+function time() {
+	var time = 60;
+    t = setInterval(function(){
+        if (time == 0) {
+            clearInterval(t);
+            //$.device.GoHome();
+        }
+        $(".minute").text(time);
+        time--;
+    }, 1000)
+}
+function removeAnimate(ele){
+	$(ele).css({"transform":"translateY(0px)","top":0}).removeClass('transformto')
+}
+function addAnimate(ele){
+	$(ele).addClass('transformto').on("animationend",function(){
+		$(ele).removeClass('transformto')
+	})
+}
+app.controller("listController", function($scope, $route, $location, $http, $rootScope,data,$sce) {
+
+	removeAnimate($('.linkbox1'))
+	$scope.current = 0;
+	$scope.searchType = ["按部门", "按事项"];
+	$scope.itemName = [];
+	$scope.currentMatters = [];
+	$scope.organCode = null;
+	$scope.matterVal = '';
+	$scope.idRead = false;
+	$scope.isLoading = true;
+	clearInterval(t);
+	time();
+/*
+	//查询事项
+	$scope.getSearchMatter = function(current) { // 查询事项
+		removeAnimate($('.linkbox1'))
+		$scope.isLoading = false;
+		$scope.organCode = 'search';
+		var vConfig = {
+			itemName: $scope.matterVal,
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		if($scope.matterVal) {
+			$http.jsonp(urlHost + '/aci/declare/getItemListByItemNameForPage.do', {
+				params: vConfig
+			}).success(function(dataJson) {
+				$scope.isLoading = true;
+				$('.tabBotbox1inner').find('a:first').addClass('active').siblings().removeClass('active');
+				$scope.itemName = dataJson.itemSetList;
+				console.log($scope.itemName)
+				if($scope.itemName.length===0){
+					$scope.isAlert = true;
+					$scope.msg = "未查询到数据!";
+					$scope.hasCancel = true;
+				}
+				addAnimate($('.linkbox1'))
+			}).error(function() {
+				$scope.isLoading = true;
+				console.log('getOrganListForDeclarePage error')
+			})
+		} else {
+			layer.msg('请输入事项名称');
+			$scope.isLoading = true;
+			
+		}
+	};
+	$scope.alertConfirm = function(){
+		$scope.isAlert = false;
+	}
+	//获取所有事项
+	$scope.getMatter = function() {
+		removeAnimate($('.linkbox1'))
+		$scope.isLoading = false;
+		$scope.matterVal = '';
+		$scope.active = null;
+		$scope.organCode = null;
+		var config = {
+			jsonpCallback: "JSON_CALLBACK",
+		}
+		$http.jsonp(urlHost + '/aci/declare/getAllItemListForPage.do', {
+			params: config
+		}).success(function(dataJson) {
+			$scope.itemName = dataJson.itemSetList;
+			$scope.isLoading = true;
+			addAnimate($('.linkbox1'))
+		}).error(function() {
+			console.log('getAllItemListForPage error')
+			$scope.isLoading = true;
+		})
+	};
+	//获取所有部门
+	$scope.getDepartment = function() {
+		removeAnimate($('.linkbox1'))
+		$scope.isLoading = false;
+		$scope.matterVal = '';
+		var organConfig = {
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		$http.jsonp(urlHost + '/aci/declare/getOrganListForDeclarePage.do', {
+			params: organConfig
+		}).success(function(dataJson) {
+			$scope.isLoading = true;
+			$scope.itemName = dataJson.organSetList;
+			addAnimate($('.linkbox1'))
+		}).error(function() {
+			$scope.isLoading = true;
+			console.log('getOrganListForDeclarePage error')
+		})
+	};
+	//通过部门id获取部门事项
+	$scope.getItemByOrganCode = function(code){
+		$scope.isLoading = false;
+		$scope.current = 1;
+		var oConfig = {
+			organCode: code,
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		$http.jsonp(urlHost + '/aci/declare/getItemListByOrganCodeForPage.do', {
+			params: oConfig
+		}).success(function(dataJson) {
+			$scope.isLoading = true;
+			$scope.itemName = dataJson.itemSetList;
+		}).error(function() {
+			$scope.isLoading = true;
+			console.log('getItemListByOrganCodeForPage error')
+		})
+	};
+
+	$scope.$on('$viewContentLoaded', function() {
+		$scope.getDepartment();
+	});
+
+	$scope.getMatterCon = function(index, type) {
+		$scope.isLoading = false;
+		$scope.current = index;
+		switch(type) {
+			case "按部门":
+				$scope.itemName = "";
+				$scope.getDepartment();
+				$scope.isRead = false;
+				break;
+			case "按事项":
+				$scope.itemName = "";
+				$scope.getMatter();
+				$scope.isRead = true;
+				break;
+			default:
+				$scope.itemName = "";
+				$scope.getDepartment();
+				$scope.isRead = false;
+		}
+	};
+	$scope.isScroll = function(){
+		
+		new iScroll("wrapper",{
+			vScrollbar: false,
+			hScrollbar:false,
+			hideScrollbar:false,
+			bounce:true,
+			checkDOMChanges:true,
+			onScrollMove:function (e) { $scope.scrollMove=true }
+		});
+	};
+	$scope.isScroll();
+	
+	$scope.toMaterials = function(itemName, organCode, organName, itemNo) {
+		removeAnimate($('.linkbox1'))
+		if($scope.scrollMove){
+			$scope.scrollMove=false;
+			return;
+		}
+		if(itemName){
+			data.itemName = itemName;
+			data.organCode = organCode;
+			data.organName = organName;
+			data.itemNo = itemNo;
+			$location.path("/matter");
+		}else if(organCode) {
+			$scope.getItemByOrganCode(organCode);
+		} 
+		addAnimate($('.linkbox1'))
+	};
+	
+	$rootScope.goHome = function(){
+		$.device.GoHome();
+	};
+*/
+		window.external.URL_OPEN(50, 100, 1800, 850, "http://www.jiading.gov.cn/");
+		$scope.address = $sce.trustAsResourceUrl("http://www.jiading.gov.cn/");
+	
+});
+
+app.controller("matterController", function($scope, $route, $http, $location, data, $timeout) {
+	removeAnimate($('.main2'))
+	$scope.allName = data.itemName;
+	var name = data.itemName;
+	if(name.length > 10) {
+		name = name.slice(0, 10) + '...'
+	}
+	$scope.itemName = name;
+	clearInterval(t);
+	time();
+	$scope.isLoading = true;
+	$scope.getMatterCond = function() {
+		var oConfig = {
+			itemNo: data.itemNo,
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		$http.jsonp(urlHost + '/aci/declare/getWindowItemStatusList.do', {
+			params: oConfig
+		}).success(function(dataJson) {
+			$scope.itemList = dataJson.windowItemStatusList;
+			addAnimate($('.main2'))
+		}).error(function() {
+			console.log('getWindowItemStatusList error')
+		})
+	};
+	$scope.getMatterCond();
+	$scope.getSubItem = function(id, name, description,tenNo,itemNo) {
+		$scope.isLoading = false;
+		if($scope.scrollMove){
+			$scope.scrollMove=false;
+			return;
+		}
+		data.itemId = id;
+		data.statusName = name;
+		data.description = description;
+		data.itemTenNo = tenNo;
+		data.itemNo = itemNo;
+		$scope.isLoading = false;
+		$location.path("/guideline");
+	};
+	$scope.prevStep=function(){
+		$scope.isLoading = false;
+		$location.path("/list");
+	}
+});
+
+app.controller("guidelineController", function($scope, $route, $http, $location,$sce, data, $timeout) {
+	removeAnimate($('.main2'))
+	clearInterval(t);
+	time();
+	var name = data.itemName;
+	if(name.length > 10) {
+		name = name.slice(0, 10) + '...'
+	}
+	$scope.itemName = name;
+	$scope.description = data.description;
+	$scope.statusName = data.statusName;
+	if($scope.statusName.length > 20) {
+		$scope.statusName = $scope.statusName.slice(0, 20) + '...'
+	}
+	$scope.ItemStuffList = "";
+	var lodop = $.device.printGetLodop();
+	$scope.getGuieInfo = function() {
+		var oConfig = {
+			stZhallId: data.itemId,
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		$http.jsonp(urlHost + '/aci/declare/getGuideInfoByZhallId.do', {
+			params: oConfig
+		}).success(function(dataJson) {
+			$scope.guideInfo = dataJson.guide;
+			$scope.clRange = dataJson.guide.clRange;
+		}).error(function() {
+			console.log('getGuideInfoByZhallId error')
+		});
+	};
+	var itemStr = data.itemNo;
+	itemStr = itemStr.substring(0,itemStr.length-1);
+	var SHCODE = "SH00JD"+itemStr+1;
+	$scope.codeUrl = "http://zwdt.sh.gov.cn/govPortals/bsfw/findBsfw.do?_organName_=嘉定区&_organCode_=SH00JD&_organType_=other&_itemId="+SHCODE+"&_itemType=审批&_stSubitemId="+data.itemId;
+	console.log($scope.codeUrl);
+	
+	var qrcode = new QRCode("code", {
+		text: $scope.codeUrl,
+		width: 200,
+		height: 200,
+		correctLevel: 0,
+		render: "table"
+	});
+	// 获取材料列表  		
+	$scope.getItemStuffList = function(){
+		var fConfig = {
+			itemCode: data.itemTenNo, // 	data.itemTenNo	'0045065000'
+			jsonpCallback: "JSON_CALLBACK",
+		};
+		$http.jsonp(urlHost + '/aci/declare/getItemStuffList.do', {
+				params: fConfig
+		}).success(function(dataJson){
+			if(dataJson.data.length>0){
+				for(var i = 0;i<dataJson.data.length;i++){
+					$scope.ItemStuffList += "<p>"+(i+1)+"."+dataJson.data[i].stuffName+"</p>";
+				}
+				$scope.ItemStuff=$sce.trustAsHtml($scope.ItemStuffList);
+			}
+		}).error(function(e){
+			console.log(e);
+		});
+	}; 
+	
+	$scope.getItemStuffList();
+	
+	$scope.print = function(){
+		lodop.ADD_PRINT_HTM(24,0,"100%","90%","<style> .widthLimit {width:720px;}</style><body>"+document.getElementById("scrollBox2").innerHTML+"</body>");
+		lodop.PRINT();
+	};
+	
+	$scope.isScroll = function(){
+		
+		new iScroll("wrapper",{
+			vScrollbar: false,
+			hScrollbar:false,
+			hideScrollbar:false,
+			bounce:true,
+			checkDOMChanges:true
+		});
+	};
+	$scope.isScroll();
+
+	$scope.getGuieInfo();
+	addAnimate($('.main2'))
+});
+

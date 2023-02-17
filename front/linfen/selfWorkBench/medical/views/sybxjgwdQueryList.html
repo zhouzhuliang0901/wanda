@@ -1,0 +1,88 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1540px;
+		top: 20px;
+		left: 150px;
+	}
+	
+	#wrapper {
+		width: 1800px;
+		height: 655px;
+	}
+	
+	table {
+		float: left;
+		table-layout: fixed;
+		font-size: 25px;
+		width: 1540px;
+		margin: 10px auto;
+	}
+	
+	table th {
+		text-align: left;
+		font-weight: bold;
+		padding-left: 35px;
+	}
+	
+	table td {
+		word-wrap: break-word;
+		width: 35%;
+		padding: 8px;
+	}
+	
+	.line hr {
+		border: 1px #cccccc dotted;
+		left: 0;
+		width: 98%;
+	}
+}
+</style>
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">{{funName}}--查询结果（{{listLength}}条）</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in queryList">
+				<table>
+					<tr>
+						<th>所属区：</th>
+						<td>{{list.qxmc}}</td>
+						<th>所属保险公司：</th>
+						<td>{{list.compname}}</td>
+					</tr>
+					<tr>
+						<th>网点名称：</th>
+						<td>{{list.spname}}</td>
+						<th>邮编：</th>
+						<td>{{list.spyb}}</td>
+					</tr>
+					<tr>
+						<th>地址：</th>
+						<td>{{list.spdz}}</td>
+						<th>咨询电话：</th>
+						<td>{{list.spdh}}</td>
+					</tr>
+					<tr>
+						<th>周边交通：</th>
+						<td>{{list.spzbjt}}</td>
+						<th>工作时间：</th>
+						<td>{{list.spgzsj}}</td>
+					</tr>
+				</table>
+				<div class="line">
+					<hr size="1" noshade="noshade">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

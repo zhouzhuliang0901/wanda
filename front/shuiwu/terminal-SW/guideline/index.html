@@ -1,0 +1,39 @@
+<!doctype html>
+<html ng-app="guidelineApp">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=10" />
+		<title>自助申报</title>
+		<link rel="stylesheet" href="../libs/common/css/selfService-new.css">
+		<link rel="stylesheet" href="../libs/common/css/color.css">
+		<link rel="stylesheet" href="css/declare.css">
+		<link rel="stylesheet" href="css/jquery.mCustomScrollbar.css">
+		<!-- 徐汇自助机首页url：  http://31.0.178.111:8080/selfService/ext/xuhui/index.html -->
+	</head>
+
+	<body>
+		<div class="content_box_form" ng-controller="headController">
+			<div ng-include="'../libs/common/views/head.html'"></div>
+			<div>
+				<object style="width: 1px; height: 1px;" id="EloamView" classid="CLSID:26BA9E7F-78E9-4FB8-A05C-A4185D80D759"></object>
+			</div>
+			<ng-view></ng-view>
+		</div>
+		<script src="../libs/angularjs/1.5.8/angular.js"></script>
+		<script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+		<script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="../libs/common/js/self-mac-tools.js"></script>
+		<script src="app.js"></script>
+		<script src="../libs/common/controller/head.js"></script>
+		<script src="js/pwait.js"></script>
+		<script src="js/declare.js"></script>
+		<script src="js/iscroll.js"></script>
+		<script src="js/infoData.js"></script>
+		<script src="controllers.js"></script>
+		<script src="routers.js"></script>
+		<script src="../libs/layer/layer.js"></script>
+	</body>
+
+</html>

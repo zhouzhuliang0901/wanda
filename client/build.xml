@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="acSelfClient" default="pack">
+	<!-- properies -->
+	<property name="src.dir" value="src" />
+	<property name="classes.dir" value="bin" />
+	<property name="lib.dir" value="libs" />
+	<property name="dist.dir" value="dist" />
+	<!-- 定义classpath -->
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.*" />
+		</fileset>
+		<!--<fileset file="${lib.dir}/**/*.jar"/>-->
+		<pathelement path="${classes.dir}" />
+	</path>
+	<!-- 初始化任务 -->
+	<target name="init" />
+	<!-- 编译 -->
+	<target name="compile" depends="init" description="compile the source files">
+		<mkdir dir="${classes.dir}" />
+		<javac srcdir="${src.dir}" destdir="${classes.dir}" target="1.6">
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+	<!-- 第三方jar包的路径 -->
+	<path id="lib-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	<!-- 打包成jar -->
+	<target name="pack" depends="compile" description="make .jar file">
+		<mkdir dir="${dist.dir}" />
+		<pathconvert property="mf.classpath" pathsep=" ">
+			<mapper>
+				<chainedmapper>
+					<!-- jar包文件只留文件名，去掉目录信息 -->
+					<flattenmapper />
+					<!-- add lib/ prefix -->
+					<globmapper from="*" to="libs/*" />
+				</chainedmapper>
+			</mapper>
+			<path refid="lib-classpath" />
+		</pathconvert>
+		<jar destfile="${dist.dir}/ac-self-client.jar" basedir="${classes.dir}">
+			<manifest>
+				<!-- 此处需要根据需要进行修改 -->
+				<attribute name="Main-Class" value="com.wondersgroup.self.client.SelfClientMain" />
+				<attribute name="Class-Path" value="${mf.classpath}" />
+			</manifest>
+			<include name="com/**/*.*" />
+		</jar>
+	</target>
+</project>

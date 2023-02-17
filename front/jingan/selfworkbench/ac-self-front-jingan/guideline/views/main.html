@@ -1,0 +1,30 @@
+<div class="TabBox1">
+	<ul class="tabul1 clearfloat">
+		<li style="color: #fefefe;opacity: .6;">请选择区入口</li>
+	</ul>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}" style="width: 1800px;">
+						<a ng-class="{'active':$index==active}" ng-repeat="area in areaList" ng-click="choice(area.organName,area.organCode)">{{area.organName}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="goHome()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+
+<style type="text/css">
+	#wrapper {
+		width: 1800px;
+		height: 500px;
+	}
+	
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 734px;
+	}
+</style>

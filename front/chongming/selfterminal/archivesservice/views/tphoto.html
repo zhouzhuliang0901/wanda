@@ -1,0 +1,46 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#ext">个人空间</a>
+        </li>
+        <li class="active">上传材料</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="../libs/common/images/mainIndexBG_2.png">
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/arrow.gif" style="position:absolute;width:40px; left:50%;margin-left:-20px;top:300px">
+            <div>{{hint}}</div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="camera"ng-show="capture" style="top:80px;left:180px;">
+            <img src="{{picture}}" />
+        </div>
+        <a ng-show="!capture" ng-click="photograph()" class="btn_radius_50" style="position:absolute;left:420px;top:640px;width: 300px;">
+            <div class="greyLight" style="padding: 0  10px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>拍照</label>
+            </div>
+        </a>
+        <a ng-show="capture" ng-click="prev()" class="btn_radius_50" style="position:absolute;left:200px;top:640px;width: 300px;">
+            <div class="greyLight" style="padding: 0  10px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>重拍</label>
+            </div>
+        </a>
+        <a ng-show="capture" ng-click="next()" class="btn_radius_50" style="position:absolute;left:540px;top:640px;width: 300px;">
+            <div class="greyLight" style="padding: 0  10px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<style type="text/css">
+	section.main {
+		height: 750px;
+		padding: 0 200px;
+		display: inherit;
+		background-image:inherit;
+	}
+
+	section h2 {
+		font-weight: bold;
+		height: 230px;
+		padding-top: 50px;
+	}
+	p.English{
+		font-size: 27px;
+	}
+</style>
+<!--中文版-->
+<section class="main" ng-show="version =='Chinese'">
+	<h2>请选择登录方式</h2>
+	<div class="main">
+		<a ng-click="choiceType('card')" class="item i1">
+			<p class="sign"><img src="img/icon-card.png" alt=""></p>
+			<p class="signTxt">校园卡实体卡</p>
+		</a>
+		<a ng-click="choiceType('code')" class="item i2">
+			<p class="sign"><img src="img/icon-code.png" alt=""></p>
+			<p class="signTxt">校园卡二维码</p>
+		</a>
+	</div>
+</section>
+<!--英文版-->
+<section class="main" ng-show="version =='English'">
+	<h2>Please select login method</h2>
+	<div class="main">
+		<a ng-click="choiceType('card')" class="item i1">
+			<p class="sign"><img src="img/icon-card.png" alt=""></p>
+			<p class="signTxt English">Physical Campus<br>card</p>
+		</a>
+		<a ng-click="choiceType('code')" class="item i2">
+			<p class="sign"><img src="img/icon-code.png" alt=""></p>
+			<p class="signTxt English">QR code of<br>Campus card</p>
+		</a>
+	</div>
+</section>
+<app-footer prev="prevStep()" default-is-show-next-btn="hidden"></app-footer>

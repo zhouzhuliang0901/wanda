@@ -1,0 +1,133 @@
+<div class="shell bg3">
+	<div class="TopTit1 clearfloat">
+		<img src="libs/common/images/icon/ywtblogo.png" style="position: absolute;width: 73px;left: 235px;">
+		<h2 class="tit2" ng-click="test()" style="padding-left: 300px;">“一网通办”智能终端</h2>
+		<div class="askPart">
+			<button class="iWannaAsk" ng-click="answer()">我要问</button>
+			<div class="ask"><img ng-click="sound()" src="libs/common/images/speaker.png" alt="">
+				<input id="input1" ng-keyup="enterEvent($event)" ng-model="askText" type="text" placeholder="请输入关键字" class="askInput"></div>
+		</div>
+	</div>
+
+	<div class="main5">
+		<div class="lt3 fl">
+			<div class="titBox1">热门服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('declare/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav1.png" /></div>
+					<p class="p1">自助办理</p>
+				</a>
+				<a ng-click="goToApp('medical/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav18.png" /></div>
+					<p class="p1">医保服务</p>
+				</a>
+				<a ng-click="goToApp('aSocial/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav17.png" class="mart1" /></div>
+					<p class="p1">人社服务</p>
+				</a>
+			</div>
+			<div class="titBox1">数据服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('eLicense/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav3.png" class="mart1" /></div>
+					<p class="p1">我的证照</p>
+				</a>
+				<a ng-click="goToApp('infoSearch/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav16.png" class="mart2" /></div>
+					<p class="p1">三金查询</p>
+				</a>
+				<a ng-click="goToApp('archives/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav13.png" class="mart2" /></div>
+					<p class="p1">档案查询</p>
+				</a>
+			</div>
+		</div>
+		<div class="lt4 fl">
+			<div class="titBox1">咨询服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('https://zwdt.sh.gov.cn/smzy/shell_terminal/tourist/sceneList')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav5.png" class="mart3" /></div>
+					<p class="p1">智能引导</p>
+				</a>
+				<a ng-click="openExe()">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav6.png" class="mart1" /></div>
+					<p class="p1">视频咨询</p>
+				</a>
+			</div>
+
+			<div class="titBox1">便捷服务</div>
+			<div class="navBox3 clearfloat">
+				<a ng-click="goToApp('copy/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav9.png" class="mart5" /></div>
+					<p class="p1">材料复印</p>
+				</a>
+				<a ng-click="goToApp('evaluate/index.html')">
+					<div class="imgbox1"><img src="libs/common/images/icon-nav10.png" class="mart5" /></div>
+					<p class="p1">我要找茬</p>
+				</a>
+			</div>
+		</div>
+	</div>
+	<nav class="navigation">
+		<ul>
+			<li>
+				<a class="hover">常用功能</a>
+			</li>
+			<li>
+				<a href="authentication/index.html">市民网上实名认证</a>
+			</li>
+			<li>
+				<a href="publicSecurity/index.html#/loginResidence">居住证更新</a>
+			</li>
+			<li>
+				<a href="search/index.html#/guideline">个人信用报告</a>
+			</li>
+			<li>
+				<a href="infoSearch/index.html#infoLoginType?type=jjxx">交管信息</a>
+			</li>
+			<!--<li>
+				<a href="medical/index.html#/bookMaking">医保制册</a>
+			</li>-->
+			<li>
+				<a href="guideline/index.html">办事指南</a>
+			</li>
+			<!--<li >
+				<a href="workSearch/index.html">办件查询</a>
+			</li>-->
+			<!--<li>
+				<a href="recommend/index.html">为您推荐</a>
+			</li>-->
+			<!--<li>
+				<a href="infoSearch/index.html">三金查询</a>
+			</li>-->
+			<!--<li>
+				<a href="#">菜单名称</a>
+			</li>-->
+		</ul>
+	</nav>
+	<p class="uniqueId">设备编码：bd2</p>
+</div>
+<script type="text/javascript">
+	//qwqw = function(){
+	//	    	alert(1);
+	//	//  	window.location.href ="http://183.194.241.117/smzy/shell_terminal/tourist/guide/qa?ask="+$('.input1').val();
+	//	// 		console.log($('.input1').val());
+	//	    }
+	//	})
+</script>
+<style type="text/css">
+	.uniqueId {
+		margin-left: 1700px;
+		color: #0296CF;
+		margin-top: -7px;
+	}
+	
+	.main5 .lt3 {
+		width: 890px;
+		margin-left: 230px;
+	}
+	
+	.main5 .navBox3 a .p1 {
+		font-weight: bold;
+	}
+</style>

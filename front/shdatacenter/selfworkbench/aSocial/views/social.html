@@ -1,0 +1,40 @@
+<p class="caption">{{operation}}</p>
+<div class="previewContainer" ng-class="{'mask':isAllScreen}" ng-click="allScreen('con')">
+	<img ng-src="{{previewImg}}" ng-click="allScreen()"/>
+
+</div>
+<div class="btnBox1 clearfloat" >
+        <a href="javascript:;" ng-show="backok" ng-click="back()" class="Prev" style="width: 160px;margin-left: 80px;">返回</a>
+         <a href="javascript:;" ng-show="lookok" ng-click="look()" class="Prev" style="width: 160px;margin-left: 570px;margin-top: 20px;">查看</a>
+        <a href="javascript:;" ng-show="printok"  ng-click="print()"  class="next">打印</a>
+</div>
+
+<!--<app-footer default-next="hidden" prev-text="全屏查看" default-prev="hidden">
+	<a href="javascript:;" class="Prev" ng-click="prev()">返回</a>
+	<a href="javacsript:viod(0);" class="continue" ng-click="print()">
+		打印
+	</a>
+</app-footer>-->
+<style type="text/css">
+	.previewContainer {
+		text-align: center;
+	}
+
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+
+	.previewContainer img {
+		height: 700px;
+	}
+
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+</style>

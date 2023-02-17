@@ -1,0 +1,87 @@
+.nav{
+    width: 1080px;
+    height: 102px;
+    margin-top: 51px;
+    text-align: center;
+}
+.con-tog{
+    width: 234px;
+    height: 101px;
+    line-height: 101px;
+    font-size: 32px;
+    text-align: center;
+    color: white;
+    display: inline-block;
+    border-radius: 5px;
+    margin-right: 32px;
+    cursor:pointer;
+    background: url("../images/nolight_bg.png") no-repeat;
+    background-size: 100%;
+}
+.bg_light{
+    background: url("../images/light_bg.png") no-repeat;
+    background-size: 100%;
+}
+.section{
+    width: 1080px;
+    height: 1015px;
+    margin-top: 75px;
+}
+.section-item{
+    margin-left: 66px;
+}
+.section-item li{
+    width: 431px;
+    height: 125px;
+    line-height: 125px;
+    border-radius: 30px;
+    background: url("../images/section-item2.png") no-repeat;
+    background-size: 100%;
+    float: left;
+    margin-bottom: 95px;
+    position: relative;
+}
+.section-item li:hover{
+    background: url("../images/section-item-h.png");
+    background-size: 100%;
+}
+.section-item li:nth-child(odd){
+    margin-right: 84px;
+}
+.section-item li span.item-left{
+    margin-left: 20px;
+}
+.section-item li span.item-right{
+    position: absolute;
+    left: 110px;
+    width:320px;
+}
+.section-item li a{
+    font-size: 30px;
+    display: block;
+}
+.section-item2{
+    margin-left: 97px;
+}
+.section-item2 li{
+    width: 270px;
+    height: 107px;
+    line-height: 107px;
+    border-radius: 30px;
+    background: url("../images/bg-bumen2.png") no-repeat;
+    background-size: 100%;
+    color: #fff;
+    font-size: 30px;
+    float: left;
+    margin-bottom: 47px;
+    margin-right: 36px;
+    text-align: center;
+}
+.section-item2 li:hover{
+    background: url("../images/bg-bumenh.png");
+    background-size: 100%;
+}
+.section-item2 li a{
+    font-size: 30px;
+    display: block;
+}

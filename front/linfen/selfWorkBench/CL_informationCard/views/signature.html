@@ -1,0 +1,79 @@
+<style type="text/css">
+	.signatureBoard {
+		width: 900px;
+		float: left;
+	}
+	
+	.main2 {
+		margin: 4% 10%;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#signature {
+		background: url(../libs/common/images/bg-photo.png) no-repeat;
+		background-size: 882px 504px;
+	}
+	
+	.btn {
+		position: absolute;
+		top: 33px;
+		left: 735px;
+		width: 139px;
+		height: 80px;
+		text-align: center;
+		line-height: 49px;
+		border-radius: 10px;
+		background: url(../libs/common/images/print.png) no-repeat;
+	}
+	
+	.topT {
+		font-size: 33px;
+		color: #FEE889;
+		margin-bottom: 50px;
+		font-weight: bold;
+	}
+	
+	.bottomT {
+		font-size: 29px;
+		line-height: 45px;
+	}
+	
+	.rewrite {
+		text-align: center;
+		border-radius: 10px;
+		overflow: hidden;
+		font-size: 30px;
+	}
+	
+	.text1 {
+		width: 650px;
+		float: left;
+		margin-top: 100px;
+	}
+</style>
+<p class="caption">{{funName}}--办理人签名</p>
+<div class="main2">
+	<div class="signatureBoard">
+		<canvas id="signature" ng-click="isSignature()" height="530" width="880">
+		        		请在此签名
+		    </canvas>
+		<div class="btn left clearRect" ng-click="notSignature()">
+			<a class="rewrite">重写</a>
+		</div>
+	</div>
+	<div class="text1">
+		<p class="topT">请在左侧签字区域签字确认:</p>
+		<p class="bottomT">本人保证本申请表所有内容属实，如有不实，愿承担由此引起的相应法律后果</p>
+	</div>
+</div>
+<div>
+	<a ng-click="saveSignature()" class="nextStep saveImg">提交</a>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prev()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

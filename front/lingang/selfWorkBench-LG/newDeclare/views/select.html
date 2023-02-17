@@ -1,0 +1,102 @@
+<style>
+	@media screen and (min-width: 1600px) {
+		.headBox1 {
+			width: 1650px;
+		}
+		.headBox1 .navul1 li {
+			margin: 0px;
+			width: 33.33%;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+		.scrollBox2 .linkBox1 a {
+			border: none;
+			background: none;
+			height: auto;
+			overflow: auto;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0;
+		}
+		.main2 {
+			width: 100%;
+			margin: 0;
+			height: auto;
+		}
+		.scrollBox2 .linkBox1 {
+			padding: 0;
+			display: flex;
+			justify-content: space-around;
+			margin-top: 100px;
+		}
+		.scrollBox2 .linkBox1 a {
+			width: auto;
+			height: auto;
+			margin: 0;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 {
+			width: 100%;
+		}
+		.headBox1 .navul1 li {
+			margin: 0px;
+			width: 33.33%;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+		.scrollBox2 .linkBox1 a {
+			border: none;
+			background: none;
+			height: auto;
+			overflow: auto;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0;
+		}
+		.main2 {
+			width: 100%;
+			margin: 0;
+			height: auto;
+		}
+		.scrollBox2 .linkBox1 {
+			padding: 0;
+			display: flex;
+			justify-content: space-around;
+			margin-top: 100px;
+		}
+		.scrollBox2 .linkBox1 a {
+			width: auto;
+			height: auto;
+			margin: 0;
+		}
+	}
+</style>
+
+<div class="headBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li class="act">人证核验</li>
+		<li>在线填报</li>
+	</ul>
+</div>
+
+<div class="navBox2"><b>您正在办理：</b><span>{{stItemName}}</span></div>
+
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="scanIdcard()">
+				<img src="../libs/common/images/newIcon/idCard.png"/>
+				<p>刷身份证</p>
+			</a>
+			<a ng-click="citizen()">
+				<img src="../libs/common/images/newIcon/qrCode.png"/>
+				<p>市民云亮证</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>

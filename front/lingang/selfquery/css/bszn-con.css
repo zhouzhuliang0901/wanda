@@ -1,0 +1,64 @@
+.con-title-box{
+    position: absolute;
+    top: 223px;
+    width: 1080px;
+    height: 150px;
+}
+.con-title{
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+.con-title h3{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 40px;
+    font-weight: bold;
+    margin-top:25px;
+}
+.con-title p{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 25px;
+    margin-top:25px;
+}
+.section{
+    position: absolute;
+    top: 375px;
+    width: 1027px;
+    height: 1360px;
+}
+.section ul li{
+    width: 900px;
+    height: 136px;
+    /* line-height: 136px; */
+    margin-left: 37px;
+    font-size: 30px;
+    color: white;
+    position: relative;
+    padding-left: 50px;
+    padding-top:7px;
+}
+.section ul li img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width:47px;
+    height:47px;
+}
+.fy-up{
+    position: absolute;
+    top: 45%;
+    right: 2.6%;
+    width: 70px;
+    height: 70px;
+}
+.fy-down {
+    position: absolute;
+    top: 55%;
+    right: 2.6%;
+    width: 70px;
+    height: 70px;
+}

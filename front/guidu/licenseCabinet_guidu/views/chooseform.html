@@ -1,0 +1,38 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:;">
+				<img src="images/homeLogo.png">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">{{title}}</a>
+		</li>
+		<li class="active">登录系统</li>
+	</ol>
+</nav>
+<div class="div-btn">
+	<div class="btn" ng-click="mylogin()">
+		<span class="event">本人登录</span>
+	</div>
+	<div class="btn" ng-click="agentlogin()">
+		<span class="event">代办登录</span>
+	</div>
+</div>
+<style>
+	.div-btn {
+		margin-top: 400px;
+	}
+	
+	.div-btn .btn .event {
+		top: 0;
+		left: 148px;
+		line-height: 168px;
+	}
+	
+	.div-btn .btn {
+		height: 168px;
+		width: 520px;
+		margin-top: 200px;
+	}
+</style>

@@ -1,0 +1,41 @@
+<style type="text/css">
+	.caption {
+		margin-left: 20px;
+	}
+	.scrollBox2 {
+		text-align: center;
+	}
+	
+	.scrollBox2 p {
+		font-size: 20px;
+		margin-top: 20px;
+	}
+	#JA_branch_bank_operate_network_jpg {
+		width: 350px;
+	}
+	
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+	 
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 70px 70px;
+		background-position: 10px 70px;
+	}
+
+</style>
+<apptb-header fun-name="银行服务"></apptb-header>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<img id="JA_branch_bank_operate_network_jpg" data-original="../libs/common/images/newIcon/JABranchBankOperateNetwork.jpg" src="../libs/common/images/newIcon/JABranchBankOperateNetwork.jpg"/>
+		<p>(点击图片放大查看)</p>
+	</div>
+</div>

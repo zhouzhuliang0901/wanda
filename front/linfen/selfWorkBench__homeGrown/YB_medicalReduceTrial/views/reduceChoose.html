@@ -1,0 +1,370 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 758px;
+	}
+	
+	.singselect {
+		width: 920px;
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 260px;
+		height: 90px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		margin-top: 65px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+		padding: 0 40px;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect2 {
+		float: left;
+		min-height: 60px;
+		margin-bottom: 30px;
+		font-size: 24px;
+		color: #FFF;
+	}
+	
+	.singselect2 a {
+		float: left;
+		width: 133px;
+		height: 90px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 80px;
+		font-size: 30px;
+		padding: 0 18px;
+	}
+	
+	.singselect2 a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.view-input {
+		background: rgba(255, 255, 255, .25);
+		position: absolute;
+		border: none;
+		font-size: 32px;
+		color: #fff;
+		right: -60px;
+		height: 90px;
+		line-height: 50px;
+		padding-left: 35px;
+		width: 677px;
+		top: 60%;
+	}
+	
+	.phoneInput {
+		background: rgba(255, 255, 255, .25);
+		position: absolute;
+		border: none;
+		font-size: 32px;
+		color: #fff;
+		right: -61px;
+		height: 90px;
+		line-height: 50px;
+		width: 678px;
+		padding-left: 35px;
+		top: 62%;
+	}
+	
+	.phone-search {
+		position: absolute;
+		top: 386px;
+		left: 343px;
+		width: 708px;
+		height: 97px;
+	}
+	
+	.view-search {
+		position: absolute;
+		top: 445px;
+		left: 343px;
+		width: 708px;
+		height: 97px;
+	}
+	
+	.keybord {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		height: 540px;
+		width: 500px;
+		margin-left: 970px;
+		margin-top: 55px;
+	}
+	
+	.keybord a {
+		font-size: 35px;
+		color: #fff;
+		height: 110px;
+		width: 150px;
+		text-align: center;
+		line-height: 110px;
+		border-radius: 20px;
+		box-shadow: 0 0 10px #2779C6;
+		transition: all 0.5s;
+	}
+	
+	.keybord a:active {
+		transform: scale(0.8);
+		background-color: #BCD7EF;
+	}
+	
+	input::-webkit-input-placeholder {
+	  color: #fff;
+	}
+	
+	input:-moz-placeholder {
+	  color: #fff;
+	}
+	
+	input::-moz-placeholder {
+		color: #fff;
+	}
+	
+	input:-ms-input-placeholder {
+		color: #fff;
+	}
+	.Tips{
+		color:#e1ba1c;
+		font-size: 30px;
+	}
+	
+	/*屏幕宽度为1600px时的样式表*/
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.stable {
+			height: 670px;
+		}
+		#wrapper {
+			width: 1110px;
+			height: 670px;
+			padding-top: 35px;
+		}
+		.my-card .head h4 {
+			margin: 20px 50px!important;
+		}
+		.my-card .body {
+			margin-left: 50px!important;
+			padding: 0px!important;
+		}
+		.content_left {
+			float: left;
+			width: 50%;
+		}
+		.singselect {
+			width: 100%;
+			float: none;
+			min-height: 60px;
+			font-size: 24px;
+			color: #FFF;
+		}
+		.singselect .isOnDuty {
+			font-size: 24px!important;
+			margin-top: 0px!important;
+			color: #c2cce3;
+			line-height: 60px;
+			width: auto!important;
+			float: none!important;
+		}
+		.singselect a {
+			float: none;
+			width: 25%;
+			height: auto!important;
+			overflow: hidden;
+			border: 1px solid rgba(233, 237, 240, .4);
+			margin: 0px;
+			position: relative;
+			text-align: center;
+			display: inline-block;
+			line-height: 70px;
+			font-size: 24px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		.singselect2 {
+			float: none!important;
+			min-height: 60px;
+			margin-bottom: 0px;
+			font-size: 24px;
+			color: #FFF;
+			width: 100%;
+		}
+		.singselect2 .selectYears {
+			font-size: 30px;
+			margin-top: 18px;
+			color: #c2cce3;
+			line-height: 60px;
+			width: 195px;
+			float: none!important;
+		}
+		.keybord {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			height: 540px;
+			width: 40%;
+			margin-left: 570px;
+			margin-top: 0px;
+		}
+		.keybord a {
+			font-size: 35px;
+			color: #fff;
+			height: 110px;
+			width: 130px;
+			text-align: center;
+			line-height: 110px;
+			border-radius: 20px;
+			box-shadow: 0 0 10px #2779C6;
+			transition: all 0.5s;
+		}
+		#year .selectYears {
+			font-size: 24px!important;
+			width: auto!important;
+		}
+		.singselect2 a {
+			float: left;
+			width: 24%;
+			height: 70px;
+			overflow: hidden;
+			border: 1px solid rgba(233, 237, 240, .4);
+			margin-right: 5px;
+			margin-bottom: 0px;
+			position: relative;
+			text-align: center;
+			display: inline-block;
+			line-height: 70px;
+			font-size: 24px;
+			padding: 0px;
+			box-sizing: border-box;
+		}
+		.isZtqk {
+			position: absolute;
+			margin-top: 0px!important;
+			font-size: 24px!important;
+			left: 50px!important;
+			line-height: 60px;
+			top: 440px;
+		}
+		.view-search {
+			position: absolute;
+			top: 490px;
+			left: 50px;
+			width: 47%;
+			height: 70px;
+			/*border: 1px solid red;*/
+			overflow: hidden;
+			border-radius: 10px;
+		}
+		.view-input {
+			background: rgba(255, 255, 255, .25);
+			position: absolute;
+			border: none;
+			font-size: 24px;
+			color: #fff;
+			/* right: 0px; */
+			height: 70px;
+			/* line-height: 70px; */
+			padding: 0px 20px;
+			width: 100%;
+			top: 36%;
+			left: 0px;
+			box-sizing: border-box;
+		}
+	}
+</style>
+<div class="stable">
+	<div id="wrapper">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-top: 60px;margin-left: 110px;">医保综合减负试算</h4>
+			</div>
+			<div class="body" style="margin-left: 125px;padding-top: 81px;">
+				<div class="content_left">
+					<dd id="ztqk" class="singselect">
+						<dl class="isOnDuty" style="font-size: 30px; margin-top: 82px;color: #c2cce3; line-height: 60px;width: 195px;float: left;">选择职退情况</dl>
+						<dl>
+							<a ng-click="change()">
+								<li>退休</li>
+							</a>
+							<a ng-click="change()">
+								<li>在职</li>
+							</a>
+						</dl>
+					</dd>
+					<dd id="year" class="singselect2">
+						<dl class="selectYears" style="font-size: 30px; margin-top: 18px; color: #c2cce3; line-height: 60px;width: 195px;float: left;">选择年限</dl>
+						<a>
+							<li>{{year}}年</li>
+						</a>
+						<a>
+							<li>{{year-1}}年</li>
+						</a>
+						<a>
+							<li>{{year-2}}年</li>
+						</a>
+						<a>
+							<li>{{year-3}}年</li>
+						</a>
+					</dd>
+					<!--<dd class="singselect2" style="width: 920px;">
+					<dl style="font-size: 30px;color: #c2cce3; line-height: 45px;width: 195px;">输入手机号</dl>
+					<div id="view-search" class="phone-search">
+						<input id="input1" class="phoneInput" ng-keyup="phoneInput($event)" type="text" ng-model="phone" ng-click="(phone=='请输入')?phone='':''" />
+					</div>
+				</dd>-->
+					<dl class="isZtqk" ng-show="isZtqk" style="position: absolute; margin-top: 60px; font-size: 30px; color: #c2cce3; left: 172px; line-height: 60px; top: 435px;">输入上一年收入</dl>
+					<div ng-show="isZtqk" id="view-search" class="view-search">
+						<input id="input" class="view-input" ng-keyup="keyboardInput($event)" type="text" ng-model="count" placeholder="请输入上一年收入" />
+					</div>
+				</div>
+				<div id="keybord" class="keybord">
+					<a ng-repeat="item in keybordArr" ng-click="inputNumber(item)">{{item}}</a>
+				</div>
+				<p class="Tips">最终减负结果以柜面实际操作为准。</p>
+				<!--<div id="keybord" class="keybord">
+					<a ng-repeat="item in keybordArr" ng-click="inputPhone(item)">{{item}}</a>
+				</div>-->
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

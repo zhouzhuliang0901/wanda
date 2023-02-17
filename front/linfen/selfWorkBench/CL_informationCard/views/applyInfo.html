@@ -1,0 +1,140 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	#stBaseTelecomCompany a {
+		width: 30.6%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+}
+</style>
+<p class="caption">{{funName}}--申请信息填写</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;height: 635px;padding-top: 35px;">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>残疾类型：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stDisabilityType">
+						<a ng-class="{'in':current5==index}" ng-repeat="(index,item) in disabilityTypeList" ng-click="changeDisabilityType(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+					<dd class="lt1 lt6" style="width: 20%;">
+						<span>残疾证号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="disabilityId" ng-model="disabilityId">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>申请类型：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stApplyType">
+						<a ng-class="{'in':current==index}" ng-repeat="(index,item) in applyTypeList" ng-click="changeApplyType(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>套餐类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stTcType">
+						<a ng-class="{'in':current2==index}" ng-repeat="(index,item) in tcTypeList" ng-click="changeTcType(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>宽带速率：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stBordBandSpeed">
+						<a ng-class="{'in':current3==index}" ng-repeat="(index,item) in bordBandSpeedList" ng-click="changeBordBandSpeed(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>基础电信公司：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="stBaseTelecomCompany">
+						<a ng-class="{'in':current4==index}" ng-repeat="(index,item) in baseTelecomCompanyList" ng-click="changeBaseTelecomCompany(item.name,index,item.id)" value="{{item.value}}">{{item.name}}</a>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>证件号码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stIdCode" ng-model="stIdCode">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>手机号码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPhoneNum" ng-model="stPhoneNum">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>宽带设备号：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stKdsbz" ng-model="stKdsbz">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>安装地址：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stInstallAddr" ng-model="stInstallAddr">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

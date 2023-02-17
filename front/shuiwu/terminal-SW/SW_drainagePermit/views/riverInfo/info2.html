@@ -1,0 +1,158 @@
+<style type="text/css">
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+	
+	#infoForm .inputBox {
+		width: 47%;
+		height: 70px
+	}
+	
+	.inputBox>label {
+		width: 270px;
+	}
+	
+	#infoForm .inputBox select,
+	#infoForm .inputBox input[type=textarea] {
+		width: 55%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=textarea] {
+		width: 50%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .content {
+		padding-bottom: 15px;
+		width: 95%;
+	}
+	
+	#infoForm .inputBox input[type=text] {
+		width: 50%;
+	}
+</style>
+<link href="../../css/bootstrap.min.css"/>
+<script src="../../js/jquery-1.12.4.min.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#main">实名认证</a>
+		</li>
+		<li class="active">基本信息</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action right-info" style="background: none; width: 100%;left: 0;">
+		<div class="right-input" style="width: 97%; margin: 2% auto;">
+			<form id="infoForm" method="get">
+				<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+					{{fullItemName}}
+				</div>
+				<div id="wrapper">
+					<div class="infoContent" style="margin-left: 2.4%;margin-top: 1%;width: 1550px; display: flex; display: -ms-flexbox; flex-flow: wrap;-ms-flex-wrap: wrap;justify-content: space-between;-ms-flex-pack: justify;align-content: flex-start;">
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&emsp;基本信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">单位名称</label>
+							<input type="text" id="targetName" ng-model="targetName" />
+						</div>
+						<div class="inputBox">
+							<label class="true">法定代表人姓名</label>
+							<input type="text" id="representative" ng-model="representative" />
+						</div>
+						<div class="inputBox">
+							<label class="true">证件类型</label>
+							<select ng-model="selected_zzjglx" ng-options="x.name for x in ZZJGLX">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件号</label>
+							<input type="text" id="targetNo" ng-model="targetNo" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人姓名</label>
+							<input type="text" id="linkman" ng-model="linkman" />
+						</div>
+						<div class="inputBox">
+							<label class="true">联系地址</label>
+							<input type="text" id="linkAddr" ng-model="linkAddr" />
+						</div>
+						<div class="inputBox">
+							<label class="true">手机号码</label>
+							<input type="text" id="mobile" ng-model="mobile" />
+						</div>
+						<div class="inputBox">
+							<label class="true">身份证号</label>
+							<input type="text" id="licenseNo" ng-model="licenseNo" />
+						</div>
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&emsp;工程信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 26px;">排水（建设）项目名称</label>
+							<input type="text" id="projectName" ng-model="projectName" />
+						</div>
+						<div class="inputBox">
+							<label class="true" style="font-size: 26px;">排水（建设）项目地址</label>
+							<input type="textarea" id="projectAddr" ng-model="projectAddr" />
+						</div>
+						<div class="inputBox">
+							<label class="">项目性质</label>
+							<select ng-model="selected_ex2" ng-options="x.name for x in EX2">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="">备注</label>
+							<input type="textarea" id="remark" ng-model="remark" />
+						</div>
+						<div class="inputBox" style="height:150px;">
+							<label class="">地理位置</label>
+							<select multiple="multiple" size="3" ng-model="selected_ex3" ng-options="x.name for x in EX3">
+							</select>
+						</div>
+						<div class="inputBox" style="height:150px;">
+							<label class="">排水活动类型</label>
+							<select multiple="multiple" size="3" ng-model="selected_pshtype" ng-options="x.name for x in PSHTYPE">
+							</select>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

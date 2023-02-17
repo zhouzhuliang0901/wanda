@@ -1,0 +1,44 @@
+<style>
+	.picBox {
+		margin-top: 0px;
+		height: 250px;
+	}
+
+	.verificationComplete .btn.abnormal {
+		float: left;
+		margin-left: 96px;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="javascript:;" ui-sref="main">
+				<img src="images/homeLogo.png">
+			</a>
+		</li>
+		<li>
+			<a href="javascript:;">人证核验</a>
+		</li>
+		<li class="active">核验完成</li>
+	</ol>
+</nav>
+<div class="shadowBox verificationComplete">
+	<ul class="picBox">
+		<!--<li class="cameraBox"></li>
+        <li class="cardBox"></li>-->
+	</ul>
+	<p class="verificationStatus" ng-show="verificationStatus">核验成功</p>
+	<p class="verificationStatus" ng-show="!verificationStatus">人证不符</p>
+	<div class="btn" ng-click="Continue();" ng-show="verificationStatus">
+		<img class="eventIcon" src="images/icon/ok.png" alt="">
+		<span class="event">继续</span>
+	</div>
+	<div class="btn abnormal" ng-click="reVerfication();" ng-show="!verificationStatus">
+		<img class="eventIcon" src="images/icon/ok.png" alt="">
+		<span class="event">重新核验</span>
+	</div>
+	<div class="btn abnormal" ng-click="Home();" ng-show="!verificationStatus">
+		<img class="eventIcon" src="images/icon/ok.png" alt="">
+		<span class="event">返回主页</span>
+	</div>
+</div>

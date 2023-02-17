@@ -1,0 +1,181 @@
+<style type="text/css">
+.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.input1::-webkit-input-placeholder {
+		color: #C5C5C5;
+	}
+	
+	.input1:-ms-input-placeholder {
+		color: #C5C5C5;
+	}
+	#stBaseTelecomCompany a{
+		width: 31.6%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+}
+</style>
+<p class="caption">{{funName}}--申请信息填写</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;height: 635px;padding-top: 35px;">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stIdCode" ng-model="stIdCode" readonly>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>参保年度：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stCbYear" ng-init="stCbYear = cbYearList[0]" ng-model="stCbYear" ng-options="x.name for x in cbYearList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>户口性质：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="stHkxz" ng-init="stHkxz = hkxzList[0]" ng-model="stHkxz" ng-options="x.name for x in hkxzList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt11">
+						<select class="select1" id="YBhjCity" ng-init="YBhjCity = YBhjCityList[0]" ng-model="YBhjCity" ng-options="x.value for x in YBhjCityList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt11">
+						<select class="select1" id="YBhjCounty" ng-model="YBhjCounty" ng-options="x.value for x in YBhjCountyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt11">
+						<select class="select1" id="YBhjStreet" ng-model="YBhjStreet" ng-options="x.value for x in YBhjStreetList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>居住地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt10">
+						<select class="select1" id="YBjzCity" ng-model="YBjzCity" ng-options="x.value for x in YBjzCityList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt10">
+						<select class="select1" id="YBjzCounty" ng-model="YBjzCounty" ng-options="x.value for x in YBjzCountyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>户籍详细地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stHjAddress" ng-model="stHjAddress">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>户籍地邮编：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stHjPostCode" ng-model="stHjPostCode">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>居住详细地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stJzAddress" ng-model="stJzAddress">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>居住地邮编：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stJzPostCode" ng-model="stJzPostCode">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>联系电话：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPhoneNum" ng-model="stPhoneNum">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>手机：</span>
+						<b class="red1"></b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stYbMobile" ng-model="stYbMobile">
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

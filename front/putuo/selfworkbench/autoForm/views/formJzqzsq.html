@@ -1,0 +1,141 @@
+<div class="clearfloat">
+	<p class="caption">上海市居住证签注申请表</p>
+	<div class="main2 main5">
+		<div id="wrapper">
+		<div class="scrollBox2 clearfloat">
+
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" ng-model="stName" id="stName" readonly>
+					</dd>
+					<dd class="lt1 lt3">
+						<span>民&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" ng-model="nations" vName="" vId="" id="nations" onchange="selectNation('nations')">
+							<option class="col1" value="">选择民族</option>
+						</select>
+						<input type="hidden" id="stNation" value="" />
+						<input type="hidden" id="stNationId" value="" />
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5">
+						<input class="input1" type="text" ng-model="stIdCard" id="stIdCard" readonly>
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>联系手机：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" ng-model="stPhone" id="stPhone" placeholder="手机和固定电话必须填写一项">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>固定电话：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" ng-model="stTel" id="stTel" placeholder="手机和固定电话必须填写一项">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>居住地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="shCounty" onchange="selectShCounty('shCounty')">
+							<option class="col1" value="">选择区县</option>
+						</select>
+						<input type="hidden" id="stShCounty" value="" />
+						<input type="hidden" id="stShCountyId" value="" />
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="shStreet" onchange="selectShStreet('shStreet')">
+							<option class="col1" value="">选择街/镇</option>
+						</select>
+						<input type="hidden" id="stShStreet" value="" />
+						<input type="hidden" id="stShStreetId" value="" />
+					</dd>
+					<dd class="rt7">
+						<input class="input1" type="text" ng-model="stShRoad" id="stShRoad" placeholder="XX路">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>&nbsp;</span></b>
+					</dd>
+					<dd class="rt8">
+						<input class="input1" type="text" ng-model="stShLane" id="stShLane" placeholder="">
+					</dd>
+					<dd class="lt1 lt4">
+						<span>弄</span></b>
+					</dd>
+					<dd class="rt8">
+						<input class="input1" type="text" ng-model="stShNo" id="stShNo" placeholder="">
+					</dd>
+					<dd class="lt1 lt4">
+						<span>号</span></b>
+					</dd>
+					<dd class="rt8">
+						<input class="input1" type="text" ng-model="stShRoom" id="stShRoom" placeholder="">
+					</dd>
+					<dd class="lt1 lt4">
+						<span>室</span></b>
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>居住证明类别：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt5 singleselect3 clearfloat" id="liveType">
+						<a href="javascript:;">本人房地产权证明</a>
+						<a href="javascript:;">租赁合同登记备案</a>
+						<a href="javascript:;">近亲属的相关居住证明</a>
+						<a href="javascript:;" style="margin-bottom: 0px;">集体宿舍证明</a>
+					</dd>
+				</dl>
+			</div>
+		</div>
+		</div>
+	</div>
+
+	<div class="mainrt1">
+		<h3 style="margin-bottom:15px;">样表</h3>
+		<div class="imgbox3">
+			<img src="../libs/common/images/autoForm/jzqzsq.jpg" />
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.caption {
+		margin-top: 60px;
+		margin-left: 200px;
+	}
+	#wrapper{
+		width: 1328px;
+		height: 662px;
+	}
+</style>

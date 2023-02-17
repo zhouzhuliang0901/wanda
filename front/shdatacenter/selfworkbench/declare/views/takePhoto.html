@@ -1,0 +1,38 @@
+<div class="shell bg2">
+	 <div class="headBox1">
+			<div class="headtop1 clearfloat">
+				<a class="back1" href="#start">自助办理</a>
+				<a ng-click="goHome()" class="backindex1">返回首页</a>
+				<div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+			</div>
+			<ul class="navul1 clearfloat">
+				<li>选择事项</li>
+				<li>人证核验</li>
+				<li>信息填写</li>
+				<li class="act">在线填报</li>
+			</ul>
+	</div>
+	<div class="main2" style="height: 650px;">
+		<p style="position: absolute;left: 14%;top: 10%;">已选择的文件：</p>
+		<div class="action right-grey">
+			<div class="camera">
+				<div>{{UData}}</div>
+			</div>
+		</div>
+	</div>
+	<div class="btnBox1 clearfloat">
+	    <a class="Prev"  href="#materialList"  style="width: 195px;">返回材料选择</a>
+		<a ng-click="highCapture()" class="next">上传</a>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.camera{
+		width:740px;
+		height: 500px;
+		position: absolute;
+		top: 130px;
+		left: 400px;
+		font-size: 40px;
+	}
+</style>

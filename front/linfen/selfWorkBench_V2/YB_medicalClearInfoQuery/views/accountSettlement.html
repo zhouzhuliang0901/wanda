@@ -1,0 +1,235 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 720px;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		overflow: hidden;
+		/* text-overflow: ellipsis; */
+		white-space: nowrap;
+	}
+	
+	.table-sty1 th {
+		background-color: #1C5C9C;
+	}
+	
+	.table-sty1 td {
+		color: #e1ba1c;
+	}
+	
+	.my-card .head h4 {
+		float: left;
+		font-size: 31px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+	.my-card .head h3 {
+		font-size: 34px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+	.my-card .head h5 {
+		margin-left: 150px;
+		font-size: 28px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+	 @media screen and (max-width: 1600px) {
+	 	#wrapper {
+		    width: 100%;
+		    height: 660px;
+		}
+		.my-card .head h3 {
+		    font-size: 28px;
+		    color: #c2cce3;
+		    line-height: 60px;
+		}
+		.my-card .head h4 {
+		    float: left;
+		    font-size: 28px;
+		    color: #c2cce3;
+		    line-height: 60px;
+		}
+		.table-sty1 th, .table-sty1 td {
+		    padding: 10px 0px;
+		    font-size: 16px;
+		    /*color: #fff;*/
+		    line-height: 40px;
+		    text-align: center;
+		    border: #477cbe 1px solid;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		}
+		.table-sty1 td {
+		    color: #e1ba1c;
+		}
+		.my-card .body {
+		    padding-top: 0px;
+		}
+	 }
+</style>
+<div id="wrapper" style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="head">
+				<h3 style="margin-left: 110px;">账户清算信息</h3>
+				<h4 style="margin-left: 110px;">一、年度账户信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>姓名：</th>
+						<th>账户号：</th>
+						<th>本年度年初预注额：</th>
+						<th>本年度末账户余额：</th>
+						<th>当年账户余额：</th>
+						<th>历年账户余额：</th>
+					</tr>
+					<tr>
+						<td>{{name}}</td>
+						<td>{{zhh}}</td>
+						<td>{{info.cur_ncyze|number:2}}</td>
+						<td>{{info.bndmzhye|number:2}}</td>
+						<td>{{info.dnzhye|number:2}}</td>
+						<td>{{info.lnzhye|number:2}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-card">
+			<div class="head" style="height: 115px;margin-top: 30px;">
+				<h4 style="margin-left: 110px; float: none;">二、缴费信息</h4>
+				<h5>每月缴费信息</h5>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>四月：</th>
+						<th>五月：</th>
+						<th>六月：</th>
+						<th>七月：</th>
+						<th>八月：</th>
+						<th>九月：</th>
+						<th>十月：</th>
+						<th>十一月：</th>
+						<th>十二月：</th>
+						<th>一月：</th>
+						<th>二月：</th>
+						<th>三月：</th>
+					</tr>
+					<tr>
+						<td>{{info.zcjf01|number:2}}</td>
+						<td>{{info.zcjf02|number:2}}</td>
+						<td>{{info.zcjf03|number:2}}</td>
+						<td>{{info.zcjf04|number:2}}</td>
+						<td>{{info.zcjf05|number:2}}</td>
+						<td>{{info.zcjf06|number:2}}</td>
+						<td>{{info.zcjf07|number:2}}</td>
+						<td>{{info.zcjf08|number:2}}</td>
+						<td>{{info.zcjf09|number:2}}</td>
+						<td>{{info.zcjf10|number:2}}</td>
+						<td>{{info.zcjf11|number:2}}</td>
+						<td>{{info.zcjf12|number:2}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-card">
+			<div class="head" style="margin-top: 30px;">
+				<h5>补缴、预缴调整、退账、非常规调整信息</h5>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th style="background-color:initial"></th>
+						<th>补缴：</th>
+						<th>预缴：</th>
+						<th>调整：</th>
+						<th>退账：</th>
+						<th>非常规调整：</th>
+					</tr>
+					<tr>
+						<th>金额：</th>
+						<td>{{info.bjhj|number:2}}</td>
+						<td>{{info.yjhj|number:2}}</td>
+						<td>{{info.tzhj|number:2}}</td>
+						<td>{{info.tkhj|number:2}}</td>
+						<td>{{info.sumfcgtzje|number:2}}</td>
+					</tr>
+					<tr>
+						<th>月份：</th>
+						<td>{{info.bjys|limitTo:4}}</td>
+						<td>{{info.yjys|limitTo:4}}</td>
+						<td>{{info.tzys|limitTo:4}}</td>
+						<td>{{info.tkys|limitTo:4}}</td>
+						<td>{{info.sumfcgtzys|limitTo:4}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-card">
+			<div class="head" style="margin-top: 30px;">
+				<h4 style="margin-left: 110px; float: none;">三、其他信息</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0" style="table-layout: auto;">
+					<tr>
+						<th style="width: 32%">缴费合计：</th>
+						<td>{{info.jfhj|number:2}}</td>
+						<th style="width: 20%;">单位缴费计入账户金额：</th>
+						<td>{{info.sphbje|number:2}}</td>
+					</tr>
+					<tr>
+						<th>在职金额：</th>
+						<td>{{info.zzsphbje|number:2}}</td>
+						<th>退休金额：</th>
+						<td>{{info.txsphbje|number:2}}</td>
+					</tr>
+					<tr>
+						<th>上年度扣减额：</th>
+						<td>{{info.pre_kje|number:2}}</td>
+						<th>本年度医保调整额：</th>
+						<td>{{info.bndybtze|number:2}}</td>
+					</tr>
+					<tr>
+						<th>其他保险转入额：</th>
+						<td>{{info.qtbxzre|number:2}}</td>
+						<th>本年度账户资金利息：</th>
+						<td>{{info.cur_zhlx|number:2}}</td>
+					</tr>
+					<tr>
+						<th>利率：</th>
+						<td>{{info.lilv|number:2}}%</td>
+						<th>本年度账户结转额【历年账户信息】(含息)：</th>
+						<td>{{info.cur_jze|number:2}}</td>
+					</tr>
+					<tr>
+						<th>下年度预注月记账金额：</th>
+						<td>{{info.xndyzyjzje|number:2}}</td>
+						<th>下年度账户预注额：</th>
+						<td>{{info.next_yze|number:2}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="print()" next-btn-info="{{nextText}}" default-is-show-next-btn="{{nextShowname}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<!--<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>-->
+<print show="isShowPrint"></print>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

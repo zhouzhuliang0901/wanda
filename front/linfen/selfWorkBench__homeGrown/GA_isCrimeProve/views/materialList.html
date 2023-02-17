@@ -1,0 +1,124 @@
+<style type="text/css">
+	#linkt {
+		position: absolute;
+		top: 100px;
+		left: 0px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.select {
+		float: left;
+		width: 1500px;
+		height: 123px;
+		overflow: hidden;
+		font-size: 30px;
+		background: #2864b0;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		position: relative;
+		background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+	}
+	
+	.stuff {
+		line-height: 123px;
+		max-width: 1430px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		margin-left: 20px;
+		padding-left: 50px;
+	}
+	
+	.upload2 {
+		width: 400px;
+		height: 50px;
+		line-height: 50px;
+		position: absolute;
+		top: 37px;
+		left: 885px;
+		font-size: 20px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 400px 50px;
+	}
+	
+	.upload {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 37px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 20px;
+		left: 1300px;
+	}
+	
+	.view {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 37px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 20px;
+		left: 1135px;
+	}
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin: 90px 150px 0px !important;
+		}
+		.select{
+			width: 1100px;
+			background-size: 100% 100%;
+		}
+		.scrollBox2{
+			margin-left: 10px !important;
+		}
+		.stuff{
+			margin-left: 0px;
+		}
+		.upload2 {
+			width: 335px;
+			background-size: 338px 50px;
+			left: 350px;
+		}
+		.upload {
+			left: 928px;
+		}
+		.view {
+			left: 772px;
+		}
+		}
+</style>
+<!--<apptb-header fun-name="{{funName}}"></apptb-header>-->
+<p class="caption">{{funName}}---材料上传</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat" style='margin-left: 120px;margin-top: 100px;'>
+		<div class="linkt">
+			<div class="select">
+				<div class="stuff">
+					<font color='red'>*</font>
+					1、居民身份证
+				</div>
+				<div ng-click="view()" ng-show="show" class="upload2">
+					由市电子证照库自动调出，点击预览
+				</div>
+				<div ng-click="view()" ng-show="show1" class="view">
+					预览
+				</div>
+				<div ng-click="toUploadMaterial()" class="upload">
+					上传
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="submit()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

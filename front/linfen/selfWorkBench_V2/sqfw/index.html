@@ -1,0 +1,95 @@
+<!doctype html>
+<html ng-app="declareApp">
+
+	<head>
+		<meta charset="utf-8">
+		<title>自助办理</title>
+		<link rel="stylesheet" href="css/scrollbar.css" />
+		<!--<link rel="stylesheet" href="css/style.css">-->
+		<link rel="stylesheet" type="text/css" media="screen and (min-width: 1600px)" href="css/style.css" />
+		<link rel="stylesheet" type="text/css" media="screen and (max-width: 1600px)" href="css/style_1280.css" />
+		<link rel="stylesheet" href="css/style-pt.css">
+		<link rel="stylesheet" href="../libs/common/css/viewer.min.css">
+		<link rel="stylesheet" href="../libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+	<script src="../libs/common/exteriorJS/gh-tools-bag.js"></script>
+	</head>
+<style>
+	@media screen and (max-width: 1600px) {
+	.loadingBox img {
+		margin-left: 560px !important;
+	}
+	.loadingBox p{
+		margin-left: 440px;
+	}
+}
+</style>
+	<body>
+		<div class="loadingBox" ng-if="!isLoading">
+			<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+			<p>正在加载数据，请稍后...</p>
+		</div>
+
+		<div class="shell bg2">
+			<apptb-header fun-name="自助办理"></apptb-header>
+			<div ui-view ng-view>
+			</div>
+		</div>
+		<script src="../libs/angularjs/1.5.8/angular.js"></script>
+		<script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+		<script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+		<script src="../libs/common/exteriorJS/total-yh-tools.js"></script>
+		<script>
+			var curWwwPath = window.document.location.hostname;
+			if(curWwwPath == "183.194.250.112") {
+				//互联网地址
+				$("body").append("<script src='../libs/common/js/wonders-hlw.log.min.js'><\/script>");
+			} else if(curWwwPath == "10.81.16.56") {
+				//政务网地址
+				$("body").append("<script src='../libs/common/js/wonders-zww.log.min.js'><\/script>");
+			} else {
+				//互联网地址or测试地址
+				$("body").append("<script src='../libs/common/js/wonders-hlw.log.min.js'><\/script>");
+			}
+		</script>
+		<script src="../libs/common/js/ac-bridge-mac.min.js"></script>
+		<script src="../libs/common/js/self-mac-tools.js"></script>
+		<script src="../libs/common/js/init-config-msg.js"></script>
+		<script src="../libs/common/js/init-config-log.js"></script>
+		<script src="../libs/My97DatePicker/WdatePicker.js"></script>
+		<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+		<script src="js/scrollbar.min.js"></script>
+		<script src="js/signatrueBoard.js"></script>
+		<script src="js/qrcode.js"></script>
+		<script src="js/bear.js"></script>
+		<script src="js/option.js"></script>
+		<script src="js/declare.js"></script>
+		<script src="js/iscroll.js"></script>
+		<script src="../declare/js/jsencrypt.js"></script>
+		<script src="js/Convert_Pinyin.js"></script>
+		<script src="app.js"></script>
+		<script src="../libs/layer/layer.js"></script>
+		<script src="controllers.js"></script>
+		<script src="controllersJybt.js"></script>
+		<script src="controllersJygx.js"></script>
+		<script src="controllersSybx.js"></script>
+		<script src="controllersHjdjsl.js"></script>
+		<script src="routers.js"></script>
+		<script src="js/jQuery-webcam-master/jquery.webcam.min.js"></script>
+		<script src="../libs/common/js/jquery.keyboard.js"></script>
+		<script src="js/identity-validate.js"></script>
+		<script src="../libs/directive/zzsbrecognition.js"></script>
+		<script src="../libs/directive/zizhuheader.js"></script>
+		<script src="../libs/directive/idcard.js"></script>
+		<script src="../libs/directive/header.js"></script>
+		<script src="../libs/directive/footer.js"></script>
+		<script src="../libs/directive/alert.js"></script>
+		<script src="../libs/directive/loadingsg.js"></script>
+		<script src="../libs/common/js/viewer.min.js"></script>
+		<script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+		<script src="../libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script> 
+		<!--<script src="../infoSearch/LodopFuncs.js"></script>-->
+		<script src="js/LodopFuncs.js"></script>
+		<script src="../libs/common/js/piwik.js"></script>
+	</body>
+
+</html>

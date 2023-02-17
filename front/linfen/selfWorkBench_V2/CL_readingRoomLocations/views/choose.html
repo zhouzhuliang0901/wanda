@@ -1,0 +1,204 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		    margin-top: 86px;
+    margin-left: 220px;
+	}
+	
+	#wrapper {
+		margin-top: 20px;
+		width: 1500px;
+		height: 100%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 9.4%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;	
+		padding-left: 4%;
+		border: none;
+		background: rgba(0,0,0,0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+	    right: 5%;
+	    width: 52px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+	.tip {
+		display: inline;
+		float: right;
+		font-size: 20px;
+		margin-top: -40px;
+		margin-right: 150px;
+		color:#DEC70F;
+		font-weight:900;
+
+	}
+	.sDetail{
+		float: left;
+		width: 1300px;
+    	height: 390px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 80px;
+		margin-left: 105px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail dd {
+		margin-top: 30px;
+	    height: 40px;
+	    width: 74%;
+	    margin: 0.9% auto;
+	}
+	
+	.sDetail dl {
+		white-space: normal;
+		width: 80%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	
+	.select {
+		float: left;
+		width: 600px;
+    	height: 230px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1%;
+	}
+	
+	.select dd {
+		margin-top: 30px;
+    height: 40px;
+    width: 74%;
+    margin: 2.6% auto;
+	}
+	
+	.select dl {
+		white-space: normal;
+		width: 100%;
+		height: 100%;
+		line-height: 150%;
+		margin-top: 40px;
+	}
+	
+	.select b {
+		width: 160px;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		/* -ms-text-justify: inter-ideograph; */
+		-ms-text-align-last: justify;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+			background-size: 100% 80%;
+		}
+		.caption {
+			margin-left: 80px !important;
+			margin-top: 60px !important;
+		}
+		.linkt {
+			left: 10px;
+		}
+		.tip {
+		display: inline;
+		float: right;
+		font-size: 20px;
+		margin-top: -45px;
+		margin-right: 550px;
+		color:#DEC70F;
+		font-weight:900;
+
+	}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<!-- <div class="schoolName" ng-if="isDetial">
+		<input type="text" placeholder="请输入学校名称关键字" ng-model="schoolName"/>
+		<img ng-click="querySchoolsInfo(schoolName)" src="../libs/common/images/icon-link9.png"/>
+	</div> -->
+	<div class="tip">
+		温馨提示：信息查询仅供参考
+	</div>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in areLocationList">
+					<a class="select">
+						<dd class="top">
+							<dl><b>阅览地点名称</b>：{{ list.areaName }}</dl>
+						</dd>
+						<dd>
+							<dl><b>阅览地点地址</b>：<span>{{ list.areaLocation }}</span></dl>
+						</dd>
+					</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

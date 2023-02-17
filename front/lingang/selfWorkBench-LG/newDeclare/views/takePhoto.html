@@ -1,0 +1,83 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.camera{
+			width:60%;
+			height: 500px;
+			position: absolute;
+			top: 130px;
+			left: 50%;
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+			font-size: 40px;
+			border: 1px solid;
+		}
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		.main2 {
+			height: 650px;
+		}
+		.selectedFile {
+			position: absolute;
+			left: 14%;
+			top: 10%;
+			font-size: 30px;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.camera{
+			width:60%;
+			height: 500px;
+			position: absolute;
+			top: 130px;
+			left: 50%;
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+			font-size: 40px;
+			border: 1px solid;
+		}
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		.main2 {
+			height: 650px;
+		}
+		.selectedFile {
+			position: absolute;
+			left: 14%;
+			top: 10%;
+			font-size: 30px;
+		}
+	}
+</style>
+
+<div>
+	 <div class="headBox1">
+			<ul class="navul1 clearfloat">
+				 <li>选择事项</li>
+           	 	<li>人证核验</li>
+           	 	<li class="act">在线填报</li>
+			</ul>
+	</div>
+	<div class="main2">
+		<p class="selectedFile">已选择的文件：</p>
+		<div class="action right-grey">
+			<div class="camera">
+				<div id="lastName">{{UData}}</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="btnBox1 clearfloat">
+	    <a class="Prev"  href="#materialList"  style="width: 195px;">返回材料选择</a>
+		<a ng-click="highCapture()" class="next">完成</a>
+	</div>-->
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="1" 
+		prev="prev()"
+		next="highCapture()"
+		prev-btn-info="材料列表"
+		next-btn-info="完成">
+	</apptb-footer>
+</div>

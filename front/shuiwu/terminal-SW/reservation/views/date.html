@@ -1,0 +1,44 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#">事项预约</a>
+        </li>
+        <li>
+            <a href="#">{{windowName}}</a>
+        </li>
+        <li class="active">选择时间</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+            <div>请选择一个需要预约时间</div>
+            <div class="sub-index  horizontal-middle">
+                <a class="blue-green active" href="#main" style="padding:15px 0px;width:100%;font-size:30px;margin-top:50px;">重选预约事项</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="horizontal-middle" style="font-size:30px;margin: 50px auto;width:80%;text-align:center;font-weight:bolder">{{matterTitle}}</div>
+        <div id="datepicker" class="changeMonth_remove" style="font-size:30px; left:38px;top:120px; position:absolute;"></div>
+        <div ng-if="selectTimer" class="horizontal-middle btnGroup" style="margin: 0 auto;margin-top: 500px;width: 700px;">
+            <div ng-class="{'active':Quantum=='am'}" ng-click="timeQuantum('am')">上午（{{appointmentInfo[0].surplusCount||0}}/{{appointmentInfo[0].totalCount||0}}）</div>
+            <div ng-class="{'active':Quantum=='pm'}" ng-click="timeQuantum('pm')">下午（{{appointmentInfo[1].surplusCount||0}}/{{appointmentInfo[1].totalCount||0}}）</div>
+        </div>
+
+        <a class="btn_radius_50 horizontal-middle" ng-click="confirmAppointment()" style="position:absolute;left:412px;top:680px; width: 320px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/edit.png" height="80">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

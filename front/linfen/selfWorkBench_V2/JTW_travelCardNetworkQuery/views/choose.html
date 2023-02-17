@@ -1,0 +1,196 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 80px;
+		margin-left: 210px;
+		overflow: hidden;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-bottom: 15px;
+	}
+	
+	.singselect a {
+		float: left;
+		/* width: 314px; */
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 24px;
+		padding: 0px 50px;
+	}
+	
+	.singselect p {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 73px;
+		display: block;
+		float: left;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.input {
+		width: 38%;
+		height: 60px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+		margin-top: 10px;
+	}
+	
+	.special {
+		width: 55%;
+		float: left;
+		margin-bottom: 20px;
+	}
+	
+	table {
+		width: 99%;
+		font-size: 24px;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	.scrollContain>p {
+		margin-top: 50px;
+		font-size: 20px;
+		color: #e1ba1c;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 515px;
+		overflow: auto;
+		-ms-overflow-style: none;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,
+	.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	.resultTr th:nth-of-type(1) {
+		width: 6%;
+	}
+	
+	.resultTr th:nth-of-type(2) {
+		width: 16%;
+	}
+	
+	.imgTips {
+		width: 14%;
+	}
+	
+	table img {
+		width: 90px;
+		margin-top: 10px;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 {
+			width: 1000px;
+			margin-left: 140px;
+		}
+		.singselect a {
+			padding: 0px 20px;
+			height: 60px;
+			line-height: 60px;
+		}
+		#wrapper {
+			width: 1000px;
+			height: 468px;
+		}
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<div class="singselect">
+		<p>服务类型：</p>
+		<a ng-repeat="(index,item) in serviceTypeList" ng-click="change('service',$event,item.id)">
+			{{item.value}}
+		</a>
+	</div>
+	<div class="singselect special">
+		<p>卡片种类：</p>
+		<a ng-repeat="(index,item) in cardTypeList" ng-click="change('card',$event,item.id)">
+			{{item.value}}
+		</a>
+	</div>
+	<div>
+		<input class="input" type="text" placeholder="请输入网点名称" ng-model="keyWord" />
+	</div>
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table>
+				<tr class="resultTr">
+					<th>序号</th>
+					<th>网点名称</th>
+					<th class="imgTips"><img src="image/trafficCard.png" alt="" /></th>
+					<th class="imgTips"><img src="image/etcCard.png" alt="" /></th>
+					<th class="imgTips"><img src="image/travelCard.png" alt="" /></th>
+					<th>地址</th>
+					<th>电话</th>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{index+1}}</td>
+					<td>{{list.stype}}（{{list.site}}）</td>
+					<td>{{list.jiaotongka||"不受理"}}</td>
+					<td>{{list.hutongka||"不受理"}}</td>
+					<td>{{list.lvyouka||"不受理"}}</td>
+					<td>{{list.addr}}</td>
+					<td>{{list.teln||'暂无'}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,273 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 650px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	select::-ms-expand {
+		display: none;
+	}
+
+	.select1 {
+		font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+		width: 90%;
+		padding: 10px 10px;
+		line-height: 40px;
+		height: 60px;
+		overflow: hidden;
+		display: inline-block;
+		border: none;
+		background: url("../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+		font-size: 24px;
+		color: #FFF;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+
+	.select1 option {
+		color: black;
+	}
+
+	.input {
+		width: 90%;
+		height: 65px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+
+	.infoTable {
+		margin-top: 60px;
+		width: 100%;
+		font-size: 24px
+	}
+
+	.infoTable th {
+		width: 17%;
+		text-align: right;
+	}
+
+	.infoTable th,
+	.infoTable td {
+		height: 85px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.line {
+		width: 97%;
+		height: 9%;
+		position: relative;
+		margin: 2% auto 2%;
+	}
+
+	.line hr {
+		margin-top: 1.6%;
+		width: 40%;
+		position: absolute;
+		border: 1px #cccccc dotted;
+	}
+
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+
+	.checkTable a,
+	.checkBoxB a {
+		float: left;
+		width: 150px;
+		height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin: 5px;
+	}
+
+	.checkBoxB a {
+		width: 100px;
+		padding: 0px 5px;
+	}
+
+	.checkTable a.in:after,
+	.checkBoxB a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	.checkTable {
+		width: 97%;
+		margin-bottom: 20px;
+		margin-left: 50px;
+		font-size: 24px
+	}
+
+	.checkTable td {
+		height: 85px;
+	}
+
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+		width: 14%;
+		text-align: right;
+	}
+
+	.checkTable .checkBoxA {
+		float: left;
+		width: 83%;
+	}
+
+	.tyTips {
+		color: #FFC000;
+		font-size: 26px;
+		font-weight: bold;
+		float: right;
+		margin-right: 45px;
+	}
+
+	@media only screen and (max-width: 1600px) {
+		.scrollBox2 {
+			overflow: auto;
+			height: 600px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}--信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>基本信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>许可证号：</th>
+					<td>
+						<select class="select1" id="permitKey" ng-init="permitKey = resultList[0]" ng-model="permitKey" ng-options="x.REGIELICENCENO for x in resultList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<th><b class="red">*</b>许可证有效期：</th>
+						<td><input class="input" type="text" id="permitValidity" ng-model="permitValidity" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>社会统一信用代码：</th>
+					<td><input class="input" type="text" id="licenseNo" ng-model="licenseNo" readonly></td>
+					<th><b class="red">*</b>营业执照有效期：</th>
+					<td><input class="input" type="text" id="licenseValidity" ng-model="licenseValidity"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>企业名称（字号）：</th>
+					<td colspan="3"><input style="width: 96%;" class="input" type="text" id="corporateName" ng-model="corporateName" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>经营地址：</th>
+					<td colspan="3"><input style="width: 96%;" class="input" type="text" id="corporateAddress" ng-model="corporateAddress" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>法定代表人：</th>
+					<td><input class="input" type="text" id="legalName" ng-model="legalName" readonly></td>
+					<th><b class="red">*</b>证件类型：</th>
+					<td><input class="input" type="text" id="idType" ng-model="idType" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>证件号码：</th>
+					<td><input class="input" type="text" id="idCard" ng-model="idCard" readonly></td>
+					<th><b class="red">*</b>业务联系人：</th>
+					<td><input class="input" type="text" id="linkName" ng-model="linkName"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>联系电话：</th>
+					<td><input class="input" type="text" id="linkPhone" ng-model="linkPhone"></td>
+				</tr>
+			</table>
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>申请事项信息</p>
+				</div>
+				<tr ng-show="itemType == 'TY'">
+					<th><b class="red">*</b>申请停业期限起始日：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="startDate" ng-model="startDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+					<th><b class="red">*</b>申请停业期限截止日：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="endDate" ng-model="endDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+				<tr ng-show="itemType == 'HFYY'">
+					<th><b class="red">*</b>原申请停业期限起始日：</th>
+					<td><input class="input" type="text" id="startDate" ng-model="startDate"></td>
+					<th><b class="red">*</b>原申请停业期限截止日：</th>
+					<td><input class="input" type="text" id="endDate" ng-model="endDate"></td>
+				</tr>
+				<tr ng-show="itemType == 'HFYY'">
+					<th><b class="red">*</b>申请恢复营业日期：</th>
+					<td>
+						<div class="input-append date form_datetime">
+							<input class="input" size="16" type="text" id="applyData" ng-model="applyData" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</td>
+				</tr>
+			</table>
+			<p class="tyTips" ng-show="itemType == 'TY'">注：申请停业期限不得超过1年</p>
+		</form>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

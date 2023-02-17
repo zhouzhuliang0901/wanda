@@ -1,0 +1,44 @@
+<div class="six">
+	<span>{{operation}}</span>
+	<div class="six-img">
+		<span></span>
+		<p>{{operation}}</p>
+	</div>
+	<span id="six-out">{{completeTips}}</span>
+	<span id="six-out">{{completeTips1}}</span>
+	<span id="six-out">{{completeTips2}}</span>
+	<span id="cksure" style="margin-top: 50px;">温馨提示：</span>
+	<span id="cksure">1、请携带有效身份证件，在预约时间段前往预约地点办理</span>
+	<span id="cksure">2、请按时取号签到，过号不候。若需取消，请提前一天在一网通办网站或移动端取消预约。</span>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">.base-under {
+	visibility: hidden;
+}
+
+.footBox {
+	top: 958px;
+	width: 1920px;
+}
+
+#cksure {
+	margin-left: 485px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	font-size: 24px;
+	color: #f1992e;
+	width: 39%;
+	line-height: 40px;
+}
+
+@media screen and (min-width:1279px) and (max-width:1281px) {
+	.six .six-img {
+		margin: 10px 345px 50px;
+	}
+	#cksure {
+		margin-left: 300px;
+	}
+	.six span{
+		margin: 42px 0 0 60px;
+	}
+}</style>

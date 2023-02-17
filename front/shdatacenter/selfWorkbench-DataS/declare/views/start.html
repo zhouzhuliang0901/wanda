@@ -1,0 +1,47 @@
+<div class="TabBox1">
+	<li style="color: #fefefe;opacity: .6;font-size: 34px;margin-left: 177px; margin-top: 46px;margin-bottom: -44px;">主题事项</li>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper">
+					<!--<div class="linkbox1 clearfloat text" ng-class="{'matter':current==1}" style="width: 1800px;">
+						<a style="background: #8973b4;" ng-click="goToApp('../sqfw/index.html#/guidelineJybt')">就业补贴一件事</a>
+						<a style="background: #fc6392;" ng-click="goToApp('../sqfw/index.html#/guidelineSybx')">生育保险一件事</a>
+						<a style="background: #86A1FC;" ng-click="goToApp('../sqfw/index.html#/guidelineJygx')">异地就医一件事</a>
+						<a style="background: #10d367;" ng-click="goToApp('../sqfw/index.html#/guideline')">敬老卡申领、发放</a>
+					</div>-->
+					<!--<li style="color: #fefefe;opacity: .6;font-size: 34px;margin-left: 120px; margin-top: 30px;margin-bottom: -44px;">其他事项</li>-->
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}" style="width: 1800px;margin-top: 80px;margin-left: 125px;">
+						<a ng-click="hotItem()"></a>
+						<a href="#citylist">市级</a>
+						<a href="#list">区级</a>
+						<a ng-click="goToApp('../sqfw/index.html')">街道</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+	<!-- </div> -->
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+	</apptb-footer>
+<style type="text/css">
+	#wrapper {
+		width: 1800px;
+		height: 500px;
+	}
+	.tabBotbox1inner .linkbox1 a:first-child{
+		background: url(images/bg-list1.png) no-repeat;
+		margin-right: 100px;
+	}
+	.tabBotbox1inner .text a {
+		width: 266px;
+		margin-right: 44px;
+	}
+	
+	.tabBotbox1 {
+		width: 1645px;
+    padding-top: 86px;
+	}
+</style>

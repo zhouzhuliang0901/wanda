@@ -1,0 +1,211 @@
+<p class="caption">{{stuffName}}</p>
+<div id="jq22" class="previewContainer" ng-class="{'mask':isAllScreen}">
+	<!--<img ng-src="{{base+item.png}}" ng-repeat="(index,item) in previewImgList track by $index" ng-click="allScreen(index,item)" />-->
+	<!--<iframe src="{{previewImg}}" width="100%" height="500px"></iframe>-->
+</div>
+<a href="javascript:;" ng-click="prevPage()" class="control prev" ng-if="currentPage>1">
+	<img src="../libs/common/images/prevBtn.png" />
+</a>
+<!--ng-if="currentPage<totalPages"-->
+<a href="javascript:;" ng-click="nextPage()" class="control next" ng-if="currentPage<totalPages">
+	<img src="../libs/common/images/nextBtn.png" />
+</a>
+<p class="pages" style="    margin-left: 940px;">{{ currentPage + "/" + totalPages }}</p>
+<apptb-footer prev="prevStep()" next="print()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<!--图片预览-->
+<div class="view-container" ng-if="isShowView">
+	<a class="view-close">
+		<span ng-click="viewClose()"></span>
+	</a>
+	<div class="img-container">
+		<!--configUrl +-->
+		<img ng-src="{{base+item.png}}" ng-repeat="(index,item) in previewImgList track by $index" alt="">
+	</div>
+
+	<ul class="view-func">
+		<li>
+			<span class="zoom-in" ng-click="zoomIn()"></span>
+		</li>
+		<li>
+			<span class="zoom-out" ng-click="zoomOut()"></span>
+		</li>
+		<li>
+			<span class="rotate-left" ng-click="rotateLeft()"></span>
+		</li>
+		<li>
+			<span class="rotate-right" ng-click="rotateRight()"></span>
+		</li>
+	</ul>
+</div>
+<style type="text/css">
+	.control.prev {
+		left: 310px;
+		top: 500px;
+		position: absolute;
+	}
+	
+	.control.next {
+		left: 1510px;
+		top: 500px;
+		position: absolute;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.previewContainer {
+		text-align: center;
+	}
+	
+	.previewContainer li {
+		display: inline-block;
+		width: 400px;
+		float: left;
+		margin-left: 60px;
+	}
+	
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+	
+	.previewContainer img {
+		margin-top: 50px;
+		height: 600px;
+	}
+	
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+	
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+	
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 0px 50px;
+	}
+	/*图片预览*/
+	
+	.view-container {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+	
+	.view-container .view-close {
+		position: fixed;
+		right: -150px;
+		top: -150px;
+		width: 300px;
+		height: 300px;
+		border-radius: 50%;
+		overflow: hidden;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: 99;
+	}
+	
+	.view-container .view-close:hover {
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+	
+	.view-container .view-close span {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 44px 155px;
+	}
+	
+	.view-container .img-container {
+		width: 500px;
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		transition: all .3s;
+	}
+	
+	.view-container .img-container img {
+		width: 100%;
+		transition: all .3s;
+	}
+	
+	.view-container .view-func {
+		position: fixed;
+		left: 50%;
+		bottom: 100px;
+		transform: translateX(-50%);
+	}
+	
+	.view-container .view-func li {
+		float: left;
+		width: 100px;
+		height: 100px;
+		border-radius: 50%;
+		overflow: hidden;
+		margin: 0 20px;
+		background-color: rgba(0, 0, 0, 0.8);
+	}
+	
+	.view-container .view-func li span {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+	}
+	
+	.view-container .view-func .zoom-in {
+		background: url(../libs/common/images/jiahao.png) no-repeat;
+		background-size: 100px 100px;
+	}
+	
+	.view-container .view-func .zoom-out {
+		background: url(../libs/common/images/jianhao.png) no-repeat;
+		background-size: 100px 100px;
+	}
+	
+	.view-container .view-func .rotate-left {
+		background: url(../libs/common/images/zuoxuanzhuan.png) no-repeat;
+		background-size: 100px 100px;
+	}
+	
+	.view-container .view-func .rotate-right {
+		background: url(../libs/common/images/youxuanzhuan.png) no-repeat;
+		background-size: 100px 100px;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.previewContainer img {
+			height: 430px;
+		}
+		.control.next {
+			left: 1086px;
+		}
+		.control.prev {
+			left: 147px;
+		}
+	}
+</style>

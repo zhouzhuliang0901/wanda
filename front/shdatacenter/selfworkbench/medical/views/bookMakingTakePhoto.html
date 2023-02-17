@@ -1,0 +1,68 @@
+<app-header go-back="goAppHistoryBack()" fun-name="医保制册"></app-header>
+<p class="caption">{{operation}}</p>
+<div class="photographBox">
+	<div class="fun" ng-if="camera">
+		<img ng-click="capture()" src="../libs/common/images/icon/camera.png" />
+	</div>
+	<div class="fun review" ng-if="!camera">
+		<img id="photoImg" ng-src="{{imageData}}" /><br/>
+		<a href="javascript:;" class="btn re" ng-click="reCapture()">重新拍照</a>
+		<a href="javascript:;" class="btn confirm" ng-click="confirm()">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+	</div>
+	<img ng-src="{{tipsPrint}}" />
+</div>
+<print show="isShowPrint"></print>
+<style type="text/css">
+	.photographBox {
+		position: relative;
+		margin: 0 auto;
+		text-align: center;
+		height: 800px;
+		width: 100%;
+	}
+	
+	.btn {
+		display: inline-block;
+		position: absolute;
+		margin-left: 100px;
+		margin-top: 70px;
+		border-radius: 10px;
+		font-size: 30px;
+		border: 1px solid #82a3cb;
+		padding: 15px 30px 15px 30px;
+		top: 453px;
+	}
+	
+	.btn.re {
+	    left: 600px;
+		background-color: #f2dd4a;
+	}
+	
+	.btn.confirm {
+	 left: 880px;
+		background-color: #56ce97;
+	}
+	
+	.photographBox>img {
+		margin-top: 20px;
+	}
+	
+	.fun>img {
+		margin: 250px 0px 0px 800px;
+	}
+	
+	.fun.review>img {
+		margin: 0px;
+		margin-top: 20px;
+		max-height: 500px;
+	}
+	
+	.fun {
+		background-color: #2864b0;
+		margin: 0 auto;
+		text-align: center;
+		height: 600px;
+		width: 1240px;
+	}
+	
+</style>

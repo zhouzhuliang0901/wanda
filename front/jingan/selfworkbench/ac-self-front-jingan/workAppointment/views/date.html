@@ -1,0 +1,68 @@
+<p class="caption">{{operation}}</p>
+<img class="tipsColor" src="../libs/common/images/icon/color-tips.png" />
+<div id="datepicker"></div>
+<div class="validTimer">
+	<span>
+		请选择预约时间段
+	</span>
+	<a href="javascript:;" ng-class="{'active':currentCheck===index}" ng-click="choiceTime(index,item)" ng-repeat="(index,item) in appointmentInfo" class="timeInfo">
+		{{item.stShow}}（{{item.surplusCount}}/{{item.totalCount}}）
+	</a>
+</div>
+<app-footer next="nextStep()"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>
+<style type="text/css">
+	.tipsColor {
+		position: absolute;
+		right: 100px;
+		top: 180px;
+	}
+	
+	#datepicker iframe {
+		margin-left: 89px;
+		height: 580px!important;
+		width: 1740px!important;
+	}
+	
+	#datepicker {
+		margin-top: 20px;
+	}
+	
+	.validTimer {
+		position: relative;
+		background-color: #2864b0;
+		color: #56ce97;
+		margin: 20px auto;
+		width: 1740px;
+		height: 100px;
+	}
+	
+	.validTimer a.timeInfo:nth-of-type(1) {
+		margin-left: 320px;
+	}
+	
+	.validTimer .timeInfo {
+		display: inline-block;
+		margin-left: 30px;
+		background-color: #00479d;
+		text-align: center;
+		margin-top: 10px;
+		line-height: 80px;
+		height: 80px;
+		width: 330px;
+		font-size: 25px;
+	}
+	
+	.validTimer .timeInfo.active {
+		background-color: #56ce97;
+	}
+	
+	.validTimer span {
+		position: absolute;
+		height: 100px;
+		display: inline-block;
+		font-size: 35px;
+		line-height: 100px;
+		left: 20px;
+	}
+</style>

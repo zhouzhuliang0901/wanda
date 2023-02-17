@@ -1,0 +1,51 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="{{basePath}}libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#">身份证复印</a>
+        </li>
+        <li>
+            <a href="#">拍摄身份证</a>
+        </li>
+        <li class="active">打印选项</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="{{basePath}}libs/common/images/prototype.png">
+            <img src="{{basePath}}libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+            <div>请确认材料份数
+                <br />并点击“确认”以继续</div>
+            <div class="sub-index  horizontal-middle">
+                <a class="blue-green active" style="padding:15px 0px;width:100%;font-size:30px;margin-top:50px;">取消打印</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <a class="btn_radius_50" ng-click="minus()" style="position:absolute;left:350px;top:260px; width: 80px;">
+            <div class="greyLight">
+                <img src="{{basePath}}libs/common/images/icon200/reduce.png" height="80">
+            </div>
+        </a>
+        <a class="btn_radius_50" ng-click="add()" style="position:absolute;left:650px;top:260px; width: 80px;">
+            <div class="greyLight">
+                <img src="{{basePath}}libs/common/images/icon200/plus.png" height="80">
+            </div>
+        </a>
+        <div style="font-size:40px;position:absolute;top:160px;left:400px;">请确认打印份数：</div>
+        <div class="horizontal-middle" style="font-size:40px;position:absolute;top:280px;width:300px;text-align:center;left: 410px;">{{printNums}}（份）</div>
+        <div class="horizontal-middle" style="font-size:40px;position:absolute;top:400px;left: 440px;">需支付{{printNums * 0.5}}元</div>
+        <a class="btn_radius_50" ng-click="payJudge()" style="position:absolute;left:400px;top:500px;width: 280px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="{{basePath}}libs/common/images/icon200/print.png" height="80">
+                <label>打印</label>
+            </div>
+        </a>
+    </div>
+</div>

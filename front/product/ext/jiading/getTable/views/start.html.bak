@@ -1,0 +1,41 @@
+<div class="shell bg2">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a class="back1" ng-click="back()">取表</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header><!--<span><b class="minute">{{maxCountDown}}</b>秒</span>-->后将返回首页</div>
+        </div>
+    </div>
+  <div class="TabBox1" >
+  	<ul class="tabul1 clearfloat" style="margin-top: 0px;">
+  		<li style="color: #fefefe;opacity: .6;">主题事项</li>
+  	</ul>
+  	<div class="tabBotbox1">
+  		<div class="cont">
+  			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper">
+					<div class="linkbox1 clearfloat text" ng-class="{'matter':current==1}" style="width: 1800px;">
+						<a style="background: #8973b4;" ng-click="getTble()">自助取表</a>
+						<a style="background: #fc6392;" ng-click="getTbleT()">综合取表</a>
+						<!--<a style="background: #ffb347;" ng-click="goToApp('http://183.194.241.117/smzy/shell_terminal/tourist/guide/scene-01?sceneName=%E5%B7%A5%E7%A8%8B%E5%BB%BA%E8%AE%BE%E9%A1%B9%E7%9B%AE%E4%B8%BB%E9%A2%98%20&sceneId=76252&simple=1')">建设工程项目</a>-->
+					</div>
+				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+
+<style type="text/css">
+	#wrapper{
+		width:1800px;
+		height: 500px;
+	}
+	.tabBotbox1inner .text a{
+		width:266px;
+		margin-right: 44px;
+	}
+	
+	
+</style>

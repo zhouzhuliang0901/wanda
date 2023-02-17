@@ -1,0 +1,207 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.select {
+		width: 32.9%;
+	}
+	
+	textarea {
+		resize: none;
+		width: 98%;
+		height: 150px;
+		font-size: 24px;
+		padding: 10px;
+		color: #FFF;
+		background: rgba(255, 255, 255, .25);
+		margin-top: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 562px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+	
+	.checkBoxA {
+		float: left;
+		width: 83%;
+	}
+	
+	#expressMode a {
+		width: 358px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,#expressMode a{
+			width: 392px;
+		}
+		.infoTable{
+			margin-left: -10px;
+		}
+		.scrollBox2{
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>身份证：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>手机号：</th>
+					<td><input class="input" type="text" id="stMobile" ng-model="stMobile"></td>
+					<th ng-show="current1==1"><b class="red">*</b>收件人姓名：</th>
+					<td ng-show="current1==1"><input class="input" type="text" id="stReceiptName" ng-model="stReceiptName"></td>
+				</tr>
+				<tr ng-show="current1==1">
+					<th><b class="red">*</b>收件人联系地址：</th>
+					<td><input class="input" type="text" id="stReceiptAddress" ng-model="stReceiptAddress"></td>
+					<th><b class="red">*</b>收件人联系电话：</th>
+					<td><input class="input" type="text" id="stReceiptMobile" ng-model="stReceiptMobile"></td>
+				</tr>
+				<tr class="transferOut" ng-show="current1==1">
+					<th><b class="red">*</b>邮寄省市区：</th>
+					<td colspan="3">
+						<select class="select" id="yjProvince" name="yjProvince" ng-model="yjProvince" ng-options="x.n for x in yjProvinceList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="yjCity" name="yjCity" ng-model="yjCity" ng-options="x.n for x in yjCityList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="yjCounty" name="yjCounty" ng-model="yjCounty" ng-options="x.n for x in yjCountyList">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr class="transferOut">
+					<th><b class="red">*</b>受理部门：</th>
+					<td colspan="3">
+						<select class="select" id="slProvince" name="slProvince" ng-model="slProvince" ng-options="x.n for x in slProvinceList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="slCity" name="slCity" ng-model="slCity" ng-options="x.n for x in slCityList">
+							<option selected ng-if="false"></option>
+						</select>
+						<select class="select" id="slCounty" name="slCounty" ng-model="slCounty" ng-options="x.n for x in slCountyList">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>领取方式：</th>
+					<td colspan="3" id="expressMode">
+						<a ng-repeat="(index,item) in expressModeList" ng-class="{'in':current1==index}" ng-click="change1(index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>开具范围：</th>
+					<td colspan="3" id="kjfw">
+						<a ng-repeat="(index,item) in kjfwTypeList" ng-class="{'in':current==index}" ng-click="change(index,item)">{{item.name}}</a>
+					</td>
+				</tr>
+				<tr ng-if="current==0">
+					<th><b class="red">*</b>申报事由：</th>
+					<td colspan="3">
+						<textarea id="stReason" my-textarea="姓名：{{stName}},身份证号码：{{stIdCard}}，具体地址：**。户口登记项目: *** (项目名称)于****年**月**日。由**(变更前内容)变更为**(变更后内容)。" ng-model="stReason" placeholder="姓名:***,身份证号码: **********，具体地址;**********.户口登记项目: *** (项目名称)于****年**月**日。由********** (变更前内容)变更为********** (变更后内容)。">
+						</textarea>
+					</td>
+				</tr>
+				<tr ng-if="current==1">
+					<th><b class="red">*</b>申报事由：</th>
+					<td colspan="3">
+						<textarea id="stReason" my-textarea="姓名：{{stName}},身份证号码：{{stIdCard}}，具体地址：**。因** ，申请死亡/注销户口证明，死亡/注销户口人员姓名***。出生日期****年**月**日。死亡/注销户口日期****年**月**日。" ng-model="stReason" placeholder="姓名:***,身份证号码: **********，具体地址;**********.因********** ，申请死亡/注销户口证明，死亡/注销户口人员姓名***。出生日期****年**月**日。死亡/注销户口日期****年**月**日。">
+						</textarea>
+					</td>
+				</tr>
+				<tr ng-if="current==2">
+					<th><b class="red">*</b>申报事由：</th>
+					<td colspan="3">
+						<textarea id="stReason" my-textarea="姓名：{{stName}},身份证号码：{{stIdCard}}，具体地址：**。申请曾经同户人员间亲属关系证明。同户人员姓名: ***,出生日期: ****年**月**日。****年**月**日至****年**月**日与本人在同一户口。" ng-model="stReason" placeholder="姓名:***,身份证号码: **********，具体地址;**********.申请曾经同户人员间亲属关系证明。同户人员姓名: ***,出生日期: ****年**月**日。****年**月**日至****年**月**日与本人在同一户口。">
+						</textarea>
+					</td>
+				</tr>
+				<tr ng-if="current==3">
+					<th><b class="red">*</b>申报事由：</th>
+					<td colspan="3">
+						<textarea id="stReason" my-textarea="姓名：{{stName}},身份证号码：{{stIdCard}}，具体地址：**。证明内容: **。" ng-model="stReason" placeholder="姓名:***,身份证号码: **********，具体地址;**********.证明内容: **********。">
+						</textarea>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

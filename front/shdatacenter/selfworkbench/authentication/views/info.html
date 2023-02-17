@@ -1,0 +1,96 @@
+<p class="caption" style="margin-bottom: 30px;">{{operation}}</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;height: 635px;">
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>联系电话：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>出生日期：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stBirth" ng-model="stBirth">
+					</dd>
+				</dl>
+
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>密码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="password" id="stPassword" ng-model="stPassword">
+						<img style="position: absolute;    top: 256px;   left: 700px;    width: 62px;" src="js/hidden.png" ng-click="view()" ng-show="!show">
+						<img style="position: absolute;    top: 245px;   left: 700px;    width: 62px;" src="js/show.png" ng-click="hidden()" ng-show="show">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>再次确认密码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="password" id="stPassword1" ng-model="stPassword1" passwordchar="*">
+						<img style="position: absolute;    top: 256px;   left: 1500px;    width: 62px;" src="js/hidden.png" ng-click="view1()" ng-show="!show1">
+						<img style="position: absolute;    top: 245px;   left: 1500px;    width: 62px;" src="js/show.png" ng-click="hidden1()" ng-show="show1">
+					</dd>
+
+				</dl>
+				<!--<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>民族：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="nations" vName="" vId="" onchange="selectNationById('nations')" disabled>
+							<option class="col1" value="">选择民族</option>
+						</select>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stAddress" ng-model="stBirth">
+					</dd>
+
+				</dl>-->
+
+			</div>
+		</div>
+	</div>
+</div>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmText="text"></alert>
+<style type="text/css">
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+</style>

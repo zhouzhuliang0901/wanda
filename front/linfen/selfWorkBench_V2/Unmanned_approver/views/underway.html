@@ -1,0 +1,139 @@
+<p class="caption">{{stuffName}}</p>
+<p class="textTitle">您的申请已经提交，正在审批，请稍后</p>
+<div class="mainCent">
+	<div class="life-flex-2">
+		<img ng-src="{{Zhengimg}}" style="margin-bottom: -80px;" />
+		<a class="donghua">	
+		</a>
+		<img ng-src="{{Fanimg}}" />
+		<a class="donghua donghua2">
+		</a>
+	</div>
+	<div class="right-flex-column">
+		<li id='right-li' ng-if='RightText'><img src="image/loadings2.gif" /><span>正在扫描材料...</span></li>
+		<li id='right-li' ng-if='!RightText'></li>
+		<li ng-repeat="x in ListDataWonderT">
+			<p>{{x.name}}:</p><samp>{{x.value}}</samp></li>
+		<!--<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>
+    	<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>
+    	<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>
+    	<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>
+    	<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>
+    	<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>
+    	<li><p>名称:</p><samp>上海华阳文化用品总汇大宁路分店</samp></li>-->
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.textTitle {
+		margin: 30px 0px 10px;
+		text-align: center;
+		font-size: 32px;
+	}
+	
+	.mainCent {
+		width: 1500px;
+		height: 530px;
+		background: url(./image/imgList.png) no-repeat;
+		background-size: 100% 100%;
+		margin: 20px 210px;
+		display: inline-flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
+	.life-flex-2 {
+		/*width: 200px;
+		height: 400px;
+		border:1px solid red;*/
+		margin-left: 150px;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+	}
+	
+	.life-flex-2 img {
+		height: 300px;
+		width: 200px;
+		margin-left: 54px;
+	}
+	.life-flex-2 img {
+		transform: rotate(-90deg);
+	}
+	
+	.donghua{
+		content: "";
+		position: absolute;
+		width: 600px;
+		height: 200px;
+		background: url(image/light.png) no-repeat;
+		background-position: center center;
+		background-size: 200% 35px;
+		animation: lightAnimation 2s;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+		animation-timing-function: linear;
+	}
+	.donghua2{
+		top: 565px;
+	}
+	@keyframes lightAnimation {
+		from {
+			transform: translateY(-40px);
+		}
+		to {
+			transform: translateY(110px);
+		}
+	}
+	
+	.right-flex-column {
+		width: 820px;
+		height: 440px;
+		/*border:1px solid red;*/
+		margin-right: 150px;
+		background: url(./image/progress4Bg.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+	}
+	
+	.right-flex-column li {
+		margin: 20px 60px;
+		animation: mymove 0.8s;
+	}
+	
+	#right-li {
+		margin: 10px 0px -14px 40px;
+		font-size: 18px;
+		height: 30px;
+		display: inline-flex;
+		align-items: center;
+	}
+	
+	#right-li img {
+		width: 30px;
+		height: 30px;
+		margin-right: 10px;
+	}
+	
+	.right-flex-column li p {
+		color: #fefefe;
+		opacity: .6;
+		display: inline-block;
+		margin-right: 10px;
+	}
+	
+	@keyframes mymove {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+</style>

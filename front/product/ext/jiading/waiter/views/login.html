@@ -1,0 +1,51 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" ng-if="isLoding">
+	<idcard read="idcardLogin(info,images)" ng-if="loginType == 'idcard'"></idcard>
+	<recognition result="getResult(img)" face-image="{{faceImage}}" ng-if="loginType == 'recognition'"></recognition>
+	<ca result="caInfo(companyName,companyNo)" ng-if="loginType == 'ukey'" login="caLoginStatus"></ca>
+	<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>
+</div>
+<div class="loadingBox" ng-if="!isLoding">
+    <img src="images/loading.gif" alt="">
+    <p>正在加载数据，请稍后...</p>
+</div>
+<zalert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></zalert>
+<app-footer next="" prev="prevStep()" default-next="hidden">
+	<a href="javascript:;" class="continue" ng-if="loginBtn" ng-click="caLogin()">登录</a>
+</app-footer>
+<style type="text/css">
+	ca {
+		display: block;
+		margin-top: 150px;
+	}
+	.loadingBox{
+	    margin-left: 830px;
+		margin-top: 170px;
+	}
+	.loadingBox p{
+		    margin-left: -138px;
+    font-size: 38px;
+	}
+	.stamp {
+		margin-left: 60px;
+	}
+	
+	citizen-cloud {
+		margin-top: 84px;
+		display: block;
+	}
+	
+	citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		width: 1300px
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	.scrollBox2 .cardreadingBox1 img {
+
+	    margin: 100px auto 57px auto;
+	}
+</style>

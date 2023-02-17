@@ -1,0 +1,92 @@
+<style type="text/css">
+	.back {
+		background-color: #FFFFFF;
+		color: #000000;
+	}
+	
+	#top {
+		display: flex;
+		justify-content: center;
+	}
+	
+	.msg {
+		height: 100px;
+		font-size: 51px;
+		line-height: 100px;
+		font-weight: bold;
+	}
+	
+	.img {
+		width: 85px;
+		height: 100px;
+		margin-right: 24px;
+	}
+	
+	.loadingBox {
+		height: auto;
+	}
+	
+	/*.loadingBox img {
+		margin-top: 200px;
+	}*/
+	
+	table,
+	tr,
+	td {
+		border: 1px solid #666666;
+	}
+	
+	table {
+		border: 1px solid #666666;
+		background-color: #F5F5F5;
+		width: 100%;
+	}
+	
+	td {
+		padding: 20px;
+	}
+	
+	td.key {
+		text-align: right;
+		font-size: 33px;
+		font-weight: bold;
+		width: 30%;
+	}
+	
+	td.value {
+		font-size: 33px;
+	}
+</style>
+<div class="back">
+	<div id="top">
+		<img class="img" src="images/信息.png" />
+		<div class="msg">申请信息</div>
+	</div>
+	<table ng-if="isLoading">
+		<tr>
+			<td class="key">统一审批编码</td>
+			<td class="value">{{applyNo}}</td>
+		</tr>
+		<tr>
+			<td class="key">申请事项</td>
+			<td class="value">{{itemName}}</td>
+		</tr>
+		<tr>
+			<td class="key">申请对象</td>
+			<td class="value">{{name}}</td>
+		</tr>
+		<tr>
+			<td class="key">审批状态</td>
+			<td class="value">{{status}}</td>
+		</tr>
+		<tr>
+			<td class="key">提交日期</td>
+			<td class="value">{{date}}</td>
+		</tr>
+	</table>
+
+	<div class="loadingBox" ng-if="!isLoading">
+		<img src="../libs/common/images/loadings.gif" alt="">
+		<p>正在加载数据，请稍后...</p>
+	</div>
+</div>

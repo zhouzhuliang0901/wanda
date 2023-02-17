@@ -1,0 +1,51 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="人工核验"></apptb-header>
+
+	<div class="TabBox1">
+		<!--<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>事项情形</li>
+			<li class="act">人证核验</li>
+			<li>材料上传</li>
+		</ul>
+		<span class="line"></span>-->
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}&nbsp;/&nbsp;市民云亮证</span></div>
+
+		<div class="main2">
+			<div class="scrollBox2 clearfloat">
+				<div class="citizen clearfloat">
+					<img src="images/citizen2.jpg" style="margin-left: 40px;" />
+					<img src="images/citizen1.jpg" style="margin-left: 40px;" />
+					<img class="next" src="images/next.png" style="margin-left: 40px;" />
+					<img src="images/手机二维码.png" style="margin-left: 40px;margin-top: 50px; height:260px;" />
+					<div class="t1" style="width: 150px;height: 50px;padding-left: 102px;position: absolute;left:-30px;top: 420px;">
+						<p>进入市民云<br />选择亮证功能</p>
+					</div>
+					<div class="t2" style="width: 150px;height: 50px;padding-left: 353px;position: absolute;left:-30px;top: 420px;">
+						<p>查看二维码信息</p>
+					</div>
+					<div class="t3" style="width: 150px;height: 50px;padding-left: 1245px;position: absolute;left:-190px;top: 290px;">
+						<p style="width: 200px;">请将二维码放置扫码区</p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<p class="info_ssb">扫描随申办身份证二维码</p>
+	</div>
+
+	<div class="CodeBox1">
+		<img src="images/smy.png" class="img1" />
+		<p>下载市民云APP </p>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 
+		custom-home="true" 
+		home="goHome()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>

@@ -1,0 +1,127 @@
+<style type="text/css">
+    .caption {
+            margin-top: 80px;
+            margin-left: 200px;
+        }
+        
+        #wrapper {
+            width: 1750px;
+            height: 650px;
+        }
+        .tabelBox1{
+            width: 1705px;
+            height: 635px;
+            padding-top: 35px;
+        }
+        .main2 {
+            height: 650px;
+            margin-top: 20px;
+        }
+        
+        .input1::-webkit-input-placeholder {
+            color: #C5C5C5;
+        }
+        
+        .input1:-ms-input-placeholder {
+            color: #C5C5C5;
+        }
+        
+        @media screen and (max-width: 1600px) {
+            .bg-middle {
+				background-size: 100% 80%;
+			}
+			.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+			}
+            #wrapper {
+				width: 100%;
+				height: 630px;
+			}
+			.main2 {
+				width: 100%;
+				height: 630px;
+				overflow: hidden;
+				position: relative;
+				margin: 0px;
+			}
+            .caption {
+                margin-left: 150px;
+            }
+            .tabelBox1{
+                width: 1500px;
+            }
+         
+
+            .tabelBox1 .dl1 .lt1 {
+                width: 12%;
+                font-size: 18px;
+                margin-left: -8px;
+            }
+            .tabelBox1 .dl1 .lt3 {
+                width: 10%;
+                margin-left: -8px;
+            }
+            .tabelBox1 .dl1 .rt2 {
+                width: 18%;
+            }
+            .tabelBox1 .dl1 .rt11 {
+                width: 16%;
+            }
+          
+            .select1{
+                width: 227px;
+                font-size: 20px;
+            }
+            #seatNumber{
+                width: 207px;
+                font-size: 20px 
+            }
+        }
+    
+    </style>
+    <p class="caption">{{funName}}</p>
+    <div class="main2" style="height: 675px;">
+        <div class="scrollBox2 clearfloat">
+            <div id="wrapper" class="wrapper">
+                <div class="tabelBox1">
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>可选预约日期：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt9">
+                            <select class="select1" id="appDate"  ng-model="appDate" ng-options="x for x in appointmentDateList" placeholder="请选择预约日期">
+                                <option value="">请选择预约日期</option>
+                            </select>
+                        </dd>
+                        
+                        <dd class="lt1 lt6">
+                            <span>预约时间段：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt9">
+                            <select class="select1"  ng-model="appTime" ng-options="x.dateTime for x in appointmentTimeList" 
+                            ng-disabled="isSelectDate" placeholder="请选择预约时间段">
+                            <option value="">请选择预约时间段</option>
+                            </select>
+                        </dd>
+                        <dd class="lt1 lt6">
+                            <span>剩余席位：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt9">
+                            <input class="input1" type="text" id="seatNumber" ng-model="seatNumber" readonly>
+                        </dd>
+                    </dl>
+                    <dl class="dllist1 clearfloat">
+                 
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+    </apptb-footer>
+    <loading ng-if="isLoading"></loading>
+    <alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,230 @@
+<style type="text/css">
+    .caption {
+            margin-top: 80px;
+            margin-left: 400px;
+        }
+        
+        #wrapper {
+            width: 1750px;
+            height: 650px;
+        }
+        
+        .main2 {
+            height: 650px;
+            margin-top: 20px;
+        }
+        
+        .input1::-webkit-input-placeholder {
+            color: #C5C5C5;
+        }
+        
+        .input1:-ms-input-placeholder {
+            color: #C5C5C5;
+        }
+        /* .tabelBox1 .dl1 .rt1 {
+                width: 95%;
+            } */
+        
+        @media screen and (max-width: 1600px) {
+            .bg-middle {
+				background-size: 100% 80%;
+			}
+			.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+			}
+            #wrapper {
+            width: 1750px;
+            height: 800px;
+           }
+           .tabelBox1{
+              margin-top: -30px; 
+             
+           }
+    
+            
+            .tabelBox1 .dl1 .lt1 {
+                width: 11%;
+                font-size: 17px;
+                
+            }
+           
+            .tabelBox1 .dl1 .lt3 {
+                width: 12%;
+                font-size: 17px;
+            }
+            .tabelBox1 .dl1 .rt2 {
+                width: 18%;
+                height: 50px;
+                font-size: 17px;
+            
+            }
+            .tabelBox1 .dl1 .rt1 {
+                width: 50%;
+            }
+            .tabelBox1 .dl1 .rt11 {
+                width: 16%;
+            }
+          
+            .clearfloat .select1{
+                height: 50px;
+                font-size: 18px;
+               
+            } 
+            .tabelBox1 .dl1 dd .input1{
+                height: 50px;
+                font-size: 18px;
+                
+            }
+        }
+    
+    </style>
+    <p class="caption">{{pageName}} -- 双方个人信息填写</p>
+        <div class="scrollBox2 clearfloat">
+            <div class="main2" style="height: 675px;">
+            <div id="wrapper">
+                <div class="tabelBox1" style="width: 1705px;padding-top: 35px;">
+    
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方国籍：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <select class="select1" ng-init="manCountry = countryList[216]" ng-model="manCountry" ng-options="x.val for x in countryList">
+                            </select>
+                        </dd>
+    
+                        <dd class="lt1 lt3">
+                            <span>女方国籍：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <select class="select1" ng-init="ladyCountry = countryList[216]" ng-model="ladyCountry" ng-options="x.val for x in countryList">
+                            </select>
+                        </dd>
+                    </dl>
+    
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方姓名：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="manName" ng-model="manName" placeholder="请填写男方姓名">
+                        </dd>
+    
+                        <dd class="lt1 lt3">
+                            <span>女方姓名：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="ladyName" ng-model="ladyName" placeholder="请填写女方姓名">
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方手机号：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="manStMobile" ng-model="manStMobile" placeholder="请填写男方手机号">
+                        </dd>
+                        <dd class="lt1 lt3">
+                            <span>女方手机号：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="ladyStMobile" ng-model="ladyStMobile" placeholder="请填写女方手机号">
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方证件类型：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <select class="select1" ng-init="manCardType = cardList[0]" ng-model="manCardType" ng-options="x.val for x in cardList">
+                            </select>
+                        </dd>
+                        <dd class="lt1 lt3">
+                            <span>女方证件类型：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <select class="select1" ng-init="ladyCardType = cardList[0]" ng-model="ladyCardType" ng-options="x.val for x in cardList">
+                            </select>
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方证件编号：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="manCardNumber" ng-model="manCardNumber" placeholder="请填写男方证件编号">
+                        </dd>
+                        <dd class="lt1 lt3">
+                            <span>女方证件编号：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="ladyCardNumber" ng-model="ladyCardNumber" placeholder="请填写女方证件编号">
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方出生日期：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <div class="input-append date form_datetime">
+                                <input class="input1" size="16" type="text" id="manBirthDay" ng-model="manBirthDay" readonly>
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                        </dd>
+                        <dd class="lt1 lt3">
+                            <span>女方出生日期：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <div class="input-append date form_datetime">
+                                <input class="input1" size="16" type="text" id="ladyBirthDay" ng-model="ladyBirthDay" readonly>
+                                <span class="add-on"><i class="icon-th"></i></span>
+                            </div>
+                        </dd>
+                    </dl>
+                   
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>男方户籍所在地：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="manAddress" ng-model="manAddress" placeholder="请填写男方户籍所在地">
+                        </dd>
+                        <dd class="lt1 lt3">
+                            <span>女方户籍所在地：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt2">
+                            <input class="input1" type="text" id="ladyAddress" ng-model="ladyAddress" placeholder="请填写女方户籍所在地">
+                        </dd>
+                    </dl>
+                    <dl class="dl1 clearfloat">
+                        <dd class="lt1 lt6">
+                            <span>离婚原因：</span>
+                            <b class="red1">*</b>
+                        </dd>
+                        <dd class="rt1">
+                            <input class="input1" type="text" id="divReasons" ng-model="divReasons" placeholder="请填写离婚原因" >
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+    <apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+    </apptb-footer>
+    <loading ng-if="isLoading"></loading>
+    <alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

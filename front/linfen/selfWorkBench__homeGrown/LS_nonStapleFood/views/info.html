@@ -1,0 +1,237 @@
+<style type="text/css">
+	.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		
+		.main2 {
+			height: 650px;
+			margin-top: 20px;
+		}
+		
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		
+		@media screen and (max-width: 1600px) {
+			.bg-middle {
+				background-size: 100% 80%;
+			}
+			.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+			}
+			.tabelBox1{
+				  margin-top: -30px; 
+				 
+			   }		
+			.tabelBox1 .dl1 .lt1 {
+				width: 11%;
+				font-size: 17px;
+					
+			}		   
+			.tabelBox1 .dl1 .lt3 {
+				width: 12%;
+				font-size: 17px;
+			}
+			.tabelBox1 .dl1 .rt2 {
+				width: 18%;
+				height: 50px;
+				font-size: 17px;
+				
+			}
+				.tabelBox1 .dl1 .rt1 {
+					width: 50%;
+				}
+				.tabelBox1 .dl1 .rt11 {
+					width: 16%;
+				}
+				.tabelBox1 .dl1 .rt10{
+					width: 24%;
+				}
+			  
+				.clearfloat .select1{
+					height: 50px;
+					font-size: 18px;
+				   
+				} 
+				.tabelBox1 .dl1 dd .input1{
+					height: 50px;
+					font-size: 18px;
+					
+				}
+		}
+	
+	</style>
+	<p class="caption">个人信息填写</p>
+	<div class="main2" style="height: 675px;">
+		<div class="scrollBox2 clearfloat">
+			<div id="wrapper">
+				<div class="tabelBox1" style="width: 1705px;height: 635px;padding-top: 35px;">
+	
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>姓名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+						</dd>
+	
+						<dd class="lt1 lt3">
+							<span>身份证号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+						</dd>
+					</dl>
+	
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>性别：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stSex" ng-model="stSex" readonly>
+						</dd>
+	
+						<dd class="lt1 lt3">
+							<span>出生日期：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="dtBirth" ng-model="dtBirth" readonly>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>联系电话：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stMobile" ng-model="stMobile">
+						</dd>
+						<dd class="lt1 lt3">
+							<span>民族：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<!--<select class="select1" id="nation" ng-init="nation = nationList[0]" ng-model="nation" ng-options="x.shortname for x in nationList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='476px' selectval="nationList[0].name" ng-init="nation = nationList[0]" modelval='nation' ng-model="nation" dropdowndata="nationList" valchange="">
+						    </drop-down>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>银行卡号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stIdCardType" ng-mouseleave="bankName()" ng-model="stIdCardType" placeholder="请先输入银行卡号">
+						</dd>
+						
+						
+						<dd class="lt1 lt3">
+							<span>银行类别：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" id="selectedName" ng-model="selectedName" placeholder="自动识别银行行别">
+						</dd>
+	
+					
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>户籍地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt11">
+							<!--<select class="select1" id="hjCity" ng-init="hjCity = hjCityList[0]" ng-model="hjCity" ng-options="x.value for x in hjCityList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='423px' selectval="hjCity.name" ng-init="hjCity = hjCityList[0]" modelval='hjCity' ng-model="hjCity" dropdowndata="hjCityList" valchange="">
+						    </drop-down>
+						</dd>
+						<dd class="rt11">
+							<!--<select class="select1" id="hjCounty" ng-model="hjCounty" ng-options="x.value for x in hjCountyList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='423px' selectval="hjCountycu" modelval='hjCounty' ng-model="hjCounty" dropdowndata="hjCountyList" valchange="">
+						    </drop-down>
+						</dd>
+						<dd class="rt11">
+							<!--<select class="select1" id="hjStreet" ng-model="hjStreet" ng-options="x.value for x in hjStreetList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='423px' selectval="hjStreetcu" modelval='hjStreet' ng-model="hjStreet" dropdowndata="hjStreetList" valchange="">
+						    </drop-down>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>居住地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt11">
+							<!--<select class="select1" id="jzCity" ng-init="jzCity=jzCityList[0]" ng-model="jzCity" ng-options="x.value for x in jzCityList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='423px' selectval="jzCity.name" ng-init="jzCity=jzCityList[0]" modelval='jzCity' ng-model="jzCity" dropdowndata="jzCityList" valchange="">
+						    </drop-down>
+						</dd>
+						<dd class="rt11">
+							<!--<select class="select1" id="jzCounty" ng-model="jzCounty" ng-options="x.value for x in jzCountyList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='423px' selectval="jzCountycu" modelval='jzCounty' ng-model="jzCounty" dropdowndata="jzCountyList" valchange="">
+						    </drop-down>
+						</dd>
+						<dd class="rt11">
+							<!--<select class="select1" id="jzStreet" ng-model="jzStreet" ng-options="x.value for x in jzStreetList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='423px' selectval="jzStreetcu" modelval='jzStreet' ng-model="jzStreet" dropdowndata="jzStreetList" valchange="">
+						    </drop-down>
+						</dd>
+					</dl>
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt6">
+							<span>受理中心：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt10">
+							<!--<select class="select1" id="centerProvince" ng-model="centerProvince" ng-options="x.value for x in centerProvinceList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='636.5px' selectval="" modelval='centerProvince' ng-model="centerProvince" dropdowndata="centerProvinceList" valchange="">
+						    </drop-down>
+						</dd>
+						<dd class="rt10">
+							<!--<select class="select1" id="centerStreet" ng-model="centerStreet" ng-options="x.value for x in centerStreetList">
+								<option value="" selected ng-if="false"></option>
+							</select>-->
+							<drop-down width='636.5px' selectval="centerStreetcu" modelval='centerStreet' ng-model="centerStreet" dropdowndata="centerStreetList" valchange="">
+						    </drop-down>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+	</apptb-footer>
+	<loading ng-if="isLoading"></loading>
+	<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

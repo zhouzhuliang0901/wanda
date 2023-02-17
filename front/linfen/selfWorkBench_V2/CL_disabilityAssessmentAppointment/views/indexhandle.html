@@ -1,0 +1,60 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 400px;
+		text-align: center;
+		margin-top: 80px;
+	}
+	.scrollBox2 .linkBox1 a{
+		margin-right: 125px;
+	}
+	@media screen and (max-width: 1600px) {
+		.contain {
+		    width: 1100px;
+		    height: 700px;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+		}
+		.caption {
+		    margin: 15px 50px;
+		}
+		.scrollBox2 .linkBox1 {
+		     padding-left: 0px; 
+		    text-align: center;
+		     margin-top: auto; 
+		}
+		.scrollBox2 .linkBox1 a {
+		     margin-right: 0px; 
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="choiceLogin('self')">
+				<img src="../libs/common/images/person.png" />
+				<p>本人登录</p>
+			</a>
+			<a ng-click="choiceLogin('agent')">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>代办登录</p>
+			</a>
+			<!--<a ng-click="choiceLogin('medical')">
+				<img src="../libs/common/images/newIcon/ybCard.png" />
+				<p>社保卡登录</p>
+			</a>-->
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

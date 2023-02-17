@@ -1,0 +1,80 @@
+<div id="jq22" class="previewContainer" ng-class="{'mask':isAllScreen}">
+	<li><img data-original="{{previewImg}}" ng-src="{{previewImg}}" /></li>
+</div>
+<div class="contain">
+	<p class="caption" style="position: absolute;top: 180px;left: 150px;">{{operation}}</p>
+	<div class="btnBox1 clearfloat">
+	</div>
+</div>
+<apptb-footer prev="back()" next="print()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<loading ng-if="isLoading"></loading>
+<print show="isShowPrint"></print>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.btns {
+		position: relative;
+		z-index: 10000;
+		width: 700px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	.btns a {
+		display: inline-block;
+		width: 170px;
+		height: 70px;
+		margin-top: 15px;
+		line-height: 67px;
+		font-size: 28px;
+		color: #fff;
+		background-color: #21b384;
+		text-decoration: none;
+		border-radius: 15px;
+	}
+	
+	.btns a:hover {
+		background-color: #1fa67a;
+	}
+	
+	.viewer-button {
+		width: 150px;
+		height: 150px;
+		border-radius: 32%;
+	}
+	
+	.viewer-close:before {
+		width: 100%;
+		height: 100%;
+		background: url(../libs/common/images/guanbi.png) no-repeat;
+		background-size: 100px 100px;
+		background-position: 0px 50px;
+	}
+	
+	.contain {
+	}
+	
+	.previewContainer {
+		text-align: center;
+		margin-top: 130px;
+		z-index: 1
+	}
+	
+	.previewContainer.mask {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .7);
+		left: 0px;
+		top: 0px;
+		right: 0px;
+		bottom: 0px;
+		margin: auto;
+	}
+	
+	.previewContainer img {
+		height: 560px;
+		margin-top: 20px;
+	}
+	
+	.previewContainer.mask img {
+		margin-top: 200px;
+	}
+</style>

@@ -1,0 +1,54 @@
+<style type="text/css">
+	.action>.btn_radius_50 {
+		position: absolute;
+		left: 35%;
+		top: 640px;
+		width: 320px;
+	}
+	
+	.btn_radius_50>div>label {
+		padding: 0px;
+	}
+	
+	.action>.btn_radius_50>.greyLight {
+		padding: 0px;
+	}
+</style>
+
+<div class="board">
+	<div class="info blue-green">
+		<img class="bg" src="../libs/common/images/mainIndexBG_2.png">
+		<div class="vertical-middle horizontal-middle leftLump">
+			<img src="../libs/common/images/prototype.png">
+			<img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+			<div>请点击“拍照”以继续
+				<br />照片将与身份证照片进行比对</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="captureTips" ng-show="!status" style="color: red;">提示：上方摄像头可推动以获得最佳拍摄角度</div>
+		<div class="camera" style="top:80px;left:180px;">
+			<p ng-show="status">正在进行核验......</p>
+			<img ng-show="status" style="margin-top:100px;" src="../libs/common/images/loading.gif" alt="">
+			<p ng-show="completeTips" style="color:green;font-size:40px;margin-top:100px;">{{tipsText}}</p>
+		</div>
+		<a ng-show="confirm" class="btn_radius_50" ng-click="capture()">
+			<div class="greyLight">
+				<img src="../libs/common/images/icon200/camera.png" height="80">
+				<label>人证核验</label>
+			</div>
+		</a>
+		<a ng-show="completeError" ng-click="backTo()" class="btn_radius_50">
+			<div class="greyLight">
+				<img src="../libs/common/images/icon200/camera.png" height="80">
+				<label>重新核验</label>
+			</div>
+		</a>
+		<a ng-show="complete" ng-click="finish()" class="btn_radius_50">
+			<div class="greyLight">
+				<img src="../libs/common/images/icon200/camera.png" height="80">
+				<label>完成</label>
+			</div>
+		</a>
+	</div>
+</div>

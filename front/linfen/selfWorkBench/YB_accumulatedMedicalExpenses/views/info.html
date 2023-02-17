@@ -1,0 +1,95 @@
+<style type="text/css">
+	#wrapper {
+		width: 1450px;
+		height: 530px;
+	}
+	.caption {
+		margin-top: 4%;
+		margin-left: 11%;
+	}
+	.my-card {
+		padding: 45px 80px;
+	}
+	.body {
+		width: 1300px;
+    
+	}
+	.table-sty1{
+		width: 100%;
+		table-layout: auto;
+		margin: 0 auto;
+	}
+	.table-sty1 th{
+		font-weight: bold;
+	}
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+		/* text-overflow: ellipsis; */
+	}
+	
+	.handleList {
+		    width: 80%;
+    margin: 5% auto 0;
+	}
+	.handleList li {
+		float: left;
+		width: 195px;
+	    height: 100px;
+	    line-height: 106px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		margin-left: 20px;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 100% 100%;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+	}
+	.attention {
+		width: 61%;
+		margin: -1% auto;
+		color: #e1ba1c;
+	}
+</style>
+<!--<p class="caption">{{caption}}</p>-->
+<ul class="handleList">
+	<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">
+		{{ item }}
+	</li>
+</ul>
+<div id="wrapper" style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tbody>
+						<tr ng-repeat="item in Item">
+							<td>{{item.firstName || "暂无"}}</td>
+							<td>{{item.firstValue | number : 2 || "暂无"}}</td>
+							<td>{{item.secondName || "暂无"}}</td>
+							<td>{{item.secondValue == "" ? "----":(item.secondValue | number : 2) }}</td>
+						</tr>						
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="attention">
+	<p>注意：查询结果为{{currentTime | date:'yyyy-MM-dd hh:mm:ss'}}的个人帐户信息，以上信息仅做参考，如有疑问请持本人身份证、社会保障卡或医疗保险卡到区医保中心咨询。</p>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

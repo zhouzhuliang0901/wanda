@@ -1,0 +1,17 @@
+<div class="btnBox1 clearfloat">
+	<a href="javascript:;" class="Prev" ng-if="hasDefaultPrev==='1'" ng-click="prevStep()">{{prevTips}}</a>
+
+	<span class="center" ng-transclude></span>
+	<a href="javascript:;" ng-if="hasDefaultNext==='1'" class="continue" ng-click="nextStep()">
+		{{nextTips}}
+	</a>
+</div>
+<style type="text/css">
+	.btnBox1 {
+		width: 1760px;
+		bottom: 50px;
+		position: absolute;
+		left: 50%;
+		margin-left: -880px;
+	}
+</style>

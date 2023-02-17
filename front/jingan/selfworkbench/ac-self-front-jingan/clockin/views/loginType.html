@@ -1,0 +1,40 @@
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a href="javascript:;" ng-click="idcardLogin()">
+				<img src="../libs/common/images/person.png" />
+				<p>身份证登录</p>
+			</a>
+			<a href="javascript:;" ng-click="accountLogin()">
+				<img src="../libs/common/images/corporate.png" />
+				<p>账号登录</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 400px;
+		text-align: center;
+		margin-top: 85px;
+	}
+</style>

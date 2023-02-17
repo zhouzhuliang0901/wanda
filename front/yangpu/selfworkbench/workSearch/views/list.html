@@ -1,0 +1,110 @@
+<p class="caption1">{{ operation }}</p>
+<ul class="doList">
+	<div id="wrapper">
+		<div class="body">
+			<span class="serial"> 办件编码 </span>
+			<span class="date">申请时间</span>
+			<span class="matterName"> 申请事项</span>
+			<li ng-repeat="(index,item) in incidentList" ng-class="{'active':current==index}" ng-click="choiceIncidentList(index,item)">
+				<span class="serial">{{ item.stApplyNo }}</span>
+				<span class="date">{{ item.stApplyStr | date: "yyyy-MM-dd" }}</span>
+				<span class="matterName">{{ item.stItemName }}</span>
+			</li>
+		</div>
+	</div>
+</ul>
+<!--<app-footer next="nextStep()"></app-footer>-->
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()" alert-time>
+</apptb-footer>
+<style type="text/css">
+	#wrapper {
+		width: 1760px;
+		height: 620px;
+		position: relative;
+		margin: 0 0 0 155px;
+	}
+	
+	.body {
+		width: 1500px;
+		/*transform-origin: 0px 0px;
+	    position: absolute;*/
+		margin-left: 85px;
+	}
+	
+	.doList {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: 50px 0 0 0;
+		width: 1760px;
+		height: 100%;
+	}
+	
+	.doList span {
+		display: block;
+		float: left;
+		font-size: 32px;
+		height: 60px;
+		text-align: center;
+	}
+	
+	.date {
+		/*overflow: hidden;*/
+		width: 450px;
+	}
+	
+	.serial {
+		width: 450px;
+	}
+	
+	.matterName {
+		width: 500px;
+		white-space:nowrap;overflow:hidden;
+    	text-overflow : ellipsis;
+	}
+	
+	.doList li {
+		display: inline-block;
+		overflow: hidden;
+		position: relative;
+		background: url("./images/list.png");
+		box-sizing: border-box;
+		text-align: center;
+		line-height: 87px;
+		height: 87px;
+		width: 1440px;
+		float: left;
+		margin-top: 30px;
+		margin-right: 23px;
+	}
+	
+	.doList li span {
+		color: #20b8f1;
+	}
+	
+	.doList li.active {
+		background: url(./images/aclist.png) no-repeat;
+		border-radius: 10px;
+		width: 1440px;
+	}
+	
+	.doList li.active span {
+		color: #fff;
+	}
+	
+	.doList li.active:after {
+		content: "";
+		position: absolute;
+		right: 0px;
+		top: 30px;
+		width: 45px;
+		height: 35px;
+		overflow: hidden;
+		background: url(./images/listafter.png) no-repeat;
+	}
+	
+	.doList li>span {
+		font-size: 32px;
+	}
+</style>

@@ -1,0 +1,52 @@
+<div class="TabBox1">
+	<!--进度条-->
+	<ul class="navul1 clearfloat">
+		<li class="act">选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1" style="margin-top: 50px; height: 570px;">
+				<div id="wrapper">
+					<div class="linkbox1 clearfloat matter">
+						<a ng-class="{'active':$index==active}" ng-repeat="item in itemName" ng-click="setItemCode(item.stItemNo)">{{item.stItemName}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<!-- </div> -->
+<apptb-footer prev="prev()" next="" default-is-show-next-btn="hidden" custom-home="true" home="goHome()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.tabBotbox1 {
+		float: left;
+		width: 1625px;
+		margin-left: 100px;
+		padding-top: 0px;
+	}
+	.tabBotbox1inner .linkbox1 a {
+		width: 734px;
+	}
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 518px;
+		height: 116px;
+		float: left;
+		background: url(./images/bg-biglist.png) no-repeat;
+		margin-right: 104px;
+		margin-left: 50px;
+		font-size: 24px;
+		padding: 0 40px;
+		box-sizing: border-box;
+		line-height: 116px;
+	}
+	#wrapper {
+		width: 1600px;
+		height: 500px;
+	}
+</style>

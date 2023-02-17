@@ -1,0 +1,25 @@
+<div class="shell bg2">
+	<apptb-header fun-name="自助办理"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li class="act">办事指南</li>
+			<li>人证核验</li>
+			<li>在线填报</li>
+		</ul>
+		<span class="line"></span>
+		<div class="main2" style="height:100%;">
+			<div class="action" style="width: 100%; left: 0;">
+			</div>
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 
+		custom-home="true" 
+		home="goHome()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<loading ng-if="!isLoading"></loading>

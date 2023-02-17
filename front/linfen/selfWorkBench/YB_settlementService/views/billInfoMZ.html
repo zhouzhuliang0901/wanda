@@ -1,0 +1,170 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1850px;
+		height: 420px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+	}
+	
+	.tabelBox1 .dl1 .lt3 {
+		width: 11%;
+	}
+	
+	.tabelBox1 .dl1 .rt2 {
+		width: 19%;
+	}
+	
+	.tabelBox1 .dl1 .rt2 .input-append {
+		width: 100%;
+	}
+	
+	.tabelBox1 {
+		height: 635px;
+		padding-top: 35px;
+	}
+	
+	.tabelBox1 table tr,
+	.tabelBox1 table th,
+	.tabelBox1 table td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.tabelBox1 table {
+		border: #477cbe 1px solid;
+		text-align: center;
+		width: 80%;
+		margin: 0 auto;
+	}
+	
+	.tabelBox1 th {
+		font-weight: bold;
+	}
+	
+	.sumbit {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 24px;
+		margin-top: 3%;
+	}
+	
+	.tt {
+		width: 96%;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-left: 150px;
+		}
+		.tabelBox1 .dl1 .lt1 {
+			width: 10%;
+		}
+		.tabelBox1 .dl1 .lt3 {
+			width: 12%;
+		}
+		.tabelBox1 .dl1 .rt2 {
+			width: 18%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--门诊发票信息填写</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div class="tabelBox1">
+			<dl class="dl1 clearfloat">
+				<dd class="lt1 lt6">
+					<span>发票类型：</span>
+					<b class="red1">*</b>
+				</dd>
+				<dd class="rt2">
+					<input class="input1" type="text" id="stBillType" ng-model="stBillType">
+				</dd>
+				<dd class="lt1 lt3">
+					<span>票据号码：</span>
+					<b class="red1">*</b>
+				</dd>
+				<dd class="rt2">
+					<input class="input1" type="text" id="stBillCode" ng-model="stBillCode">
+				</dd>
+				<dd class="lt1 lt3">
+					<span>发票信息：</span>
+					<b class="red1">*</b>
+				</dd>
+				<dd class="rt2">
+					<select class="select1" id="stBillInfo" ng-init="stBillInfo = billInfoList[0]" ng-model="stBillInfo" ng-options="x.name for x in billInfoList">
+						<option value="" selected ng-if="false"></option>
+					</select>
+				</dd>
+			</dl>
+			<dl class="dl1 clearfloat">
+				<dd class="lt1 lt6">
+					<span>费用总额：</span>
+					<b class="red1">*</b>
+				</dd>
+				<dd class="rt2">
+					<input class="input1" type="text" id="stBillSum" ng-model="stBillSum" oninput="value=value.replace(/[^\d]/g,'')">
+				</dd>
+				<dd class="lt1 lt3">
+					<span>发票日期：</span>
+					<b class="red1">*</b>
+				</dd>
+				<dd class="rt2">
+					<div class="input-append date form_datetime">
+						<input class="input1" size="16" type="text" id="stBillDate" ng-model="stBillDate" readonly>
+						<span class="add-on"><i class="icon-th"></i></span>
+					</div>
+				</dd>
+				<dd class="lt1 lt3">
+					<span></span>
+					<b class="red1"></b>
+				</dd>
+				<dd class="rt2">
+					<div class="sumbit" ng-click="add()">添加</div>
+				</dd>
+			</dl>
+			<div id="wrapper">
+				<div class="tt">
+					<table ng-if="items.length>0">
+						<tbody>
+							<tr>
+								<th>发票类型</th>
+								<th>票据号码</th>
+								<th>费用总额</th>
+								<th>发票日期</th>
+								<th>合计：{{items.length}}张</th>
+							</tr>
+							<tr ng-repeat="(index,item) in items">
+								<td>{{item.stBillType}}</td>
+								<td>{{item.stBillCode}}</td>
+								<td>{{item.stBillSum}}</td>
+								<td>{{item.stBillDate}}</td>
+								<td ng-click="delete(index)">删除</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

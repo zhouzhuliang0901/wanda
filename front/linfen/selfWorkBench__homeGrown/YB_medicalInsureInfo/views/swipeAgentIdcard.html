@@ -1,0 +1,90 @@
+<apptb-header fun-name="办理门急诊就医记录册"></apptb-header>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat" ng-if="isShowChoiceLoginType">
+		<div id="choiceLoginType" class="linkBox1 clearfloat">
+			<a ng-click="choiceLoginType('idcard')">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>身份证登录</p>
+			</a>
+			<a ng-click="choiceLoginType('cloud')">
+				<img src="../libs/common/images/newIcon/qrCode.png" />
+				<p>随申办登录</p>
+			</a>
+		</div>
+	</div>
+</div>
+<div class="scrollBox2 clearfloat" ng-if="!isShowChoiceLoginType">
+	<idcard read="idcardLogin(info,images)" ng-if="loginType == 'idcard'"></idcard>
+	<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	ca {
+		display: block;
+		margin-top: 150px;
+	}
+	
+	/*来自于市民云组件的样式*/
+	.stamp {
+        position: absolute;
+        left: 50%;
+        top: 650px;
+        transform: translate(-50%);
+        overflow: hidden;
+        width: 250px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 38px;
+        background: url('../libs/common/images/button.png') no-repeat left top;
+        background-size: 250px 70px;
+    }
+    
+     .stamp.reR {
+        left: 750px;
+    }
+
+    .stamp.success {
+        left: 1150px;
+    }
+    /*来自于市民云组件的样式结束*/
+    
+	
+	.cardreadingBox1.clearfloat {
+		margin-top: 120px;
+	}
+	
+	citizen-cloud {
+		margin-top: 84px;
+		display: block;
+	}
+	
+	citizen-cloud .scrollBox2 .cardreadingBox1 img {
+		width: 1300px;
+		height: 410px;
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+	#choiceLoginType {
+		padding-left: 380px;
+		text-align: center;
+		margin-top: 70px;
+	}
+</style>

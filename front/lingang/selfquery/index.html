@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>立式查询系统</title>
+		<link rel="stylesheet" href="css/base.css" />
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/index.css" />
+		<link rel="stylesheet" href="css/common.css" />
+		<link rel="stylesheet" href="css/idangerous.swiper2.7.6.css" />
+		<link rel="stylesheet" href="css/idangerous.swiper.3dflow.css" />
+
+	</head>
+
+	<body>
+		<div class="con-box">
+			<header class="header">
+				<div class="hd-title"></div>
+			</header>
+			<!-- 立式查询机-->
+			<div class="vertical_gets"></div>
+			<p style="text-align:center;font-size: 20px;font-weight: 20;width: 100%;margin-top:1px;margin-left:0px;color: white;">Inquiry Machine</p>
+
+			<!--自动轮播图片展示 -->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+					<a href="talentPolicy.html" class="swiper-slide"><img src="./images/banner/banner1.png" /></a>
+					<a href="financialInnovation.html" class="swiper-slide"><img src="./images/banner/banner2.png" /></a>
+					<a href="talentHousingpolicy.html" class="swiper-slide"><img src="./images/banner/banner3.png" /></a>
+					<a href="ICIndustry.html" class="swiper-slide"><img src="./images/banner/banner4.png" /></a>
+					<a href="aerospaceIndustry.html" class="swiper-slide"><img src="./images/banner/banner5.png" /></a>
+					<a href="fourIndustriesSupport.html" class="swiper-slide"><img src="./images/banner/banner6.png" /></a>
+					<a href="foreignInvestmentLaw.html" class="swiper-slide"><img src="./images/banner/banner7.png" /></a>
+					<a href="foreignerSettleInChina.html" class="swiper-slide"><img src="./images/banner/banner8.png" /></a>
+					<a href="banner9_content.html" class="swiper-slide"><img src="./images/banner/banner9.png" /></a>
+					<a href="banner10_content.html" class="swiper-slide"><img src="./images/banner/banner10.png" /></a>
+					<a href="banner11_content.html" class="swiper-slide"><img src="./images/banner/banner11.png" /></a>
+					<a href="banner12_content.html" class="swiper-slide"><img src="./images/banner/banner12.png" /></a>
+					<a href="banner13_content.html" class="swiper-slide"><img src="./images/banner/banner13.png" /></a>
+					<a href="banner14_content.html" class="swiper-slide"><img src="./images/banner/banner14.png" /></a>
+				</div>
+				<!-- 如果需要分页器 -->
+				<div class="swiper-pagination"></div>
+
+				<!-- 如果需要导航按钮 -->
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+
+				<!-- 如果需要滚动条 -->
+				<div class="swiper-scrollbar"></div>
+			</div>
+			<div class="bottom">
+				<div class="img1">
+					<a class="nav-item bsyd" href="map_details.html"></a>
+				</div>
+
+				<div class="img2">
+					<a class="nav-item bszn" href="http://172.16.6.18:8080/aci/selfWorkbench/guideline3/index_lg.html#/list"></a>
+				</div>
+				<div class="img3">
+					<a class="nav-item bsjd" href="progress.html"></a>
+				</div>
+			</div>
+		</div>
+		<script src="js/jquery-1.11.1.min.js"></script>
+		<script src="js/common.js"></script>
+		<script src="js/self-mac-tools.js"></script>
+		<script src="js/idangerous.swiper2.7.6.min.js"></script>
+		<script src="js/idangerous.swiper.3dflow.js"></script>
+		<script>
+			console.log($('.swiper-wrapper a'));
+			var mySwiper = new Swiper('.swiper-container', {
+				//其他设置
+				autoplay: 3000,
+				speed: 300,
+				loop: true,
+				slidesPerView: 3,
+				autoplayDisableOnInteraction: false,
+				centeredSlides: true,
+				preventClicks : false,//默认true
+				tdFlow: {
+					rotate: 15,
+					stretch: 50,
+					depth: 150,
+					modifier: 1,
+					shadows: false
+				},
+				
+					click: function() {
+						alert('你点了Swiper');
+					},
+				
+			});
+
+			// 关闭二维码扫描
+			$.device.qrCodeClose();
+			// 关闭身份证阅读器
+			$.device.idCardClose();
+		</script>
+	</body>
+
+</html>

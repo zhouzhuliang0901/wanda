@@ -1,0 +1,250 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 80px;
+		margin-left: 210px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 400px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-left: 3%;
+	}
+	
+	.singselect a {
+		/* float: left; */
+		width: 114px;
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 17px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect dl {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 150px;
+	}
+	
+	.select {
+		float: left;
+		width: 1100px;
+		height: 290px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 1100px 300px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+	}
+	
+	.select dd {
+		margin-left: 50px;
+		margin-top: 10px;
+		height: 40px
+	}
+	
+	.select dl {
+		white-space: normal
+	}
+	
+	.select b {
+		width: 180px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	}
+	
+	.select span {
+		display: block;
+		float: right;
+		width: 870px;
+		overflow:hidden;white-space:nowrap;
+		text-overflow:ellipsis;
+
+	}
+	
+	.top dl {
+		margin-top: 4%;
+	}
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+		width: 1200px;
+		margin-top: 80px;
+		margin-left: 50px;
+	}
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-left: 3%;
+	}
+	
+	.singselect a {
+		/* float: left; */
+		width: 94px;
+		height: 55px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 55px;
+		font-size: 17px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect dl {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+		.bg-middle {
+				background-size: 100% 80%;
+			}
+		.caption {
+			margin-left: 80px !important;
+				margin-top: 60px !important;
+			}
+		.linkt {
+			left: 10px;
+		}
+		.select {
+		float: left;
+		width: 1000px;
+		height: 290px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 1000px 300px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 22px;
+	  }
+		
+		.select dl {
+		white-space: normal
+	   }
+		.select dd {
+		margin-left: 50px;
+		margin-top: 10px;
+		height: 40px
+   		}
+		
+		.select b {
+		width: 180px;
+		display: block;
+		float: left;
+		font-weight: bold;
+	  }
+		.select span {
+		margin-top: -27px;
+		display: block;
+		float: right;
+		width: 820px;
+		overflow:hidden;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+
+	}
+		
+	}
+	
+</style>
+<div class="scrollBox2 clearfloat">
+	<dd class="singselect">
+		<dl>请选您要查询的行政区：</dl>
+		<a ng-class="{'in':current==index}" ng-repeat="(index,item) in areaList" ng-click="change(item.areaName,index,item.areaCode)">
+			{{item.areaName}}
+		</a>
+	</dd>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in queryList">
+				<a class="select" ng-click="spaceInfo(list.RN)">
+					<dd class="top">
+						<dl>{{ list.ORG_NAME }}</dl>
+					</dd>
+					<dd>
+						<dl><b>地址：</b><span>{{ list.COM_ADDR }}</span></dl>
+					</dd>
+					<dd>
+						<dl><b>联系电话：</b><span>{{ list.LINK_TEL}}</span></dl>
+					</dd>
+					<!-- <dd>
+						<dl><b>咨询电话：</b><span>{{ list.telphone}}</span></dl>
+					</dd> -->
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

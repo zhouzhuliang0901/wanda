@@ -1,0 +1,94 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 80px;
+		margin-left: 210px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+	}
+	
+	.singselect a {
+		float: left;
+		/* width: 314px; */
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 24px;
+		padding: 0px 50px;
+	}
+	
+	.singselect p {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.input {
+		width: 73%;
+		height: 60px;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			margin-left: 140px;
+		}
+	}
+</style>
+<div class="scrollBox2 clearfloat">
+	<div class="singselect">
+		<p>请选择作用科室（必选）：</p>
+		<a ng-class="{'in':current==index}" ng-repeat="(index,item) in departmentList" ng-click="change(item.name,index,item.id)">
+			{{item.name}}
+		</a>
+	</div>
+	<div class="singselect">
+		<p>请选择耗材类别（必选）：</p>
+		<a ng-class="{'in':current1==index}" ng-repeat="(index,item) in hcTypeList" ng-click="change1(item.name,index,item.id)">
+			{{item.name}}
+		</a>
+	</div>
+	<div class="singselect">
+		<p>关键字：</p>
+		<input class="input" type="text" placeholder="请输入" ng-model="keyWord"/>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

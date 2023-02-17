@@ -1,0 +1,223 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+
+	.caption {
+		    margin-top: 86px;
+    margin-left: 220px;
+	}
+
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 9.4%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;
+		padding-left: 4%;
+		border: none;
+		background: rgba(0,0,0,0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+	    right: 5%;
+	    width: 52px;
+	}
+
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+
+	.sDetail{
+		float: left;
+		width: 1300px;
+    	height: 390px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-top: 80px;
+		margin-left: 105px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 2%;
+	}
+	.sDetail dd {
+		margin-top: 30px;
+	    height: 40px;
+	    width: 74%;
+	    margin: 0.9% auto;
+	}
+
+	.sDetail dl {
+		white-space: normal;
+		width: 80%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	.sDetail b {
+		width: 14%;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+
+	.select {
+		float: left;
+		width: 600px;
+    	height: 230px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1%;
+	}
+
+	.select dd {
+		margin-top: 30px;
+    height: 40px;
+    width: 74%;
+    margin: 2.6% auto;
+	}
+
+	.select dl {
+		white-space: normal;
+		width: 100%;
+		height: 100%;
+		line-height: 150%;
+	}
+
+	.select b {
+		width: 130px;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+		.sDetail{
+			width: 1000px;
+			margin-left: 0px;
+		}
+		.scrollBox2 {
+			height: 560px;
+		}
+		.sDetail dd{
+			width: 90%;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="schoolName" ng-if="isDetial">
+		<input type="text" placeholder="请输入学校名称关键字" ng-model="schoolName"/>
+		<img ng-click="querySchoolsInfo(schoolName)" src="../libs/common/images/icon-link9.png"/>
+	</div>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in queryList" ng-if="isDetial">
+				<a class="select" ng-click="currentSchoolInfo(list.XM)">
+					<dd>
+						<!--<b>机构名称</b>：-->
+						<dl style="font-weight: 700;">{{list.XM}}</dl>
+					</dd>
+					<dd>
+						<!--<b>电话</b>：-->
+						<!--<dl>{{ list.tel || "空"}}</dl>-->
+						<dl>{{list.STYPE}}</dl>
+					</dd>
+					<dd>
+						<!--<b>机构地址</b>：-->
+
+						<dl>{{list.DZ}}</dl>
+					</dd>
+				</a>
+			</div>
+			<div class="detailInfo"  ng-repeat="list in currentList" ng-if="!isDetial">
+				<a class="sDetail">
+					<dd>
+						<b>办学许可证</b>：
+						<dl>{{ list.XKZH || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>地址</b>：
+						<dl>{{ list.DZ || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>校长</b>：
+						<dl>{{ list.XZ || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>办学类型</b>：
+						<dl>{{ list.XXLX || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>办学内容</b>：
+						<dl>{{ list.BXNR || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>主管部门</b>：
+						<dl>{{ list.ZGBM || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>有效期限</b>：
+						<dl>{{ list.VALIDDATE || "空"}}</dl>
+					</dd>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

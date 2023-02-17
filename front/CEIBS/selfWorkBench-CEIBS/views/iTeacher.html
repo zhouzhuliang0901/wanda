@@ -1,0 +1,35 @@
+<section class="teacher" ng-show="version =='Chinese'">
+	<h2><img src="img/iconTeacherSubtit.png" alt="">教职员工证明打印</h2>
+	<div class="std">
+		<!--<a ng-click="choiceType('tchBasicInfo','在职证明（带薪）','monthSalary')" class="item i1">
+			<p class="signTxt">在职证明<br>（带薪）</p>
+		</a>-->
+		<a ng-click="choiceType('tchBasicInfo','收入证明','monthSalary')" class="item i4">
+			<p class="signTxt">收入证明</p>
+		</a>
+		<a ng-click="choiceType('tchBasicInfo','在职证明（普通）','noSalary')" class="item i2">
+			<p class="signTxt">在职证明<br>（普通）</p>
+		</a>
+		<a ng-click="choiceType('tchTravelExplain','在职证明（旅游签证用）','travelSalary')" class="item i3">
+			<p class="signTxt">在职证明<br>（旅游签证用）</p>
+		</a>
+	</div>
+</section>
+<section class="teacher" ng-show="version =='English'">
+	<h2><img src="img/iconTeacherSubtit.png" alt="">Faculty and Staff Certificate</h2>
+	<div class="std">
+		<!--<a ng-click="choiceType('tchBasicInfo','在职证明（带薪）','monthSalary')" class="item i1">
+			<p class="signTxt">在职证明<br>（带薪）</p>
+		</a>-->
+		<a ng-click="choiceType('tchBasicInfo','收入证明','monthSalary')" class="item i4">
+			<p class="signTxt">Income Certificate</p>
+		</a>
+		<a ng-click="choiceType('tchBasicInfo','在职证明（普通）','noSalary')" class="item i2">
+			<p class="signTxt">Incumbency Certificate</p>
+		</a>
+		<a ng-click="choiceType('tchTravelExplain','在职证明（旅游签证用）','travelSalary')" class="item i3">
+			<p class="signTxt">Incumbency Certificate<br>(For Tourism)</p>
+		</a>
+	</div>
+</section>
+<app-footer prev="prevStep()" default-is-show-next-btn="hidden"></app-footer>

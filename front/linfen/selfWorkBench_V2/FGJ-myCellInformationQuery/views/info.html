@@ -1,0 +1,192 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 680px;
+		overflow: scroll;
+	}
+
+	.house_list {
+		width: 1500px;
+		margin: 0 auto;
+	}
+
+	.house_list table {
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.house_list table th,
+	.house_list table td {
+		border: #477cbe 1px solid;
+		font-size: 20px;
+		padding: 10px;
+		text-align: center;
+	}
+
+	.house_list .info-title {
+		font-size: 24px;
+		margin: 10px 0;
+		text-align: center;
+		font-weight: bold;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.house_list {
+			width: 1000px;
+		}
+	}
+</style>
+<div class="contain">
+	<div class="scrollBox2 clearfloat">
+		<div class="house_list">
+			<p class="info-title">小区基本信息</p>
+			<table>
+				<tr>
+					<th>小区名称</th>
+					<td>{{basicinfo.COMMUNITYNAME}}</td>
+					<th>竣工日期</th>
+					<td>{{basicinfo.COMPLETIONDATE}}</td>
+				</tr>
+				<tr>
+					<th>小区地址</th>
+					<td>{{basicinfo.COMMUNITYADDRESS}}</td>
+					<th>总建筑面积（平方米）</th>
+					<td>{{basicinfo.BUILDINGAREA}}</td>
+				</tr>
+				<tr>
+					<th>区县</th>
+					<td>{{basicinfo.COUNTY}}</td>
+					<th>街道</th>
+					<td>{{basicinfo.STREETNAME}}</td>
+				</tr>
+				<tr>
+	<!-- 				<th>房管办名称</th>
+					<td>{{basicinfo.HOUSINGOFFICE}}</td> -->
+					<th>小区经理姓名</th>
+					<td>{{basicinfo.COMMUNITYMANAGER}}</td>
+				</tr>
+			</table>
+			<p class="info-title">小区管理处信息</p>
+			<table>
+				<tr>
+					<th>小区管理处名称</th>
+					<td>{{glcinfo.MANAGEMENTOFFICENAME}}</td>
+					<th>小区管理处邮编</th>
+					<td>{{glcinfo.ZIPCODE}}</td>
+				</tr>
+				<tr>
+					<th>小区管理处地址</th>
+					<td>{{glcinfo.MANAGEMENTOFFICEADDRESS}}</td>
+					<th>小区管理处联系人</th>
+					<td>{{glcinfo.MANAGEMENTOFFICECONTACTS}}</td>
+				</tr>
+				<tr>
+					<th>联系人电话</th>
+					<td>{{glcinfo.CONTACTSPHONE}}</td>
+					<th>物业投诉电话</th>
+					<td>{{glcinfo.PROPERTYCOMPLAINTTEL}}</td>
+				</tr>
+				<tr>
+					<th>日间维修电话</th>
+					<td>{{glcinfo.DAYTIMEMAINTENANCETEL}}</td>
+					<th>夜间维修电话</th>
+					<td>{{glcinfo.NIGHTREPAIRTEL}}</td>
+				</tr>
+				<tr>
+					<th>小区管理处传真</th>
+					<td>{{glcinfo.FAX}}</td>
+					<th></th>
+					<td></td>
+				</tr>
+			</table>
+			<p class="info-title">物业服务企业信息</p>
+			<table>
+				<tr>
+					<th>物业名称</th>
+					<td>{{wyinfo.PROPERTYNAME}}</td>
+					<th>注册区县名称</th>
+					<td>{{wyinfo.COUNTY}}</td>
+				</tr>
+				<tr>
+					<th>物业服务合同开始日期</th>
+					<td>{{wyinfo.CONTRACTSTARTSDATE}}</td>
+					<th>物业服务合同结束日期</th>
+					<td>{{wyinfo.CONTRACTENDDATE}}</td>
+				</tr>
+			<!-- 	<tr>
+					<th>物业企业资质等级</th>
+					<td>{{wyinfo.PROPERTYQUALIFICATION}}</td>
+					<th></th>
+					<td></td>
+				</tr> -->
+				<!-- <tr>
+					<th>物业企业办公地址</th>
+					<td>{{wyinfo.PROPERTYADDRESS}}</td>
+					<th>法人</th>
+					<td>{{wyinfo.JURIDICALPERSON}}</td>
+				</tr>
+				<tr>
+					<th>法人手机</th>
+					<td>{{wyinfo.JURIDICALPERSONPHONE}}</td>
+					<th>企业联系人</th>
+					<td>{{wyinfo.ENTERPRISECONTACTS}}</td>
+				</tr>
+				<tr>
+					<th>物业企业资质等级名称</th>
+					<td>{{wyinfo.PROPERTYQUALIFICATIONNAME}}</td>
+					<th>资质证书编号</th>
+					<td>{{wyinfo.QUALIFICATIONNUMBER}}</td>
+				</tr>
+				<tr>
+					<th>资质证书颁布日期</th>
+					<td>{{wyinfo.QUALIFICATIONISSUEDDATE}}</td>
+					<th></th>
+					<td></td>
+				</tr> -->
+			</table>
+			<p class="info-title">业主大会及业委会信息</p>
+			<table>
+				<tr>
+					<th>业主大会名称</th>
+					<td>{{yzinfo.OWNERSCONGRESSNAME}}</td>
+					<th>业委会备案日期</th>
+					<td>{{yzinfo.INDUSTRYCOMMITTEEDATE}}</td>
+				</tr>
+				<tr>
+					<th>业主大会代码</th>
+					<td>{{yzinfo.OWNERSCONGRESSCODE}}</td>
+					<th>业主大会电话</th>
+					<td>{{yzinfo.OWNERSCONGRESSTEL}}</td>
+				</tr>
+				<tr>
+					<th>第几届</th>
+					<td>{{yzinfo.OWNERSCONGRESSSESSIONS}}</td>
+					<th>任期开始日期</th>
+					<td>{{yzinfo.TERMOFFICESTARTSDATE}}</td>
+				</tr>
+				<tr>
+					<th>任期结束日期</th>
+					<td>{{yzinfo.TERMOFFICEENDDATE}}</td>
+					<th>业委会备案证号</th>
+					<td>{{yzinfo.INDUSTRYCOMMITTEECODE}}</td>
+				</tr>
+				<tr>
+					<th>主任</th>
+					<td>{{ownerInfo.directorName}}</td>
+					<th>副主任</th>
+					<td>{{ownerInfo.viceDirectorName}}</td>
+				</tr>
+			</table>
+
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>

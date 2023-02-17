@@ -1,0 +1,78 @@
+<style type="text/css">.scrollBox2 {
+	width: 1500px;
+	height: 600px;
+	margin-top: 1%;
+	margin-left: 11%;
+}
+
+.caption {
+	margin-top: 86px!important;
+	margin-left: 220px!important;
+}
+
+.wrapper {
+	width: 1500px;
+	height: 100%;
+}
+
+.wrapper:first-child {
+	width: 90%;
+}
+
+.table-sty1 {
+	width: 100%;
+	table-layout: auto;
+	margin: 2% auto;
+}
+
+.table-sty1 td {
+	padding: 20px 10px;
+	font-size: 18px;
+	color: #fff;
+	line-height: 40px;
+	text-align: center;
+	border: #477cbe 1px solid;
+	word-break: break-all;
+	word-wrap: break-word;
+	white-space: normal;
+}
+
+.tdOne {
+	width: 20%;
+}
+
+.tdTwo {
+	width: 30%;
+}
+
+.gray {
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (min-width:1279px) and (max-width:1281px) {
+	.scrollBox2 {
+		width: 1130px;
+		margin-left: 6%;
+	}
+}</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<table class="table-sty1" cellspacing="0">
+				<tbody>
+					<tr ng-repeat="item in Item">
+						<td class="gray tdOne">{{item.firstName || "暂无"}}</td>
+						<td class="tdTwo">{{item.firstValue || "暂无"}}</td>
+						<td class="gray tdOne">{{item.secondName || "暂无"}}</td>
+						<td class="tdTwo">{{item.secondValue || '暂无'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

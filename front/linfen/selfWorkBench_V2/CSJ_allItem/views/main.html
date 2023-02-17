@@ -1,0 +1,262 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 28px 0 0 22px;
+	}
+
+	.linkt {
+		position: relative;
+		width: 1800px;
+		margin-top: 40px;
+		left: 150px;
+	}
+
+	#scrollContain {
+		overflow: hidden;
+	}
+
+	#wrapper {
+		width: 1800px;
+		height: 655px;
+		overflow: hidden;
+	}
+
+	.select {
+		float: left;
+		width: 700px;
+		height: 110px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 25px;
+		text-align: center;
+	}
+
+	.stuff {
+		width: 700px;
+		height: 110px;
+		display: table-cell;
+		text-align: center;
+		padding: 0px 36px;
+		vertical-align: middle;
+		font-size: 30px;
+	}
+
+	.box-title {
+		float: left;
+		color: #fefefe;
+		width: 1600px;
+		margin: 20px 240px;
+		font-size: 30px;
+		opacity: .6;
+	}
+	/*
+	 * 弹出层
+	 */
+
+	.alert-choice {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .6);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+
+	.alert-content {
+		overflow: hidden;
+		position: relative;
+		background-color: rgba(39, 93, 161, .9);
+		margin: 100px auto;
+		padding: 10px;
+		width: 1280px;
+		background: url(../libs/common/images/bg-alert.png) no-repeat;
+		background-position: center center;
+		background-size: 100% 100%;
+		font-size: 30px;
+	}
+
+	.alert-header p {
+		width: 89%;
+		float: left;
+		font-size: 50px;
+		font-weight: bold;
+		opacity: .8;
+		margin-left: 20px;
+	}
+
+	.alert-header img {
+		width: 70px;
+		float: left;
+	}
+
+	.alert-header {
+		margin: 55px 50px 0px 75px;
+		display: inline-block;
+		width: 88%;
+		border-bottom: 1px solid;
+		padding: 30px 0px;
+	}
+
+	.button-close {
+		padding: 0;
+		cursor: pointer;
+		background: transparent;
+		border: 0;
+		color: white;
+	}
+
+	.button-close span {
+		font-size: 30px;
+	}
+
+	.alert-body {
+		position: relative;
+		padding: 15px;
+	}
+
+	.selector-group>* {
+		float: left;
+	}
+
+	.selector-group {
+		padding: 15px 0px;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.selector-group .group-title {
+		width: 22%;
+		text-align: right;
+		padding: 25px 0px;
+	}
+
+	.selector-group .group-content {
+		width: 78%;
+	}
+
+	.group-content ul li {
+		float: left;
+		padding: 20px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin: 5px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+	}
+
+	.group-content ul li.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	#itemTitle {
+		padding: 15px 0px;
+	}
+</style>
+<p class="caption">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div id="scrollContain">
+			<!--<div class="box-title">社会保障</div>
+			<div class="linkt" ng-repeat="stuff in nameList">
+				<a class="select" repeat-finish ng-click="choiceType(stuff.type,stuff.itemName,stuff.url)">
+					<div class="stuff">{{ stuff.itemName }}</div>
+				</a>
+			</div>-->
+			<div class="box-title" ng-show='archivesList.length>0'>档案查询</div>
+			<div class="linkt" ng-repeat="stuff in archivesList">
+				<a class="select" repeat-finish ng-click="choiceType(stuff.type,stuff.itemName,stuff.url)">
+					<div class="stuff">{{ stuff.itemName }}</div>
+				</a>
+			</div>
+			<div class="box-title" ng-show='handleList.length>0'>办件申领</div>
+			<div class="linkt" ng-repeat="stuff in handleList">
+				<a class="select" repeat-finish ng-click="choiceType(stuff.type,stuff.itemName,stuff.url)">
+					<div class="stuff">{{ stuff.itemName }}</div>
+				</a>
+			</div>
+			<!--<div class="box-title" ng-show='otherList.length>0'>其他</div>
+			<div class="linkt" ng-repeat="stuff in otherList">
+				<a class="select" repeat-finish ng-click="choiceType(stuff.type,stuff.itemName,stuff.url)">
+					<div class="stuff">{{ stuff.itemName }}</div>
+				</a>
+			</div>-->
+		</div>
+	</div>
+</div>
+
+<!--弹出层-->
+<div class="alert-choice" ng-show="showChoice">
+	<div class="alert-content">
+		<div class="alert-header">
+			<img src="../libs/common/images/point1.png" alt="" />
+			<p>{{itemName}}</p>
+			<button class="button-close" ng-click="close()">
+				<span>X</span>
+			</button>
+		</div>
+		<div class="alert-body">
+			<div>
+				<!--<div class="selector-group">
+					<div class="group-title">
+						事项名称：
+					</div>
+					<div class="group-content" id="itemTitle">
+						{{itemName}}
+					</div>
+				</div>-->
+				<div class="selector-group">
+					<div class="group-title">
+						市/省：
+					</div>
+					<div class="group-content">
+						<ul>
+							<li ng-class="{'in':currentPro==index}" ng-repeat='(index,item) in proviceList' ng-click="choiceProvice(index,item)">{{item.name}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="selector-group" ng-show='cityList.length>0'>
+					<div class="group-title">
+						区/市：
+					</div>
+					<div class="group-content">
+						<ul>
+							<li ng-class="{'in':currentCity==index}" ng-repeat='(index,item) in cityList' ng-click="choiceCity(index,item)">{{item.name}}</li>
+						</ul>
+					</div>
+				</div>
+				<div class="selector-group" ng-show='streetList.length>0'>
+					<div class="group-title">
+						街道/市/区/县：
+					</div>
+					<div class="group-content">
+						<ul>
+							<li ng-class="{'in':currentStreet==index}" ng-repeat='(index,item) in streetList' ng-click="choiceStreet(index,item)">{{item.name}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

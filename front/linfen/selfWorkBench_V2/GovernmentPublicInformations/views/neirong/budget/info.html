@@ -1,0 +1,34 @@
+<style>
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 16%;
+		color: #fff;
+		opacity: 1;
+	}
+
+	#wrapper {
+		width: 100%;
+		height: 98%;
+		overflow: hidden;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	.wrapper-content{
+		padding: 0px 10px;
+	}
+</style>
+<p class="caption">
+	{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="box">
+		<div id="wrapper">
+			<div ng-bind-html='content' class="wrapper-content"></div>
+		</div>
+	</div>
+</div>
+
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

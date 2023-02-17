@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <title>立式查询系统</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/bs.css"/>
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.css"/>
+</head>
+<body>
+    <div class="con-box">
+        <p id="timeMark"></p>
+        <header class="header">
+            <div class="hd-title"></div>
+        </header>
+        <nav class="nav">
+            <div class="con-tog bg_light"  id="con-toggle_2" >按部门</div>
+        </nav>
+        <section class="section">
+            <ul class="section-item2" id="con_one_1">
+              <script id="organList" type="text/html">
+                    {{each organList}}
+                        <li>
+                            <a onclick="getItemName('{{$value.organCode}}', 'ogran')">{{$value.description}}</a> 
+                        </li>
+                    {{/each}}
+                </script>
+            </ul>
+        </section>
+        <footer class="footer">
+            <div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt=""/></div>
+        </footer>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/template.js"></script>
+<script src="js/common.js"></script>
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+   // 根目录
+   var webRoot = "";
+   $(function () {
+	   // 获取根目录
+	   webRoot = getRootPath_web();
+	   
+	  // 加载部门和区域基本信息
+	   getBasicMsg();
+	   
+	   // 页面倒计时
+	   timeCount (70);
+    } );
+	
+	// 加载部门和区域基本信息
+	function getBasicMsg() {
+	   $.ajax({
+	        type : "post",
+	        url : "http://12.113.230.5/aci/autoterminal/forward.do", //受办理系统项目IP
+            data :{fmd :"aci-selfquery", fdo :"getAllHallAndOrgan"},
+            dataType : "jsonp",
+            jsonp : "jsonpCallback",
+	        success : function(dataJsonp) {
+	            var data=eval("("+JSON.stringify(dataJsonp)+")");
+	           
+ 	            // 显示区域数据和部门数据
+                var organList = template('organList', data);
+			    $("#con_one_1").html(organList);  
+			    // 滚动条
+                $("#con_one_1").mCustomScrollbar({
+		            theme:"rounded-dots",
+		            scrollInertia:400
+		       });
+	        },
+	        error : function() {
+	        }
+	    });
+	}
+        
+    // 获取相关类别下事项名称
+    function getItemName (id, type) {
+        // 事项名称页面
+         window.location.href="guide_name.html?type="+type+"&id="+id;
+    }
+    
+    // 返回
+    function back(){
+         window.location.href="index.html";
+    }
+</script>
+</body>
+</html>

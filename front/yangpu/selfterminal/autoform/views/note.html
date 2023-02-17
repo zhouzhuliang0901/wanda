@@ -1,0 +1,46 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#"><img src="../libs/common/images/home.png" style="height: 30px;"></a>
+		</li>
+		<li>
+			<a href="#">自助取表</a>
+		</li>
+		<li>
+			<a href="#main">选择表格</a>
+		</li>
+		<li class="active">{{formName}}</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<div class="bg"></div>
+		<div class="vertical-middle horizontal-middle leftLump">
+			<img src="../libs/common/images/prototype.png">
+			<img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+			<div>请确认表格信息<br />并点击“取表”以继续</div>
+			<div class="sub-index  horizontal-middle">
+				<a class="blue-green active" style="padding:15px 0px;width:100%;font-size:30px;margin-top:50px;">重选所需表格</a>
+			</div>
+		</div>
+	</div>
+	<div class="action">
+		<div class="imageShow vertical-middle" style="height:700px;width:700px;left:50px;overflow:hidden;">
+			<a class="left control-group"><img class="vertical-middle horizontal-middle" src="../libs/common/images/left.png" width="30" /></a>
+			<a class="right control-group"><img class="vertical-middle horizontal-middle" src="../libs/common/images/right.png" width="30" /></a>
+			<img class="show-img" ng-src="{{showImg}}" />
+		</div>
+		<div style="position:absolute;width:300px;font-size:30px;right:30px;top:50px;">
+			<b>取表步骤</b>
+			<p style="font-size:0.9em">
+				1. 刷身份证<br> 2. 预览表格<br> 3. 打印表格<br>
+			</p>
+		</div>
+		<a class="btn_radius_50" style="position: absolute;left: 780px;top: 610px;float: right; width: 274px;">
+			<div class="greyLight" ng-click="takeTable()" style="padding: 0  25px;">
+				<img src="../libs/common/images/icon200/print.png" height="80">
+				<label>取表</label>
+			</div>
+		</a>
+	</div>
+</div>

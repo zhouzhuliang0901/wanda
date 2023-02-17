@@ -1,0 +1,35 @@
+<style type="text/css">
+	.boldTips{
+		margin-top: 60px;
+	}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助取证</a>
+        </li>
+
+        <li class="active">签名</li>
+    </ol>
+</nav>
+<div class="shadowBox signature">
+	<p class="boldTips">请在下方框内签名</p>
+    <div class="signatureBoard">
+        <canvas id="signature" ng-click="isSignature()" height="844" width="880">
+            		请在此签名
+        </canvas>
+    </div>
+    <div class="btn left clearRect" ng-click="notSignature()">
+        <img class="eventIcon" src="images/icon/del.png" alt="">
+        <span class="event">重写</span>
+    </div>
+    <div class="btn right saveImg" ng-click="saveSignature()">
+        <img class="eventIcon" src="images/icon/edit.png" alt="">
+        <span class="event">确认</span>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<div class="centerMade">
+	<img class="largeImg" ng-src="images/档案证明签收单.png" />
+	<div class="tipsBox">
+		<p>档案证明签收单</p>
+		<div class="boxBody">
+			<table class='table1'>
+				<tr>
+					<th style='width:15%'>姓名</th>
+					<th style='width:25%'>身份证号</th>
+					<th style='width:20%'>事由</th>
+					<th style='width:40%'>提供内容</th>
+				</tr>
+				<tr>
+					<th>{{itemName}}</th>
+					<th>{{itemNumber}}</th>
+					<th>{{item}}</th>
+					<th>流动人员人事档案存放证明</th>
+				</tr>
+			</table>
+		</div>
+		<div class="boxBottom">
+			<p>签收人：(待签)&emsp;&emsp;&emsp;身份证号：{{itemNumber}}&emsp;&emsp;&emsp;{{dataTime}}</p>
+		</div>
+
+	</div>
+
+</div>
+<apptb-footer prev="prevStep()" next="next()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.centerMade {
+		margin-left: 100px;
+		margin-top: 65px;
+		display: block;
+		height: 775px;
+		width: 1660px;
+	}
+	
+	.largeImg {
+		margin-left: 60px;
+		width: 445px;
+		height: 700px;
+	}
+	
+	.tipsBox>p {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 40px;
+		color: yellow;
+	}
+	
+	.boxBottom>p {
+		font-size: 30px;
+		color: white;
+		margin-top: 100px;
+		margin-left: 100px;
+	}
+	
+	.tipsBox {
+		height: 700px;
+		width: 1125px;
+		float: right;
+		border: 1px solid gray;
+	}
+	
+	.boxBody {
+		width: 100%;
+		text-align: center;
+		margin-top: 100px;
+	}
+	
+	.table1 {
+		text-align: center;
+		font-size: 25px;
+		width: 100%;
+		table-layout: fixed;
+		word-break: break-all;
+		height: 200px;
+	}
+	
+	table,
+	th,
+	td {
+		border: 1px solid #2864b0;
+		text-align: center;
+		overflow: hidden;
+	}
+	
+	table {
+		border-collapse: collapse;
+	}
+	
+	tr {
+		border: 1px solid white;
+	}
+</style>

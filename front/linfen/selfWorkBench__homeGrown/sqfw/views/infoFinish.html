@@ -1,0 +1,84 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>人证核验</li>
+		<li>信息填写</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+
+	<div class="main3" id="print1" style="height:650px">
+		<div class="successBox1">
+			<div class="shadow1"></div>
+			<div class="successBox2">
+				<div class="cont1">
+					<h3>操作成功！</h3>
+					<p class="p1">事项名称</p>
+					<p class="p2" ng-bind="itemName"></p>
+				</div>
+				<div class="line1"></div>
+				<div class="cont1">
+					<p class="p1">办件编码</p>
+					<p class="p2" ng-bind="applyNo"></p>
+					<p class="p3"></p>
+				</div>
+				<div class="line2"></div>
+			</div>
+			<p ng-show="!show" style="text-align: center;margin-top: 20px;margin-left: 125px;font-size: 25px;font-weight: bold;" ng-bind="stuffName"></p>
+		</div>
+		<div class="text" ng-show="show">
+			<p style="color: #FEE889;font-size: 30px;margin-bottom: 20px;">温馨提示:</p>
+			<p style="font-size: 30px;line-height: 45px;margin-bottom: 20px;">1. 30个工作日后，凭办理凭条或者身份证、随申办电子亮证到所选社区事务受理中心领卡。</br>2. 办理敬老卡后，即可领取《老年综合津贴》，详情请打印告知单或者扫描下方二维码了解详情。</p>
+			<div id="jlkimagr">
+				<img src="images/jlk.png" />
+			</div>
+		</div>
+		<!--<div class="loadingBox" ng-show="isLoding">
+	        <img src="images/loading.gif" alt="">
+	        <p>正在加载数据，请稍后...</p>
+    	</div>-->
+	</div>
+
+</div>
+<apptb-footer prev="prev()" next="goHome()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.text {
+		width: 670px;
+		float: left;
+		margin-left: 60px;
+		margin-top: 18px;
+	}
+	
+	.loadingBox {
+		margin-left: 830px;
+		margin-top: 170px;
+	}
+	
+	.loadingBox p {
+		margin-left: -138px;
+		font-size: 38px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.main3 {
+			width: 1100px;
+			height: 508px !important;
+		}
+		.text {
+			width: 458px;
+			float: left;
+			position: absolute;
+			margin-left: 616px;
+			margin-top: 28px;
+		}
+		.text p {
+			font-size: 24px !important;
+			line-height: 36px !important;
+		}
+		#jlkimagr img{
+			width: 180px;
+		}
+	}
+</style>

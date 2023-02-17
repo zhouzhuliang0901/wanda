@@ -1,0 +1,51 @@
+<apptb-header fun-name="办理门急诊就医记录册"></apptb-header>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="choiceReason('Renewed')">
+				<img src="../libs/common/images/Renewed.png" />
+				<p>用完换新</p>
+			</a>
+			<a ng-click="choiceReason('newMore')">
+				<img src="../libs/common/images/newMore.png" />
+				<p>新增制册</p>
+			</a>
+			<a ng-click="choiceReason('Reissue')">
+				<img src="../libs/common/images/Reissue.png" />
+				<p>遗失补办</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<print show="isShowPrint"></print>
+
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden"></apptb-footer>
+<style type="text/css">
+	.contain {
+		padding: 100px 100px 0px 100px;
+	}
+	.contain .caption {
+		margin-left: 100px;
+	}
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 130px;
+		display: flex;
+		justify-content: center;
+	}
+	.scrollBox2 .linkBox1 a {
+	    float: left;
+	    width: 303px;
+	    height: 273px;
+	    /*margin-right: 164px;
+	    margin-top: 84px;*/
+	   	margin: 0px 82px;
+	    text-align: center;
+	    border-radius: 15px;
+	    position: relative;
+	}
+</style>

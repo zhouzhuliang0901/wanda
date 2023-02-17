@@ -1,0 +1,100 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.container {
+		width: 1000px;
+		height: 608px;
+		position: absolute;
+		left: 50%;
+		top: 65%;
+		transform: translate(-50%, -50%);
+		color: #1a5aad;
+		padding-top: 35px;
+		box-sizing: border-box;
+	}
+	
+	.container .loginType {}
+	
+	.container .loginType:first-child {}
+	
+	.container .loginType>p {
+		height: 75px;
+		line-height: 88px;
+		color: #fff;
+		font-size: 36px;
+		text-align: center;
+	}
+	
+	.container .loginType>.selfLogin {
+		background: url(../libs/common/images/self.png) no-repeat;
+		background-position: 316px 26px;
+	}
+	
+	.container .loginType>.otherLogin {
+		background: url(../libs/common/images/other.png) no-repeat;
+		background-position: 316px 28px;
+	}
+	
+	.container .loginType ul li a {
+		display: inline-block;
+		overflow: hidden;
+		text-align: center;
+		padding-left: 60px;
+	}
+	
+	.container .loginType ul li a p {
+		height: 100px;
+		line-height: 100px;
+		font-size: 30px;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+		    margin: 15px 50px;
+		}
+		.contain {
+		    width: 1100px;
+		    height: 700px;
+		    position: absolute;
+		    left: 50%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+		}
+		.contain .stable p {
+		    color: #e1ba1c;
+		    font-weight: bold;
+		     margin-left: auto!important;
+		    font-size: 26px;
+		    margin-top: 50px;
+		    text-align: center;
+		}
+	}
+</style>
+
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="stable">
+		<p style="color:#e1ba1c;font-weight:bold;margin-left: 375px;font-size: 26px;margin-top: 50px;">注：未收到短信通知其通过自动签注的人员不支持自助更新，请前往窗口办理 </p>
+		<div class="container">
+			<div class="loginType">
+				<ul>
+					<li>
+						<a ng-click="choice()">
+							<img style="width: 695px;margin-left: 78px;" src="{{ResidenceImg}}" />
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

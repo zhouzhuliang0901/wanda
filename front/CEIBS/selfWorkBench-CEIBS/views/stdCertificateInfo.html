@@ -1,0 +1,161 @@
+<style type="text/css">
+	.infoReport input {
+		width: 86%;
+	}
+	.tips{
+		float: right;
+		font-size: 21px;
+		margin-top: 86px;
+		margin-right: 20px;
+		color: #A61316;
+		opacity: .6;
+	}
+</style>
+<section class="report" ng-show="version =='Chinese'">
+	<!-- 成绩单 -->
+	<h2>填写信息</h2>
+	<form action="">
+		<table class="infoReport">
+			<tbody>
+				<tr>
+					<th><span>*</span>姓名：</th>
+					<td><input type="text" name="cname" id="cname" ng-model="cname" readonly></td>
+					<th><span>*</span>学号：
+						<div>
+					</th>
+					<td><input type="text" name="sno" id="sno" ng-model="sno" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>出生日期：</th>
+					<td>
+						<!-- 日历 -->
+						<input type="text" name="birthday" id="birthday" ng-model="birthday" readonly>
+					</td>
+					<th><span>*</span>性别：</th>
+					<td>
+						<div class="set2">
+							<a ng-repeat="(index,item) in sexList" ng-class="{'in':current==index}" ng-click="choice(index,item,'sex')">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span>*</span>电子邮箱：</th>
+					<td><input type="text" name="email" id="email" ng-model="email" readonly></td>
+					<th><span>*</span>手机：</th>
+					<td><input type="text" name="mobile" id="mobile" ng-model="mobile" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>身份证件种类：</th>
+					<td>
+						<div class="set2">
+							<a ng-repeat="(index,item) in typeCertificateList" ng-class="{'in':current1==index}" ng-click="choice(index,item,'typeCertificate')">{{item.name}}</a>
+						</div>
+					</td>
+					<th><span>*</span>证件号码：</th>
+					<td><input type="text" name="idPassport" id="idPassport" ng-model="idPassport" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>课程选择：</th>
+					<td colspan="3">
+						<div class="sets">
+							<a class="userType" ng-repeat="(index,item) in sourseStatusList" ng-class="{'in':current2==index}" ng-click="choice(index,item,'userType')">{{item.userType}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span>*</span>申请人状态：</th>
+					<td colspan="3">
+						<div class="sets" ng-if="status!=''&&status!=undefined&&status!=null">
+							<a class="state in">{{status}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+				<th><span>*</span>打印类型：</th>
+					<td colspan="3">
+						<div class="sets">
+							<a class="printState" ng-repeat="(index,item) in printStateList" ng-class="{'in':current3==index}" ng-click="choice(index,item,'printState')">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<p class="tips" ng-show = "itemName == '成绩单'">Tips:如对成绩单有疑问请联系教务长办公室</p>
+	</form>
+</section>
+<section class="report" ng-show="version =='English'">
+	<!-- 成绩单 -->
+	<h2>fill in information</h2>
+	<form action="">
+		<table class="infoReport">
+			<tbody>
+				<tr>
+					<th><span>*</span>Name：</th>
+					<td><input type="text" name="cname" id="cname" ng-model="cname" readonly></td>
+					<th><span>*</span>Student Number：
+						<div>
+					</th>
+					<td><input type="text" name="sno" id="sno" ng-model="sno" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>Birth Date：</th>
+					<td>
+						<!-- 日历 -->
+						<input type="text" name="birthday" id="birthday" ng-model="birthday" readonly>
+					</td>
+					<th><span>*</span>Gender：</th>
+					<td>
+						<div class="set2">
+							<a ng-repeat="(index,item) in sexList" ng-class="{'in':current==index}" ng-click="choice(index,item,'sex')">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span>*</span>E-mail：</th>
+					<td><input type="text" name="email" id="email" ng-model="email" readonly></td>
+					<th><span>*</span>Mobile Phone：</th>
+					<td><input type="text" name="mobile" id="mobile" ng-model="mobile" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>Type of ID：</th>
+					<td>
+						<div class="set2">
+							<a ng-repeat="(index,item) in typeCertificateList" ng-class="{'in':current1==index}" ng-click="choice(index,item,'typeCertificate')">{{item.name}}</a>
+						</div>
+					</td>
+					<th><span>*</span>ID number：</th>
+					<td><input type="text" name="idPassport" id="idPassport" ng-model="idPassport" readonly></td>
+				</tr>
+				<tr>
+					<th><span>*</span>Course selection：</th>
+					<td colspan="3">
+						<div class="sets">
+							<a class="userType" ng-repeat="(index,item) in sourseStatusList" ng-class="{'in':current2==index}" ng-click="choice(index,item,'userType')">{{item.userType}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th><span>*</span>applicant status：</th>
+					<td colspan="3">
+						<div class="sets" ng-if="status!=''&&status!=undefined&&status!=null">
+							<a class="state in">{{status}}</a>
+						</div>
+					</td>
+				</tr>
+				<tr>
+				<th><span>*</span>Print Type：</th>
+					<td colspan="3">
+						<div class="sets">
+							<a class="printState" ng-repeat="(index,item) in printStateList" ng-class="{'in':current3==index}" ng-click="choice(index,item,'printState')">{{item.name}}</a>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+		<p class="tips"  ng-show = "itemName == '成绩单'">Tips:If you have any questions about the transcript, please contact the Office of the Academician</p>
+	</form>
+</section>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

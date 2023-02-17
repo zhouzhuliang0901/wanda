@@ -1,0 +1,42 @@
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 220px;
+		display: flex;
+		justify-content: space-around;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+	    float: left;
+	    width: 303px;
+	    height: 273px;
+	    margin: 0px;
+	    overflow: hidden;
+	    text-align: center;
+	    border: 1px solid rgba(233, 237, 240, .4);
+	    background: #2864b0;
+	}
+</style>
+
+<p class="caption">{{operation}}</p>
+
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceType('basic_user_open_account_order')">
+			<img src="../libs/common/images/icon/person.png" />
+			<p>基本户开户预约</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('normal_useropen_account_order')">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>一般户开户预约</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('FT_open_account_order')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>FT账户开户预约</p>
+		</a>
+
+	</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="isShowCancelBtn"></alert>

@@ -1,0 +1,54 @@
+<div class="scrollBox2 clearfloat">
+	<div class="cardreadingBox1 clearfloat">
+		<a href="javascript:;">
+			<img ng-if="cloud" class="tipsImg" ng-class="{'loading':loading}" ng-src="{{tipsImage}}" />
+			<img style="width:250px;height:250px;" ng-if="load" class="tipsImg" ng-class="{'loading':loading}" ng-src="{{tipsImage}}" />
+			<p>{{tipsText}}</p>
+		</a>
+	</div>
+	<a href="javascript:;" class="stamp reR" ng-click="reLogin()" ng-if="fetchError">重新登录</a>
+	<a href="javascript:;" class="stamp success" ng-click="success()" ng-if="fetchError">完&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</a>
+</div>
+<img ng-show="" src="../libs/common/images/tips/cloud.png"/>
+<img ng-show="" src="../libs/common/images/loadings.gif"/>
+<style type="text/css">
+	.scrollBox2 .cardreadingBox1{
+		padding-top: 0px;
+	}
+	.scrollBox2 .cardreadingBox1 img {
+		width: 1700px;
+		height: auto;
+	}
+	.scrollBox2 .cardreadingBox1 .loading{
+		width: 300px;
+	}
+	.clearfloat {
+		position: relative;
+	}
+	.stamp {
+		position: absolute;
+		display: inline-block;
+		overflow: hidden;
+		top: 460px;
+		left: 750px;
+		height: 68px;
+		line-height: 68px;
+		border: 1px solid #fcfeff;
+		padding: 0 120px;
+		background-color: hsla(193, 100%, 42%, 0.69);
+		border-radius: 10px;
+	}
+	
+	.stamp.reR {
+		left: 500px;
+	}
+	
+	.stamp.success {
+		left: 960px;
+		background-color: #56ce97;
+	}
+	
+
+	
+
+</style>

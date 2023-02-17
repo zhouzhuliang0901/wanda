@@ -1,0 +1,95 @@
+<style type="text/css">
+	#wrapper {
+		width: 100%;
+		height: 740px;
+	    overflow: hidden;
+	}
+
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 930px;
+		background: url(../guideline/images/bg-listCon.png) no-repeat;
+		background-size: 930px 90px;
+	}
+.tabBotbox1inner .linkbox1 a div{
+	    height: 80px;
+    width: inherit;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+}
+	.dept {
+		color: #fefefe;
+		opacity: .6;
+	}
+
+	@media screen and (max-width: 1600px) {
+		#wrapper {
+		    width: 100%;
+		    height: 680px;
+		    overflow: hidden;
+		}
+		.tabBotbox1inner .linkbox1 a.firstMenu {
+		    float: left;
+		    width: 210px;
+		    height: 70px;
+		    text-align: center;
+		    overflow: hidden;
+		    font-size: 24px;
+		    background: url(../guideline/images/bg-list.png) no-repeat;
+		    background-size: 100% 100%;
+		    margin-left: 40px;
+		    margin-bottom: 40px;
+		    /* text-overflow: ellipsis; */
+		    line-height: 70px;
+		    padding: 10px 20px;
+		    /* white-space: nowrap; */
+		}
+		.tabBotbox1inner .linkbox1.matter a.secondMenu {
+			float: left;
+			width: 87%;
+		    height: auto;
+		    text-align: center;
+		    overflow: hidden;
+		    font-size: 24px;
+		    background: url(../guideline/images/bg-listCon.png) no-repeat;
+		    background-size: 100% 100%;
+		    margin-left: 40px;
+		    margin-bottom: 40px;
+		    white-space: nowrap;
+		    padding: 20px;
+		    white-space: initial;
+		}
+	}
+</style>
+<div class="TabBox1">
+	<ul class="tabul1 clearfloat">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatterCon(index,item)">{{item}}</li>
+		<div ng-show="!isRead" class="placeholder"></div>
+		<div ng-show="idRead" class="inputBox1 inputDiv">
+			<input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+			<a class="btn_radius_50" style="right:20px;top:18px;" ng-click="getSearchMatter()">
+				<div class="greyLight">
+					<img src="images/icon-link9.png" height="50" width="50" />
+				</div>
+			</a>
+		</div>
+	</ul>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper" class="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':deptindex==1}">
+						<a ng-show="dept" class="secondMenu" ng-class="{'active':$index==active}" repeat-finish ng-repeat="item in itemName" ng-click="toMaterials(item.stItemName,item.organCode,item.organName,item.stItemNo)"><div>{{item.stItemName||item.organName}}</div></a>
+						<a ng-show="!dept" class="firstMenu" ng-class="{'active':$index==active}" repeat-finish ng-repeat="itemType in itemType" ng-click="toItemTypeMaterials(itemType.itemTypeName,itemType.itemTypeCode,itemType.type)"><div>{{itemType.itemTypeCode}}</div></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="goHome()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 565px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

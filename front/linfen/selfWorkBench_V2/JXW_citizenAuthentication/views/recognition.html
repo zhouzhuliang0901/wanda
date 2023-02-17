@@ -1,0 +1,68 @@
+<style type="text/css">
+	.clearfloat {
+		position: relative;
+	}
+	
+	 .stamp {
+        position: absolute;
+        left: 50%;
+        top: 550px;
+        transform: translate(-50%);
+        overflow: hidden;
+        width: 250px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        font-size: 38px;
+        background: url('../libs/common/images/button.png') no-repeat left top;
+        background-size: 250px 70px;
+
+    }
+	
+	 .stamp.reR {
+        left: 957px;
+    }
+
+    .stamp.success {
+        left: 1155px;
+    }
+
+    .cardreadingBox1 {
+        padding-top: 30px !important;
+    }
+
+    .scrollBox2 .cardreadingBox1 img {
+        width: 400px;
+        height: 120px;
+    }
+
+    .scrollBox2 .cardreadingBox1 img.loading {
+        width: 400px;
+        height: auto;
+    }
+    @media screen and (max-width: 1600px) {
+		 .stamp.reR {
+	        left: 50%;
+	    }
+
+    }
+</style>
+
+<div class="scrollBox2 clearfloat" style="margin-top: 100px;">
+	<div class="cardreadingBox1 clearfloat">
+		<a>
+			<img style="margin-top: 100px;" ng-class="{'loading':recognitionOver}" ng-src="{{showImage}}" />
+			<p>{{tipsText}}</p>
+		</a>
+	</div>
+	<a class="takePhoto" ng-click="capture()" ng-if="!recognitionOver"></a>
+	<a class="stamp reR" ng-click="reRecognition()" ng-if="recognitionOver">重新拍照</a>
+	<!--<a class="stamp success" ng-click="success()" ng-if="recognitionOver">完&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;成</a>-->
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmText="text"></alert>
+<apptb-footer prev="prevStep()" next=""default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+    go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

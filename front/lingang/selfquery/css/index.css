@@ -1,0 +1,94 @@
+.vertical_gets{
+    width: 1080px;
+    height: 51px;
+    background: url("../images/4444.png") no-repeat;
+    background-size: 100%;
+    margin-top: 100px;
+}
+nav{
+    width: 1080px;
+    height: 253px;
+    background: url("../images/1111.png") no-repeat;
+    background-size: 22%;
+	margin-top:200px;
+	margin-left: 422px;
+	position:absolute;
+   
+}
+.img1{
+	width: 250px;
+    height: 253px;
+    background: url("../images/1111.png") no-repeat;
+    background-size: contain;
+}
+.img2{
+	width: 250px;
+    height: 253px;
+    background: url("../images/2222.png") no-repeat;
+    background-size: contain;
+}
+.img3{
+	width: 250px;
+    height: 253px;
+    background: url("../images/3333.png") no-repeat;
+    background-size: contain;
+}
+.nav-item{
+    position: absolute;
+    top: 0px;
+    height: 300px;
+}
+.bsyd{
+    /*left: 150px;*/
+    width: 360px;
+}
+.bszn{
+    /*left: 444px;*/
+    width: 360px;
+}
+.bsjd{
+    /*left: 739px;*/
+    width: 360px;
+}
+.swiper-container{
+    width: 1080px;
+    height: 1280px;
+}
+.swiper-slide img{
+    width:800px;
+    height: 1260px;
+}
+.img{
+    width: 1080px;
+    height: 990px;
+    margin-top: 10px;
+}
+
+.con-box .bottom {
+	position: absolute;
+	left: 0px;
+	bottom: 0px;
+	width: 1080px;
+	height: 300px;
+	/*border: 1px solid red;*/
+	/*display: flex;*/
+	/*justify-content: center;*/
+}
+
+.con-box .bottom .img1,
+.con-box .bottom .img2,
+.con-box .bottom .img3 {
+	float: left;
+	width: 360px;
+	height: 300px;
+	background-size: 100% 100%;
+}
+.con-box .swiper-container {
+	width: 1080px;
+	height: 600px;
+	margin-top: 250px;
+}
+.con-box .swiper-container a img {
+	width: 100%;
+	height: 100%;
+}

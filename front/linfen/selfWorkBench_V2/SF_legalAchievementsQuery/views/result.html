@@ -1,0 +1,93 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+
+	.caption {
+		margin-top: 86px!important;
+		margin-left: 220px!important;
+	}
+
+	.wrapper {
+		width: 1500px;
+		height: 100%;
+	}
+
+	.wrapper:first-child {
+		width: 90%;
+	}
+
+	.table-sty1 {
+		width: 100%;
+		table-layout: auto;
+		margin: 2% auto;
+	}
+
+	.table-sty1 th,
+	.table-sty1 td
+	 {
+		padding: 20px 10px;
+		font-size: 24px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+		white-space: normal;
+		    width: 25%;
+	}
+
+	.gray {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 {
+			width: 1130px;
+			margin-left: 6%;
+		}
+	}
+</style>
+<p class="caption">{{funName}} —— 成绩结果查询</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<table class="table-sty1" cellspacing="0">
+				<tbody>
+					<tr>
+						<th class="gray">姓名</th>
+						<td>{{info.examineeNameC || '暂无'}}</td>
+						<th class="gray">准考证号</th>
+						<td>{{info.licence|| '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">年度</th>
+						<td>{{info.examYear || '暂无'}}年</td>
+						<th class="gray">总分</th>
+						<td>{{info.score  || '处理中'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">科目1成绩</th>
+						<td>{{info.score1|| '暂无'}}</td>
+						<th class="gray">科目2成绩</th>
+						<td>{{info.score2 || '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">科目3成绩</th>
+						<td>{{info.score3 || '暂无'}}</td>
+						<th class="gray">科目4成绩</th>
+						<td>{{info.score4 || '暂无'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden"  custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

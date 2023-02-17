@@ -1,0 +1,58 @@
+<div class="shell bg2">
+	<apptb-header fun-name="自助申报"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<!--<li>办事指南</li>-->
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="main2" style="height: 650px;">
+		<div class="action">
+			<div class="imageShow" style="height: 500px;position: absolute;top: 99px;left: 40px;font-size: 40px;">
+				<!--'http://180.169.7.194:8080/ac-product'-->
+				<img ng-click="select(index)" ng-class="{'imgStyle':current==index}" class="id" ng-src="{{'http://xzfwzx.jingan.gov.cn:8080/ac'+item.pictureUrlForBytes}}" ng-repeat="(index,item) in imgUrls">
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="loadingBox" ng-if="!isLoading">
+		<img src="../libs/common/images/loadings.gif" alt="" />
+		<p>正在加载数据，请稍后...</p>
+	</div>
+	<div class="footer">
+		<div class="headtop1 clearfloat">
+			<a href="#materialList" class="Prev">返回列表</a>
+			<a class="next" id="consureOnclick" ng-click="goNext()">确认</a>
+			<a ng-click="goHome()" class="backindex1"></a>
+			<div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+		</div>
+	</div>
+</div>
+<style>
+	.id {
+		height: 185px;
+	}
+	
+	.imgStyle {
+		border: #AA0000 2px solid;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+</style>

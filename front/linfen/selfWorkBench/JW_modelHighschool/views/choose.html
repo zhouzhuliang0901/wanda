@@ -1,0 +1,140 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		    margin-top: 86px;
+    margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 9.4%;
+		background: url(../../libs/common/images/bg-input.png) no-repeat;
+		position: relative;
+	}
+	
+	.schoolName input {
+		font-size: 28px;
+		color: #fff;	
+		padding-left: 4%;
+		border: none;
+		background: rgba(0,0,0,0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	.schoolName img {
+		opacity: 0.7;
+		position: absolute;
+		cursor: pointer;
+		top: 22%;
+	    right: 5%;
+	    width: 52px;
+	}
+	
+	.linkt {
+		position: relative;
+		width: 1800px;
+		/*top: 65px;*/
+		left: 94px;
+	}
+	
+	.select {
+		float: left;
+		width: 600px;
+    	height: 190px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		font-size: 25px;
+		padding-top: 1%;
+	}
+	
+	.select dd {
+		margin-top: 30px;
+    height: 40px;
+    width: 84%;
+    margin: 2.6% auto;
+	}
+	
+	.select dl {
+		white-space: normal;
+		width: 68%;
+		float: right;
+		height: 100%;
+		line-height: 150%;
+	}
+	
+	.select b {
+		width: 130px;
+		display: block;
+		float: left;
+		font-weight: bold;
+		text-align: justify;
+		text-align-last: justify;
+		-ms-text-justify: inter-ideograph;
+		-ms-text-align-last: justify;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.linkt {
+			left: 10px;
+		}
+		.select {
+			width: 900px;
+		}
+		.select dl {
+			width: 80%;
+		}
+		.select dd {
+			margin-top: 12px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="schoolName">
+		<input type="text" placeholder="请输入学校名称关键字" ng-model="schoolName"/>
+		<img ng-click="queryHighSchools(schoolName)" src="../libs/common/images/icon-link9.png"/>
+	</div>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="list in queryList">
+				<a class="select">
+					<dd>
+						<b>学校名称</b>：
+						<dl style="font-weight: 700;">{{ list.mz || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>所属地区</b>：
+						<dl>{{ list.q || "空"}}</dl>
+					</dd>
+					<dd>
+						<b>学校地址</b>：
+						<dl>{{ list.xxdz || "空"}}</dl>
+					</dd>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()"  default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

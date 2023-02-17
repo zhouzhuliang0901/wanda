@@ -1,0 +1,28 @@
+<style type="text/css">
+	idcard .scrollBox2 .cardreadingBox1 img {
+		width: 790px;
+		height: auto;
+	}
+</style>
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>办事指南</li>
+		<li class="act">人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}扫描身份证</span></div>
+
+	<div class="main2">
+		<idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>
+		<zzsbrecognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></zzsbrecognition>
+	</div>
+</div>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 460px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></salert>

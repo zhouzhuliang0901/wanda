@@ -1,0 +1,96 @@
+<style type="text/css">
+	.tips {
+		width: 1200px;
+		height: 620px;
+		margin: 0 auto;
+		margin-top: 20px;
+		background: url("./images/bg-tips.png") no-repeat;
+	}
+	
+	.largeImg {
+		height: 510px;
+		width: 370px;
+		margin-left: 90px;
+		margin-top: 62px;
+	}
+	
+	.tipsBox .title {
+		margin-top: 10px;
+		font-size: 40px;
+		margin-left: 25px;
+	}
+	
+	.tipsBox {
+		height: 600px;
+		width: 700px;
+		float: right;
+	}
+	
+	.tipsBox1 {
+		width: 560px;
+		height: 85px;
+		border: 1px solid #2efefb;
+		margin-top: 37px;
+		margin-left: 23px;
+		position: relative;
+		font-size: 35px;
+	}
+	
+	.tipsBox1::before {
+		content: '';
+		position: absolute;
+		margin-top: 5px;
+		margin-left: 5px;
+		width: 18px;
+		height: 18px;
+		background: url("./images/tips-left.png") no-repeat;
+	}
+	
+	.tipsBox1::after {
+		content: '';
+		position: absolute;
+		margin-top: 62px;
+		margin-left: 170px;
+		width: 18px;
+		height: 18px;
+		background: url("./images/tips-right.png") no-repeat;
+	}
+	
+	.tipsBox1 span {
+		display: inline-block;
+		width: 25px;
+		height: 25px;
+		margin-top: 30px;
+		margin-left: 50px;
+		margin-right: 50px;
+		border: 1px solid #2efefb;
+		border-radius: 50%;
+		background-color: #2efefb;
+		box-shadow: 0 0 10px 5px #2efefb;
+		/*模糊的距离   阴影的大小*/
+	}
+	
+	.tipsTop {
+		margin-top: 51px;
+		margin-left: 23px;
+		font-weight: bold;
+		color: #F8DB5E;
+		width: 80%;
+		font-size: 30px;
+	}
+</style>
+<div class="contain">
+	<div class="tips">
+		<img class="largeImg" ng-src="{{ largeImg }}" />
+		<div class="tipsBox">
+			<p class="tipsTop">提示：1. 若为代办人，请前往窗口办理。{{text}}</p>
+			<p class="title">步骤说明</p>
+			<div class="tipsBox1"><span></span>1.进行人证核验</div>
+			<div class="tipsBox1"><span></span>2.信息填写&emsp;&emsp;</div>
+			<div class="tipsBox1"><span></span>3.取表&emsp;&emsp;&emsp;&emsp;</div>
+		</div>
+	</div>
+
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

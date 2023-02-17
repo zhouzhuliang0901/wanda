@@ -1,0 +1,287 @@
+<style type="text/css">
+	select {
+		/*去掉点击时的选区和阴影*/
+		-webkit-tap-highlight-color: transparent;
+		-webkit-touch-callout: none;
+		-webkit-user-select: none;
+		-ms-tap-highlight-color: transparent;
+		-ms-touch-callout: none;
+		-ms-user-select: none;
+		user-select: none;
+		/*去掉点击时的选区和阴影*/
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 600px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.input {
+		width: 100%;
+		height: 75%;
+		background: rgba(255, 255, 255, .25);
+		box-sizing: border-box;
+		display: inline-block;
+		border: none;
+		outline: none;
+		font-size: 24px;
+		color: #FFF;
+		padding-left: 15px;
+	}
+	
+	.input::-webkit-input-placeholder {
+		color: #fff;
+	}
+	
+	.input:-ms-input-placeholder {
+		color: #fff;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-bottom: 20px;
+	}
+	
+	.infoTable th {
+		width: 17%;
+		text-align: right;
+	}
+	
+	.infoTable th,
+	.infoTable td {
+		height: 85px;
+	}
+	
+	.infoTable td {}
+	
+	.td_long {
+		width: 70%;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.line {
+		width: 97%;
+		height: 9%;
+		position: relative;
+		margin: 0 auto 2%;
+	}
+	
+	.line hr {
+		margin-top: 1.6%;
+		width: 40%;
+		position: absolute;
+		border: 1px #cccccc dotted;
+	}
+	
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+	
+	.getButton {
+		width: 200px;
+		height: 60px;
+		line-height: 60px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		font-size: 24px;
+		margin-left: 95px;
+	}
+	
+	.select {
+		font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+		width: 24.5%;
+		padding: 10px 10px;
+		line-height: 40px;
+		height: 60px;
+		overflow: hidden;
+		display: inline-block;
+		border: none;
+		background: url("../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+		font-size: 24px;
+		color: #FFF;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-overflow-style: scrollbar;
+	}
+	.select::-ms-expand{
+		display: none;
+	}
+	.select1 {
+		width: 100%;
+	}
+	
+	.select option {
+		color: #333;
+	}
+	
+	.otherCity {
+		width: 49.7%;
+	}
+	#per_healthInfo,#per_deformType{
+		width: 487px;
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<form name="infoParams">
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>联系信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>身份证号码：</th>
+					<td><input class="input" type="text" id="stIdCard" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>联系电话：</th>
+					<td><input class="input" type="text" id="per_reltel" ng-model="per_reltel"></td>
+					<th><b class="red">*</b>民族：</th>
+					<td><input class="input" type="text" id="per_nation" ng-model="per_nation" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>文化程度：</th>
+					<td>
+						<select class="select1 select" id="per_edudegree" ng-model="per_edudegree" ng-options="x.name for x in edudegreeList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+					<th><b class="red">*</b>邮编：</th>
+					<td><input class="input" type="text" id="per_postcode" ng-model="per_postcode"></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>联系地址：</th>
+					<td colspan="3">
+						<select class="select" id="realtionProvince" ng-model="realtionProvince" ng-options="x.province for x in realtionProvinceList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select class="select" id="realtionCounty" ng-model="realtionCounty" ng-options="x.cityname for x in realtionCountyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select class="select" id="realtionStreet" ng-model="realtionStreet" ng-options="x.streetname for x in realtionStreetList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select class="select" id="realtionLane" ng-model="realtionLane" ng-options="x.jwhname for x in realtionLaneList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>详细地址：</th>
+					<td colspan="3"><input class="input" type="text" id="per_reladdr" ng-model="per_reladdr"></td>
+				</tr>
+			</table>
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>健康信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>健康状况：</th>
+					<td>
+						<select class="select1 select" id="per_healthInfo" ng-model="per_healthInfo" ng-options="x.name for x in healthInfoList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+					<th ng-show="isDeformity"><b class="red">*</b>残疾类型：</th>
+					<td ng-show="isDeformity">
+						<select  class="select1 select" id="per_deformType" ng-model="per_deformType" ng-options="x.name for x in deformTypeList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+			</table>
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>户籍信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>户籍地址：</th>
+					<td colspan="3">
+						<select ng-class="{'otherCity':otherCity==true}" class="select" id="regProvince" ng-model="regProvince" ng-options="x.province for x in regProvinceList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select ng-class="{'otherCity':otherCity==true}" class="select" id="regCounty" ng-model="regCounty" ng-options="x.cityname for x in regCountyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select ng-if="!otherCity" class="select" id="regStreet" ng-model="regStreet" ng-options="x.streetname for x in regStreetList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+						<select ng-if="!otherCity" class="select" id="regLane" ng-model="regLane" ng-options="x.jwhname for x in regLaneList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>详细地址：</th>
+					<td colspan="3"><input class="input" type="text" id="per_regaddr" ng-model="per_regaddr"></td>
+				</tr>
+			</table>
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>学历信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>起始日期：</th>
+					<td><input class="input" type="text" id="begindate" ng-model="begindate" readonly></td>
+					<th><b class="red">*</b>终止日期：</th>
+					<td><input class="input" type="text" id="enddate" ng-model="enddate" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>学校名称：</th>
+					<td><input class="input" type="text" id="schoolname" ng-model="schoolname" readonly></td>
+					<th><b class="red">*</b>所学专业：</th>
+					<td><input class="input" type="text" id="speciality" ng-model="speciality" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>是否全日制：</th>
+					<td><input class="input" type="text" id="qrzstatus" ng-model="qrzstatus" readonly></td>
+					<th></th>
+					<td>
+						<div class="getButton" ng-click="getXuexinInfo()">获取学信网信息</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

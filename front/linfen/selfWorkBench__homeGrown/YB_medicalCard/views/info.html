@@ -1,0 +1,174 @@
+<style>
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-top: 84px;
+			margin-left: 150px;
+		}
+		.linkt {
+			position: relative;
+			width: 1800px;
+		}
+		#buttonBox {
+			position: relative;
+			width: 1400px;
+			height: 100px;
+		}
+		.blbutton {
+		width: 166px;
+		height: 61px;
+		float: left;
+		line-height: 50px;
+		background: url('../libs/common/images/print.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 26%;
+		padding: 10px 0 0 0;
+		text-align: center;
+		font-size: 26px;
+	}
+	.blbutton.second{
+		margin-left: 14%;
+	}
+		.select {
+			float: left;
+			width: 937px;
+			height: 190px;
+			overflow: hidden;
+			background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+			background-size: 100% 100%;
+			margin-left: 160px;
+			padding-top: 2.8%;
+			padding-left: 1%;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size: 24px;
+		}
+		.select dd {
+			float: left;
+			margin: 22px 0 0 50px;
+			height: 40px;
+			width: 388px;
+		}
+		.select dl {
+			white-space: normal;
+		}
+		.select dd:last-child {
+			width: 90%;
+		}
+		.select b {
+			width: 132px;
+			display: block;
+			float: left;
+			font-weight: bold;
+		}
+		.select span {
+			display: block;
+			float: left;
+			width: 446px;
+		}
+	}
+	#cardData {
+			display: block;
+			width: 0;
+			height: 0;
+	}
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		.linkt {
+			position: relative;
+			width: 1470px;
+			height: 360px;
+			margin: 3% auto 0;
+		}
+		.select {
+			position: absolute;
+			width: 84%;
+			height: 64%;
+			overflow: hidden;
+			background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+			background-size: 100% 100%;
+			margin-left: 8%;
+			padding: 4% 0 0 0;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			font-size: 25px;
+		}
+		#buttonBox {
+			position: relative;
+			width: 1400px;
+			height: 100px;
+		}
+		.blbutton {
+		width: 176px;
+		height: 64px;
+		float: left;
+		line-height: 50px;
+		background: url('../libs/common/images/print.png') no-repeat;
+		background-size: 100% 100%;
+		margin-left: 48%;
+		padding: 10px 0 0 0;
+		text-align: center;
+		font-size: 26px;
+	}
+	.blbutton.second{
+		margin-left: 14%;
+	}
+		.select dd {
+			float: left;
+			margin-left: 80px;
+			margin-top: 34px;
+			height: 40px;
+			width: 500px;
+		}
+		.select dl {
+			white-space: normal;
+		}
+		.select b {
+			width: 151px;
+			display: block;
+			float: left;
+			text-align: right;
+			font-weight: bold;
+		}
+		.select span {
+			display: block;
+			float: left;
+			width: 446px;
+		}
+		
+	}
+</style>
+<p class="caption">{{caption}}</p>
+<div class="scrollBox2 clearfloat">
+	<!--展示信息-->
+	<div id="infoBox">
+		<div class="linkt">
+			<div class="select">
+				<dd>
+					<dl><b>姓名：</b>{{licenseName}}</dl>
+				</dd>
+				<dd>
+					<dl><b>身份证号：</b>{{licenseNumber}}</dl>
+				</dd>
+				<dd>
+					<dl><b>账户号：</b>{{ ZHH ||"未查询到" }}</dl>
+				</dd>
+				<dd>
+					<dl><b>医保卡号：</b>{{ YBKH ||"未查询到"}}</dl>
+				</dd>
+				<input id="cardData" type="text" ng-model="cardData"/>
+			</div>
+		</div>
+	</div>
+	<!--按钮-->
+	<div id="buttonBox">
+		<div class="blbutton" ng-click="lose()">挂失</div>
+		<div class="blbutton second" ng-click="revoke()">撤销</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

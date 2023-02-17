@@ -1,0 +1,40 @@
+<div class="head">
+
+</div>
+<div class="main">
+	<div class="licenseInfo">
+		<span>{{xm || '姓名'}}</span>
+		<span>{{zjhm || '身份证'}}</span>
+	</div>
+	<div class="lxmInfo">
+		<div class="lxmInfoLeft">
+			<img ng-src="{{photo||'img/test.png'}}" alt="" />
+		</div>
+		<div class="lxmInfoRight">
+			<img ng-src="{{typePng}}" alt="" />
+			<p>离线码有效期截止</p>
+			<p>{{overduetime}}</p>
+		</div>
+	</div>
+	<div class="inoculationInfo">
+		<p ng-show="!vaccinated">暂未查询到疫苗接种信息</p>
+		<div class="inoculationInfoLeft" ng-show="vaccinated">
+			<img src="img/vaccinated.png" alt="" />
+		</div>
+		<div class="inoculationInfoRight" ng-show="vaccinated">
+			<p>新型冠状病毒灭活</p>
+			<p>完成日期2021-05-01</p>
+		</div>
+	</div>
+</div>
+<div class="footer">
+		<div class="footerLeft">
+			<p class="footerTips">核酸检测结果</p>
+			<p class="footerResult" ng-class="{in:result==undefined}">{{result||'无'}}</p>
+		</div>
+		<div class="footerRight"  ng-click="getTemperature()">
+			<p class="footerTips">体温</p>
+			<p class="footerResult red" ng-class="{in:temperature==undefined}" ng-class="{red:temperature>37}">{{temperature||'无'}}</p>
+		</div>
+</div>
+<p class="tips">扫描核验时间：{{checktime}}</p>

@@ -1,0 +1,81 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin: 0px auto;
+			align-items: flex-start;
+			width: 1100px;
+		}
+		.container li {
+			text-align: center;
+			width: 300px;
+		}
+		.container li>img {
+			margin-top: 80px;
+		}
+		.container li>p {
+			margin: 0 auto;
+			margin-top: 20px;
+			font-size: 37px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.container {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			margin: 0px auto;
+			align-items: flex-start;
+			width: 1100px;
+		}
+		.container li {
+			text-align: center;
+			width: 300px;
+		}
+		.container li>img {
+			margin-top: 50px;
+		}
+		.container li>p {
+			margin: 0 auto;
+			margin-top: 10px;
+			font-size: 32px;
+		}
+	}
+</style>
+
+<ul class="container">
+	<li ng-click="choice('https://p.lgxc.gov.cn/views/ca/portal/easytodo')">
+		<img src="../libs/common/images/icon/ggkz.png" />
+		<p>一件事</p>
+	</li>
+	<li ng-click="choice('https://zwdt.sh.gov.cn/govPortals/column/ot/onething.html?tabType=3')">
+		<img src="../libs/common/images/icon/rszz.png" />
+		<p>一业一证</p>
+	</li>
+	<li ng-click="choice('http://yct.sh.gov.cn/portal_yct/')">
+		<img src="../libs/common/images/icon/serial.png" />
+		<p>一窗通</p>
+	</li>
+	<li ng-click="choice('https://p.lgxc.gov.cn/commit20/#/')">
+		<img src="../libs/common/images/icon/jsgc.png" />
+		<p>工程建设一件事</p>
+	</li>
+	<li ng-click="choice('https://p.lgxc.gov.cn/views/ca/portal/20/address')">
+		<img src="../libs/common/images/icon/ggxy.png" />
+		<p>企业区域查询</p>
+	</li>
+	<li ng-click="goToApp('http://183.194.250.112/ac-product/cmpt/selfWorkBench_V2/guideline/index.html#/list?areaCode=SHLGGW')">
+		<img src="../libs/common/images/icon/ggxy.png" />
+		<p>办事指南</p>
+	</li>
+</ul>
+<apptb-footer 
+	need-count-down="false"
+	default-is-show-next-btn="hidden"
+	prev="prev()">
+</apptb-footer>

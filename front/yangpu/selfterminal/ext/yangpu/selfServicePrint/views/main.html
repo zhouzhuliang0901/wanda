@@ -1,0 +1,55 @@
+<style>
+    .searchBox{
+        position: absolute;
+        left: 50%;
+        margin-left: -600px;
+        bottom: 2px;
+        height: 100px;
+        width: 1200px;
+    }
+    .searchBox .tipsTxt{
+        position: absolute;
+    left: 27px;
+    top: 22px;
+    font-size: 40px;
+    }
+    .inputBox{
+        position: absolute;
+    left: 424px;
+    font-size: 42px;
+    }
+    .appBtn{
+        left: 1000px;
+    top: 10px;
+    width: 156px;
+    height: 74px;
+    background-color: rgb(28, 192, 36);
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../../../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助打印</a>
+        </li>
+        <li class="active">选择部门</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="departments">
+        <p class="department" ng-click="matter(item.stFormCatId)" ng-repeat="item in departments">{{item.stFormCatName}}</p>
+    </div>
+    <div class="searchBox">
+        <span class="tipsTxt">输入关键词搜索表格：</span>
+        <div class="inputBox">
+            <input type="text" ng-model="keywords" style="width:500px" />
+        </div>
+        <div class="appBtn" ng-click="searchForm()">
+            <p class="desc">搜索</p>
+        </div>
+    </div>
+</div>

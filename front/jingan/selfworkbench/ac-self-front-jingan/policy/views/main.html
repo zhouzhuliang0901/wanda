@@ -1,0 +1,76 @@
+<app-header fun-name="{{funName}}" go-back="goAppHistoryBack()"></app-header>
+<ul class="container">
+	<li ng-click="choice('http://zzcx.huangpuqu.sh.cn/hpqyfwweb/touchpage/index.html','区企业发展服务平台')">
+		<img src="../libs/common/images/icon/qqy.png" />
+		<p>
+			区企业发展<br/>服务平台
+		</p>
+	</li>
+	<li ng-click="choice('https://www.shhuangpu.gov.cn/zw/009002/009002011/009002011002/009002011002002/20190202/93c84481-2b1e-433f-9b79-552814dcfd05.html','园区创业服务优惠政策')">
+		<img src="../libs/common/images/icon/yqcy.png" />
+		<p>
+			园区创业服务<br/>优惠政策
+		</p>
+	</li>
+	<li ng-click="type()">
+		<img src="../libs/common/images/icon/jsgc.png" />
+		<p style="margin-top: 40px;">
+			工伤认定、申请
+		</p>
+	</li>
+	<li ng-click="goToApp('../worldCity/index.html')">
+		<img src="../libs/common/images/icon-link13.png" />
+		<p style="margin-top: 40px;">
+			世界城市日
+		</p>
+	</li>
+</ul>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 80px auto;
+		align-items: flex-start;
+		width: 1750px;
+		height: 800px;
+	}
+	
+	.container li {
+		margin-left: 300px;
+		text-align: center;
+		height: 300px;
+		width: 500px;
+		border: 1px solid rgba(233, 237, 240, .4);
+		background: #2864b0;
+	}
+	
+	.container li>img {
+		margin-top: 65px;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 271px;
+		font-size: 33px;
+	}
+	
+	.container li:nth-of-type(1) {
+		/*background-color: #0078d7;*/
+	}
+	
+	.container li:nth-of-type(2) {
+		margin-left: 180px;
+		/*background-color: #50a299;*/
+	}
+	
+	.container li:nth-of-type(3) {
+		/*background-color: #8973b4;*/
+	}
+	
+	.container li:nth-of-type(4) {
+		margin-left: 180px;
+		/*background-color: #10d367;*/
+	}
+</style>

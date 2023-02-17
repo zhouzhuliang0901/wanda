@@ -1,0 +1,44 @@
+<style type="text/css">
+	.radioButtons {
+		top: 620px;
+		left: 370px;
+	}
+	.board .action{
+		width: 100%;
+		left: 0px;
+	}
+	.tips{
+text-align: center;
+    color: #666;
+    margin-top: 260px;
+    font-size: 50px;
+    height: 50px;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="#">办件查询</a>
+		</li>
+		<li class="active">查询结果</li>
+	</ol>
+</nav>
+<div class="board">
+
+	<div class="action">
+		<div class="panelList one vertical-middle horizontal-middle absoluteLeftRightCenterClass" style="width:850px;height:710px; padding: 35px 105px;">
+			<p class="tips">对不起，未查询到您的办件信息！</p>
+			<a class="btn_radius_50 radioButtons" ng-click="backIndex()">
+				<div class="greyLight">
+					<img src="../libs/common/images/icon200/back.png">
+					<label>返回</label>
+				</div>
+			</a>
+		</div>
+	</div>
+</div>

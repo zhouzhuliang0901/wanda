@@ -1,0 +1,39 @@
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#materialUpload">材料清单</a></li>
+        <li><a href="#uploadMethod">上传方式</a></li>
+        <li class="active">材料列表</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请选择需要上传的证照<br />点击“确认”以选择证照</div>
+            <div class="sub-index">
+                <a class="blue-green active" href="#materialUpload">返回材料列表</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+    	<!--<a class="btn_radius_50 vertical-middle" href="#uploadMethod" style="top: 20px;left: 980px;">
+			<div class="greyLight-dark">
+				<img src="images/back.png" height="60" border="0" style="margin: 5px 10px 10px;">
+			</div>
+		</a>-->
+        <div class="imageShow">
+        </div>
+        <a class="btn_radius_50" ng-click="goNext()" style="left:780px;">
+            <div class="greyLight">
+                <img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

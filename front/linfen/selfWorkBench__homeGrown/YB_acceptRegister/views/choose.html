@@ -1,0 +1,143 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 55px;
+		margin-left: 210px;
+	}
+	
+	.top {
+		font-weight: bold;
+		color: #e1ba1c;
+	}
+	
+	.guideline p {
+		padding: 7px;
+	}
+	
+	table {
+		width: 760px;
+		margin-left: 45px;
+	}
+	
+	table th,
+	table td {
+		border: #477cbe 1px solid;
+		text-align: center;
+		padding: 8px;
+	}
+	
+	.caption {
+		margin-top: 80px !important;
+		margin-left: 200px !important;
+	}
+	
+	#wrapper {
+		overflow: visible;
+		width: 1500px;
+		height: 655px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+		margin-bottom: 30px;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 240px;
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 28px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect dl {
+		font-size: 30px;
+		color: #c2cce3;
+		line-height: 60px;
+		float: left;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		.singselect a {
+			width: 140px;
+			font-size: 20px;
+		}
+		#wrapper {
+			height: 530px;
+			overflow: auto;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--选择办事人人员类别</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper">
+		<div>
+			<dd class="singselect">
+				<dl>请选择户籍所在地：</dl>
+				<a ng-class="{'in':current1==index}" ng-repeat="(index,item) in isShanghaiList" ng-click="isShanghaiChange(item.name,index,item.id)">
+					<li>{{item.name}}</li>
+				</a>
+			</dd>
+			<dd class="singselect">
+				<dl>是否为城镇户籍：</dl>
+				<a ng-class="{'in':currentCity==index}" ng-repeat="(index,item) in isCityList" ng-click="isCityChange(item.name,index,item.id)">
+					<li>{{item.name}}</li>
+				</a>
+			</dd>
+			<dd class="singselect">
+				<dl>请选择参保年度：</dl>
+				<a ng-class="{'in':currentCbYear==index}" ng-repeat="(index,item) in cbYearList" ng-click="cbYearChange(item.name,index,item.id)">
+					<li>{{item.name}}年</li>
+				</a>
+			</dd>
+			<dd class="singselect" ng-if="current1 == '0'">
+				<dl>请选择年龄段：</dl>
+				<a ng-class="{'in':currentAge==index}" ng-repeat="(index,item) in ageList" ng-click="ageChange(item.name,index,item.id)">
+					<li>{{item.name}}</li>
+				</a>
+			</dd>
+			<dd class="singselect" ng-if="currentAge == '0'">
+				<dl>是否为在校(册)学生、在园(所)幼儿：</dl>
+				<a ng-class="{'in':currentSchool==index}" ng-repeat="(index,item) in isSchoolList" ng-click="isSchoolChange(item.name,index,item.id)">
+					<li>{{item.name}}</li>
+				</a>
+			</dd>
+			<!--<dd class="singselect" ng-if="current1 == '1'">
+				<dl>配偶是否为本市户籍人员：</dl>
+				<a ng-class="{'in':currentMale==index}" ng-repeat="(index,item) in isMaleList" ng-click="isMaleChange(item.name,index,item.id)">
+					<li>{{item.name}}</li>
+				</a>
+			</dd>-->
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,115 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+	.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		
+		#wrapper {
+			width: 1750px;
+			height: 650px;
+		}
+		
+		.main2 {
+			height: 650px;
+			margin-top: 20px;
+		}
+		
+		.input1::-webkit-input-placeholder {
+			color: #C5C5C5;
+		}
+		
+		.input1:-ms-input-placeholder {
+			color: #C5C5C5;
+		}
+		.tabelBox1 .dl1 .hjActive {
+				width: 40%;
+			}
+		.tabelBox1 .dl1 .jzActive {
+			width: 40%;
+		}
+	}
+		
+		@media screen and (max-width: 1600px) {
+			.bg-middle {
+				background-size: 100% 80%;
+			}
+			.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+			}
+			#wrapper {
+				width: 100%;
+				height: 630px;
+			}
+			.main2 {
+				width: 100%;
+				height: 630px;
+				overflow: hidden;
+				position: relative;
+				margin: 0px;
+			}
+			
+	
+			.tabelBox1 .dl1 .lt1 {
+				width: 12%;
+				font-size: 18px;
+			}
+			.tabelBox1 .dl1 .lt3 {
+				width: 12%;
+				font-size: 18px;
+			}
+			.tabelBox1 .dl1 .rt2 {
+				width: 22%;		
+			}
+			.tabelBox1 .dl1 .rt11 {
+				width: 16%;
+			}
+			
+		}
+	
+	</style>
+<p class="caption">{{funName}}--登记个人信息</p>
+<div class="main2">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div class="tabelBox1" style="width: 1705px;padding-top: 35px;">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>身份证号：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" placeholder="请输入身份证号码" readonly>
+					</dd>
+					<div>
+						<dd class="lt1 lt3">
+							<span>退出原因：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" id="quitList"  ng-model="quitListName" ng-options="x.val for x in quitList">
+								<option value="" selected disabled="disabled">请选择退出原因</option>
+							</select>
+						</dd>
+					</div>
+				
+				</dl>
+				<!-- <dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>手机号码：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile" placeholder="填写联系电话">
+					</dd>
+				</dl> -->
+
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next-btn-info="{{nextText}}" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

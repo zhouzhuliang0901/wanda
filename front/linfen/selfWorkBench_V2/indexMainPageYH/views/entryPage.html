@@ -1,0 +1,95 @@
+<style type="text/css">
+	.main5 .navBox4 a {
+		/*float: left;*/
+		display: inline-block;
+		 width: 320px; 
+		padding: 0px 40px;
+		height: 100px;
+		margin-left: 10px;
+		margin-bottom: 16px;
+		text-align: center;
+		background: url(../libs/common/images/bg-nav3.png) no-repeat;
+		background-size: 100% 100%;
+		line-height: 100px;
+		overflow: hidden;
+		font-size: 32px;
+		font-weight: bold;
+		color: #19aae2;
+	}
+	
+	.minimize {
+		position: absolute;
+		right: 10px;
+	}
+	
+	.minimize img {
+		width: 100px;
+	}
+	
+	.main5 .lt3 {
+		width: 100%;
+		margin-left: 0;
+	}
+	.navBox4{
+		width: 80%;
+		display: inline-flex;
+		justify-content: space-around;
+		margin: 10% 10%;
+	}
+	.top-logo-more .logo-img img{
+		width: 400px;
+	}
+	.top-logo-more .logo-img{
+		margin-left: 80px;
+	}
+	.top-logo-more{
+		width: 100%;
+		display: inline-flex;
+		justify-content: space-between;
+		margin-top: 80px;
+		margin-bottom: 80px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.shell.bg3 {
+			width: 1280px;
+			height: 1024px;
+		}
+	}
+</style>
+<div class="shell bg3">
+	<div class="top-logo-more">
+		<div class="logo-img">
+			<img src="picture/nh-logo.png" />
+		</div>
+		<div class="minimize" ng-click="proMinimizes()" ng-if='isShowYHhome'>
+			<img src="../libs/common/images/minimize.png" alt="" />
+		</div>
+	</div>
+	<div class="main5">
+		<div class="lt3 fl">
+			<!--<div class="titBox1">全部清单</div>-->
+			<div class="navBox4">
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToCSJTB()">
+					<p class="p1">长三角"一网通办"</p>
+				</a>
+				<a id="seven" onclick="click_point(this.id);" ng-click="goToBD()">
+					<p class="p1">本地服务</p>
+				</a>
+				<!--<a id="seven" onclick="click_point(this.id);" ng-click="">
+					<p class="p1">各省政务服务</p>
+				</a>-->
+			</div>
+		</div>
+	</div>
+
+	<!--alert弹框-->
+	<div style="z-index:321;" class="customAlert" ng-if="isAlert">
+		<div class="alertContent">
+			<p class="title" ng-bind-html="msg"></p>
+			<div class="controlAlert">
+				<a ng-if="confirm_show" class="control confirm continue" ng-click="alertConfirm()">确定</a>
+				<a ng-if="cancel_show" class="control cancel" ng-click="alertCancel()">取消</a>
+			</div>
+		</div>
+	</div>
+</div>

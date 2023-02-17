@@ -1,0 +1,11 @@
+<footer class="ctrl">
+	<p>
+		<button class="btnPrv" ng-if="isShowPrevBtn=='1'" ng-click=" prevStep()">{{prevBtnInfo}}</button>
+	</p>
+	<p>
+		<button class="btnHome" ng-click="goHome()"><img src="img/iconHome.png" alt=""></button>
+	</p>
+	<p>
+		<button class="btnNext" ng-if="isShowNextBtn=='1'" ng-click="nextStep()">{{nextBtnInfo}}</button>
+	</p>
+</footer>

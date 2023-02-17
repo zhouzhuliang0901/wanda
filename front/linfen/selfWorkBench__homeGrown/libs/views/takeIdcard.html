@@ -1,0 +1,57 @@
+<div class="photographBox">
+	<div class="fun" ng-if="camera">
+		<img ng-click="capture()" src="../libs/common/images/icon/camera.png" />
+	</div>
+	<div class="fun review" ng-if="!camera">
+		<img src="../libs/common/images/tips/idcardReview.png" /><br/>
+		<a href="javascript:;" class="btn re" ng-click="reCapture()">重新拍照</a>
+		<a href="javascript:;" class="btn confirm" ng-click="confirm()">确&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+	</div>
+	<img src="../libs/common/images/tips/material.png" />
+</div>
+<style type="text/css">
+	.photographBox {
+		margin: 0 auto;
+		text-align: center;
+		height: 800px;
+		width: 100%;
+	}
+	
+	.btn {
+		display: inline-block;
+		margin-left: 100px;
+		margin-top: 70px;
+		border-radius: 10px;
+		font-size: 30px;
+		border: 1px solid #82a3cb;
+		padding: 15px 30px 15px 30px;
+	}
+	
+	.btn.re {
+		margin-left: -10px;
+		background-color: #f2dd4a;
+	}
+	.btn.confirm{
+		background-color: #56ce97;
+	}
+	.photographBox>img {
+		margin-top: 20px;
+	}
+	
+	.fun>img {
+		margin: 220px 0 0 800px;
+	}
+	
+	.fun.review>img {
+		margin: 0px;
+		margin-top: 80px;
+	}
+	
+	.fun {
+		background-color: #2864b0;
+		margin: 0 auto;
+		text-align: center;
+		height: 600px;
+		width: 1240px;
+	}
+</style>

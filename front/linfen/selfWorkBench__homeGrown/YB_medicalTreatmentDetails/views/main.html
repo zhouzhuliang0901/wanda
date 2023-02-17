@@ -1,0 +1,160 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-top: 80px;
+		margin-left: 210px;
+	}
+	
+	.top {
+		font-weight: bold;
+		color: #e1ba1c;
+	}
+	
+	.guideline p {
+		padding: 7px;
+	}
+	
+	table {
+		width: 760px;
+		margin-left: 45px;
+	}
+	
+	table th,
+	table td {
+		border: #477cbe 1px solid;
+		text-align: center;
+		padding: 8px;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		overflow: visible;
+		width: 1500px;
+		height: 655px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+	}
+	
+	.singselect a {
+		float: left;
+		/* width: 314px; */
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 17px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.singselect2 {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 100%;
+	}
+	
+	.singselect2 a {
+		float: left;
+		/* width: 314px; */
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 10px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 17px;
+		padding: 0px 15px;
+	}
+	
+	.singselect2 a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect2 a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+		    width: 1010px;
+		    margin-top: 80px;
+		    margin-left: 145px;
+		}
+		#wrapper {
+			width: auto;
+			height: 640px;
+		}
+		.guideline {
+			padding-bottom: 10px;
+			box-sizing: border-box;
+		}
+	}
+</style>
+<apptb-header fun-name="参保人员待遇查询"></apptb-header>
+<!--<p class="caption">参保人员待遇查询</p>-->
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper">
+		<div>
+			<dd class="singselect">
+				<dl style="font-size: 30px;  color: #c2cce3; line-height: 60px;">请选择查询的医保类型:</dl>
+				<a ng-class="{'in':current==index}" ng-repeat="(index,item) in medicalType" ng-click="change(item.name,index,item.id)">
+					<li vId="2222">{{item.name}}</li>
+				</a>
+			</dd>
+			<dd class="singselect2">
+				<dl ng-if="show" style="font-size: 30px;  color: #c2cce3; line-height: 60px;">请选择查询的人员类别:</dl>
+				<a ng-class="{'in':current2==index}" ng-repeat="(index,item) in treatmentDetials" ng-click="change2(item.name,index,item.guideline)">
+					<li vId="2222">{{item.name}}</li>
+				</a>
+			</dd>
+			<dd ng-if="show2">
+				<dl style="font-size: 30px;  color: #c2cce3; line-height: 60px;">待遇详情:</dl>
+				<dl ng-bind-html="guideline" class="guideline">
+				</dl>
+			</dd>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>

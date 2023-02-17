@@ -1,0 +1,179 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" style="margin-top: 20px;">
+	<div id="wrapper" class="wrapper">
+		<div>
+
+			<dl class="dllist1 clearfloat">
+				<dt>一、事项名称：</dt>
+				<dd class="ng-binding">副食品价格补贴发放银行卡维护</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>二、事项编码：</dt>
+				<dd>
+					<p class="ng-binding">312090133000</p>
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>三、办事指南：</dt>
+				<dd class="ng-binding">
+					<p>1、适用范围：适用于上海市自然人。</p>
+					<p>2、办理地点：各街道镇社区事务受理服务中心。</p>
+					<p>3、办理时间：<span style="color:#e1ba1c;font-weight:bold;">9：00~16：30</span>。</p>
+					<p>4、事项详情：</p>
+					<p>（1）业务办理项编码：11310000002427067Q531209013300001</p>
+					<p>（2）基本编码：312090133000</p>
+					<p>（3）事项类型：公共服务</p>
+					<p>（4）设定依据：《上海市粮食局关于公开办理副食品价格补贴手续须知的通知》（沪粮市〔2001〕85号）； 《关于调整本市猪肉等副食品价格补贴发放期和停办学生“副补通知单”手续的通知》（沪粮市〔2012〕119号）； 《上海市人民政府办公厅关于进一步加强社区事务受理服务中心标准化建设的意见》（沪府办发〔2013〕50号）
+					</p>
+					<p>5、受理条件：申请材料齐全，符合法定形式，具体见申请材料目录</p>
+					<p>6、申请材料；</p>
+					<table cellspacing="0" style="border: #477cbe 1px solid;" id="tableW">
+						<tbody>
+							<tr>
+								<th>材料名称</th>
+								<th>来源渠道</th>
+								<th>材料类型</th>
+								<th>份数</th>
+								<th>材料形式</th>
+								<th>材料必要性</th>
+							</tr>
+							<tr>
+								<th>有效居民身份证</th>
+								<th>市公安局</th>
+								<th>原件</th>
+								<th>1</th>
+								<th>纸质</th>
+								<th>必要</th>
+							</tr>
+							<tr>
+								<th>材料名称</th>
+								<th>银行</th>
+								<th>原件</th>
+								<th>1</th>
+								<th>纸质</th>
+								<th>必要</th>
+							</tr>
+						</tbody>
+					</table>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+</div>
+<div class="prev-back-next">
+	<!--删除a标签的href属性, 防止出现某些页面跳转需要双击才能跳转-->
+	<!-- ngIf: isShowPrevBtn=='1' -->
+	<a class="prev ng-binding ng-scope" ng-if="isShowPrevBtn=='1'" ng-click=" prevStep()" style="">上一步</a>
+	<!-- end ngIf: isShowPrevBtn=='1' -->
+	<a class="backindex1" ng-click="goHome()"></a>
+	<!-- ngIf: isShowNextBtn=='1' -->
+	<a class="next ng-binding ng-scope" ng-if="isShowNextBtn=='1'" ng-click="nextStep()" style="">下一步</a>
+	<!-- end ngIf: isShowNextBtn=='1' -->
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="hidden" default-is-show-next-btn="" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.city {
+		margin-bottom: 20px;
+		color: #fefefe;
+		margin-left: 81px;
+		font-size: 30px;
+		opacity: .6;
+	}
+	
+	.caption {
+		margin-top: 80px!important;
+		margin-left: 200px!important;
+	}
+	
+	#wrapper {
+		margin-top: 30px;
+		width: 1595px;
+		height: 621px;
+	}
+	
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 29px 0 0 22px;
+	}
+	
+	.linkt {
+		position: relative;
+		left: 50px;
+		float: left;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 95px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 700px 100px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size: 29px;
+		line-height: 94px;
+	}
+	
+	.top1 {
+		padding-bottom: 77px;
+		padding-left: 76px;
+	}
+	
+	.top1 li {
+		float: left;
+		width: 455px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 33px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 70px;
+		color: #3794e4;
+		background: url('../libs/common/images/handleList.png') no-repeat center;
+		background-size: 400px 84px;
+	}
+	
+	.top1 li.in {
+		color: #fff;
+		background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-position: 32% 6%;
+	}
+	
+	.stuff {
+		height: 70px;
+		line-height: 107px;
+		font-size: 28px;
+		text-align: center;
+	}
+	
+	#tableW {
+		width: 1200px;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		#wrapper {
+			margin-top: 0px;
+			height: 570px;
+		}
+		#tableW {
+			width: 710px;
+			font-size: 22px;
+		}
+		.dllist1 {
+			margin-left: 80px;
+		}
+
+	}
+</style>

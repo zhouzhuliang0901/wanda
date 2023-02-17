@@ -1,0 +1,65 @@
+<app-header fun-name="{{funName}}" go-back="goAppHistoryBack()"></app-header>
+<ul class="container">
+	<li ng-click="choice('../bankService/index.html')">
+		<img src="../libs/common/images/icon/yqcy.png" />
+		<p>
+			金融服务
+		</p>
+	</li>
+	<li ng-click="aa()">
+		<img src="../libs/common/images/icon/qqy.png" />
+		<p>
+				企业开办
+		</p>
+	</li>
+	<li ng-click="type()">
+		<img src="../libs/common/images/icon/jsgc.png" />
+		<p>
+			中心微信号
+		</p>
+	</li>
+</ul>
+<apptb-footer default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden"  go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 80px auto;
+		align-items: flex-start;
+		width: 1750px;
+		height: 800px;
+	}
+	
+	.container li {
+		margin-left: 210px;
+		text-align: center;
+		height: 300px;
+		width: 300px;
+		margin-top: 160px;
+	}
+	
+	.container li>img {
+		margin-top: 80px;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 271px;
+		font-size: 33px;
+	}
+	
+	/*.container li:nth-of-type(1) {
+		background-color: #0078d7;
+	}
+	
+	.container li:nth-of-type(2) {
+		background-color: #50a299;
+	}
+	
+	.container li:nth-of-type(3) {
+		background-color: #8973b4;
+	}*/
+</style>

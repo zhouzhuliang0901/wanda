@@ -1,0 +1,44 @@
+
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#list">自助申报</a></li>
+        <li><a href="#main">实名认证</a></li>
+        <li><a href="#">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li class="active">签名确认</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/click.gif" width="80" class="click">
+            <div>请在屏幕上签名以继续<br />或重选事项</div>
+            <div class="sub-index">
+                <a class="blue-green active" href="#matter">重新选择事项</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="panelList one">
+            <div class="right-box">
+                <!-- <span>请在此签名，以继续申报</span> -->
+                <canvas id="canvas" width="810" height="580"></canvas>
+            </div>
+        </div>
+        <a class="btn_radius_50" id="clear" style="left: 240px">
+            <div class="greyLight">
+                <img src="images/retry.png" height="80">
+                <label>重签</label>
+            </div>
+        </a>
+        <a class="btn_radius_50" id="sure" ng-click="goNext()" style="left: 570px;">
+            <div class="greyLight">
+                <img src="images/ok.png" height="50">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

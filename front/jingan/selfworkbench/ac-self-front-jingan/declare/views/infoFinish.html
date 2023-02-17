@@ -1,0 +1,49 @@
+<div class="TabBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li>办事指南</li>
+		<li>人证核验</li>
+		<li class="act">在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span></div>
+	<div class="main3" id="print1" style="height:680px">
+		<div>
+			<div class="successBox1">
+				<div class="shadow1"></div>
+				<div class="successBox2">
+					<div class="cont1">
+						<h3 style="    margin-left: 50px;">操作成功！</h3>
+						<p class="p1">事项名称</p>
+						<p class="p2">{{allName}}</p>
+					</div>
+					<div class="line1"></div>
+					<div class="cont1">
+						<p class="p1">办件编码</p>
+						<div class="code">
+						</div>
+						<p class="p3">{{applyNo}}</p>
+					</div>
+					<div class="line2"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<no-rtn-footer 
+	prev="prevStep()" 
+	next="goHome()" 
+	next-btn-info="{{nextText}}" 
+	default-is-show-prev-btn="hidden" 
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</no-rtn-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="false"></alert>
+<style type="text/css">
+	.main3 {
+		height: 480px;
+		width: 1550px;
+		margin-top: 10px;
+	}
+</style>

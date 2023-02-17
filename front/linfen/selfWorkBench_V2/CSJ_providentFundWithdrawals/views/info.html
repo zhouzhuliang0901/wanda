@@ -1,0 +1,268 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	#wrapper {
+		width: 1530px;
+		height: 600px;
+	}
+	
+	.scrollBox2 {}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	#ascceptanceArea a {
+		width: 256px;
+	}
+	
+	.isOutShangHai,
+	.isInShangHai {
+		width: 39%;
+	}
+	
+	.select1 {
+		width: 32%;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+		#wrapper {
+			width: 1100px;
+		}
+		.line p {
+			font-size: 24px;
+		}
+		.infoTable {
+			font-size: 18px;
+		}
+		.input {
+			height: 46px;
+		}
+		.select {
+			height: 46px;
+			background: url(../libs/common/images/icon-square.png) no-repeat 95% 13px rgba(255, 255, 255, .25);
+		}
+		.infoTable td,.infoTable th{
+			height: 60px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="scrollBox2 clearfloat">
+				<form method="post" name="infoParams" id="infoParams">
+					<table class="infoTable">
+						<div class="line">
+							<hr size="1" noshade="noshade" style="left: 0;">
+							<hr size="1" noshade="noshade" style="right: 0;">
+							<p>提取申请人信息</p>
+						</div>
+						<tr>
+							<th><b class="red">*</b>姓名：</th>
+							<td><input class="input" type="text" id="stName" name="stName" ng-model="stName" readonly></td>
+							<th><b class="red">*</b>证件类型：</th>
+							<td><input class="input" type="text" id="stIdCardType" name="stIdCardType" ng-model="stIdCardType" readonly></td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>证件号码：</th>
+							<td><input class="input" type="text" id="stIdCard" name="stIdCard" ng-model="stIdCard" readonly></td>
+							<th><b class="red">*</b>手机号码：</th>
+							<td><input class="input" type="text" id="mobile" name="mobile" ng-model="mobile"></td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>缴存地省：</th>
+							<td>
+								<select class="select" id="jcdProvince" name="jcdProvince" ng-model="jcdProvince" ng-options="x.provinceName for x in jcdprovinceList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+							<th><b class="red">*</b>缴存地公积金名称：</th>
+							<td>
+								<select class="select" id="jcdCounty" name="jcdCounty" ng-model="jcdCounty" ng-options="x.depositName for x in jcdCountyList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>婚姻状况：</th>
+							<td>
+								<select class="select" id="maritalStatus" name="maritalStatus" ng-model="maritalStatus" ng-options="x.name for x in marryTypeList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+							<th><b class="red">*</b>是否产权人：</th>
+							<td>
+								<select class="select" id="propertyOwner" name="propertyOwner" ng-model="propertyOwner" ng-options="x for x in isPropertyOwnerList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>户籍所在省：</th>
+							<td>
+								<select class="select" id="hjprovince" name="hjprovince" ng-model="hjprovince" ng-options="x.name for x in hjprovinceList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+					</table>
+					<table class="infoTable" ng-show="mateInfoShow">
+						<div class="line" ng-show="mateInfoShow">
+							<hr size="1" noshade="noshade" style="left: 0;">
+							<hr size="1" noshade="noshade" style="right: 0;">
+							<p>配偶信息</p>
+						</div>
+						<tr>
+							<th><b class="red">*</b>姓名：</th>
+							<td><input class="input" type="text" id="name_mate" name="name_mate" ng-model="name_mate"></td>
+							<th><b class="red">*</b>证件类型：</th>
+							<td><input class="input" type="text" id="idCardType_mate" name="idCardType_mate" ng-model="idCardType_mate" readonly></td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>证件号码：</th>
+							<td><input class="input" type="text" id="idCard_mate" name="idCard_mate" ng-model="idCard_mate"></td>
+							<th><b class="red">*</b>手机号码：</th>
+							<td><input class="input" type="text" id="mobile_mate" name="mobile_mate" ng-model="mobile_mate"></td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>缴存地省：</th>
+							<td>
+								<select class="select" id="jcdProvince_mate" name="jcdProvince_mate" ng-model="jcdProvince_mate" ng-options="x.provinceName for x in jcdprovinceList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+							<th><b class="red">*</b>缴存地公积金名称：</th>
+							<td>
+								<select class="select" id="jcdCounty_mate" name="jcdCounty_mate" ng-model="jcdCounty_mate" ng-options="x.depositName for x in jcdCountyList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>是否产权人：</th>
+							<td>
+								<select class="select" id="propertyOwner_mate" name="propertyOwner_mate" ng-model="propertyOwner_mate" ng-options="x for x in isPropertyOwnerList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+							<th><b class="red">*</b>是否作为共同提取人：</th>
+							<td>
+								<select class="select" id="together" name="together" ng-model="together" ng-options="x.name for x in togetherList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<th><b class="red">*</b>户籍所在省：</th>
+							<td>
+								<select class="select" id="hjprovince_mate" name="hjprovince_mate" ng-model="hjprovince_mate" ng-options="x.name for x in hjprovinceList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+
+					</table>
+					<table class="infoTable">
+						<div class="line">
+							<hr size="1" noshade="noshade" style="left: 0;">
+							<hr size="1" noshade="noshade" style="right: 0;">
+							<p>房屋信息</p>
+						</div>
+						<tr>
+							<th><b class="red">*</b>房屋所在地省市区：</th>
+							<td>
+								<select class="select select1" id="province_house" name="province_house" ng-model="province_house" ng-options="x.name for x in provinceList">
+									<option selected ng-if="false"></option>
+								</select>
+								<select class="select select1" id="city_house" name="city_house" ng-model="city_house" ng-options="x.name for x in cityList">
+									<option selected ng-if="false"></option>
+								</select>
+								<select class="select select1" id="county_house" name="county_house" ng-model="county_house" ng-options="x.name for x in countyList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+							<th><b class="red">*</b>房屋交易类型：</th>
+							<td>
+								<select class="select" id="houseType" name="houseType" ng-model="houseType" ng-options="x.name for x in houseTypeList">
+									<option selected ng-if="false"></option>
+								</select>
+							</td>
+						</tr>
+
+					</table>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

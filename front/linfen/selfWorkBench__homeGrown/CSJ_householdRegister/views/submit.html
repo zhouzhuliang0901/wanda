@@ -1,0 +1,61 @@
+<div class="main3" id="print1" style="height:690px;margin-top: 100px;">
+	<div class="successBox1">
+		<div class="shadow1"></div>
+		<div class="successBox2">
+			<div class="cont1">
+				<h3>操作成功！</h3>
+				<p class="p1">事项名称</p>
+				<p class="p2" ng-bind="funName"></p>
+			</div>
+			<div class="line1"></div>
+			<div class="cont1">
+				<p class="p1">办件编码</p>
+				<p class="p2" ng-bind="applyNo"></p>
+				<p class="p3"></p>
+			</div>
+			<div class="line2"></div>
+		</div>
+	</div>
+	<div class="tips">
+		<p>办理人：{{licenseName}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;办理时间：{{date}}</p>
+		<p class="tips-title">温馨提示:</p>
+		<p class="tips-content">公安机关将于申请人成功<b>提出申请后7个工作日内审核出具</b>《户籍事项证明》或《不予出具证明告知书》。特殊情况下，审核期限延长至10个工作日。
+		</p>
+	</div>
+</div>
+
+<apptb-footer prev="prev()" next="goHome()" next-btn-info="{{nextText}}" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.successBox2 .cont1 h3 {
+		margin: 30px 0 20px 35px;
+	}
+
+	.tips {
+		width: 716px;
+		float: left;
+		margin-left: 60px;
+		margin-top: 150px;
+		font-size: 30px;
+	}
+	.tips b{
+		color: red;
+	}
+	.tips-title {
+		color: #FEE889;
+		margin-top: 30px;
+		margin-bottom: 20px;
+	}
+
+	.tips-content {
+		line-height: 63px;
+		margin-bottom: 20px;
+	}
+
+	.successBox1 {
+		float: left;
+		margin-left: 130px;
+		margin-top: 80px;
+	}
+</style>

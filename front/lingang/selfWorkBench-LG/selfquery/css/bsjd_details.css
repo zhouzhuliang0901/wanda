@@ -1,0 +1,70 @@
+.section{
+    width: 1080px;
+    height:517px;
+    position: absolute;
+    top: 275px;
+}
+.section h3{
+    width: 1080px;
+    height: 43px;
+    line-height: 43px;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin-top: 100px;
+}
+.con-bd{
+    width: 547px;
+    height: 390px;
+    margin: 100px 266px;
+    padding: 25px 0px 25px 25px;
+    color: white;
+    font-size: 20px;
+    background: url("../images/list_bg.png") no-repeat;
+    background-size: 100%;
+}
+.con-bd li{
+    height: 55px;
+    line-height: 55px;
+}
+.layui_ico {
+    margin-top:9px;
+}
+.layui-layer-content span{
+    font-size:25px;
+    line-height:225px;
+    text-align:center;
+    display: block;
+ }
+ .layui-layer-content p{
+    font-size:25px;
+    line-height:25px;
+    margin-left:12px;
+ }
+.layui-layer-padding p{
+    font-size:25px;
+    line-height:35px;
+}
+body .layui-layer-title{
+    border: none;
+    height:35px;
+    font-size:20px;
+}
+body .layui-layer-btn{
+    border-top:1px solid #E9E7E7;
+    height:40px;
+}
+body .layui-layer-btn .layui-layer-btn0{
+    height:30px;
+    width:100px;
+    margin-top:10px;
+    font-size:25px;
+    line-height:30px;
+    text-align:center;
+}
+.layui-layer-content span{
+    font-size:50px;
+    line-height:225px;
+    text-align:center;
+    display: block;
+ }

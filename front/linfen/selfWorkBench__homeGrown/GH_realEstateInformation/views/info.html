@@ -1,0 +1,170 @@
+<style type="text/css">
+	#wrapper {
+		width: 1600px;
+		height: 600px;
+	}
+	
+	.my-card {
+		padding: 50px 80px;
+	}
+	
+	.my-card .body {
+		padding-top: 0px;
+	}
+	
+	.caption {
+		margin-top: 4%;
+		margin-left: 11%;
+	}
+	
+	.body {
+		width: 1440px;
+	}
+	
+	.table-sty1 {
+		width: 100%;
+		table-layout: auto;
+		margin: 0 auto;
+	}
+	
+	.table-sty1 th {
+		font-weight: bold;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+		/* text-overflow: ellipsis; */
+	}
+	
+	.tdOne {
+		width: 20%;
+	}
+	
+	.tdTwo {
+		width: 28%;
+	}
+	
+	.line {
+		width: 100%;
+		height: 9%;
+		position: relative;
+		margin: 2% auto;
+	}
+	
+	.line hr {
+		margin-top: 1.6%;
+		width: 42%;
+		position: absolute;
+	}
+	
+	.line p {
+		margin: 0 auto;
+		font-size: 30px;
+		font-weight: bold;
+		width: 18%;
+		text-align: center;
+		letter-spacing: 6px;
+	}
+	
+	.choice {
+		width: 100%;
+		height: 70px;
+	}
+	
+	.choice ul {
+		display: flex;
+		width: 70%;
+		margin: 0 auto;
+		height: 100%;
+	}
+	
+	.choice ul li {
+		width: 30%;
+		height: 80%;
+		line-height: 60px;
+		font-size: 28px;
+		text-align: center;
+		margin: 0 auto;
+	}
+	
+	.orange {
+		color: #F1992E;
+		border-bottom: 1px solid #F1992E;
+	}
+	
+	.gray {
+		background-color: rgba(255, 255, 255, 0.1);
+		font-weight: bold;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.body {
+			width: 1000px;
+		}
+		.my-card {
+			padding: 50px 140px;
+		}
+	}
+</style>
+<div id="wrapper">
+	<div class="st">
+		<div class="my-card">
+			<div class="body">
+				<!--不动产详情信息-->
+				<div>
+					<div class="line">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;left: 0; width: 35%;">
+						<hr size="1" noshade="noshade" style="border:1px #cccccc dotted;right: 0; width: 35%;">
+						<p style="width: 26%;">不动产详情信息</p>
+					</div>
+					<table class="table-sty1" cellspacing="0">
+						<tbody>
+							<tr>
+								<td class="gray tdOne">坐落</td>
+								<td class="tdTwo">{{detailList.zl || "暂无"}}</td>
+								<td class="gray tdOne">产权证号</td>
+								<td class="tdTwo">{{detailList.cqzh|| '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">房屋用途</td>
+								<td class="tdTwo">{{detailList.fwyt|| "暂无"}}</td>
+								<td class="gray tdOne">收件编号</td>
+								<td class="tdTwo">{{ detailList.sjbh|| '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">室号部位</td>
+								<td class="tdTwo">{{ detailList.shbw|| "暂无"}}</td>
+								<td class="gray tdOne">区名称</td>
+								<td class="tdTwo">{{detailList.qmc|| '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">房屋编号</td>
+								<td class="tdTwo">{{ detailList.fwbh|| "暂无"}}</td>
+								<td class="gray tdOne">房屋类型</td>
+								<td class="tdTwo">{{detailList.fwlx|| '暂无'}}</td>
+							</tr>
+							<tr>
+								<td class="gray tdOne">制证日期</td>
+								<td class="tdTwo">{{ queryList.makeDay|| "暂无"}}</td>
+								<td class="gray tdOne">有效期止</td>
+								<td class="tdTwo">{{queryList.validEndDay|| '暂无'}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<print show="isShowPrint"></print>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" default-is-show-next-btn="hidden" custom-home="true"></apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

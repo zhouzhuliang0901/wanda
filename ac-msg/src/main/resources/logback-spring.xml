@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+<!--        <filter class="org.aimsouth.ecosystem.log.LogHelperFilter"/>-->
+        <encoder>
+            <!-- <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %msg%n</pattern> -->
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread-||%logger{60}.%M:%L] - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!-- 针对Reindeer平台的LogHelper工具打印的格式化 -->
+    <appender name="STDOUT_LOGHELPER" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 下面配置一些第三方包的日志过滤级别，用于避免刷屏 -->
+    <logger name="org.springframework" level="ERROR"/>
+    <logger name="com.opensymphony" level="ERROR"/>
+    <logger name="org.quartz" level="ERROR"/>
+    <logger name="org.apache" level="ERROR"/>
+    <logger name="net.sf" level="ERROR"/>
+    <logger name="org.activiti" level="ERROR"/>
+    <logger name="o.a.e.i" level="ERROR"/>
+    <logger name="org.cometd" level="INFO"/>
+    <logger name="org.eclipse.jetty" level="INFO"/>
+    <logger name="org.mongodb.driver" level="INFO"/>
+    <logger name="org.jboss" level="INFO"/>
+    <logger name="o.h.v" level="INFO"/>
+    <logger name="org.hibernate.validator" level="INFO"/>
+    <logger name="druid.sql" level="INFO"/>
+    <!--    <logger name="org.activiti" level="ERROR" />-->
+    <!--    <logger name="org.activiti.engine.impl.persistence.entity" level="DEBUG" />-->
+
+<!--    <logger name="org.aimsouth.ecosystem.log.LogHelper" level="${loglevel}" addtivity="false">-->
+<!--        <appender-ref ref="STDOUT_LOGHELPER"/>-->
+<!--    </logger>-->
+<!--    <logger name="org.aimsouth.ecosystem.db.DBFactory" level="${loglevel}" addtivity="false">-->
+<!--        <appender-ref ref="STDOUT_LOGHELPER"/>-->
+<!--    </logger>-->
+    <!-- 输出到控制台和文件，可定义更多的 Appender -->
+    <root level="${loglevel}">
+        <appender-ref ref="STDOUT"/>
+    </root>
+    <property name="loglevel" value="DEBUG"/>
+
+</configuration>

@@ -1,0 +1,68 @@
+<p class="caption">{{operation}}</p>
+<div class="detail">
+	<p class="info">
+		<span class="title">
+			申请人:
+		</span> {{incidentDetail.stName}}
+	</p>
+	<p class="info">
+		<span class="title">
+			办件编码:
+		</span> {{incidentDetail.stApplyNo}}
+	</p>
+	<p class="info">
+		<span class="title">
+			公司名称:
+		</span> {{incidentDetail.stUnit}}
+	</p>
+	<p class="info">
+		<span class="title">
+			办理事项名称:
+		</span> {{incidentDetail.stItemName}}
+	</p>
+	<p class="info">
+		<span class="title">
+			申请时间:
+		</span> {{incidentDetail.stApplyStr}}
+	</p>
+	<p class="info">
+		<span class="title">
+			办件状态:
+		</span> {{incidentDetail.stFinalState}}
+	</p>
+	<p class="info">
+		<span class="title">
+			办结时间:
+		</span> {{incidentDetail.stFinishStr}}
+	</p>
+</div>
+<app-footer prev="prevStep()" next="nextStep()" prev-text="返回" next-text="请重新选择办件"></app-footer>
+<style type="text/css">
+	.detail {
+		position: relative;
+		margin: 0 auto;
+		background-color: #2864b0;
+		height: 680px;
+		width: 920px;
+		overflow: hidden;
+		margin-top: 20px;
+	}
+	
+	.info:nth-child(1) {
+		margin-top: 40px;
+	}
+	
+	.info {
+		font-size: 35px;
+		margin-top: 20px;
+		color: #fff;
+	}
+	
+	.title {
+		display: inline-block;
+		text-align: right;
+		color: #c4d4ee;
+		width: 30%;
+		padding-right: 20px;
+	}
+</style>

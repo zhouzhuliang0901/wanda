@@ -1,0 +1,50 @@
+app.controller("startController", function($scope, $location, $http, data, $rootScope, $timeout, $interval, appFactory) {
+	data.ocode = "";
+	$rootScope.goHome = function() {
+		window.external.URL_CLOSE();
+		$.device.cmCaptureHide();
+		$.device.Camera_Hide();
+		$.device.qrCodeClose();
+		$.device.officeClose();
+		$.device.GoHome();
+	};
+	$scope.getTble = function() {
+		window.location.href = "http://10.237.16.72/aci/workBench_1/autoForm/index.html";
+	}
+	$scope.getTbleT = function() {
+		$location.path("/innerH");
+	}
+	$scope.back = function() {
+		$.device.officeClose();
+		$.device.cmCaptureHide();
+		$.device.Camera_Hide();
+		$.device.qrCodeClose();
+		try {
+			window.external.URL_CLOSE();
+		} catch(e) {}
+		$location.path("/start");
+	}
+});
+app.controller("innerHController", function($scope, $location, $http, data, $rootScope, $timeout, $interval, appFactory) {
+	$scope.applyUrl = "http://10.237.15.115:8080/ifillform/eform/eform/index.html";
+	//window.external.URL_OPEN(50, 180, 1800, 760, $scope.applyUrl);
+	window.location.href = $scope.applyUrl;
+	$scope.back = function() {
+		$.device.officeClose();
+		$.device.cmCaptureHide();
+		$.device.Camera_Hide();
+		$.device.qrCodeClose();
+		try {
+			window.external.URL_CLOSE();
+		} catch(e) {}
+		$location.path("/start");
+	}
+	$scope.goHome = function() {
+	window.external.URL_CLOSE();
+		$.device.cmCaptureHide();
+		$.device.Camera_Hide();
+		$.device.qrCodeClose();
+		$.device.officeClose();
+		$.device.GoHome();
+	}
+});

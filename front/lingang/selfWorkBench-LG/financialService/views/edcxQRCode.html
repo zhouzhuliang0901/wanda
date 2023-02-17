@@ -1,0 +1,64 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			/*margin-top: 120px;*/
+		}
+		.scrollBox2 .linkBox1 a {
+			float: left;
+			width: 303px;
+			height: 273px;
+			margin: 0px;
+			overflow: hidden;
+			text-align: center;
+			border: 1px solid rgba(233, 237, 240, .4);
+			background: #2864b0;
+		}
+		.scrollBox2 .linkBox1 img {
+			width: 1200px;
+    margin-top: 50px;
+		}
+		.scrollBox2 .linkBox1 p {
+			font-size: 40px;
+			padding-top: 15px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			padding-top: 60px;
+			display: block;
+		}
+		.scrollBox2 .linkBox1 a {
+			float: left;
+			width: 303px;
+			height: 273px;
+			margin: 0px;
+			overflow: hidden;
+			text-align: center;
+			border: 1px solid rgba(233, 237, 240, .4);
+			background: #2864b0;
+		}
+		.scrollBox2 .linkBox1 img {
+			width: 1080px;
+		}
+		.scrollBox2 .linkBox1 p {
+			font-size: 40px;
+			padding-top: 15px;
+		}
+	}
+</style>
+
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<img src="../libs/common/images/financialService/hdn.jpg" alt="" />
+		<p>扫描二维码申请贷款</p>
+	</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="isShowCancelBtn"></alert>
+
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>

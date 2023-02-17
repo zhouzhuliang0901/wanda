@@ -1,0 +1,26 @@
+<div class="shell bg2">
+
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="#selectTwo"  class="back1">人证核验</a>
+            <a href="javascript:;" class="message1">message</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+        </div>
+        <ul class="navul1 clearfloat">
+           <li>选择事项</li>
+			<li>办事指南</li>
+			<li class="act">人证核验</li>
+			<li>在线填报</li>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}&nbsp;/&nbsp;扫描身份证</span></div>
+
+    <div class="main2">
+       <idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>
+       <zzsbrecognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></zzsbrecognition>
+    </div>
+    <div class="btnBox1 clearfloat">
+        <a href="#selectTwo"  class="Prev">上一步</a>
+    </div>
+</div>

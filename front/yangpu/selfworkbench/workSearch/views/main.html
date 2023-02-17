@@ -1,0 +1,40 @@
+<p class="caption">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceType('idcard')">
+			<img src="../libs/common/images/icon-link14.png" />
+			<p>刷身份证</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('serial')">
+			<img src="../libs/common/images/serial.png" />
+			<p>办件编号</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceType('code')">
+			<img src="../libs/common/images/code.png" />
+			<p>二维码</p>
+		</a>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()" alert-time>
+</apptb-footer>
+<!--<div class="btnprev">
+    <a ng-click="lastStep()" class="prev">上一步</a>
+</div>
+<div class="btnhome">
+	<a ng-click="goHome()" class="gohome"></a>
+</div>
+<div class="alert">
+        无操作 <zizhu-header></zizhu-header>后将返回首页
+</div>-->
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 326px;
+		text-align: center;
+		margin-top: 70px;
+	}
+	
+	.caption {
+		margin-top: 85px;
+		margin-left: 240px;
+	}
+</style>

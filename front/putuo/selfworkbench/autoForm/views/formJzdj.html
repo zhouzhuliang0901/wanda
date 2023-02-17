@@ -1,0 +1,215 @@
+<div class="clearfloat">
+	<p class="caption">居住登记信息表</p>
+	<div class="main2 main5">
+		<div id="wrapper">
+			<div class="scrollBox2 clearfloat">
+				<div class="tabelBox1">
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>姓&nbsp;&nbsp;&nbsp;&nbsp;名：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stName" id="stName" readonly>
+						</dd>
+						<dd class="lt1 lt3">
+							<span>性&nbsp;&nbsp;&nbsp;&nbsp;别：</span>
+							<b class="red1">*</b>
+							<dd class="rt2">
+								<input class="input1" type="text" ng-model="stSex" id="stSex" readonly>
+							</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>身份证号：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" type="text" ng-model="stIdCard" id="stIdCard" readonly>
+						</dd>
+						<dd class="lt1 lt3">
+							<span>民&nbsp;&nbsp;&nbsp;&nbsp;族：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<select class="select1" ng-model="nations" vName="" vId="" id="nations" onchange="selectNation('nations')">
+								<option class="col1" value="">选择民族</option>
+							</select>
+							<input type="hidden" id="stNation" value="" />
+							<input type="hidden" id="stNationId" value="" />
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>联系手机：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt2">
+							<input class="input1" ng-model="mobile" type="text" placeholder="">
+						</dd>
+					</dl>
+
+					<!--<dl class="dl1 clearfloat">
+					<dd class="lt1 lt3">
+						<span>户籍地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="province" vName="" vId="" ng-model="province" onchange="selectProvince('province','city','county','street')">
+								<option class="col1" value="">选择省份</option>
+						</select>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="city" vName="" vId="" ng-model="city" onchange="selectCity('city','county','street')">
+								<option class="col1" value="">选择城市</option>
+						</select>
+					</dd>
+					<dd class="rt7">
+						<select class="select1" id="county" vName="" vId="" ng-model="county" onchange="selectCounty('county','street')">
+								<option class="col1" value="">选择区/县</option>
+						</select>
+					</dd>
+				</dl>-->
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>户籍地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5">
+							<input class="input1" id="stAddress" ng-model="stAddress" type="text" placeholder="详细地址">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住地址：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt7">
+							<select class="select1" ng-model="shCounty" id="shCounty" onchange="selectShCounty('shCounty')">
+								<option class="col1" value="">选择区县</option>
+							</select>
+							<input type="hidden" ng-model="stShCounty" id="stShCounty" value="" />
+							<input type="hidden" ng-model="stShCountyId" id="stShCountyId" value="" />
+						</dd>
+						<dd class="rt7">
+							<select class="select1" ng-model="shStreet" id="shStreet" onchange="selectShStreet('shStreet')">
+								<option class="col1" value="">选择街/镇</option>
+							</select>
+							<input type="hidden" ng-model="stShStreet" id="stShStreet" value="" />
+							<input type="hidden" ng-model="stShStreetId" id="stShStreetId" value="" />
+						</dd>
+						<dd class="rt7">
+							<input class="input1" type="text" ng-model="stShRoad" id="stShRoad" placeholder="XX路">
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>&nbsp;</span></b>
+						</dd>
+						<dd class="rt8">
+							<input class="input1" type="text" ng-model="stShLane" id="stShLane" placeholder="">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>弄</span></b>
+						</dd>
+						<dd class="rt8">
+							<input class="input1" type="text" ng-model="stShNo" id="stShNo" placeholder="">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>号</span></b>
+						</dd>
+						<dd class="rt8">
+							<input class="input1" type="text" ng-model="stShRoom" id="stShRoom" placeholder="">
+						</dd>
+						<dd class="lt1 lt4">
+							<span>室</span></b>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住证明类别：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="liveType">
+							<a href="javascript:;">本人房地产权证明</a>
+							<a href="javascript:;">租赁合同登记备案</a>
+							<a href="javascript:;">近亲属的相关居住证明</a>
+							<a href="javascript:;" style="margin-bottom: 0px;">集体宿舍证明</a>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>居住事由：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="liveReason">
+							<a href="javascript:;">务工</a>
+							<a href="javascript:;">经商</a>
+							<a href="javascript:;">务农</a>
+							<a href="javascript:;">服务</a>
+							<a href="javascript:;">因公出差</a>
+							<a href="javascript:;">借读培训</a>
+							<a href="javascript:;">治病疗养</a>
+							<a href="javascript:;">随迁亲属</a>
+							<a href="javascript:;">拆迁搬家</a>
+							<a href="javascript:;">寄挂户口</a>
+							<a href="javascript:;">婚姻嫁娶</a>
+							<a href="javascript:;">投靠亲友</a>
+							<a href="javascript:;">保姆</a>
+							<a href="javascript:;">探亲访友</a>
+							<a href="javascript:;">旅游观光</a>
+							<a href="javascript:;">人才引进</a>
+							<div class="clearfloat div1">
+								<a href="javascript:;" class="dda1" style="margin-bottom: 0px;">其他</a>
+								<input class="input1" ng-model="other" type="text">
+							</div>
+						</dd>
+					</dl>
+
+					<dl class="dl1 clearfloat">
+						<dd class="lt1 lt3">
+							<span>文化程度：</span>
+							<b class="red1">*</b>
+						</dd>
+						<dd class="rt5 singleselect3 clearfloat" id="education">
+							<a href="javascript:;">未上过学</a>
+							<a href="javascript:;">小学</a>
+							<a href="javascript:;">初中</a>
+							<a href="javascript:;">高中</a>
+							<a href="javascript:;">大学专科</a>
+							<a href="javascript:;">大学本科</a>
+							<a href="javascript:;">研究生</a>
+						</dd>
+					</dl>
+				</div>
+
+			</div>
+		</div>
+	</div>
+	<div class="mainrt1">
+		<h3 style="margin-bottom:15px;">样表</h3>
+		<div class="imgbox2">
+			<img src="../libs/common/images/autoForm/jzdj.jpg" />
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.caption {
+		margin-top: 60px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1328px;
+		height: 662px;
+	}
+</style>

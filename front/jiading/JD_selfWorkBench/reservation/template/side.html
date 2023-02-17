@@ -1,0 +1,11 @@
+<!-- 预约arrange排号 -->
+<div class="make-arrange">
+	<div class="make-arrange-time1" ng-repeat="item in appointmentList">
+		<div>
+			<span class="week">周{{severalweeks}}</span>
+			<span>{{item.stShow}}</span>
+			<span>({{item.surplusCount}}/{{item.totalCount}})</span>
+			<button class="time1-btn" ng-click="timezbtn(item.stShow)">预约</button>
+		</div>
+	</div>
+</div>

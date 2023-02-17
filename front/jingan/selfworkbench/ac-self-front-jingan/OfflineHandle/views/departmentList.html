@@ -1,0 +1,55 @@
+<style type="text/css">
+	.tabBotbox1inner {
+		height: 590px;
+	}
+	.tabBotbox1inner .linkbox1 {
+	    padding-left: 145px;
+	}
+	.tabBotbox1inner .linkbox1 a {
+	    padding: 0px 20px;
+	    box-sizing: border-box;
+	}
+	.tabBotbox1inner .linkbox1.matter a {
+		width: 734px;
+	}
+	#wrapper {
+		height: 590px;
+	}
+</style>
+
+<div class="shell bg2">
+	<apptb-header fun-name="自助办理"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 navul2 clearfloat">
+			<li class="act">选择事项</li>
+			<!--<li>办事指南</li>-->
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li>材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="tabBotbox1">
+			<div class="cont">
+				<div class="tabBotbox1inner tabBotbox1inner1" style="margin-top: 30px;">
+					<div id="wrapper" class="wrapper">
+						<div class="linkbox1 clearfloat">
+							<a repeat-finish ng-repeat="item in itemName" ng-click="toMaterials(item.code,item.id,item.organName,item.shortName)">{{item.organName || item.shortName}}</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>

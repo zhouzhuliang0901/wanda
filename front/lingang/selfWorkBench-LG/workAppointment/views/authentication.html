@@ -1,0 +1,32 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" ng-if="loginType===null">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceType('idcard')">
+			<img src="../libs/common/images/icon-link14.png" />
+			<p>刷身份证</p>
+		</a>
+
+		<a href="javascript:;" ng-click="choiceType('cloud')">
+			<img src="../libs/common/images/icon/code.png" />
+			<p>市民云亮证</p>
+		</a>
+	</div>
+</div>
+<idcard read="readIdcard(info)" ng-if="loginType=='idcard'" has-img="no"></idcard>
+<citizen-cloud result="readCloud(info)" ng-if="loginType=='cloud'"></citizen-cloud>
+
+<style type="text/css">
+	.scrollBox2 .cardreadingBox1 img {
+		margin-top: 80px;
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 600px;
+		padding-top: 150px;
+	}
+	
+	idcard {
+		position: relative;
+		top: 42px;
+	}
+</style>

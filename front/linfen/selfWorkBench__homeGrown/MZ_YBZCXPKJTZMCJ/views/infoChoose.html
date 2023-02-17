@@ -1,0 +1,246 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.scrollBox2 {
+			width: 1500px;
+			margin-top: 80px;
+			margin-left: 210px;
+		}
+		.top {
+			font-weight: bold;
+			color: #e1ba1c;
+		}
+		.guideline p {
+			padding: 7px;
+		}
+		table {
+			width: 760px;
+			margin-left: 45px;
+		}
+		table th,
+		table td {
+			border: #477cbe 1px solid;
+			text-align: center;
+			padding: 8px;
+		}
+		.caption {
+			margin-top: 80px;
+			margin-left: 200px;
+		}
+		#wrapper {
+			overflow: visible;
+			width: 1500px;
+			height: 655px;
+		}
+		.singselect {
+			float: left;
+			min-height: 60px;
+			font-size: 24px;
+			color: #FFF;
+			width: 100%;
+			margin-bottom: 30px;
+		}
+		.used,
+		.componyName1,
+		.componyName2 {
+			font-size: 30px;
+			color: #c2cce3;
+			line-height: 60px;
+		}
+		.used,
+		.componyName1 {
+			float: left;
+		}
+		.singselect a {
+			float: left;
+			/* width: 314px; */
+			height: 75px;
+			overflow: hidden;
+			border: 1px solid rgba(233, 237, 240, .4);
+			margin-right: 10px;
+			margin-bottom: 25px;
+			position: relative;
+			text-align: center;
+			display: inline-block;
+			line-height: 75px;
+			font-size: 28px;
+			padding: 0px 15px;
+		}
+		.singselect a li {
+			box-sizing: border-box;
+		}
+		.singselect a.in:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 78px;
+			height: 68px;
+			overflow: hidden;
+			background: url(../libs/common/images/check1.png) no-repeat;
+		}
+		.input1 {
+			background: rgba(255, 255, 255, .25);
+			box-sizing: border-box;
+			display: inline-block;
+			border: none;
+			outline: none;
+			color: #FFF;
+			width: 68%;
+			height: 70px;
+			font-size: 30px;
+			padding-left: 30px;
+			margin-left: 15px;
+		}
+		.select1 {
+			width: 25%;
+			float: left;
+			margin-top: 20px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+			background-size: 100% 80%;
+		}
+		.scrollBox2 {
+			width: 100%;
+			box-sizing: border-box;
+			padding: 10px 60px;
+		}
+		.top {
+			font-weight: bold;
+			color: #e1ba1c;
+		}
+		.guideline p {
+			padding: 7px;
+		}
+		table {
+			width: 760px;
+			margin-left: 45px;
+		}
+		table th,
+		table td {
+			border: #477cbe 1px solid;
+			text-align: center;
+			padding: 8px;
+		}
+		.caption {
+			margin-top: 80px !important;
+			margin-left: 60px !important;
+		}
+		#wrapper {
+			overflow-y: scroll;
+			overflow-x: hidden;
+			width: 100%;
+			height: 580px;
+			-ms-overflow-style: none;
+		}
+		.scrollContain {
+			overflow: hidden;
+		}
+		.singselect {
+			float: left;
+			min-height: 60px;
+			font-size: 24px;
+			color: #FFF;
+			width: 100%;
+			margin-bottom: 30px;
+		}
+		.used,
+		.componyName1,
+		.componyName2 {
+			font-size: 30px;
+			color: #c2cce3;
+			line-height: 60px;
+		}
+		.componyName1 {
+			float: left;
+		}
+		.singselect a {
+			float: left;
+			/* width: 314px; */
+			height: 75px;
+			overflow: hidden;
+			border: 1px solid rgba(233, 237, 240, .4);
+			margin-right: 10px;
+			margin-bottom: 25px;
+			position: relative;
+			text-align: center;
+			display: inline-block;
+			line-height: 75px;
+			font-size: 28px;
+			padding: 0px 15px;
+		}
+		.singselect a li {
+			box-sizing: border-box;
+		}
+		.singselect a.in:after {
+			content: "";
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 78px;
+			height: 68px;
+			overflow: hidden;
+			background: url(../libs/common/images/check1.png) no-repeat;
+		}
+		.input1 {
+			background: rgba(255, 255, 255, .25);
+			box-sizing: border-box;
+			display: inline-block;
+			border: none;
+			outline: none;
+			color: #FFF;
+			width: 60%;
+			height: 70px;
+			font-size: 30px;
+			padding-left: 30px;
+			margin-left: 15px;
+		}
+		.select1 {
+			width: 32%;
+			float: left;
+			margin-top: 20px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}--填报信息</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div repeat-finish class="scrollContain">
+			<dd class="singselect">
+				<dl class="used">请选择出证用途（必选）：</dl>
+				<a ng-class="{'in':current==index}" ng-repeat="(index,item) in licnenseUseList" ng-click="change(item.name,index,item.id)">
+					<li vId="2222">{{item.name}}</li>
+				</a>
+			</dd>
+			<dd ng-show="isUnit">
+				<dl class="componyName1">请输入发往单位名称（必填）:</dl>
+				<input class="input1" id="unitName" ng-model="unitName">
+				</input>
+			</dd>
+			<!--ng-show="isShow"-->
+			<dd ng-show="isShow">
+				<dl class="componyName2">请输入发往单位所属区、街道、单位名称（必选）:</dl>
+				<!--<select class="select1" id="county" ng-model="county" ng-options="x.value for x in countryList"></select>
+				<select class="select1" id="street" ng-model="street" ng-options="x.value for x in streetList"></select>
+				<select class="select1" id="unit" ng-model="unit" ng-options="x.value for x in unitList"></select>-->
+				<span>
+				<drop-down width='375px' selectval="" modelval='county' ng-model="county" dropdowndata="countryList" valchange="">
+				</drop-down>
+				</span>
+				<span style="margin-left: 375px;">
+				<drop-down width='375px' selectval="" modelval='street' ng-model="street" dropdowndata="streetList" valchange="">
+				</drop-down>
+				</span>
+				<span style="margin-left: 375px;">
+				<drop-down width='375px' selectval="" modelval='unit' ng-model="unit" dropdowndata="unitList" valchange="">
+				</drop-down>
+				</span>
+			</dd>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

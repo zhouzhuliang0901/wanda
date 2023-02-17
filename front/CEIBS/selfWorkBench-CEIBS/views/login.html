@@ -1,0 +1,10 @@
+<style type="text/css">
+	.std img {
+		margin-left: 400px;
+	}
+</style>
+<section class="std">
+	<img ng-src="{{imgSrc}}" alt="" />
+</section>
+<app-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="false"></app-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

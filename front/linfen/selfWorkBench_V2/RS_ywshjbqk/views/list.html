@@ -1,0 +1,113 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" style="margin-top: 20px;">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt">
+				<p class="city">城镇职工基本养老保险</p>
+				<a class="select" ng-repeat="stuff in stuffName1" ng-click="getMatterCon(stuff.stuffName,stuff.code,stuff.type)">
+					{{stuff.stuffName}}
+				</a>
+			</div>
+			<div class="linkt">
+				<p class="city">城乡居民基本养老保险</p>
+				<a class="select" ng-repeat="stuff2 in stuffName2" ng-click="getMatterCon(stuff2.stuffName,stuff2.code,stuff2.type)">
+					{{stuff2.stuffName}}
+				</a>
+			</div>
+			<div class="linkt">
+				<p class="city">其他</p>
+				<a class="select"ng-repeat="stuff3 in stuffName3" ng-click="getMatterCon(stuff3.stuffName,stuff3.code,stuff3.type)">
+					{{stuff3.stuffName}}
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.city {
+		margin-bottom: 20px;
+		color: #fefefe;
+		margin-left: 81px;
+		font-size: 30px;
+		opacity: .6;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		margin-top: 30px;
+		width: 1595px;
+		height: 621px;
+	}
+	
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 29px 0 0 22px;
+	}
+	
+	.linkt {
+		position: relative;
+		left: 50px;
+		float:left;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 95px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 700px 100px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size: 29px;
+		line-height: 94px;
+	}
+	
+	.top1 {
+		padding-bottom: 77px;
+		padding-left: 76px;
+	}
+	
+	.top1 li {
+		float: left;
+		width: 455px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 33px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 70px;
+		color: #3794e4;
+		background: url('../libs/common/images/handleList.png') no-repeat center;
+		background-size: 400px 84px;
+	}
+	
+	.top1 li.in {
+		color: #fff;
+		background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-position: 32% 6%;
+	}
+	
+	.stuff {
+		height: 70px;
+		line-height: 107px;
+		font-size: 28px;
+		text-align: center;
+	}
+</style>

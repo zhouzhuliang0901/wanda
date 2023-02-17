@@ -1,0 +1,45 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#">自助申报</a>
+		</li>
+		<li>
+			<a href="#list">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li class="active">注意事项</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action" style="background: none; width: 100%;left: 0;">
+		<div class="panelList one" style="width: 95%; padding:10px 35px;height: 630px;">
+			<div class="right-box" style="height: 96%;">
+				<div class="right-inner" style="height: 93%;">
+					<p class="title">关于“一网通办”自助申报服务的相关约定和特别事项提示</p>
+					<p style="text-align: left;">尊敬的申请人：<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您好！非常欢迎您选择和使用 “一网通办”网上全流程自助申报服务。为了保证您的权益，请在使用本服务前认真阅读约定的条款，一旦您选择了此项网上服务，即表示您同意并接受了所有条款的规定。
+						<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;一、申请人应根据“一网通办”网上全流程自助申报服务的有关规定填写申请表，并提交申请所需要的材料（含电子信息及纸质原件），请您务必保证申请材料的真实性和完整性。如果由于您提交的材料不真实或不完整造成业务审批部门无法正常办理的，后果自行承担。
+						<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;二、申请人可直接到相关服务窗口提交申请材料的原件，并按照事先约定或者事后有关通知，携带相关证件（原件）和领证通知，在约定时间自行到指定业务窗口领取证照。
+						<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;三、申请人也可选择委托经审批部门认可的第三方物流公司的递送服务，将相关业务审批部门已确认过的申请村料和相关业务审批部门核准颁发的证照通过物流递送方式实施提交和送达。对于物流递送途中可能存在的申请材料和证照遗失或损毁的风险，将由申请人自行承担。申请人应当重新办理或者申请补发证照。
+						<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;四、申请人在与物流公司交接递送申请材料时，请务必当面确认材料清单的项目与数量并附上清单。在收取核发的新照时请务必由申请人本人签收。否则，由此原因造成材料递送延误或者遗漏，证照无法正常送达或者遗失的，后果申请人自行承担。
+						<br/> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;五、业务审批部门在收到申请人提交的真实且完整的申请材料后，进入办理流程，物流递送的时间不包括在业务审批办理环节中。
+					</p>
+				</div>
+				<div class="content-side" style="right: 11px;">
+					<a class="side-up" ng-click="moveUp()"><img src="images/btn_up.png" alt="" /></a>
+					<a class="side-down" ng-click="moveDown()"><img src="images/btn_down.png" alt="" /></a>
+				</div>
+			</div>
+		</div>
+		<a class="btn_radius_50" ng-click="next()" style="left: 43%; top: 665px;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

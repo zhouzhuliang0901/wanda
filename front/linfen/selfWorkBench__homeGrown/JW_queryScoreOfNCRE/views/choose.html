@@ -1,0 +1,53 @@
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<a ng-class="{'in':current==index}" ng-click="change(index,item.value)" ng-repeat="(index,item) in yearList">
+			{{item.value}}
+		</a>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()"  custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		margin-top: 200px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.scrollBox2 a {
+		float: left;
+		width: 350px;
+		height: 100px;
+		overflow: hidden;
+		border: 3px solid rgba(233, 237, 240, .4);
+		margin: 0 30px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 98px;
+		font-size: 36px;
+		padding: 0px 20px;
+	}
+	
+	.scrollBox2 a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+</style>

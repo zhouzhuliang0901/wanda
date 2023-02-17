@@ -1,0 +1,32 @@
+
+.header{
+    width: 100vw;
+    height: 15vh;
+    line-height: 15vh;
+    text-align: center;
+    font-size:3vw;
+}
+.button{
+    width: 100vw;
+    height: 10vh;
+    text-align: center;
+}
+.button a{
+    display: inline-block;
+    width: 48.5vw;
+    height: 5vh;
+    line-height: 5vh;
+    border: 1px solid #68a3d6;
+    font-size:2vw;
+}
+.section{
+    width: 98vw;
+    height: 70vh;
+    border: 1px solid #68a3d6;
+    margin-left:1vw;
+    margin-right:1vw;
+    font-size:2vw;
+}
+.active {
+	background-color:#4F94CD;
+}

@@ -1,0 +1,72 @@
+<div class="shell bg2">
+	<apptb-header fun-name="线下办理"></apptb-header>
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<!--<li>办事指南</li>-->
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{stuffName}}</span></div>
+		<div class="main2">
+			<div class="stuff">
+				<div class="word" id="test" ng-click="test()">
+					<li ng-repeat="stuff in stuffImg"><img data-original="{{stuff.img}}" ng-src="{{stuff.img}}" /></li>
+				</div>
+				<div class="paragraph1">样表(点击放大查看)</div>
+				<div class="btn" ng-click="upload()">
+					<img style="width: 116px;padding: 33px 0 0 78px;" src="images/icon-link13.png" />
+					<div style="font-size: 40px;padding: 19px 0 0 76px;">待上传</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="nextStep()" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<style type="text/css">
+	.word {
+		width: 350px;
+		height: 417px;
+		position: absolute;
+		top: 0px;
+		left: 310px;
+	}
+	
+	.tit1 {
+		font-size: 37px;
+		text-align: center;
+	}
+	
+	.paragraph1 {
+		font-size: 31px;
+		position: absolute;
+		top: 440px;
+		left: 650px;
+	}
+	
+	.btn {
+		position: absolute;
+		top: 63px;
+		left: 1033px;
+		width: 275px;
+		height: 275px;
+		background: #2964B0;
+	}
+	
+	.word li>img {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+	}
+	.navBox2{
+		margin-bottom: 0;
+	}
+</style>

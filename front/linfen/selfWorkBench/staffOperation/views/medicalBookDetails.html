@@ -1,0 +1,200 @@
+<style type="text/css">
+	#wrapper {
+		width: 1850px;
+		height: 520px;
+	}
+	
+	.table-sty1 th {
+		font-weight: bold;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 190px;
+		top: 360px;
+		right: 0;
+		bottom: 0px;
+		z-index: 10;
+		height: 540px;
+		width: 1553px;
+	}
+	
+	.loadingBox p {
+		margin-left: 595px;
+		font-size: 38px;
+		color: #FFFFFF;
+	}
+	
+	.table-sty1 th,
+	.table-sty1 td {
+		padding: 20px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		/*overflow: hidden;*/
+		word-break: break-all;
+		word-wrap: break-word;
+		/* text-overflow: ellipsis; */
+	}
+	
+	.handleList {
+		margin-left: 155px;
+		margin-top: 25px;
+	}
+	
+	.handleList li:nth-child(2) {
+		width: 200px;
+		background-size: 200px 84px;
+	}
+	
+	.handleList li:last-child {
+		width: 226px;
+		background-size: 225px 84px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 166px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 28px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 20px;
+		color: #3794e4;
+		background: url(../libs/common/images/handleList.png) no-repeat center;
+		background-size: 165px 84px;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+		/*background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-size: 165px 150px;
+		background-position: 32% 6%;*/
+	}
+	
+	.startDate,
+	.rt1,
+	.endDate,
+	.rt2 {
+		float: left;
+		height: 100px;
+		font-size: 30px;
+		margin-top: 20px;
+	}
+	
+	.startDate,
+	.endDate {
+		margin-left: 120px;
+	}
+	
+	.query {
+		height: 52px;
+		line-height: 52px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 26px;
+		margin-top: 20px;
+	}
+	
+	.query .qy {
+		display: inline-block;
+		width: 131px;
+		height: 52px;
+		line-height: 52px;
+		background: url('../libs/common/images/reBtn.png') no-repeat;
+		background-position: 28% 100%;
+	}
+	
+	input {
+		width: 300px;
+		height: 50px;
+		padding-left: 20px;
+	}
+	
+	.table-sty1 tr .in {
+		background-color: #000000;
+	}
+	
+	.btn {
+		background: url(../libs/common/images/reBtn.png) no-repeat;
+		background-size: 140px 85px;
+		background-position: 7px -23px;
+		font-weight: bold;
+	}
+	
+	.table-sty1 th {
+		background-color: #1C5C9C;
+	}
+</style>
+<div style="margin-top: 60px;">
+	<div class="st">
+		<div class="my-card">
+			<div class="head">
+				<h4 style="margin-left: 110px;">制册信息</h4>
+				<p style='float: right;margin-right: 230px;font-size: 34px;'>列表总数:{{count}}</p>
+			</div>
+			<div class="startDate">
+				<span>开始日期：</span>
+			</div>
+			<div class="rt1">
+				<div class="input-append date form_datetime">
+					<input class="input1" size="16" type="text" id="stStartDate" ng-model="stStartDate" readonly>
+					<span class="add-on"><i class="icon-th"></i></span>
+				</div>
+			</div>
+			<div class="endDate">
+				<span>结束日期：</span>
+			</div>
+			<div class="rt2">
+				<div class="input-append date form_datetime">
+					<input class="input1" size="16" type="text" id="stEndDate" ng-model="stEndDate" readonly>
+					<span class="add-on"><i class="icon-th"></i></span>
+				</div>
+			</div>
+			<div class="query">
+				<a class="qy" ng-click="query()">查询</a>
+			</div>
+			<div id="wrapper">
+				<div>
+					<div class="body" style='margin-left: 40px;'>
+						<table id="check" class="table-sty1" cellspacing="0" style="width: 1540px;table-layout: auto;">
+							<tr>
+								<th></th>
+								<th style="    width: 12%;">姓名</th>
+								<th style="    width: 23%;">册号</th>
+								<th style="    width: 26%;">卡号</th>
+								<th style="    width: 11%;">性别</th>
+								<th>出生日期</th>
+							</tr>
+							<tr ng-repeat="detail in medicalDetail" ng-if="show">
+								<td class="btn" ng-click="print(detail.jlch,detail.kh,detail.xm,detail.xb,detail.sfzh)">补打</td>
+								<td>{{detail.xm}}</td>
+								<td>{{detail.jlch}}</td>
+								<td>{{detail.kh}}</td>
+								<td>{{detail.xb}}</td>
+								<td>{{detail.sfzh|date}}</td>
+							</tr>
+							<tr ng-if="!show">
+								<td colspan="6">暂无数据</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="testPrint()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="    margin-left: 725px;margin-top: 245px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<print show="isShowPrint"></print>

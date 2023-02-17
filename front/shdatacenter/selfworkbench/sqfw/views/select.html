@@ -1,0 +1,44 @@
+
+<div class="shell bg2">
+
+    <div class="headBox1">
+       <div class="headtop1 clearfloat">
+            <a href="../declare/index.html" class="back1">自助办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+        </div>
+        <ul class="navul1 navul2 clearfloat">
+            <li>选择事项</li>
+            <li>办事指南</li>
+            <li class="act">人证核验</li>
+            <li>在线填报</li>
+        </ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span></div>
+
+    <div class="main2">
+        <div class="scrollBox2 clearfloat">
+            <div class="linkBox1 clearfloat" style="    padding-left: 280px;">
+                <a ng-click="scanIdcard()">
+                    <img src="images/icon-link14.png"/>
+                    <p>刷身份证</p>
+                </a>
+                <a ng-click="citizen()">
+                    <img src="images/icon-link13.png"/>
+                    <p>随申办亮证</p>
+                </a>
+                <a ng-click="queryFace()">
+                    <img src="images/icon-link13.png"/>
+                    <p>刷脸认证</p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="btnBox1 clearfloat">
+        <a ng-click="prev()" class="Prev">上一步</a>
+    </div>
+
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

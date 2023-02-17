@@ -1,0 +1,177 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" style="margin-top: 20px;">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<dl class="dllist1 clearfloat">
+				<dt>一、</dt>
+				<dd>
+					<p class="ng-binding">本事项办理需符合以下条件：</p>
+					<p class="ng-binding">1.本人办理</p>
+					<p class="ng-binding">2.本市户籍</p>
+				</dd>
+				
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>二、</dt>
+				<dd>
+					<p class="ng-binding">补贴一次申请，按月发放，申请成功次月起，每月15日左右到账。</p>
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>三、</dt>
+				<dd>
+					<p class="ng-binding">单位就业缴费、“就困”终止等情形发生时，补贴自动停止。</p>
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>四、</dt>
+				<dd>
+					<p class="ng-binding">符合条件，且距法定养老年龄二年以内的，可申请延长失业保险金。</p>
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>五、</dt>
+				<dd>
+					<p class="ng-binding">因新冠疫情需补享受之前补贴的，可就近至社区事务受理中心办理。</p>
+				</dd>
+			</dl>
+			<!-- <dl class="dllist1 clearfloat">
+				<dt>三、预约协议：</dt>
+				<dd  class="ng-binding">
+					<p>1、本事项必须为本人办理！</p>
+					<p>2、补贴一次申请，按月发放；申请成功次月起，每月15日左右到账。</p>
+					<p>3、发生单位就业缴费、养老等情形时，补贴自动停止。</p>
+					<p>4、符合条件，且距法定养老年龄二年以内的，可申请延长失业保险金。</p>
+					<p>5、因新冠疫情需补享受之前补贴的，可就近至社区事务受理中心办理。</p>
+				</dd>
+			</dl> -->
+		</div>
+	</div>
+</div>
+</div>
+<div class="prev-back-next">
+	<!--删除a标签的href属性, 防止出现某些页面跳转需要双击才能跳转-->
+	<!-- ngIf: isShowPrevBtn=='1' --><a class="prev ng-binding ng-scope" ng-if="isShowPrevBtn=='1'" ng-click=" prevStep()" >上一步</a><!-- end ngIf: isShowPrevBtn=='1' -->
+	<a class="backindex1" ng-click="goHome()"></a>
+	<!-- ngIf: isShowNextBtn=='1' --><a class="next ng-binding ng-scope" ng-if="isShowNextBtn=='1'" ng-click="nextStep()">下一步</a><!-- end ngIf: isShowNextBtn=='1' -->
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="" default-is-show-next-btn="" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+
+  .active{
+   color:red;
+  }
+
+	.city {
+		margin-bottom: 20px;
+		color: #fefefe;
+		margin-left: 81px;
+		font-size: 30px;
+		opacity: .6;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+        height: 650px;
+	}
+	
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 29px 0 0 22px;
+	}
+	
+	.linkt {
+		position: relative;
+		left: 50px;
+		float:left;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 95px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 700px 100px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size: 29px;
+		line-height: 94px;
+	}
+	
+	.top1 {
+		padding-bottom: 77px;
+		padding-left: 76px;
+	}
+	
+	.top1 li {
+		float: left;
+		width: 455px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 33px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 70px;
+		color: #3794e4;
+		background: url('../libs/common/images/handleList.png') no-repeat center;
+		background-size: 400px 84px;
+	}
+	
+	.top1 li.in {
+		color: #fff;
+		background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-position: 32% 6%;
+	}
+	
+	.stuff {
+		height: 70px;
+		line-height: 107px;
+		font-size: 28px;
+		text-align: center;
+	}
+
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+				background-size: 100% 80%;
+		}
+		.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+		}
+		.select {
+		float: left;
+		width: 700px;
+		height: 95px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 700px 100px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size: 29px;
+		line-height: 94px;
+		}
+		.scrollBox2 .dllist1 {
+    	line-height: 60px;
+    	font-size: 22px;
+}
+	}
+</style>

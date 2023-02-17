@@ -1,0 +1,90 @@
+<p class="caption1">{{ operation }}</p>
+<div class="detail">
+    <p class="info">
+        <span class="title">申请人:</span>
+        {{ incidentDetail.stName }}
+    </p>
+    <p class="info">
+        <span class="title">办件编码:</span>
+        {{ incidentDetail.stApplyNo }}
+    </p>
+    <p class="info">
+        <span class="title">公司名称:</span>
+        {{ incidentDetail.stUnit }}
+    </p>
+    <p class="info">
+        <span class="title">办理事项名称:</span>
+        {{ incidentDetail.stItemName }}
+    </p>
+    <p class="info">
+        <span class="title">申请时间:</span>
+        {{ incidentDetail.stApplyStr }}
+    </p>
+    <p class="info">
+        <span class="title">办件状态:</span>
+        {{ incidentDetail.stFinalState }}
+    </p>
+    <p class="info">
+        <span class="title">办结时间:</span>
+        {{ incidentDetail.stFinishStr }}
+    </p>
+</div>
+<div class="rechoice">
+	<input type="button" value="请重新选择办件" ng-click="nextStep()"/>
+</div>
+<!--<app-footer
+    next="nextStep()"
+    prev-text="返回"
+    next-text="请重新选择办件"
+></app-footer>-->
+<apptb-footer 
+	prev="prevStep()" next="nextStep()" 
+	default-is-show-next-btn="hidden" custom-home="true"
+    home="customMain()" go-back="goAppHistoryBack()" alert-time>
+</apptb-footer>
+<style type="text/css">
+    .detail {
+          position: relative;
+    margin: 0 auto;
+    background: url(./images/bg-detail.png) no-repeat;
+    background-size: 100% 100%;
+    height: 540px;
+    width: 820px;
+    overflow: hidden;
+    margin-top: 40px;
+    }
+
+    .info:nth-child(1) {
+        margin-top: 50px;
+    }
+
+    .info {
+        font-size: 29px;
+        margin-top: 33px;
+        color: #fff;
+    }
+
+    .title {
+        display: inline-block;
+        text-align: right;
+        color: #a6adbc;
+        width: 30%;
+        padding-right: 20px;
+    }
+    .rechoice {
+    	width: 190px;
+    	height: 70px;
+    	margin: 20px auto;
+    }
+    .rechoice input{
+    	border: none;
+    	margin: 0 auto;
+    	width: 180px;
+    	height: 60px;
+    	background: url("./images/btnselect.png") no-repeat;
+    	font-size: 20px;
+    	font-weight: 400;
+    	color: #82dff8;
+    	text-shadow: 0 0 5px #146ab9,0 0 10px #146ab9,0 0 15px #146ab9,0 0 20px #146ab9;
+    }
+</style>

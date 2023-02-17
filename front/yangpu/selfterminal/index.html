@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自助服务终端-首页</title>
+		<link rel="stylesheet" href="libs/common/css/common.css">
+		<link rel="stylesheet" href="libs/common/css/all.css">
+	</head>
+	
+	<body ondragstart="return false;" onselectstart="return false">
+		<div class="content_box">
+			<!--content 1280x1024 start-->
+
+
+			<!--logo start-->
+			<div class="title_box">
+				<div class="logo">
+					<img/>
+				</div>
+			</div>
+			<!--logo end-->
+
+			<!--nane start-->
+			<div class="name_box"></div>
+			<!--nane end-->
+
+			<!--模块开始-->
+			<div class="mokuai_box">
+				<ul>
+					<li class="li_wd500" >
+						<a id="one" onclick="click_point(this.id);">
+							<p>Event Query</p>
+							<img src="libs/common/images/eventquery.png" width="120" height="120">
+							<span>办事查询</span></a>
+					</li>
+					<li class="li_wd500">
+						<a id="eight" onclick="click_point(this.id);">
+							<p>Event guid</p>
+							<img src="libs/common/images/guide.png" width="120" height="120">
+							<span>办事指南</span></a>
+					</li>
+					<li class="li_wd500">
+						<a id="two" onclick="click_point(this.id);">
+							<p>Appointment</p>
+							<img src="libs/common/images/reservation.png" width="120" height="120">
+							<span>办事预约</span></a>
+					</li>
+					<li class="li_wd500">
+						<a id="three" onclick="click_point(this.id);">
+							<p>Archives</p>
+							<img src="libs/common/images/bsAchives.png" width="120" height="120">
+							<span>办事档案</span></a>
+					</li>
+					<li class="li_wd333">
+						<a id="four" onclick="click_point(this.id);">
+							<p>Electronic Form</p>
+							<img src="libs/common/images/chooseForm.png" width="120" height="120">
+							<span>自助取表</span></a>
+					</li>
+					<li class="li_wd333">
+						<a id="five" onclick="click_point(this.id);">
+							<p>Material Copy</p>
+							<img src="libs/common/images/materialCopy.png" width="120" height="120">
+							<span>材料复印</span></a>
+					</li>
+					<li class="li_wd333">
+						<a id="six" onclick="click_point(this.id);">
+							<p>ID Card Copy</p>
+							<img src="libs/common/images/IDcardCopy.png" width="120" height="120">
+							<span>身份证复印</span></a>
+					</li>
+				</ul>
+			</div>
+			<!--模块结束-->
+
+		</div>
+		<!--content 1280x1024 end-->
+		<script src="libs/jquery/jquery-1.8.1.min.js"></script>
+		<script src="libs/angularjs/1.5.8/angular.js"></script>
+		<script src="libs/angularjs/1.5.8/angular-route.js"></script>
+		<script src="libs/common/js/init-config-msg.js"></script>
+		<script src="libs/common/js/piwik.js"></script>
+		<script src="libs/common/js/index.js"></script>
+	</body>
+</html>
+<!--鼠标经过图片变淡-->
+<script type="text/javascript">
+	$(function() {
+		$('img').each(function() {}).hover(function() {
+				$(this).animate({
+					opacity: 0.5
+				});
+			},
+			function() {
+				$(this).animate({
+					opacity: 1
+				});
+			});
+	});
+	$(".logo>img").attr("src", $.getConfigMsg.logoIcon);
+</script>

@@ -1,0 +1,197 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	select {
+		font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+		width: 100%;
+		padding: 10px 10px;
+		line-height: 40px;
+		height: 60px;
+		overflow: hidden;
+		display: inline-block;
+		border: none;
+		background: url("../../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+		font-size: 24px;
+		color: #fff;
+		position: relative;
+		appearance: none;
+		-moz-appearance: none;
+		-webkit-appearance: none;
+	}
+
+	.addInfo {
+		width: 1500px;
+		height: 80px;
+		margin: 0 auto;
+		margin-top: 20px;
+		/ display: flex;
+		flex-direction: column;
+	}
+
+	.addInfo .info-select {
+		height: 100%;
+		float: left;
+		padding-left: 10px;
+		width: 24%;
+	}
+
+	.addInfo .info-select p {
+		font-size: 20px;
+		padding: 5px;
+	}
+
+	.addInfo .add-btn {
+		display: flex;
+		justify-content: center;
+		margin-top: 40px;
+	}
+
+	.addInfo .add-btn div {
+		background: url(../libs/common/images/print.png) no-repeat;
+		width: 131px;
+		text-align: center;
+		line-height: 50px;
+		font-size: 23px;
+		margin-top: 5px;
+	}
+
+	/**
+	 * layui 组件
+	 */
+	.layui-form-select .layui-input {
+		width: 300px;
+		height: 50px;
+		font-size: 24px;
+	}
+
+	.layui-form-item .layui-input-inline {
+		width: 300px;
+	}
+
+	.layui-form-select dl dd {
+		color: #333;
+	}
+
+	/**
+	 * layui 组件
+	 */
+	.house_list {
+		width: 1500px;
+		margin: 0 auto;
+	}
+
+	.house_list table {
+		table-layout: fixed;
+		width: 100%;
+	}
+
+	.house_list table th,
+	.house_list table td {
+		border: #477cbe 1px solid;
+		font-size: 20px;
+		padding: 5px;
+		text-align: center;
+	}
+
+	.house_list table div {
+		background: url(../libs/common/images/print.png) no-repeat;
+		width: 131px;
+		text-align: center;
+		line-height: 50px;
+		font-size: 23px;
+		margin-top: 5px;
+	}
+
+	.house_list td input {
+		width: 99%;
+		text-align: center;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.house_list {
+			width: 1000px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="addInfo">
+			<div class="info-select">
+				<form class="layui-form" action="">
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<select class="xiaoqu" name="modules" lay-verify="required" lay-search=""
+								lay-filter='xiaoqu'>
+								<option value="">选择或搜小区</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="info-select">
+				<form class="layui-form" action="">
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<select name="modules" lay-verify="required" lay-search="" class="menpai"
+								lay-filter='menpai'>
+								<option value="">选择或搜索门牌幢</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="info-select">
+				<form class="layui-form" action="">
+					<div class="layui-form-item">
+						<div class="layui-input-inline">
+							<select name="modules" lay-verify="required" lay-search="" class="fenhu" lay-filter='fenhu'>
+								<option value="">选择或搜索分户</option>
+							</select>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="add-btn">
+				<div ng-click="addHouse()">添加</div>
+			</div>
+		</div>
+
+		<div class="house_list">
+			<table>
+				<tr>
+					<th>房屋信息</th>
+					<th width="131px">是否核验面积</th>
+					<th width="131px"></th>
+					<th width="131px"></th>
+				</tr>
+				<tr ng-repeat="(index,item) in myHouseList">
+					<td>{{item.communityName}}{{item.houAddress}}</td>
+					<td>
+						<!-- <input type="number" ng-class="'input-area'+index" ng-if="item.isBinding == '1'" ng-value="{{item.houArea}}" readonly> -->
+						<p ng-if="item.isBinding == '1'">是</p>
+						<input type="number" ng-class="'input-area'+index" ng-if="item.isBinding == '0'">
+					</td>
+					<td>
+						<div ng-click="query(index,item)">
+							查询
+						</div>
+					</td>
+					<td>
+						<div ng-click="delete(index,item)">
+							删除
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>

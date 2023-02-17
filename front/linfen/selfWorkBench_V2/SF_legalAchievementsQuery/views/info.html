@@ -1,0 +1,135 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		/*margin-left: -48px;*/
+		font-size: 24px;
+	}
+
+	.infoTable th ,.checkTable th{
+		width: 7%;
+		text-align: right;
+		height: 85px;
+	}
+
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	.checkTable a {
+		float: left;
+		width: 164px;
+    	height: 70%;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin: 5px;
+	}
+
+	.checkTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+
+	.checkTable {
+		width: 97%;
+		height: 60px;
+		font-size: 24px
+	}
+
+	.checkTable th {
+		width: 11.7%;
+	}
+
+	.checkTable td {
+		height: 85px;
+	}
+
+	.checkTable .checkBoxTip {
+		float: left;
+		line-height: 70px;
+	}
+
+	.checkTable .checkBoxA {
+		float: left;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			width: 94%;
+			margin-left: 16px;
+			font-size: 22px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" name="userName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>证件号码：</th>
+					<td><input class="input" type="text" id="stIdCard" name="licenseNo" ng-model="stIdCard" readonly></td>
+				</tr>
+			</table>
+			<table class="checkTable">
+				<tr>
+					<th><b class="red">*</b>查询年度：</th>
+					<td>
+						<div class="checkBoxA">
+							<a ng-repeat="(index,item) in yearList" ng-class="{'in':current==index}" ng-click="change(index,item)">{{item}}年</a>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

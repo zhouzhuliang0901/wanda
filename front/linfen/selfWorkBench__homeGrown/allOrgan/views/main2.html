@@ -1,0 +1,64 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.box {
+		display: flex;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		height: auto;
+		width: 1400px;
+		margin: auto;
+	}
+	
+	.linkt {
+		margin: 25px;
+	}
+	
+	#wrapper {
+		width: 1800px;
+		height: 655px;
+		overflow: auto;
+	}
+	
+	.select {
+		width: 300px;
+		height: 100px;
+		overflow: hidden;
+		background: url(../sqfw/images/bg-list.png) no-repeat;
+		background-size: 100% 100%;
+		display: table;
+	}
+	
+	.stuff {
+		display: table-cell;
+		vertical-align: middle;
+		font-size: 30px;
+		text-align: center;
+	}
+	
+	@media only screen and (max-width: 1600px) {
+		#wrapper {
+			width: 1280px;
+			height: 580px;
+			overflow: auto;
+		}
+		.box {
+			width: 1070px;
+		}
+	}
+</style>
+<p class="caption">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div class="box">
+			<div class="linkt" ng-repeat="stuff in stuffName">
+				<a class="select" repeat-finish ng-click="choiceType(stuff.url,stuff.name)">
+					<div class="stuff">{{ stuff.name }}</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

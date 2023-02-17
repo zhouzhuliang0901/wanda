@@ -1,0 +1,58 @@
+<style>
+	@media screen and (min-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+	}
+</style>
+
+<div>
+	 <div class="headBox1">
+			<ul class="navul1 clearfloat">
+			 <li>选择事项</li>
+            <li>人证核验</li>
+            <li  class="act">在线填报</li>
+			</ul>
+	</div>
+	  <div class="main3" id="print1" style="height:680px">
+        <div>
+            <div class="successBox1">
+                <div class="shadow1"></div>
+                <div class="successBox2">
+                    <div class="cont1">
+                        <h3>操作成功！</h3>
+                        <p class="p1">事项名称</p>
+                        <p class="p2">{{allName}}</p>
+                    </div>
+                    <div class="line1"></div>
+                    <div class="cont1">
+                        <p class="p1">办件编码</p>
+                        <div class="code">
+                        </div>
+                        <p class="p3">{{applyNo}}</p>
+                    </div>
+                    <div class="line2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+	
+	<!--<div class="btnBox1 clearfloat">
+	    <a  class="next" ng-click="goHome()" ng-show="showPush">返回首页</a>
+	</div>-->
+
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="hidden" 
+		default-is-show-next-btn="1" 
+		prev="prev()"
+		next="goHome()"
+		next-btn-info="返回首页">
+	</apptb-footer>
+</div>

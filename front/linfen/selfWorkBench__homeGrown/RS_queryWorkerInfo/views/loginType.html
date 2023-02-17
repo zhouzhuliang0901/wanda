@@ -1,0 +1,51 @@
+<div class="contain">
+    <p class="caption">{{ operation }}</p>
+    <div class="scrollBox2 clearfloat">
+        <div class="linkBox1 clearfloat">
+            <a ng-click="choiceLogin('idcard')">
+                <img src="../libs/common/images/newIcon/idCard.png" />
+                <p>身份证登录</p>
+            </a>
+            <a ng-click="choiceLogin('cloud')">
+                <img src="../libs/common/images/newIcon/qrCode.png" />
+                <p>随申办登录</p>
+            </a>
+        </div>
+    </div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()"
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+    .contain {
+        width: 1530px;
+        height: 700px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .scrollBox2 .linkBox1 {
+        padding-left: 390px;
+        text-align: center;
+        margin-top: 80px;
+    }
+    
+    .scrollBox2 .linkBox1 .suiShenBan {
+	    width: 309px;
+	    height: 281px;
+	    margin-top: -4px;
+	    margin-left: -4px;
+    }
+    @media only screen and (max-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+		}
+	}
+</style>

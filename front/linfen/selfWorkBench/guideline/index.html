@@ -1,0 +1,59 @@
+<!doctype html>
+<html ng-app="declareApp">
+
+	<head>
+		<meta charset="utf-8">
+		<title>办事指南</title>
+		<link rel="stylesheet" href="css/scrollbar.css" />
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/swiper.min.css">
+	</head>
+
+	<body>
+		<div class="loadingBox" ng-if="!isLoading">
+			<img style="margin-left: 909px;margin-top: 565px;s" src="../libs/common/images/loadings.gif" alt="">
+			<p>正在加载数据，请稍后...</p>
+		</div>
+		<div ui-view ng-view>
+		</div>
+		<script src="../libs/angularjs/1.5.8/angular.js"></script>
+		<script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+		<script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+		<script>
+			var curWwwPath = window.document.location.hostname;
+			if(curWwwPath == "183.194.250.112") {
+				//互联网地址
+				$("body").append("<script src='../libs/common/js/wonders-hlw.log.min.js'><\/script>");
+			} else if(curWwwPath == "10.81.16.56") {
+				//政务网地址
+				$("body").append("<script src='../libs/common/js/wonders-zww.log.min.js'><\/script>");
+			} else {
+				//互联网地址or测试地址
+				$("body").append("<script src='../libs/common/js/wonders-hlw.log.min.js'><\/script>");
+			}
+		</script>
+		<script src="js/scrollbar.min.js"></script>
+		<script src="../libs/common/js/self-mac-tools.js"></script>
+		<script src="../libs/common/js/init-config-msg.js"></script>
+		<script src="../libs/common/js/init-config-log.js"></script>
+		<script src="js/iscroll.js"></script>
+		<script src="js/qrcode.js"></script>
+		<script src="js/swiper.min.js"></script>
+		<script src="js/bear.js"></script>
+		<script src="js/declare.js"></script>
+		<script src="app.js"></script>
+		<script src="../libs/layer/layer.js"></script>
+		<script src="controllers.js"></script>
+		<script src="routers.js"></script>
+		<script src="../libs/common/js/jquery.keyboard.js"></script>
+		<script src="js/signatrueBoard.js"></script>
+		<script src="../libs/directive/recognition.js"></script>
+		<script src="../libs/common/js/piwik.js"></script>
+		<script src="../libs/directive/idcard.js"></script>
+		<script src="../libs/directive/header.js"></script>
+		<script src="../libs/directive/footer.js"></script>
+		<script src="../libs/directive/alert.js"></script>
+		<script src="../libs/directive/loadingsg.js"></script>
+	</body>
+
+</html>

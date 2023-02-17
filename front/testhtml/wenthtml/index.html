@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+
+		<script src="js/jquery-1.8.1.min.js"></script>
+		<script src="js/ac-bridge-mac.min.js"></script>
+		<script src="js/self-mac-tools.js"></script>
+		<!--<script src="js/hardware-zf.js"></script>-->
+		<style>
+			button,p{
+				margin: 10px 0px;
+			}
+			html,body{
+				margin: 10px;
+				height: 96%;
+				overflow: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<input type="button" value="身份证阅读" class="idCardRead" />
+		<div class="idCardInfo">
+
+		</div>
+		<br>
+		<input type="button" value="社保卡阅读" class="ssCardRead" />
+		<div class="ssCardInfo">
+
+		</div>
+		<br>
+		<input type="button" value="高拍仪打开" class="CameraOpen" />
+		<input type="button" value="高拍仪拍照" class="CameraCapture" />
+		<input type="button" value="高拍仪关闭" class="CameraClose" />
+
+		<div class="CameraInfo">
+
+		</div>
+		<br>
+		<input type="button" value="医保记录册测试打印" class="bookMaking" />
+		<div class="bookMakingInfo"></div>
+		<br>
+		<input type="button" class="qrCodeRead" value="二维码扫描">
+		<input type="button" class="qrCodeClose" value="二维码关闭">
+		<div class="codeInfo"></div>
+		<br>
+
+		<input type="button" value="前置摄像头打开" class="sCameraOpen">
+		<input type="button" value="前置摄像头拍照" class="sCameraCapture">
+		<input type="button" value="前置摄像头关闭" class="sCameraClose">
+		<div class="sCameraInfo"></div>
+		<br>
+		<input type="button" value="活体检测打开" class="faceShowOpen">
+		<input type="button" value="活体检测关闭" class="faceShowClose">
+		<div class="faceShowInfo"></div>
+		<br>
+		<input type="button" value="居住证吞卡" class="DataCardOpen" />
+		<button onclick="getduka()">居住证读卡</button>
+		<!--<input type="button" value="居住证读卡" class="DataCardRead" />-->
+		<button onclick="cha()">擦写信息</button>
+		<button onclick="DataCardClose()">居住证退卡</button>
+		<!--<input type="button" value="居住证退卡" class="DataCardClose" />-->
+		<br/>
+		<br/>
+		<input type="button" value="打印" class="LodopPrint" />
+		<input type="button" value="返回上一步" class="DataCardClosefan9" />
+		<div class="DataCardInfo">
+
+		</div>
+		<br>
+		<button onclick="baseData()">转base64</button>
+		<br/>
+		<br/>
+		<button onclick="getNameS()">获取设备名</button>
+		<div class="getNameAAA">
+
+		</div>
+		<br/>
+		<br/>
+		<button onclick="gotoHome()">返回首页</button>
+
+		<br/>
+		<br/>
+		<button onclick="pdfsetPrint()">测试pdf打印</button>
+		<br/>
+		<br/>
+		<div><button onclick="getdimagepath()">获取dimagepath路劲</button></div>
+		<div><button onclick="getdimagepathAAA()">直接获取dimagepath配置项</button></div>
+		<div>
+			<button onclick="zhuofanSolfePriet()">卓繁医保记录册清楚缓存</button>
+			<p id="zhuofanSolfePrietMsg"></p>
+		</div>
+		<!--<div><button onclick="pdfDebugPrint2()">测试debug--pdf打印</button></div>-->
+		<!---->
+		<div id="notifySheetPrint" style="display: none;">
+			<table cellspacing="0" style="font-size:16px;margin-left: 20%;margin-top: 120px;">
+				<tr style="line-height: 30px;">
+					<td></td>
+				</tr>
+				<tr style="line-height: 30px;">
+					<td></td>
+				</tr>
+				<tr style="line-height: 30px;">
+					<td></td>
+				</tr>
+				<tr style="line-height: 30px;">
+					<td></td>
+				</tr>
+				<tr style="line-height: 30px;">
+					<td></td>
+				</tr>
+			</table>
+			<table cellspacing="0" style="font-size:18px;margin-left: 20%;margin-top: 190px;">
+				<tr style="line-height: 34px;">
+					<!--<td>${mes.jlch}</td>-->
+					<td>测试1</td>
+				</tr>
+				<tr style="line-height: 34px;">
+					<!--<td>${mes.xm}</td>-->
+					<td>编号</td>
+				</tr>
+				<tr style="line-height: 34px;">
+					<td>
+						<c:choose>
+							<c:when test="${mes.xb eq '1'}">男</c:when>
+							<c:otherwise>女</c:otherwise>
+						</c:choose>
+					</td>
+				</tr>
+				<tr style="line-height: 34px;">
+					<!--<td>${mes.kh}</td>-->
+					<td>0000000000</td>
+				</tr>
+				<tr style="line-height: 34px;">
+					<!--<td>${mes.csny}</td>-->
+					<td>999999999</td>
+				</tr>
+			</table>
+		</div>
+
+		<script>
+			var oDataCardOpen = document.querySelector('.DataCardOpen');
+			var oDataCardRead = document.querySelector('.DataCardRead');
+			var oDataCardClose = document.querySelector('.DataCardClose');
+			var fan9 = document.querySelector('.DataCardClosefan9');
+
+			var oDataCardInfo = document.querySelector('.DataCardInfo');
+			var oIdcard = document.querySelector('.idCardRead');
+			var oSscard = document.querySelector('.ssCardRead');
+			var oSsCardInfo = document.querySelector('.ssCardInfo');
+			var oCameraOpen = document.querySelector('.CameraOpen');
+			var oCameraCapture = document.querySelector('.CameraCapture');
+			var oCameraClose = document.querySelector('.CameraClose');
+			var oIdCardInfo = document.querySelector('.idCardInfo');
+			var oCameraInfo = document.querySelector('.CameraInfo');
+			var oQrCodeRead = document.querySelector('.qrCodeRead');
+			var oQrCodeClose = document.querySelector('.qrCodeClose');
+			var oCodeInfo = document.querySelector('.codeInfo');
+			var oBarPrint = document.querySelector('.barPrint');
+			var oLaserParint = document.querySelector('.laserPrint');
+			var getPrintCount = document.querySelector('.getPrintCount');
+			var getPrintName = document.querySelector('.getPrintName');
+			//var lodop = $.device.printGetLodop();
+			var printInfo = document.querySelector(".printInfo");
+			var printTotalCount = 0;
+			var sCameraOpen = document.querySelector('.sCameraOpen');
+			var sCameraCapture = document.querySelector('.sCameraCapture');
+			var sCameraClose = document.querySelector('.sCameraClose');
+			var oSCameraInfo = document.querySelector('.sCameraInfo');
+			var oBookMaking = document.querySelector('.bookMaking');
+			var sFaceShowOpen = document.querySelector('.faceShowOpen');
+			var sFaceShowClose = document.querySelector('.faceShowClose');
+			var sFaceShowInfo = document.querySelector('.faceShowInfo');
+			var LodopPrint = document.querySelector('.LodopPrint');
+			//活体检测
+			sFaceShowOpen.addEventListener("click", function() {
+				$.device.Face_Show(640, 480, 200, 200, function(info) {
+					//				info = JSON.parse(info);
+					sFaceShowInfo.innerHTML = info;
+				});
+				sFaceShowInfo.innerHTML = "活体检测打开";
+			});
+			sFaceShowClose.addEventListener("click", function() {
+				$.device.Face_Close();
+				sFaceShowInfo.innerHTML = "活体检测关闭";
+			});
+			//前置摄像头
+
+			sCameraClose.addEventListener('click', function() {
+				$.device.Camera_Hide();
+				oSCameraInfo.innerHTML = "前置摄像头关闭成功";
+			});
+			sCameraCapture.addEventListener('click', function() {
+				$.device.Camera_Base64(function(data) {
+					if(data) {
+						oSCameraInfo.innerHTML = data;
+					} else {
+						oSCameraInfo.innerHTML = "拍照失败";
+					}
+				});
+
+			})
+
+			sCameraOpen.addEventListener('click', function() {
+				$.device.Camera_Init(640, 480, 640, 240);
+				if($.device.vendor() == 'wonders') {
+					var camera = window.external.GetConfig('camera');
+					var index = window.external.GetConfig('resolution') || 1;
+					$.device.Camera_Link(camera, index); //初始化摄像头
+					$.device.Camera_Show();
+					oSCameraInfo.innerHTML = "摄像头打开成功";
+				}
+
+			})
+			/*		//获取打印机名称
+					getPrintName.addEventListener("click",function(){
+						if(printTotalCount>0){
+							printInfo.innerHTML = '';
+							for (var index = 0; index < printTotalCount; index++) {
+								printInfo.innerHTML += '<br /> ' + lodop.GET_PRINTER_NAME(index);
+							}
+						}else{
+							printInfo.innerHTML ="默认打印机: " + lodop.GET_PRINTER_NAME(-1);
+						}
+					})
+					//激光打印机
+					oLaserParint.addEventListener("click",function(){
+
+						lodop.SET_PRINTER_INDEX('HP ColorLaserJet M253-M254 PCL 6');
+
+						lodop.ADD_PRINT_TEXT(0,0,100,20,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,100,120,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,200,220,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,100,320,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,300,420,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,100,520,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,700,620,"激光打印机");
+						lodop.ADD_PRINT_TEXT(0,0,100,720,"激光打印机");
+
+						lodop.PREVIEW();
+					});
+					//获取打印机数量
+					getPrintCount.addEventListener("click",function(){
+						printTotalCount = lodop.GET_PRINTER_COUNT();
+						printInfo.innerHTML = lodop.GET_PRINTER_COUNT();
+					});
+					//凭条打印机
+					oBarPrint.addEventListener("click",function(e){
+
+						lodop.SET_PRINTER_INDEX('MS-D347');
+
+						lodop.ADD_PRINT_TEXT(0,0,100,20,"凭条打印机凭条\n打印机凭条打印机凭条打印机凭条打印机\n凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机凭条打印机");
+
+						lodop.PREVIEW();  
+					}); */
+			//扫码
+			oQrCodeRead.addEventListener("click", function(e) {
+				$.device.qrCodeOpen(function(params) {
+					alert('回调');
+					oCodeInfo.innerHTML = "调用结果：" + params;
+				});
+			});
+			oQrCodeClose.addEventListener("click", function(e) {
+				$.device.qrCodeClose();
+				oCodeInfo.innerHTML = "code close";
+			});
+			//身份证阅读器
+			var DataCardImagePath = "";
+			oIdcard.addEventListener("click", function(e) {
+				$.device.idCardOpen(function(val) {
+					alert("1111");
+					DataCardImagePath = JSON.parse(val).CardImagePath;
+					oIdCardInfo.innerHTML = val;
+					$.device.idCardClose();
+				});
+			});
+			//社保卡阅读器
+
+			oSscard.addEventListener("click", function(e) {
+				$.device.ssCardOpen(function(val) {
+					oSsCardInfo.innerHTML = val;
+					$.device.ssCardClose();
+				});
+				//				var sebao = LbSScard.iReadCardBas('3');
+				//				oSsCardInfo.innerHTML = sebao;
+			});
+			//高拍仪
+			oCameraOpen.addEventListener("click", function(e) {
+				// var open = 	$.device.cmCaptureShow(800,600, 340, 340);
+				$.device.cmCaptureShow(800, 600, 340, 340);
+				$.device.cmCaptureSelectRect(0, 0, 1920, 1920);
+				oCameraInfo.innerHTML = '打开成功';
+			});
+
+			oCameraCapture.addEventListener("click", function() {
+				$.device.cmCaptureCaptureUrl(function(imgPath) {
+					alert(imgPath);
+					oCameraInfo.innerHTML = '拍照成功: ' + imgPath;
+				});
+
+			});
+
+			oCameraClose.addEventListener("click", function() {
+				$.device.cmCaptureHide();
+				oCameraInfo.innerHTML = '关闭成功';
+			});
+
+			LodopPrint.addEventListener("click", function() {
+				var lodop = $.device.printGetLodop();
+				console.info(lodop);
+				lodop.ADD_PRINT_TEXT(230, 140, 670, 50, "123456789");
+				lodop.SET_PRINT_STYLEA(0, "FontSize", 16);
+				lodop.ADD_PRINT_TEXT(270, 140, 670, 30, "测试1号");
+				lodop.SET_PRINT_STYLEA(0, "FontSize", 16);
+				lodop.ADD_PRINT_TEXT(305, 140, 670, 30, "男");
+				lodop.SET_PRINT_STYLEA(0, "FontSize", 16);
+				lodop.ADD_PRINT_TEXT(340, 140, 670, 30, "987654321");
+				lodop.SET_PRINT_STYLEA(0, "FontSize", 16);
+				lodop.ADD_PRINT_TEXT(375, 140, 670, 30, "年月");
+				lodop.SET_PRINT_STYLEA(0, "FontSize", 16);
+				lodop.PRINT(); //打印
+				//lodop.PREVIEW();
+			});
+
+			//医保记录册测试打印 
+			oBookMaking.addEventListener("click", function() {
+				alert("医保记录册测试打印");
+				$.device.medicalPrint("11", "22", "33", "44", "55");
+			});
+			var i = "";
+			//居住证签注机
+			oDataCardOpen.addEventListener("click", function() {
+				//window.external.DataCard_Open('XPS Card Printer');
+				$.device.dataCardCardIn();
+				oDataCardInfo.innerHTML = "吞卡中。。。";
+			})
+			//读卡
+			function getduka() {
+				alert('读卡');
+				$.device.dataCardRead(function(data) {
+					alert('01');
+					alert(JSON.stringify(data));
+					oDataCardInfo.innerHTML = data;
+				});
+			}
+
+			function DataCardClose() {
+				alert('退卡');
+				$.device.dataCardCardOut();
+				oDataCardInfo.innerHTML = "退卡";
+			}
+			fan9.addEventListener("click", function() {
+				console.info("返回");
+				window.history.back(-1);
+			})
+
+			function cha() {
+				//				alert("开始擦写");
+				var printTextArray = new Array();
+				printTextArray.push({
+					printText: '有效期限：2020年04月20日止',
+					x: 87,
+					y: 165,
+					fontFamily: '黑体',
+					fontSize: 8
+				});
+				var liveAddr = "";
+				var validdate = "2020年05月21日止";
+				var wanda = "<style>td{padding:0px;text-align: justify; -ms-text-justify: inter-ideograph; -ms-text-align-last: justify;}</style><table cellspacing='0' style='font-family:黑体;font-size: 10px;font-weight: bold;'><tr><td>居住地</td><td>:</td><td rowspan='2'>" + liveAddr + "<td></tr><tr><td>地址</td><td>:</td></tr><tr><td>有效期限</td><td>:</td><td>" + validdate + "<td></tr></table>";
+				alert(wanda);
+				//卡面擦写   ~TA%34 20 64 20?
+				//n1:距边高度。n2:距边宽度。n3擦写框宽度。:n4擦写框高度:
+				// var r = DatacardSmartcard.ClearWrite("~TA%41.8 20 64 10?", JSON.stringify(printTextArray));
+				//				
+				//				oDataCardInfo.innerHTML = r;
+				//window.external.printCardJZZ("2020年05月21日止");
+				//$.device.dataCardPrint("2020年5月25日");
+				$.device.dataCardPrint(135, 85, 300, 400, wanda, printTextArray, "2020年01月21日止");
+				//$.device.dataCardPrint("2020年05月21日止");
+			}
+
+			function baseData() {
+				alert(DataCardImagePath);
+				$.device.fileBase64(DataCardImagePath, function(val) {
+					console.log(val);
+					oDataCardInfo.innerHTML = val;
+				});
+			}
+
+			function gotoHome() {
+				//				alert("01");
+				//				var hostUrl = LocalFileUtil.ConfigMiddelScreenMainPage();
+				//				alert(hostUrl);
+				//				window.location.href=hostUrl;
+				$.device.GoHome();
+			}
+
+			function getNameS() {
+				$.config.load("uniqueId", function(val) {
+					console.log(val);
+					document.querySelector('.getNameAAA').innerHTML = val;
+				});
+			}
+
+			function pdfsetPrint() {
+				alert("pdf打印");
+				var path = "D:\\pdfPrint.pdf";
+				var url = "http://180.169.7.194:8080/ac-product/aci/testhtml/wenthtml/1.pdf";
+				$.device.urlPdfPrint(url, path, function() {
+					alert("pdf打印回调");
+				})
+			}
+
+			function pdfDebugPrint2() {
+				alert("pdf打印");
+				var path = "D:\\pdfPrint.pdf";
+				var url = "http://180.169.7.194:8080/ac-product/aci/1.pdf";
+				$.device.urlPdfPrint(url, path, function() {
+					alert("pdf打印回调");
+				})
+				//AcroRd32.exe /s /o /h /p “PDF文件路径”
+			}
+
+			function getdimagepath() {
+				var w = acBridgeMac.imagePath();
+				alert(w);
+			}
+
+			function getdimagepathAAA() {
+				var w =$.config.get('dimagepath');
+				alert(w);
+			}
+			//卓繁清楚就医册打印缓存
+			function zhuofanSolfePriet(){
+				
+				var result =PrintVomitBookControl.ClearCache();
+				    result=JSON.parse(result);
+				alert(result.success)
+				if(result.success==false){
+					alert(result.message)
+				}else{
+					alert(JSON.stringify(result))
+					$("#zhuofanSolfePrietMsg").html(JSON.stringify(result));
+				}
+				
+			}
+		</script>
+	</body>
+
+</html>

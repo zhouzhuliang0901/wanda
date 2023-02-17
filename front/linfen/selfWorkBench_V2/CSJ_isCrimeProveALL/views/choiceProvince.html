@@ -1,0 +1,55 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 .linkBox1 {
+		display: flex;
+		padding-left: 70px;
+		margin-top: 100px;
+	}
+
+	.scrollBox2 .linkBox1 a {
+		margin-right: 70px;
+	}
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 10px;
+			margin-top: 50px;
+		}
+		.scrollBox2 .linkBox1 a {
+			margin-right: 13px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{ funName }} | 请选择查询的省市</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="choiceType('sh')" ng-show="!isJhdevice">
+				<img src="../CSJ_allItem/images/icon-choice-sh.png" />
+				<p>上海市</p>
+			</a>
+			<a ng-click="choiceType('js')">
+				<img src="../CSJ_allItem/images/icon-choice-js.png" />
+				<p>江苏省</p>
+			</a>
+			<a ng-click="choiceType('zj')">
+				<img src="../CSJ_allItem/images/icon-choice-zj.png" />
+				<p>浙江省</p>
+			</a>
+			<a ng-click="choiceType('ah')">
+				<img src="../CSJ_allItem/images/icon-choice-ah.png" />
+				<p>安徽省</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

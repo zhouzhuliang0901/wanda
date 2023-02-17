@@ -1,0 +1,28 @@
+.blue-green {
+    background: linear-gradient(#20a5ea, #01b882);
+}
+
+.purple-blue {
+    background: linear-gradient(#ff55d5, #20a5ea);
+}
+
+.red-purple {
+    background: linear-gradient(#ff3e34, #ff40b0);
+}
+
+.orange-red {
+    background: linear-gradient(#ff7234, #ff4056);
+}
+.greyDark-light {
+    background: linear-gradient(#ccc, #eee);
+}
+.greyLight-dark {
+    background: linear-gradient(#eee, #ddd);
+}
+.greyLight {
+    background: linear-gradient(#fff, #eee);
+}
+
+.blueDark-light {
+    background: linear-gradient(#228dc4, #20a5ea);
+}

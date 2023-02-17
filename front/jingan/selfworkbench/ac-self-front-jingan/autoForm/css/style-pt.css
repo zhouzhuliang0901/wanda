@@ -1,0 +1,565 @@
+select {
+
+    /*去掉点击时的选区和阴影*/
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -ms-tap-highlight-color: transparent;
+    -ms-touch-callout: none;
+    -ms-user-select: none;
+    user-select: none;
+    /*去掉点击时的选区和阴影*/
+}
+
+.headBox1 .navul2 li {
+    width: 24.3%;
+    margin-right: 0.7%;
+
+}
+
+.tabelBox1 {
+    width: 96.66%;
+    border: 1px solid rgba(233, 237, 240, .22);
+    background: #2864b0;
+    overflow: hidden;
+    padding-top: 32px;
+}
+
+.tabelBox1 .dl1 {
+    width: 93.33%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.tabelBox1 .dl1 dd {
+    float: left;
+    min-height: 60px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #FFF;
+}
+
+.tabelBox1 .dl1 dd .red1 {
+    display: inline-block;
+    color: #f33039;
+    margin-right: 5%;
+    vertical-align: -4px;
+}
+
+.tabelBox1 .dl1 dd .red1.vet1 {
+    vertical-align: 19px;
+}
+
+.tabelBox1 .dl1 .lt1 {
+    width: 15%;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+.tabelBox1 .dl1 .lt1 span {
+    display: inline-block;
+    line-height: 60px;
+    margin-right: 2%;
+}
+
+.tabelBox1 .dl1 .lt1 span.span2 {
+    line-height: 30px;
+}
+
+.tabelBox1 .dl1 .lt1 span.span2 i {
+    display: block;
+    font-size: 16px;
+}
+
+.tabelBox1 .dl1 .lt2 {
+    width: 25%;
+}
+
+.tabelBox1 .dl1 .lt3 {
+    width: 20%;
+}
+
+.tabelBox1 .dl1 .rt1 {
+    width: 85%;
+
+}
+
+.input1 {
+    background: rgba(255, 255, 255, .25);
+    box-sizing: border-box;
+    display: inline-block;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    color: #FFF;
+
+}
+
+/** {
+    font-family: "Microsoft YaHei", "SimSun";
+}
+*/
+.tabelBox1 .dl1 dd .input1 {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    overflow: hidden;
+
+}
+
+.input1::-webkit-input-placeholder {
+    color: #fff;
+
+}
+
+.input1:-ms-input-placeholder {
+    color: #fff;
+
+}
+
+input[type="text"]:disabled {
+    color: #c5c5c5;
+}
+
+.tabelBox1 .dl1 .rt2 {
+    width: 30%;
+
+}
+
+.tabelBox1 .dl1 .rt3 {
+    width: 15%;
+
+}
+
+.tabelBox1 .dl1 .rt4 {
+    width: 45%;
+
+}
+
+.tabelBox1 .dl1 .rt6 {
+    width: 100%;
+
+}
+
+.tabelBox1 .dl1 .rt5 {
+    width: 80%;
+
+}
+
+
+select::-ms-expand {
+    display: none;
+}
+
+.select1 {
+    font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    width: 100%;
+    padding: 10px 10px;
+    line-height: 40px;
+    height: 60px;
+    overflow: hidden;
+    display: inline-block;
+    border: none;
+    background: url("../../libs/common/images/icon-square.png") no-repeat 95% 20px rgba(255, 255, 255, .25);
+    font-size: 24px;
+    color: #FFF;
+    position: relative;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+
+}
+
+.select1 .col1 {
+    color: #333;
+}
+
+.tabelBox1 .dl1 .contrt1 {
+    width: 55%;
+    float: left;
+    height: 60px;
+
+}
+
+.scrollBox2 .tabelBox1 .singleselect1 a {
+    float: left;
+    margin-right: 25px;
+}
+
+.scrollBox2 .singleselect1 a.dda1 {
+    box-sizing: border-box;
+    width: 25%;
+    padding: 0;
+    text-align: center;
+    margin-right: 2%;
+}
+
+.scrollBox2 .singleselect1 .input1 {
+    width: 73% !important;
+    margin-top: 8px;
+    float: left;
+    display: inline-block;
+}
+
+.scrollBox2 .tabelBox1 .div1 {
+    float: left;
+    width: 100%;
+}
+
+/*敬老卡个人信息受理*/
+
+.oldBox1 {
+    overflow: hidden;
+
+}
+
+.bggreen4 {
+    background: #56cecd;
+}
+
+.bgpurple2 {
+    background: #b3a1ff;
+}
+
+.oldul1 {
+    width: 96.66%;
+}
+
+.oldul1 li {
+    display: block;
+    height: 94px;
+    overflow: hidden;
+    margin-bottom: 22px;
+    border: 1px solid rgba(233, 237, 240, .22);
+    background: #2864b0;
+
+}
+
+.oldul1 li h3 {
+    line-height: 94px;
+    float: left;
+    width: 50%;
+    padding-left: 3%;
+    font-size: 30px;
+}
+
+.oldul1 li h3 b {
+    color: #fd2b2b;
+    margin-left: 2%;
+    vertical-align: -5px;
+}
+
+.oldul1 li a {
+    float: right;
+    height: 70px;
+    line-height: 70px;
+    font-size: 30px;
+    overflow: hidden;
+    text-align: center;
+    margin-right: 3%;
+    border-radius: 10px;
+    margin-top: 12px;
+}
+
+.oldul1 li a.bggreen4 {
+    width: 227px;
+}
+
+.oldul1 li a.bgpurple2 {
+    width: 170px;
+}
+
+/*基本信息填写*/
+.red1 {
+    color: #fd2b2b;
+}
+
+.scrollBox2 .singleselect2 a {
+    float: left;
+    width: 428px;
+    height: 90px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    margin-right: 42px;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.scrollBox2 .singleselect2 a:nth-of-type(3n) {
+    margin-right: 0;
+}
+
+.scrollBox2 .singleselect2 a.in {
+    border-color: #56ce97;
+}
+
+.scrollBox2 .singleselect2 a.in:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 78px;
+    height: 68px;
+    overflow: hidden;
+    background: url("../../libs/common/images/check1.png") no-repeat;
+}
+
+.scrollBox2 .tabelBox1 .psbox1 {
+    line-height: 50px;
+    font-size: 24px;
+    color: #fff958;
+    margin-bottom: 10px;
+}
+
+.scrollBox2 .tabelBox1 .psbox1.pad1 {
+    padding-left: 18%;
+    margin-top: -15px;
+}
+
+/*在线填写*/
+.scrollBox2 {
+    overflow: hidden;
+}
+
+.main4 {
+    width: 1326px;
+    float: left;
+    height: 570px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 79px;
+    border: 1px solid rgba(233, 237, 240, .22);
+    background: #2864b0;
+}
+
+.main4 .tabelBox1 {
+    border: 0;
+    background: none;
+    width: 100%;
+
+}
+
+.scrollBox2 .tabelBox1 .psbox1.pad2 {
+    padding-left: 23%;
+    margin-top: -15px;
+
+}
+
+.mainrt1 {
+    width: 417px;
+    float: right;
+    margin-right: 32px;
+}
+
+.mainrt1 h3 {
+    height: 44px;
+    line-height: 44px;
+    overflow: hidden;
+    text-align: center;
+    font-size: 24px;
+}
+
+.mainrt1 .imgbox1 {
+    height: 526px;
+    overflow: hidden;
+
+}
+
+.mainrt1 .imgbox1 img {
+    width: 100%;
+    height: 100%;
+}
+
+.scrollBox2 .tabelBox1 .psbox1.pad3 {
+    width: 93.33%;
+    margin: -15px auto 0 auto;
+    color: #FFF;
+
+}
+
+/*  PT 自助填表 */
+.headBox {
+    /*width: 1760px;*/
+    /*height: 170px;*/
+    overflow: hidden;
+    margin: 0 auto;
+}
+/*
+.headBox .headtop1 {
+    height: 130px;
+    line-height: 130px;
+    overflow: hidden;
+    margin: 25px 0 37px 0;
+}*/
+
+.headBox .headtop1 .back1 {
+    float: left;
+    display: inline-block;
+    padding-left: 99px;
+    overflow: hidden;
+    font-size: 44px;
+    background: url("../../libs/common/images/back1.png") no-repeat left center;
+}
+
+.headBox .headtop1 .message1 {
+    float: right;
+    display: inline-block;
+    width: 63px;
+    height: 130px;
+    overflow: hidden;
+    background: url("../../libs/common/images/message.png") no-repeat right 50px;
+    text-indent: -9999em;
+}
+
+.headBox .headtop1 .backindex1 {
+    float: right;
+    display: inline-block;
+    padding-left: 53px;
+    height: 130px;
+    margin-right: 54px;
+    font-size: 30px;
+    overflow: hidden;
+    background: url("../../libs/common/images/home.png") no-repeat left center;
+}
+
+.headBox .headtop1 .backbox1 {
+    float: right;
+    display: inline-block;
+    height: 130px;
+    margin-right: 63px;
+    font-size: 24px;
+    overflow: hidden;
+}
+
+.headBox .headtop1 .backbox1 span {
+    color: #f2dd4a;
+    margin: 0 5px;
+}
+
+.navBox{
+   /* height: 60px;
+    line-height: 60px;*/
+    overflow: hidden;
+    font-size: 30px;
+    margin-bottom: 28px;
+    padding-left: 79px;
+}
+
+.navBox b {
+    font-weight: normal;
+    color: #c2cce3;
+}
+
+.main5 {
+    width: 1326px;
+    float: left;
+    height: 660px;
+    overflow: hidden;
+    position: relative;
+    margin-left: 79px;
+    border: 1px solid rgba(233, 237, 240, .22);
+    background: #2864b0;
+}
+
+.tabelBox1 .dl1 .rt7 {
+    width: 26.65%;
+}
+
+.tabelBox1 .dl1 .rt8 {
+    width: 22.65%;
+}
+
+.tabelBox1 .dl1 .lt4 {
+    width: 4%;
+    text-align: center;
+}
+
+.scrollBox2 .tabelBox1 .singleselect3 a {
+    float: left;
+    margin-right: 25px;
+}
+
+.scrollBox2 .singleselect3 a.dda1 {
+    box-sizing: border-box;
+    width: 12%;
+    padding: 0;
+    text-align: center;
+    margin-right: 2%;
+}
+
+.scrollBox2 .singleselect3 .input1 {
+    width: 86% !important;
+    margin-top: 8px;
+    float: left;
+    display: inline-block;
+}
+
+.scrollBox2 .singleselect3 a {
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    font-size: 26px;
+    padding: 0 30px;
+    position: relative;
+    margin-right: 66px;
+    border: 1px solid rgba(233, 237, 240, .4);
+    margin-bottom: 35px;
+}
+
+.scrollBox2 .singleselect3 a.in {
+    border: 1px solid #56ce97;
+}
+
+.scrollBox2 .singleselect3 a.in:after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 78px;
+    height: 68px;
+    overflow: hidden;
+    background: url("../../libs/common/images/check1.png") no-repeat;
+}
+
+.mainrt1 .imgbox2 {
+    height: 550px;
+    overflow: hidden;
+
+}
+
+.mainrt1 .imgbox2 img {
+    width: 100%;
+    height: 100%;
+}
+
+.mainrt1 .imgbox3 {
+    height: 340px;
+    overflow: hidden;
+
+}
+
+.mainrt1 .imgbox3 img {
+    width: 100%;
+    height: 100%;
+}
+
+.mainrt1 .imgbox4 img {
+    width: 100%;
+    height: 100%;
+}
+
+.mainrt1 .imgbox4 {
+    height: 530px;
+    overflow: hidden;
+
+}
+
+.tabelBox1 .dl1 .rt9 {
+    width: 17.65%;
+}
+
+.tabelBox1 .dl1 .rt10 {
+    width: 32.65%;
+}

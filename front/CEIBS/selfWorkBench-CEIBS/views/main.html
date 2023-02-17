@@ -1,0 +1,56 @@
+<style type="text/css">
+	.versionButton {
+		position: absolute;
+		top: 55px;
+		left: 1700px;
+		padding: 10px 40px;
+		font-size: 24px;
+		border-radius: 25px;
+		background-color: #bf0008;
+	}
+	
+	.versionButton a {
+		color: #FFFFFF;
+	}
+	p.English{
+		font-size: 27px;
+	}
+</style>
+<!--中文版-->
+<section class="main" ng-show="version =='Chinese'">
+	<div class="main">
+		<a ng-click="choiceType('iStd')" class="item i1">
+			<p class="sign"><img src="img/iconStd.png" alt=""></p>
+			<p class="signTxt">学生校友<br>证明打印</p>
+		</a>
+		<a ng-click="choiceType('iTeacher')" class="item i2">
+			<p class="sign"><img src="img/iconTeacher.png" alt=""></p>
+			<p class="signTxt">教职员工<br>证明打印</p>
+		</a>
+		<a class="item i3" ng-click="choiceType('iCard')"><!--ng-click="choiceType('iCard')" -->
+			<p class="sign"><img src="img/iconCard.png" alt=""></p>
+			<p class="signTxt">学生校友<br>校园卡补卡</p>
+		</a>
+	</div>
+</section>
+<!--英文版-->
+<section class="main" ng-show="version =='English'">
+	<div class="main">
+		<a ng-click="choiceType('iStd')" class="item i1">
+			<p class="sign"><img src="img/iconStd.png" alt=""></p>
+			<p class="signTxt English">Student and Alumni<br>Certificate</p>
+		</a>
+		<a ng-click="choiceType('iTeacher')" class="item i2">
+			<p class="sign"><img src="img/iconTeacher.png" alt=""></p>
+			<p class="signTxt English">Faculty and Staff<br>Certificate</p>
+		</a>
+		<a class="item i3" style="background-color: rgba(0, 0, 0, .6); background-image: inherit;"><!--ng-click="choiceType('iCard')" -->
+			<p class="sign"><img src="img/iconCard.png" alt=""></p>
+			<p class="signTxt English">Student and Alumni<br>Campus Card<br>Card Supplement</p>
+		</a>
+	</div>
+</section>
+<div class="versionButton"  ng-click="changeVersion()">
+	<a>{{content}}</a>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="terminalApp">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>中欧国际工商学院自助终端</title>
+		<link rel="stylesheet" type="text/css" href="css/terminal.css" />
+		<link rel="stylesheet" type="text/css" href="css/viewer.min.css" />
+		<link rel="stylesheet" href="js/datetimepicker-master/build/jquery.datetimepicker.min.css">
+
+	</head>
+
+	<body style="border: #201F1F;">
+		<app-header></app-header>
+		<div ng-view ui-view></div>
+	</body>
+	<script src="js/angularjs/1.5.8/angular.js"></script>
+	<script src="js/angularjs/1.5.8/angular-ui-router-min.js"></script>
+	<script src="js/angularjs/1.5.8/angular-animate.min.js"></script>
+	<script src="js/jquery/jquery-1.8.1.min.js"></script>
+	<script src="js/ac-bridge-mac.min.js"></script>
+	<script src="js/self-mac-tools.js"></script>
+	<script src="js/datetimepicker-master/build/jquery.datetimepicker.full.min.js"></script>
+	<script src="js/bluebird.min.js"></script>
+	<script src="js/html2canvas.min.js"></script>
+	<script src="js/layer/layer.js"></script>
+	<script src="js/viewer.min.js"></script>
+	<script src="js/options.js"></script>
+	<script src="js/utils.js"></script>
+	<!--全局 app-->
+	<script src="app.js"></script>
+	<!--组件 component-->
+	<script src="directive/header.js"></script>
+	<script src="directive/footer.js"></script>
+	<script src="directive/loadingsg.js"></script>
+	<script src="directive/alert.js"></script>
+	<script src="controller.js"></script>
+	<script src="js/request.js"></script>
+	<!--全局路由 global router-->
+	<script src="router.js"></script>
+
+</html>

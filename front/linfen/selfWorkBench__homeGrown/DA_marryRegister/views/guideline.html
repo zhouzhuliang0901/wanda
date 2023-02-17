@@ -1,0 +1,113 @@
+<p class="caption">{{stuffName}}办事指南</p>
+<div class="main2" style="width: 1625px;height: 645px;margin-left: 118px;    margin-top: 30px;">
+	<div id="wrapper">
+		<div class="scrollBox2 clearfloat">
+			<dl class="dllist1 clearfloat">
+				<dt>一、事项名称：</dt>
+				<dd ng-bind-html="stuffName | to_trusted">
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>二、事项编码：</dt>
+				<dd>
+					<p>{{code || to_trusted}}</p>
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>三、办事指南：</dt>
+				<dd ng-bind-html="info | to_trusted">
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	table th,
+	table td {
+		border: #477cbe 1px solid;
+		text-align: center;
+		padding: 8px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 600px;
+	}
+	
+	.stuff td {
+		font-size: 24px;
+	}
+	
+	.stuff th {
+		font-size: 24px;
+	}
+	
+	.stuff table tr>td:nth-child(1) {
+		width: 950px;
+	}
+	
+	.stuff table tr>td:nth-child(2) {
+		display: none;
+		text-align: center
+	}
+	
+	.stuff table tr>th:nth-child(2) {
+		display: none;
+	}
+	
+	.stuff table tr>td:nth-child(3) {
+		width: 170px;
+		margin-left: 20px;
+		text-align: center
+	}
+	
+	.stuff table tr>td:nth-child(4) {
+		width: 130px;
+		margin-left: 20px;
+		text-align: center
+	}
+	
+	.stuff table tr>td:nth-child(5) {
+		width: 150px;
+		margin-left: 20px;
+		text-align: center
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.caption {
+			margin-top: 80px;
+			margin-left: 118px;
+		}
+		.contain {
+			width: 1530px;
+			height: 700px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		#wrapper {
+			width: auto;
+			height: 566px;
+		}
+		.main2 {
+			width: 1050px !important;
+		}
+	}
+</style>

@@ -1,0 +1,156 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="线下办理"></apptb-header>
+
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<!--<li>办事指南</li>-->
+			<li>事项情形</li>
+			<li>人证核验</li>
+			<li class="act">材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+
+		<div class="main2">
+			<div class="stuff">
+				<div class="tit1">{{stuffList[0].stuffName}}</div>
+				<div class="scan" ng-click="showScan()" ng-show="picShow">
+					<div class="swiper">
+						<img ng-repeat="stuff in stuffList" data-original="{{stuff.img}}" ng-src="{{stuff.img}}" />
+					</div>
+				</div>
+				<div class="paragraph2" ng-show="scanShow">已上传(点击放大查看)</div>
+				 <!--ng-show="scanShow"-->
+				<div class="scan" ng-click="showScan()" ng-show="scanShow">
+					<div class="swiper">
+						<img ng-repeat="stuff in stuffList" data-original="{{stuff.img}}" ng-src="{{stuff.img}}" />
+					</div class="swiper">
+				</div>
+				<div class="paragraph2" ng-show="scanShow">已上传(点击放大查看)</div>
+				<div class="u-pan" ng-show="upanShow">
+					<div ng-repeat="stuff in stuffList">
+						<img style="float: left; width: 55px;" src="images/icon-word.png" />
+						<div class="paragraph3" ng-click="open()">{{stuff.fileName}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 		
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+
+<style type="text/css">
+	.main2 {
+		height: 540px;
+		margin-left: 50px;
+	}
+	
+	.tit1 {
+		font-size: 37px;
+		text-align: center;
+	}
+	
+	.paragraph2 {
+		position: absolute;
+		font-size: 31px;
+		left: 650px;
+		top: 500px;
+	}
+	
+	.paragraph3 {
+		/*float: left;*/
+	    line-height: 60px;
+	    font-size: 40px;
+	    margin-left: 100px;
+	}
+	
+	.btn {
+		position: absolute;
+		top: 163px;
+		left: 1033px;
+		width: 275px;
+		height: 275px;
+		background: #2964B0;
+	}
+	
+	.scan {
+		position: absolute;
+		/*top: 65px;*/
+		/*left: 625px;*/
+		width: 1600px;
+		height: 417px;
+		/*background: #2964B0;*/
+		font-size: 0;
+		-ms-scroll-chaining: chained;
+	    -ms-overflow-style: none;
+	    -ms-content-zooming: zoom;
+	    -ms-scroll-rails: none;
+	    -ms-content-zoom-limit-min: 100%;
+	    -ms-content-zoom-limit-max: 500%;
+	    -ms-scroll-snap-type: proximity;
+	    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+	    -ms-overflow-style: none;
+		overflow-x: scroll;
+	}
+	
+	.scan::-webkit-scrollbar {
+	    display: none;
+	}
+	
+	.scan .swiper {
+		height: 100%;
+		text-align: center;
+		vertical-align: middle;
+		justify-content: center;
+	}
+	
+	.scan .swiper>img {
+		width: 350px;
+		margin: 0px 10px;
+		/*height: 100%;*/
+		/*position: absolute;*/
+		/*float: left;*/
+	}
+	
+	.u-pan {
+		position: absolute;
+		width: 1200px;
+		height: 450px;
+		/*top: 38%;*/
+		top: 10%;
+		left: 23%;
+	    -ms-scroll-chaining: chained;
+	    -ms-overflow-style: none;
+	    -ms-content-zooming: zoom;
+	    -ms-scroll-rails: none;
+	    -ms-content-zoom-limit-min: 100%;
+	    -ms-content-zoom-limit-max: 500%;
+	    -ms-scroll-snap-type: proximity;
+	    -ms-scroll-snap-points-x: snapList(100%, 200%, 300%, 400%, 500%);
+	    -ms-overflow-style: none;
+		overflow: auto;
+	}
+	
+	/*.u-pan img {
+		position: absolute;
+	    left: 0px;
+	    top: 0px;
+	}*/
+	
+	.u-pan::-webkit-scrollbar {
+	    display: none;
+	}
+	
+	.navBox2{
+		margin-bottom: 0;
+	}
+</style>

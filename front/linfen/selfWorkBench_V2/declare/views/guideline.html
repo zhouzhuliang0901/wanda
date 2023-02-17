@@ -1,0 +1,268 @@
+<div class="TabBox1">
+	<!--进度条-->
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li class="act">办事指南</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+	<span class="line"></span>
+	<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}{{statusName}}</span></div>
+	<div class="content">
+		<div class="main2">
+			<div id="wrapper">
+				<div class="scrollBox2 clearfloat" id="scrollBox2">
+					<dl class="dllist1 clearfloat" style="padding-top: 25px;">
+						<dt>一、适用范围：</dt>
+						<dd>
+							<p>{{guideInfo.att.APPLICABLE_SCOPE|| to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>二、事项名称和代码：</dt>
+						<dd>
+							<p>事项名称：{{guideInfo.item.ST_ITEM_NAME}}</p>
+							<p>事项代码：{{guideInfo.item.ST_ITEM_ID}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>三、办理依据：</dt>
+						<dd ng-bind-html="guideInfo.att.APPROVAL_BASIS | to_trusted">
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>四、办理机构：</dt>
+						<dd>
+							<p>{{guideInfo.item.ST_ORG_NAME || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>五、受理条件：</dt>
+						<dd>
+							<p>{{guideInfo.att.APPROVAL_CONDITIONS || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>六、审批数量：</dt>
+						<dd>
+							<p>{{guideInfo.att.APPROVAL_LIMITS || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt style="float:none">七、审批材料：</dt>
+						<dd id="lodop" class="stuff">
+							<table>
+								<tbody>
+									<tr>
+										<th>材料名称</th>
+										<th>材料类型</th>
+										<th>纸质/电子报件</th>
+										<th>材料份数</th>
+										<th>材料必要性</th>
+									</tr>
+									<tr ng-repeat=" item in guideInfo.stuffAtts[0].contant">
+										<td><p>{{item.ST_STUFF_NAME}}<img ng-show='item.ISCONFIRM == 2 && item.EXEMPTION_FORM!= 5 && item.EXEMPTION_FORM!=""' src="images/mytj.png" alt="" /></p></td>
+										<td>{{item.ST_PAPER_OR_ELECTRONIC}}</td>
+										<td>纸质/电子报件</td>
+										<td>{{item.ST_ORIGINAL_NUMBER}}</td>
+										<td>{{item.NECESSITY}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>八、审批期限：</dt>
+						<dd>
+							<p>法定办结时限：{{guideInfo.item.ST_LEGAL_TIME}}</p>
+							<p>承诺办结时限：{{guideInfo.item.ST_COMMIT_TIME}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>九、审批证件：</dt>
+						<dd class="spzj">
+							<table>
+								<tbody>
+									<tr>
+										<th>审批结果名称</th>
+										<th>送达方式</th>
+										<th>送达期限</th>
+										<th>审批结果类型</th>
+									</tr>
+									<tr ng-repeat=" item in guideInfo.spzj">
+										<td>{{item.ZJ_NAME}}</td>
+										<td>{{item.ZJ_SDFS}}</td>
+										<td>{{item.ZJ_SDQX}}</td>
+										<td>{{item.RESULT_TYPE}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十、是否收费：</dt>
+						<dd ng-bind-html="guideInfo.item.ISSERVICETERMINAIS | to_trusted">
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十一、申请人权利及义务：</dt>
+						<dd>
+							<p>申请人权利：<span ng-bind-html="guideInfo.att.APPLICANT_AUTHORITY | to_trusted"></span></p>
+							<p>申请人义务：<span ng-bind-html="guideInfo.att.APPLICANT_DUTY | to_trusted"></span></p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十二、咨询电话：</dt>
+						<dd>
+							<p>{{guideInfo.item.ST_TEL_CONSULT || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十三、投诉电话：</dt>
+						<dd>
+							<p>{{guideInfo.item.ST_TEL_COMPLAINT || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十四、办理地点：</dt>
+						<dd>
+							<p>{{guideInfo.place[0].JSFS_CK || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十五、办理时间：</dt>
+						<dd>
+							<p>{{guideInfo.place[0].ST_WORKTIME || to_trusted}}</p>
+						</dd>
+					</dl>
+					<dl class="dllist1 clearfloat">
+						<dt>十六、常见问题：</dt>
+						<dd>
+							<div ng-repeat="item in guideInfo.answer">
+								<p>问：<span>{{item.ST_ANSWERNAME || to_trusted}}</span></p>
+								<p>答：<span>{{item.CL_ANSWERINFO || to_trusted}}</span></p>
+							</div>
+						</dd>
+					</dl>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prev()" next="next()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<!--二维码 开始-->
+<div class="CodeBox1" id="code" style="height: 330px;top: 430px" ;>
+	<!-- <img src="images/code1.jpg" class="img1"/> -->
+	<p style="position: absolute;top: 220px;left:8px">使用微信扫一扫<br/>即可使用手机查看 </p>
+
+</div>
+<!--二维码 结束-->
+<a ng-click="print()" class="stamp">打印</a>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	#wrapper {
+		width: 1600px;
+		height: 410px;
+	}
+
+	.scrollBox2 .dllist1 dd,
+	.scrollBox2 .dllist1 dt {
+		font-size: 25px;
+	}
+
+	.scrollBox2 .dllist1 .stuff {
+		width: 1155px;
+		margin-left: 35px;
+	}
+
+	.scrollBox2 .dllist1 .spzj {
+		width: 1155px;
+		margin-left: 35px;
+	}
+
+	.spzj table {
+		table-layout: auto;
+		width: 100%;
+		text-align: center;
+	}
+
+	.stuff td {
+		font-size: 24px;
+	}
+
+	.stuff th {
+		font-size: 24px;
+	}
+
+	.stuff table tr>td:nth-child(1) {
+		width: 930px;
+	}
+
+	.stuff table tr>td:nth-child(1) p>img {
+		margin-left: 15px;
+		height: 30px;
+		vertical-align: middle;
+	}
+
+	.stuff table tr>td:nth-child(2) {
+		display: none;
+		text-align: center
+	}
+
+	.stuff table tr>th:nth-child(2) {
+		display: none;
+	}
+
+	.stuff table tr>th:nth-child(3) {
+		width: 182px;
+	}
+
+	.stuff table tr>td:nth-child(3) {
+		width: 170px;
+		margin-left: 20px;
+		text-align: center
+	}
+
+	.stuff table tr>td:nth-child(4) {
+		width: 130px;
+		margin-left: 20px;
+		text-align: center
+	}
+
+	.stuff table tr>td:nth-child(5) {
+		width: 150px;
+		margin-left: 20px;
+		text-align: center
+	}
+	.main2 {
+		margin-left: 0;
+		overflow: hidden;
+		width: 1250px;
+		height: 400px;
+		margin-top: 50px;
+	}
+
+	.content {
+		background: url(./images/bg-subcontent.png) no-repeat;
+		width: 1500px;
+		height: 500px;
+		margin-left: 100px;
+		overflow: hidden;
+	}
+
+	.scrollBox2 {
+		width: 1400px;
+		padding-left: 20px;
+	}
+
+	a.stamp {
+		background: url(./images/print.png) no-repeat;
+		top: 780px;
+		left: 1545px;
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		font-size: 24px;
+	}
+</style>

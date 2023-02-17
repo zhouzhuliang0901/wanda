@@ -1,0 +1,109 @@
+<p class="caption">{{ operation }}</p>
+<!-- 办件编号方式查询 -->
+<div class="input serialInput" ng-if="inputType==='serial'">
+    <!-- <label>申请对象名称:</label>
+	<input type="text" name="" id="" ng-model="$parent.applyObj" value="" /><br> -->
+    <input type="text" ng-model="$parent.applySerial" placeholder="请输入您需要查询的办件编码" />
+    <input type="button" id="" value="查询" ng-click="serialSearch()" />
+</div>
+
+<!--<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>-->
+<alert
+    msg="msg"
+    ng-if="isAlert"
+    confirm="alertConfirm()"
+    concel="concel"
+></alert>
+<idcard
+    read="idcardSearch(info)"
+    has-img="no"
+    class="input idcardInput"
+    ng-if="inputType==='idcard'"
+></idcard>
+<!-- 二维码查询 -->
+<div class="input codeInput" ng-if="inputType==='code'">
+    <img src="../libs/common/images/tips/code.png" />
+</div>
+<apptb-footer 
+	prev="prevStep()" next="nextStep()" 
+	default-is-show-next-btn="show" custom-home="true"
+    home="customMain()" go-back="goAppHistoryBack()" alert-time>
+</apptb-footer>
+<!--<app-footer next="nextStep()"></app-footer>-->
+<style type="text/css">
+	.caption {
+		margin-top: 85px;
+		margin-left: 240px;
+	}
+    .input {
+        position: relative;
+        margin: 0 auto;
+        text-align: center;
+        height: 600px;
+        width: 1760px;
+        margin-top: 160px;
+    }
+
+    .input label {
+        font-size: 35px;
+        margin-left: -186px;
+    }
+    input {
+        color: #fff;
+    }
+    .input input[type="text"] {
+    	border: none;
+    	background: url("./images/bg-input.png") no-repeat;
+        border-radius: 8px;
+        box-shadow: 0px 0px 8px 4px #175191 inset;
+        padding-left: 20px;
+        font-size: 30px;
+        height: 81px;
+        width: 585px;
+    }
+    .input input[type="text"]::-webkit-input-placeholder {
+    	color: #bdc4cf;
+    }
+    .input input[type="button"] {
+        background: url("./images/select.png");
+        line-height: 70px;
+        text-align: center;
+        margin-top: 150px;
+        margin-left: 20px;
+        border: none;
+        font-size: 30px;
+        height: 63px;
+        width: 164px;
+        color: #69c8ea;
+        cursor: pointer;
+        text-shadow: 0 0 5px #146ab9,0 0 10px #146ab9,0 0 15px #146ab9,0 0 20px #146ab9;
+    }
+    
+    .btnprev {
+    	float: left;
+    	width: 120px;
+    	height: 50px;
+    	margin: 172px 0 0 74px;
+    }
+    .btnprev .prev {
+    	font-size: 25px;
+    }
+    .btnhome {
+    	margin: 168px 0 0 933px;
+    	width: 120px;
+    	height: 50px;
+    	background: url("./images/main.png") no-repeat;
+    }
+    .btnhome .gohome {
+    	display: inline-block;
+    	width: 120px;
+    	height: 50px;
+    }
+    .alert {
+    	font-size: 20px;
+    	margin: 25px 0 0 850px;
+    }
+    .alert span b {
+    	color: #f1992e;
+    }
+</style>

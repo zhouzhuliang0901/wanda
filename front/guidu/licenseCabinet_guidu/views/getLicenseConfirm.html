@@ -1,0 +1,43 @@
+<style>
+    .licenseImg {
+        height: 600px;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;" ui-sref="main">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">自助取证</a>
+        </li>
+
+        <li class="active">取证信息确认</li>
+    </ol>
+</nav>
+<div class="shadowBox getLicenseConfirm">
+    <p class="boldTips">证照信息</p>
+    <div class="infoConfirm">
+        <img class="licenseImg" src="{{certInfo.imageStr}}" alt="">
+        <table class="licenseInfoTable">
+            <tr>
+                <td>名称</td>
+                <td>{{certInfo.stCertName||"空"}}</td>
+            </tr>
+            <tr>
+                <td>申请对象</td>
+                <td>{{certInfo.stName||certInfo.stReceiverName||"空"}}</td>
+            </tr>
+            <tr>
+                <td>联系电话</td>
+                <td>{{certInfo.stReceiverPhone||"空"}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="btn" ng-click="Continue()">
+        <img class="eventIcon" src="images/icon/ok.png" alt="">
+        <span class="event">继续</span>
+    </div>
+</div>

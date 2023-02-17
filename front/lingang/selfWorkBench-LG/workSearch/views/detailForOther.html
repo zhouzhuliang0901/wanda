@@ -1,0 +1,93 @@
+<p class="caption">{{operation}}</p>
+<div class="detail" ng-if="show">
+	<div class="itemName">{{name}}</div>
+	<div class="wrapper">
+		<div ng-repeat="item in itemDetail" class="item">
+			&nbsp;&nbsp;&nbsp;&nbsp;</br>
+			&nbsp;&nbsp;&nbsp;&nbsp;阶段：<span>{{item.itemStage}}</span></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;办理状态：<span id="status">{{item.status}}</span></br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span>{{item.item1}}</span>
+		</div>
+	</div>
+</div>
+<app-footer next="nextStep()" prev-text="返回" next-text="请重新选择办件"></app-footer>
+<div class="loadingBox" ng-if="!isLoding">
+	<img style="margin-left: 909px;margin-top: 300px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style type="text/css">
+	.detail {
+		position: relative;
+		margin: 0 auto;
+		height: 700px;
+		width: 1700px;
+		overflow: hidden;
+		margin-top: 20px;
+		/*background: url(images/bg-alert.png) no-repeat;
+		background-position: center center;
+		background-size: 100% 100%;*/
+		overflow: hidden;
+	}
+	
+	.itemName {
+		width: 1700px;
+		height: 90px;
+		font-size: 50px;
+		text-align: center;
+		margin-top: 10px;
+	}
+	
+	.wrapper {
+		overflow-x: hidden;
+		/*x轴禁止滚动*/
+		overflow-y: scroll;
+		/*y轴滚动*/
+		position: absolute;
+		width: 1700px;
+		height: 600px;
+	}
+	 .wrapper::-webkit-scrollbar {
+        display: flex;/*隐藏滚动条*/
+    }
+	.item {
+		overflow: hidden;
+		position: relative;
+		float: left;
+		height: 250px;
+		margin-left: 50px;
+		width: 500px;
+		background: url(images/bg-alert.png) no-repeat;
+		background-position: center center;
+		font-size: 30px;
+		margin-top: 10px;
+		background-size: 100% 100%;
+	}
+	
+	.item span {
+		font-size: 30px;
+		margin-left: 10px;
+		color: yellow;
+		margin-top: 30px;
+	}
+	
+	#status {
+		color: lime;
+	}
+	
+	.loadingBox {
+		position: fixed;
+		background-color: rgba(0, 0, 0, .5);
+		left: 0;
+		top: 189px;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+		height: 890px;
+		width: 2000px;
+	}
+	
+	.loadingBox p {
+		margin-left: 781px;
+		font-size: 38px;
+	}
+</style>

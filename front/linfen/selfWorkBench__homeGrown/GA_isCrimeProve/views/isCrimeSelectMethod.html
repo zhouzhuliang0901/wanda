@@ -1,0 +1,37 @@
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<div class="contain">
+	<p class="caption">{{operation}}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="choiceType('serial')">
+				<img src="../libs/common/images/serial.png" />
+				<p>办件编号</p>
+			</a>
+			<a ng-click="choiceType('code')">
+				<img src="../libs/common/images/code.png" />
+				<p>二维码</p>
+			</a>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 400px;
+		text-align: center;
+		margin-top: 80px;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+		margin-right: 125px;
+	}
+</style>

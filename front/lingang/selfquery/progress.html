@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>立式查询系统</title>
+    <link rel="stylesheet" href="css/base.css"/>
+    <link rel="stylesheet" href="css/reset.css"/>
+    <link rel="stylesheet" href="css/common.css"/>
+    <link rel="stylesheet" href="css/bsjd.css"/>
+</head>
+<body>
+<div class="con-box">
+    <p id="timeMark"></p>
+    <header class="header">
+        <div class="hd-title"></div>
+    </header>
+    <!-- 立式查询机-->
+    <h2 class="bd-title">
+        请您选择查办理进度的方式
+    </h2>
+    <section class="section">
+        <div class="type type1 type_click" onclick="window.location.href='progress_type.html?type=applyNo'">
+            <img src="images/type1_03.png" alt=""/>
+            <p>输入办件编号</p>
+        </div>
+        <div class="type type2" onclick="window.location.href='progress_type.html?type=erweiCode'">
+            <img src="images/type2_03.png" alt=""/>
+            <p>扫描办件条形码</p>
+        </div>
+        <div class="type type3" onclick="window.location.href='progress_type.html?type=IDCard'">
+            <img src="images/type3_05.png" alt=""/>
+            <p>扫描身份证</p>
+        </div>
+    </section>
+    <div class="prompt">
+        <h3>温馨提示：</h3>
+        <p>
+            输入办件编号：通过输入办件凭证的编号以及企业名称或姓名进行办理进度查询；<br/>
+            扫描办件条形码：通过扫描办件凭证上的二维码进行办理进度查询；<br/>
+            扫描身份证：通过扫描二代居民身份证进行办理进度查询。
+        </p>
+    </div>
+    <!-- 导航-->
+    <footer class="footer">
+        <div class="btn-back" onclick="back()"><img src="images/back2_03.png" alt=""/></div>
+    </footer>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/common.js"></script>
+<script>
+	$(function(){
+	
+	  // 页面倒计时
+	  timeCount (70);
+	});
+	// 返回
+    function back(){
+        window.location.href="index.html";
+    }
+    $(".type").click(function(){
+        $(".type").removeClass("type_click");
+        $(this).toggleClass("type_click");
+    })
+</script>
+</body>
+</html>

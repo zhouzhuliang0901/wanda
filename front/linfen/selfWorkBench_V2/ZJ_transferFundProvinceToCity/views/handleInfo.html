@@ -1,0 +1,111 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+
+	.caption {
+		margin-top: 86px!important;
+		margin-left: 220px!important;
+	}
+
+	.wrapper {
+		width: 1500px;
+		height: 100%;
+	}
+
+	.wrapper:first-child {
+		width: 90%;
+	}
+
+	.table-sty1 {
+		width: 100%;
+		table-layout: auto;
+		margin: 2% auto;
+	}
+
+	.table-sty1 th,
+	.table-sty1 td
+	 {
+		padding: 20px 10px;
+		font-size: 24px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+		white-space: normal;
+		    width: 25%;
+	}
+
+	.gray {
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.scrollBox2 {
+			width: 1130px;
+			margin-left: 6%;
+		}
+	}
+</style>
+<p class="caption">{{funName}} —— 进度查询</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<table class="table-sty1" cellspacing="0">
+				<tbody>
+					<tr>
+						<th class="gray">业务流水号</th>
+						<td>{{info.TRACENO || '暂无'}}</td>
+						<th class="gray">业务类型</th>
+						<td>{{(info.YWLX | myFilter : ywlxList)|| '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">申请日期</th>
+						<td>{{info.SQTIME || '暂无'}}</td>
+						<th class="gray">业务状态</th>
+						<td>{{(info.STATUS | myFilter : statusList) || '处理中'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">证件类型</th>
+						<td>{{(info.ZJLX | myFilter : zjlxList) || '暂无'}}</td>
+						<th class="gray">证件号码</th>
+						<td>{{info.ZJHM || '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">手机号码</th>
+						<td>{{info.SJHM || '暂无'}}</td>
+						<th class="gray">基本公积金账号</th>
+						<td>{{info.PRIACCOUNT || '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">补充公积金账号</th>
+						<td>{{info.EXACCOUNT || '暂无'}}</td>
+						<th class="gray">转出地中心名称</th>
+						<td>{{info.OLDZXNAME || '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">原公积金账号</th>
+						<td>{{info.OLDACCOUNT || '暂无'}}</td>
+						<th class="gray">转出地单位名称</th>
+						<td>{{info.OLDUNITNAME || '暂无'}}</td>
+					</tr>
+					<tr>
+						<th class="gray">审核日期</th>
+						<td>{{info.SHTIME || '暂无'}}</td>
+						<th class="gray">返回结果</th>
+						<td>{{info.RTMSG || '暂无'}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

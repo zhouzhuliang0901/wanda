@@ -1,0 +1,224 @@
+<style>
+	@media screen and (min-width: 1600px) {
+		.headBox1 {
+			width: 1650px;
+		}
+		.headBox1 .navul1 li {
+			width: 33.33%;
+			margin: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+		.main2 {
+			width: 100%;
+			height: auto;
+			margin: 0;
+		}
+		#infoForm {
+			padding: 0px 100px;
+			box-sizing: border-box;
+			font-size: 40px;
+			overflow: hidden;
+			margin-top: 50px;
+		}
+		#fullItemName {
+			margin-bottom: 20px;
+		}
+		.targetType {
+			width: 30px;
+			height: 30px;
+			vertical-align: middle;
+		}
+		.inputBox {
+			float: left;
+			width: 50%;
+			margin-bottom: 30px;
+		}
+		.inputBox label {
+			width: 35%;
+		}
+		.inputBox input {
+			width: 60%;
+			height: 80px;
+			border-radius: 15px;
+			padding: 0px 10px;
+			box-sizing: border-box;
+			font-size: 30px;
+		}
+		input.targetType {
+			width: 45px;
+			vertical-align: middle;
+		}
+		label {
+			display: inline-block;
+			text-align: right;
+		}
+		.inputBox label.targetNo {
+			font-size: 35px;
+		}
+		.inputBox.beizhu,
+		.inputBox.projectName {
+			width: 100%;
+		}
+		.inputBox.beizhu label,
+		.inputBox.projectName label {
+			width: 17.5%;
+		}
+		.inputBox.beizhu input,
+		.inputBox.projectName input {
+			width: 80%;
+		}
+		.inputBox label.geren,
+		.inputBox label.faren {
+			width: auto;
+			margin-right: 30px;
+		}
+		.inputBox label.geren span,
+		.inputBox label.faren span {
+			vertical-align: middle;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 {
+			width: 1650px;
+		}
+		.headBox1 .navul1 li {
+			width: 33.33%;
+			margin: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+		.main2 {
+			width: 100%;
+			height: auto;
+			margin: 0;
+		}
+		#infoForm {
+			padding: 0px 0px;
+			box-sizing: border-box;
+			font-size: 30px;
+			overflow: hidden;
+			margin-top: 50px;
+		}
+		#fullItemName {
+			margin-bottom: 20px;
+		}
+		.targetType {
+			width: 30px;
+			height: 30px;
+			vertical-align: middle;
+		}
+		.inputBox {
+			float: left;
+			width: 50%;
+			margin-bottom: 30px;
+		}
+		.inputBox label {
+			width: 35%;
+		}
+		.inputBox input {
+			width: 60%;
+			height: 80px;
+			border-radius: 15px;
+			padding: 0px 10px;
+			box-sizing: border-box;
+			font-size: 30px;
+		}
+		input.targetType {
+			width: 45px;
+			vertical-align: middle;
+		}
+		label {
+			display: inline-block;
+			text-align: right;
+		}
+		
+		.inputBox.beizhu,
+		.inputBox.projectName {
+			width: 100%;
+		}
+		.inputBox.beizhu label,
+		.inputBox.projectName label {
+			width: 17.5%;
+		}
+		.inputBox.beizhu input,
+		.inputBox.projectName input {
+			width: 80%;
+		}
+		.inputBox label.geren,
+		.inputBox label.faren {
+			width: auto;
+			margin-right: 30px;
+		}
+	}
+</style>
+<div class="headBox1">
+        <ul class="navul1 clearfloat">
+            <li>选择事项</li>
+            <li>人证核验</li>
+            <li  class="act">在线填报</li>
+        </ul>
+    </div>
+<div class="main2">
+    <div class="scrollBox2 clearfloat">
+        <div class="right-input">
+        	<form id="infoForm" method="get">
+        		<div class="fullItemName">{{fullItemName}}</div>
+        		<div class="inputBox">
+		            <label class="strong">办理对象</label>
+					<label class="geren">
+						<input class="targetType" type="radio" value="个人" ng-model="targetTypeName" name="targetType" />
+						<span >&nbsp;&nbsp;个人</span>
+					</label>
+					<label class="faren">
+						<input class="targetType" type="radio" value="法人" ng-model="targetTypeName" name="targetType" />
+					<span>&nbsp;&nbsp;法人</span>
+					</label>
+		        </div>
+	        	<div class="inputBox">
+		            <label class="strong"><font color='red'>*</font>{{targetName}}</label>
+		            <input type="text" id="targetName" name="targetName" />
+		        </div>
+	        	<div class="inputBox">
+		            <label class="strong targetNo"><font color='red'>*</font>{{targetTips}}</label>	
+		            <input type="text" id="targetNo" name="targetNo" />
+		        </div>
+		        <div class="inputBox">
+		            <label class="strong"><font color='red'>*</font>经办人姓名</label>
+		            <input type="text" id="username" name="username" />
+		        </div>
+		        <div class="inputBox">
+		            <label class="strong"><font color='red'>*</font>经办人身份证号</label>
+		            <input type="text" id="licenseNo" name="licenseNo" />
+		        </div>
+		        <div class="inputBox">
+		            <label class="strong"><font color='red'>*</font>经办人手机号</label>
+		            <input type="text" id="mobile" name="mobile" />
+		        </div>
+		        <div class="inputBox beizhu">
+		            <label class="strong">备注</label>
+		            <input type="text" id="content" name="content" />
+		        </div>
+		         <div class="inputBox projectName">
+		            <label class="strong">项目名称</label>
+		            <input type="text" id="projname" name="projname" />
+		        </div>
+		        <!--<div class="inputBox" style="padding-bottom:15px;width: 93.5%;">
+		            <label>申请内容</label>
+		            <input type="text" id="content" name="content" style="width: 76%;" />	
+		        </div>-->
+        	</form>
+        </div>
+    </div>
+	<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+</div>
+
+<apptb-footer 
+	need-count-down="true" 
+	default-is-show-prev-btn="1" 
+	default-is-show-next-btn="1" 
+	prev="prev()"
+	next="goNext()">
+</apptb-footer>

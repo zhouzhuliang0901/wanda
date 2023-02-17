@@ -1,0 +1,129 @@
+<style type="text/css">
+	.caption {
+		color: #fefefe;
+		margin-left: 195px;
+		font-size: 33px;
+		opacity: .6;
+		margin-top: 100px;
+	}
+	
+	.animate::before {
+		top: 97px;
+	}
+	
+	.container {
+	    display: flex;
+	    flex-direction: row;
+	    flex-wrap: wrap;
+	    justify-content: space-around;
+	    margin: 60px auto;
+	    align-items: flex-start;
+	    width: 1300px;
+	    height: auto;
+	}
+	
+	.container li {
+		text-align: center;
+		height: 300px;
+		width: 300px;
+	}
+	
+	.container li>img {
+		margin-top: 80px;
+	}
+	
+	.container li>p {
+		margin: 0 auto;
+		margin-top: 20px;
+		width: 226px;
+		font-size: 28px;
+	}
+	/*.container li:nth-of-type(1) {
+		background-color: #0078d7;
+	}
+	
+	.container li:nth-of-type(2) {
+		background-color: #50a299;
+	}
+	
+	.container li:nth-of-type(3) {
+		background-color: #8973b4;
+	}
+	
+	.container li:nth-of-type(6) {
+		background-color: #fc6392;
+	}*/
+	
+	.container li:nth-of-type(4) {
+		margin-left: 253px;
+	}
+	
+	.container li:nth-of-type(5) {
+		margin-right: 246px;
+	}
+	
+	.TabBox1 {
+		/*background: url(./../libs/common/images/bg-content.png) no-repeat center center;*/
+		height: 850px;
+	}
+	@media screen and (max-width: 1600px) {
+		.TabBox1 {
+		    position: absolute;
+		    width: 1100px;
+		    height: 700px;
+		    left: 50%;
+		    top: 50%;
+		    transform: translate(-50%, -50%);
+		    padding: 0px;
+		}
+		.container {
+		    display: flex;
+		    flex-direction: row;
+		    flex-wrap: wrap;
+		    justify-content: space-around;
+		    margin: 130px auto;
+		    align-items: flex-start;
+		    width: 100%;
+		    height: auto;
+		}
+		.container li {
+		    text-align: center;
+		    height: auto;
+		    width: 300px;
+		}
+		.container li>img {
+		     margin-top: 0px; 
+		}
+	}
+</style>
+
+<div class="TabBox1">
+	<p class="caption">养老金查询</p>
+	<ul class="container">
+		<!--<li ng-click="choice('gjj')" class="animate">
+			<img src="../libs/common/images/newIcon/publicFund.png" />
+			<p>公积金查询</p>
+		</li>-->
+		<li ng-click="choice('ylj')" class="animate">
+			<img src="../libs/common/images/newIcon/pension.png" />
+			<p>养老金查询</p>
+		</li>
+		<!--<li ng-click="choice('ybj')" class="animate">
+			<img src="../libs/common/images/newIcon/medicalFund.png" />
+			<p>医保金查询</p>
+		</li>-->
+		<!--<li ng-click="choice('jjxx')" class="animate">
+			<img src="../libs/common/images/icon/gjj.png" />
+			<p>
+				交警信息
+			</p>
+		</li>
+		<li ng-click="goToApp('../workSearch/index.html')" class="animate">
+			<img src="../libs/common/images/icon/gjj.png" />
+			<p>
+				办事状态
+			</p>
+		</li>-->
+	</ul>
+</div>
+<apptb-footer prev="prevStepa()" next="" default-is-show-next-btn="hidden" default-is-show-prev-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>

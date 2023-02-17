@@ -1,0 +1,90 @@
+<style type="text/css">
+	.productionDescription {
+		width: 1100px;
+		height: 600px;
+		margin: 0px auto;
+	}
+	.productionDescription .APPTitle {
+		text-align: center;
+		font-size: 36px;
+		font-weight: bold;
+		color: rgb(0, 162, 232);
+	}
+	.productionDescription .APPSlogan {
+		text-align: center;
+		font-size: 28px;
+		margin: 30px 0px;
+	}
+	.productionDescription .APPfeature {
+		display: flex;	
+		justify-content: space-around;
+		width: 800px;
+		height: 230px;
+		margin: 0px auto;
+		padding-top: 40px;
+		box-sizing: border-box;
+		/*background-color: #fff;*/
+	}
+	.productionDescription .APPfeature a {
+		width: 120px;
+		height: 120px;
+		/*color: #000;*/
+	}
+	.productionDescription .APPfeature a img {
+		width: 120px;
+		height: 120px;
+	}
+	.productionDescription .APPfeature a p {
+		text-align: center;
+		font-size: 26px;
+	}
+	.productionDescription  .APPPurpose {
+		font-size: 30px;
+		padding-top: 100px;
+		line-height: 45px;
+	}
+	.productionDescription  .APPPurpose span {
+		color: rgb(0, 162, 232);
+	}
+</style>
+<apptb-header fun-name="银行服务"></apptb-header>
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="productionDescription">
+			<p class="APPTitle">建设银行惠懂你APP</p>
+			<p class="APPSlogan">想你所想, 贷你所需!</p>
+			<div class="APPfeature">
+				<a>
+					<img src="../libs/common/images/newIcon/kaiFang.png" alt="" />
+					<p>开放</p>
+				</a>
+				<a>
+					<img src="../libs/common/images/newIcon/zhiNeng.png" alt="" />
+					<p>智能</p>
+				</a>
+				<a>
+					<img src="../libs/common/images/newIcon/anQuan.png" alt="" />
+					<p>安全</p>
+				</a>
+				<a>
+					<img src="../libs/common/images/newIcon/bianJie.png" alt="" />
+					<p>便捷</p>
+				</a>
+				<a>
+					<img src="../libs/common/images/newIcon/zhuanShu.png" alt="" />
+					<p>专属</p>
+				</a>
+			</div>
+			<p class="APPPurpose">建设银行为落实<span>普惠金融</span>战略, 以互联网思维, 运用平台经营模式, 搭建普惠金融新生态, 打造一款是个小微企业的<span>"建行惠懂你"</span>APP</p>
+		</div>
+	</div>
+</div>
+<apptb-footer 
+	prev="prevStep()" 
+	next="" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()">
+</apptb-footer>

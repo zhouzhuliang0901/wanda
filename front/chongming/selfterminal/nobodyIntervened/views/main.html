@@ -1,0 +1,33 @@
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a href="#">
+				<img src="../libs/common/images/home.png" style="height: 30px;">
+			</a>
+		</li>
+		<li>
+			<a href="#">无人干预自动办理</a>
+		</li>
+		<li class="active">选择办理事项</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="info blue-green">
+		<div class="bg"></div>
+		<div class="vertical-middle horizontal-middle leftLump">
+			<img src="../libs/common/images/prototype.png">
+			<img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+			<div>请选择自助办理的事项</div>
+		</div>
+	</div>
+	<div class="action">
+        <div class="panelList two">
+            <a class="left" ng-click="previousPage()"><img src="images/left.png" width="30" /></a>
+            <a class="right" ng-click="nextPage()"><img src="images/right.png" width="30" /></a>
+            <div ng-click="goto(item.itemUrl)" ng-repeat="item in formList">
+            	<div class="menu-div">{{item.itemName}}</div>
+            </div>
+            <span>{{currentPage}}/{{totalPages}}</span>
+        </div>
+    </div>
+</div>

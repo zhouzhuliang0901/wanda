@@ -1,0 +1,28 @@
+<apptb-header fun-name="{{funName}}"></apptb-header>
+<p class="caption">{{funName}}</p>
+	<div class="main2" style="height: 650px;">
+		<div class="action">
+			<div class="imageShow" style="height: 500px;position: absolute;top: 99px;left: 40px;font-size: 40px;">
+				<img ng-click="select(index)" ng-class="{'imgStyle':current==index}" class="id" ng-src="{{url+item.pictureUrlForBytes}}" ng-repeat="(index,item) in imgUrls">
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="goNext()" prev-btn-info="{{prevText}}" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="!isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style>
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.id {
+		height: 185px;
+	}
+	
+	.imgStyle {
+		border: #AA0000 2px solid;
+	}
+</style>

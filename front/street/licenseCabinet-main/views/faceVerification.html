@@ -1,0 +1,26 @@
+<style type="text/css">
+	.shadowBox .btn{
+		margin-top: 800px;
+	}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="javascript:;">
+                <img src="images/homeLogo.png">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">人证核验</a>
+        </li>
+        <li class="active">拍摄照片</li>
+    </ol>
+</nav>
+<div class="shadowBox faceVerification">
+    <p class="boldTips">请看摄像头&uarr;</p>
+    <p class="toCount" ng-if="countDown!==undefine">{{toCount}}</p> 
+    <div class="btn" ng-if="startBtn" ng-click="capture()">
+        <img class="eventIcon" src="images/icon/camera.png" alt="">
+        <span class="event">拍照</span>
+    </div>
+</div>

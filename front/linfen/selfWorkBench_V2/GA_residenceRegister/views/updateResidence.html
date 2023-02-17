@@ -1,0 +1,66 @@
+<div class="contain">
+	<div class="stable">
+		<div class="my-card">
+			<div class="head">
+				<h4>居住证信息确认</h4>
+			</div>
+			<div class="body">
+				<table class="table-sty1" cellspacing="0">
+					<tr>
+						<th>姓名：</th>
+						<td>{{stName}}</td>
+						<th>性别：</th>
+						<td>{{sex}}</td>
+					</tr>
+					<tr>
+						<th>公民身份号码：</th>
+						<td>{{stIdCard}}</td>
+						<th></th>
+						<td></td>
+					</tr>
+					<!--<tr>
+						<th>常住户口所在地址：</th>
+						<td colspan="3">福建省石狮市嘉禄路555号13幢501室</td>
+					</tr>-->
+					<tr>
+						<th>居住地住址：</th>
+						<td colspan="3">{{liveAddr}}</td>
+					</tr>
+					<tr>
+						<th>居住证有效期：</th>
+						<td colspan="3" style="color:#e1ba1c;font-weight:bold;">{{validdate}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-click="dataClose()" class="close">
+	退卡
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel" confirmshow="confirmshow"></alert>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.close {
+		width: 130px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		position: absolute;
+		top: 845px;
+		background: url(../libs/common/images/print.png) no-repeat;
+		font-size: 20px;
+		left: 895px;
+	}
+</style>

@@ -1,0 +1,25 @@
+<div class="shell bg2">
+    <div class="headBox1">
+        <div class="headtop1 clearfloat">
+            <a href="#guideline" class="back1">线下办理</a>
+            <a ng-click="goHome()" class="backindex1">返回首页</a>
+            <div class="backbox1">无操作<span><b class="minute">60</b>秒</span>后将返回首页</div>
+        </div>
+        <ul class="navul1 navul2 clearfloat">
+           <li>选择事项</li>
+			<li>办事指南</li>
+			<li class="act">事项情形 </li>
+			<li>人证核验</li>
+			<li>材料上传</li>
+        </ul>
+    </div>
+        <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}</span> - <span>请选择事项情形</span></div>
+    <div class="main2_matter">
+        <div class="scrollBox1 clearfloat">
+            <a ng-repeat="item in itemList"  ng-click="getSubItem(item.stStatusName,item.stStatusId)" >{{item.stStatusName}}</a>
+        </div>
+    </div>
+    <div class="btnBox1 clearfloat">
+        <a href="#guideline" class="Prev">上一步</a>
+    </div>
+</div>

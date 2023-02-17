@@ -1,0 +1,206 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		#wrapper{
+			width:100%;
+			height:572px;
+			position: relative;
+		}
+		.wrapperContent {
+			left: 50% !important;
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+			width: 90%;
+		}
+		#linkt{
+			position: absolute;top: 100px;left: 0px;
+		}
+		.linkt {
+			overflow: hidden;
+		}
+		.select{
+			float: left;
+			width: 100%;
+			height: 100px;
+			overflow: hidden;
+			font-size: 30px;
+			background: url(../libs/common/images/big-input.png) no-repeat center center;
+			background-size: 100% 100%;
+			margin-bottom: 47px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			position: relative;
+		}
+		.stuff{
+			line-height: 100px;
+			padding-left: 15px;
+			max-width: 1430px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.upload2{
+			width: 138px;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 19px;
+			background: #3099DA;
+			border-radius: 9px;
+			position: absolute;
+			top: 27px;
+			left: 1310px;
+		}
+		.upload{
+			width: 160px;
+			height: 50px;
+			line-height: 50px;
+			background: #3099DA;
+			border-radius: 9px;
+			text-align: center;
+			position: absolute;
+			top: 27px;
+			left: 1510px;;
+		}
+		.view{
+			width: 160px;
+			height: 50px;
+			line-height: 50px;
+			background: #3099DA;
+			border-radius: 9px;
+			text-align: center;
+			position: absolute;
+			top: 27px;
+			left: 1510px;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 .navul1 li {
+			width: 33.33%;
+		}
+		#wrapper{
+			width:100%;
+			height:572px;
+			position: relative;
+		}
+		.wrapperContent {
+			left: 50% !important;
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+			width: 90%;
+		}
+		#linkt{
+			position: absolute;top: 100px;left: 0px;
+		}
+		.linkt {
+			overflow: hidden;
+		}
+		.select{
+			float: left;
+			width: 100%;
+			height: 100px;
+			overflow: hidden;
+			font-size: 30px;
+			background: url(../libs/common/images/big-input.png) no-repeat center center;
+			background-size: 100% 100%;
+			margin-bottom: 47px;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			position: relative;
+		}
+		.stuff{
+			line-height: 100px;
+			padding-left: 15px;
+			max-width: 1430px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.upload2{
+			width: 138px;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 19px;
+			background: #3099DA;
+			border-radius: 9px;
+			position: absolute;
+			top: 27px;
+			right: 20%;
+		}
+		.upload{
+			width: 160px;
+			height: 50px;
+			line-height: 50px;
+			background: #3099DA;
+			border-radius: 9px;
+			text-align: center;
+			position: absolute;
+			top: 27px;
+			right: 3%;;
+		}
+		.view{
+			width: 160px;
+			height: 50px;
+			line-height: 50px;
+			background: #3099DA;
+			border-radius: 9px;
+			text-align: center;
+			position: absolute;
+			top: 27px;
+			right: 3%;
+		}
+	}
+</style>
+
+
+<div>
+    <div class="headBox1">
+        <ul class="navul1 clearfloat">
+          	<li>选择事项</li>
+            <li>人证核验</li>
+            <li class="act">在线填报</li>
+        </ul>
+    </div>
+	
+	<div class="navBox2"><b>您正在办理：</b><span>{{stItemName}}</span></div>
+	
+	
+	
+		<div class="main2">
+			<div id="wrapper">
+				<div class="wrapperContent">
+			<div class="linkt" ng-repeat="(index,stuff) in stuffList">
+				<div class="select">
+					<div class="stuff">
+						{{stuff.WF_CLNAME}}
+					</div>
+					<div ng-show="{{ listImg[index].upload2 }}" class="upload2" ng-click="toNewUploadMaterial(index,stuff.WF_BXSC,stuff.WF_CLNAME)">
+						重新上传
+					</div>
+					<div ng-show="{{ listImg[index].upload2 }}" class="view" ng-click="view(index,stuff.WF_BXSC,stuff.WF_CLNAME)">
+						查看
+					</div>
+					<div ng-show="{{ listImg[index].upload }}" class="upload" ng-click="toUploadMaterial(index,stuff.WF_BXSC,stuff.WF_CLNAME)">
+						上传
+					</div>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--<div class="btnBox1 clearfloat">
+	   <a href="#info" class="Prev">上一步</a>
+	   <a ng-click="submit()" class="next" ng-show="commit">提交办件</a>
+	</div>-->
+
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="1" 
+		next-btn-info="提交"
+		prev="prev()"
+		next="submit()">
+	</apptb-footer>
+</div>
+

@@ -1,0 +1,58 @@
+<style>
+	@media screen and (min-width: 1600px) {
+		.headBox1 {
+			width: 1650px;
+		}
+
+		.headBox1 .navul1 li {
+			width: 33.33%;
+			margin: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+
+		.main2 {
+			height: auto;
+		}
+	}
+
+	@media screen and (max-width: 1600px) {
+		.headBox1 {
+			width: 1650px;
+		}
+
+		.headBox1 .navul1 li {
+			width: 33.33%;
+			margin: 0;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+
+		.main2 {
+			width: 100%;
+			height: auto;
+		}
+	}
+</style>
+
+<div class="headBox1">
+	<ul class="navul1 clearfloat">
+		<li>选择事项</li>
+		<li class="act">人证核验</li>
+		<li>在线填报</li>
+	</ul>
+</div>
+
+<div class="navBox2"><b>您正在办理：</b><span>{{stItemName}}&nbsp;/&nbsp;扫描身份证</span></div>
+
+<div class="main2">
+	<!--<idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>-->
+	<!--<zzsbrecognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></zzsbrecognition>-->
+	<idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>
+	<recognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></recognition>
+	<!--<citizen-cloud result="citizenLogin(info)" ng-if="loginType == 'cloud'"></citizen-cloud>-->
+</div>
+
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>

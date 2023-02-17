@@ -1,0 +1,90 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-信息填写</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" name="userName" ng-model="stName" readonly></td>、
+					<th><b class="red">*</b>性别：</th>
+					<td><input class="input" type="text" id="stSex" name="stSex" ng-model="stSex" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>证件类型：</th>
+					<td><input class="input" type="text" id="stIdCardType" name="stIdCardType" ng-model="stIdCardType" readonly></td>
+					<th><b class="red">*</b>证件号码：</th>
+					<td><input class="input" type="text" id="stIdCard" name="licenseNo" ng-model="stIdCard" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>联系地址：</th>
+					<td><input class="input" type="text" id="stAddress" name="stAddress" ng-model="stAddress"></td>
+					<!--<th><b class="red">*</b>出生日期：</th>
+					<td><input class="input" type="text" id="dtBirthDate" name="dtBirthDate" ng-model="dtBirthDate" readonly></td>-->
+				</tr>
+				<tr>
+
+				</tr>
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

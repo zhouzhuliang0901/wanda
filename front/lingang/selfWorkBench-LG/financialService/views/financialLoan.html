@@ -1,0 +1,66 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		.caption {
+			margin-top: 85px;
+			margin-left: 240px;
+		}
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			margin-top: 220px;
+			display: flex;
+			justify-content: space-around;
+		}
+		.scrollBox2 .linkBox1 a {
+			float: left;
+			width: auto;
+			height: auto;
+			margin: 0px;
+			overflow: hidden;
+			text-align: center;
+			border: none;
+			background: none;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0px;
+		}
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			text-align: center;
+			margin-top: 220px;
+			display: flex;
+			justify-content: space-around;
+			padding-top: 0px;
+		}
+		.scrollBox2 .linkBox1 a {
+			float: left;
+			width: auto;
+			height: auto;
+			margin: 0px;
+			overflow: hidden;
+			text-align: center;
+			border: none;
+			background: none;
+		}
+		.scrollBox2 .linkBox1 a img {
+			margin: 0px;
+		}
+	}
+</style>
+
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceType('Loan_limit_inquiry')">
+			<img src="../libs/common/images/icon/rszz.png" />
+			<p>信贷额度查询</p>
+		</a>
+	</div>
+</div>
+
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="isShowCancelBtn"></alert>
+
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>

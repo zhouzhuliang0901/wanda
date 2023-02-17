@@ -1,0 +1,62 @@
+<div class="contain">
+	<p class="caption" style="margin: 0px 0px 20px;">公共场所卫生许可-注销</p>
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<div ng-if="showlogin">
+				<a ng-click="choiceLogin('1')">
+					<img src="../libs/common/images/person.png" />
+					<p>个人</p>
+				</a>
+				<a ng-click="choiceLogin('0')">
+					<img src="../libs/common/images/newIcon/corporate.png" />
+					<p>法人</p>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		margin-top: 80px;
+		display: inline-flex;
+		width: 100%;
+		justify-content: center;
+		padding-left: 0px;
+	}
+	.scrollBox2 .linkBox1 a {
+		margin: 80px 50px;
+	}
+	.scrollBox2 .linkBox1 a p{
+		width: 334px;
+        margin-left: -13px;
+	}
+	@media screen and (max-width: 1600px) {
+		.contain {
+			width: 1280px;
+			height: 600px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+		}
+		.scrollBox2 .linkBox1 {
+			padding-left: 0px;
+			margin-top: 0px;
+		}
+		.caption {
+			margin-left: 130px;
+		}
+	}
+</style>

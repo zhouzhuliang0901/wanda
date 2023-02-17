@@ -1,0 +1,59 @@
+<style>
+    .reservationTime {
+        position: absolute;
+        color: #1566aa;
+        top: 600px;
+        font-size: 33px;
+        left: 50px;
+    }
+
+    .reservationTime.center {
+        left: 390px;
+    }
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="javascript:;">事项预约</a>
+        </li>
+        <li ng-click="goPrevCatalog()">
+            <a href="javascript:;">{{windowName}}</a>
+        </li>
+        <li class="active">选择时间</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="vertical-middle horizontal-middle leftLump">
+            <img src="../libs/common/images/prototype.png">
+            <img src="../libs/common/images/click.gif" style="width:80px;position:absolute;top:150px;left:160px;">
+
+            <div class="sub-index  horizontal-middle">
+                <a class="blue-green active" href="#main" style="padding:15px 0px;width:100%;font-size:30px;margin-top:50px;">重选预约事项</a>
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="horizontal-middle" style="font-size:30px;margin: 10px auto;width:80%;text-align:center;font-weight:bolder">{{matterTitle}}</div>
+        <div id="datepicker" class="changeMonth_remove" style="font-size:30px; left:38px;top:80px; position:absolute;"></div>
+        <div class="reservationTime center" ng-if="!selectTimer">请在上表中选择预约日期!</div>
+        <div class="reservationTime" ng-if="selectTimer">请选择一个预约时间</div>
+        <div ng-if="selectTimer" class="horizontal-middle btnGroup" style="margin-left: 430px;margin-top: 500px;width: 600px;">
+            <div ng-repeat="item in appointmentInfo" ng-class="{'active':Quantum == $index}" ng-click="timeQuantum($index)">
+                {{item.stShow}}（{{item.surplusCount}}/{{item.totalCount}}）
+            </div>
+        </div>
+        <a class="btn_radius_50 horizontal-middle" ng-click="confirmAppointment()" style="position:absolute;left:412px;top:680px; width: 320px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/edit.png" height="80">
+                <label>确认</label>
+            </div>
+        </a>
+    </div>
+</div>

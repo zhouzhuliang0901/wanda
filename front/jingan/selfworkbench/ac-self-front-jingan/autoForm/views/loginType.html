@@ -1,0 +1,43 @@
+<div class="contain">
+	<p class="caption1">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a href="javascript:;" ng-click="choiceLogin('idcard')" ng-if=" formName != '特种设备变更登记申请表' ">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>身份证登录</p>
+			</a>
+			<a href="javascript:;" ng-click="choiceLogin('cloud')" ng-if=" formName != '特种设备变更登记申请表' ">
+				<img src="../libs/common/images/newIcon/qrCode.png" />
+				<p>随申办登录</p>
+			</a>
+			<a href="javascript:;" ng-click="choiceLogin('ukey')" ng-if=" formName == '特种设备变更登记申请表' ">
+				<img src="./images/bg-ukey.png" />
+				<p>Ukey登录</p>
+			</a>
+		</div>
+	</div>
+</div>
+
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 152px;
+		padding-bottom: 200px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+	    float: left;
+	    width: 303px;
+	    height: 273px;
+	    margin: 0px 82px;
+	    text-align: center;
+	    border-radius: 15px;
+	    position: relative;
+	}
+</style>

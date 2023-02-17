@@ -1,0 +1,134 @@
+<style type="text/css">
+	@media screen and (min-width: 1600px) {
+		#wrapper {
+			width: 100%;
+			height: 500px;
+		}
+		.headBox1 {
+			width: 1650px;
+		}
+		.headBox1 .navul1 li {
+			width: 33.33%;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+		.TabBox1 .tabul1 {
+			margin-top: 0;
+			padding-left: 125px;
+		}
+		
+		.tabBotbox1inner .linkbox1.matter a {
+			width: 730px;
+		}
+		.input1 {
+			height: 50px;
+			vertical-align: top;
+		}
+		.tabBotbox1inner .linkbox1 a {
+			border: none;
+			width: 800px;
+			background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+			background-size: 100% 100%;
+			margin-right: 50px;
+			margin-bottom: 20px;
+			height: 120px;
+			line-height: 120px;
+			padding: 0px 20px;
+			box-sizing: border-box;
+		}
+	}
+	@media screen and (max-width: 1600px) {
+		.headBox1 {
+			width: 100%;
+		}
+		.headBox1 .navul1 li {
+			float: left;
+			width: 33.33%;
+			height: 52px;
+			line-height: 52px;
+			font-size: 24px;
+			border-top: 5px solid #648fc7;
+			overflow: hidden;
+			margin-right: 0px;
+			text-align: center;
+			border-left: 5px solid transparent;
+			border-right: 5px solid transparent;
+			box-sizing: border-box;
+		}
+		.TabBox1 {
+			padding: 0px 0px 0px 60px;
+		}
+		.TabBox1 .tabul1 {
+			margin-top: 0px;
+			margin-bottom: 20px;
+			padding-left: 10px;
+		}
+		.tabBotbox1inner {
+			height: 560px;
+		}
+		.tabBotbox1inner .linkbox1 {
+			padding-left: 0px;
+		}
+		#wrapper {
+			width: 100%;
+			height: 650px;
+			overflow: hidden;
+		}
+		
+		.tabBotbox1inner .linkbox1.matter a {
+			width: 730px;
+		}
+		.input1 {
+			height: 50px;
+			vertical-align: top;
+		}
+		.tabBotbox1inner .linkbox1 a {
+			border: none;
+			width: 550px;
+			background: url(../libs/common/images/bg-xLlist.png) no-repeat;
+			background-size: 100% 100%;
+			margin-right: 50px;
+			margin-bottom: 20px;
+			height: 120px;
+			line-height: 120px;
+			padding: 0px 20px;
+			box-sizing: border-box;
+		}
+	}
+</style>
+
+<div class="headBox1">
+	<ul class="navul1 clearfloat">
+		<li class="act">选择事项</li>
+		<li>人证核验</li>
+		<li>在线填报</li>
+	</ul>
+</div>
+<div class="TabBox1">
+	<ul class="tabul1 clearfloat">
+		<li ng-class="{'in':current==index}" ng-repeat="(index,item) in searchType" ng-click="getMatter()">{{item}}</li>
+		<div ng-show="isRead" class="inputBox1 inputDiv">
+			<input class="input1" ng-model="matterVal" type="text" placeholder="请输入事项名称" />
+			<a class="btn_radius_50" ng-click="getSearchMatter()">
+				
+					<img src="images/icon-link9.png" height="50" width="50" />
+				
+			</a>
+		</div>
+	</ul>
+	<div class="tabBotbox1">
+		<div class="cont">
+			<div class="tabBotbox1inner tabBotbox1inner1">
+				<div id="wrapper" class="wrapper">
+					<div class="linkbox1 clearfloat" ng-class="{'matter':current==1}">
+						<a ng-class="{'active':$index==active}" repeat-finish ng-repeat="item in itemName" ng-click="toMaterials(item.stItemName,item.stItemNo)">{{item.stItemName}}</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<apptb-footer need-count-down="true" default-is-show-next-btn="hidden" prev="prev()"></apptb-footer>
+

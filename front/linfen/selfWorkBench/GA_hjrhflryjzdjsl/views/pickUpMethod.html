@@ -1,0 +1,181 @@
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+		height: 650px;
+	}
+	
+	.main2 {
+		height: 650px;
+		margin-top: 20px;
+		margin-left: 130px;
+	}
+	
+	.singselect {
+		float: left;
+		min-height: 60px;
+		font-size: 24px;
+		color: #FFF;
+		width: 82%;
+		padding: 0px 115px;
+		margin-top: 15px;
+		margin-bottom: 25px;
+	}
+	
+	.singselect a {
+		float: left;
+		width: 418px;
+		height: 75px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		margin-right: 58px;
+		margin-bottom: 25px;
+		position: relative;
+		text-align: center;
+		display: inline-block;
+		line-height: 75px;
+		font-size: 24px;
+		padding: 0px 15px;
+	}
+	
+	.singselect a li {
+		box-sizing: border-box;
+	}
+	
+	.singselect a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	.tabelBox1 .dl1 .lt6 {
+		width: 19%;
+	}
+	
+	.tabelBox1 .dl1 .rt2 {
+		width: 25%;
+	}
+	
+	.tabelBox1 .dl1 .rt10 {
+		width: 36%;
+	}
+	
+	.tabelBox1 .dl1 .lt3 {
+		width: 22%;
+	}
+</style>
+<p class="caption">{{funName}}--取件方式</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div id="wrapper">
+			<div>
+				<dd class="singselect">
+					<dl style="font-size: 24px;width: 231px; float:left; line-height: 77px;margin-left: 11px;">请选择取件方式：<b class="red1" style="margin-left: 12px;color: #f33039;">*</b></dl>
+					<a ng-class="{'in':current==index}" ng-repeat="(index,item) in methodList" ng-click="change(item.name,index,item.id)">
+						<li vId="2222">{{item.name}}</li>
+					</a>
+				</dd>
+			</div>
+			<div class="tabelBox1" style="width: 1705px;height: 635px; padding-top:10px;" ng-show="express">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>收件人姓名：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stReceiptName" ng-model="stReceiptName">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>收件人联系电话：</span>
+						<b class="red1">*</b>
+						<dd class="rt2">
+							<input class="input1" type="text" id="stReceiptMobile" ng-model="stReceiptMobile">
+						</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>收件地址邮编：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stPostCode" ng-model="stPostCode" placeholder="">
+					</dd>
+					<dd class="lt1 lt3">
+						<span>请填写具体室号：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stRoomNo" ng-model="stRoomNo" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>收件地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt10">
+						<select class="select1" id="City" ng-model="City" ng-options="x.value for x in cityList">
+						</select>
+					</dd>
+					<dd class="rt10">
+						<select class="select1" id="County" ng-model="County" ng-options="x.value for x in countyList">
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>收件详细地址：</span>
+						<b class="red1">*</b>
+					</dd>
+					<dd class="rt2" style="width: 72%;">
+						<input class="input1" type="text" id="stReceiptAddress" ng-model="stReceiptAddress" placeholder="">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat" style="width: 80.5%;color: #e1ba1c;margin-left: 147px;">
+					<p style="font-weight: bold;margin-bottom: 10px;">快递服务：</p>
+					<p style="margin-bottom: 5px;">1、将办理结果通过邮政EMS快递至您指定的地址，配送范围限国内，由收件人付费，付费标准根据目的地不同有所差异：对于0.5千克以内的快件，上海市内10元/件，江苏浙江12元/件，安徽14元/件，国内其他地区20元/件。</p>
+					<p style="margin-bottom: 5px;">2、上海地区请选择到区并写清楚路名门牌详细地址信息，非上海区域请选择到市并写清楚包括区路名门牌详细地址信息。</p>
+				</dl>
+			</div>
+			<div class="tabelBox1" style="width: 1705px;height: 635px; padding-top:10px;" ng-show="center">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6" style="    width: 34.4%;">
+						<span>请选择您要进行取件的受理中心（必选）：</span>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6" style="width: 15%;">
+						<span>受理中心（区）</span>
+					</dd>
+					<dd class="rt2" style="width: 21.5%;">
+						<select class="select1" id="centerProvince" ng-model="centerProvince" ng-options="x.value for x in centerProvinceList">
+						</select>
+					</dd>
+					<dd class="lt1 lt3" style="width: 18%;">
+						<span>受理中心（街道社区）</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="centerStreet" ng-model="centerStreet" ng-options="x.value for x in centerStreetList">
+						</select>
+					</dd>
+				</dl>
+				<!--<dl class="dl1 clearfloat" style="width: 77%;color: red;margin-left: 240px;">
+					<p>*友情提示：请选择您要进行取件的受理中心。</p>
+				</dl>-->
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

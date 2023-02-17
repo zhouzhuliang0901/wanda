@@ -1,0 +1,284 @@
+<!-- <div ng-show="errorView" class="errorView">
+    <p>对不起，未查询到您的公积金信息！</p>
+    <a ng-click="reFresh()"><img src="images/btn_back.png"/></a>
+</div>
+<div ng-show="correntView" class="correntView">
+    <div class="infoListBox">
+        <ul class="ListNav">
+            <li ng-style="bgChangeOne" ng-click="baseInfoQuery()"><a>基本信息查询表</a></li>
+            <li ng-style="bgChangeTwo" ng-click="baseDetailQuery()"><a>基本公积金明细</a></li>
+            <li ng-style="bgChangeThree" ng-click="addDetailQuery()"><a>补充公积金明细</a></li>
+        </ul>
+        <div>
+            <div ng-show="baseTable"  class="baseTable" id="baseTablepage1">
+                <table class="baseTableTop">
+                    <caption>公积金账户基本信息查询表</caption>
+                    <thead>
+                    <tr>
+                        <th colspan="8">个人账户信息</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td width="90px">姓名</td>
+                        <td width="90px">{{userName}}</td>
+                        <td width="90px">基本账户</td>
+                        <td width="130px">{{basicAccount}}</td>
+                        <td width="90px">补充账户</td>
+                        <td width="130px">{{addAccount}}</td>
+                        <td width="90px">单位账号</td>
+                        <td width="130px">{{unitAccount}}</td>
+                    </tr>
+                    <tr>
+                        <td>单位名称</td>
+                        <td colspan="3">{{unitName}}</td>
+                        <td>身份账号</td>
+                        <td colspan="3">{{idAccount}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="baseTableMid">
+                    <thead>
+                    <tr>
+                        <th colspan="6">基础公积金账户信息</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>月交金额</td>
+                        <td>{{basicMonthlyPay}}</td>
+                        <td>末次缴交月份</td>
+                        <td>{{basicLastMonth}}</td>
+                        <td>当前余额</td>
+                        <td>{{basicCurrentBalance}}</td>
+                    </tr>
+                    <tr>
+                        <td>累计缴存额</td>
+                        <td colspan="2">{{basicAccumulatedAmount}}</td>
+                        <td>累计支取额</td>
+                        <td colspan="2">{{basicCumulativeWithdrawal}}</td>
+                    </tr>
+                    <tr>
+                        <td>开户账户</td>
+                        <td>{{basicAccountOpening}}</td>
+                        <td>销户日期</td>
+                        <td>{{basicCancelDate}}</td>
+                        <td>账户状态</td>
+                        <td>{{basicAccountStatus}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="baseTableBot">
+                    <thead>
+                    <tr>
+                        <th colspan="8">补充公积金账户信息</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>月交金额</td>
+                        <td>{{addMonthlyPay}}</td>
+                        <td>末次缴交月份</td>
+                        <td>{{addLastMonth}}</td>
+                        <td>当前余额</td>
+                        <td>{{addCurrentBalance}}</td>
+                    </tr>
+                    <tr>
+                        <td>累计缴存额</td>
+                        <td colspan="2">{{addAccumulatedAmount}}</td>
+                        <td>累计支取额</td>
+                        <td colspan="2">{{addCumulativeWithdrawal}}</td>
+                    </tr>
+                    <tr>
+                        <td>开户账户</td>
+                        <td>{{addAccountOpening}}</td>
+                        <td>销户日期</td>
+                        <td>{{addCancelDate}}</td>
+                        <td>账户状态</td>
+                        <td>{{addAccountStatus}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div ng-show="baseDetailTable" class="baseDetailTable" id="baseDetailpage1">
+                <table>
+                    <caption>基础公积金账户明细信息查询表</caption>
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>业务类型</th>
+                        <th>发生额</th>
+                        <th>当前余额</th>
+                        <th>单位名称</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="i in currentData">
+                        <td>{{i.stTime}}</td>
+                        <td>{{i.stType}}</td>
+                        <td>{{i.stLimit}}</td>
+                        <td>{{i.stCurlimt}}</td>
+                        <td>{{i.stCompany}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div ng-show="moreTenDisplay">
+                    <div class="prevPage" ng-click="prevPage()">
+                        <img src="images/rollLeft.png" alt=""/>
+                    </div>
+                    <div class="nextPage" ng-click="nextPage()">
+                        <img src="images/rollRight.png" alt=""/>
+                    </div>
+                    <div class="displayPage" >
+                        <span>{{currentPage}}</span>/<span>{{totalPages}}</span>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="addDetailTable" class="baseDetailTable" id="addDetailpage1">
+                <table>
+                    <caption>补充公积金账户明细信息查询表<span class="loading">(查询比较缓慢请耐心等待...)</span></caption>
+                    <thead>
+                    <tr>
+                        <th>时间</th>
+                        <th>业务类型</th>
+                        <th>发生额</th>
+                        <th>当前余额</th>
+                        <th>单位名称</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="i in currentData">
+                        <td>{{i.stTime}}</td>
+                        <td>{{i.stType}}</td>
+                        <td>{{i.stLimit}}</td>
+                        <td>{{i.stCurlimt}}</td>
+                        <td>{{i.stCompany}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div ng-show="moreTenDisplay">
+                   <div class="prevPage" ng-click="prevPage()">
+                        <img src="images/rollLeft.png" alt=""/>
+                    </div>
+                    <div class="nextPage" ng-click="nextPage()">
+                        <img src="images/rollRight.png" alt=""/>
+                    </div>
+                    <div class="displayPage">
+                        <span>{{currentPage}}</span>/<span>{{totalPages}}</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div   ng-bind-html="printHtml"></div>
+         <div class="printBtn">
+            <a ng-click="printTable()"><img src="images/btnprint.png" alt=""/></a>
+        </div>
+    </div>
+</div>  -->
+<nav>
+    <ol class="breadcrumb">
+        <li><a href="#"><img src="../libs/common/images/home.png" style="height: 30px;"></a></li>
+        <li><a href="#">公积金查询</a></li>
+        <li><a href="#">扫描身份证</a></li>
+        <li><a href="#">验证手机号</a></li>
+        <li class="active">查看公积金信息</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <div class="bg"></div>
+        <div class="sub-index vertical-middle horizontal-middle leftLump">
+            <a class="blue-green active" onclick="Active(this)">基本信息查询表</a>
+            <a class="blue-green" onclick="Active(this)">基本公积金明细</a>
+            <a class="blue-green" onclick="Active(this)">补充公积金明细</a>
+        </div>
+    </div>
+    <div class="action">
+        <table class="table table-condensed horizontal-middle absoluteLeftRightCenterClass" style="width:85%;font-size:18px;top:30px;">
+            <caption>个人账户信息</caption>
+            <tbody>
+                <tr>
+                    <th><b>姓名</b></th>
+                    <td>测试员A</td>
+                    <td><b>基本账户</b></td>
+                    <td>12324314</td>
+                    <th><b>补充账户</b></th>
+                    <td>12324514</td>
+                    <td><b>单位账户</b></td>
+                    <td>12322314</td>
+                </tr>
+                <tr>
+                    <th><b>单位名称</b></th>
+                    <td colspan="3">测试员A</td>
+                    <th><b>身份账户</b></th>
+                    <td colspan="3">12324314</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-condensed horizontal-middle absoluteLeftRightCenterClass" style="width:85%;font-size:18px;top:220px">
+            <caption>基础公积金账户信息</caption>
+            <tbody>
+                <tr>
+                    <th><b>月交金额</b></th>
+                    <td>100</td>
+                    <td><b>末次缴交月份</b></td>
+                    <td>12月</td>
+                    <th><b>当前余额</b></th>
+                    <td>123245</td>
+                </tr>
+                <tr>
+                    <th><b>累积缴存额</b></th>
+                    <td colspan="2">123123</td>
+                    <th><b>累积支取额</b></th>
+                    <td colspan="2">12324314</td>
+                </tr>
+                <tr>
+                    <th><b>开户账户</b></th>
+                    <td>101230</td>
+                    <td><b>销户日期</b></td>
+                    <td>12月</td>
+                    <th><b>账户状态</b></th>
+                    <td>1232</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <table class="table table-condensed horizontal-middle absoluteLeftRightCenterClass" style="width:85%;font-size:18px;top:450px">
+            <caption>补充公积金账户信息</caption>
+            <tbody>
+                <tr>
+                    <th><b>月交金额</b></th>
+                    <td>100</td>
+                    <td><b>末次缴交月份</b></td>
+                    <td>12月</td>
+                    <th><b>当前余额</b></th>
+                    <td>123245</td>
+                </tr>
+                <tr>
+                    <th><b>累积缴存额</b></th>
+                    <td colspan="2">123123</td>
+                    <th><b>累积支取额</b></th>
+                    <td colspan="2">12324314</td>
+                </tr>
+                <tr>
+                    <th><b>开户账户</b></th>
+                    <td>101230</td>
+                    <td><b>销户日期</b></td>
+                    <td>12月</td>
+                    <th><b>账户状态</b></th>
+                    <td>1232</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a class="btn_radius_50 horizontal-middle absoluteLeftRightCenterClass" style="top:680px;width: 280px;">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>打印</label>
+            </div>
+        </a>
+    </div>
+</div>

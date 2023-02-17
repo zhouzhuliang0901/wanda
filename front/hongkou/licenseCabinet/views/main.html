@@ -1,0 +1,25 @@
+<style>
+	.view-main {
+		justify-content: space-around;
+	}
+	.view-main a {
+		text-align: center;
+	}
+	.view-main .staffLogin {
+		bottom: -420px;
+	}
+</style>
+
+<div class="view-main">
+	<a ng-click="choiceMatter('license')">
+		<img src="images/licenseGet.png" alt="">
+	</a>
+	<!--<a ng-click="choiceMatter('material')">
+		<img src="images/materialPut.png" alt="">
+	</a>-->
+
+	<a class="staffLogin" ng-click="changeModel('staff')">
+		<img src="images/person-icon.png" alt="">
+		<span>工作人员登录</span>
+	</a>
+</div>

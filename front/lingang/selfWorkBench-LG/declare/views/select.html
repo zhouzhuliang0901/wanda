@@ -1,0 +1,64 @@
+<style>
+	.headBox1 .navul1 li {
+		width: 25%;
+		margin: 0;
+		box-sizing: border-box;
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+	}
+	.main2 {
+		width: 100%;
+		height: auto;
+		margin: 0px;
+	}
+	.scrollBox2 .linkBox1 {
+		padding: 0px;
+		display: flex;
+		justify-content: space-around;
+		margin-top: 100px;
+	}
+	.scrollBox2 .linkBox1 a {
+		width: auto;
+		height: auto;
+		margin: 0px;
+		border: none;
+		background: none;
+	}
+	.scrollBox2 .linkBox1 a img {
+		margin: 0px;
+	}
+</style>
+
+<div>
+    <div class="headBox1">
+        <ul class="navul1 clearfloat">
+            <li>选择事项</li>
+            <li>办事指南</li>
+            <li class="act">人证核验</li>
+            <li>在线填报</li>
+        </ul>
+    </div>
+
+    <div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}</span></div>
+
+    <div class="main2">
+        <div class="scrollBox2 clearfloat">
+            <div class="linkBox1 clearfloat">
+                <a ng-click="scanIdcard()">
+                    <img src="../libs/common/images/newIcon/idCard.png"/>
+                    <p>刷身份证</p>
+                </a>
+                <a ng-click="citizen()">
+                    <img src="../libs/common/images/newIcon/qrCode.png"/>
+                    <p>随申办亮证</p>
+                </a>
+            </div>
+        </div>
+    </div>
+	<apptb-footer 
+		need-count-down="true" 
+		default-is-show-prev-btn="1" 
+		default-is-show-next-btn="hidden" 
+		prev="prev()">
+	</apptb-footer>
+</div>

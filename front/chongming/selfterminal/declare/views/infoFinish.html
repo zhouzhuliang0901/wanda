@@ -1,0 +1,43 @@
+<style type="text/css">
+	p {
+		font-size: 40px;
+		margin: 55px 0;
+	}
+</style>
+<nav>
+    <ol class="breadcrumb">
+        <li><a ng-click="Home()"><img src="images/home.png" height="30"></a></li>
+        <li><a href="#">自助申报</a></li>
+        <li><a href="#list">{{itemName}}</a></li>
+        <li><a href="#guideline">办事指南</a></li>
+        <li><a href="#materialUpload">材料清单</a></li>
+        <li><a href="#uploadMethod">上传方式</a></li>
+        <li class="active">完成申报</li>
+    </ol>
+</nav>
+<div class="board">
+    <div class="info blue-green">
+        <img class="bg" src="images/mainIndexBG_0.png">
+        <div class="leftImg">
+            <img src="images/prototype.png">
+            <img src="images/arrow-down.gif" width="40" class="down">
+            <div>
+                	请打印并保存凭条<br />
+            </div>
+        </div>
+    </div>
+    <div class="action">
+        <div class="panelList one finish" style="top: 40px; height: auto;">
+	            <p>您的办件已成功申报</p>
+	            <p>统一审批编码：<b style="color:#d83535">{{applyNo}}</b></p>
+	            <p>申请事项：<b style="color:#d83535">{{allName}}</b></p>
+	            <p>请打印并妥善保存凭条</p>
+        </div>
+        <div class="btn_radius_50 right-print" ng-click="print()">	<!-- href="#list" -->
+            <div class="greyLight">
+                <img src="images/print.png" height="80">
+                <label>{{statusText}}</label>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<p class="caption">{{operation}}</p>
+<div class="view-search">
+	<img class="view-icon" src="../libs/common/images/search/phone.png">
+	<input class="view-input" maxlength="11" ng-keyup="keyboardInput($event)" type="text" ng-model="phoneNumber" ng-click="phoneNumber=='请输入手机号码'?phoneNumber='':''"/>
+</div>
+<div class="keybord">
+	<a href="javascript:;" ng-repeat="item in keybordArr" ng-click="inputNumber(item)">{{item}}</a>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()"></alert>
+<app-footer default-next='hidden'>
+	<a class="continue" ng-click="sendAppointment()">确认预约 </a>
+</app-footer>
+<style type="text/css">
+	.view-input {
+		background-color: #2864b0;
+	}
+	.view-search {
+		position: absolute;
+		background-color: #2864b0;
+		top: 500px;
+		left: 200px;
+	}
+	
+	.keybord {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		height: 638px;
+		width: 590px;
+		margin-left: 1075px;
+		margin-top: 91px;
+	}
+	
+	.keybord a {
+		font-size: 50px;
+		color: #fff;
+		height: 140px;
+		width: 180px;
+		text-align: center;
+		line-height: 140px;
+		background-color: #2864b0;
+	}
+</style>

@@ -1,0 +1,69 @@
+ <div class="shell bg2">
+	 <div class="headBox1">
+			<div class="headtop1 clearfloat">
+				<a class="back1" href="../declare/index.html">自助办理</a>
+				<a ng-click="goHome()" class="backindex1">返回首页</a>
+				<div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+			</div>
+			<ul class="navul1 navul2 clearfloat">
+				<li>选择事项</li>
+				<li>人证核验</li>
+				<li>信息填写</li>
+				<li class="act">在线填报</li>
+			</ul>
+	</div> 
+	<div class="main2" style="height: 650px;">
+		<div class="camera">
+			<div>
+				<img style="margin-top: 184px;float: right;margin-right: 20px;" ng-click="next()" src="../libs/common/images/icon/camera.png"/>
+			</div>
+		</div>
+		<div class="info">
+			<div style="text-align: left;font-size: 24px;color: red;margin-top: -30px;margin-left: 17px;">注：请在红色聚焦框出现并对准材料后再点击拍照按钮</div>
+			<div style="margin: 10px 15px 21px; text-align: left;font-size:35px;">已上传图片：</div>
+			<div class="imgBox">
+			</div>
+		</div>
+		
+	</div>
+	<div class="btnBox1 clearfloat">
+		<a ng-click="last()" class="Prev">上一步</a>
+		<a class="next"  ng-click="finishUpload()" style="margin-left: 120px;" ng-show="isFinish">完成</a>
+	</div>
+</div>
+<alert msg="Smsg" ng-if="SisAlert" confirm="SalertConfirm()"></alert>
+<style type="text/css">
+	.camera{
+		width: 875px;
+		height: 500px;
+		background: #2964B0;
+		margin-top: 110px;
+	}
+    .info{
+		position: absolute;
+		top: 66px;
+		left: 938px;
+	}
+	.imgBox{
+		overflow: auto;
+		width: 700px;
+		height: 457px;
+	}
+	.img {
+		display: inline-block;
+		position: relative;
+		margin-bottom: 30px;
+		margin-right: 10px;
+	}
+	
+	.del {
+		position: absolute;
+		bottom: -16px;
+		left: 38%;
+		margin: 0;
+		padding: 5px 15px;
+		background: rgba(0, 0, 0, 0.6);
+		border-radius: 50%;
+		cursor: pointer;
+	}
+	</style>

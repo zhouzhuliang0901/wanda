@@ -1,0 +1,170 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" style="margin-top: 20px;">
+	<div id="wrapper" class="wrapper">
+		<div>
+			<dl class="dllist1 clearfloat">
+				<dt>一、事项名称：</dt>
+				<dd  class="ng-binding">内地婚姻预约登记</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>二、事项编码：</dt>
+				<dd>
+					<p class="ng-binding">312090133000</p>
+				</dd>
+			</dl>
+			<dl class="dllist1 clearfloat">
+				<dt>三、预约协议：</dt>
+				<dd  class="ng-binding">
+					<p>1、预约结婚登记或离婚登记的，婚姻登记当事人（男女双方，下称当事人）至少一方是上海市户籍人员。</p>
+					<p>2、预约办理日期为次日起一个月内的任一工作日，当日约满为止。</p>
+					<p>3、预约人必须按照规定步骤，如实、准确填报当事人的信息，选定办理日期、时段，完成预约程序，取得预约号则预约成功。</p>
+					<p>4、预约人填报当事人信息有误或不实，视为预约不成功。</p>
+					<p>5、预约成功当事人应在预约日期、时段（可适当提前）到婚姻登记机关报到，婚姻登记机关将尽量在当天所选时段内受理（办理）婚姻登记申请。</p>
+					<p>6、任何单位和个人不得恶意修改、变更预约服务的相关程序和内容，不得利用网上预约进行有偿服务，否则将承担由此产生的一切法律责任。</p>
+					<p>7、本协议解释权归上海市民政局。</p>
+				</dd>
+				<dt class="lt1 lt6" id="read">
+					<span>请认真阅读以上协议：</span>
+					
+				</dt>
+				<dt class="rt5 singleselect3 clearfloat" id="archivesType" ng-model="archivesType">
+					<p style="margin-bottom: 0px; " ng-click="state=1;" ng-class="{active:state==1}">点击已阅</p>				
+				</dt>
+			
+			</dl>
+		</div>
+	</div>
+</div>
+</div>
+<div class="prev-back-next">
+	<!--删除a标签的href属性, 防止出现某些页面跳转需要双击才能跳转-->
+	<!-- ngIf: isShowPrevBtn=='1' --><a class="prev ng-binding ng-scope" ng-if="isShowPrevBtn=='1'" ng-click=" prevStep()" >上一步</a><!-- end ngIf: isShowPrevBtn=='1' -->
+	<a class="backindex1" ng-click="goHome()"></a>
+	<!-- ngIf: isShowNextBtn=='1' --><a class="next ng-binding ng-scope" ng-if="isShowNextBtn=='1'" ng-click="nextStep()">下一步</a><!-- end ngIf: isShowNextBtn=='1' -->
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" default-is-show-prev-btn="" default-is-show-next-btn="" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+
+  .active{
+   color:red;
+  }
+
+	.city {
+		margin-bottom: 20px;
+		color: #fefefe;
+		margin-left: 81px;
+		font-size: 30px;
+		opacity: .6;
+	}
+	
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	#wrapper {
+		width: 1750px;
+        height: 650px;
+	}
+	
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 29px 0 0 22px;
+	}
+	
+	.linkt {
+		position: relative;
+		left: 50px;
+		float:left;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 95px;
+		overflow: hidden;
+		background: url(../libs/common/images/bg-bigList.png) no-repeat;
+		background-size: 700px 100px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		text-align: center;
+		font-size: 29px;
+		line-height: 94px;
+	}
+	
+	.top1 {
+		padding-bottom: 77px;
+		padding-left: 76px;
+	}
+	
+	.top1 li {
+		float: left;
+		width: 455px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 33px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 70px;
+		color: #3794e4;
+		background: url('../libs/common/images/handleList.png') no-repeat center;
+		background-size: 400px 84px;
+	}
+	
+	.top1 li.in {
+		color: #fff;
+		background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-position: 32% 6%;
+	}
+	
+	.stuff {
+		height: 70px;
+		line-height: 107px;
+		font-size: 28px;
+		text-align: center;
+	}
+	#read {
+		margin-left: 300px;
+	} 
+	#archivesType{
+		margin-left: 400px;
+	}
+
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+				background-size: 100% 80%;
+		}
+		.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+		}
+	
+	
+		.scrollBox2 .dllist1 {
+		
+    	line-height: 40px;
+    	font-size: 18px;
+		}
+		#read {
+		margin-top: 10px;
+		margin-right: 800px;
+		} 
+		#archivesType{
+		margin-top: -40px;
+		margin-left: 600px;
+		}
+
+	
+	}
+    
+    </style>
+</style>

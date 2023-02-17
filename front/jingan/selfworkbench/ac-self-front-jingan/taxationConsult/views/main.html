@@ -1,0 +1,67 @@
+<style type="text/css">
+	.contain {
+	    width: 1530px;
+	    height: 700px;
+	    position: absolute;
+	    left: 50%;
+	    top: 50%;
+	    transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 0px;
+		text-align: center;
+		margin-top: 130px;
+		display: flex;
+		justify-content: center;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+	    float: left;
+	    width: 303px;
+	    height: 273px;
+		margin: 0px 82px;
+	    text-align: center;
+	    border-radius: 15px;
+	    position: relative;
+	}
+	
+	.caption1 {
+		font-size: 30px;
+		margin-left: 20px;
+	}
+	/*alert .title {
+	    text-align: center;
+	    margin-top: 90px;
+	    font-size: 44px;
+	    color: #72cffb;
+	    padding: 0px 40px;
+	}*/
+	
+</style>
+<div class="contain">
+	<p class="caption1">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a href="javascript:;" ng-click="choiceType('intelligent_consult')">
+				<img src="../libs/common/images/icon-link14.png" />
+				<p>智能咨询</p>
+			</a>
+			<a href="javascript:;" ng-click="choiceType('teacher_mao')">
+				<img src="../libs/common/images/serial.png" />
+				<p>毛老师工作室在线</p>
+			</a>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" concel="isShowCancel" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<apptb-footer 
+	prev="prevStep()" 
+	next="nextStep()" 
+	default-is-show-prev-btn="hidden" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true" 
+	home="customMain()" 
+	go-back="goAppHistoryBack()" 
+	alert-time>
+</apptb-footer>

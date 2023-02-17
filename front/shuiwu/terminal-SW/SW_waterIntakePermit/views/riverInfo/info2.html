@@ -1,0 +1,239 @@
+<style type="text/css">
+	#wrapper {
+		height: 550px;
+		position: relative;
+	}
+	
+	#infoForm .inputBox {
+		width: 47%;
+		height: 70px
+	}
+	
+	.inputBox>label {
+		width: 270px;
+	}
+	
+	#infoForm .inputBox select,
+	#infoForm .inputBox input[type=textarea] {
+		width: 55%;
+		background-color: rgba(200, 200, 200, 0.8);
+		min-height: 20px;
+		min-width: 20px;
+		padding: 15px;
+		font-size: 0.8em;
+		box-shadow: rgba(0, 0, 0, 0.3) 2px 2px 6px inset;
+		border-radius: 8px;
+		border: 0;
+	}
+	
+	#infoForm .inputBox input[type=textarea] {
+		width: 50%;
+		vertical-align: middle;
+		height: 58%;
+	}
+	
+	#infoForm .content {
+		padding-bottom: 15px;
+		width: 95%;
+	}
+	
+	#infoForm .inputBox input[type=text] {
+		width: 50%;
+	}
+	/*关于日期控件*/
+	.layui-laydate-main{
+		width: 440px !important;
+	}
+	.laydate-set-ym span, .layui-laydate-header i{
+		font-size: 30px;
+	}
+	.layui-laydate-content td, .layui-laydate-content th{
+		padding: 5px 15px !important;
+		font-size: 26px !important;
+	}
+	.layui-laydate-header{
+		line-height: 50px !important;
+	}
+	.layui-laydate-footer span{
+		font-size: 32px !important;
+		border: none;
+	}
+	.layui-laydate-footer{
+		height: 50px !important;
+		line-height: 50px !important;
+	}
+</style>
+<nav>
+	<ol class="breadcrumb">
+		<li>
+			<a ng-click="Home()"><img src="images/home.png" height="30"></a>
+		</li>
+		<li>
+			<a href="#list">自助申报</a>
+		</li>
+		<li>
+			<a href="#">{{itemName}}</a>
+		</li>
+		<li>
+			<a href="#guideline">办事指南</a>
+		</li>
+		<li>
+			<a href="#main">实名认证</a>
+		</li>
+		<li class="active">基本信息</li>
+	</ol>
+</nav>
+<div class="board">
+	<div class="action right-info" style="background: none; width: 100%;left: 0;">
+		<div class="right-input" style="width: 97%; margin: 2% auto;">
+			<form id="infoForm" method="get">
+				<div style="text-align: center; margin-bottom: 10px; color: #1566aa;width: 97%;">
+					{{fullItemName}}
+				</div>
+				<div id="wrapper">
+					<div class="infoContent" style="margin-left: 2.4%;margin-top: 1%;width: 1550px; display: flex; display: -ms-flexbox; flex-flow: wrap;-ms-flex-wrap: wrap;justify-content: space-between;-ms-flex-pack: justify;align-content: flex-start;">
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;基本信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">单位名称</label>
+							<input type="text" id="targetName" ng-model="targetName"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人姓名</label>
+							<input type="text" id="CONTACT_NAME" ng-model="CONTACT_NAME"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">联系地址</label>
+							<input type="text" id="CONTACT_ADDR" ng-model="CONTACT_ADDR"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">固定电话</label>
+							<input type="text" id="DWTEL" ng-model="DWTEL"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">手机号码</label>
+							<input type="text" id="mobile" ng-model="mobile"/>
+						</div>
+						<div class="inputBox">
+							<label class="">电子邮件</label>
+							<input type="text" id="EMALL" ng-model="EMALL"/>
+						</div>
+						<div class="inputBox">
+							<label class="true" style="float: left;margin-top: 11px;">申请时间</label>
+							<div class="input-append date form_datetime">
+								<input style="margin-left: 10px;" size="16" type="text" id="REG_DATE" ng-model="REG_DATE" readonly>
+								<span class="add-on"><i class="icon-th"></i></span>
+							</div>
+						</div>
+						<div style="width: 100%; margin: 10px;">
+							<hr style="width:40%;border-top:3px dashed #000; height:1px;float: left;">
+							<span style=" text-align: center;font-weight: bold;">&emsp;&nbsp;工程信息 </span>
+							<hr style="width:38%;border-top:3px dashed #000; height:1px;float: right;">
+						</div>
+						<div class="inputBox">
+							<label class="true">申请内容</label>
+							<input type="text" id="content" ng-model="content"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">行政区</label>
+							<select ng-model="selected_division" ng-options="x.name for x in DIVISION">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件类型</label>
+							<select ng-model="selected_zzjglx" ng-options="x.name for x in ZZJGLX">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">证件号</label>
+							<input type="text" id="targetNo" ng-model="targetNo"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">分类</label>
+							<select ng-model="selected_type" ng-options="x.name for x in TYPE">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">审批</label>
+							<select ng-model="selected_shenpi1" ng-options="x.name for x in SHENPI1">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">类型</label>
+							<select ng-model="selected_leixing" ng-options="x.name for x in LEIXING">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">受理</label>
+							<select ng-model="selected_shouli" ng-options="x.name for x in SHOULI">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">法人</label>
+							<input type="text" id="ARTIFICIALPERSON" ng-model="ARTIFICIALPERSON"/>
+						</div>
+						<div class="inputBox">
+							<label class="">法人职务</label>
+							<input type="text" id="FARENZHIWU" ng-model="FARENZHIWU"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">单位性质</label>
+							<input type="text" id="DWXZ" ng-model="DWXZ"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">行业类别</label>
+							<select ng-model="selected_hylb" ng-options="x.name for x in HYLB">
+							</select>
+						</div>
+						<div class="inputBox">
+							<label class="true">项目名称</label>
+							<input type="text" id="EX1" ng-model="EX1"/>
+						</div>
+						<div class="inputBox">
+							<label class="">单位地址</label>
+							<input type="text" id="APPADDRESS" ng-model="APPADDRESS"/>
+						</div>
+						<div class="inputBox">
+							<label class="">邮编</label>
+							<input type="text" id="APPPOST" ng-model="APPPOST"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">联系人</label>
+							<input type="text" id="LINKMAN" ng-model="LINKMAN"/>
+						</div>
+						<div class="inputBox">
+							<label class="">工作部门</label>
+							<input type="text" id="LINKDEPT" ng-model="LINKDEPT"/>
+						</div>
+						<div class="inputBox">
+							<label class="">职务（职称）</label>
+							<input type="text" id="LINKZW" ng-model="LINKZW"/>
+						</div>
+						<div class="inputBox">
+							<label class="true">联系电话</label>
+							<input type="text" id="LINKPHONE" ng-model="LINKPHONE"/>
+						</div>
+						<div class="inputBox">
+							<label class="">传真电话</label>
+							<input type="text" id="LINKFAX" ng-model="LINKFAX"/>
+						</div>
+						<div class="inputBox">
+							<label class="">手机</label>
+							<input type="text" id="LINKMPHONE" ng-model="LINKMPHONE"/>
+						</div>
+
+					</div>
+				</div>
+			</form>
+		</div>
+		<a class="btn_radius_50" ng-click="goNext()" style="left: 42%;">
+			<div class="greyLight">
+				<img src="images/ok.png" width="50" height="50" style="margin: 15px 0 15px 15px;">
+				<label>继续</label>
+			</div>
+		</a>
+	</div>
+</div>

@@ -1,0 +1,71 @@
+<div class="four">
+	<span>{{operation}}</span>
+	<div class="four-flex2-2" ng-if="loginType===null">
+		<div class="four-flex1-2" ng-click="choiceType('idcard')">
+			<a href="">
+				<img src="images/4-3.png"/>
+			</a>
+			<p>刷身份证</p>
+		</div>
+		<div class="four-flex1-2-2" ng-click="choiceType('cloud')">
+			<a href="">
+				<img src="images/4-3.png"/>
+			</a>
+			<p>市民云亮证</p>
+		</div>
+	</div>
+</div>
+<idcard read="readIdcard(info,images)" ng-if="loginType=='idcard'" has-img="no"></idcard>
+<citizen-cloud result="readCloud(info)" ng-if="loginType=='cloud'"></citizen-cloud>
+<apptb-footer prev="prevStep()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+ go-back="goAppHistoryBack()"></apptb-footer>
+<style>
+	.scrollBox2 .cardreadingBox1 img {
+	    width: 1000px;
+	    height: auto;
+	    margin-left: 340px;
+	}
+	img.tipsImg.ng-scope {
+		padding-top: 80px;
+		width: 1453px;
+		margin-left: 78px;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+.scrollBox2 .ng-binding {
+		color: #ffffff;
+		font-size: 24px;
+		margin: 30px 670px;
+
+	}
+
+	.footBox .foottop1 .backbox1 span .ng-binding {
+		color: #F1992E;
+		font-size: 24px;
+		margin: 0px;
+	}
+.four img{
+	margin: 43px 54px 10px;
+	animation: tutuy 1.5s;
+	animation-iteration-count: infinite;
+	animation-direction:alternate;
+	animation-timing-function:linear;
+}
+@keyframes tutuy {
+	from {
+		transform: translateY(0px);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(76px);
+		opacity: 1;
+	}
+	}
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+</style>

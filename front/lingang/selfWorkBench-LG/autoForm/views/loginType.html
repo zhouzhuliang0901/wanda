@@ -1,0 +1,44 @@
+<p class="caption1">{{ operation }}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a href="javascript:;" ng-click="choiceLogin('idcard')" ng-if=" formName != '特种设备变更登记申请表' ">
+			<img src="../libs/common/images/icon/person.png" />
+			<p>身份证登录</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceLogin('cloud')" ng-if=" formName != '特种设备变更登记申请表' ">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>随申办登录</p>
+		</a>
+		<a href="javascript:;" ng-click="choiceLogin('ukey')" ng-if=" formName == '特种设备变更登记申请表' ">
+			<img src="./images/bg-ukey.png" />
+			<p>Ukey登录</p>
+		</a>
+	</div>
+</div>
+
+<apptb-footer 
+	prev="prevStep()" 
+	next="nextStep()" 
+	default-is-show-next-btn="hidden" 
+	custom-home="true"
+    home="customMain()" 
+    go-back="goAppHistoryBack()">
+</apptb-footer>
+
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 800px;
+		text-align: center;
+		margin-top: 70px;
+		padding-bottom: 200px;
+	}
+	
+	.scrollBox2 .linkBox1 a {
+		/*float: left;
+		width: 303px;
+		height: 350px;
+		margin-right: 164px;
+		margin-top: 0px;
+		text-align: center;*/
+	}
+</style>

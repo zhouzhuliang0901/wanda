@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="je-h100">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>自助终端</title>
+		<link rel="stylesheet" type="text/css" href="./jeui/css/jeui.css" / media="all">
+	</head>
+
+	<body class="je-w100 je-h100 je-poa">
+		<div ng-controller="devicesCtrl" class="je-w80 je-h70 je-auto je-por all">
+			<!--选择设备-->
+			<div id="je-tabs2" class="je-tabs brief choice">
+				<ul class="je-tabs-title je-w96 je-auto je-h8" ng-click="tab()">
+					<li>读卡</li>
+					<li>摄像头</li>
+					<li>条码扫描</li>
+					<li>打印机</li>
+				</ul>
+				<div class="je-tabs-content je-w100 je-h90">
+					<div class="je-tabs-item je-w100 je-h100 je-poa">
+						<div class="lBtn je-por">
+							<div class="je-w90 je-auto je-por lBtns">
+								<button class="button" ng-click="idCardOpen()">身份证阅读</button>
+								<button class="button" ng-click="idCardClose()">关闭身份证</button><br /><br />
+								<button class="button" ng-click="ssCardOpen()">社保卡阅读</button>
+								<button class="button" ng-click="ssCardClose()">关闭社保卡</button><br /><br />
+								<button class="button" ng-click="dataCardOpen()">居住证吞卡</button>
+								<button class="button" ng-click="dataCardRead()">居住证读卡</button>
+								<button class="button" ng-click="dataCardWrite()">居住证写卡</button>
+								<button class="button" ng-click="dataCardClose()">居住证退卡</button>
+							</div>
+						</div>
+					</div>
+					<div class="je-tabs-item  je-w100 je-h100 je-poa">
+						<div class="lBtn je-por">
+							<div class="je-w90 je-auto je-por lBtns">
+								<button class="button" ng-click="ScanOpen()">高拍仪打开</button>
+								<button class="button" ng-click="scanPhoto()">高拍仪拍照</button>
+								<button class="button" ng-click="ScanClose()">高拍仪关闭</button><br />
+								<button class="button" ng-click="CameraOpen()">摄像头打开</button>
+								<button class="button" ng-click="takePhoto()">摄像头拍照</button>
+								<button class="button" ng-click="CameraClose()">摄像头关闭</button><br />
+								<button class="button" ng-click="faceOpen()">活体检测打开</button>
+								<button class="button" ng-click="faceClose()">活体检测关闭</button>
+							</div>
+						</div>
+					</div>
+					<div class="je-tabs-item je-w100 je-h100 je-poa">
+						<div class="lBtn je-por">
+							<div class="je-w90 je-auto je-por lBtns">
+								<button class="button qrC" ng-click="qrCodeOpen()">二维码扫描</button>
+								<button class="button" ng-click="qrCodeClose()">二维码关闭</button>
+							</div>
+						</div>
+					</div>
+					<div class="je-tabs-item je-w100 je-h100 je-poa">
+						<div class="lBtn je-por">
+							<div class="je-w90 je-auto je-por lBtns">
+								<button class="button" ng-click="bookPrint()">医保册打印</button>
+								<button class="button" ng-click="wortPrint()">word打印</button><br /><br />
+								<button class="button" ng-click="pdfPrint('C:/pdfLicense.pdf')">pdf打印</button>
+								<button class="button" ng-click="htmlPrint()">html打印</button><br /><br />
+								<button class="button" ng-click="printClose()">打印机关闭</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--信息集中展示-->
+			<div ng-if="show" class="je-poa je-h90 info">
+				<form class="je-form-item je-por" ng-if="cardType">
+					<table class="je-table">
+						<thead>
+							<tr>
+								<th>参数说明</th>
+								<th>变量名</th>
+								<th>变量值</th>
+							</tr>
+						</thead>
+						<tbody class="je-tdco">
+							<tr ng-repeat="item in Info">
+								<td>{{item.explain}}</td>
+								<td>{{item.key}}</td>
+								<td>{{item.value}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</form>
+				<div ng-if="!cardType && !qrCodeType" class="hint je-por je-cell">
+					{{info}}
+				</div>
+				<div ng-if="qrCodeType" class="je-por je-cell qrCo">
+					{{info}}
+				</div>
+			</div>
+			<!--加载框-->
+			<div ng-if="loading" class="je-poa je-h90 info">
+				<img src="jeui/css/skin/icon/loading1.gif" class="je-show je-w10 je-auto1" />
+			</div>
+		</div>
+		<script src="./js/angular.js"></script>
+
+
+		<script src="./jeui/js/modules/jeui.js"></script>
+		<script src="./js/jquery-1.8.1.min.js"></script>
+		<script src="./js/self-mac-tools.js"></script>
+
+		<script src="./js/controller.js"></script>
+
+
+		<script type="text/javascript">
+			$(function() {
+
+				// 1.jeui框架内部js
+				jeui.use([ "jeBox", "jeCheck", "jeSelect", "jeTabs"], function() {
+					// 复选框
+					$(".checkbox").jeCheck();
+					$(".radio").jeCheck({
+						jename: "radio"
+					});
+					$(".switch").jeCheck({
+						jename: "switch"
+					});
+					$(".myselect").jeSelect({
+						sosList: false
+					});
+					var index = parent.jeBox.frameIndex(window.name);
+					$('#btnIframe').click(function() {
+						//获取窗口索引
+						//parent.jeBox.msg('您将标记 [ ' +val + ' ] 成功传送给了父窗口');
+						parent.jeBox.close(index);
+					});
+					// tab切换
+					var tab = $("#je-tabs").jeTabs();
+					$("#je-tabs2").jeTabs({
+						tabIndex: 1
+					});
+					$("#je-tabs3").jeTabs();
+				})
+
+				// 2.fairy写js
+				// 标签划动显示
+				$("ul li").click(function() {
+					$(this).stop().animate({
+						width: "40%"
+					})
+					$(this).siblings().stop().animate({
+						width: "20%"
+					})
+				})
+			})
+		</script>
+	</body>
+
+</html>

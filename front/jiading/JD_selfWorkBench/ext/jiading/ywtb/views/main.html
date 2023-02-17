@@ -1,0 +1,97 @@
+<style type="text/css">
+    .footBox {
+        position: absolute;
+        left: 0px;
+        bottom: 12px;
+        height: 110px;
+        width: 100%;
+        background: url('../libs/common/images/bg-footer1.png') no-repeat center bottom;
+    }
+
+    .footBox .foottop1 {
+        height: 110px;
+        line-height: 110px;
+        padding: 0 40px;
+        font-size: 24px;
+    }
+
+    .footBox .foottop1 .prev-back-next {
+        height: 65%;
+        position: relative;
+    }
+
+    .footBox .foottop1 .header1 {
+        display: block;
+        text-align: center;
+        overflow: hidden;
+        font-size: 40px;
+        font-weight: bold;
+        background: url("../libs/common/images/header1.png") no-repeat center center;
+        /* background-size: 90% 100%; */
+    }
+
+    .footBox .foottop1 .message1 {
+        float: right;
+        display: inline-block;
+        width: 63px;
+        height: 130px;
+        overflow: hidden;
+        background: url("../libs/common/images/message.png") no-repeat right 50px;
+        text-indent: -9999em;
+    }
+
+    .footBox .foottop1 .prev-back-next .prev {
+        float: left;
+        width: 154px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        background: url('../libs/common/images/prev.png') no-repeat center center;
+    }
+
+    .footBox .foottop1 .prev-back-next .next {
+        float: right;
+        width: 154px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background: url('../libs/common/images/next-step.png') no-repeat center center;
+    }
+
+    .footBox .foottop1 .prev-back-next .backindex1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 154px;
+        height: 60px;
+        background: url('../libs/common/images/goHome.png') no-repeat center center;
+    }
+
+    .footBox .foottop1 .backbox1 {
+        height: 45%;
+        line-height: 60px;
+        text-align: center;
+
+    }
+
+    .footBox .foottop1 .backbox1 span {
+        color: #f1992e;
+        margin: 0 5px;
+    }
+</style>
+
+<div class="main2" style="height:100%;">
+	<div class="action" style="width: 100%; left: 0;">
+	</div>
+</div>
+<!--有外链的页面, 底部组件单独写-->
+<div class="footBox">
+    <div class="foottop1 clearfloat">
+        <div class="prev-back-next">
+            <a class="prev" ng-click="prevStep()">上一步</a>
+            <a class="backindex1" ng-click="goHome()"></a>
+        </div>
+    </div>
+</div>
+

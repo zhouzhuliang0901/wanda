@@ -1,0 +1,93 @@
+<!doctype html>
+<html ng-app="serviceFileApp">
+
+<head>
+    <meta charset="utf-8">
+    <title>办事档案</title>
+    <link rel="stylesheet" href="../libs/common/css/selfService-new.css">
+    <link rel="stylesheet" href="../libs/common/css/color.css">
+    <!--身份证-->
+    <object classid='clsid:EC73C0BA-351E-45CE-BA08-979AE0E78A8C' id='OCX_idCard' style='width:0 px;height:0px;'></object>
+    <!--灯光-->
+    <object classid='clsid:82EFB15A-DE7A-48D9-B175-5BECADDCBDF4' id='OCX_Light' style='width:0px;height:0px;'></object>
+    <!--前置摄像头-->
+    <object classid='clsid:CEF4E9D4-68FE-4E6D-9B48-D291FDF995C9' id='OCX_Camera' style='width:0px;height:0px;'></object>
+    <!--高拍仪-->
+    <object classid='clsid:52D1E686-D8D7-4DF2-9A74-8B8F4650BF73' id='OCX_Scan' style='width:0px;height:0px;'></object>
+    <!--激光打印机-->
+    <object classid='clsid:EC73C0BA-351E-45CE-BA08-979AE0E78A8C' id='OCX_LaserPrint' style='width:0px;height:0px;'></object>
+    <!--key-->
+    <object ID="SafeEngineCtl" CLASSID="CLSID:B48B9648-E9F0-48A3-90A5-8C588CE0898F" width="0" height="0"></object>
+    <!--扫描-->
+    <object classid='clsid:DE2FB33E-F5D0-44A9-A49C-FA62B9E77DBD' id='OCX_Barcode' style='width:0px;height:0px;'></object>
+</head>
+
+<body>
+	<div class="content_box_form" ng-controller="headController">
+			<div ng-include="'../libs/common/views/head.html'"></div>
+			<div>
+				<object style="width: 1px; height: 1px;" id="EloamView" classid="CLSID:26BA9E7F-78E9-4FB8-A05C-A4185D80D759"></object>
+			</div>
+			<ng-view></ng-view>
+		</div>
+    <!--<div class="content_box_form">
+        <div ng-include="'../libs/common/views/head.html'" ng-controller="headController"></div>
+        <object id="EloamView" classid="CLSID:26BA9E7F-78E9-4FB8-A05C-A4185D80D759" style="height:0px;width:0px;"></object>
+        <ng-view></ng-view>
+    </div>-->
+    <script src="../libs/common/js/promise.js"></script>
+    <script src="../libs/common/js/hardware-api.js"></script>
+    <script src="../libs/common/js/isExt.js"></script>
+    <script src="../libs/common/js/customMethod.js"></script>
+    <script src="../libs/angularjs/1.5.8/angular.js"></script>
+    <script src="../libs/common/js/jquery-1.12.4.min.js"></script>
+    <script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="../libs/angularjs/1.5.8/angular-ui-route.js"></script>
+    <script src="../libs/jquery/jquery-1.8.1.min.js"></script>
+    <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../libs/common/js/init-config-msg.js"></script>
+    <script src="../libs/common/js/init-config-log.js"></script>
+    <script src="../libs/common/js/self-mac-tools.js"></script>
+    <script src="app.js"></script>
+    <script src="js/iscroll.js"></script>
+		<script src="js/qrcode.js"></script>
+    <script src="../libs/layer/layer.js"></script>
+    <script src="../libs/layDate-v5.0.9/laydate/laydate.js"></script>
+    <script src="../libs/common/controller/public.js"></script>
+    <script src="../libs/common/controller/head.js"></script>
+    <script src="js/pwait.js"></script>
+		<script src="js/hardware-api.js"></script>
+		<script src="js/infoData.js"></script>
+		<script src="js/declare.js"></script>
+    	
+    <!--组件-->
+		<script src="../libs/directive/idcard.js"></script>
+   		<script src="../libs/directive/recognization.js"></script>
+		<script src="../libs/directive/citizen.js"></script>
+    <script src="controllers.js"></script>
+    <script src="routers.js"></script>
+    <script src="../libs/layer/layer.js"></script>
+    <script src="js/piwik.js"></script>
+    <script src="js/jQuery-webcam-master/jquery.webcam.min.js"></script>
+    <script src="../libs/common/js/self-mac-timeback.js"></script>
+    <script src="../libs/common/js/piwik.js"></script>
+    		<script src="../libs/common/js/base64.js"></script>
+		<script src="../libs/common/js/EXTPagin.js"></script>
+				<script src="js/signatrueBoard.js"></script>
+		<script src="js/identity-validate.js"></script>
+		<script src="../libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+		<script src="../libs/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<!-- 
+    <script src="../libs/angularjs/1.5.8/angular.js"></script>
+    <script src="../libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="../libs/common/js/bundle.js"></script>
+    <script src="../libs/layer/layer.js"></script>
+    <script src="controllers.js"></script>
+    <script src="routers.js"></script> -->
+    <script>
+        $(SafeEngineCtl).hide();
+    </script>
+</body>
+
+</html>

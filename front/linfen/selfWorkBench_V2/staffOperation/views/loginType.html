@@ -1,0 +1,43 @@
+<div class="contain">
+	<p class="caption">{{ operation }}</p>
+	<div class="scrollBox2 clearfloat">
+		<div class="linkBox1 clearfloat">
+			<a ng-click="choiceLogin('makeBook')">
+				<img src="../libs/common/images/newIcon/idCard.png" />
+				<p>记录册补打</p>
+			</a>
+			<a ng-click="choiceLogin('update')">
+				<img src="../libs/common/images/newIcon/qrCode.png" />
+				<p>更新纸张数</p>
+			</a>
+			<a ng-click="choiceLogin('cazsbd')">
+				<img src="../libs/common/images/newIcon/qrCode.png" />
+				<p>证书绑定</p>
+			</a>
+		</div>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" cancel="alertCancel()" concel="concel"></alert>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+    go-back="goAppHistoryBack()"></apptb-footer>
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 .linkBox1 {
+		padding-left: 100px;
+		text-align: center;
+		margin-top: 80px;
+	}
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 .linkBox1{
+			    padding-left: 0px; 
+		}
+	}
+</style>

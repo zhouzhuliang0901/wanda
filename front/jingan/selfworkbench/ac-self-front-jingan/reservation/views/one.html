@@ -1,0 +1,23 @@
+<div class="reserve-one">
+	<span>请选择部门事项</span>
+	<div class="reserve">
+		<button class="reserve1" ng-repeat="(x,index) in list track by $index" ng-click="onclick(x)">{{index}}</button>
+	</div>
+</div>
+<!-- <btnbtn></btnbtn> -->
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()"
+ go-back="goAppHistoryBack()"></apptb-footer>
+<style>
+	.footBox {
+		top: 958px;
+		width: 1920px;
+	}
+	
+	.reserve-one .reserve {
+	    margin-top: 0px;
+	}
+</style>

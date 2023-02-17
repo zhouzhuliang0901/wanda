@@ -1,0 +1,154 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat" style="margin-top: 20px;">
+	<!-- <div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt">
+				<a class="select" ng-repeat="stuff in stuffName1" ng-click="getMatterCon(stuff.stuffName,stuff.code,stuff.type)">
+					{{stuff.stuffName}}
+				</a>
+			</div>
+		</div>
+	</div> -->
+	<div id="wrapper" class="wrapper">
+		<div>
+			<div class="linkt" ng-repeat="stuff in stuffName1">
+				<div class="select">
+					<!--<div>
+						<img class="img" ng-src="{{stuff.img}}" />
+					</div>-->
+					<div class="stuff">
+						{{stuff.stuffName}}
+					</div>
+					<div class="banli" ng-click="getMatterCon(stuff.stuffName,stuff.type,'yy')">
+						立即预约
+					</div>
+					<div class="print" ng-click="getMatterCon(stuff.stuffName,stuff.type,'qx')">
+						取消预约
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<apptb-footer prev="prevStep()" next="" default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
+<style type="text/css">
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	
+	.img {
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 22px 0 0 22px;
+	}
+	
+	.linkt {
+		width: 1600px;
+		position: relative;
+		top: 10px;
+		left: 30px;
+	}
+	
+	#wrapper {
+		width: 1580px;
+		height: 600px;
+	}
+	
+	.select {
+		float: left;
+		width: 700px;
+		height: 95px;
+		overflow: hidden;
+		background: url('../libs/common/images/bg-bigList.png') no-repeat;
+		background-size: 700px 100px;
+		margin-left: 40px;
+		margin-bottom: 40px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	
+	.handleList {
+		margin-left: 394px;
+		margin-top: 25px;
+	}
+	
+	.handleList li {
+		float: left;
+		width: 455px;
+		height: 110px;
+		line-height: 126px;
+		box-sizing: border-box;
+		text-align: center;
+		font-size: 33px;
+		font-weight: bold;
+		margin-top: 50px;
+		margin-left: 70px;
+		color: #3794e4;
+		background: url('../libs/common/images/handleList.png') no-repeat center;
+		background-size: 400px 84px;
+	}
+	
+	.handleList li.in {
+		color: #fff;
+		background: url('../libs/common/images/dzzz.png') no-repeat;
+		background-size: 440px 150px;
+		background-position: 32% 6%;
+	}
+	
+	.stuff {
+		padding: 20px 0 0 30px;
+		height: 8px;
+		line-height: 58px;
+		font-size: 28px;
+	}
+	
+	.banli {
+		width: 130px;
+		height: 50px;
+		float: left;
+		line-height: 50px;
+		text-align: center;
+		background: url(../libs/common/images/print.png) no-repeat;
+		margin-left: 407px;
+		font-size: 24px;
+	}
+	
+	.print {
+		width: 138px;
+		height: 50px;
+		float: left;
+		line-height: 50px;
+		background: url('../libs/common/images/print.png') no-repeat;
+		margin-left: 10px;
+		text-align: center;
+		font-size: 24px;
+	}
+	
+	.linkt:last-child .stuff {
+		padding: 20px 0 0 30px;
+		height: 7px;
+		line-height: 60px;
+		font-size: 28px;
+		word-wrap: break-word;
+		white-space: normal;
+		width: 310px;
+	}
+	@media screen and (max-width: 1600px) {
+		.bg-middle {
+				background-size: 100% 80%;
+		}
+		.caption {
+				margin-left: 80px !important;
+				margin-top: 60px !important;
+		}
+		.select{
+			    margin-left: 255px;
+			    margin-top: 60px;
+		}
+	}
+</style>

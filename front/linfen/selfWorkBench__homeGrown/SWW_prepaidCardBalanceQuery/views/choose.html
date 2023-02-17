@@ -1,0 +1,186 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		margin-left: 210px;
+		height: 650px;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 1500px;
+		height: 80%;
+	}
+	
+	.searchInput {
+		display: flex;
+		width: 100%;
+		margin-left: -20px;
+	}
+	
+	.searchInput .button {
+		width: 225px;
+		height: 60px;
+		margin: 30px 5px;
+	}
+	
+	.schoolName {
+		width: 40%;
+		height: 90px;
+		margin: 1% 20px;
+		position: relative;
+	}
+	
+	.schoolName input,
+	.schoolName select {
+		text-align: center;
+		font-size: 28px;
+		color: #fff;
+		padding: 0 4%;
+		border: none;
+		background: rgba(0, 0, 0, 0);
+		border-radius: 8px;
+		box-shadow: 0px 0px 8px 4px #175191 inset;
+		width: 100%;
+		height: 100%;
+	}
+	
+	a {
+		text-align: center;
+	}
+	
+	a.stamp {
+		background: url(../libs/common/images/print.png) no-repeat;
+		background-size: 100% 100%;
+		margin-left: 8%;
+		width: 100%;
+		height: 100%;
+		line-height: 61px;
+		font-size: 25px;
+		display: inline-block;
+		letter-spacing: 8px;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	.scrollContain>p {
+		margin-top: 50px;
+		font-size: 18px;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,
+	.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	
+	option {
+		color: black;
+	}
+	
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+			margin-left: 140px;
+		}
+		#wrapper {
+			width: 1000px;
+			height: 62%;
+		}
+		.searchInput {
+			display: block;
+		}
+		.searchInput .button {
+			float: left;
+		}
+		.schoolName {
+			width: 31%;
+			float: left;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="searchInput">
+		<div class="schoolName">
+			<input type="text" placeholder="请输入个人卡号" ng-model="cardNo" />
+		</div>
+		<div class="schoolName">
+			<input type="text" placeholder="请输入经营者名称" ng-model="corpName" />
+		</div>
+		<div class="schoolName">
+			<input type="text" placeholder="请输入品牌名称" ng-model="brandGroup" />
+		</div>
+		<div class="schoolName">
+			<input type="text" placeholder="请输入手机号" ng-model="mobile" />
+		</div>
+		<div class="button">
+			<a ng-click="query(cardNo,corpName,brandGroup,mobile)" class="stamp">查询</a>
+		</div>
+		<!--<div class="button">
+			<a ng-click="reset()" class="stamp">重置</a>
+		</div>-->
+	</div>
+	<!--信息展示-->
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table>
+				<tbody>
+					<tr>
+						<td class="gray">企业名称</td>
+						<td>{{queryDetailList.corpName || "暂无"}}</td>
+						<td class="gray">卡号</td>
+						<td>{{queryDetailList.cardNo || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">余额</td>
+						<td>{{queryDetailList.cardBalance || "暂无"}}</td>
+						<td class="gray">本金</td>
+						<td>{{queryDetailList.cardMon || '--'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">信息对接标识</td>
+						<td>{{queryDetailList.issueId || "暂无"}}</td>
+						<td class="gray">是否记名卡</td>
+						<td>{{(queryDetailList.isRegister=="0"?"否":"是") || '暂无'}}</td>
+					</tr>
+					<tr>
+						<td class="gray">系统更新时间</td>
+						<td>{{queryDetailList.orSystemTime || "暂无"}}</td>
+						<td class="gray">最近交易时间</td>
+						<td>{{(queryDetailList.recentTime|to_date) || '暂无'}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<p>查询须知 1、可查询卡范围：在本市注册的发卡经营者发放的单用途预付消费卡。 2、发卡经营者未与协同监管服务平台做信息对接，或发卡经营者未及时向协同监管服务平台报送卡信息，可能导致无法查询到卡信息。如有此类情况发生，请登录上海市单用途预付消费卡协同监管服务平台“咨询举报”处进行举报，或拨打12345市民服务热线进行举报。
+			</p>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-prev-btn="hidden" next="nextStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

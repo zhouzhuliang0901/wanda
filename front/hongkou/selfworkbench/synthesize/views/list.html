@@ -1,0 +1,36 @@
+<ul class="container">
+	<li ng-click="choiceMatter(item)" ng-repeat="item in currentShow">
+		<img ng-src="{{item.img}}" />
+		<p>{{item.tips}}</p>
+	</li>
+</ul>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden">
+</apptb-footer>
+<style>
+	.container {
+		display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 90px auto;
+    align-items: flex-start;
+    width: 1555px;
+    height: 730px;
+	}
+
+	.container li {
+		margin-left: 130px;
+		text-align: center;
+		height: 220px;
+		width: 215px;
+	}
+	.container li:nth-of-type(5){
+		margin-left: 310px;
+	}
+	.container li>img {}
+
+	.container li>p {
+		margin: 20px auto;
+		width: 271px;
+		font-size: 30px;
+	}
+</style>

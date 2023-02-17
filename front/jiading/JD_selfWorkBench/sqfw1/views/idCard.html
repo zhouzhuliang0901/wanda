@@ -1,0 +1,111 @@
+<div class="shell bg2">
+
+	<apptb-header fun-name="人证核验"></apptb-header>
+	
+	<div class="TabBox1">
+		<ul class="navul1 clearfloat">
+			<li>选择事项</li>
+			<li>办事指南</li>
+			<li>事项情形</li>
+			<li class="act">人证核验</li>
+			<li>材料上传</li>
+		</ul>
+		<span class="line"></span>
+		<div class="navBox2"><b>您正在办理：</b><span>{{itemName}}---{{statusName}}&nbsp;/&nbsp;扫描身份证</span></div>
+
+		<div class="main2 idCard">
+			<idcard read="getIdcard(info,images)" ng-if="isRead"></idcard>
+			<zzsbrecognition result="getResult(img)" face-image="{{faceImage}}" ng-if="!isRead"></zzsbrecognition>
+		</div>
+	</div>
+	
+	<apptb-footer 
+		prev="prevStep()" 
+		next="" 
+		default-is-show-next-btn="hidden" 
+		custom-home="true" 
+		home="customMain()"
+	    go-back="goAppHistoryBack()">
+	</apptb-footer>
+</div>
+<div class="loadingBox" ng-if="!isLoading">
+	<img style="margin-left: 909px;margin-top: 430px;" src="../libs/common/images/loadings.gif" alt="">
+	<p>正在加载数据，请稍后...</p>
+</div>
+<style>
+	.main2{
+		/*background: url(./images/bg-photo.png) no-repeat;*/
+		overflow: visible!important;
+	}
+	.bg_photo{
+		background: url(./images/bg-photo.png) no-repeat;
+		background-position: 360px top;	
+	}
+	.TabBox1{
+		overflow: visible;
+	}
+	.navBox2{
+		margin-bottom: 15px;
+	}
+	
+	/*身份证插件的样式*/
+	.clearfloat {
+		position: relative;
+	}
+	
+	.stamp {
+		position: absolute;
+		display: inline-block;
+		overflow: hidden;
+		line-height: 60px;
+		background-color: hsla(193, 100%, 42%, 0.69);
+		font-size: 28px;
+		z-index: 9999;
+	}
+	
+	.stamp.reR {
+		left: 100px;
+		top:400px;
+		font-size: 26px;
+		background: url(./images/print.png) no-repeat;
+		-webkit-background-size: contain;
+		background-size: contain;
+	}
+	
+	.stamp.success {
+		left: 1300px;
+		top: 400px;
+		font-size: 26px;
+		background: url(./images/print.png) no-repeat;
+		background-size: contain;
+	}
+	
+	.scrollBox2 .cardreadingBox1 img {
+		height: auto;
+		width: 300px;
+		margin-bottom: 400px;
+		margin-top: 220px;
+		margin-left: 630px;
+	}
+	
+	.scrollBox2 .cardreadingBox1 img.loading {
+		margin-top: 220px;
+	}
+	#takePhoto1 {
+		left: 1300px;
+		width: 140px;
+		height: 140px;
+		display: block;
+		background: url(./images/btn-photo.png);
+		border-radius: 50%;
+		padding: 0;
+		border: none;
+	}
+	.main2.idCard .myimg{
+		    height: auto;
+    width: 900px;
+    margin-bottom: 200px;
+    margin-top: 0px;
+    margin-left: 360px;
+	}
+</style>

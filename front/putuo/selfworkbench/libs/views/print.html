@@ -1,0 +1,52 @@
+<div class="printMask" ng-if="__show=='show'" ng-click="close()">
+	<div class="printWait">
+		<p>正在打印...</p>
+		<span class="close" ng-clic="close()">
+			X
+		</span>
+		<img src="../libs/common/images/tips/print.png"/>
+	</div>
+</div>
+<style type="text/css">
+	.printMask{
+		position: fixed;
+		margin: auto;
+		background-color: rgba(0,0,0,.3);
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 10;
+	}
+	.close{
+		position: absolute;
+		display: block;
+		text-align: center;
+		line-height: 60px;
+		font-size: 50px;
+		height: 60px;
+		width: 60px;
+		right: 20px;
+		top: 15px;
+	}
+	.printWait p{
+		text-align: center;
+
+		font-size: 50px;
+		margin-top: 30px;
+	}
+	.printWait img{
+		margin-top: 50px;
+	}
+	.printWait{
+		overflow: hidden;
+		position: relative;
+		background: url(../libs/common/images/bg-alert.png) no-repeat;
+		background-size: 104% 104%;
+		background-position: -22px -14px;
+		text-align: center;
+		margin: 200px auto;
+		height: 570px;
+		width: 1044px;
+	}
+</style>

@@ -1,0 +1,70 @@
+ <div class="shell bg2">
+	 <div class="headBox1">
+	     <div class="headtop1 clearfloat">
+	         <a href="../declare/index.html" class="back1">自助办理</a>
+	         <a ng-click="goHome()" class="backindex1">返回首页</a>
+	         <div class="backbox1">无操作<zizhu-header></zizhu-header>后将返回首页</div>
+	     </div>
+	     <ul class="navul1 navul2 clearfloat">
+	         <li>选择事项</li>
+	         <li>办事指南</li>
+	         <li>人证核验</li>
+	         <li class="act">在线填报</li>
+	     </ul>
+	 </div>
+	  <div class="main3" id="print1" style="height:650px">
+            <div class="successBox1" >
+                <div class="shadow1"></div>
+                <div class="successBox2">
+                    <div class="cont1">
+                        <h3>操作成功！</h3>
+                        <p class="p1">事项名称</p>
+                        <p class="p2" ng-bind="itemName"></p>
+                    </div>
+                    <div class="line1"></div>
+                    <div class="cont1">
+                        <p class="p1">办件编码</p>
+                        <p class="p2" ng-bind="applyNo"></p>
+                        <div class="code">
+                        </div>
+                        <p class="p3"></p>
+                    </div>
+                    <div class="line2"></div>
+                </div>
+                <p ng-show="!show"style="text-align: center;margin-top: 20px;margin-left: 125px;font-size: 25px;font-weight: bold;" ng-bind="stuffName"></p>
+            </div>
+			<div class="text" ng-show="show">
+				<p style="color: #FEE889;font-size: 30px;margin-bottom: 20px;">温馨提示:</p>
+				<p style="font-size: 30px;line-height: 45px;margin-bottom: 20px;">1. 30个工作日后，凭办理凭条或者身份证、随申办电子亮证到所选社区事务受理自助取证柜领领卡。</br>2. 办理敬老卡后，即可领取《老年综合津贴》，详情请打印告知单或者扫描下方二维码了解详情。</p>
+				<div>
+					<img src="images/jlk.png" />
+				</div>
+			</div>
+        <!--<div class="loadingBox" ng-show="isLoding">
+	        <img src="images/loading.gif" alt="">
+	        <p>正在加载数据，请稍后...</p>
+    	</div>-->
+    </div>
+
+	
+	<div class="btnBox1 clearfloat">
+	    <a class="next" ng-click="goHome()">返回首页</a>
+	</div>
+</div>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>
+<style type="text/css">
+	.text{
+		width: 700px;
+		float: left;
+		margin-left: 60px;
+		margin-top: 18px;
+	}
+	.loadingBox{
+	    margin-left: 830px;
+		margin-top: 170px;
+	}
+	.loadingBox p{
+		margin-left: -138px;
+    	font-size: 38px;
+	}
+</style>

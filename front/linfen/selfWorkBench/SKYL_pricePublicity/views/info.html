@@ -1,0 +1,84 @@
+<style type="text/css">
+	.scrollBox2 {
+		width: 1500px;
+		height: 600px;
+		margin-top: 1%;
+		margin-left: 11%;
+	}
+	
+	.caption {
+		margin-top: 86px;
+		margin-left: 220px;
+	}
+	
+	#wrapper {
+		width: 90%;
+		height: 100%;
+	}
+	
+	table {
+		width: 99%;
+		margin-top: 3%;
+	}
+	
+	.scrollContain {
+		width: 100%;
+	}
+	
+	table tr,
+	table th,
+	table td {
+		padding: 15px 15px;
+		font-size: 18px;
+		color: #fff;
+		line-height: 40px;
+		text-align: center;
+		border: #477cbe 1px solid;
+		word-break: break-all;
+		word-wrap: break-word;
+	}
+	
+	.resultTr th,.gray {
+		font-weight: bold;
+		background-color: rgba(255, 255, 255, 0.1);
+	}
+	.resultTr th:nth-of-type(1),.resultTr th:nth-of-type(2),.resultTr th:nth-of-type(3){
+		width: 12%;
+	}
+	table td>a {
+		text-decoration: underline;
+		color: #477cbe;
+	}
+	@media screen and (max-width: 1600px) {
+		.scrollBox2 {
+			width: 1000px;
+		}
+	}
+</style>
+<p class="caption">{{funName}}</p>
+<div class="scrollBox2 clearfloat">
+	<div id="wrapper" class="wrapper">
+		<div class="scrollContain">
+			<table>
+				<tr class="resultTr">
+					<th>项目名称</th>
+					<th>计价单位</th>
+					<th>价格标准</th>
+					<th>项目内涵</th>
+					<th>说明</th>
+				</tr>
+				<tr ng-repeat="(index,list) in queryList">
+					<td>{{list.xmmc}}</td>
+					<td>{{list.jjdw}}</td>
+					<td>{{list.sfbz}}</td>
+					<td>{{list.xmnh||"--"}}</td>
+					<td>{{list.sm||"--"}}</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

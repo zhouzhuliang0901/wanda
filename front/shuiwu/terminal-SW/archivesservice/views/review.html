@@ -1,0 +1,79 @@
+<nav>
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <img src="../libs/common/images/home.png" style="height: 30px;">
+            </a>
+        </li>
+        <li>
+            <a href="#">电子证照</a>
+        </li>
+        <li class="active">
+            预览
+        </li>
+    </ol>
+</nav>
+<div class="board">
+    <img class="view" ng-src="{{reviewLicense}}" ng-click="openViewLarge()" alt="">
+    <div class="mask" ng-if="isLarge" ng-click="closeViewLarge()">
+        <img class="view" ng-src="{{reviewLicense}}" alt="">
+
+    </div>
+    <div class="btnCon">
+        <a class="btn_radius_50 inspectBtn" ng-click="openViewLarge()">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/search.png" height="80">
+                <label>全屏查看</label>
+            </div>
+        </a>
+        <a class="btn_radius_50 printBtn" ng-click="printBasePhoto()">
+            <div class="greyLight" style="padding: 0  25px;">
+                <img src="../libs/common/images/icon200/print.png" height="80">
+                <label>打印</label>
+            </div>
+        </a>
+    </div>
+</div>
+<style>
+    .board {
+        text-align: center;
+    }
+
+
+    .btnCon {
+        position: relative;
+        display: inline-block;
+        height: 500px;
+        width: 450px;
+        left: 100px;
+        top: 0px;
+    }
+
+    .btnCon .btn_radius_50 {
+        position: absolute;
+        top: auto;
+        width:354px;
+        height: 80px;
+        left: 0px;
+    }
+    .btnCon .printBtn{
+        bottom: 10px;
+    }
+    .btnCon .inspectBtn{
+        bottom: 200px;
+    }
+    .mask {
+        position: fixed;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, .7);
+        left: 0px;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+    }
+
+
+    .view {
+        height: 100%;
+    }
+</style>

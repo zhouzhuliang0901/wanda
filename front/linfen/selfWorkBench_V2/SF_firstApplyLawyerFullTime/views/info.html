@@ -1,0 +1,349 @@
+<style type="text/css">.caption {
+	margin-top: 80px;
+	margin-left: 200px;
+}
+
+.tabelBox1 {
+	width: 1700px;
+	padding-top: 0px;
+}
+
+.wrapper {
+	width: 1750px;
+	height: 650px;
+	overflow: scroll;
+	-ms-overflow-style: none;
+}
+
+.main2 {
+	height: 650px;
+	margin-top: 20px;
+}
+
+.input1::-webkit-input-placeholder {
+	color: #C5C5C5;
+}
+
+.input1:-ms-input-placeholder {
+	color: #C5C5C5;
+}
+
+.tabelBox1 .dl1 .jzActive {
+	width: 39.9%;
+}
+
+.tabelBox1 .dl1 .hjActive {
+	width: 39.9%;
+}
+
+#sxjg,#nzyjg{
+	color: black;
+}
+@media screen and (max-width: 1600px) {
+	.wrapper {
+		height: 580px;
+	}
+	.tabelBox1 .dl1 {
+		margin: 0px 0px 0px 10px;
+	}
+	.caption {
+		margin-left: 150px;
+	}
+	.input1 {
+		font-size: 18px;
+	}
+	.tabelBox1 .dl1 .lt1 span {
+		margin-right: 0px;
+	}
+	.tabelBox1 .dl1 .lt1 {
+		width: 12%;
+		font-size: 18px;
+		letter-spacing: 0px;
+	}
+	.tabelBox1 .dl1 .lt3 {
+		width: 14%;
+	}
+	.tabelBox1 .dl1 .rt2 {
+		width: 16%;
+	}
+	.tabelBox1 .dl1 .rt11 {
+		width: 17%;
+	}
+}</style>
+<p class="caption">{{funName}}--个人信息填写</p>
+<div class="main2" style="height: 675px;">
+	<div class="scrollBox2 clearfloat">
+		<div class="wrapper">
+			<div class="tabelBox1">
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>姓名：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stName" ng-model="stName" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>身份证号：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stIdCard" ng-model="stIdCard" readonly>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>性别：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stSex" ng-model="stSex" readonly>
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>出生日期：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="dtBirth" ng-model="dtBirth" readonly>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>联系电话：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="stMobile" ng-model="stMobile">
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>民族：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="nation" ng-init="nation = nationList[0]" ng-model="nation" ng-options="x.shortname for x in nationList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>证件类型：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="certificatesType" ng-model="certificatesType" ng-options="x.name for x in certificatesTypeList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>证件号码：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="certificatesCode" ng-model="certificatesCode">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>政治面貌：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="political" ng-model="political" ng-options="x.name for x in politicalList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>学历：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="education" ng-model="education" ng-options="x.name for x in educationList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>毕业院校：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="graduation" ng-model="graduation">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>专业：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="specialty" ng-model="specialty">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>户口所在地：</span>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}">
+						<select class="select1" id="hjProvince" ng-model="hjProvince" ng-options="x.name for x in hjProvinceList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}">
+						<select class="select1" id="hjCity" ng-init="hjCity = hjCityList[0]" ng-model="hjCity" ng-options="x.name for x in hjCityList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt11" ng-class="{'hjActive':hjActive==true}" ng-show="!hjActive">
+						<select class="select1" id="hjCounty" ng-model="hjCounty" ng-options="x.name for x in hjCountyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>住址：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="address" ng-model="address">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>邮编：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="postCode" ng-model="postCode">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>考试省市：</span>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}">
+						<select class="select1" id="jzProvince" ng-model="jzProvince" ng-options="x.name for x in jzProvinceList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}">
+						<select class="select1" id="jzCity" ng-init="jzCity=jzCityList[0]" ng-model="jzCity" ng-options="x.name for x in jzCityList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="rt11" ng-class="{'jzActive':jzActive==true}" ng-show="!jzActive">
+						<select class="select1" id="jzCounty" ng-model="jzCounty" ng-options="x.name for x in jzCountyList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>考试成绩：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="score" ng-model="score">
+					</dd>
+
+					<dd class="lt1 lt3">
+						<span>电子邮件：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="email" ng-model="email">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>实习机构：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="sxjg" ng-model="sxjg" list="sxjgL">
+						<datalist id="sxjgL">    <!--数据列表标签-->
+					        <option ng-repeat="item in sxjgList">{{item.name}}</option>   <!--不写value属性-->
+					    </datalist>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>拟执业机构：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="nzyjg" ng-model="nzyjg" list="nzyjgL">
+						<datalist id="nzyjgL">    <!--数据列表标签-->
+					        <option ng-repeat="item in nzyjgList">{{item.name}}</option>   <!--不写value属性-->
+					    </datalist>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>实习开始日期：</span>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="internshipStartDate" ng-model="internshipStartDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>实习结束日期：</span>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="internshipEndDate" ng-model="internshipEndDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>资格证类别：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="credentialsType" ng-model="credentialsType" ng-options="x.name for x in credentialsTypeList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>资格证号：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="credentialsCode" ng-model="credentialsCode">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>资格证取得方式：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="credentialsWay" ng-model="credentialsWay" ng-options="x.name for x in credentialsWayList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+					<dd class="lt1 lt3">
+						<span><b class="red1">*</b>资格证取得日期：</span>
+					</dd>
+					<dd class="rt2">
+						<div class="input-append date form_datetime">
+							<input class="input1" size="16" type="text" id="credentialsDate" ng-model="credentialsDate" readonly>
+							<span class="add-on"><i class="icon-th"></i></span>
+						</div>
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span>具有何外国律师资格：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="gwlszg" ng-model="gwlszg" >
+					</dd>
+					<dd class="lt1 lt3">
+						<span>在何国留学取得何学位：</span>
+					</dd>
+					<dd class="rt2">
+						<input class="input1" type="text" id="gwxw" ng-model="gwxw">
+					</dd>
+				</dl>
+				<dl class="dl1 clearfloat">
+					<dd class="lt1 lt6">
+						<span><b class="red1">*</b>选择办理点：</span>
+					</dd>
+					<dd class="rt2">
+						<select class="select1" id="bldCode" ng-model="bldCode" ng-options="x.name for x in bldList">
+							<option value="" selected ng-if="false"></option>
+						</select>
+					</dd>
+				</dl>
+			</div>
+		</div>
+	</div>
+</div>
+<apptb-footer prev="prevStep()" next="nextStep()" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<loading ng-if="isLoading"></loading>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

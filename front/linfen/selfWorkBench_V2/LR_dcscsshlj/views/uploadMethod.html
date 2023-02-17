@@ -1,0 +1,40 @@
+<style>
+	.main2{
+		margin: 0;
+	}
+	.caption {
+		margin-top: 80px;
+		margin-left: 200px;
+	}
+	 @media screen and (min-width:1279px) and (max-width:1281px) {
+	 	.caption {
+			margin-left: 130px !important;
+			margin-top: 60px !important;
+		}
+		.main2{
+			width: 1100px;
+		}
+		.scrollBox2 .linkBox1 {
+			padding-left: 180px !important;
+   			margin-top: 50px !important;
+		}
+	}
+</style>
+<p class="caption">{{funName}}---上传方式</p>
+	<div class="main2">
+		<div class="scrollBox2 clearfloat">
+			<div class="linkBox1 clearfloat" style="padding-left:570px;;margin-top: 50px;">
+				<a ng-click="scanPhoto()">
+					<img src="../sqfw/images/icon-link2.png" />
+					<p>扫描上传</p>
+				</a>
+				<a ng-click="takePhoto()">
+					<img src="../sqfw/images/icon-link3.png" />
+					<p>U盘上传</p>
+				</a>
+			</div>
+		</div>
+</div>
+<apptb-footer prev="prve()" next="" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" hasCancel="true" confirm="alertConfirm()" cancel="alertCancel()"></alert>

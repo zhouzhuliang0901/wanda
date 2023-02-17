@@ -1,0 +1,83 @@
+<ul class="container">
+	<li ng-click="choice('https://gaj.sh.gov.cn/yzxt/')">
+		<!--http://180.168.211.56/YzWeb/-->
+		<img src="../libs/common/images/icon/ggkz.png" />
+		<p style="margin-top: 25px;">
+			公章刻制
+		</p>
+	</li>
+	<li ng-click="choice('https://etax.shanghai.chinatax.gov.cn/wszx-web/bszm/apps/views/beforeLogin/indexBefore/pageIndex.html#/')">
+		<img src="../libs/common/images/icon/ddsw.png" />
+		<p style="margin-top: 25px;">
+			电子税务局
+		</p>
+	</li>
+	<li ng-click="choice('https://zzjb.rsj.sh.gov.cn/zzjbdl/jsp/login.jsp')">
+		<img src="../libs/common/images/icon/rszz.png" />
+		<p>
+			人社公共服务平台
+		</p>
+		<p style="margin-top: 0px;">
+			就业&nbsp;社保&nbsp;居住证
+		</p>
+	</li>
+
+	<li ng-click="goToApp('http://issp.sheca.com/WdmNew.html')">
+		<img src="../libs/common/images/icon/ukey.png" />
+		<p>
+			CA事务专区
+		</p>
+	</li>
+	<li ng-click="choice('http://sh.gsxt.gov.cn/index.html')">
+		<img src="../libs/common/images/icon/jsgc.png" />
+		<p>
+			企业年报填报
+		</p>
+	</li>
+	<li ng-click="choice('http://www.shgjj.com/static/unit/web/')">
+		<img src="../libs/common/images/icon/shtz.png" />
+		<p>
+			公积金业务办理
+		</p>
+	</li>
+	<li ng-click="goToApp('../copy/index.html')">
+		<img src="../libs/common/images/icon/ggxy.png" />
+		<p>
+			材料扫描
+		</p>
+	</li>
+	<li ng-click="bankService()">
+		<img src="../libs/common/images/icon/yqcy.png" />
+		<p>
+			工行服务
+		</p>
+	</li>
+</ul>
+<apptb-footer default-is-show-prev-btn="hidden" default-is-show-next-btn="hidden" go-back="goAppHistoryBack()">
+</apptb-footer>
+<style type="text/css">
+	.container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		margin: 80px auto;
+		align-items: flex-start;
+		width: 1750px;
+		height: 800px;
+	}
+
+	.container li {
+		margin-left: 165px;
+		text-align: center;
+		height: 220px;
+		width: 215px;
+	}
+
+	.container li>img {}
+
+	.container li>p {
+		margin: 0 auto;
+		width: 271px;
+		font-size: 26px;
+	}
+</style>

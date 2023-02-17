@@ -1,0 +1,127 @@
+<style type="text/css">
+	.caption {
+		position: absolute;
+		left: 6%;
+		top: 15%;
+		color: #fff;
+		opacity: 1;
+	}
+	
+	#wrapper {
+		width: 94%;
+		height: 100%;
+		overflow: hidden;
+	}
+	
+	.menuInfoBox {
+		height: 86%;
+		margin: 2% 0 0 0;
+	}
+	
+	.menuInfoBox .sonMenu a {
+		width: 30%;
+		height: 100px;
+	}
+	
+	.menuBox ul li {
+		line-height: normal;
+		margin: 2% 0;
+		height: 11%;
+		background: none;
+		background-color: #2F5597;
+		border-radius: 25px;
+	}
+	
+	.menuBox ul .in {
+		background: none;
+		background-color: #0A50A8;
+	}
+	
+	.menuBox ul li:after {
+		left: 6%;
+		height: 27%;
+		top: 40%;
+	}
+	
+	.menuBox ul li.in:after {
+		left: 3.1%;
+		height: 60%;
+		top: 22%;
+	}
+	
+	.menuBox ul li span {
+		display: flex;
+		align-items: center;
+		width: 73%;
+		margin-left: 17%;
+		height: 112px;
+	}
+	
+	.contentList {
+		color: #B6C9E9;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		#wrapper {
+			margin: 4% auto;
+		}
+		.menuInfoBox {
+			height: 66%;
+			margin: 12% 0 0 0;
+		}
+		.bugetYear,
+		.bugetFile .contentList {
+			font-size: 24px;
+		}
+		.bugetYear span {
+			font-size: 26px;
+		}
+		.bugetFile .contentList span {
+			width: 70%;
+		}
+		.bugetFile .contentList b {
+			width: 21%;
+		}
+		.bugetYear a.in:after {
+			width: 45px;
+			height: 40px;
+		}
+	}
+</style>
+<p class="caption">
+	{{firstName}}&emsp; |&emsp; <span class="captionMini">{{secondName}}</span></p>
+<div class="scrollBox2 clearfloat">
+
+	<div class="TabBox">
+		<!--左边菜单-->
+		<div class="menuBox">
+			<ul>
+				<li ng-class="{in:current==index}" ng-repeat="(index,item) in menuList" ng-click="choiceMenu(index,item,id)"><span>{{item.name}}</span></li>
+			</ul>
+		</div>
+		<!--右边内容-->
+		<div class="menuInfoBox">
+			<div class="bugetYear">
+				<div class="year" ng-show='yearList.length>0'>
+					<span>年份:</span>
+					<a ng-repeat="(index,item) in yearList" ng-class="{'in':current2==index}" ng-click="chooseYear(index,item)">{{item.name}}</a>
+				</div>
+				<span id="departText" ng-show='departList.length>0'>部门:</span>
+				<a class="departMent" ng-repeat="(index,item) in departList" ng-class="{'in':current3==index}" ng-click="chooseDepart(index,item)">{{item.name}}</a>
+			</div>
+			<div class="bugetFile">
+				<div id="wrapper" class="wrapper">
+					<div>
+						<div class="contentList" ng-repeat="item in infoList" repeat-finish ng-click="getDetail(item)">
+							<img src="images/point.png" alt="" /><span>{{item.title}}</span><b>{{item.displayDate | limitTo : 10}}</b>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" default-is-show-next-btn="hidden" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>

@@ -1,0 +1,83 @@
+<style type="text/css">
+	.printCount {
+		margin: 0 10px;
+		width: 80px;
+		height: 50px;
+		font-size: 24px;
+		text-align: center;
+	}
+	.set2 button{
+		width: 50px;
+		height: 50px;
+		font-size: 24px;
+	}
+	.set2 .count{
+		width:80px;
+		margin-left: 20px;
+	}
+
+</style>
+<section class="report">
+	<h2>{{userType}}-{{status}}</h2>
+	<form action="">
+		<table class="infoReport4">
+			<tfoot>
+				<tr>
+					<th colspan="2">支付总额</th>
+				</tr>
+				<tr>
+					<td colspan="2">￥{{printCount*50}}</td>
+				</tr>
+			</tfoot>
+			<tbody>
+				<tr>
+					<th>支付币种：</th>
+					<td>
+						<div class="set2">
+							<input type="radio" name="pay" id="RMB" checked><label for="RMB">人民币</label>
+<!--<input type="radio" name="pay" id="dollar"><label for="dollar">美元</label>-->						</div>
+					</td>
+
+				</tr>
+				<tr>
+					<th>打印份数：</th>
+					<td>
+						<div class="set2">
+							<button ng-click="sub()" type="button">-</button>
+							<input type="number" name="printCount" ng-model="printCount" class="printCount" id="printCount" readonly />
+							<button ng-click="add()" type="button">+</button>
+							<button class="count" ng-click="change(3)" type="button">3份</button>
+							<button class="count" ng-click="change(5)" type="button">5份</button>
+							<button class="count" ng-click="change(10)" type="button">10份</button>
+
+						</div>
+					</td>
+
+				</tr>
+				<tr>
+					<td colspan="2">
+						<table class="inside">
+							<thead>
+								<tr>
+									<th>申请细节</th>
+									<th>份</th>
+									<th>价格</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>{{itemName}}中英文对照版</td>
+									<td>{{printCount}}</td>
+									<td>{{printCount*50}}</td>
+								</tr>
+							</tbody>
+						</table>
+						<span class="tips">注：自助终端仅支持微信扫码付款</span>
+					</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</form>
+</section>
+<app-footer prev="prevStep()" next="nextStep()"></app-footer>

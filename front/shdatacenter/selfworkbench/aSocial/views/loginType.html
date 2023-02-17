@@ -1,0 +1,26 @@
+<p class="caption">{{operation}}</p>
+<div class="scrollBox2 clearfloat">
+	<div class="linkBox1 clearfloat">
+		<a  ng-click="choiceLogin('idcard')">
+			<img src="../libs/common/images/icon-link14.png" />
+			<p>身份证登录</p>
+		</a>
+		<a ng-click="choiceLogin('cloud')">
+			<img src="../libs/common/images/icon-link13.png" />
+			<p>随申办登录</p>
+		</a>
+		<a ng-click="choiceLogin('sscard')">
+			<img src="../libs/common/images/icon/corporate.png" />
+			<p>社保卡登录</p>
+		</a>
+	</div>
+</div>
+<app-footer prev="prevStep()" next="nextStep()" default-next="hidden"></app-footer>
+<style type="text/css">
+	.scrollBox2 .linkBox1 {
+		padding-left: 300px;
+		text-align: center;
+		margin-top: 134px;
+	}
+	
+</style>

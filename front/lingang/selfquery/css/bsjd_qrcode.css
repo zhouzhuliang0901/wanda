@@ -1,0 +1,28 @@
+.con-box{
+    width: 1080px;
+    height: 1920px;
+    position: relative;
+}
+.type_qrcode{
+	background: url("../images/figure-1.png") no-repeat;
+	background-size: 100%;
+	margin-top:100px;
+	margin-left:120px;
+    width:850px;
+    height:1140px;
+}
+.type_IDcard{
+    background: url("../images/figure-2.png") no-repeat;
+	background-size: 100%;
+	margin-top:100px;
+	margin-left:120px;
+    width:850px;
+    height:1140px;
+}
+.back{
+    position: absolute;
+    bottom: 114px;
+    left: 472px;
+    width: 140px;
+    height: 58px;
+}

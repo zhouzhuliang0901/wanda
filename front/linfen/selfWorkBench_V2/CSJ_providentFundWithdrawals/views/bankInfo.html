@@ -1,0 +1,139 @@
+<style type="text/css">
+	.contain {
+		width: 1530px;
+		height: 700px;
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+	
+	.scrollBox2 {
+		height: 640px;
+		overflow: scroll;
+		-ms-overflow-style: none;
+	}
+	
+	.scrollBox2::-webkit-scrollbar {
+		display: none;
+	}
+	
+	.infoTable {
+		margin-top: 30px;
+		width: 97%;
+		margin-left: -48px;
+		font-size: 24px;
+	}
+	
+	.infoTable th {
+		width: 12%;
+		text-align: right;
+		height: 85px;
+	}
+	
+	.infoTable td {
+		width: 22%;
+		height: 85px;
+	}
+	
+	.red {
+		color: red;
+		margin-right: 10px;
+	}
+	
+	.infoTable a {
+		float: left;
+		width: 358px;
+		overflow: hidden;
+		border: 1px solid rgba(233, 237, 240, .4);
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		line-height: 66px;
+		padding: 0px 20px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+	
+	.infoTable a.in:after {
+		content: "";
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 78px;
+		height: 68px;
+		overflow: hidden;
+		background: url(../libs/common/images/check1.png) no-repeat;
+	}
+	
+	#ascceptanceArea a {
+		width: 256px;
+	}
+	
+	.isOutShangHai,
+	.isInShangHai {
+		width: 39%;
+	}
+	
+	.select1{
+		width: 33%;
+	}
+	
+	@media screen and (min-width:1279px) and (max-width:1281px) {
+		.infoTable a,
+		#expressMode a {
+			width: 392px;
+		}
+		.infoTable {
+			margin-left: -10px;
+		}
+		.scrollBox2 {
+			height: 580px;
+		}
+	}
+</style>
+<div class="contain">
+	<p class="caption">{{funName}}-银行卡信息</p>
+	<div class="scrollBox2 clearfloat">
+		<form method="post" name="infoParams" id="infoParams">
+			<table class="infoTable">
+				<div class="line">
+					<hr size="1" noshade="noshade" style="left: 0;">
+					<hr size="1" noshade="noshade" style="right: 0;">
+					<p>提取申请人信息</p>
+				</div>
+				<tr>
+					<th><b class="red">*</b>姓名：</th>
+					<td><input class="input" type="text" id="stName" name="stName" ng-model="stName" readonly></td>
+					<th><b class="red">*</b>证件类型：</th>
+					<td><input class="input" type="text" id="stIdCardType" name="stIdCardType" ng-model="stIdCardType" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>身份证号码：</th>
+					<td><input class="input" type="text" id="stIdCard" name="stIdCard" ng-model="stIdCard" readonly></td>
+					<th><b class="red">*</b>手机号码：</th>
+					<td><input class="input" type="text" id="mobile" name="mobile" ng-model="mobile" readonly></td>
+				</tr>
+				<tr>
+					<th><b class="red">*</b>银行卡所属银行：</th>
+					<td>
+						<select class="select" id="jcdProvince" name="jcdProvince" ng-model="jcdProvince" ng-options="x for x in jcdprovinceList">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+					<th><b class="red">*</b>银行账号：</th>
+					<td>
+						<select class="select" id="jcdCounty" name="jcdCounty" ng-model="jcdCounty" ng-options="x.depositName for x in jcdCountyList">
+							<option selected ng-if="false"></option>
+						</select>
+					</td>
+				</tr>
+				
+			</table>
+		</form>
+	</div>
+</div>
+<loading ng-if="isLoading"></loading>
+<apptb-footer prev="prevStep()" next="nextStep()" next-btn-info="{{nextText}}" custom-home="true" home="customMain()" go-back="goAppHistoryBack()">
+</apptb-footer>
+<alert msg="msg" ng-if="isAlert" confirm="alertConfirm()" concel="concel"></alert>
